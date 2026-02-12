@@ -1,5 +1,5 @@
-import bgSection1 from '../assets/images/bg_section_1.svg'
-import imgSection1 from '../assets/images/img_section_1.png'
+import bgSection1 from '../assets/images/bg_section_1.webp'
+import imgSection1 from '../assets/images/img_section_1.webp'
 
 export default function Hero() {
     return (

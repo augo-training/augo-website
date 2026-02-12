@@ -23,6 +23,10 @@ html {
   scroll-behavior: smooth;
 }
 
+a {
+  cursor: pointer;
+}
+
 body {
   margin: 0;
   font-family: var(--font-sans);
