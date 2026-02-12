@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-satoshi: 'Satoshi', sans-serif;
+
+  --color-dark: #0A0A0A;
+  --color-dark-800: #111111;
+  --color-dark-700: #1A1A1A;
+  --color-dark-600: #2D2D2D;
+
+  --color-text: #FFFFFF;
+  --color-text-muted: #969EA7;
+
+  --color-red: #C50017;
+  --color-orange: #FF5514;
+  --color-yellow: #FFCA1E;
+}
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background-color: var(--color-dark);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Gradient Button */
+.btn-gradient {
+  background: linear-gradient(83.9deg, #151515 -4%, #C50017 38.22%, #FF5514 69.06%, #FFCA1E 99.9%);
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Gradient border glow (behind hero images) */
+.gradient-glow {
+  background: linear-gradient(24.78deg, #C50017 -23.17%, #FF5514 91.92%, #FFCA1E 108.36%);
+}
+
+/* Floating animation */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes float-slow {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes float-slower {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+/* Glow pulse */
+@keyframes glow-pulse {
+
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-dark-800);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-dark-600);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-red);
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
