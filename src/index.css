@@ -143,4 +143,23 @@ body {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+
+  /* Testimonials: stack cards vertically */
+  .testimonials-section {
+    overflow: visible !important;
+  }
+
+  .testimonials-carousel-wrapper .flex {
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    padding: 0 2rem !important;
+  }
+
+  .testimonial-card {
+    opacity: 1 !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: 500px;
+  }
 }
