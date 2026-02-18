@@ -46,6 +46,9 @@ export default function AthletesSection() {
         ).matches
         if (prefersReducedMotion) return
 
+        const isMobile = window.innerWidth < 768
+        const slideDistance = isMobile ? 15 : 20
+
         const section = sectionRef.current
         const track = trackRef.current
         if (!section || !track) return
@@ -70,16 +73,41 @@ export default function AthletesSection() {
         // -- Text reveal animations per panel --
         const headlines = headlineRefs.current.filter(Boolean) as HTMLElement[]
         const bodies = bodyRefs.current.filter(Boolean) as HTMLElement[]
+        let panel0Observer: IntersectionObserver | undefined
 
         headlines.forEach((headline, i) => {
+            gsap.set(headline, { opacity: 0, y: slideDistance })
+            gsap.set(bodies[i], { opacity: 0 })
+
+            // Panel 0: animate in via IntersectionObserver (immune to pin distortion)
             if (i === 0) {
-                gsap.set(headline, { opacity: 1, y: 0 })
-                gsap.set(bodies[i], { opacity: 1 })
+                const observer = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                gsap.to(headline, {
+                                    opacity: 1,
+                                    y: 0,
+                                    duration: 1.6,
+                                    ease: 'cubic-bezier(0.16, 1, 0.3, 1)',
+                                })
+                                gsap.to(bodies[i], {
+                                    opacity: 1,
+                                    duration: 1,
+                                    delay: 0.3,
+                                    ease: 'cubic-bezier(0.16, 1, 0.3, 1)',
+                                })
+                                observer.disconnect()
+                            }
+                        })
+                    },
+                    { threshold: 0.2 }
+                )
+                observer.observe(headline)
+                panel0Observer = observer
                 return
             }
 
-            gsap.set(headline, { opacity: 0, y: 20 })
-            gsap.set(bodies[i], { opacity: 0 })
 
             const panel = panelRefs.current[i]
             if (!panel) return
@@ -103,35 +131,44 @@ export default function AthletesSection() {
                     })
                 },
                 onLeaveBack: () => {
-                    gsap.set(headline, { opacity: 0, y: 20 })
+                    gsap.set(headline, { opacity: 0, y: slideDistance })
                     gsap.set(bodies[i], { opacity: 0 })
                 },
             })
         })
 
-        // -- Floating image animation --
+        // -- Floating image animation: ±12px centered, different speeds for depth --
         const images = imageRefs.current.filter(Boolean) as HTMLElement[]
+        const floatAmplitude = isMobile ? 6 : 12
         const floatTweens = images.map((img, i) => {
             const duration = 5 + i * 0.5
-            return gsap.to(img, {
-                y: '+=5',
-                duration,
-                ease: 'sine.inOut',
-                yoyo: true,
-                repeat: -1,
-            })
+            return gsap.fromTo(
+                img,
+                { y: -floatAmplitude },
+                {
+                    y: floatAmplitude,
+                    duration,
+                    ease: 'sine.inOut',
+                    yoyo: true,
+                    repeat: -1,
+                }
+            )
         })
 
-        // -- Gradient glow pulse --
+        // -- Gradient glow pulse: 0.5 → 1.0 → 0.5, 3s cycle --
         const glows = glowRefs.current.filter(Boolean) as HTMLElement[]
         const glowTweens = glows.map((glow) =>
-            gsap.to(glow, {
-                opacity: 1,
-                duration: 1.5,
-                ease: 'sine.inOut',
-                yoyo: true,
-                repeat: -1,
-            })
+            gsap.fromTo(
+                glow,
+                { opacity: 0.5 },
+                {
+                    opacity: 1.0,
+                    duration: 1.5,
+                    ease: 'sine.inOut',
+                    yoyo: true,
+                    repeat: -1,
+                }
+            )
         )
 
         return () => {
@@ -139,6 +176,7 @@ export default function AthletesSection() {
             scrollTween.kill()
             floatTweens.forEach((t) => t.kill())
             glowTweens.forEach((t) => t.kill())
+            panel0Observer?.disconnect()
         }
     }, [])
 
@@ -222,9 +260,9 @@ export default function AthletesSection() {
                                         ref={(el) => { glowRefs.current[i] = el }}
                                         className="absolute inset-0 pointer-events-none"
                                         style={{
-                                            opacity: 0.7,
+                                            opacity: 0.5,
                                             background:
-                                                'radial-gradient(ellipse at center, rgba(197, 0, 23, 0.25) 0%, transparent 70%)',
+                                                'radial-gradient(ellipse at center, rgba(197, 0, 23, 0.6) 0%, rgba(255, 85, 20, 0.2) 35%, transparent 55%)',
                                         }}
                                     />
                                     {/* Floating image */}

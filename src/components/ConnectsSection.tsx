@@ -1,5 +1,5 @@
 import samsungLogo from '../assets/images/samsung.svg'
-import trainingPeaksLogo from '../assets/images/training_peaks.webp'
+import trainingPeaksLogo from '../assets/images/training_peaks_logo.svg'
 import appleWatchLogo from '../assets/images/apple_watch.svg'
 import wahooLogo from '../assets/images/wahoo.svg'
 import corosLogo from '../assets/images/coros.svg'
@@ -16,21 +16,37 @@ const logos = [
     { src: polarLogo, alt: 'Polar' },
 ]
 
+function LogoSet() {
+    return (
+        <div className="marquee-track flex items-center shrink-0">
+            {logos.map((logo) => (
+                <img
+                    key={logo.alt}
+                    src={logo.src}
+                    alt={logo.alt}
+                    className="h-8 w-auto opacity-80 px-8 flex-shrink-0"
+                />
+            ))}
+        </div>
+    )
+}
+
 export default function ConnectsSection() {
     return (
         <section className="py-20 flex flex-col items-center justify-center gap-12">
             <h2 className="font-mono text-[36px] font-normal leading-[150%] tracking-[0px] text-center text-[#969EA7]">
                 Connects seamlessly with your apps and devices
             </h2>
-            <div className="flex items-center justify-center gap-16 flex-wrap px-8">
-                {logos.map((logo) => (
-                    <img
-                        key={logo.alt}
-                        src={logo.src}
-                        alt={logo.alt}
-                        className="h-8 w-auto opacity-80 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0"
-                    />
-                ))}
+
+            {/* Marquee container with edge fades */}
+            <div className="marquee-container w-full overflow-hidden">
+                <div className="marquee-scroll flex items-center">
+                    {/* Render 4 logo sets for continuous coverage on wide screens */}
+                    <LogoSet />
+                    <LogoSet />
+                    <LogoSet />
+                    <LogoSet />
+                </div>
             </div>
         </section>
     )

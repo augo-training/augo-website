@@ -1,17 +1,56 @@
-import floatingButtonImg from '../assets/images/floating_button.png'
+import { useEffect, useRef } from 'react'
+
+function AugoIcon({ className }: { className?: string }) {
+    return (
+        <svg
+            width="17"
+            height="20"
+            viewBox="0 0 17 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className={className}
+        >
+            <path
+                d="M11.5761 5.14454V0H4.41782H1.27148L1.27148 5.14454H6.42378H11.5761Z"
+                fill="currentColor"
+            />
+            <path
+                d="M16.7285 7.58007V5.14423H11.5762V7.58007H7.6605C5.1874 7.58007 3.29136 8.08919 1.97543 9.1059C0.657966 10.1241 0 11.5814 0 13.4791C0 15.2397 0.555684 16.6345 1.66553 17.6634C2.77537 18.6923 4.28212 19.2075 6.18275 19.2075C7.87728 19.2075 9.23443 18.7898 10.2527 17.956C10.9641 17.3722 11.4282 16.6467 11.6419 15.7778H11.7472V18.8645H16.7285V7.58007ZM11.5762 12.5188C11.5762 13.3877 11.2495 14.0919 10.5977 14.6285C9.9443 15.1666 9.11535 15.4348 8.1078 15.4348C7.19183 15.4348 6.46975 15.2123 5.94307 14.7657C5.41639 14.319 5.15382 13.7078 5.15382 12.9304C5.15382 12.1987 5.39349 11.6103 5.8759 11.1637C6.35678 10.7171 6.98574 10.4946 7.76584 10.4946H11.5793V12.5188H11.5762Z"
+                fill="currentColor"
+            />
+        </svg>
+    )
+}
 
 export default function FloatingButton() {
+    const btnRef = useRef<HTMLAnchorElement>(null)
+
+    // Entrance animation: fade in + scale 0.8 → 1, delay ~2s, duration 400ms
+    useEffect(() => {
+        const btn = btnRef.current
+        if (!btn) return
+
+        btn.style.opacity = '0'
+        btn.style.transform = 'scale(0.8)'
+
+        const timer = setTimeout(() => {
+            btn.style.transition = 'opacity 400ms ease-in-out, transform 400ms ease-in-out'
+            btn.style.opacity = '1'
+            btn.style.transform = 'scale(1)'
+        }, 2000)
+
+        return () => clearTimeout(timer)
+    }, [])
+
     return (
         <a
+            ref={btnRef}
             href="#join"
-            className="fixed bottom-12 right-12 z-50 w-16 h-16 cursor-pointer hover:scale-110 transition-transform duration-200 ease-in-out"
+            className="floating-app-btn fixed z-50 flex items-center justify-center w-16 h-16 rounded-2xl cursor-pointer"
+            style={{ bottom: '48px', right: '48px' }}
             aria-label="Join Augo"
         >
-            <img
-                src={floatingButtonImg}
-                alt="Augo App"
-                className="w-full h-full object-contain drop-shadow-lg"
-            />
+            <AugoIcon className="w-[28px] h-[28px]" />
         </a>
     )
 }

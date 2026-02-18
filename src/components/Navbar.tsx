@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import augoLogo from '../assets/images/augo_logo.webp'
 
 const navLinks = [
@@ -5,9 +6,54 @@ const navLinks = [
     { label: 'For Athletes', href: '#athletes' },
 ]
 
-export default function Navbar() {
+function NavLink({ label, href }: { label: string; href: string }) {
     return (
-        <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-12 py-6 bg-[#090909]">
+        <a
+            href={href}
+            className="group flex items-center gap-1 font-['JetBrains_Mono'] text-[14px] font-normal leading-[100%] tracking-[2px] uppercase text-white no-underline transition-all duration-200 ease-out hover:font-bold hover:italic"
+        >
+            <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-out">
+                ///
+            </span>
+            <span>{label}</span>
+        </a>
+    )
+}
+
+export default function Navbar() {
+    const [showJoinButton, setShowJoinButton] = useState(false)
+
+    // Intersection Observer: hide Join Augo when Hero CTA or FAQ CTA is on screen
+    useEffect(() => {
+        const heroCta = document.querySelector('[data-cta="hero"]')
+        const faqCta = document.querySelector('[data-cta="faq"]')
+
+        const targets = [heroCta, faqCta].filter(Boolean) as Element[]
+        if (targets.length === 0) return
+
+        const visibleSet = new Set<Element>()
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        visibleSet.add(entry.target)
+                    } else {
+                        visibleSet.delete(entry.target)
+                    }
+                })
+                setShowJoinButton(visibleSet.size === 0)
+            },
+            { threshold: 0 }
+        )
+
+        targets.forEach((el) => observer.observe(el))
+
+        return () => observer.disconnect()
+    }, [])
+
+    return (
+        <nav className="navbar-sticky fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-12 pt-6 pb-2">
             {/* Left Side: Logo + Nav Links */}
             <div className="flex items-center gap-[100px]">
                 {/* Logo */}
@@ -18,28 +64,23 @@ export default function Navbar() {
                 {/* Nav Links */}
                 <div className="flex items-center gap-10">
                     {navLinks.map((link) => (
-                        <a
-                            key={link.label}
-                            href={link.href}
-                            className="font-mono text-sm tracking-[2px] uppercase text-white hover:opacity-70 transition-opacity duration-200"
-                        >
-                            {link.label}
-                        </a>
+                        <NavLink key={link.label} label={link.label} href={link.href} />
                     ))}
                 </div>
             </div>
 
             {/* Right Side */}
             <div className="flex items-center gap-8">
-                <a
-                    href="#match"
-                    className="font-mono text-sm tracking-[2px] uppercase text-white hover:opacity-70 transition-opacity duration-200"
-                >
-                    Find a Match
-                </a>
+                <NavLink label="Find a Match" href="#match" />
                 <a
                     href="#join"
-                    className="btn-gradient font-mono text-sm font-extrabold tracking-[2px] uppercase text-white px-6 py-3 rounded-lg hover:brightness-110 transition-all duration-200"
+                    className="join-augo-btn font-mono text-sm font-extrabold tracking-[2px] uppercase px-6 py-3 rounded-lg"
+                    style={{
+                        opacity: showJoinButton ? 1 : 0,
+                        transform: showJoinButton ? 'translateY(0)' : 'translateY(10px)',
+                        pointerEvents: showJoinButton ? 'auto' : 'none',
+                        transition: 'opacity 300ms ease-in-out, transform 300ms ease-in-out, background 200ms ease-in-out, color 200ms ease-in-out',
+                    }}
                 >
                     Join Augo
                 </a>

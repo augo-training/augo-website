@@ -109,6 +109,7 @@ export default function FaqSection() {
                     <a
                         href="#join"
                         className="btn-gradient font-mono text-sm font-extrabold tracking-[2px] uppercase text-white rounded-lg hover:brightness-110 transition-all duration-200 flex items-center justify-center"
+                        data-cta="faq"
                         style={{ width: '209px', height: '48px' }}
                     >
                         Join Augo

@@ -82,22 +82,30 @@ export default function TestimonialsSection() {
         const headline = headlineRef.current
         if (!section || !track || !headline) return
 
-        // --- Headline animation ---
-        gsap.fromTo(
-            headline,
-            { opacity: 0, y: 20 },
-            {
-                opacity: 1,
-                y: 0,
-                duration: 1.6,
-                ease: 'cubic-bezier(0.16, 1, 0.3, 1)',
-                scrollTrigger: {
-                    trigger: headline,
-                    start: 'top 85%',
-                    toggleActions: 'play none none none',
-                },
-            }
+        const isMobile = window.innerWidth < 768
+        const slideDistance = isMobile ? 15 : 20
+
+        // --- Headline animation via IntersectionObserver ---
+        // Using IntersectionObserver instead of ScrollTrigger because the carousel's
+        // pin: true distorts ScrollTrigger coordinate calculations.
+        gsap.set(headline, { opacity: 0, y: slideDistance })
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        gsap.to(headline, {
+                            opacity: 1,
+                            y: 0,
+                            duration: 1.6,
+                            ease: 'cubic-bezier(0.16, 1, 0.3, 1)',
+                        })
+                        observer.disconnect()
+                    }
+                })
+            },
+            { threshold: 0.2 }
         )
+        observer.observe(headline)
 
         // --- Horizontal scroll ---
         const cards = cardRefs.current.filter(Boolean) as HTMLDivElement[]
@@ -151,6 +159,7 @@ export default function TestimonialsSection() {
             scrollTween.kill()
             ScrollTrigger.removeEventListener('refresh', updateCards)
             window.removeEventListener('scroll', onScroll)
+            observer.disconnect()
         }
     }, [])
 
