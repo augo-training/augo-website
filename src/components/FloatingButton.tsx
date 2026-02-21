@@ -45,7 +45,7 @@ export default function FloatingButton() {
     return (
         <a
             ref={btnRef}
-            href="#join"
+            href="/join"
             className="floating-app-btn fixed z-50 flex items-center justify-center w-16 h-16 rounded-2xl cursor-pointer"
             style={{ bottom: '48px', right: '48px' }}
             aria-label="Join Augo"

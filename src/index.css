@@ -296,3 +296,58 @@ body {
     opacity: 1;
   }
 }
+
+/* ─── Join Section: Rotating gradient border ─── */
+@keyframes rotate-border {
+  0% {
+    --border-angle: 0deg;
+  }
+
+  100% {
+    --border-angle: 360deg;
+  }
+}
+
+@property --border-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.join-form-border {
+  background: conic-gradient(from var(--border-angle),
+      #FFCA1E,
+      #FF5514,
+      #C50017,
+      #FF5514,
+      #FFCA1E);
+  animation: rotate-border 4s linear infinite;
+}
+
+/* ─── Join Section: Glow pulse behind form ─── */
+.join-form-glow {
+  background: radial-gradient(circle,
+      rgba(255, 202, 30, 0.5) 0%,
+      rgba(255, 85, 20, 0.3) 35%,
+      rgba(197, 0, 23, 0.15) 65%,
+      transparent 100%);
+  filter: blur(50px);
+  animation: form-glow-pulse 3s ease-in-out infinite;
+}
+
+@keyframes form-glow-pulse {
+
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* ─── Join Section: Form inner container ─── */
+.join-form-inner {
+  background-color: #0A0A0A;
+}

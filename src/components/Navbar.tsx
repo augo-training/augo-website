@@ -25,11 +25,21 @@ export default function Navbar() {
 
     // Intersection Observer: hide Join Augo when Hero CTA or FAQ CTA is on screen
     useEffect(() => {
+        // Already on the Join page → hide the button
+        if (window.location.pathname === '/join') {
+            setShowJoinButton(false)
+            return
+        }
+
         const heroCta = document.querySelector('[data-cta="hero"]')
         const faqCta = document.querySelector('[data-cta="faq"]')
 
         const targets = [heroCta, faqCta].filter(Boolean) as Element[]
-        if (targets.length === 0) return
+        if (targets.length === 0) {
+            // No CTA targets on this page (e.g. /find) → always show the button
+            setShowJoinButton(true)
+            return
+        }
 
         const visibleSet = new Set<Element>()
 
@@ -71,9 +81,9 @@ export default function Navbar() {
 
             {/* Right Side */}
             <div className="flex items-center gap-8">
-                <NavLink label="Find a Match" href="#match" />
+                <NavLink label="Find a Match" href="/find" />
                 <a
-                    href="#join"
+                    href="/join"
                     className="join-augo-btn font-mono text-sm font-extrabold tracking-[2px] uppercase px-6 py-3 rounded-lg"
                     style={{
                         opacity: showJoinButton ? 1 : 0,

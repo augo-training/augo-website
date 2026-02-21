@@ -282,7 +282,7 @@ export default function Hero() {
                     </p>
                     <a
                         ref={ctaRef}
-                        href="#join"
+                        href="/join"
                         className="btn-gradient inline-block font-mono text-sm font-extrabold tracking-[2px] uppercase text-white px-8 py-4 rounded-lg transition-all duration-200 cursor-pointer"
                         data-cta="hero"
                         style={{

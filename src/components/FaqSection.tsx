@@ -10,7 +10,7 @@ const faqData = [
             <>
                 augo is available on the App Store and Google Play for a select group of Beta users as of November 2025. augo will become generally available to all users in March 2026. Access will be released in waves and users on the waitlist will have special pricing. Athletes can join through their coach.
                 <br />
-                <a href="#join" className="font-satoshi font-bold text-[16px] leading-[130%] underline hover:text-white transition-colors">
+                <a href="/join" className="font-satoshi font-bold text-[16px] leading-[130%] underline hover:text-white transition-colors">
                     Join the waitlist
                 </a>{' '}
                 to secure your spot.
@@ -107,7 +107,7 @@ export default function FaqSection() {
                         giving you time for what matters most.
                     </p>
                     <a
-                        href="#join"
+                        href="/join"
                         className="btn-gradient font-mono text-sm font-extrabold tracking-[2px] uppercase text-white rounded-lg hover:brightness-110 transition-all duration-200 flex items-center justify-center"
                         data-cta="faq"
                         style={{ width: '209px', height: '48px' }}
