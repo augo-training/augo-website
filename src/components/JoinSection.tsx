@@ -100,19 +100,16 @@ export default function JoinSection() {
         >
 
             {/* Content */}
-            <div className="relative z-10 w-full max-w-[1200px] mx-auto px-8 py-32 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <div className="relative z-10 w-full max-w-[1200px] mx-auto px-5 sm:px-8 py-20 sm:py-32 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                 {/* Left: Text */}
-                <div className="flex flex-col gap-8">
-                    <h1 ref={headlineRef} className="font-mono font-bold text-[40px] leading-[130%] text-white">
+                <div className="flex flex-col gap-6 lg:gap-8 items-center lg:items-start text-center lg:text-left pt-10">
+                    <h1 ref={headlineRef} className="font-mono font-bold text-[32px] sm:text-[44px] lg:text-[40px] xl:text-[48px] leading-[130%] text-white">
                         Join the community of
-                        <br />
-                        coaches & athletes
-                        <br />
-                        who are looking for a
-                        <br />
-                        new standard
+                        coaches & athletes who
+                        are looking for a new
+                        standard
                     </h1>
-                    <p ref={bodyRef} className="font-satoshi font-medium text-[18px] leading-[130%] text-[#969EA7] max-w-[420px]">
+                    <p ref={bodyRef} className="font-satoshi font-medium text-[16px] sm:text-[18px] leading-[130%] text-[#969EA7] max-w-[420px] sm:max-w-[500px] lg:max-w-[420px]">
                         Join the waitlist and be first to experience the
                         intelligent assistant that helps you provide the best
                         service for the athletes you coach.
@@ -120,22 +117,43 @@ export default function JoinSection() {
                 </div>
 
                 {/* Right: Form placeholder with animated border + glow */}
-                <div ref={formRef} className="flex justify-center md:justify-end">
-                    <div className="join-form-wrapper relative">
+                <div ref={formRef} className="flex justify-center lg:justify-end w-full mt-4 lg:mt-0">
+                    <div className="join-form-wrapper relative w-full max-w-[360px] sm:max-w-[420px]">
                         {/* Pulsing glow behind */}
-                        <div className="join-form-glow absolute -inset-16 rounded-2xl pointer-events-none" />
+                        <div className="join-form-glow absolute -inset-10 sm:-inset-16 rounded-[2rem] pointer-events-none" />
 
                         {/* Rotating gradient border */}
-                        <div className="join-form-border relative rounded-xl p-[3px]">
-                            {/* Inner container (form will be embedded here) */}
-                            <div className="join-form-inner rounded-xl bg-[#0A0A0A] px-8 py-10 min-h-[420px] min-w-[380px] flex flex-col items-center justify-center gap-4">
-                                <p className="font-satoshi font-medium text-[16px] text-[#969EA7] text-center">
-                                    Fill in this form to join augo waitlist
+                        <div className="join-form-border relative rounded-[20px] sm:rounded-[24px] p-[2px] sm:p-[3px]">
+                            {/* Inner container */}
+                            <div className="join-form-inner rounded-[18px] sm:rounded-[21px] bg-[#0A0A0A] p-6 sm:p-8 w-full flex flex-col gap-6">
+                                <p className="font-satoshi font-bold text-[18px] sm:text-[22px] leading-[130%] text-white text-left">
+                                    Fill in this form to join<br className="hidden sm:block" /> augo waitlist
                                 </p>
-                                <div className="w-full h-[1px] bg-[#2D2D2D] my-2" />
-                                <p className="font-satoshi text-[14px] text-[#555] text-center italic">
-                                    Form embed will be placed here
-                                </p>
+
+                                <div className="flex flex-col gap-3">
+                                    <div className="w-full bg-[#1F1F1F] rounded-lg px-4 py-3 text-[#7B8289] text-[14px] sm:text-[15px] flex items-center justify-start border border-transparent shadow-inner">
+                                        First name*
+                                    </div>
+                                    <div className="w-full bg-[#1F1F1F] rounded-lg px-4 py-3 text-[#7B8289] text-[14px] sm:text-[15px] flex items-center justify-start border border-transparent shadow-inner">
+                                        Last name*
+                                    </div>
+                                    <div className="w-full bg-[#1F1F1F] rounded-lg px-4 py-3 text-[#7B8289] text-[14px] sm:text-[15px] flex items-center justify-between border border-transparent shadow-inner">
+                                        <span>You are...</span>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M4 6L8 10L12 6" stroke="#7B8289" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <div className="w-full bg-[#1F1F1F] rounded-lg px-4 py-3 text-[#7B8289] text-[14px] sm:text-[15px] flex items-center justify-start border border-transparent shadow-inner">
+                                        Email*
+                                    </div>
+                                    <div className="w-full bg-[#1F1F1F] rounded-lg px-4 py-3 text-[#7B8289] text-[14px] sm:text-[15px] h-24 sm:h-28 flex items-start justify-start border border-transparent shadow-inner">
+                                        Message (Optional)
+                                    </div>
+                                </div>
+
+                                <button className="w-full bg-white text-[#0A0A0A] font-mono font-bold text-[14px] sm:text-[16px] tracking-[2px] uppercase py-3 sm:py-4 rounded flex items-center justify-center hover:scale-[1.02] transition-transform duration-300">
+                                    JOIN AUGO
+                                </button>
                             </div>
                         </div>
                     </div>

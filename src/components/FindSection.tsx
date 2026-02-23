@@ -147,16 +147,16 @@ export default function FindSection() {
         >
 
             {/* Content */}
-            <div className="relative z-10 w-full max-w-[1200px] mx-auto px-8 py-32 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <div className="relative z-10 w-full max-w-[1200px] mx-auto px-5 sm:px-8 py-20 sm:py-32 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                 {/* Left: Text */}
-                <div className="flex flex-col gap-8">
-                    <h1 ref={headlineRef} className="font-mono font-bold text-[40px] leading-[130%] text-white">
+                <div className="flex flex-col gap-6 lg:gap-8 items-center lg:items-start text-center lg:text-left">
+                    <h1 ref={headlineRef} className="font-mono font-bold text-[36px] sm:text-[44px] xl:text-[48px] leading-[130%] text-white">
                         Get matched
-                        <br />
-                        with the
+                        <br className="hidden lg:block" />
+                        <span className="inline lg:hidden"> </span>with the
                         <br />
                         perfect{' '}
-                        <span ref={rotatingRef} className="relative inline-block align-bottom" style={{ minWidth: '180px' }}>
+                        <span ref={rotatingRef} className="relative inline-block text-left align-bottom">
                             {ROTATING_WORDS.map((word) => (
                                 <span
                                     key={word}
@@ -170,7 +170,7 @@ export default function FindSection() {
                             <span className="invisible">athlete</span>
                         </span>
                     </h1>
-                    <p ref={bodyRef} className="font-satoshi font-medium text-[18px] leading-[130%] text-[#969EA7] max-w-[420px]">
+                    <p ref={bodyRef} className="font-satoshi font-medium text-[16px] sm:text-[18px] leading-[130%] text-[#969EA7] max-w-[420px]">
                         Answer a few questions about your training, goals,
                         and communication style. We'll connect you with
                         the right match based on what matters most to
@@ -179,22 +179,18 @@ export default function FindSection() {
                 </div>
 
                 {/* Right: Form placeholder with animated border + glow */}
-                <div ref={formRef} className="flex justify-center md:justify-end">
-                    <div className="join-form-wrapper relative">
+                <div ref={formRef} className="flex justify-center lg:justify-end w-full mt-4 lg:mt-0">
+                    <div className="join-form-wrapper relative w-full max-w-[340px] sm:max-w-[400px]">
                         {/* Pulsing glow behind */}
-                        <div className="join-form-glow absolute -inset-16 rounded-2xl pointer-events-none" />
+                        <div className="join-form-glow absolute -inset-10 sm:-inset-16 rounded-[2rem] pointer-events-none" />
 
                         {/* Rotating gradient border */}
-                        <div className="join-form-border relative rounded-xl p-[3px]">
-                            {/* Inner container (Typeform will be embedded here) */}
-                            <div className="join-form-inner rounded-xl bg-[#0A0A0A] px-8 py-10 min-h-[420px] min-w-[380px] flex flex-col items-center justify-center gap-4">
-                                <p className="font-satoshi font-medium text-[16px] text-[#969EA7] text-center">
-                                    Find your perfect match
-                                </p>
-                                <div className="w-full h-[1px] bg-[#2D2D2D] my-2" />
-                                <p className="font-satoshi text-[14px] text-[#555] text-center italic">
-                                    Typeform embed will be placed here
-                                </p>
+                        <div className="join-form-border relative rounded-[20px] sm:rounded-[24px] p-[2px] sm:p-[3px]">
+                            {/* Inner container */}
+                            <div className="join-form-inner rounded-[18px] sm:rounded-[21px] bg-[#0A0A0A] h-[480px] sm:h-[550px] w-full flex flex-col items-center justify-center">
+                                <button className="bg-white text-[#0A0A0A] font-mono font-bold text-[14px] sm:text-[16px] tracking-[2px] uppercase py-3 sm:py-4 px-6 sm:px-8 rounded flex items-center justify-center hover:scale-105 transition-transform duration-300">
+                                    Get Started
+                                </button>
                             </div>
                         </div>
                     </div>

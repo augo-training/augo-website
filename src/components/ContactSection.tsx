@@ -127,24 +127,24 @@ export default function ContactSection() {
                 style={{ height: '150px', background: 'linear-gradient(to top, #090909 0%, transparent 100%)' }} />
 
             {/* ── Content ── */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-[1200px] mx-auto w-full items-start relative z-20 px-8 py-24">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 max-w-[1200px] mx-auto w-full items-center lg:items-center relative z-20 px-5 sm:px-8 py-16 lg:py-24">
 
-                {/* Left: Form placeholder card — 486×617 per Figma */}
+                {/* Left (Desktop) / Bottom (Mobile): Form placeholder card — 486×617 per Figma */}
                 <div
                     ref={formCardRef}
-                    className="bg-white rounded-2xl p-8 flex flex-col gap-5"
-                    style={{ minHeight: '617px', maxWidth: '486px', width: '100%' }}
+                    className="order-2 lg:order-1 bg-white rounded-2xl p-6 sm:p-8 flex flex-col gap-4 sm:gap-5 mx-auto lg:mx-0 w-full"
+                    style={{ minHeight: '617px', maxWidth: '486px' }}
                 >
-                    <p className="font-satoshi font-bold text-[22px] leading-[130%] text-[#151515]">
-                        Fill in this form and we'll<br />reach out
+                    <p className="font-satoshi font-bold text-[18px] sm:text-[22px] leading-[130%] text-[#151515]">
+                        Fill in this form and we'll reach out
                     </p>
 
                     {/* Form fields placeholder */}
-                    <div className="flex flex-col gap-3 flex-1">
+                    <div className="flex flex-col gap-3 flex-1 mt-2">
                         {['Full name*', 'Email*', 'Phone number'].map((label) => (
                             <div
                                 key={label}
-                                className="w-full rounded-lg px-4 py-3 text-[15px] text-[#969EA7]"
+                                className="w-full rounded-lg px-4 py-3 text-[14px] sm:text-[15px] text-[#969EA7]"
                                 style={{ background: '#F2F2F2', minHeight: '44px', display: 'flex', alignItems: 'center' }}
                             >
                                 {label}
@@ -152,7 +152,7 @@ export default function ContactSection() {
                         ))}
                         {/* Subject dropdown */}
                         <div
-                            className="w-full rounded-lg px-4 py-3 text-[15px] text-[#969EA7] flex items-center justify-between"
+                            className="w-full rounded-lg px-4 py-3 text-[14px] sm:text-[15px] text-[#969EA7] flex items-center justify-between"
                             style={{ background: '#F2F2F2', minHeight: '44px' }}
                         >
                             <span>Subject*</span>
@@ -162,7 +162,7 @@ export default function ContactSection() {
                         </div>
                         {/* Message textarea */}
                         <div
-                            className="w-full rounded-lg px-4 py-3 text-[15px] text-[#969EA7]"
+                            className="w-full rounded-lg px-4 py-3 text-[14px] sm:text-[15px] text-[#969EA7]"
                             style={{ background: '#F2F2F2', minHeight: '120px', display: 'flex', alignItems: 'flex-start' }}
                         >
                             Message
@@ -171,25 +171,19 @@ export default function ContactSection() {
 
                     {/* CTA button */}
                     <button
-                        className="w-full rounded-lg py-4 font-mono font-bold text-[14px] tracking-[2px] text-white uppercase"
+                        className="w-full rounded-lg py-4 font-mono font-bold text-[14px] tracking-[2px] text-white uppercase mt-2 lg:mt-0"
                         style={{ background: '#151515' }}
                     >
                         Get in touch
                     </button>
-
-                    <p className="text-center text-[12px] text-[#969EA7] font-satoshi">
-                        ↑ Placeholder — replace with your embedded form
-                    </p>
                 </div>
 
-                {/* Right: Text */}
-                <div className="flex flex-col gap-6 pt-4">
-                    <h2 className="font-mono font-bold text-[56px] leading-[110%] text-white">
-                        Questions?<br />
-                        Ideas?<br />
-                        Let's talk.
+                {/* Right (Desktop) / Top (Mobile): Text */}
+                <div className="order-1 lg:order-2 flex flex-col gap-4 sm:gap-6 pt-4 text-center lg:text-left items-center lg:items-start max-w-[500px] lg:max-w-none mx-auto lg:mx-0 w-full mb-8 lg:mb-0">
+                    <h2 className="font-mono font-bold text-[32px] sm:text-[48px] lg:text-[56px] leading-[110%] text-white">
+                        Questions?<br className="hidden lg:block" /><span className="inline lg:hidden"> </span>Ideas?<br />Let's talk.
                     </h2>
-                    <p className="font-satoshi font-medium text-[18px] leading-[150%] text-white" style={{ opacity: 0.8 }}>
+                    <p className="font-satoshi font-medium text-[16px] sm:text-[18px] leading-[150%] text-white" style={{ opacity: 0.8 }}>
                         Whether you're curious about augo, want to share
                         feedback, or just want to connect, we'd love to hear
                         from you.

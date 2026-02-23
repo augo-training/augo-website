@@ -149,7 +149,7 @@ export default function VideoModal({ isOpen, onClose }: VideoModalProps) {
             {/* Close button */}
             <button
                 onClick={handleClose}
-                className="fixed top-6 right-6 z-[110] flex items-center justify-center w-11 h-11 border-none rounded-full text-white opacity-70 cursor-pointer transition-all duration-150 ease-out hover:opacity-100 md:top-6 md:right-6 max-md:top-4 max-md:right-4 max-md:w-10 max-md:h-10"
+                className="fixed top-4 right-4 sm:top-6 sm:right-6 z-[110] flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 border-none rounded-full text-white opacity-70 cursor-pointer transition-all duration-150 ease-out hover:opacity-100"
                 style={{ background: 'rgba(255,255,255,0.08)' }}
                 onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.15)')}
                 onMouseLeave={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.08)')}
@@ -164,7 +164,7 @@ export default function VideoModal({ isOpen, onClose }: VideoModalProps) {
             {/* Video frame with gradient border */}
             <div
                 ref={frameRef}
-                className="relative w-[90vw] max-w-[860px] aspect-video cursor-default max-md:w-[94vw]"
+                className="relative w-[90vw] max-w-[860px] h-[65vh] sm:h-auto sm:aspect-video cursor-default"
                 style={{
                     opacity: animating ? 1 : 0,
                     transform: animating ? 'scale(1)' : 'scale(0.9)',
@@ -175,7 +175,7 @@ export default function VideoModal({ isOpen, onClose }: VideoModalProps) {
             >
                 {/* Glow emanating from video borders */}
                 <div
-                    className="absolute -inset-[100px] pointer-events-none blur-[60px] rounded-3xl"
+                    className="absolute -inset-[60px] sm:-inset-[100px] pointer-events-none blur-[40px] sm:blur-[60px] rounded-3xl"
                     style={{
                         background: 'radial-gradient(ellipse, rgba(255,202,30,0.7) 0%, rgba(255,85,20,0.30) 30%, rgba(197,0,23,0.3) 60%, transparent 80%)',
                         animation: 'video-glow-pulse 3s ease-in-out infinite',
