@@ -33,8 +33,8 @@ function LogoSet() {
 
 export default function ConnectsSection() {
     return (
-        <section className="py-20 flex flex-col items-center justify-center gap-12">
-            <h2 className="font-mono text-[36px] font-normal leading-[150%] tracking-[0px] text-center text-[#969EA7]">
+        <section className="py-12 sm:py-16 md:py-20 flex flex-col items-center justify-center gap-8 sm:gap-10 md:gap-12 px-5 sm:px-6 md:px-8 lg:px-12">
+            <h2 className="font-mono text-[20px] sm:text-[24px] md:text-[28px] lg:text-[36px] font-normal leading-[150%] tracking-[0px] text-center text-[#969EA7]">
                 Connects seamlessly with your apps and devices
             </h2>
 

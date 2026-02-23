@@ -217,11 +217,11 @@ export default function CoachesSection() {
                             height: '100vh',
                         }}
                     >
-                        <div className="grid grid-cols-1 md:grid-cols-12 gap-20 items-center w-full max-w-[1200px] mx-auto px-8">
+                        <div className="flex flex-col lg:grid lg:grid-cols-12 gap-0 sm:gap-12 lg:gap-20 items-center w-full max-w-[1200px] mx-auto px-5 sm:px-6 md:px-8 lg:px-8 md:text-center lg:text-left overflow-y-auto max-h-[100vh] py-0 sm:py-20 lg:py-0 lg:overflow-visible lg:max-h-none">
                             {/* Left: Text Content */}
-                            <div className="flex flex-col col-span-1 md:col-span-5">
-                                {/* Tag */}
-                                <div className="flex items-center gap-2 mb-24">
+                            <div className="flex flex-col lg:col-span-5">
+                                {/* Tag — visible only on lg+ (desktop) */}
+                                <div className="hidden lg:flex items-center gap-2 mb-24">
                                     <span className="font-satoshi font-black italic text-[18px] leading-[100%] tracking-[4px] text-[#969EA7]">
                                         ///////
                                     </span>
@@ -230,11 +230,11 @@ export default function CoachesSection() {
                                     </span>
                                 </div>
 
-                                <div className="flex flex-col gap-8">
+                                <div className="flex flex-col gap-6 sm:gap-8">
                                     {/* Headline */}
                                     <h2
                                         ref={(el) => { headlineRefs.current[i] = el }}
-                                        className="font-satoshi font-bold text-[40px] leading-[130%] text-white"
+                                        className="font-satoshi font-bold text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] leading-[130%] text-white"
                                     >
                                         {panel.headline.split('\n').map((line, j) => (
                                             <span key={j}>
@@ -247,12 +247,12 @@ export default function CoachesSection() {
                                     {/* Body Text */}
                                     <div
                                         ref={(el) => { bodyRefs.current[i] = el }}
-                                        className="flex flex-col gap-6"
+                                        className="flex flex-col gap-4 sm:gap-6"
                                     >
-                                        <p className="font-satoshi font-medium text-[18px] leading-[130%] text-[#969EA7]">
+                                        <p className="font-satoshi font-medium text-[15px] sm:text-[16px] md:text-[17px] lg:text-[18px] leading-[130%] text-[#969EA7]">
                                             {panel.body}
                                         </p>
-                                        <p className="font-satoshi font-medium italic text-[18px] leading-[130%] text-[#969EA7]">
+                                        <p className="font-satoshi font-medium italic text-[15px] sm:text-[16px] md:text-[17px] lg:text-[18px] leading-[130%] text-[#969EA7]">
                                             {panel.tagline}
                                         </p>
                                     </div>
@@ -260,7 +260,7 @@ export default function CoachesSection() {
                             </div>
 
                             {/* Right: Image with glow */}
-                            <div className="relative flex justify-end col-span-1 md:col-span-7 w-full">
+                            <div className="relative flex justify-center lg:justify-end lg:col-span-7 w-full">
                                 {/* Gradient glow behind image */}
                                 <div
                                     ref={(el) => { glowRefs.current[i] = el }}
@@ -274,7 +274,7 @@ export default function CoachesSection() {
                                 {/* Floating image */}
                                 <div
                                     ref={(el) => { imageRefs.current[i] = el }}
-                                    className="relative w-full"
+                                    className="relative w-full max-w-[500px] lg:max-w-none"
                                 >
                                     <img
                                         src={panel.image}

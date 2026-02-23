@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import aboutLeftImg from '../assets/images/about_augo_left.webp'
 import aboutRightImg from '../assets/images/about_augo_right.webp'
+import aboutMobileImg from '../assets/images/about_mobile.webp'
 
 export default function AboutSection() {
     const sectionRef = useRef<HTMLDivElement>(null)
@@ -135,15 +136,25 @@ export default function AboutSection() {
     return (
         <section
             ref={sectionRef}
-            className="py-20 px-8 flex flex-col gap-16 max-w-[1200px] mx-auto"
+            className="py-16 sm:py-20 px-5 sm:px-8 flex flex-col gap-10 md:gap-16 max-w-[1200px] mx-auto"
         >
-            {/* Row 1: Text left + Image right */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            {/* Mobile Tag */}
+            <div className="flex lg:hidden items-center gap-2">
+                <span className="font-satoshi font-black italic text-[16px] leading-[100%] tracking-[4px] text-[#969EA7]">
+                    ///////
+                </span>
+                <span className="font-mono italic font-normal text-[16px] leading-[100%] tracking-[2px] text-[#969EA7] uppercase">
+                    ABOUT AUGO
+                </span>
+            </div>
+
+            {/* Row 1: Text left + Image right (Desktop) / Tag + Text left + mobile img (Mobile / Tablet) */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                 {/* Left: Texts */}
-                <div className="flex flex-col gap-6">
+                <div className="flex flex-col gap-4 sm:gap-6">
                     <p
                         ref={body1Ref}
-                        className="font-satoshi font-medium text-[18px] leading-[130%] text-[#969EA7]"
+                        className="font-satoshi font-medium text-[16px] sm:text-[18px] leading-[130%] text-[#969EA7]"
                     >
                         augo was founded by Fabi and Bruna, two endurance coaches who
                         also happened to work in tech. As a business analyst and data
@@ -151,7 +162,7 @@ export default function AboutSection() {
                     </p>
                     <p
                         ref={headline1Ref}
-                        className="font-satoshi font-bold text-[24px] leading-[130%] text-white"
+                        className="font-satoshi font-bold text-[20px] sm:text-[24px] lg:text-[28px] xl:text-[32px] leading-[130%] text-white"
                     >
                         Instead, they found themselves drowning in
                         fragmented communication, losing important
@@ -159,9 +170,9 @@ export default function AboutSection() {
                     </p>
                 </div>
 
-                {/* Right: Tag + Image */}
-                <div className="flex flex-col gap-4">
-                    {/* Tag aligned right */}
+                {/* Right: Tag + Desktop Image */}
+                <div className="hidden lg:flex flex-col gap-4">
+                    {/* Tag aligned right (Desktop) */}
                     <div className="flex items-center gap-2 mb-2 justify-end">
                         <span className="font-satoshi font-black italic text-[18px] leading-[100%] tracking-[4px] text-[#969EA7]">
                             ///////
@@ -179,12 +190,21 @@ export default function AboutSection() {
                         />
                     </div>
                 </div>
+
+                {/* Mobile / Tablet Image (Visible only on < lg) */}
+                <div className="flex lg:hidden overflow-hidden rounded-2xl w-full">
+                    <img
+                        src={aboutMobileImg}
+                        alt="Augo founders mobile"
+                        className="w-full h-auto object-cover"
+                    />
+                </div>
             </div>
 
             {/* Row 2: Image left + Text right */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                {/* Left: Image */}
-                <div className="overflow-hidden rounded-2xl">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                {/* Left: Desktop Image (Hidden on mobile/tablet) */}
+                <div className="hidden lg:block overflow-hidden rounded-2xl">
                     <img
                         ref={photo2Ref}
                         src={aboutLeftImg}
@@ -194,10 +214,10 @@ export default function AboutSection() {
                 </div>
 
                 {/* Right: Texts */}
-                <div className="flex flex-col gap-6">
+                <div className="flex flex-col gap-4 sm:gap-6">
                     <p
                         ref={body2Ref}
-                        className="font-satoshi font-medium text-[18px] leading-[130%] text-[#969EA7]"
+                        className="font-satoshi font-medium text-[16px] sm:text-[18px] leading-[130%] text-[#969EA7]"
                     >
                         So they built augo. Because coaching is hard enough without tools
                         that create more work. We believe AI should support human
@@ -206,7 +226,7 @@ export default function AboutSection() {
                     </p>
                     <p
                         ref={headline2Ref}
-                        className="font-satoshi font-bold text-[24px] leading-[130%] text-white"
+                        className="font-satoshi font-bold text-[20px] sm:text-[24px] leading-[130%] text-white"
                     >
                         Technology that serves coaches, not the other
                         way around

@@ -1,9 +1,16 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef, useCallback } from 'react'
+import { gsap } from 'gsap'
 import augoLogo from '../assets/images/augo_logo.webp'
 
 const navLinks = [
     { label: 'For Coaches', href: '#coaches' },
     { label: 'For Athletes', href: '#athletes' },
+]
+
+const mobileMenuLinks = [
+    { label: 'For Coaches', href: '#coaches' },
+    { label: 'For Athletes', href: '#athletes' },
+    { label: 'Find a Match', href: '/find' },
 ]
 
 function NavLink({ label, href }: { label: string; href: string }) {
@@ -22,6 +29,13 @@ function NavLink({ label, href }: { label: string; href: string }) {
 
 export default function Navbar() {
     const [showJoinButton, setShowJoinButton] = useState(false)
+    const [menuOpen, setMenuOpen] = useState(false)
+    const isAnimating = useRef(false)
+
+    // Refs for GSAP animations
+    const overlayRef = useRef<HTMLDivElement>(null)
+    const menuItemRefs = useRef<(HTMLAnchorElement | null)[]>([])
+    const menuJoinRef = useRef<HTMLAnchorElement>(null)
 
     // Intersection Observer: hide Join Augo when Hero CTA or FAQ CTA is on screen
     useEffect(() => {
@@ -62,39 +76,227 @@ export default function Navbar() {
         return () => observer.disconnect()
     }, [])
 
-    return (
-        <nav className="navbar-sticky fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-12 pt-6 pb-2">
-            {/* Left Side: Logo + Nav Links */}
-            <div className="flex items-center gap-[100px]">
-                {/* Logo */}
-                <a href="/" className="flex-shrink-0">
-                    <img src={augoLogo} alt="Augo" className="h-7" />
-                </a>
+    // Lock body scroll when menu is open
+    useEffect(() => {
+        if (menuOpen) {
+            document.body.style.overflow = 'hidden'
+        } else {
+            document.body.style.overflow = ''
+        }
+        return () => {
+            document.body.style.overflow = ''
+        }
+    }, [menuOpen])
 
-                {/* Nav Links */}
-                <div className="flex items-center gap-10">
-                    {navLinks.map((link) => (
-                        <NavLink key={link.label} label={link.label} href={link.href} />
+    // Open menu animation
+    const openMenu = useCallback(() => {
+        if (isAnimating.current) return
+        isAnimating.current = true
+        setMenuOpen(true)
+
+        const overlay = overlayRef.current
+        const items = menuItemRefs.current.filter(Boolean) as HTMLElement[]
+        const joinBtn = menuJoinRef.current
+        if (!overlay) return
+
+        // Set initial states
+        gsap.set(overlay, { height: 0, display: 'flex' })
+        gsap.set(items, { opacity: 0, y: 20 })
+        if (joinBtn) gsap.set(joinBtn, { opacity: 0, y: 20 })
+
+        const tl = gsap.timeline({
+            onComplete: () => { isAnimating.current = false },
+        })
+
+        // Panel expands from top to bottom
+        tl.to(overlay, {
+            height: '100vh',
+            duration: 0.4,
+            ease: 'cubic-bezier(0.16, 1, 0.3, 1)',
+        })
+
+        // Menu items stagger in (100ms apart), starting during expansion
+        items.forEach((item, i) => {
+            tl.to(item, {
+                opacity: 1,
+                y: 0,
+                duration: 0.3,
+                ease: 'cubic-bezier(0.16, 1, 0.3, 1)',
+            }, 0.2 + i * 0.1) // starts 200ms into the panel animation
+        })
+
+        // JOIN AUGO button fades in last
+        if (joinBtn) {
+            tl.to(joinBtn, {
+                opacity: 1,
+                y: 0,
+                duration: 0.3,
+                ease: 'cubic-bezier(0.16, 1, 0.3, 1)',
+            }, 0.2 + items.length * 0.1)
+        }
+    }, [])
+
+    // Close menu animation
+    const closeMenu = useCallback(() => {
+        if (isAnimating.current) return
+        isAnimating.current = true
+        setMenuOpen(false) // morph X → hamburger immediately
+
+        const overlay = overlayRef.current
+        const items = menuItemRefs.current.filter(Boolean) as HTMLElement[]
+        const joinBtn = menuJoinRef.current
+        if (!overlay) return
+
+        const tl = gsap.timeline({
+            onComplete: () => {
+                gsap.set(overlay, { display: 'none' })
+                isAnimating.current = false
+            },
+        })
+
+        // Content fades out first
+        if (joinBtn) {
+            tl.to(joinBtn, {
+                opacity: 0,
+                y: -10,
+                duration: 0.2,
+                ease: 'power2.in',
+            }, 0)
+        }
+
+        tl.to(items, {
+            opacity: 0,
+            y: -10,
+            duration: 0.2,
+            ease: 'power2.in',
+            stagger: 0.05,
+        }, 0)
+
+        // Then panel shrinks up
+        tl.to(overlay, {
+            height: 0,
+            duration: 0.35,
+            ease: 'power2.inOut',
+        }, 0.15)
+    }, [])
+
+    const handleToggle = useCallback(() => {
+        if (menuOpen) {
+            closeMenu()
+        } else {
+            openMenu()
+        }
+    }, [menuOpen, openMenu, closeMenu])
+
+    // Close menu when a link is clicked
+    const handleMenuLinkClick = useCallback(() => {
+        closeMenu()
+    }, [closeMenu])
+
+    return (
+        <>
+            <nav className="navbar-sticky fixed top-0 left-0 right-0 z-[60] flex items-center justify-between px-5 sm:px-6 md:px-8 lg:px-12 pt-6 pb-2">
+                {/* Left Side: Logo + Nav Links */}
+                <div className="flex items-center gap-[100px]">
+                    {/* Logo */}
+                    <a href="/" className="flex-shrink-0 relative z-[60]">
+                        <img src={augoLogo} alt="Augo" className="h-7" />
+                    </a>
+
+                    {/* Nav Links — visible only on lg+ (desktop) */}
+                    <div className="hidden lg:flex items-center gap-10">
+                        {navLinks.map((link) => (
+                            <NavLink key={link.label} label={link.label} href={link.href} />
+                        ))}
+                    </div>
+                </div>
+
+                {/* Right Side */}
+                <div className="flex items-center gap-4 sm:gap-6 md:gap-8">
+                    {/* Find a Match — visible only on md+ (tablet and desktop) */}
+                    <div className="hidden md:block">
+                        <NavLink label="Find a Match" href="/find" />
+                    </div>
+                    <a
+                        href="/join"
+                        className="join-augo-btn font-mono text-sm font-extrabold tracking-[2px] uppercase px-6 py-3 rounded-lg"
+                        style={{
+                            opacity: showJoinButton && !menuOpen ? 1 : 0,
+                            transform: showJoinButton && !menuOpen ? 'translateY(0)' : 'translateY(10px)',
+                            pointerEvents: showJoinButton && !menuOpen ? 'auto' : 'none',
+                            transition: 'opacity 300ms ease-in-out, transform 300ms ease-in-out, background 200ms ease-in-out, color 200ms ease-in-out',
+                        }}
+                    >
+                        Join Augo
+                    </a>
+                    {/* Hamburger / Close toggle — visible only below md (mobile) */}
+                    <button
+                        className="md:hidden relative z-[60] flex flex-col items-center justify-center w-8 h-8 cursor-pointer gap-[6px]"
+                        aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+                        onClick={handleToggle}
+                    >
+                        <span
+                            className="block w-6 h-[2px] bg-white rounded-full transition-all duration-300 ease-in-out origin-center"
+                            style={{
+                                transform: menuOpen ? 'translateY(8px) rotate(45deg)' : 'none',
+                            }}
+                        />
+                        <span
+                            className="block w-6 h-[2px] bg-white rounded-full transition-all duration-300 ease-in-out"
+                            style={{
+                                opacity: menuOpen ? 0 : 1,
+                                transform: menuOpen ? 'scaleX(0)' : 'scaleX(1)',
+                            }}
+                        />
+                        <span
+                            className="block w-6 h-[2px] bg-white rounded-full transition-all duration-300 ease-in-out origin-center"
+                            style={{
+                                transform: menuOpen ? 'translateY(-8px) rotate(-45deg)' : 'none',
+                            }}
+                        />
+                    </button>
+                </div>
+            </nav>
+
+            {/* ─── Mobile Menu Overlay ─── */}
+            <div
+                ref={overlayRef}
+                className="fixed top-0 left-0 right-0 z-[55] flex-col items-center justify-between overflow-hidden"
+                style={{
+                    display: 'none',
+                    height: 0,
+                    backgroundColor: '#0A0A0A',
+                }}
+            >
+                {/* Menu links — centered in the upper area */}
+                <nav className="flex flex-col items-center gap-8 pt-32 flex-1">
+                    {mobileMenuLinks.map((link, i) => (
+                        <a
+                            key={link.label}
+                            href={link.href}
+                            ref={(el) => { menuItemRefs.current[i] = el }}
+                            onClick={handleMenuLinkClick}
+                            className="font-['JetBrains_Mono'] font-normal text-[24px] leading-[150%] tracking-[0px] text-center uppercase text-white no-underline"
+                            style={{ opacity: 0 }}
+                        >
+                            {link.label}
+                        </a>
                     ))}
+                </nav>
+
+                {/* JOIN AUGO button — pinned to bottom */}
+                <div className="px-5 sm:px-6 pb-10 w-full">
+                    <a
+                        ref={menuJoinRef}
+                        href="/join"
+                        onClick={handleMenuLinkClick}
+                        className="btn-gradient block w-full font-mono text-sm font-extrabold tracking-[2px] uppercase text-white text-center py-4 rounded-lg"
+                        style={{ opacity: 0 }}
+                    >
+                        Join Augo
+                    </a>
                 </div>
             </div>
-
-            {/* Right Side */}
-            <div className="flex items-center gap-8">
-                <NavLink label="Find a Match" href="/find" />
-                <a
-                    href="/join"
-                    className="join-augo-btn font-mono text-sm font-extrabold tracking-[2px] uppercase px-6 py-3 rounded-lg"
-                    style={{
-                        opacity: showJoinButton ? 1 : 0,
-                        transform: showJoinButton ? 'translateY(0)' : 'translateY(10px)',
-                        pointerEvents: showJoinButton ? 'auto' : 'none',
-                        transition: 'opacity 300ms ease-in-out, transform 300ms ease-in-out, background 200ms ease-in-out, color 200ms ease-in-out',
-                    }}
-                >
-                    Join Augo
-                </a>
-            </div>
-        </nav>
+        </>
     )
 }

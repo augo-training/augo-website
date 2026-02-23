@@ -195,9 +195,9 @@ export default function AthletesSection() {
             style={{ height: '100vh' }}
         >
             {/* Fixed header — stays in place while cards scroll */}
-            <div className="absolute top-0 left-0 right-0 z-10 flex flex-col items-center gap-6 pt-26 pb-4 pointer-events-none">
+            <div className="absolute top-0 left-0 right-0 z-10 flex flex-col items-center gap-4 sm:gap-6 pt-28 sm:pt-20 md:pt-26 pb-4 pointer-events-none px-4">
                 {/* Tag */}
-                <div className="flex items-center gap-2">
+                <div className="hidden lg:flex items-center gap-2">
                     <span className="font-satoshi font-black italic text-[18px] leading-[100%] tracking-[4px] text-[#969EA7]">
                         ///////
                     </span>
@@ -207,7 +207,7 @@ export default function AthletesSection() {
                 </div>
 
                 {/* Headline */}
-                <h2 className="font-mono font-bold text-[48px] leading-[130%] text-center text-white">
+                <h2 className="font-mono font-bold text-[28px] sm:text-[36px] md:text-[48px] leading-[130%] text-center text-white">
                     Everything your athletes need in
                     <br className="hidden md:block" />
                     {' '}one place
@@ -224,7 +224,7 @@ export default function AthletesSection() {
                     <div
                         key={i}
                         ref={(el) => { panelRefs.current[i] = el }}
-                        className="flex-shrink-0 flex flex-col justify-end px-8 pb-12"
+                        className="flex-shrink-0 flex flex-col justify-start sm:justify-end px-4 sm:px-6 md:px-8 pb-0 sm:pb-8 md:pb-12 pt-[220px] sm:pt-0"
                         style={{
                             width: '100vw',
                             height: '100vh',
@@ -232,18 +232,18 @@ export default function AthletesSection() {
                     >
                         {/* Card with gradient background */}
                         <div
-                            className="w-full max-w-[1200px] mx-auto rounded-2xl pl-8 md:pl-12"
+                            className="w-full max-w-[1200px] mx-auto rounded-2xl flex flex-col justify-end pl-5 sm:pl-8 md:pl-12 pt-0 sm:pt-12 md:pt-0 overflow-y-auto max-h-[85vh] sm:overflow-visible sm:max-h-none"
                             style={{
                                 background:
                                     'linear-gradient(14.48deg, #151515 -17.53%, #090909 79.83%)'
                             }}
                         >
-                            <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-end h-full pb-6">
+                            <div className="flex flex-col md:grid md:grid-cols-12 gap-0 sm:gap-10 md:gap-12 items-center md:items-end h-full pb-0 md:pb-6 mt-4 sm:mt-0">
                                 {/* Left: Text */}
-                                <div className="flex flex-col gap-6 col-span-1 md:col-span-5">
+                                <div className="flex flex-col gap-4 sm:gap-6 md:col-span-5 w-full pr-5 sm:pr-8 md:pr-0 self-start md:self-auto pt-0 sm:pt-4 md:pt-0">
                                     <h3
                                         ref={(el) => { headlineRefs.current[i] = el }}
-                                        className="font-satoshi font-bold text-[48px] leading-[130%] text-white"
+                                        className="font-satoshi font-bold text-[28px] sm:text-[32px] md:text-[40px] lg:text-[48px] leading-[130%] text-white"
                                     >
                                         {panel.headline.split('\n').map((line, j) => (
                                             <span key={j}>
@@ -254,14 +254,14 @@ export default function AthletesSection() {
                                     </h3>
                                     <p
                                         ref={(el) => { bodyRefs.current[i] = el }}
-                                        className="font-satoshi font-medium text-[18px] leading-[130%] text-[#ACB1B7]"
+                                        className="font-satoshi font-medium text-[15px] sm:text-[16px] md:text-[18px] leading-[130%] text-[#ACB1B7]"
                                     >
                                         {panel.body}
                                     </p>
                                 </div>
 
                                 {/* Right: Image with glow */}
-                                <div className="relative col-span-1 md:col-span-7 flex justify-end">
+                                <div className="relative w-full md:col-span-7 flex justify-center md:justify-end mt-auto md:mt-0">
                                     {/* Gradient glow behind image */}
                                     <div
                                         ref={(el) => { glowRefs.current[i] = el }}
@@ -275,7 +275,7 @@ export default function AthletesSection() {
                                     {/* Floating image */}
                                     <div
                                         ref={(el) => { imageRefs.current[i] = el }}
-                                        className="relative w-full"
+                                        className="relative w-full max-w-[500px] md:max-w-none"
                                     >
                                         <img
                                             src={panel.image}

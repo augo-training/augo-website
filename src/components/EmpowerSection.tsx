@@ -175,14 +175,19 @@ export default function EmpowerSection() {
     return (
         <section
             ref={sectionRef}
-            className="py-20 px-8 flex flex-col gap-20 max-w-[1200px] mx-auto"
+            className="py-12 sm:py-16 md:py-20 px-5 sm:px-6 md:px-8 flex flex-col gap-10 sm:gap-14 md:gap-20 max-w-[1200px] mx-auto"
         >
-            {/* Row 1 */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
-                {/* Left: Text */}
+            {/*
+              Grid with template-areas:
+              Mobile: headline → frame2(cyclist) → texts → frame1(swimmer)
+              Desktop (md+): 2x2 with row1: headline | frame1, row2: frame2 | texts
+            */}
+            <div className="empower-grid grid gap-8 md:gap-20 md:grid-cols-2 items-center">
+                {/* Headline */}
                 <h2
                     ref={headlineRef}
-                    className="font-mono font-bold text-[48px] leading-[130%] text-white"
+                    className="font-mono font-bold text-[28px] sm:text-[36px] md:text-[40px] lg:text-[48px] leading-[130%] text-white"
+                    style={{ gridArea: 'headline' }}
                 >
                     Built to
                     <br />
@@ -191,8 +196,11 @@ export default function EmpowerSection() {
                     not replace them.
                 </h2>
 
-                {/* Right: Image/Video Frame 1 */}
-                <div className="flex justify-end overflow-hidden rounded-2xl">
+                {/* Video Frame 1 (swimmer) */}
+                <div
+                    className="flex justify-end overflow-hidden rounded-2xl"
+                    style={{ gridArea: 'frame1' }}
+                >
                     <video
                         ref={frame1Ref}
                         src={empowerVideo1}
@@ -203,12 +211,12 @@ export default function EmpowerSection() {
                         className="max-w-full h-auto object-cover will-change-transform"
                     />
                 </div>
-            </div>
 
-            {/* Row 2 */}
-            <div className="grid grid-cols-1 md:grid-cols-2 items-center">
-                {/* Left: Image/Video Frame 2 */}
-                <div className="overflow-hidden rounded-2xl">
+                {/* Video Frame 2 (cyclist) */}
+                <div
+                    className="overflow-hidden rounded-2xl"
+                    style={{ gridArea: 'frame2' }}
+                >
                     <video
                         ref={frame2Ref}
                         src={empowerVideo2}
@@ -220,30 +228,25 @@ export default function EmpowerSection() {
                     />
                 </div>
 
-                {/* Right: Text Content */}
-                <div className="flex flex-col justify-center h-full ml-18">
+                {/* Text Content */}
+                <div
+                    className="flex flex-col justify-center h-full md:ml-18"
+                    style={{ gridArea: 'texts' }}
+                >
                     <p
                         ref={body2Ref}
-                        className="font-satoshi font-medium text-[18px] leading-[130%] text-[#ACB1B7] mb-12"
+                        className="font-satoshi font-medium text-[15px] sm:text-[16px] md:text-[18px] leading-[130%] text-[#ACB1B7] mb-8 sm:mb-10 md:mb-12"
                     >
                         Too many coaching tools focus on plans, not people.
-                        <br />
-                        Messages scatter across platforms. Context gets lost. And
-                        <br />
-                        important signals go unnoticed in the noise.
+                        {' '}Messages scatter across platforms. Context gets lost. And
+                        {' '}important signals go unnoticed in the noise.
                     </p>
 
                     <p
                         ref={headline2Ref}
-                        className="font-satoshi font-bold text-[24px] leading-[130%] text-white"
+                        className="font-satoshi font-bold text-[20px] sm:text-[22px] md:text-[24px] leading-[130%] text-white"
                     >
-                        augo brings everything together -
-                        <br />
-                        combining athlete data, feedback, and
-                        <br />
-                        trends into a single view that helps you
-                        <br />
-                        coach better.
+                        augo brings everything together - combining athlete data, feedback, and trends into a single view that helps you coach better.
                     </p>
                 </div>
             </div>

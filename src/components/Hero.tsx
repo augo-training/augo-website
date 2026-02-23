@@ -250,20 +250,20 @@ export default function Hero() {
             />
 
             {/* Content Container */}
-            <div className="relative z-10 w-full max-w-[1440px] mx-auto px-12 flex items-center justify-between pt-24">
+            <div className="relative z-10 w-full max-w-[1440px] mx-auto px-5 sm:px-6 md:px-8 lg:px-12 flex flex-col items-center text-center lg:flex-row lg:items-center lg:justify-between lg:text-left pt-32 sm:pt-28 lg:pt-24 pb-12 lg:pb-0 gap-12 lg:gap-0">
                 {/* Left: Text Content */}
                 <div className="max-w-[480px] flex-shrink-0">
-                    <h1 className="font-mono font-bold text-[48px] leading-[120%] text-white mb-6">
+                    <h1 className="font-mono font-bold text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px] leading-[120%] text-white mb-6">
                         <span ref={line1Ref} className="block">
                             A new standard
                         </span>
                         <span ref={line2Ref} className="block">
                             for{' '}
-                            <span ref={rotatingRef} className="relative inline-block align-bottom" style={{ minWidth: '220px' }}>
+                            <span ref={rotatingRef} className="relative inline-block align-bottom" style={{ minWidth: '160px' }}>
                                 {ROTATING_WORDS.map((word) => (
                                     <span
                                         key={word}
-                                        className="rotating-word absolute left-0 top-0 whitespace-nowrap"
+                                        className="rotating-word absolute left-0 top-0 whitespace-nowrap lg:left-0 w-full lg:w-auto"
                                         style={{ opacity: 0 }}
                                     >
                                         {word}
@@ -277,7 +277,7 @@ export default function Hero() {
                             coaching
                         </span>
                     </h1>
-                    <p ref={subheadlineRef} className="font-satoshi font-medium text-lg leading-[130%] text-text-muted mb-10" style={{ opacity: 0 }}>
+                    <p ref={subheadlineRef} className="font-satoshi font-medium text-base sm:text-lg leading-[130%] text-text-muted mb-8 sm:mb-10" style={{ opacity: 0 }}>
                         The intelligent assistant that combines workout data and athlete feedback, turning insights into action and giving you time for what matters most.
                     </p>
                     <a
@@ -325,13 +325,13 @@ export default function Hero() {
                 </div>
 
                 {/* Right: App Mockups */}
-                <div ref={mockupsRef} className="relative z-10" style={{ width: 620, height: 580 }}>
+                <div ref={mockupsRef} className="relative z-10 w-full max-w-[300px] sm:max-w-[400px] md:max-w-[620px] lg:w-[420px] xl:w-[620px] lg:max-w-none aspect-[620/580] flex-shrink-0">
                     {/* Static gradient glow behind mockups */}
                     <div
                         className="absolute pointer-events-none"
                         style={{
-                            width: 660,
-                            height: 660,
+                            width: '106%',
+                            height: '106%',
                             top: '50%',
                             left: '70%',
                             transform: 'translate(-50%, -50%)',
@@ -344,8 +344,8 @@ export default function Hero() {
                     <div
                         className="absolute pointer-events-none"
                         style={{
-                            width: 660,
-                            height: 400,
+                            width: '106%',
+                            height: '69%',
                             top: '30%',
                             left: '20%',
                             transform: 'translate(-50%, -50%)',
@@ -373,9 +373,9 @@ export default function Hero() {
                         alt="Augo Athlete App"
                         className="mockup-athlete absolute rounded-2xl shadow-2xl"
                         style={{
-                            width: 190,
-                            bottom: '80px',
-                            left: '-60px',
+                            width: '30.6%',
+                            bottom: '13.8%',
+                            left: '-9.7%',
                             zIndex: 3,
                         }}
                     />
@@ -385,9 +385,9 @@ export default function Hero() {
                         alt="Augo Coach App"
                         className="mockup-coach absolute rounded-2xl shadow-2xl"
                         style={{
-                            width: 190,
+                            width: '30.6%',
                             bottom: 0,
-                            left: 100,
+                            left: '16.1%',
                             zIndex: 3,
                         }}
                     />

@@ -163,8 +163,11 @@ export default function TestimonialsSection() {
             {/* Headline */}
             <h2
                 ref={headlineRef}
-                className="font-mono font-bold text-[64px] leading-[130%] text-white px-8 md:px-16"
-                style={{ maxWidth: '1200px', marginLeft: 'max(2rem, calc((100vw - 1200px) / 2))' }}
+                className="font-mono font-bold text-[36px] sm:text-[48px] md:text-[56px] lg:text-[64px] leading-[130%] text-white px-5 sm:px-8 md:px-16"
+                style={{
+                    maxWidth: '1200px',
+                    marginLeft: 'max(1.25rem, calc((100vw - 1200px) / 2))',
+                }}
             >
                 What coaches
                 <br />
@@ -177,25 +180,24 @@ export default function TestimonialsSection() {
                 {/* Card track */}
                 <div
                     ref={trackRef}
-                    className="flex items-stretch gap-8 will-change-transform"
+                    className="flex items-stretch gap-4 sm:gap-6 md:gap-8 will-change-transform"
                     style={{
-                        paddingLeft: 'max(2rem, calc((100vw - 1200px) / 2))',
+                        paddingLeft: 'max(1.25rem, calc((100vw - 1200px) / 2))',
                     }}
                 >
                     {testimonials.map((t, i) => (
                         <div
                             key={i}
                             ref={(el) => { cardRefs.current[i] = el }}
-                            className="testimonial-card flex-shrink-0 bg-white rounded-2xl p-8 flex flex-col justify-between"
+                            className="testimonial-card flex-shrink-0 bg-white rounded-2xl p-6 sm:p-8 flex flex-col justify-between w-[320px] sm:w-[380px] md:w-[420px]"
                             style={{
-                                width: '420px',
                                 minHeight: '320px',
                                 transition: 'opacity 300ms ease-out, transform 300ms ease-out',
                             }}
                         >
                             {/* Quote */}
                             <p
-                                className="font-satoshi font-medium text-[24px] leading-[130%] mb-8"
+                                className="font-satoshi font-medium text-[16px] sm:text-[20px] md:text-[24px] leading-[130%] mb-6 sm:mb-8"
                                 style={{ color: '#151515' }}
                             >
                                 {t.quote}
@@ -207,18 +209,17 @@ export default function TestimonialsSection() {
                                 <img
                                     src={t.photo}
                                     alt={t.name}
-                                    className="flex-shrink-0 rounded-lg object-cover"
-                                    style={{ width: '48px', height: '48px' }}
+                                    className="flex-shrink-0 rounded-lg object-cover w-10 h-10 sm:w-12 sm:h-12"
                                 />
                                 <div className="flex flex-col">
                                     <span
-                                        className="font-mono font-extrabold text-[22px] leading-[130%]"
+                                        className="font-mono font-extrabold text-[16px] sm:text-[18px] md:text-[22px] leading-[130%]"
                                         style={{ color: '#151515' }}
                                     >
                                         {t.name}
                                     </span>
                                     <span
-                                        className="font-satoshi font-medium text-[18px] leading-[130%]"
+                                        className="font-satoshi font-medium text-[14px] sm:text-[16px] md:text-[18px] leading-[130%]"
                                         style={{ color: '#48494B' }}
                                     >
                                         {t.role}
@@ -232,7 +233,7 @@ export default function TestimonialsSection() {
                     <div
                         aria-hidden="true"
                         className="flex-shrink-0"
-                        style={{ width: 'max(2rem, calc((100vw - 1200px) / 2))' }}
+                        style={{ width: 'max(1.25rem, calc((100vw - 1200px) / 2))' }}
                     />
                 </div>
             </div>

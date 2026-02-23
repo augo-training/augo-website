@@ -364,3 +364,20 @@ body {
     opacity: 1;
   }
 }
+
+/* ─── Empower Section Grid ─── */
+.empower-grid {
+  grid-template-areas:
+    "headline"
+    "frame2"
+    "texts"
+    "frame1";
+}
+
+@media (min-width: 768px) {
+  .empower-grid {
+    grid-template-areas:
+      "headline frame1"
+      "frame2   texts";
+  }
+}
