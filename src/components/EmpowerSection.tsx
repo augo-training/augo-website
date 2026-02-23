@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
-import builtImg from '../assets/images/built.webp'
-import bikeImg from '../assets/images/bike.webp'
+import empowerVideo1 from '../assets/videos/empower_1.mp4'
+import empowerVideo2 from '../assets/videos/empower_2.mp4'
 
 export default function EmpowerSection() {
     const sectionRef = useRef<HTMLElement>(null)
@@ -14,8 +14,8 @@ export default function EmpowerSection() {
     const headline2Ref = useRef<HTMLParagraphElement>(null)
 
     // Image/video frame refs
-    const frame1Ref = useRef<HTMLImageElement>(null)
-    const frame2Ref = useRef<HTMLImageElement>(null)
+    const frame1Ref = useRef<HTMLVideoElement>(null)
+    const frame2Ref = useRef<HTMLVideoElement>(null)
 
     useEffect(() => {
         const prefersReducedMotion = window.matchMedia(
@@ -193,10 +193,13 @@ export default function EmpowerSection() {
 
                 {/* Right: Image/Video Frame 1 */}
                 <div className="flex justify-end overflow-hidden rounded-2xl">
-                    <img
+                    <video
                         ref={frame1Ref}
-                        src={builtImg}
-                        alt="Built to empower"
+                        src={empowerVideo1}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
                         className="max-w-full h-auto object-cover will-change-transform"
                     />
                 </div>
@@ -206,10 +209,13 @@ export default function EmpowerSection() {
             <div className="grid grid-cols-1 md:grid-cols-2 items-center">
                 {/* Left: Image/Video Frame 2 */}
                 <div className="overflow-hidden rounded-2xl">
-                    <img
+                    <video
                         ref={frame2Ref}
-                        src={bikeImg}
-                        alt="Cycling athlete"
+                        src={empowerVideo2}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
                         className="w-full h-auto object-cover will-change-transform"
                     />
                 </div>

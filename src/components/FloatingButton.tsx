@@ -22,8 +22,12 @@ function AugoIcon({ className }: { className?: string }) {
     )
 }
 
-export default function FloatingButton() {
-    const btnRef = useRef<HTMLAnchorElement>(null)
+interface FloatingButtonProps {
+    onClick?: () => void
+}
+
+export default function FloatingButton({ onClick }: FloatingButtonProps) {
+    const btnRef = useRef<HTMLButtonElement>(null)
 
     // Entrance animation: fade in + scale 0.8 → 1, delay ~2s, duration 400ms
     useEffect(() => {
@@ -43,14 +47,14 @@ export default function FloatingButton() {
     }, [])
 
     return (
-        <a
+        <button
             ref={btnRef}
-            href="/join"
+            onClick={onClick}
             className="floating-app-btn fixed z-50 flex items-center justify-center w-16 h-16 rounded-2xl cursor-pointer"
             style={{ bottom: '48px', right: '48px' }}
-            aria-label="Join Augo"
+            aria-label="Watch video"
         >
             <AugoIcon className="w-[28px] h-[28px]" />
-        </a>
+        </button>
     )
 }

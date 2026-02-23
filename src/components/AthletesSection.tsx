@@ -54,19 +54,20 @@ export default function AthletesSection() {
         if (!section || !track) return
 
         // -- Calculate scroll distance --
-        const scrollDistance = window.innerWidth * (panels.length - 1)
+        const getScrollDistance = () => window.innerWidth * (panels.length - 1)
 
         // -- Main horizontal scroll with pin --
         const scrollTween = gsap.to(track, {
-            x: -scrollDistance,
+            x: () => -getScrollDistance(),
             ease: 'none',
             scrollTrigger: {
                 trigger: section,
                 start: 'top top',
-                end: () => `+=${scrollDistance}`,
+                end: () => `+=${getScrollDistance()}`,
                 pin: true,
                 scrub: 0.5,
                 invalidateOnRefresh: true,
+                anticipatePin: 1,
             },
         })
 
@@ -177,6 +178,12 @@ export default function AthletesSection() {
             floatTweens.forEach((t) => t.kill())
             glowTweens.forEach((t) => t.kill())
             panel0Observer?.disconnect()
+            // Kill all text-reveal ScrollTriggers
+            ScrollTrigger.getAll().forEach((st) => {
+                if (st.vars.containerAnimation === scrollTween) {
+                    st.kill()
+                }
+            })
         }
     }, [])
 

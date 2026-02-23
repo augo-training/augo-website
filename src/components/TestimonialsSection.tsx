@@ -1,7 +1,10 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import testimonialPhoto from '../assets/images/testimonial_photo.png'
+import tobiasPhoto from '../assets/images/Tobias.png'
+import mikaelPhoto from '../assets/images/Mikael.png'
+import jazminePhoto from '../assets/images/Jazmine.png'
+import manuelPhoto from '../assets/images/Manuel.png'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -18,49 +21,28 @@ const testimonials: Testimonial[] = [
             'A training program is only as strong as the communication between coach and athlete. augo bridges the gap that arises from remote coaching, allowing coaches to truly coach.',
         name: 'Tobias Haumann',
         role: 'Coach | Scientific Triathlon',
-        photo: testimonialPhoto,
+        photo: tobiasPhoto,
     },
     {
         quote:
             'As a coach, augo is a game-changer in my communication with my athletes, making sure I never miss anything and always understand the full context of each message or comment.',
         name: 'Mikael Eriksson',
         role: 'Founder | Scientific Triathlon',
-        photo: testimonialPhoto,
+        photo: mikaelPhoto,
     },
     {
         quote:
-            'With augo, I track specific metrics related to RED-S, like carbohydrates consumed and perceived energy during sessions. This helps illustrate patterns and prevent low energy availability.',
+            'With augo, I track specific metrics related to RED-S, like carbohydrates consumed and perceived energy levels during sessions. This helps illuminate patterns and prevent low energy.',
         name: 'Jazmine Lowther',
         role: 'Pro Trail Runner & Coach',
-        photo: testimonialPhoto,
+        photo: jazminePhoto,
     },
     {
         quote:
-            'Managing 30+ athletes used to mean endless scrolling through messages. augo gives me instant context on every athlete — it\'s like having a perfect memory.',
-        name: 'Carlos Mendes',
-        role: 'Head Coach | Endurance Lab',
-        photo: testimonialPhoto,
-    },
-    {
-        quote:
-            'The AI assistant understands the nuances of endurance training. I can ask about an athlete\'s fatigue trends over the past month and get a meaningful answer in seconds.',
-        name: 'Sophie Laurent',
-        role: 'Coach | Tri Performance',
-        photo: testimonialPhoto,
-    },
-    {
-        quote:
-            'Since switching to augo, my athletes feel more connected and supported. The platform keeps everything organized so I can focus on what I do best — coaching.',
-        name: 'David Kim',
-        role: 'Cycling Coach | Velo Elite',
-        photo: testimonialPhoto,
-    },
-    {
-        quote:
-            'augo transformed how I handle athlete feedback. Instead of lost notes and forgotten details, everything is searchable and contextualized. It\'s a must-have for any serious coach.',
-        name: 'Anna Fischer',
-        role: 'Triathlon Coach | SwimBikeRun',
-        photo: testimonialPhoto,
+            'Throughout nearly 20 years of coaching, I\'ve needed a tool that lets me stay connected and truly present for the people I coach. augo is that tool. It finally exists.',
+        name: 'Manuel Wyss',
+        role: 'Triathlon Coach',
+        photo: manuelPhoto,
     },
 ]
 
@@ -109,16 +91,16 @@ export default function TestimonialsSection() {
 
         // --- Horizontal scroll ---
         const cards = cardRefs.current.filter(Boolean) as HTMLDivElement[]
-        const viewportWidth = window.innerWidth
-        const scrollDistance = track.scrollWidth - viewportWidth
+
+        const getScrollDistance = () => track.scrollWidth - window.innerWidth
 
         const scrollTween = gsap.to(track, {
-            x: -scrollDistance,
+            x: () => -getScrollDistance(),
             ease: 'none',
             scrollTrigger: {
                 trigger: section,
                 start: 'top top',
-                end: () => `+=${scrollDistance}`,
+                end: () => `+=${getScrollDistance()}`,
                 pin: true,
                 scrub: 1,
                 invalidateOnRefresh: true,
@@ -135,7 +117,7 @@ export default function TestimonialsSection() {
                 const cardRect = card.getBoundingClientRect()
                 const cardCenter = cardRect.left + cardRect.width / 2
                 const distance = Math.abs(centerX - cardCenter)
-                const maxDistance = viewportWidth / 2
+                const maxDistance = window.innerWidth / 2
 
                 const progress = Math.min(distance / maxDistance, 1)
                 const opacity = 1 - progress * 0.5 // 1 → 0.5

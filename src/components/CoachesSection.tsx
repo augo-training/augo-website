@@ -60,21 +60,20 @@ export default function CoachesSection() {
         if (!section || !track) return
 
         // -- Calculate scroll distance --
-        const panelWidth = window.innerWidth
-        const totalWidth = panelWidth * panels.length
-        const scrollDistance = totalWidth - panelWidth // 2 panels worth of scroll
+        const getScrollDistance = () => window.innerWidth * (panels.length - 1) // 2 panels worth of scroll
 
         // -- Main horizontal scroll with pin --
         const scrollTween = gsap.to(track, {
-            x: -scrollDistance,
+            x: () => -getScrollDistance(),
             ease: 'none',
             scrollTrigger: {
                 trigger: section,
                 start: 'top top',
-                end: () => `+=${scrollDistance}`,
+                end: () => `+=${getScrollDistance()}`,
                 pin: true,
                 scrub: 0.5,
                 invalidateOnRefresh: true,
+                anticipatePin: 1,
             },
         })
 

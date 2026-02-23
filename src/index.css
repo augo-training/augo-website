@@ -20,7 +20,7 @@
 
 /* Base Styles */
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 a {
@@ -350,4 +350,17 @@ body {
 /* ─── Join Section: Form inner container ─── */
 .join-form-inner {
   background-color: #0A0A0A;
+}
+
+/* ─── Video Modal: glow pulse ─── */
+@keyframes video-glow-pulse {
+
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+
+  50% {
+    opacity: 1;
+  }
 }

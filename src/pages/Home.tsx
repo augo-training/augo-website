@@ -1,6 +1,8 @@
+import { useState } from 'react'
 import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
 import FloatingButton from '../components/FloatingButton'
+import VideoModal from '../components/VideoModal'
 import ConnectsSection from '../components/ConnectsSection'
 import EmpowerSection from '../components/EmpowerSection'
 import CoachesSection from '../components/CoachesSection'
@@ -13,6 +15,8 @@ import ContactSection from '../components/ContactSection'
 import Footer from '../components/Footer'
 
 function Home() {
+    const [videoOpen, setVideoOpen] = useState(false)
+
     return (
         <>
             <Navbar />
@@ -27,7 +31,8 @@ function Home() {
             <FaqSection />
             <ContactSection />
             <Footer />
-            <FloatingButton />
+            <FloatingButton onClick={() => setVideoOpen(true)} />
+            <VideoModal isOpen={videoOpen} onClose={() => setVideoOpen(false)} />
         </>
     )
 }
