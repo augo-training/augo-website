@@ -208,7 +208,7 @@ export default function EmpowerSection() {
                         muted
                         loop
                         playsInline
-                        className="max-w-full h-auto object-cover will-change-transform"
+                        className="max-w-full h-100 object-cover will-change-transform"
                     />
                 </div>
 
@@ -224,7 +224,7 @@ export default function EmpowerSection() {
                         muted
                         loop
                         playsInline
-                        className="w-full h-auto object-cover will-change-transform"
+                        className="w-full h-100 object-cover will-change-transform"
                     />
                 </div>
 
