@@ -195,9 +195,9 @@ export default function AthletesSection() {
             style={{ height: '100vh' }}
         >
             {/* Fixed header — stays in place while cards scroll */}
-            <div className="absolute top-0 left-0 right-0 z-10 flex flex-col items-center gap-4 sm:gap-6 pt-28 sm:pt-20 md:pt-26 pb-4 pointer-events-none px-4">
+            <div className="absolute top-0 left-0 right-0 z-10 flex flex-col md:items-center gap-4 sm:gap-6 pt-28 sm:pt-20 md:pt-26 pb-4 pointer-events-none px-4">
                 {/* Tag */}
-                <div className="hidden lg:flex items-center gap-2">
+                <div className="flex items-center gap-2">
                     <span className="font-satoshi font-black italic text-[18px] leading-[100%] tracking-[4px] text-[#969EA7]">
                         ///////
                     </span>
@@ -207,7 +207,7 @@ export default function AthletesSection() {
                 </div>
 
                 {/* Headline */}
-                <h2 className="font-mono font-bold text-[28px] sm:text-[36px] md:text-[48px] leading-[130%] text-center text-white">
+                <h2 className="font-mono font-bold text-[28px] sm:text-[36px] md:text-[48px] leading-[130%] md:text-center text-white">
                     Everything your athletes need in
                     <br className="hidden md:block" />
                     {' '}one place
@@ -232,7 +232,7 @@ export default function AthletesSection() {
                     >
                         {/* Card with gradient background */}
                         <div
-                            className="w-full max-w-[1200px] mx-auto rounded-2xl flex flex-col justify-end pl-5 sm:pl-8 md:pl-12 pt-0 sm:pt-12 md:pt-0 overflow-y-auto max-h-[85vh] sm:overflow-visible sm:max-h-none"
+                            className="w-full max-w-[1200px] mx-auto rounded-2xl flex flex-col justify-end pl-5 sm:pl-8 md:pl-12 pt-8 sm:pt-12 md:pt-0 overflow-y-auto max-h-[85vh] sm:overflow-visible sm:max-h-none"
                             style={{
                                 background:
                                     'linear-gradient(14.48deg, #151515 -17.53%, #090909 79.83%)'
@@ -240,7 +240,7 @@ export default function AthletesSection() {
                         >
                             <div className="flex flex-col md:grid md:grid-cols-12 gap-0 sm:gap-10 md:gap-12 items-center md:items-end h-full pb-0 md:pb-6 mt-4 sm:mt-0">
                                 {/* Left: Text */}
-                                <div className="flex flex-col gap-4 sm:gap-6 md:col-span-5 w-full pr-5 sm:pr-8 md:pr-0 self-start md:self-auto pt-0 sm:pt-4 md:pt-0">
+                                <div className="flex flex-col gap-4 sm:gap-6 md:col-span-5 w-full pr-5 sm:pr-8 md:pr-0 self-start md:self-auto pt-6 md:pt-0">
                                     <h3
                                         ref={(el) => { headlineRefs.current[i] = el }}
                                         className="font-satoshi font-bold text-[28px] sm:text-[32px] md:text-[40px] lg:text-[48px] leading-[130%] text-white"
@@ -248,7 +248,12 @@ export default function AthletesSection() {
                                         {panel.headline.split('\n').map((line, j) => (
                                             <span key={j}>
                                                 {line}
-                                                {j < panel.headline.split('\n').length - 1 && <br />}
+                                                {j < panel.headline.split('\n').length - 1 && (
+                                                    <>
+                                                        <br className="hidden md:block" />
+                                                        <span className="md:hidden"> </span>
+                                                    </>
+                                                )}
                                             </span>
                                         ))}
                                     </h3>
