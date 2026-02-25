@@ -182,7 +182,7 @@ export default function EmpowerSection() {
               Mobile: headline → frame2(cyclist) → texts → frame1(swimmer)
               Desktop (md+): 2x2 with row1: headline | frame1, row2: frame2 | texts
             */}
-            <div className="empower-grid grid gap-8 md:gap-20 md:grid-cols-2 items-center">
+            <div className="empower-grid grid gap-8 md:gap-6 md:grid-cols-2 items-center">
                 {/* Headline */}
                 <h2
                     ref={headlineRef}
