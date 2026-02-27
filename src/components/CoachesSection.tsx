@@ -1,17 +1,32 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import coachesImg1 from '../assets/images/img_section_coaches_1.webp'
-import coachesImg2 from '../assets/images/img_section_coaches_2.webp'
-import coachesImg3 from '../assets/images/img_section_coaches_3.webp'
+import coachesImg1_1 from '../assets/images/img_section_coaches_1_1.png'
+import coachesImg1_2 from '../assets/images/img_section_coaches_1_2.png'
+import coachesImg1_3 from '../assets/images/img_section_coaches_1_3.png'
+import coachesImg1_4 from '../assets/images/img_section_coaches_1_4.png'
+import coachesImg1_5 from '../assets/images/img_section_coaches_1_5.png'
+import coachesImg1_6 from '../assets/images/img_section_coaches_1_6.png'
+import coachesImg1_7 from '../assets/images/img_section_coaches_1_7.png'
+import carouselImgBg from '../assets/images/carousel_img_bg.webp'
+import coachesImg2_1 from '../assets/images/img_section_coaches_2_1.png'
+import coachesImg2_2 from '../assets/images/img_section_coaches_2_2.png'
+import coachesImg3_1 from '../assets/images/img_section_coaches_3_1.png'
+import coachesImg3_2 from '../assets/images/img_section_coaches_3_2.png'
 
 gsap.registerPlugin(ScrollTrigger)
+
+interface PanelImage {
+    src: string
+    className?: string
+}
 
 interface Panel {
     headline: string
     body: string
     tagline: string
-    image: string
+    image?: string
+    images?: PanelImage[]
 }
 
 const panels: Panel[] = [
@@ -20,20 +35,55 @@ const panels: Panel[] = [
         body: 'augo stores and remembers every athlete conversation, session feedback, and workout data. Ask the intelligent assistant anything and get instant answers with full athlete context.',
         tagline:
             'No more searching through buried calendar notes or scrolling through messages histories to remember when your athlete mentioned that knee discomfort.',
-        image: coachesImg1,
+        images: [
+            // Background card — base layer, centered
+            { src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' },
+            // User bubble 1: "How is Sarah recovering..." — top right
+            { src: coachesImg1_1, className: 'absolute top-[6%] right-[18%] w-[55%] z-10' },
+            // User avatar 1 — next to first user bubble
+            { src: coachesImg1_7, className: 'absolute top-[6%] right-[10%] w-[5%] z-10' },
+            // AI bubble 1: "She's trending well..." — left side
+            { src: coachesImg1_2, className: 'absolute top-[16%] left-[12%] w-[52%] z-10' },
+            // AI bubble 2: "In chat, she mentioned..." — left side
+            { src: coachesImg1_3, className: 'absolute top-[36%] left-[12%] w-[52%] z-10' },
+            // Augo icon 1 — beside AI bubble 2 (bottom-left)
+            { src: coachesImg1_4, className: 'absolute top-[48%] left-[5%] w-[4.5%] z-10' },
+            // User bubble 2: "Is she feeling ready..." — right side
+            { src: coachesImg1_5, className: 'absolute top-[60%] right-[18%] w-[52%] z-10' },
+            // User avatar 2 — next to second user bubble
+            { src: coachesImg1_7, className: 'absolute top-[63%] right-[10%] w-[5%] z-10' },
+            // AI bubble 3: "Signs point to yes..." — left side, bottom
+            { src: coachesImg1_6, className: 'absolute top-[73%] left-[12%] w-[52%] z-10' },
+            // Augo icon 2 — beside AI bubble 3 (bottom-left)
+            { src: coachesImg1_4, className: 'absolute top-[84%] left-[5%] w-[4.5%] z-10' },
+        ],
     },
     {
         headline: 'Know exactly who\nneeds you today',
         body: 'augo surfaces the athletes who need attention right now: early warning signs from training data & session feedback, schedule changes requests, sessions flagged for review, key moments where your input matters most.',
         tagline: 'Start each day with clarity & focus.',
-        image: coachesImg2,
+        images: [
+            // Background glow
+            { src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' },
+            // Assistant card — upper area
+            { src: coachesImg2_1, className: 'absolute top-[15%] left-[30%] w-[50%] z-10' },
+            // Tasks list — lower area
+            { src: coachesImg2_2, className: 'absolute top-[60%] left-[15%] w-[65%] z-10' },
+        ],
     },
     {
         headline: 'Know how your\nathletes really feel',
         body: 'augo captures post-session feedback, providing the coach visibility on long-term wellbeing trends, helping you spot subtle changes that signal challenges ahead.',
         tagline:
             'Catch fatigue, motivation dips, or early injury signs while there\'s still time to act.',
-        image: coachesImg3,
+        images: [
+            // Background glow
+            { src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' },
+            // Feeling chart — upper area
+            { src: coachesImg3_1, className: 'absolute top-[15%] left-[18%] w-[50%] z-10' },
+            // Aches & pains chart — lower area, slightly offset
+            { src: coachesImg3_2, className: 'absolute top-[53%] left-[32%] w-[50%] z-10' },
+        ],
     },
 ]
 
@@ -100,8 +150,8 @@ export default function CoachesSection() {
                                 })
                                 gsap.to(bodies[i], {
                                     opacity: 1,
-                                    duration: 3,
-                                    delay: 1.5,
+                                    duration: 2,
+                                    delay: 0.9,
                                     ease: 'cubic-bezier(0.16, 1, 0.3, 1)',
                                 })
                                 observer.disconnect()
@@ -128,13 +178,13 @@ export default function CoachesSection() {
                     gsap.to(headline, {
                         opacity: 1,
                         y: 0,
-                        duration: 4.2,
+                        duration: 2.2,
                         ease: 'cubic-bezier(0.16, 1, 0.3, 1)',
                     })
                     gsap.to(bodies[i], {
                         opacity: 1,
-                        duration: 3,
-                        delay: 1,
+                        duration: 2,
+                        delay: 0.9,
                         ease: 'cubic-bezier(0.16, 1, 0.3, 1)',
                     })
                 },
@@ -145,22 +195,57 @@ export default function CoachesSection() {
             })
         })
 
-        // -- Floating image animation: ±12px centered, different speeds for depth --
+        // -- Floating image animation: varied speeds & amplitudes per image for depth --
         const images = imageRefs.current.filter(Boolean) as HTMLElement[]
-        const floatAmplitude = isMobile ? 6 : 12
-        const floatTweens = images.map((img, i) => {
-            const duration = 5 + i * 0.5 // 5s / 5.5s / 6s for depth
-            return gsap.fromTo(
-                img,
-                { y: -floatAmplitude },
-                {
-                    y: floatAmplitude,
-                    duration,
-                    ease: 'sine.inOut',
-                    yoyo: true,
-                    repeat: -1,
-                }
-            )
+        const baseAmplitude = isMobile ? 2 : 4
+        const floatTweens: gsap.core.Tween[] = []
+
+        images.forEach((imgContainer, i) => {
+            // Check if this panel has multiple images (children <img> inside the wrapper div)
+            const childImages = imgContainer.querySelectorAll('img')
+
+            if (childImages.length > 1) {
+                // Animate each child image independently with varied params
+                childImages.forEach((childImg, j) => {
+                    // Vary amplitude: 70%-130% of base using sine spread
+                    const amplitude = baseAmplitude * (1 + 0.3 * Math.sin(j * 2.1))
+                    // Vary duration: 4s to 6.5s for noticeable but smooth desync
+                    const duration = 5 + 1.5 * Math.cos(j * 1.7)
+                    // Stagger start phase
+                    const delay = j * 0.5
+
+                    floatTweens.push(
+                        gsap.fromTo(
+                            childImg,
+                            { y: -amplitude },
+                            {
+                                y: amplitude,
+                                duration,
+                                ease: 'sine.inOut',
+                                yoyo: true,
+                                repeat: -1,
+                                delay,
+                            }
+                        )
+                    )
+                })
+            } else {
+                // Single image panel: animate the container as before
+                const duration = 5 + i * 0.5
+                floatTweens.push(
+                    gsap.fromTo(
+                        imgContainer,
+                        { y: -baseAmplitude },
+                        {
+                            y: baseAmplitude,
+                            duration,
+                            ease: 'sine.inOut',
+                            yoyo: true,
+                            repeat: -1,
+                        }
+                    )
+                )
+            }
         })
 
         // -- Gradient glow pulse: 0.5 → 1.0 → 0.5, 3s cycle --
@@ -268,19 +353,32 @@ export default function CoachesSection() {
                                     style={{
                                         opacity: 0.5,
                                         background:
-                                            'radial-gradient(ellipse at center, rgba(197, 0, 23, 0.6) 0%, rgba(255, 85, 20, 0.2) 35%, transparent 55%)',
+                                            'radial-gradient(ellipse at center, rgba(200, 15, 37, 0.6) 0%, rgba(254, 95, 33, 0.2) 45%, transparent 75%)',
                                     }}
                                 />
-                                {/* Floating image */}
+                                {/* Floating image(s) */}
                                 <div
                                     ref={(el) => { imageRefs.current[i] = el }}
                                     className="relative w-full max-w-[500px] lg:max-w-none"
                                 >
-                                    <img
-                                        src={panel.image}
-                                        alt={`Coaches Interface ${i + 1}`}
-                                        className="rounded-2xl w-full h-auto object-cover"
-                                    />
+                                    {panel.images ? (
+                                        <div className='relative rounded-2xl w-full h-[45vh] md:h-[55vh] lg:h-[70vh] overflow-hidden'>
+                                            {panel.images.map((img, j) => (
+                                                <img
+                                                    key={j}
+                                                    src={img.src}
+                                                    alt={`Coaches Interface ${i + 1} - ${j + 1}`}
+                                                    className={`object-cover ${img.className || ''}`}
+                                                />
+                                            ))}
+                                        </div>
+                                    ) : (
+                                        <img
+                                            src={panel.image}
+                                            alt={`Coaches Interface ${i + 1}`}
+                                            className="rounded-2xl w-full h-auto object-cover"
+                                        />
+                                    )}
                                 </div>
                             </div>
                         </div>
