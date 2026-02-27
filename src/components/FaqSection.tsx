@@ -88,6 +88,7 @@ export default function FaqSection() {
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
             }}
+            id='faq'
         >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 max-w-[1200px] mx-auto w-full items-start">
                 {/* Left: CTA */}

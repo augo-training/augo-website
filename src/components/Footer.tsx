@@ -1,4 +1,5 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useCallback } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { gsap } from 'gsap'
 import augoFooter from '../assets/images/augo_footer_1.svg'
 import footerIcon1 from '../assets/images/footer_icon_1.png'
@@ -27,7 +28,7 @@ const linkColumns = [
     {
         title: 'Explore',
         links: [
-            { label: 'Find a match', href: '#match' },
+            { label: 'Find a match', href: '/find' },
             { label: 'Community', href: '#community' },
         ],
     },
@@ -41,9 +42,22 @@ const socialLinks = [
 ]
 
 export default function Footer() {
+    const location = useLocation()
+    const navigate = useNavigate()
     const logoRef = useRef<HTMLDivElement>(null)
     const linksRef = useRef<HTMLDivElement>(null)
     const socialRef = useRef<HTMLDivElement>(null)
+
+    const handleHashClick = useCallback((e: React.MouseEvent, href: string) => {
+        if (!href.startsWith('#')) return
+        e.preventDefault()
+        if (location.pathname === '/') {
+            const el = document.querySelector(href)
+            if (el) el.scrollIntoView({ behavior: 'smooth' })
+        } else {
+            navigate('/' + href)
+        }
+    }, [location.pathname, navigate])
 
     useEffect(() => {
         const prefersReducedMotion = window.matchMedia(
@@ -120,6 +134,7 @@ export default function Footer() {
                                     <li key={link.label}>
                                         <a
                                             href={link.href}
+                                            onClick={(e) => handleHashClick(e, link.href)}
                                             className="footer-link font-satoshi font-medium text-[13px] sm:text-[16px] lg:text-[18px] leading-[130%] text-[#969EA7] hover:text-white transition-colors duration-200"
                                         >
                                             {link.label}

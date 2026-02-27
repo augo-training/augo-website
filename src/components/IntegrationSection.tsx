@@ -3,7 +3,7 @@ import integrationImgMobile from '../assets/images/training_peaks_mobile.webp'
 
 export default function IntegrationSection() {
     return (
-        <section className="py-12 sm:py-16 md:py-28 px-5 sm:px-6 md:px-8 flex flex-col items-center gap-10 sm:gap-14 md:gap-16 max-w-[1200px] mx-auto">
+        <section id='how-it-works' className="py-12 sm:py-16 md:py-28 px-5 sm:px-6 md:px-8 flex flex-col items-center gap-10 sm:gap-14 md:gap-16 max-w-[1200px] mx-auto">
             {/* Texts */}
             <div className="flex flex-col items-center gap-4 sm:gap-6 max-w-[1000px]">
                 <h2 className="font-mono font-bold text-[28px] sm:text-[36px] md:text-[48px] leading-[130%] text-center text-white">

@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef, useCallback } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { gsap } from 'gsap'
 import augoLogo from '../assets/images/augo_logo.webp'
 
@@ -13,10 +14,11 @@ const mobileMenuLinks = [
     { label: 'Find a Match', href: '/find' },
 ]
 
-function NavLink({ label, href }: { label: string; href: string }) {
+function NavLink({ label, href, onClick }: { label: string; href: string; onClick?: (e: React.MouseEvent) => void }) {
     return (
         <a
             href={href}
+            onClick={onClick}
             className="group flex items-center gap-1 font-['JetBrains_Mono'] text-[14px] font-normal leading-[100%] tracking-[2px] uppercase text-white no-underline transition-all duration-200 ease-out hover:font-bold hover:italic"
         >
             <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-out">
@@ -28,6 +30,8 @@ function NavLink({ label, href }: { label: string; href: string }) {
 }
 
 export default function Navbar() {
+    const location = useLocation()
+    const navigate = useNavigate()
     const [showJoinButton, setShowJoinButton] = useState(false)
     const [menuOpen, setMenuOpen] = useState(false)
     const isAnimating = useRef(false)
@@ -188,10 +192,27 @@ export default function Navbar() {
         }
     }, [menuOpen, openMenu, closeMenu])
 
+    // Handle hash link click: smooth scroll if on Home, navigate otherwise
+    const handleHashLinkClick = useCallback((e: React.MouseEvent, href: string) => {
+        if (!href.startsWith('#')) return // non-hash links navigate normally
+        const isHome = location.pathname === '/'
+        if (isHome) {
+            e.preventDefault()
+            const el = document.querySelector(href)
+            if (el) el.scrollIntoView({ behavior: 'smooth' })
+        } else {
+            e.preventDefault()
+            navigate('/' + href)
+        }
+    }, [location.pathname, navigate])
+
     // Close menu when a link is clicked
-    const handleMenuLinkClick = useCallback(() => {
+    const handleMenuLinkClick = useCallback((e: React.MouseEvent, href: string) => {
+        if (href.startsWith('#')) {
+            handleHashLinkClick(e, href)
+        }
         closeMenu()
-    }, [closeMenu])
+    }, [closeMenu, handleHashLinkClick])
 
     return (
         <>
@@ -206,7 +227,7 @@ export default function Navbar() {
                     {/* Nav Links — visible only on lg+ (desktop) */}
                     <div className="hidden lg:flex items-center gap-10">
                         {navLinks.map((link) => (
-                            <NavLink key={link.label} label={link.label} href={link.href} />
+                            <NavLink key={link.label} label={link.label} href={link.href} onClick={(e) => handleHashLinkClick(e, link.href)} />
                         ))}
                     </div>
                 </div>
@@ -275,7 +296,7 @@ export default function Navbar() {
                             key={link.label}
                             href={link.href}
                             ref={(el) => { menuItemRefs.current[i] = el }}
-                            onClick={handleMenuLinkClick}
+                            onClick={(e) => handleMenuLinkClick(e, link.href)}
                             className="font-['JetBrains_Mono'] font-normal text-[24px] leading-[150%] tracking-[0px] text-center uppercase text-white no-underline"
                             style={{ opacity: 0 }}
                         >
@@ -289,7 +310,7 @@ export default function Navbar() {
                     <a
                         ref={menuJoinRef}
                         href="/join"
-                        onClick={handleMenuLinkClick}
+                        onClick={(e) => handleMenuLinkClick(e, '/join')}
                         className="btn-gradient block w-full font-mono text-sm font-extrabold tracking-[2px] uppercase text-white text-center py-4 rounded-lg"
                         style={{ opacity: 0 }}
                     >

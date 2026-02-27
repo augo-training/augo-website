@@ -95,13 +95,13 @@ export default function CoachesSection() {
                                 gsap.to(headline, {
                                     opacity: 1,
                                     y: 0,
-                                    duration: 1.6,
+                                    duration: 4.2,
                                     ease: 'cubic-bezier(0.16, 1, 0.3, 1)',
                                 })
                                 gsap.to(bodies[i], {
                                     opacity: 1,
-                                    duration: 1,
-                                    delay: 0.3,
+                                    duration: 3,
+                                    delay: 1.5,
                                     ease: 'cubic-bezier(0.16, 1, 0.3, 1)',
                                 })
                                 observer.disconnect()
@@ -128,13 +128,13 @@ export default function CoachesSection() {
                     gsap.to(headline, {
                         opacity: 1,
                         y: 0,
-                        duration: 1.6,
+                        duration: 4.2,
                         ease: 'cubic-bezier(0.16, 1, 0.3, 1)',
                     })
                     gsap.to(bodies[i], {
                         opacity: 1,
-                        duration: 1,
-                        delay: 0.3,
+                        duration: 3,
+                        delay: 1,
                         ease: 'cubic-bezier(0.16, 1, 0.3, 1)',
                     })
                 },

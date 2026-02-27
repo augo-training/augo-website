@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
 import FloatingButton from '../components/FloatingButton'
@@ -16,6 +17,17 @@ import Footer from '../components/Footer'
 
 function Home() {
     const [videoOpen, setVideoOpen] = useState(false)
+    const location = useLocation()
+
+    // Scroll to hash section when navigating from another page (e.g. /#coaches)
+    useEffect(() => {
+        if (location.hash) {
+            requestAnimationFrame(() => {
+                const el = document.querySelector(location.hash)
+                if (el) el.scrollIntoView({ behavior: 'smooth' })
+            })
+        }
+    }, [location.hash])
 
     return (
         <>
