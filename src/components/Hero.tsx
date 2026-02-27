@@ -278,7 +278,7 @@ export default function Hero() {
                         </span>
                     </h1>
                     <p ref={subheadlineRef} className="font-satoshi font-medium text-base sm:text-lg leading-[130%] text-text-muted mb-8 sm:mb-10" style={{ opacity: 0 }}>
-                        The intelligent assistant that combines workout data and athlete feedback, turning insights into action and giving you time for what matters most.
+                        The intelligent assistant that combines coach-athlete communication, workout data and session feedback, turning insights into action and giving you time for what matters most.
                     </p>
                     <a
                         ref={ctaRef}

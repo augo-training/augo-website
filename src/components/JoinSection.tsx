@@ -86,6 +86,16 @@ export default function JoinSection() {
                 ease,
             })
         }
+
+        // Load Typeform embed script
+        const script = document.createElement('script')
+        script.src = '//embed.typeform.com/next/embed.js'
+        script.async = true
+        document.head.appendChild(script)
+
+        return () => {
+            document.head.removeChild(script)
+        }
     }, [])
 
     return (
@@ -116,7 +126,7 @@ export default function JoinSection() {
                     </p>
                 </div>
 
-                {/* Right: Form placeholder with animated border + glow */}
+                {/* Right: Form with animated border + glow */}
                 <div ref={formRef} className="flex justify-center lg:justify-end w-full mt-4 lg:mt-0">
                     <div className="join-form-wrapper relative w-full max-w-[360px] sm:max-w-[420px]">
                         {/* Pulsing glow behind */}
@@ -125,35 +135,8 @@ export default function JoinSection() {
                         {/* Rotating gradient border */}
                         <div className="join-form-border relative rounded-[20px] sm:rounded-[24px] p-[2px] sm:p-[3px]">
                             {/* Inner container */}
-                            <div className="join-form-inner rounded-[18px] sm:rounded-[21px] bg-[#0A0A0A] p-6 sm:p-8 w-full flex flex-col gap-6">
-                                <p className="font-satoshi font-bold text-[18px] sm:text-[22px] leading-[130%] text-white text-left">
-                                    Fill in this form to join<br className="hidden sm:block" /> augo waitlist
-                                </p>
-
-                                <div className="flex flex-col gap-3">
-                                    <div className="w-full bg-[#1F1F1F] rounded-lg px-4 py-3 text-[#7B8289] text-[14px] sm:text-[15px] flex items-center justify-start border border-transparent shadow-inner">
-                                        First name*
-                                    </div>
-                                    <div className="w-full bg-[#1F1F1F] rounded-lg px-4 py-3 text-[#7B8289] text-[14px] sm:text-[15px] flex items-center justify-start border border-transparent shadow-inner">
-                                        Last name*
-                                    </div>
-                                    <div className="w-full bg-[#1F1F1F] rounded-lg px-4 py-3 text-[#7B8289] text-[14px] sm:text-[15px] flex items-center justify-between border border-transparent shadow-inner">
-                                        <span>You are...</span>
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M4 6L8 10L12 6" stroke="#7B8289" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                        </svg>
-                                    </div>
-                                    <div className="w-full bg-[#1F1F1F] rounded-lg px-4 py-3 text-[#7B8289] text-[14px] sm:text-[15px] flex items-center justify-start border border-transparent shadow-inner">
-                                        Email*
-                                    </div>
-                                    <div className="w-full bg-[#1F1F1F] rounded-lg px-4 py-3 text-[#7B8289] text-[14px] sm:text-[15px] h-24 sm:h-28 flex items-start justify-start border border-transparent shadow-inner">
-                                        Message (Optional)
-                                    </div>
-                                </div>
-
-                                <button className="w-full bg-white text-[#0A0A0A] font-mono font-bold text-[14px] sm:text-[16px] tracking-[2px] uppercase py-3 sm:py-4 rounded flex items-center justify-center hover:scale-[1.02] transition-transform duration-300">
-                                    JOIN AUGO
-                                </button>
+                            <div className="join-form-inner rounded-[18px] sm:rounded-[21px] bg-[#0A0A0A] w-full flex flex-col gap-6 min-h-[400px] overflow-hidden">
+                                <div data-tf-live="01K9FM9BX0ES43PVK4GR1KFKQT"></div>
                             </div>
                         </div>
                     </div>
