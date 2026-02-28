@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
 import { createPortal } from 'react-dom'
-import modalVideo from '../assets/videos/modal_video.mp4'
+// import modalVideo from '../assets/videos/modal_video.mp4'
 
 interface VideoModalProps {
     isOpen: boolean
@@ -189,7 +189,7 @@ export default function VideoModal({ isOpen, onClose }: VideoModalProps) {
 
                 {/* Video + controls container */}
                 <div className="relative w-full h-full rounded-[14px] overflow-hidden bg-[#0A0A0A]">
-                    <video
+                    {/* <video
                         ref={videoRef}
                         src={modalVideo}
                         autoPlay
@@ -198,7 +198,7 @@ export default function VideoModal({ isOpen, onClose }: VideoModalProps) {
                         playsInline
                         onClick={togglePlay}
                         className="w-full h-full object-cover block cursor-pointer"
-                    />
+                    /> */}
 
                     {/* Custom controls bar */}
                     <div
