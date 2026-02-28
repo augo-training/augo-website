@@ -1,19 +1,19 @@
-import samsungLogo from '../assets/images/samsung.svg'
-import trainingPeaksLogo from '../assets/images/training_peaks_logo.svg'
+import stravaLogo from '../assets/images/strava.svg'
 import appleWatchLogo from '../assets/images/apple_watch.svg'
 import wahooLogo from '../assets/images/wahoo.svg'
 import corosLogo from '../assets/images/coros.svg'
-import amazfitLogo from '../assets/images/amazfit.svg'
 import polarLogo from '../assets/images/polar.svg'
+import garminLogo from '../assets/images/garmin.svg'
+import zwiftLogo from '../assets/images/zwift.svg'
 
 const logos = [
-    { src: samsungLogo, alt: 'Samsung Galaxy Watch' },
-    { src: trainingPeaksLogo, alt: 'Training Peaks' },
-    { src: appleWatchLogo, alt: 'Apple Watch' },
-    { src: wahooLogo, alt: 'Wahoo' },
+    { src: garminLogo, alt: 'Garmin' },
+    { src: stravaLogo, alt: 'Strava' },
     { src: corosLogo, alt: 'Coros' },
-    { src: amazfitLogo, alt: 'Amazfit' },
+    { src: wahooLogo, alt: 'Wahoo' },
+    { src: zwiftLogo, alt: 'Zwift' },
     { src: polarLogo, alt: 'Polar' },
+    { src: appleWatchLogo, alt: 'Apple Watch' },
 ]
 
 function LogoSet() {

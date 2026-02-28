@@ -53,7 +53,16 @@ export default function ContactSection() {
             observer.observe(card)
         }
 
-        return () => { tweens.forEach((t) => t?.kill()) }
+        // Load Typeform embed script
+        const script = document.createElement('script')
+        script.src = '//embed.typeform.com/next/embed.js'
+        script.async = true
+        document.head.appendChild(script)
+
+        return () => {
+            tweens.forEach((t) => t?.kill())
+            document.head.removeChild(script)
+        }
     }, [])
 
     return (
@@ -129,53 +138,20 @@ export default function ContactSection() {
             {/* ── Content ── */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 max-w-[1200px] mx-auto w-full items-center lg:items-center relative z-20 px-5 sm:px-8 py-16 lg:py-24">
 
-                {/* Left (Desktop) / Bottom (Mobile): Form placeholder card — 486×617 per Figma */}
-                <div
-                    ref={formCardRef}
-                    className="order-2 lg:order-1 bg-white rounded-2xl p-6 sm:p-8 flex flex-col gap-4 sm:gap-5 mx-auto lg:mx-0 w-full"
-                    style={{ minHeight: '617px', maxWidth: '486px' }}
-                >
-                    <p className="font-satoshi font-bold text-[18px] sm:text-[22px] leading-[130%] text-[#151515]">
-                        Fill in this form and we'll reach out
-                    </p>
+                {/* Left (Desktop) / Bottom (Mobile): Form card with animated border + glow */}
+                <div ref={formCardRef} className="order-2 lg:order-1 mx-auto lg:mx-0 w-full" style={{ maxWidth: '486px' }}>
+                    <div className="join-form-wrapper relative w-full">
+                        {/* Pulsing glow behind */}
+                        <div className="join-form-glow absolute -inset-10 sm:-inset-16 rounded-[2rem] pointer-events-none" />
 
-                    {/* Form fields placeholder */}
-                    <div className="flex flex-col gap-3 flex-1 mt-2">
-                        {['Full name*', 'Email*', 'Phone number'].map((label) => (
-                            <div
-                                key={label}
-                                className="w-full rounded-lg px-4 py-3 text-[14px] sm:text-[15px] text-[#969EA7]"
-                                style={{ background: '#F2F2F2', minHeight: '44px', display: 'flex', alignItems: 'center' }}
-                            >
-                                {label}
+                        {/* Rotating gradient border */}
+                        <div className="join-form-border relative rounded-[20px] sm:rounded-[24px] p-[2px] sm:p-[3px]">
+                            {/* Inner container */}
+                            <div className="join-form-inner rounded-[18px] sm:rounded-[21px] bg-white w-full overflow-hidden">
+                                <div data-tf-live="01KJGKY5FEG41JEKDRFTM4F4D6"></div>
                             </div>
-                        ))}
-                        {/* Subject dropdown */}
-                        <div
-                            className="w-full rounded-lg px-4 py-3 text-[14px] sm:text-[15px] text-[#969EA7] flex items-center justify-between"
-                            style={{ background: '#F2F2F2', minHeight: '44px' }}
-                        >
-                            <span>Subject*</span>
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path d="M4 6L8 10L12 6" stroke="#969EA7" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-                        </div>
-                        {/* Message textarea */}
-                        <div
-                            className="w-full rounded-lg px-4 py-3 text-[14px] sm:text-[15px] text-[#969EA7]"
-                            style={{ background: '#F2F2F2', minHeight: '120px', display: 'flex', alignItems: 'flex-start' }}
-                        >
-                            Message
                         </div>
                     </div>
-
-                    {/* CTA button */}
-                    <button
-                        className="w-full rounded-lg py-4 font-mono font-bold text-[14px] tracking-[2px] text-white uppercase mt-2 lg:mt-0"
-                        style={{ background: '#151515' }}
-                    >
-                        Get in touch
-                    </button>
                 </div>
 
                 {/* Right (Desktop) / Top (Mobile): Text */}

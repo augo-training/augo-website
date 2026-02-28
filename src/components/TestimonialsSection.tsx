@@ -5,6 +5,7 @@ import tobiasPhoto from '../assets/images/Tobias.png'
 import mikaelPhoto from '../assets/images/Mikael.png'
 import jazminePhoto from '../assets/images/Jazmine.png'
 import manuelPhoto from '../assets/images/Manuel.png'
+import marcoPhoto from '../assets/images/Marco.webp'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -43,6 +44,13 @@ const testimonials: Testimonial[] = [
         name: 'Manuel Wyss',
         role: 'Triathlon Coach',
         photo: manuelPhoto,
+    },
+    {
+        quote:
+            'augo brings together workout data and athlete feedback in a simple overview that makes staying in tune with remote athletes effortless. In a world where wearables pretend to know better than the athlete, augo feels like fresh air — the only AI coaching platform that truly understands the coach-athlete relationship.',
+        name: 'Marco Altini',
+        role: 'Ultra & Trail-Running Coach',
+        photo: marcoPhoto,
     },
 ]
 
@@ -197,7 +205,10 @@ export default function TestimonialsSection() {
                         >
                             {/* Quote */}
                             <p
-                                className="font-satoshi font-medium text-[16px] sm:text-[20px] md:text-[24px] leading-[130%] mb-6 sm:mb-8"
+                                className={`font-satoshi font-medium leading-[130%] mb-6 sm:mb-8 ${t.quote.length > 200
+                                        ? 'text-[14px] sm:text-[16px] md:text-[20px]'
+                                        : 'text-[16px] sm:text-[20px] md:text-[24px]'
+                                    }`}
                                 style={{ color: '#151515' }}
                             >
                                 {t.quote}
@@ -209,7 +220,7 @@ export default function TestimonialsSection() {
                                 <img
                                     src={t.photo}
                                     alt={t.name}
-                                    className="flex-shrink-0 rounded-lg object-cover w-10 h-10 sm:w-12 sm:h-12"
+                                    className="flex-shrink-0 rounded-lg object-cover w-10 h-10 sm:w-12 sm:h-12 grayscale"
                                 />
                                 <div className="flex flex-col">
                                     <span

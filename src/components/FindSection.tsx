@@ -130,8 +130,15 @@ export default function FindSection() {
             }
         }
 
+        // Load Typeform embed script
+        const script = document.createElement('script')
+        script.src = '//embed.typeform.com/next/embed.js'
+        script.async = true
+        document.head.appendChild(script)
+
         return () => {
             rotateTl?.kill()
+            document.head.removeChild(script)
         }
     }, [])
 
@@ -187,10 +194,8 @@ export default function FindSection() {
                         {/* Rotating gradient border */}
                         <div className="join-form-border relative rounded-[20px] sm:rounded-[24px] p-[2px] sm:p-[3px]">
                             {/* Inner container */}
-                            <div className="join-form-inner rounded-[18px] sm:rounded-[21px] bg-[#0A0A0A] h-[480px] sm:h-[550px] w-full flex flex-col items-center justify-center">
-                                <button className="bg-white text-[#0A0A0A] font-mono font-bold text-[14px] sm:text-[16px] tracking-[2px] uppercase py-3 sm:py-4 px-6 sm:px-8 rounded flex items-center justify-center hover:scale-105 transition-transform duration-300">
-                                    Get Started
-                                </button>
+                            <div className="join-form-inner rounded-[18px] sm:rounded-[21px] bg-[#0A0A0A] w-full flex flex-col gap-6 min-h-[400px] overflow-hidden">
+                                <div data-tf-live="01KJGKFFGT5Q2HKCRG1TGHRF60"></div>
                             </div>
                         </div>
                     </div>

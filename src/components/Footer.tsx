@@ -36,9 +36,9 @@ const linkColumns = [
 
 const socialLinks = [
     { icon: youtubeIcon, alt: 'YouTube', href: '#' },
-    { icon: instagramIcon, alt: 'Instagram', href: '#' },
-    { icon: linkedinIcon, alt: 'LinkedIn', href: '#' },
-    { icon: unknownIcon, alt: 'Strava', href: '#' },
+    { icon: instagramIcon, alt: 'Instagram', href: 'https://www.instagram.com/augo.training/' },
+    { icon: linkedinIcon, alt: 'LinkedIn', href: 'https://www.linkedin.com/company/augotraining' },
+    { icon: unknownIcon, alt: 'Substack', href: 'https://substack.com/@augotraining' },
 ]
 
 export default function Footer() {
@@ -154,9 +154,13 @@ export default function Footer() {
                     {socialLinks.map((social) => (
                         <a
                             key={social.alt}
-                            href={social.href}
+                            href={social.href === '#' ? undefined : social.href}
+                            target={social.href === '#' ? undefined : '_blank'}
+                            rel={social.href === '#' ? undefined : 'noopener noreferrer'}
+                            onClick={social.href === '#' ? (e: React.MouseEvent) => e.preventDefault() : undefined}
                             className="social-icon-link"
                             aria-label={social.alt}
+                            style={social.href === '#' ? { cursor: 'default' } : undefined}
                         >
                             <img src={social.icon} alt={social.alt} className="h-10 w-10 sm:h-12 sm:w-12 lg:h-10 lg:w-10" />
                         </a>

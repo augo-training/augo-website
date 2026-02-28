@@ -33,20 +33,13 @@ const panels: Panel[] = [
         headline: 'Your dedicated\nspace to connect\nwith your coach',
         body: 'All messages, session feedbacks and workout data in one place—so you always feel supported, no matter where you are.',
         images: [
-            // Chat bubble 1 — top right
-            { src: athletesImg1_2, className: 'absolute top-[4%] right-[18%] w-[55%] z-10' },
-            // Coach avatar — next to bubble 1
-            { src: athletesImg1_1, className: 'grayscale absolute top-[15%] right-[10%] w-[5%] z-10' },
-            // Chat bubble 2 — left side
+            { src: athletesImg1_2, className: 'absolute top-[7%] left-[12%] w-[55%] z-10' },
+            { src: athletesImg1_3, className: 'grayscale absolute top-[78%] left-[5%] w-[5%] z-10' },
             { src: athletesImg1_4, className: 'absolute top-[22%] left-[12%] w-[52%] z-10' },
-            // Chat bubble 3 — left side
-            { src: athletesImg1_5, className: 'absolute top-[42%] left-[12%] w-[52%] z-10' },
-            // Athlete avatar — beside bubble 3
-            { src: athletesImg1_3, className: 'absolute top-[52%] left-[5%] w-[5%] z-10' },
-            // Chat bubble 4 — right side
-            { src: athletesImg1_6, className: 'absolute top-[62%] right-[18%] w-[52%] z-10' },
-            // Coach avatar 2 — next to bubble 4
-            { src: athletesImg1_1, className: 'grayscale absolute top-[72%] right-[10%] w-[5%] z-10' },
+            { src: athletesImg1_5, className: 'absolute top-[40%] right-[18%] w-[52%] z-10' },
+            { src: athletesImg1_3, className: 'absolute top-[32%] left-[5%] w-[5%] z-10' },
+            { src: athletesImg1_6, className: 'absolute top-[62%] left-[12%] w-[52%] z-10' },
+            { src: athletesImg1_1, className: 'grayscale absolute top-[56%] right-[10%] w-[5%] z-10' },
         ],
     },
     {
