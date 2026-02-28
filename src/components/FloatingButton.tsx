@@ -50,7 +50,7 @@ export default function FloatingButton({ onClick }: FloatingButtonProps) {
         <button
             ref={btnRef}
             onClick={onClick}
-            className="floating-app-btn fixed z-50 flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl cursor-pointer bottom-6 right-5 sm:bottom-12 sm:right-12"
+            className="hidden floating-app-btn fixed z-50 flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl cursor-pointer bottom-6 right-5 sm:bottom-12 sm:right-12"
             aria-label="Watch video"
         >
             <AugoIcon className="w-[24px] h-[24px] sm:w-[28px] sm:h-[28px]" />
