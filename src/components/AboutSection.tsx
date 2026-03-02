@@ -3,7 +3,7 @@ import { gsap } from 'gsap'
 import aboutLeftImg from '../assets/images/about_section_left.webp'
 import aboutTopRightImg from '../assets/images/about_section_top_right.webp'
 import aboutBottomRightImg from '../assets/images/about_section_bottom_right.webp'
-import aboutMobileImg from '../assets/images/about_mobile.webp'
+
 
 export default function AboutSection() {
     const sectionRef = useRef<HTMLDivElement>(null)
@@ -181,11 +181,11 @@ export default function AboutSection() {
                     </p>
                 </div>
 
-                {/* Mobile Image */}
+                {/* Image 1 — top right (desktop) */}
                 <div className="overflow-hidden rounded-2xl w-full">
                     <img
-                        src={aboutMobileImg}
-                        alt="Augo founders mobile"
+                        src={aboutTopRightImg}
+                        alt="Augo founder"
                         className="w-full h-auto object-cover"
                     />
                 </div>
@@ -206,6 +206,42 @@ export default function AboutSection() {
                         Technology that serves coaches, not the other
                         way around
                     </p>
+                </div>
+
+                {/* Image 2 — left (desktop) */}
+                <div className="overflow-hidden rounded-2xl w-full">
+                    <img
+                        src={aboutLeftImg}
+                        alt="Augo founder"
+                        className="w-full h-auto object-cover"
+                    />
+                </div>
+
+                {/* Text block 3 */}
+                <div className="flex flex-col gap-4 sm:gap-6">
+                    <p
+                        className="font-satoshi font-medium text-[16px] sm:text-[18px] leading-[130%] text-[#969EA7]"
+                    >
+                        In late 2025, Andreas Hermann, a computer scientist and triathlete
+                        joined augo as a co-founder. He not only brings in experience as a
+                        CTO in a sportstech company but also worked on the same problem
+                        as augo did before the three founder met.
+                    </p>
+                    <p
+                        className="font-satoshi font-bold text-[20px] sm:text-[24px] leading-[130%] text-white"
+                    >
+                        They decided to join forces and Andreas joined
+                        augo's mission.
+                    </p>
+                </div>
+
+                {/* Image 3 — bottom right (desktop) */}
+                <div className="overflow-hidden rounded-2xl w-full">
+                    <img
+                        src={aboutBottomRightImg}
+                        alt="Augo co-founder Andreas"
+                        className="w-full h-auto object-cover"
+                    />
                 </div>
             </div>
 
