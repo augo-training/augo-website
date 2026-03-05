@@ -29,13 +29,13 @@ const linkColumns = [
         title: 'Explore',
         links: [
             { label: 'Find a match', href: '/find' },
-            { label: 'Community', href: '#community' },
+            // { label: 'Community', href: '#community' },
         ],
     },
 ]
 
 const socialLinks = [
-    { icon: youtubeIcon, alt: 'YouTube', href: '#' },
+    // { icon: youtubeIcon, alt: 'YouTube', href: '#' },
     { icon: instagramIcon, alt: 'Instagram', href: 'https://www.instagram.com/augo.training/' },
     { icon: linkedinIcon, alt: 'LinkedIn', href: 'https://www.linkedin.com/company/augotraining' },
     { icon: unknownIcon, alt: 'Substack', href: 'https://substack.com/@augotraining' },
