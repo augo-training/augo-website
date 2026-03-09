@@ -67,8 +67,7 @@ export default function CookieConsent() {
                 <p className="font-satoshi text-[14px] sm:text-[15px] leading-[150%] text-white text-center sm:text-left"
                     style={{ opacity: 0.85 }}
                 >
-                    We use cookies from third-party services to improve your experience.{' '}
-                    <span className="hidden sm:inline">You can accept or decline non-essential cookies.</span>
+                    We use third-party cookies to improve your experience.
                 </p>
 
                 {/* Buttons */}
