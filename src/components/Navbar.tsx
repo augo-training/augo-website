@@ -32,7 +32,7 @@ function NavLink({ label, href, onClick }: { label: string; href: string; onClic
 export default function Navbar() {
     const location = useLocation()
     const navigate = useNavigate()
-    const [showJoinButton, setShowJoinButton] = useState(false)
+    const [showJoinButton, setShowJoinButton] = useState(() => window.location.pathname !== '/join')
     const [menuOpen, setMenuOpen] = useState(false)
     const isAnimating = useRef(false)
 
@@ -43,11 +43,8 @@ export default function Navbar() {
 
     // Intersection Observer: hide Join Augo when Hero CTA or FAQ CTA is on screen
     useEffect(() => {
-        // Already on the Join page → hide the button
-        if (window.location.pathname === '/join') {
-            setShowJoinButton(false)
-            return
-        }
+        // Already on the Join page → hide the button (handled by initial state)
+        if (window.location.pathname === '/join') return
 
         const heroCta = document.querySelector('[data-cta="hero"]')
         const faqCta = document.querySelector('[data-cta="faq"]')
@@ -55,8 +52,8 @@ export default function Navbar() {
         const targets = [heroCta, faqCta].filter(Boolean) as Element[]
         if (targets.length === 0) {
             // No CTA targets on this page (e.g. /find) → always show the button
-            setShowJoinButton(true)
-            return
+            const id = requestAnimationFrame(() => setShowJoinButton(true))
+            return () => cancelAnimationFrame(id)
         }
 
         const visibleSet = new Set<Element>()

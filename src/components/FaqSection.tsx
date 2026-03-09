@@ -159,9 +159,7 @@ export default function FaqSection() {
                                         }}
                                         className="overflow-hidden transition-[max-height] duration-500 ease-in-out"
                                         style={{
-                                            maxHeight: isOpen
-                                                ? `${contentRefs.current[index]?.scrollHeight ?? 500}px`
-                                                : '0px',
+                                            maxHeight: isOpen ? '1000px' : '0px',
                                         }}
                                     >
                                         <div
