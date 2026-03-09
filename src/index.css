@@ -381,3 +381,8 @@ body {
       "frame2   texts";
   }
 }
+
+/* ─── Cookie Consent Banner ─── */
+.cookie-banner {
+  background-color: #090909;
+}

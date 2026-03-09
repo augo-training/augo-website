@@ -1,5 +1,6 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
+import { getConsentStatus } from './CookieConsent'
 import bgImage from '../assets/images/bg_section_1.webp'
 
 const ROTATING_WORDS = ['coach', 'athlete']
@@ -13,6 +14,14 @@ export default function FindSection() {
     const rotatingRef = useRef<HTMLSpanElement>(null)
     const bodyRef = useRef<HTMLParagraphElement>(null)
     const formRef = useRef<HTMLDivElement>(null)
+    const [consent, setConsent] = useState(getConsentStatus)
+
+    // Listen for consent changes
+    useEffect(() => {
+        const handler = () => setConsent(getConsentStatus())
+        window.addEventListener('cookie-consent-changed', handler)
+        return () => window.removeEventListener('cookie-consent-changed', handler)
+    }, [])
 
     useEffect(() => {
         const prefersReducedMotion = window.matchMedia(
@@ -92,7 +101,7 @@ export default function FindSection() {
                 opacity: 1,
                 y: 0,
                 duration: FADE_DURATION,
-                delay: 0.6, // starts after initial headline reveal begins
+                delay: 0.6,
                 ease: 'power2.inOut',
             })
 
@@ -130,17 +139,30 @@ export default function FindSection() {
             }
         }
 
-        // Load Typeform embed script
+        return () => {
+            rotateTl?.kill()
+        }
+    }, [])
+
+    // Load Typeform embed script only when consent is accepted
+    useEffect(() => {
+        if (consent !== 'accepted') return
+
         const script = document.createElement('script')
         script.src = '//embed.typeform.com/next/embed.js'
         script.async = true
         document.head.appendChild(script)
 
         return () => {
-            rotateTl?.kill()
             document.head.removeChild(script)
         }
-    }, [])
+    }, [consent])
+
+    const handleAcceptCookies = () => {
+        localStorage.setItem('augo_cookie_consent', 'accepted')
+        setConsent('accepted')
+        window.dispatchEvent(new Event('cookie-consent-changed'))
+    }
 
     return (
         <section
@@ -194,8 +216,25 @@ export default function FindSection() {
                         {/* Rotating gradient border */}
                         <div className="join-form-border relative rounded-[20px] sm:rounded-[24px] p-[2px] sm:p-[3px]">
                             {/* Inner container */}
-                            <div className="join-form-inner rounded-[18px] sm:rounded-[21px] bg-[#0A0A0A] w-full flex flex-col gap-6 min-h-[400px] overflow-hidden">
-                                <div data-tf-live="01KJGKFFGT5Q2HKCRG1TGHRF60"></div>
+                            <div className="join-form-inner min-h-[500px] rounded-[18px] sm:rounded-[21px] bg-[#0A0A0A] w-full flex flex-col gap-6 overflow-hidden">
+                                {consent === 'accepted' ? (
+                                    <div data-tf-live="01KJGKFFGT5Q2HKCRG1TGHRF60"></div>
+                                ) : (
+                                    <div className="flex flex-col items-center justify-center text-center px-6 sm:px-10 py-12 flex-1">
+                                        <h3 className="font-mono font-bold text-[18px] sm:text-[20px] text-white leading-[130%] mb-3">
+                                            Cookies Required
+                                        </h3>
+                                        <p className="font-satoshi text-[14px] sm:text-[15px] leading-[160%] text-white mb-8" style={{ opacity: 0.7 }}>
+                                            This form uses cookies from Typeform. Please accept cookies to load the form.
+                                        </p>
+                                        <button
+                                            onClick={handleAcceptCookies}
+                                            className="join-augo-btn font-mono text-[13px] sm:text-[14px] font-extrabold tracking-[2px] uppercase px-8 py-3.5 rounded-lg cursor-pointer transition-all duration-200"
+                                        >
+                                            Accept Cookies
+                                        </button>
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </div>
