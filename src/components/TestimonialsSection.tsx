@@ -6,6 +6,7 @@ import mikaelPhoto from '../assets/images/Mikael.png'
 import jazminePhoto from '../assets/images/Jazmine.png'
 import manuelPhoto from '../assets/images/Manuel.png'
 import marcoPhoto from '../assets/images/Marco.webp'
+import brianPhoto from '../assets/images/Brian.png'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -30,6 +31,13 @@ const testimonials: Testimonial[] = [
         name: 'Mikael Eriksson',
         role: 'Founder | Scientific Triathlon',
         photo: mikaelPhoto,
+    },
+    {
+        quote:
+            'Coaching is about the human connection, and augo protects and enhances that. It handles the operational clutter so I can focus entirely on my athletes. That means more time for check-ins, stronger 1-on-1 feedback, and the confidence that nothing falls through the cracks.',
+        name: 'Brian Boisvert',
+        role: 'Running Coach',
+        photo: brianPhoto,
     },
     {
         quote:
