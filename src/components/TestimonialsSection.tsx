@@ -19,10 +19,10 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
     {
         quote:
-            'A training program is only as strong as the communication between coach and athlete. augo bridges the gap that arises from remote coaching, allowing coaches to truly coach.',
-        name: 'Tobias Haumann',
-        role: 'Coach | Scientific Triathlon',
-        photo: tobiasPhoto,
+            'augo brings together workout data and athlete feedback in a simple overview that makes staying in tune with remote athletes effortless. In a world where wearables pretend to know better than the athlete, augo feels like fresh air — the only AI coaching platform that truly understands the coach-athlete relationship.',
+        name: 'Marco Altini',
+        role: 'Ultra & Trail-Running Coach',
+        photo: marcoPhoto,
     },
     {
         quote:
@@ -40,17 +40,17 @@ const testimonials: Testimonial[] = [
     },
     {
         quote:
+            'A training program is only as strong as the communication between coach and athlete. augo bridges the gap that arises from remote coaching, allowing coaches to truly coach.',
+        name: 'Tobias Haumann',
+        role: 'Coach | Scientific Triathlon',
+        photo: tobiasPhoto,
+    },
+    {
+        quote:
             'Throughout nearly 20 years of coaching, I\'ve needed a tool that lets me stay connected and truly present for the people I coach. augo is that tool. It finally exists.',
         name: 'Manuel Wyss',
         role: 'Triathlon Coach',
         photo: manuelPhoto,
-    },
-    {
-        quote:
-            'augo brings together workout data and athlete feedback in a simple overview that makes staying in tune with remote athletes effortless. In a world where wearables pretend to know better than the athlete, augo feels like fresh air — the only AI coaching platform that truly understands the coach-athlete relationship.',
-        name: 'Marco Altini',
-        role: 'Ultra & Trail-Running Coach',
-        photo: marcoPhoto,
     },
 ]
 
