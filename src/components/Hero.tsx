@@ -1,4 +1,4 @@
-import { useEffect, useRef, useCallback } from 'react'
+import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import bgSection1 from '../assets/images/bg_section_1.webp'
 import imgHome from '../assets/images/home.png'
@@ -25,20 +25,6 @@ export default function Hero() {
     const glowPos = useRef({ x: 0, y: 0 })
     const rafId = useRef<number>(0)
     const isMouseInSection = useRef(false)
-
-    // Glow lerp animation loop
-    const animateGlow = useCallback(() => {
-        const glow = glowRef.current
-        if (!glow) return
-
-        const lerp = 0.08
-        glowPos.current.x += (mousePos.current.x - glowPos.current.x) * lerp
-        glowPos.current.y += (mousePos.current.y - glowPos.current.y) * lerp
-
-        glow.style.transform = `translate(${glowPos.current.x - 225}px, ${glowPos.current.y - 225}px)`
-
-        rafId.current = requestAnimationFrame(animateGlow)
-    }, [])
 
     useEffect(() => {
         const lines = [line1Ref.current, line2Ref.current, line3Ref.current]
@@ -202,6 +188,17 @@ export default function Hero() {
             section.addEventListener('mouseenter', handleMouseEnter)
             section.addEventListener('mouseleave', handleMouseLeave)
 
+            // Glow lerp animation loop
+            function animateGlow() {
+                const g = glowRef.current
+                if (!g) return
+                const lerp = 0.08
+                glowPos.current.x += (mousePos.current.x - glowPos.current.x) * lerp
+                glowPos.current.y += (mousePos.current.y - glowPos.current.y) * lerp
+                g.style.transform = `translate(${glowPos.current.x - 225}px, ${glowPos.current.y - 225}px)`
+                rafId.current = requestAnimationFrame(animateGlow)
+            }
+
             // Start glow animation loop
             rafId.current = requestAnimationFrame(animateGlow)
 
@@ -221,7 +218,7 @@ export default function Hero() {
             rotateTl.kill()
             cancelAnimationFrame(rafId.current)
         }
-    }, [animateGlow])
+    }, [])
 
     return (
         <section

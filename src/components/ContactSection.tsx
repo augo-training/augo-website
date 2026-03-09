@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { getConsentStatus } from './CookieConsent'
+import { getConsentStatus } from './cookieUtils'
 import { gsap } from 'gsap'
 
 export default function ContactSection() {

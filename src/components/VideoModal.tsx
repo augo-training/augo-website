@@ -29,14 +29,15 @@ export default function VideoModal({ isOpen, onClose }: VideoModalProps) {
     // Open: mount → trigger enter animation
     useEffect(() => {
         if (isOpen) {
-            setVisible(true)
-            setIsPlaying(true)
-            setIsMuted(true)
-            setCurrentTime(0)
             document.body.style.overflow = 'hidden'
-            requestAnimationFrame(() => {
+            const id = requestAnimationFrame(() => {
+                setVisible(true)
+                setIsPlaying(true)
+                setIsMuted(true)
+                setCurrentTime(0)
                 requestAnimationFrame(() => setAnimating(true))
             })
+            return () => cancelAnimationFrame(id)
         }
     }, [isOpen])
 

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
-import { getConsentStatus } from './CookieConsent'
+import { getConsentStatus } from './cookieUtils'
 import bgImage from '../assets/images/bg_section_1.webp'
 
 export default function JoinSection() {
