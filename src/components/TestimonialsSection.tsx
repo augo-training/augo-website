@@ -1,12 +1,12 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import tobiasPhoto from '../assets/images/Tobias.png'
-import mikaelPhoto from '../assets/images/Mikael.png'
-import jazminePhoto from '../assets/images/Jazmine.png'
-import manuelPhoto from '../assets/images/Manuel.png'
-import marcoPhoto from '../assets/images/Marco.webp'
-import brianPhoto from '../assets/images/Brian.webp'
+import tobiasPhoto from '../assets/images/Tobias.png?w=128&h=128&format=webp'
+import mikaelPhoto from '../assets/images/Mikael.png?w=128&h=128&format=webp'
+import jazminePhoto from '../assets/images/Jazmine.png?w=128&h=128&format=webp'
+import manuelPhoto from '../assets/images/Manuel.png?w=128&h=128&format=webp'
+import marcoPhoto from '../assets/images/Marco.webp?w=128&h=128&format=webp'
+import brianPhoto from '../assets/images/Brian.png?w=128&h=128&format=webp'
 
 gsap.registerPlugin(ScrollTrigger)
 
