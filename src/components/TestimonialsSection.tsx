@@ -6,7 +6,7 @@ import mikaelPhoto from '../assets/images/Mikael.png'
 import jazminePhoto from '../assets/images/Jazmine.png'
 import manuelPhoto from '../assets/images/Manuel.png'
 import marcoPhoto from '../assets/images/Marco.webp'
-import brianPhoto from '../assets/images/Brian.png'
+import brianPhoto from '../assets/images/Brian.webp'
 
 gsap.registerPlugin(ScrollTrigger)
 
