@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef, useCallback } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { gsap } from 'gsap'
-import augoLogo from '../assets/images/augo_logo.webp'
+import augoLogo from '../assets/images/augo_footer_1.svg'
 
 const navLinks = [
     { label: 'For Coaches', href: '#coaches' },
