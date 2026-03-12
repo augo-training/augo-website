@@ -7,6 +7,8 @@ import jazminePhoto from '../assets/images/Jazmine.png?w=128&h=128&format=webp'
 import manuelPhoto from '../assets/images/Manuel.png?w=128&h=128&format=webp'
 import marcoPhoto from '../assets/images/Marco.webp?w=128&h=128&format=webp'
 import brianPhoto from '../assets/images/Brian.png?w=128&h=128&format=webp'
+import meganPhoto from '../assets/images/Megan.png?w=128&h=128&format=webp'
+import paoloPhoto from '../assets/images/Paolo.png?w=128&h=128&format=webp'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -20,24 +22,38 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
     {
         quote:
-            'augo brings together workout data and athlete feedback in a simple overview that makes staying in tune with remote athletes effortless. In a world where wearables pretend to know better than the athlete, augo feels like fresh air — the only AI coaching platform that truly understands the coach-athlete relationship.',
+            'augo brings together workout data and athlete feedback in a simple overview that makes staying in tune with remote athletes effortless. In a world where wearables pretend to know better than the athlete, augo feels like fresh air: the only AI coaching platform that truly understands the coach-athlete relationship.',
         name: 'Marco Altini',
-        role: 'Ultra & Trail-Running Coach',
+        role: 'Running Coach & Founder of HRV4Training',
         photo: marcoPhoto,
     },
     {
         quote:
             'As a coach, augo is a game-changer in my communication with my athletes, making sure I never miss anything and always understand the full context of each message or comment.',
         name: 'Mikael Eriksson',
-        role: 'Founder | Scientific Triathlon',
+        role: 'Triathlon Coach & Founder of Scientific Triathlon',
         photo: mikaelPhoto,
+    },
+    {
+        quote:
+            'As a physiotherapist and running coach, augo has been a game changer, allowing me to catch fatigue and warning signs before they turn into burnout or injury. Built on communication and feedback, it sharpens my guidance and keeps me aligned with my athletes.',
+        name: 'Megan Edwards',
+        role: 'Doctor of Physical Therapy & Running Coach',
+        photo: meganPhoto,
     },
     {
         quote:
             'Coaching is about the human connection, and augo protects and enhances that. It handles the operational clutter so I can focus entirely on my athletes. That means more time for check-ins, stronger 1-on-1 feedback, and the confidence that nothing falls through the cracks.',
         name: 'Brian Boisvert',
-        role: 'Running Coach',
+        role: 'Running Coach & Founder of Great Day for Runners',
         photo: brianPhoto,
+    },
+    {
+        quote:
+            "augo has completely reshaped my daily decision-making. Instead of sifting through endless training data, I now know exactly which athletes need my focus. This clarity allows me to refine training programs in real-time, preventing overtraining and reducing injury risk. It's the missing link between data and intuition, ensuring every programming adjustment is precisely aligned with each athlete's needs and recovery state.",
+        name: 'Paolo Gaffurini',
+        role: 'Cycling40 Training Co-founder & Coach',
+        photo: paoloPhoto,
     },
     {
         quote:
@@ -50,14 +66,14 @@ const testimonials: Testimonial[] = [
         quote:
             'A training program is only as strong as the communication between coach and athlete. augo bridges the gap that arises from remote coaching, allowing coaches to truly coach.',
         name: 'Tobias Haumann',
-        role: 'Coach | Scientific Triathlon',
+        role: 'Triathlon Coach at Scientific Triathlon',
         photo: tobiasPhoto,
     },
     {
         quote:
             'Throughout nearly 20 years of coaching, I\'ve needed a tool that lets me stay connected and truly present for the people I coach. augo is that tool. It finally exists.',
         name: 'Manuel Wyss',
-        role: 'Triathlon Coach',
+        role: 'Triathlon Coach & Former Pro Triathlete',
         photo: manuelPhoto,
     },
 ]
