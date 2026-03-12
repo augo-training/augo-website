@@ -386,3 +386,28 @@ body {
 .cookie-banner {
   background-color: #090909;
 }
+
+/* ─── Countdown Banner ─── */
+.countdown-banner {
+  background-color: #090909;
+}
+
+.countdown-banner::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -30px;
+  height: 30px;
+  background: linear-gradient(to bottom, #090909, transparent);
+  pointer-events: none;
+}
+
+.countdown-number {
+  background: linear-gradient(83.9deg, #C50017 0%, #FF5514 50%, #FFCA1E 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 4s ease-in-out infinite;
+}
