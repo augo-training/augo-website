@@ -35,8 +35,8 @@ function padNumber(num: number): string {
 
 export default function CountdownBanner({ targetDate, onComplete }: CountdownBannerProps) {
     const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(() => calculateTimeLeft(targetDate))
-    const [isVisible, setIsVisible] = useState(false)
     const bannerRef = useRef<HTMLDivElement>(null)
+    const hasAnimated = useRef(false)
 
     // Update countdown every second
     useEffect(() => {
@@ -55,13 +55,11 @@ export default function CountdownBanner({ targetDate, onComplete }: CountdownBan
 
     // GSAP entrance animation
     useEffect(() => {
-        if (timeLeft === null) return
-
         const banner = bannerRef.current
-        if (!banner) return
+        if (!banner || hasAnimated.current) return
 
+        hasAnimated.current = true
         gsap.set(banner, { opacity: 0, y: -20 })
-        setIsVisible(true)
 
         gsap.to(banner, {
             opacity: 1,
@@ -83,7 +81,6 @@ export default function CountdownBanner({ targetDate, onComplete }: CountdownBan
             className="countdown-banner fixed left-0 right-0 z-50"
             style={{
                 top: '72px',
-                opacity: isVisible ? undefined : 0,
             }}
         >
             <div className="w-full px-4 sm:px-6 py-3 sm:py-4">
