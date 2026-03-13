@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import tobiasPhoto from '../assets/images/Tobias.png?w=128&h=128&format=webp'
@@ -79,6 +80,7 @@ const testimonials: Testimonial[] = [
 ]
 
 export default function TestimonialsSection() {
+    const { t } = useTranslation()
     const sectionRef = useRef<HTMLDivElement>(null)
     const trackRef = useRef<HTMLDivElement>(null)
     const headlineRef = useRef<HTMLHeadingElement>(null)
@@ -201,9 +203,9 @@ export default function TestimonialsSection() {
                     marginLeft: 'max(1.25rem, calc((100vw - 1200px) / 2))',
                 }}
             >
-                What coaches
+                {t('testimonials.headline1')}
                 <br />
-                say about augo
+                {t('testimonials.headline2')}
             </h2>
 
             {/* Carousel container */}

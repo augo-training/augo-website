@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
 
 interface TimeLeft {
@@ -34,6 +35,7 @@ function padNumber(num: number): string {
 }
 
 export default function CountdownBanner({ targetDate, onComplete }: CountdownBannerProps) {
+    const { t } = useTranslation()
     const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(() => calculateTimeLeft(targetDate))
     const bannerRef = useRef<HTMLDivElement>(null)
     const hasAnimated = useRef(false)
@@ -83,53 +85,53 @@ export default function CountdownBanner({ targetDate, onComplete }: CountdownBan
                 top: '72px',
             }}
         >
-            <div className="w-full px-4 sm:px-6 py-3 sm:py-4">
+            <div className="w-full px-3 sm:px-6 py-1.5 sm:py-4">
                 <div className="flex items-center justify-center">
                     {/* Countdown numbers */}
-                    <div className="flex items-center gap-3 sm:gap-4 lg:gap-5">
+                    <div className="flex items-center gap-2 sm:gap-4 lg:gap-5">
                         {/* Days */}
-                        <div className="flex items-baseline gap-1">
-                            <span className="countdown-number font-mono text-[24px] sm:text-[28px] lg:text-[32px] font-bold tabular-nums">
+                        <div className="flex items-baseline gap-0.5 sm:gap-1">
+                            <span className="countdown-number font-mono text-[16px] sm:text-[28px] lg:text-[32px] font-bold tabular-nums">
                                 {padNumber(timeLeft.days)}
                             </span>
-                            <span className="font-mono text-[10px] sm:text-[11px] lg:text-[12px] tracking-[1px] uppercase text-text-muted">
-                                days
+                            <span className="font-mono text-[8px] sm:text-[11px] lg:text-[12px] tracking-[1px] uppercase text-text-muted">
+                                {t('countdown.days')}
                             </span>
                         </div>
 
-                        <span className="text-white/40 font-mono text-[18px] sm:text-[20px] lg:text-[24px]">:</span>
+                        <span className="text-white/40 font-mono text-[12px] sm:text-[20px] lg:text-[24px]">:</span>
 
                         {/* Hours */}
-                        <div className="flex items-baseline gap-1">
-                            <span className="countdown-number font-mono text-[24px] sm:text-[28px] lg:text-[32px] font-bold tabular-nums">
+                        <div className="flex items-baseline gap-0.5 sm:gap-1">
+                            <span className="countdown-number font-mono text-[16px] sm:text-[28px] lg:text-[32px] font-bold tabular-nums">
                                 {padNumber(timeLeft.hours)}
                             </span>
-                            <span className="font-mono text-[10px] sm:text-[11px] lg:text-[12px] tracking-[1px] uppercase text-text-muted">
-                                hrs
+                            <span className="font-mono text-[8px] sm:text-[11px] lg:text-[12px] tracking-[1px] uppercase text-text-muted">
+                                {t('countdown.hrs')}
                             </span>
                         </div>
 
-                        <span className="text-white/40 font-mono text-[18px] sm:text-[20px] lg:text-[24px]">:</span>
+                        <span className="text-white/40 font-mono text-[12px] sm:text-[20px] lg:text-[24px]">:</span>
 
                         {/* Minutes */}
-                        <div className="flex items-baseline gap-1">
-                            <span className="countdown-number font-mono text-[24px] sm:text-[28px] lg:text-[32px] font-bold tabular-nums">
+                        <div className="flex items-baseline gap-0.5 sm:gap-1">
+                            <span className="countdown-number font-mono text-[16px] sm:text-[28px] lg:text-[32px] font-bold tabular-nums">
                                 {padNumber(timeLeft.minutes)}
                             </span>
-                            <span className="font-mono text-[10px] sm:text-[11px] lg:text-[12px] tracking-[1px] uppercase text-text-muted">
-                                mins
+                            <span className="font-mono text-[8px] sm:text-[11px] lg:text-[12px] tracking-[1px] uppercase text-text-muted">
+                                {t('countdown.mins')}
                             </span>
                         </div>
 
-                        <span className="text-white/40 font-mono text-[18px] sm:text-[20px] lg:text-[24px]">:</span>
+                        <span className="text-white/40 font-mono text-[12px] sm:text-[20px] lg:text-[24px]">:</span>
 
                         {/* Seconds */}
-                        <div className="flex items-baseline gap-1">
-                            <span className="countdown-number font-mono text-[24px] sm:text-[28px] lg:text-[32px] font-bold tabular-nums">
+                        <div className="flex items-baseline gap-0.5 sm:gap-1">
+                            <span className="countdown-number font-mono text-[16px] sm:text-[28px] lg:text-[32px] font-bold tabular-nums">
                                 {padNumber(timeLeft.seconds)}
                             </span>
-                            <span className="font-mono text-[10px] sm:text-[11px] lg:text-[12px] tracking-[1px] uppercase text-text-muted">
-                                secs
+                            <span className="font-mono text-[8px] sm:text-[11px] lg:text-[12px] tracking-[1px] uppercase text-text-muted">
+                                {t('countdown.secs')}
                             </span>
                         </div>
                     </div>

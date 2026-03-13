@@ -1,0 +1,185 @@
+{
+  "nav": {
+    "forCoaches": "Para Coaches",
+    "forAthletes": "Para Atletas",
+    "findAMatch": "Encontrar um Match",
+    "joinAugo": "Junte-se à augo"
+  },
+  "hero": {
+    "line1": "Um novo padrão",
+    "line2prefix": "para coaching de",
+    "line3": "",
+    "rotatingWords": ["corrida", "natação", "ciclismo", "triathlon", "endurance"],
+    "subheadline": "O assistente inteligente que combina comunicação coach-atleta, dados de treino e feedback de sessão, transformando insights em ação e dando a você tempo para o que mais importa."
+  },
+  "connects": {
+    "headline": "Conecta-se perfeitamente com seus apps e dispositivos"
+  },
+  "empower": {
+    "headline1": "Feito para",
+    "headline2": "fortalecer coaches,",
+    "headline3": "não substituí-los.",
+    "body": "Muitas ferramentas de coaching focam em planos, não em pessoas. Mensagens se espalham por plataformas. O contexto se perde. E sinais importantes passam despercebidos no ruído.",
+    "highlight": "augo reúne tudo – combinando dados do atleta, feedback e tendências em uma única visão que ajuda você a treinar melhor."
+  },
+  "coaches": {
+    "tag": "PARA COACHES",
+    "panels": [
+      {
+        "headline": "Insights instantâneos\ncom contexto completo do atleta",
+        "body": "augo armazena e lembra cada conversa, feedback de sessão e dado de treino do atleta. Pergunte qualquer coisa ao assistente inteligente e obtenha respostas instantâneas com contexto completo do atleta.",
+        "tagline": "Chega de vasculhar anotações de calendário ou rolar históricos de mensagens para lembrar quando seu atleta mencionou aquele desconforto no joelho."
+      },
+      {
+        "headline": "Saiba exatamente quem\nprecisa de você hoje",
+        "body": "augo identifica os atletas que precisam de atenção agora: sinais de alerta precoce de dados de treino e feedback de sessão, pedidos de alteração de agenda, sessões marcadas para revisão, momentos-chave onde sua contribuição é mais importante.",
+        "tagline": "Comece cada dia com clareza e foco."
+      },
+      {
+        "headline": "Saiba como seus\natletas realmente se sentem",
+        "body": "augo captura feedback pós-sessão, dando ao coach visibilidade sobre tendências de bem-estar de longo prazo, ajudando a detectar mudanças sutis que sinalizam desafios à frente.",
+        "tagline": "Detecte fadiga, quedas de motivação ou sinais precoces de lesão enquanto ainda há tempo para agir."
+      }
+    ]
+  },
+  "integration": {
+    "headline": "augo funciona com o que você já usa",
+    "body": "Você mantém o TrainingPeaks para planejamento de treinos. Atletas mantêm seu Garmin ou Coros. augo fica no meio, conectando tudo com comunicação centralizada e insights inteligentes."
+  },
+  "athletes": {
+    "tag": "PARA ATLETAS",
+    "sectionHeadline": "Tudo que seus atletas precisam em um só lugar",
+    "panels": [
+      {
+        "headline": "Seu espaço dedicado\npara se conectar\ncom seu coach",
+        "body": "Todas as mensagens, feedbacks de sessão e dados de treino em um só lugar — para que você sempre se sinta apoiado, não importa onde esteja."
+      },
+      {
+        "headline": "Compartilhe como você\nestá se sentindo, não\napenas como está\nperformando",
+        "body": "Registre feedback de sessão e compartilhe com seu coach: nível de energia, dor, alimentação e como você está se sentindo. Ajude seu coach a entender o quadro completo, não apenas os dados do seu relógio."
+      },
+      {
+        "headline": "Acompanhe como\nvocê realmente\nestá",
+        "body": "Seu feedback não é apenas registrado: é visível como tendências para você e seu coach. Detectem sinais de alerta precoce juntos e fiquem à frente do burnout ou lesões."
+      }
+    ]
+  },
+  "testimonials": {
+    "headline1": "O que coaches",
+    "headline2": "dizem sobre a augo"
+  },
+  "about": {
+    "tag": "SOBRE A AUGO",
+    "body1": "a augo foi fundada por Fabi e Bruna, duas coaches de endurance que também trabalhavam em tech. Como analista de negócios e cientista de dados, elas esperavam que suas ferramentas as ajudassem a treinar melhor.",
+    "highlight1": "Em vez disso, se viram afogadas em comunicação fragmentada, perdendo detalhes importantes e deixando passar os sinais que importavam.",
+    "body2": "Então construíram a augo. Porque coaching é difícil o suficiente sem ferramentas que criam mais trabalho. Acreditamos que a IA deve apoiar a expertise humana com os insights certos no momento certo, ajudando você a fazer o que faz de melhor: entender e desenvolver seus atletas.",
+    "highlight2": "Tecnologia que serve coaches, não o contrário",
+    "body3": "No final de 2025, Andreas Hermann, cientista da computação e triatleta, juntou-se à augo como cofundador. Ele não apenas traz experiência como CTO em uma empresa de sportstech, mas também trabalhou no mesmo problema que a augo antes dos três fundadores se conhecerem.",
+    "highlight3": "Eles decidiram unir forças e Andreas se juntou à missão da augo."
+  },
+  "faq": {
+    "ctaHeadline1": "Um novo padrão",
+    "ctaHeadline2": "para coaching de",
+    "ctaHeadline3": "endurance",
+    "ctaBody": "O assistente inteligente que combina dados com contexto humano, transformando insights em ação e dando a você tempo para o que mais importa.",
+    "title": "FAQ",
+    "items": [
+      {
+        "question": "Quando a augo será lançada?",
+        "answer": "augo está disponível na App Store e Google Play para um grupo seleto de usuários Beta desde novembro de 2025. augo estará disponível para todos os usuários em março de 2026. O acesso será liberado em ondas e os usuários na lista de espera terão preços especiais. Atletas podem entrar através do seu coach.",
+        "linkText": "Entre na lista de espera"
+      },
+      {
+        "question": "Quanto custa a augo?",
+        "answer": "augo oferece planos de preços flexíveis para coaches e atletas. Membros da lista de espera receberão preços especiais de acesso antecipado. Visite nossa página de preços ou entre na lista de espera para os detalhes mais recentes."
+      },
+      {
+        "question": "Quais são os benefícios da lista de espera?",
+        "answer": "Entrar na lista de espera dá acesso prioritário à augo, preços introdutórios especiais e a oportunidade de moldar o produto com seu feedback durante a fase de acesso antecipado."
+      },
+      {
+        "question": "A augo vai substituir coaches?",
+        "answer": "Não. augo é projetado para fortalecer coaches, não substituí-los. Automatiza tarefas repetitivas e apresenta insights acionáveis para que coaches possam focar em estratégia, relacionamentos e no que fazem de melhor."
+      },
+      {
+        "question": "Atletas podem usar a augo sem um coach?",
+        "answer": "Atletas podem entrar na augo através do seu coach. A plataforma é construída em torno da relação coach-atleta, melhorando a comunicação e fornecendo insights baseados em dados para ambos."
+      },
+      {
+        "question": "Como a IA da augo analisa treinos?",
+        "answer": "A IA da augo processa dados de treino de dispositivos e plataformas populares, combinando métricas de desempenho com informações contextuais para entregar insights e recomendações personalizadas."
+      },
+      {
+        "question": "Por que escolher a augo em vez de apps de coaching com IA?",
+        "answer": "Diferente de apps de coaching com IA independentes, augo mantém o coach humano no centro. Combina o poder da análise de IA com expertise humana, contexto e a conexão pessoal que impulsiona o sucesso do atleta."
+      },
+      {
+        "question": "Como a augo lida com meus dados?",
+        "answer": "Sua privacidade e segurança de dados são nossas principais prioridades. augo usa criptografia padrão da indústria e nunca compartilha seus dados pessoais com terceiros. Você mantém total controle sobre suas informações."
+      }
+    ]
+  },
+  "contact": {
+    "headline": "Dúvidas? Ideias? Vamos conversar.",
+    "body": "Se você está curioso sobre a augo, quer compartilhar feedback ou simplesmente se conectar, adoraríamos ouvir de você.",
+    "cookiesRequired": "Cookies necessários",
+    "cookiesMessage": "Este formulário usa cookies do Typeform. Por favor, aceite cookies para carregar o formulário de contato.",
+    "acceptCookies": "Aceitar Cookies"
+  },
+  "join": {
+    "headline": "Junte-se à comunidade de coaches e atletas que buscam um novo padrão",
+    "body": "Entre na lista de espera e seja o primeiro a experimentar o assistente inteligente que ajuda você a fornecer o melhor serviço para os atletas que você treina.",
+    "cookiesRequired": "Cookies necessários",
+    "cookiesMessage": "Este formulário usa cookies do Typeform. Por favor, aceite cookies para carregar o formulário.",
+    "acceptCookies": "Aceitar Cookies"
+  },
+  "find": {
+    "headline1": "Encontre seu",
+    "headline2": "match",
+    "headline3": "perfeito:",
+    "rotatingWords": ["coach", "atleta"],
+    "body": "Responda algumas perguntas sobre seu treino, objetivos e estilo de comunicação. Vamos conectá-lo com o match ideal com base no que mais importa para você.",
+    "cookiesRequired": "Cookies necessários",
+    "cookiesMessage": "Este formulário usa cookies do Typeform. Por favor, aceite cookies para carregar o formulário.",
+    "acceptCookies": "Aceitar Cookies"
+  },
+  "footer": {
+    "tagline1": "Um novo padrão",
+    "tagline2": "para coaching de endurance",
+    "columns": {
+      "product": "Produto",
+      "augo": "augo",
+      "explore": "Explorar"
+    },
+    "links": {
+      "forCoaches": "Para coaches",
+      "forAthletes": "Para atletas",
+      "howItWorks": "Como funciona",
+      "about": "Sobre",
+      "faq": "FAQ",
+      "findAMatch": "Encontrar um match"
+    },
+    "copyright": "© 2026 augo. Todos os direitos reservados."
+  },
+  "countdown": {
+    "days": "dias",
+    "hrs": "hrs",
+    "mins": "min",
+    "secs": "seg"
+  },
+  "cookies": {
+    "message": "Usamos cookies de terceiros para melhorar sua experiência.",
+    "decline": "Recusar",
+    "accept": "Aceitar"
+  },
+  "notFound": {
+    "title": "Página não encontrada",
+    "message": "A página que você procura não existe ou foi movida.",
+    "backHome": "Voltar ao início"
+  },
+  "languageSwitcher": {
+    "en": "EN",
+    "de": "DE",
+    "pt": "PT"
+  }
+}

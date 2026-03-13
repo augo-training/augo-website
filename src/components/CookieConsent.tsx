@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { getConsentStatus } from './cookieUtils'
 
 const COOKIE_CONSENT_KEY = 'augo_cookie_consent'
 
 export default function CookieConsent() {
+    const { t } = useTranslation()
     const [visible, setVisible] = useState(false)
 
     useEffect(() => {
@@ -60,7 +62,7 @@ export default function CookieConsent() {
                 <p className="font-satoshi text-[14px] sm:text-[15px] leading-[150%] text-white text-center sm:text-left"
                     style={{ opacity: 0.85 }}
                 >
-                    We use third-party cookies to improve your experience.
+                    {t('cookies.message')}
                 </p>
 
                 {/* Buttons */}
@@ -69,13 +71,13 @@ export default function CookieConsent() {
                         onClick={handleDecline}
                         className="font-mono text-[12px] sm:text-[13px] font-semibold tracking-[1.5px] uppercase px-5 py-2.5 rounded-lg text-white border border-white/20 bg-transparent cursor-pointer transition-all duration-200 hover:border-white/50 hover:bg-white/5"
                     >
-                        Decline
+                        {t('cookies.decline')}
                     </button>
                     <button
                         onClick={handleAccept}
                         className="join-augo-btn font-mono text-[12px] sm:text-[13px] font-extrabold tracking-[1.5px] uppercase px-5 py-2.5 rounded-lg cursor-pointer"
                     >
-                        Accept
+                        {t('cookies.accept')}
                     </button>
                 </div>
             </div>

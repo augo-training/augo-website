@@ -14,6 +14,8 @@ import AboutSection from '../components/AboutSection'
 import FaqSection from '../components/FaqSection'
 import ContactSection from '../components/ContactSection'
 import Footer from '../components/Footer'
+import SEOHead from '../seo/SEOHead'
+import { OrganizationJsonLd, SoftwareApplicationJsonLd, FAQJsonLd } from '../seo/JsonLd'
 
 function Home() {
     const [videoOpen, setVideoOpen] = useState(false)
@@ -31,6 +33,10 @@ function Home() {
 
     return (
         <>
+            <SEOHead page="home" path="/" />
+            <OrganizationJsonLd />
+            <SoftwareApplicationJsonLd />
+            <FAQJsonLd />
             <Navbar />
             <Hero />
             <ConnectsSection />
