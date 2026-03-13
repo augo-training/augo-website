@@ -1,0 +1,185 @@
+{
+  "nav": {
+    "forCoaches": "Für Coaches",
+    "forAthletes": "Für Athleten",
+    "findAMatch": "Match finden",
+    "joinAugo": "augo beitreten"
+  },
+  "hero": {
+    "line1": "Ein neuer Standard",
+    "line2prefix": "für",
+    "line3": "Coaching",
+    "rotatingWords": ["Lauf", "Schwimm", "Rad", "Triathlon", "Ausdauer"],
+    "subheadline": "Der intelligente Assistent, der Coach-Athleten-Kommunikation, Trainingsdaten und Session-Feedback kombiniert, Erkenntnisse in Handlungen verwandelt und dir Zeit für das gibt, was wirklich zählt."
+  },
+  "connects": {
+    "headline": "Verbindet sich nahtlos mit deinen Apps und Geräten"
+  },
+  "empower": {
+    "headline1": "Entwickelt, um",
+    "headline2": "Coaches zu stärken,",
+    "headline3": "nicht zu ersetzen.",
+    "body": "Zu viele Coaching-Tools konzentrieren sich auf Pläne, nicht auf Menschen. Nachrichten verstreuen sich über Plattformen. Der Kontext geht verloren. Und wichtige Signale gehen im Rauschen unter.",
+    "highlight": "augo bringt alles zusammen – kombiniert Athletendaten, Feedback und Trends in einer einzigen Ansicht, die dir hilft, besser zu coachen."
+  },
+  "coaches": {
+    "tag": "FÜR COACHES",
+    "panels": [
+      {
+        "headline": "Sofortige Einblicke\nmit vollem Athletenkontext",
+        "body": "augo speichert und merkt sich jedes Athletengespräch, Session-Feedback und Trainingsdaten. Frage den intelligenten Assistenten alles und erhalte sofortige Antworten mit vollem Athletenkontext.",
+        "tagline": "Kein Durchsuchen vergrabener Kalendernotizen oder Scrollen durch Nachrichtenverläufe mehr, um sich zu erinnern, wann dein Athlet das Knieproblem erwähnt hat."
+      },
+      {
+        "headline": "Wisse genau, wer\ndich heute braucht",
+        "body": "augo zeigt dir die Athleten, die jetzt Aufmerksamkeit brauchen: Frühwarnsignale aus Trainingsdaten und Session-Feedback, Terminänderungswünsche, zur Überprüfung markierte Sessions, Schlüsselmomente, in denen dein Input am wichtigsten ist.",
+        "tagline": "Starte jeden Tag mit Klarheit und Fokus."
+      },
+      {
+        "headline": "Erkenne, wie sich deine\nAthleten wirklich fühlen",
+        "body": "augo erfasst Post-Session-Feedback und gibt dem Coach Einblick in langfristige Wohlbefindenstrends, um subtile Veränderungen zu erkennen, die auf Herausforderungen hindeuten.",
+        "tagline": "Erkenne Ermüdung, Motivationstiefs oder frühe Verletzungsanzeichen, solange noch Zeit zum Handeln bleibt."
+      }
+    ]
+  },
+  "integration": {
+    "headline": "augo arbeitet mit dem, was du bereits nutzt",
+    "body": "Du behältst TrainingPeaks für die Trainingsplanung. Athleten behalten ihre Garmin oder Coros. augo sitzt in der Mitte und verbindet alles mit zentralisierter Kommunikation und intelligenten Erkenntnissen."
+  },
+  "athletes": {
+    "tag": "FÜR ATHLETEN",
+    "sectionHeadline": "Alles, was deine Athleten brauchen, an einem Ort",
+    "panels": [
+      {
+        "headline": "Dein persönlicher\nRaum für den Kontakt\nmit deinem Coach",
+        "body": "Alle Nachrichten, Session-Feedbacks und Trainingsdaten an einem Ort – damit du dich immer unterstützt fühlst, egal wo du bist."
+      },
+      {
+        "headline": "Teile, wie du dich\nfühlst, nicht nur\nwie du performst",
+        "body": "Erfasse Session-Feedback und teile es nahtlos mit deinem Coach: Energielevel, Schmerzen, Ernährung und wie du dich fühlst. Hilf deinem Coach, das vollständige Bild zu verstehen, nicht nur die Daten deiner Uhr."
+      },
+      {
+        "headline": "Verfolge, wie es\ndir wirklich geht",
+        "body": "Dein Feedback wird nicht nur gespeichert: Es ist als Trend für dich und deinen Coach sichtbar. Erkennt gemeinsam Frühwarnsignale und bleibt Burnout oder Verletzungen einen Schritt voraus."
+      }
+    ]
+  },
+  "testimonials": {
+    "headline1": "Was Coaches",
+    "headline2": "über augo sagen"
+  },
+  "about": {
+    "tag": "ÜBER AUGO",
+    "body1": "augo wurde von Fabi und Bruna gegründet, zwei Ausdauer-Coaches, die auch in der Tech-Branche arbeiteten. Als Business Analyst und Data Scientist erwarteten sie, dass ihre Tools ihnen helfen, besser zu coachen.",
+    "highlight1": "Stattdessen fanden sie sich in fragmentierter Kommunikation wieder, verloren wichtige Details und verpassten die Signale, die zählten.",
+    "body2": "Also bauten sie augo. Weil Coaching schwer genug ist, ohne Tools, die noch mehr Arbeit schaffen. Wir glauben, KI sollte menschliche Expertise mit den richtigen Erkenntnissen zur richtigen Zeit unterstützen und dir helfen, das zu tun, was du am besten kannst: deine Athleten verstehen und entwickeln.",
+    "highlight2": "Technologie, die Coaches dient, nicht umgekehrt",
+    "body3": "Ende 2025 trat Andreas Hermann, Informatiker und Triathlet, als Mitgründer bei augo ein. Er bringt nicht nur Erfahrung als CTO in einem Sportstech-Unternehmen mit, sondern arbeitete auch am gleichen Problem wie augo, bevor die drei Gründer sich trafen.",
+    "highlight3": "Sie beschlossen, ihre Kräfte zu bündeln, und Andreas schloss sich augos Mission an."
+  },
+  "faq": {
+    "ctaHeadline1": "Ein neuer Standard",
+    "ctaHeadline2": "für Ausdauer-",
+    "ctaHeadline3": "Coaching",
+    "ctaBody": "Der intelligente Assistent, der Daten mit menschlichem Kontext kombiniert, Erkenntnisse in Handlungen verwandelt und dir Zeit für das gibt, was wirklich zählt.",
+    "title": "FAQ",
+    "items": [
+      {
+        "question": "Wann startet augo?",
+        "answer": "augo ist seit November 2025 im App Store und bei Google Play für eine ausgewählte Gruppe von Beta-Nutzern verfügbar. augo wird im März 2026 allgemein für alle Nutzer verfügbar. Der Zugang wird in Wellen freigegeben und Nutzer auf der Warteliste erhalten Sonderpreise. Athleten können über ihren Coach beitreten.",
+        "linkText": "Auf die Warteliste"
+      },
+      {
+        "question": "Was kostet augo?",
+        "answer": "augo bietet flexible Preispläne für Coaches und Athleten. Mitglieder der Warteliste erhalten spezielle Frühzugangspreise. Besuche unsere Preisseite oder tritt der Warteliste bei für die neuesten Details."
+      },
+      {
+        "question": "Was bringt die Warteliste?",
+        "answer": "Die Warteliste gibt dir Prioritätszugang zu augo, spezielle Einführungspreise und die Möglichkeit, das Produkt mit deinem Feedback während der Early-Access-Phase mitzugestalten."
+      },
+      {
+        "question": "Wird augo Coaches ersetzen?",
+        "answer": "Nein. augo ist darauf ausgelegt, Coaches zu stärken, nicht zu ersetzen. Es automatisiert repetitive Aufgaben und liefert umsetzbare Erkenntnisse, damit Coaches sich auf Strategie, Beziehungen und ihre Stärken konzentrieren können."
+      },
+      {
+        "question": "Können Athleten augo ohne Coach nutzen?",
+        "answer": "Athleten können augo über ihren Coach beitreten. Die Plattform ist um die Coach-Athleten-Beziehung aufgebaut und verbessert die Kommunikation und liefert datengesteuerte Erkenntnisse für beide."
+      },
+      {
+        "question": "Wie analysiert augos KI Trainingseinheiten?",
+        "answer": "augos KI verarbeitet Trainingsdaten von gängigen Geräten und Plattformen, kombiniert Leistungsmetriken mit kontextuellen Informationen und liefert personalisierte Erkenntnisse und Empfehlungen."
+      },
+      {
+        "question": "Warum augo statt KI-Coaching-Apps?",
+        "answer": "Im Gegensatz zu eigenständigen KI-Coaching-Apps stellt augo den menschlichen Coach in den Mittelpunkt. Es kombiniert die Stärke der KI-Analyse mit menschlicher Expertise, Kontext und der persönlichen Verbindung, die den Erfolg von Athleten antreibt."
+      },
+      {
+        "question": "Wie geht augo mit meinen Daten um?",
+        "answer": "Deine Datensicherheit und dein Datenschutz haben für uns höchste Priorität. augo verwendet branchenübliche Verschlüsselung und gibt deine persönlichen Daten niemals an Dritte weiter. Du behältst die volle Kontrolle über deine Informationen."
+      }
+    ]
+  },
+  "contact": {
+    "headline": "Fragen? Ideen? Lass uns reden.",
+    "body": "Ob du neugierig auf augo bist, Feedback teilen möchtest oder einfach in Kontakt treten willst – wir freuen uns, von dir zu hören.",
+    "cookiesRequired": "Cookies erforderlich",
+    "cookiesMessage": "Dieses Formular verwendet Cookies von Typeform. Bitte akzeptiere Cookies, um das Kontaktformular zu laden.",
+    "acceptCookies": "Cookies akzeptieren"
+  },
+  "join": {
+    "headline": "Werde Teil der Community von Coaches & Athleten, die einen neuen Standard suchen",
+    "body": "Tritt der Warteliste bei und erlebe als Erste/r den intelligenten Assistenten, der dir hilft, den besten Service für deine Athleten zu bieten.",
+    "cookiesRequired": "Cookies erforderlich",
+    "cookiesMessage": "Dieses Formular verwendet Cookies von Typeform. Bitte akzeptiere Cookies, um das Formular zu laden.",
+    "acceptCookies": "Cookies akzeptieren"
+  },
+  "find": {
+    "headline1": "Finde dein",
+    "headline2": "perfektes",
+    "headline3": "Match:",
+    "rotatingWords": ["Coach", "Athlet"],
+    "body": "Beantworte ein paar Fragen zu deinem Training, deinen Zielen und deinem Kommunikationsstil. Wir verbinden dich mit dem richtigen Match basierend auf dem, was dir am wichtigsten ist.",
+    "cookiesRequired": "Cookies erforderlich",
+    "cookiesMessage": "Dieses Formular verwendet Cookies von Typeform. Bitte akzeptiere Cookies, um das Formular zu laden.",
+    "acceptCookies": "Cookies akzeptieren"
+  },
+  "footer": {
+    "tagline1": "Ein neuer Standard",
+    "tagline2": "für Ausdauer-Coaching",
+    "columns": {
+      "product": "Produkt",
+      "augo": "augo",
+      "explore": "Entdecken"
+    },
+    "links": {
+      "forCoaches": "Für Coaches",
+      "forAthletes": "Für Athleten",
+      "howItWorks": "So funktioniert's",
+      "about": "Über uns",
+      "faq": "FAQ",
+      "findAMatch": "Match finden"
+    },
+    "copyright": "© 2026 augo. Alle Rechte vorbehalten."
+  },
+  "countdown": {
+    "days": "Tage",
+    "hrs": "Std",
+    "mins": "Min",
+    "secs": "Sek"
+  },
+  "cookies": {
+    "message": "Wir verwenden Drittanbieter-Cookies, um dein Erlebnis zu verbessern.",
+    "decline": "Ablehnen",
+    "accept": "Akzeptieren"
+  },
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "message": "Die gesuchte Seite existiert nicht oder wurde verschoben.",
+    "backHome": "Zurück zur Startseite"
+  },
+  "languageSwitcher": {
+    "en": "EN",
+    "de": "DE",
+    "pt": "PT"
+  }
+}

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import stravaLogo from '../assets/images/strava.svg'
 import appleWatchLogo from '../assets/images/apple_watch.svg'
 import wahooLogo from '../assets/images/wahoo.svg'
@@ -32,10 +33,12 @@ function LogoSet() {
 }
 
 export default function ConnectsSection() {
+    const { t } = useTranslation()
+
     return (
         <section className="py-12 sm:py-16 md:py-20 flex flex-col items-center justify-center gap-8 sm:gap-10 md:gap-12 px-5 sm:px-6 md:px-8 lg:px-12">
             <h2 className="font-mono text-[20px] sm:text-[24px] md:text-[28px] lg:text-[36px] font-normal leading-[150%] tracking-[0px] text-center text-[#969EA7]">
-                Connects seamlessly with your apps and devices
+                {t('connects.headline')}
             </h2>
 
             {/* Marquee container with edge fades */}
