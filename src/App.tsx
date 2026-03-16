@@ -1,7 +1,10 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import LanguageLayout from './components/LanguageLayout'
+import LanguageRedirect from './components/LanguageRedirect'
 import Home from './pages/Home'
 import Join from './pages/Join'
 import Find from './pages/Find'
+import NotFound from './pages/NotFound'
 import CookieConsent from './components/CookieConsent'
 import CountdownBanner from './components/CountdownBanner'
 
@@ -15,9 +18,23 @@ function App() {
     <BrowserRouter>
       <CountdownBanner targetDate={LAUNCH_DATE} />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/join" element={<Join />} />
-        <Route path="/find" element={<Find />} />
+        {/* Root: redirect to detected language */}
+        <Route path="/" element={<LanguageRedirect />} />
+
+        {/* Legacy routes: redirect to language-prefixed versions */}
+        <Route path="/join" element={<Navigate to="/en/join" replace />} />
+        <Route path="/find" element={<Navigate to="/en/find" replace />} />
+
+        {/* Language-prefixed routes */}
+        <Route path="/:lang" element={<LanguageLayout />}>
+          <Route index element={<Home />} />
+          <Route path="join" element={<Join />} />
+          <Route path="find" element={<Find />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+
+        {/* Catch-all */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <CookieConsent />
     </BrowserRouter>

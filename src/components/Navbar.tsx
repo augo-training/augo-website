@@ -1,18 +1,10 @@
 import { useEffect, useState, useRef, useCallback } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
+import { supportedLanguages } from '../i18n'
+import type { SupportedLanguage } from '../i18n'
 import augoLogo from '../assets/images/augo_footer_1.svg'
-
-const navLinks = [
-    { label: 'For Coaches', href: '#coaches' },
-    { label: 'For Athletes', href: '#athletes' },
-]
-
-const mobileMenuLinks = [
-    { label: 'For Coaches', href: '#coaches' },
-    { label: 'For Athletes', href: '#athletes' },
-    { label: 'Find a Match', href: '/find' },
-]
 
 function NavLink({ label, href, onClick }: { label: string; href: string; onClick?: (e: React.MouseEvent) => void }) {
     return (
@@ -29,10 +21,60 @@ function NavLink({ label, href, onClick }: { label: string; href: string; onClic
     )
 }
 
-export default function Navbar() {
+function LanguageSwitcher() {
+    const { i18n } = useTranslation()
     const location = useLocation()
     const navigate = useNavigate()
-    const [showJoinButton, setShowJoinButton] = useState(() => window.location.pathname !== '/join')
+    const currentLang = i18n.language as SupportedLanguage
+
+    const switchLanguage = (newLang: SupportedLanguage) => {
+        if (newLang === currentLang) return
+        // Replace the language prefix in the current path
+        const pathWithoutLang = location.pathname.replace(/^\/(en|de|pt)/, '')
+        i18n.changeLanguage(newLang)
+        navigate(`/${newLang}${pathWithoutLang || ''}`, { replace: true })
+    }
+
+    return (
+        <div className="flex items-center gap-1">
+            {supportedLanguages.map((lang, i) => (
+                <span key={lang} className="flex items-center">
+                    {i > 0 && <span className="text-white/30 mx-1 font-mono text-[12px]">/</span>}
+                    <button
+                        onClick={() => switchLanguage(lang)}
+                        className={`font-mono text-[12px] tracking-[1px] uppercase cursor-pointer transition-colors duration-200 bg-transparent border-none ${
+                            lang === currentLang
+                                ? 'text-white font-bold'
+                                : 'text-white/50 hover:text-white/80 font-normal'
+                        }`}
+                    >
+                        {lang}
+                    </button>
+                </span>
+            ))}
+        </div>
+    )
+}
+
+export default function Navbar() {
+    const { t, i18n } = useTranslation()
+    const location = useLocation()
+    const navigate = useNavigate()
+    const { lang } = useParams<{ lang: string }>()
+    const currentLang = lang || i18n.language || 'en'
+
+    const navLinks = [
+        { label: t('nav.forCoaches'), href: '#coaches' },
+        { label: t('nav.forAthletes'), href: '#athletes' },
+    ]
+
+    const mobileMenuLinks = [
+        { label: t('nav.forCoaches'), href: '#coaches' },
+        { label: t('nav.forAthletes'), href: '#athletes' },
+        { label: t('nav.findAMatch'), href: `/${currentLang}/find` },
+    ]
+
+    const [showJoinButton, setShowJoinButton] = useState(() => !location.pathname.endsWith('/join'))
     const [menuOpen, setMenuOpen] = useState(false)
     const isAnimating = useRef(false)
 
@@ -44,7 +86,7 @@ export default function Navbar() {
     // Intersection Observer: hide Join Augo when Hero CTA or FAQ CTA is on screen
     useEffect(() => {
         // Already on the Join page → hide the button (handled by initial state)
-        if (window.location.pathname === '/join') return
+        if (location.pathname.endsWith('/join')) return
 
         const heroCta = document.querySelector('[data-cta="hero"]')
         const faqCta = document.querySelector('[data-cta="faq"]')
@@ -75,7 +117,7 @@ export default function Navbar() {
         targets.forEach((el) => observer.observe(el))
 
         return () => observer.disconnect()
-    }, [])
+    }, [location.pathname])
 
     // Lock body scroll when menu is open
     useEffect(() => {
@@ -192,16 +234,16 @@ export default function Navbar() {
     // Handle hash link click: smooth scroll if on Home, navigate otherwise
     const handleHashLinkClick = useCallback((e: React.MouseEvent, href: string) => {
         if (!href.startsWith('#')) return // non-hash links navigate normally
-        const isHome = location.pathname === '/'
+        const isHome = location.pathname === `/${currentLang}` || location.pathname === `/${currentLang}/`
         if (isHome) {
             e.preventDefault()
             const el = document.querySelector(href)
             if (el) el.scrollIntoView({ behavior: 'smooth' })
         } else {
             e.preventDefault()
-            navigate('/' + href)
+            navigate(`/${currentLang}` + href)
         }
-    }, [location.pathname, navigate])
+    }, [location.pathname, navigate, currentLang])
 
     // Close menu when a link is clicked
     const handleMenuLinkClick = useCallback((e: React.MouseEvent, href: string) => {
@@ -217,27 +259,31 @@ export default function Navbar() {
                 {/* Left Side: Logo + Nav Links */}
                 <div className="flex items-center gap-[100px]">
                     {/* Logo */}
-                    <a href="/" className="flex-shrink-0 relative z-[60]">
-                        <img src={augoLogo} alt="Augo" className="h-7" />
+                    <a href={`/${currentLang}`} className="flex-shrink-0 relative z-[60]">
+                        <img src={augoLogo} alt="augo" className="h-7" />
                     </a>
 
                     {/* Nav Links — visible only on lg+ (desktop) */}
                     <div className="hidden lg:flex items-center gap-10">
                         {navLinks.map((link) => (
-                            <NavLink key={link.label} label={link.label} href={link.href} onClick={(e) => handleHashLinkClick(e, link.href)} />
+                            <NavLink key={link.href} label={link.label} href={link.href} onClick={(e) => handleHashLinkClick(e, link.href)} />
                         ))}
                     </div>
                 </div>
 
                 {/* Right Side */}
                 <div className="flex items-center gap-4 sm:gap-6 md:gap-8">
+                    {/* Language Switcher */}
+                    <div className="hidden sm:block">
+                        <LanguageSwitcher />
+                    </div>
                     {/* Find a Match — visible only on md+ (tablet and desktop) */}
                     <div className="hidden md:block">
-                        <NavLink label="Find a Match" href="/find" />
+                        <NavLink label={t('nav.findAMatch')} href={`/${currentLang}/find`} />
                     </div>
                     <a
-                        href="/join"
-                        className="join-augo-btn font-mono text-sm font-extrabold tracking-[2px] uppercase px-6 py-3 rounded-lg"
+                        href={`/${currentLang}/join`}
+                        className="join-augo-btn font-mono text-[11px] sm:text-sm font-extrabold tracking-[1.5px] sm:tracking-[2px] uppercase px-3.5 py-2 sm:px-6 sm:py-3 rounded-md sm:rounded-lg"
                         style={{
                             opacity: showJoinButton && !menuOpen ? 1 : 0,
                             transform: showJoinButton && !menuOpen ? 'translateY(0)' : 'translateY(10px)',
@@ -245,7 +291,7 @@ export default function Navbar() {
                             transition: 'opacity 300ms ease-in-out, transform 300ms ease-in-out, background 200ms ease-in-out, color 200ms ease-in-out',
                         }}
                     >
-                        Join Augo
+                        {t('nav.joinAugo')}
                     </a>
                     {/* Hamburger / Close toggle — visible only below md (mobile) */}
                     <button
@@ -286,11 +332,16 @@ export default function Navbar() {
                     backgroundColor: '#0A0A0A',
                 }}
             >
+                {/* Language switcher in mobile menu */}
+                <div className="pt-24 flex justify-center sm:hidden">
+                    <LanguageSwitcher />
+                </div>
+
                 {/* Menu links — centered in the upper area */}
-                <nav className="flex flex-col items-center gap-8 pt-32 flex-1">
+                <nav className="flex flex-col items-center gap-8 pt-8 sm:pt-32 flex-1">
                     {mobileMenuLinks.map((link, i) => (
                         <a
-                            key={link.label}
+                            key={link.href}
                             href={link.href}
                             ref={(el) => { menuItemRefs.current[i] = el }}
                             onClick={(e) => handleMenuLinkClick(e, link.href)}
@@ -306,12 +357,12 @@ export default function Navbar() {
                 <div className="px-5 sm:px-6 pb-10 w-full">
                     <a
                         ref={menuJoinRef}
-                        href="/join"
-                        onClick={(e) => handleMenuLinkClick(e, '/join')}
+                        href={`/${currentLang}/join`}
+                        onClick={(e) => handleMenuLinkClick(e, `/${currentLang}/join`)}
                         className="btn-gradient block w-full font-mono text-sm font-extrabold tracking-[2px] uppercase text-white text-center py-4 rounded-lg"
                         style={{ opacity: 0 }}
                     >
-                        Join Augo
+                        {t('nav.joinAugo')}
                     </a>
                 </div>
             </div>

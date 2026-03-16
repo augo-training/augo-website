@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { getConsentStatus } from './cookieUtils'
 import { gsap } from 'gsap'
 
 export default function ContactSection() {
+    const { t } = useTranslation()
     const blob1Ref = useRef<HTMLDivElement>(null)
     const blob2Ref = useRef<HTMLDivElement>(null)
     const blob3Ref = useRef<HTMLDivElement>(null)
@@ -11,7 +13,6 @@ export default function ContactSection() {
     const formCardRef = useRef<HTMLDivElement>(null)
     const [consent, setConsent] = useState(getConsentStatus)
 
-    // Listen for consent changes
     useEffect(() => {
         const handler = () => setConsent(getConsentStatus())
         window.addEventListener('cookie-consent-changed', handler)
@@ -19,9 +20,7 @@ export default function ContactSection() {
     }, [])
 
     useEffect(() => {
-        const prefersReducedMotion = window.matchMedia(
-            '(prefers-reduced-motion: reduce)'
-        ).matches
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
         if (prefersReducedMotion) return
 
         const blobs = [
@@ -37,14 +36,10 @@ export default function ContactSection() {
             if (!el) return null
             return gsap.to(el, {
                 x, y, rotation: r, scale: 1.08,
-                duration,
-                ease: 'sine.inOut',
-                yoyo: true,
-                repeat: -1,
+                duration, ease: 'sine.inOut', yoyo: true, repeat: -1,
             })
         })
 
-        // Form card fade in
         const card = formCardRef.current
         if (card) {
             gsap.set(card, { opacity: 0, y: 20 })
@@ -62,23 +57,16 @@ export default function ContactSection() {
             observer.observe(card)
         }
 
-        return () => {
-            tweens.forEach((t) => t?.kill())
-        }
+        return () => { tweens.forEach((t) => t?.kill()) }
     }, [])
 
-    // Load Typeform embed script only when consent is accepted
     useEffect(() => {
         if (consent !== 'accepted') return
-
         const script = document.createElement('script')
         script.src = '//embed.typeform.com/next/embed.js'
         script.async = true
         document.head.appendChild(script)
-
-        return () => {
-            document.head.removeChild(script)
-        }
+        return () => { document.head.removeChild(script) }
     }, [consent])
 
     const handleAcceptCookies = () => {
@@ -93,105 +81,33 @@ export default function ContactSection() {
             className="w-full flex items-center relative overflow-hidden bg-[#090909]"
             style={{ minHeight: '100vh' }}
         >
-            {/* ── Mesh gradient — full coverage ── */}
-            <div
-                className="absolute inset-0"
-                aria-hidden="true"
-                style={{ filter: 'blur(60px)', opacity: 0.9 }}
-            >
-                {/* Yellow — top-right large */}
-                <div
-                    ref={blob1Ref}
-                    className="absolute"
-                    style={{
-                        width: '80%', height: '80%',
-                        top: '-20%', right: '-10%',
-                        background: 'radial-gradient(ellipse 80% 50% at 70% 30%, #FFCA1E 0%, transparent 65%)',
-                    }}
-                />
-                {/* Orange — center-right */}
-                <div
-                    ref={blob2Ref}
-                    className="absolute"
-                    style={{
-                        width: '75%', height: '75%',
-                        top: '0%', right: '0%',
-                        background: 'radial-gradient(ellipse 60% 40% at 55% 50%, #FF5514 0%, transparent 65%)',
-                    }}
-                />
-                {/* Red — center, large */}
-                <div
-                    ref={blob3Ref}
-                    className="absolute"
-                    style={{
-                        width: '85%', height: '85%',
-                        top: '10%', left: '10%',
-                        background: 'radial-gradient(ellipse 50% 50% at 50% 50%, #C50017 0%, transparent 60%)',
-                    }}
-                />
-                {/* Orange — bottom-center */}
-                <div
-                    ref={blob4Ref}
-                    className="absolute"
-                    style={{
-                        width: '70%', height: '70%',
-                        bottom: '-20%', right: '5%',
-                        background: 'radial-gradient(ellipse 40% 35% at 50% 60%, #FF5514 0%, transparent 65%)',
-                    }}
-                />
-                {/* Yellow — left side to fill left black area */}
-                <div
-                    ref={blob5Ref}
-                    className="absolute"
-                    style={{
-                        width: '60%', height: '60%',
-                        top: '20%', left: '-5%',
-                        background: 'radial-gradient(ellipse 70% 60% at 40% 40%, #FFCA1E 0%, transparent 60%)',
-                    }}
-                />
+            {/* Mesh gradient */}
+            <div className="absolute inset-0" aria-hidden="true" style={{ filter: 'blur(60px)', opacity: 0.9 }}>
+                <div ref={blob1Ref} className="absolute" style={{ width: '80%', height: '80%', top: '-20%', right: '-10%', background: 'radial-gradient(ellipse 80% 50% at 70% 30%, #FFCA1E 0%, transparent 65%)' }} />
+                <div ref={blob2Ref} className="absolute" style={{ width: '75%', height: '75%', top: '0%', right: '0%', background: 'radial-gradient(ellipse 60% 40% at 55% 50%, #FF5514 0%, transparent 65%)' }} />
+                <div ref={blob3Ref} className="absolute" style={{ width: '85%', height: '85%', top: '10%', left: '10%', background: 'radial-gradient(ellipse 50% 50% at 50% 50%, #C50017 0%, transparent 60%)' }} />
+                <div ref={blob4Ref} className="absolute" style={{ width: '70%', height: '70%', bottom: '-20%', right: '5%', background: 'radial-gradient(ellipse 40% 35% at 50% 60%, #FF5514 0%, transparent 65%)' }} />
+                <div ref={blob5Ref} className="absolute" style={{ width: '60%', height: '60%', top: '20%', left: '-5%', background: 'radial-gradient(ellipse 70% 60% at 40% 40%, #FFCA1E 0%, transparent 60%)' }} />
             </div>
 
-            {/* ── Edge fades 150px ── */}
-            <div className="absolute inset-x-0 top-0 z-10 pointer-events-none"
-                style={{ height: '150px', background: 'linear-gradient(to bottom, #090909 0%, transparent 100%)' }} />
-            <div className="absolute inset-x-0 bottom-0 z-10 pointer-events-none"
-                style={{ height: '150px', background: 'linear-gradient(to top, #090909 0%, transparent 100%)' }} />
+            {/* Edge fades */}
+            <div className="absolute inset-x-0 top-0 z-10 pointer-events-none" style={{ height: '150px', background: 'linear-gradient(to bottom, #090909 0%, transparent 100%)' }} />
+            <div className="absolute inset-x-0 bottom-0 z-10 pointer-events-none" style={{ height: '150px', background: 'linear-gradient(to top, #090909 0%, transparent 100%)' }} />
 
-            {/* ── Content ── */}
+            {/* Content */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 max-w-[1200px] mx-auto w-full items-center lg:items-center relative z-20 px-5 sm:px-8 py-16 lg:py-24">
-
-                {/* Left (Desktop) / Bottom (Mobile): Form card with animated border + glow */}
                 <div ref={formCardRef} className="order-2 lg:order-1 mx-auto lg:mx-0 w-full" style={{ maxWidth: '486px' }}>
                     <div className="join-form-wrapper relative w-full">
-                        {/* Pulsing glow behind */}
                         <div className="join-form-glow absolute -inset-10 sm:-inset-16 rounded-[2rem] pointer-events-none" />
-
-                        {/* Rotating gradient border */}
                         <div className="join-form-border relative rounded-[20px] sm:rounded-[24px] p-[2px] sm:p-[3px]">
-                            {/* Inner container */}
                             <div className="join-form-inner min-h-[500px] rounded-[18px] sm:rounded-[21px] bg-white w-full overflow-hidden">
                                 {consent === 'accepted' ? (
                                     <div data-tf-live="01KJGKY5FEG41JEKDRFTM4F4D6"></div>
                                 ) : (
-                                    <div
-                                        className="flex flex-col items-center justify-center text-center px-6 sm:px-10 py-12"
-                                        style={{ minHeight: '500px' }}
-                                    >
-
-                                        <h3 className="font-mono font-bold text-[18px] sm:text-[20px] text-white leading-[130%] mb-3">
-                                            Cookies Required
-                                        </h3>
-
-                                        <p className="font-satoshi text-[14px] sm:text-[15px] leading-[160%] text-white mb-8" style={{ opacity: 0.7 }}>
-                                            This form uses cookies from Typeform. Please accept cookies to load the contact form.
-                                        </p>
-
-                                        <button
-                                            onClick={handleAcceptCookies}
-                                            className="join-augo-btn font-mono text-[13px] sm:text-[14px] font-extrabold tracking-[2px] uppercase px-8 py-3.5 rounded-lg cursor-pointer transition-all duration-200"
-                                        >
-                                            Accept Cookies
-                                        </button>
+                                    <div className="flex flex-col items-center justify-center text-center px-6 sm:px-10 py-12" style={{ minHeight: '500px' }}>
+                                        <h3 className="font-mono font-bold text-[18px] sm:text-[20px] text-white leading-[130%] mb-3">{t('contact.cookiesRequired')}</h3>
+                                        <p className="font-satoshi text-[14px] sm:text-[15px] leading-[160%] text-white mb-8" style={{ opacity: 0.7 }}>{t('contact.cookiesMessage')}</p>
+                                        <button onClick={handleAcceptCookies} className="join-augo-btn font-mono text-[13px] sm:text-[14px] font-extrabold tracking-[2px] uppercase px-8 py-3.5 rounded-lg cursor-pointer transition-all duration-200">{t('contact.acceptCookies')}</button>
                                     </div>
                                 )}
                             </div>
@@ -199,15 +115,12 @@ export default function ContactSection() {
                     </div>
                 </div>
 
-                {/* Right (Desktop) / Top (Mobile): Text */}
                 <div className="order-1 lg:order-2 flex flex-col gap-4 sm:gap-6 pt-4 text-center lg:text-left items-center lg:items-start max-w-[500px] lg:max-w-none mx-auto lg:mx-0 w-full mb-8 lg:mb-0">
                     <h2 className="font-mono font-bold text-[32px] sm:text-[48px] lg:text-[56px] leading-[110%] text-white">
-                        Questions?<br className="hidden lg:block" /><span className="inline lg:hidden"> </span>Ideas?<br />Let's talk.
+                        {t('contact.headline')}
                     </h2>
                     <p className="font-satoshi font-medium text-[16px] sm:text-[18px] leading-[150%] text-white" style={{ opacity: 0.8 }}>
-                        Whether you're curious about augo, want to share
-                        feedback, or just want to connect, we'd love to hear
-                        from you.
+                        {t('contact.body')}
                     </p>
                 </div>
             </div>

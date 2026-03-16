@@ -1,15 +1,19 @@
 import { useEffect, useRef } from 'react'
+import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
 import bgSection1 from '../assets/images/bg_section_1.webp'
 import imgHome from '../assets/images/home.png'
 import imgAthlete from '../assets/images/athlete_home.png'
 import imgCoach from '../assets/images/coach_home.png'
 
-const ROTATING_WORDS = ['running', 'swimming', 'biking', 'triathlon', 'endurance']
 const WORD_DURATION = 3 // seconds each word is visible
 const FADE_DURATION = 0.4 // seconds for fade in/out
 
 export default function Hero() {
+    const { t, i18n } = useTranslation()
+    const currentLang = i18n.language || 'en'
+    const rotatingWords = t('hero.rotatingWords', { returnObjects: true }) as string[]
+
     const line1Ref = useRef<HTMLSpanElement>(null)
     const line2Ref = useRef<HTMLSpanElement>(null)
     const line3Ref = useRef<HTMLSpanElement>(null)
@@ -27,14 +31,14 @@ export default function Hero() {
     const isMouseInSection = useRef(false)
 
     useEffect(() => {
-        const lines = [line1Ref.current, line2Ref.current, line3Ref.current]
+        const lines = [line1Ref.current, line2Ref.current, line3Ref.current].filter(Boolean) as HTMLElement[]
         const subheadline = subheadlineRef.current
         const rotatingContainer = rotatingRef.current
         const cta = ctaRef.current
         const section = sectionRef.current
         const mockups = mockupsRef.current
         const glow = glowRef.current
-        if (!lines.every(Boolean) || !subheadline || !rotatingContainer || !cta || !section || !mockups || !glow) return
+        if (lines.length === 0 || !subheadline || !rotatingContainer || !cta || !section || !mockups || !glow) return
 
         const wordEls = rotatingContainer.querySelectorAll<HTMLSpanElement>('.rotating-word')
 
@@ -60,7 +64,7 @@ export default function Hero() {
         })
 
         // 2. Subheadline fade-in — 300ms after last headline line starts
-        const subheadlineStart = 0.3 + 2 * 0.3 + 0.3 // last line start + 300ms
+        const subheadlineStart = 0.3 + (lines.length - 1) * 0.3 + 0.3 // last line start + 300ms
         tl.to(subheadline, {
             opacity: 1,
             duration: 1,
@@ -76,7 +80,7 @@ export default function Hero() {
         }, ctaStart)
 
         // 4. Rotating word — starts after headline reveal completes
-        const headlineEnd = 0.3 + 2 * 0.3 + 1.6 // last line start + duration
+        const headlineEnd = 0.3 + (lines.length - 1) * 0.3 + 1.6 // last line start + duration
         // Show first word immediately at headlineEnd
         tl.to(wordEls[0], {
             opacity: 1,
@@ -88,9 +92,9 @@ export default function Hero() {
         // Build infinite rotation timeline
         const rotateTl = gsap.timeline({ repeat: -1, delay: headlineEnd + FADE_DURATION + WORD_DURATION })
 
-        for (let i = 0; i < ROTATING_WORDS.length; i++) {
+        for (let i = 0; i < rotatingWords.length; i++) {
             const currentWord = wordEls[i]
-            const nextWord = wordEls[(i + 1) % ROTATING_WORDS.length]
+            const nextWord = wordEls[(i + 1) % rotatingWords.length]
 
             // Fade out current word + slide up
             rotateTl.to(currentWord, {
@@ -218,7 +222,7 @@ export default function Hero() {
             rotateTl.kill()
             cancelAnimationFrame(rafId.current)
         }
-    }, [])
+    }, [i18n.language]) // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <section
@@ -252,12 +256,12 @@ export default function Hero() {
                 <div className="max-w-[480px] flex-shrink-0">
                     <h1 className="font-mono font-bold text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px] leading-[120%] text-white mb-6">
                         <span ref={line1Ref} className="block">
-                            A new standard
+                            {t('hero.line1')}
                         </span>
                         <span ref={line2Ref} className="block">
-                            for{' '}
+                            {t('hero.line2prefix')}{' '}
                             <span ref={rotatingRef} className="relative inline-block align-bottom" style={{ minWidth: '160px' }}>
-                                {ROTATING_WORDS.map((word) => (
+                                {rotatingWords.map((word: string) => (
                                     <span
                                         key={word}
                                         className="rotating-word absolute left-0 top-0 whitespace-nowrap lg:left-0 w-full lg:w-auto"
@@ -267,19 +271,21 @@ export default function Hero() {
                                     </span>
                                 ))}
                                 {/* Invisible spacer to hold width */}
-                                <span className="invisible">endurance</span>
+                                <span className="invisible">{rotatingWords[rotatingWords.length - 1]}</span>
                             </span>
                         </span>
-                        <span ref={line3Ref} className="block">
-                            coaching
-                        </span>
+                        {t('hero.line3') && (
+                            <span ref={line3Ref} className="block">
+                                {t('hero.line3')}
+                            </span>
+                        )}
                     </h1>
                     <p ref={subheadlineRef} className="font-satoshi font-medium text-base sm:text-lg leading-[130%] text-text-muted mb-8 sm:mb-10" style={{ opacity: 0 }}>
-                        The intelligent assistant that combines coach-athlete communication, workout data and session feedback, turning insights into action and giving you time for what matters most.
+                        {t('hero.subheadline')}
                     </p>
                     <a
                         ref={ctaRef}
-                        href="/join"
+                        href={`/${currentLang}/join`}
                         className="btn-gradient inline-block font-mono text-sm font-extrabold tracking-[2px] uppercase text-white px-8 py-4 rounded-lg transition-all duration-200 cursor-pointer"
                         data-cta="hero"
                         style={{
@@ -317,7 +323,7 @@ export default function Hero() {
                             })
                         }}
                     >
-                        Join Augo
+                        {t('nav.joinAugo')}
                     </a>
                 </div>
 
@@ -355,7 +361,7 @@ export default function Hero() {
                     {/* home.png — main dashboard (back, largest) */}
                     <img
                         src={imgHome}
-                        alt="Augo Coach Dashboard"
+                        alt="augo Coach Dashboard"
                         className="mockup-home absolute rounded-2xl shadow-2xl"
                         style={{
                             width: '100%',
@@ -367,7 +373,7 @@ export default function Hero() {
                     {/* athlete_home.png — phone on the left */}
                     <img
                         src={imgAthlete}
-                        alt="Augo Athlete App"
+                        alt="augo Athlete App"
                         className="mockup-athlete absolute rounded-2xl shadow-2xl"
                         style={{
                             width: '30.6%',
@@ -379,7 +385,7 @@ export default function Hero() {
                     {/* coach_home.png — phone center/below */}
                     <img
                         src={imgCoach}
-                        alt="Augo Coach App"
+                        alt="augo Coach App"
                         className="mockup-coach absolute rounded-2xl shadow-2xl"
                         style={{
                             width: '30.6%',
