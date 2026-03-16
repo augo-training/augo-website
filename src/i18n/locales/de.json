@@ -9,17 +9,17 @@
     "line1": "Ein neuer Standard",
     "line2prefix": "für",
     "line3": "Coaching",
-    "rotatingWords": ["Lauf", "Schwimm", "Rad", "Triathlon", "Ausdauer"],
-    "subheadline": "Der intelligente Assistent, der Coach-Athleten-Kommunikation, Trainingsdaten und Session-Feedback kombiniert, Erkenntnisse in Handlungen verwandelt und dir Zeit für das gibt, was wirklich zählt."
+    "rotatingWords": ["Lauf-", "Schwimm-", "Rad–", "Triathlon-", "Ausdauer-"],
+    "subheadline": "Der intelligente Assistent kombiniert Kommunikation, Trainingsdaten sowie Feedback und verwandelt Erkenntnisse in Taten – damit du mehr Zeit für das Wesentliche hast."
   },
   "connects": {
     "headline": "Verbindet sich nahtlos mit deinen Apps und Geräten"
   },
   "empower": {
     "headline1": "Entwickelt, um",
-    "headline2": "Coaches zu stärken,",
-    "headline3": "nicht zu ersetzen.",
-    "body": "Zu viele Coaching-Tools konzentrieren sich auf Pläne, nicht auf Menschen. Nachrichten verstreuen sich über Plattformen. Der Kontext geht verloren. Und wichtige Signale gehen im Rauschen unter.",
+    "headline2": "Coaches zu stärken",
+    "headline3": "– nicht zu ersetzen.",
+    "body": "Zu viele Coaching-Tools konzentrieren sich auf Pläne, nicht auf Menschen. Nachrichten sind über Plattformen verstreut. Der Kontext geht verloren. Und wichtige Signale gehen im Rauschen unter.",
     "highlight": "augo bringt alles zusammen – kombiniert Athletendaten, Feedback und Trends in einer einzigen Ansicht, die dir hilft, besser zu coachen."
   },
   "coaches": {
@@ -31,13 +31,13 @@
         "tagline": "Kein Durchsuchen vergrabener Kalendernotizen oder Scrollen durch Nachrichtenverläufe mehr, um sich zu erinnern, wann dein Athlet das Knieproblem erwähnt hat."
       },
       {
-        "headline": "Wisse genau, wer\ndich heute braucht",
+        "headline": "Spüre sofort, wer\ndich heute braucht",
         "body": "augo zeigt dir die Athleten, die jetzt Aufmerksamkeit brauchen: Frühwarnsignale aus Trainingsdaten und Session-Feedback, Terminänderungswünsche, zur Überprüfung markierte Sessions, Schlüsselmomente, in denen dein Input am wichtigsten ist.",
         "tagline": "Starte jeden Tag mit Klarheit und Fokus."
       },
       {
         "headline": "Erkenne, wie sich deine\nAthleten wirklich fühlen",
-        "body": "augo erfasst Post-Session-Feedback und gibt dem Coach Einblick in langfristige Wohlbefindenstrends, um subtile Veränderungen zu erkennen, die auf Herausforderungen hindeuten.",
+        "body": "augo kombiniert Session-Feedbacks mit langfristigen Trends. So erkennst du subtile Veränderungen sofort, bevor Herausforderungen zu Problemen werden.",
         "tagline": "Erkenne Ermüdung, Motivationstiefs oder frühe Verletzungsanzeichen, solange noch Zeit zum Handeln bleibt."
       }
     ]
@@ -127,7 +127,7 @@
     "acceptCookies": "Cookies akzeptieren"
   },
   "join": {
-    "headline": "Werde Teil der Community von Coaches & Athleten, die einen neuen Standard suchen",
+    "headline": "Werde Teil der Community aus Coaches und Athleten, die neue Maßstäbe setzen.",
     "body": "Tritt der Warteliste bei und erlebe als Erste/r den intelligenten Assistenten, der dir hilft, den besten Service für deine Athleten zu bieten.",
     "cookiesRequired": "Cookies erforderlich",
     "cookiesMessage": "Dieses Formular verwendet Cookies von Typeform. Bitte akzeptiere Cookies, um das Formular zu laden.",
