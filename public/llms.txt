@@ -1,0 +1,65 @@
+# augo
+
+> augo is an AI-powered coaching assistant platform for endurance sports. It combines coach-athlete communication, workout data, and session feedback into one unified platform — designed to empower coaches, not replace them.
+
+augo is built for endurance coaches (running, swimming, biking, triathlon) and their athletes. The platform sits alongside existing tools like TrainingPeaks and Garmin/Coros devices, adding centralized communication and intelligent, context-aware insights on top.
+
+**Website:** https://augotraining.com
+
+---
+
+## What augo does
+
+Coaches today manage athletes across fragmented tools — messages in WhatsApp, plans in TrainingPeaks, data in Garmin Connect. Context gets lost. Signals get missed. augo solves this by bringing athlete data, session feedback, and communication into a single view with an AI assistant that remembers everything.
+
+**For coaches:**
+- Ask questions about any athlete and get instant answers with full context (conversations, session feedback, workout data)
+- Surface athletes who need attention based on early warning signs from training data and feedback flags
+- Track athlete wellbeing trends over time to catch fatigue, motivation dips, and early injury signals before they become problems
+- Start each coaching day with clarity instead of catching up across platforms
+
+**For athletes:**
+- One dedicated space for all coach communication and feedback
+- Share holistic post-session data: energy levels, pain, fueling choices, how they're feeling — not just watch metrics
+- Trends visible to both athlete and coach for early warning and injury prevention
+
+**Integration model:** augo does not replace existing tools. Coaches keep TrainingPeaks for planning; athletes keep their Garmin or Coros devices for tracking. augo connects the ecosystem, centralizes communication, and adds intelligence on top.
+
+---
+
+## Core philosophy
+
+augo is built on the belief that AI should serve coaches — not automate them away. Unlike standalone AI coaching apps, augo keeps the human coach at the center. The AI provides insights, context, and attention flags; the coach provides expertise, empathy, and the personal connection that drives athlete success.
+
+Athletes on augo are connected through their coach, not independently. This keeps the coaching relationship intact while removing the operational overhead that gets in the way.
+
+---
+
+## Who built augo
+
+augo was founded in late 2024 by Fabi and Bruna — endurance coaches who also worked in tech (business analyst and data scientist). They experienced firsthand how fragmented coaching tools cause important signals to get lost in noise. Andreas Hermann, a computer scientist and triathlete with a CTO background in sportstech, joined as co-founder at the end of 2025.
+
+---
+
+## Platform status
+
+- **Beta launch:** November 2025 (select users, App Store and Google Play)
+- **General availability:** March 26th 2026
+- **Access model:** Released in waves; waitlist members receive priority access and introductory pricing
+- **Languages supported:** English, German, Portuguese
+
+---
+
+## Data and privacy
+
+augo uses industry-standard encryption. Personal data is never shared with third parties. Users maintain full control over their data.
+
+---
+
+## Key concepts and terminology
+
+- **Session feedback:** Post-workout logs athletes submit covering subjective data (energy, pain, fueling, mood) in addition to objective watch data
+- **Athlete context:** The full history of an athlete's conversations, feedback, and workout data that the AI assistant uses to answer coach queries
+- **Wellbeing trends:** Long-term patterns surfaced from session feedback to identify fatigue, motivation changes, and injury risk
+- **Attention flags:** Proactive alerts that surface athletes requiring coach input based on data signals, feedback, or schedule requests
+- **Coaching ecosystem:** The combination of tools coaches use — augo sits alongside TrainingPeaks (planning), Garmin/Coros (tracking), and existing messaging apps
