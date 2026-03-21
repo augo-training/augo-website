@@ -31,9 +31,11 @@ export function initMetaPixel(pixelId: string = META_PIXEL_ID): void {
   }
 
   const fbq = function (...args: unknown[]) {
-    fbq.callMethod
-      ? fbq.callMethod.apply(fbq, args)
-      : fbq.queue.push(args)
+    if (fbq.callMethod) {
+      fbq.callMethod(...args)
+    } else {
+      fbq.queue.push(args)
+    }
   } as FbqFunction
 
   if (!f._fbq) f._fbq = fbq
