@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
 import { getConsentStatus } from './cookieUtils'
+import { trackLead } from '../lib/metaPixel'
 import bgImage from '../assets/images/bg_section_1.webp'
 
 const WORD_DURATION = 3
@@ -81,6 +82,7 @@ export default function FindSection() {
         script.src = '//embed.typeform.com/next/embed.js'
         script.async = true
         document.head.appendChild(script)
+        trackLead()
         return () => { document.head.removeChild(script) }
     }, [consent])
 

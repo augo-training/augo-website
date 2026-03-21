@@ -6,6 +6,7 @@ import Join from './pages/Join'
 import Find from './pages/Find'
 import NotFound from './pages/NotFound'
 import CookieConsent from './components/CookieConsent'
+import MetaPixelProvider from './components/MetaPixelProvider'
 import CountdownBanner from './components/CountdownBanner'
 
 // March 26, 2026 at 20:00 Zurich time
@@ -37,6 +38,7 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
       <CookieConsent />
+      <MetaPixelProvider />
     </BrowserRouter>
   )
 }

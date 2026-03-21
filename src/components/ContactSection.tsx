@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { getConsentStatus } from './cookieUtils'
+import { trackLead } from '../lib/metaPixel'
 import { gsap } from 'gsap'
 
 export default function ContactSection() {
@@ -66,6 +67,7 @@ export default function ContactSection() {
         script.src = '//embed.typeform.com/next/embed.js'
         script.async = true
         document.head.appendChild(script)
+        trackLead()
         return () => { document.head.removeChild(script) }
     }, [consent])
 
