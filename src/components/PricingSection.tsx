@@ -1,8 +1,16 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
-import { useTranslation } from 'react-i18next'
+import { useTranslation, Trans } from 'react-i18next'
 import { useParams } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { Check } from 'lucide-react'
+import { useGeoCountry } from '../hooks/useGeoCountry'
+import { getPricingTier } from '../config/pricingConfig'
+import {
+    setupMixpanelConsentListener,
+    getUtmParams,
+    trackPricingPageViewed,
+    trackPricingCtaClicked,
+} from '../utils/analytics'
 
 // ─── FAQ Accordion ────────────────────────────────────────────────────────────
 
@@ -105,7 +113,8 @@ export default function PricingSection() {
     const { i18n: i18nObj } = useTranslation()
     const currentLang = lang || i18nObj.language || 'en'
 
-    const [billing, setBilling] = useState<'monthly' | 'annual'>('monthly')
+    const { countryCode, loading } = useGeoCountry()
+    const pricingTier = getPricingTier(countryCode ?? '')
 
     // Refs for hero fade-in
     const heroTagRef = useRef<HTMLDivElement>(null)
@@ -186,6 +195,28 @@ export default function PricingSection() {
         return () => observer.disconnect()
     }, [])
 
+    // Setup Mixpanel consent listener
+    useEffect(() => {
+        return setupMixpanelConsentListener()
+    }, [])
+
+    // Fire page-view event once country resolves
+    useEffect(() => {
+        if (loading) return
+        void trackPricingPageViewed({
+            country: countryCode ?? 'unknown',
+            cluster: pricingTier.cluster,
+            experiment_arm: pricingTier.arm,
+            pricing_currency: pricingTier.currency,
+            pricing_amount: pricingTier.arm === 'per_seat' ? pricingTier.perSeat! : pricingTier.flat!,
+            ...getUtmParams(),
+        })
+    }, [loading]) // eslint-disable-line react-hooks/exhaustive-deps
+
+    function formatPrice(price: number): string {
+        return price % 1 === 0 ? price.toString() : price.toFixed(2)
+    }
+
     return (
         <>
             {/* ─── 1. Hero ─────────────────────────────────────────────────────── */}
@@ -242,37 +273,11 @@ export default function PricingSection() {
                         </p>
                     </div>
 
-                    {/* Toggle */}
-                    <div className="flex items-center gap-1 p-1 rounded-full border border-[#2D2D2D] bg-[#0f0f0f]">
-                        <button
-                            onClick={() => setBilling('monthly')}
-                            className={`font-mono text-[12px] tracking-[1.5px] uppercase px-5 py-2 rounded-full transition-all duration-200 cursor-pointer ${
-                                billing === 'monthly'
-                                    ? 'bg-[#222] text-white font-bold'
-                                    : 'text-[#969EA7] hover:text-white'
-                            }`}
-                        >
-                            {t('pricing.monthly')}
-                        </button>
-                        <button
-                            onClick={() => setBilling('annual')}
-                            className={`font-mono text-[12px] tracking-[1.5px] uppercase px-5 py-2 rounded-full transition-all duration-200 cursor-pointer flex items-center gap-2 ${
-                                billing === 'annual'
-                                    ? 'bg-[#222] text-white font-bold'
-                                    : 'text-[#969EA7] hover:text-white'
-                            }`}
-                        >
-                            {t('pricing.annual')}
-                            <span
-                                className="font-mono text-[10px] tracking-[1px] px-1.5 py-0.5 rounded-sm font-bold"
-                                style={{
-                                    background: 'linear-gradient(83.9deg, #C50017 0%, #FF5514 55%, #FFCA1E 100%)',
-                                    color: '#fff',
-                                }}
-                            >
-                                {t('pricing.annualBadge')}
-                            </span>
-                        </button>
+                    {/* Early access banner */}
+                    <div className="w-full rounded-lg border border-amber-500/30 bg-amber-500/10 px-5 py-4 text-center">
+                        <p className="font-satoshi text-[14px] sm:text-[15px] leading-[150%] text-amber-300">
+                            {t('pricing.earlyAccessBanner')}
+                        </p>
                     </div>
 
                     {/* Cards */}
@@ -287,7 +292,7 @@ export default function PricingSection() {
                                     {t('pricing.free.label')}
                                 </span>
                                 <p className="font-satoshi text-[14px] text-[#969EA7]">
-                                    {t('pricing.free.tagline')}
+                                    {t('pricing.freeTierTagline')}
                                 </p>
                             </div>
                             <div>
@@ -313,12 +318,21 @@ export default function PricingSection() {
                             <a
                                 href={`/${currentLang}/join`}
                                 className="btn-gradient font-mono text-[12px] sm:text-[13px] font-extrabold tracking-[2px] uppercase text-white rounded-lg text-center py-3.5 px-6 hover:brightness-110 transition-all duration-200"
+                                onClick={() => void trackPricingCtaClicked({
+                                    country: countryCode ?? 'unknown',
+                                    cluster: pricingTier.cluster,
+                                    experiment_arm: pricingTier.arm,
+                                    pricing_currency: pricingTier.currency,
+                                    pricing_amount: pricingTier.arm === 'per_seat' ? pricingTier.perSeat! : pricingTier.flat!,
+                                    cta_text: t('pricing.free.cta'),
+                                    utm_source: getUtmParams().utm_source,
+                                })}
                             >
                                 {t('pricing.free.cta')}
                             </a>
                         </div>
 
-                        {/* Unlimited Plan */}
+                        {/* Paid Plan — dynamic by arm */}
                         <div className="join-form-wrapper relative rounded-2xl">
                             <div className="join-form-glow absolute -inset-6 rounded-[2rem] pointer-events-none" />
                             <div className="join-form-border relative rounded-[20px] p-[2px]">
@@ -339,32 +353,40 @@ export default function PricingSection() {
                                             {t('pricing.unlimited.label')}
                                         </span>
                                         <p className="font-satoshi text-[14px] text-[#969EA7]">
-                                            {t('pricing.unlimited.tagline')}
+                                            {pricingTier.arm === 'per_seat'
+                                                ? t('pricing.perSeat.tagline')
+                                                : t('pricing.flat.tagline')}
                                         </p>
                                     </div>
-                                    <div className="relative h-[60px]">
-                                        <div
-                                            className="absolute inset-0 flex items-end transition-opacity duration-300"
-                                            style={{ opacity: billing === 'monthly' ? 1 : 0, pointerEvents: billing === 'monthly' ? 'auto' : 'none' }}
-                                        >
-                                            <span className="font-mono font-bold text-[40px] sm:text-[48px] leading-none text-white">
-                                                {t('pricing.unlimited.priceMonthly')}
-                                            </span>
-                                            <span className="font-mono text-[14px] text-[#969EA7] ml-1 mb-1">
-                                                {t('pricing.unlimited.periodMonthly')}
-                                            </span>
-                                        </div>
-                                        <div
-                                            className="absolute inset-0 flex items-end transition-opacity duration-300"
-                                            style={{ opacity: billing === 'annual' ? 1 : 0, pointerEvents: billing === 'annual' ? 'auto' : 'none' }}
-                                        >
-                                            <span className="font-mono font-bold text-[40px] sm:text-[48px] leading-none text-white">
-                                                {t('pricing.unlimited.priceAnnual')}
-                                            </span>
-                                            <span className="font-mono text-[14px] text-[#969EA7] ml-1 mb-1">
-                                                {t('pricing.unlimited.periodAnnual')}
-                                            </span>
-                                        </div>
+                                    <div className="flex flex-col gap-2">
+                                        {pricingTier.arm === 'per_seat' ? (
+                                            <>
+                                                <div>
+                                                    <span className="font-mono font-bold text-[40px] sm:text-[48px] leading-none text-white">
+                                                        {pricingTier.symbol}{formatPrice(pricingTier.perSeat!)}
+                                                    </span>
+                                                    <span className="font-mono text-[14px] text-[#969EA7] ml-1">
+                                                        per athlete / month
+                                                    </span>
+                                                </div>
+                                                <div className="flex flex-col gap-1">
+                                                    {[5, 10, 20].map((n) => (
+                                                        <span key={n} className="font-satoshi text-[13px] text-[#969EA7]">
+                                                            {n} athletes → {pricingTier.symbol}{formatPrice(pricingTier.perSeat! * n)}/mo
+                                                        </span>
+                                                    ))}
+                                                </div>
+                                            </>
+                                        ) : (
+                                            <div>
+                                                <span className="font-mono font-bold text-[40px] sm:text-[48px] leading-none text-white">
+                                                    {pricingTier.symbol}{formatPrice(pricingTier.flat!)}
+                                                </span>
+                                                <span className="font-mono text-[14px] text-[#969EA7] ml-1">
+                                                    / month — unlimited athletes
+                                                </span>
+                                            </div>
+                                        )}
                                     </div>
                                     <div className="h-px bg-[#2D2D2D]" />
                                     <ul className="flex flex-col gap-3 flex-1">
@@ -384,13 +406,45 @@ export default function PricingSection() {
                                     <a
                                         href={`/${currentLang}/join`}
                                         className="btn-gradient font-mono text-[12px] sm:text-[13px] font-extrabold tracking-[2px] uppercase text-white rounded-lg text-center py-3.5 px-6 hover:brightness-110 transition-all duration-200"
+                                        onClick={() => void trackPricingCtaClicked({
+                                            country: countryCode ?? 'unknown',
+                                            cluster: pricingTier.cluster,
+                                            experiment_arm: pricingTier.arm,
+                                            pricing_currency: pricingTier.currency,
+                                            pricing_amount: pricingTier.arm === 'per_seat' ? pricingTier.perSeat! : pricingTier.flat!,
+                                            cta_text: pricingTier.arm === 'per_seat' ? t('pricing.perSeat.cta') : t('pricing.flat.cta'),
+                                            utm_source: getUtmParams().utm_source,
+                                        })}
                                     >
-                                        {t('pricing.unlimited.cta')}
+                                        {pricingTier.arm === 'per_seat' ? t('pricing.perSeat.cta') : t('pricing.flat.cta')}
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    {/* Always-free note */}
+                    <p className="font-satoshi text-[13px] sm:text-[14px] leading-[150%] text-[#969EA7] text-center">
+                        {t('pricing.alwaysFreeNote')}
+                    </p>
+
+                    {/* Location note */}
+                    {!loading && countryCode && (
+                        <p className="font-satoshi text-[12px] sm:text-[13px] leading-[150%] text-[#969EA7] text-center">
+                            <Trans
+                                i18nKey="pricing.locationNote"
+                                values={{ countryName: pricingTier.countryName }}
+                                components={{
+                                    1: (
+                                        <a
+                                            href={`/${currentLang}/contact`}
+                                            className="underline hover:text-white transition-colors duration-150"
+                                        />
+                                    ),
+                                }}
+                            />
+                        </p>
+                    )}
                 </div>
             </section>
 
@@ -457,6 +511,15 @@ export default function PricingSection() {
                         className="btn-gradient font-mono text-sm font-extrabold tracking-[2px] uppercase text-white rounded-lg hover:brightness-110 transition-all duration-200 flex items-center justify-center mt-2"
                         data-cta="pricing"
                         style={{ width: '220px', height: '48px' }}
+                        onClick={() => void trackPricingCtaClicked({
+                            country: countryCode ?? 'unknown',
+                            cluster: pricingTier.cluster,
+                            experiment_arm: pricingTier.arm,
+                            pricing_currency: pricingTier.currency,
+                            pricing_amount: pricingTier.arm === 'per_seat' ? pricingTier.perSeat! : pricingTier.flat!,
+                            cta_text: t('pricing.closingCta'),
+                            utm_source: getUtmParams().utm_source,
+                        })}
                     >
                         {t('pricing.closingCta')}
                     </a>

@@ -204,6 +204,18 @@
     "monthly": "Mensal",
     "annual": "Anual",
     "annualBadge": "20% OFF",
+    "freeTierTagline": "Gratuito para até 2 atletas",
+    "alwaysFreeNote": "0–2 atletas: sempre gratuito.",
+    "earlyAccessBanner": "Gratuito para todos os coaches até 27 de abril de 2026 — experimente o augo com atletas ilimitados, sem cartão de crédito.",
+    "perSeat": {
+      "tagline": "Cresce com a sua equipe",
+      "cta": "Começar grátis"
+    },
+    "flat": {
+      "tagline": "Preço fixo, atletas ilimitados",
+      "cta": "Começar grátis"
+    },
+    "locationNote": "Preços exibidos para {{countryName}}. Não é o seu local? <1>Fale conosco</1>.",
     "free": {
       "label": "Plano Grátis",
       "tagline": "Perfeito para começar",

@@ -204,6 +204,18 @@
     "monthly": "Monatlich",
     "annual": "Jährlich",
     "annualBadge": "20% RABATT",
+    "freeTierTagline": "Kostenlos für bis zu 2 Athleten",
+    "alwaysFreeNote": "0–2 Athleten: immer kostenlos.",
+    "earlyAccessBanner": "Bis zum 27. April 2026 kostenlos für alle Coaches — teste augo mit unbegrenzt vielen Athleten, ohne Kreditkarte.",
+    "perSeat": {
+      "tagline": "Wächst mit deinem Team",
+      "cta": "Kostenlos starten"
+    },
+    "flat": {
+      "tagline": "Pauschalpreis, unbegrenzte Athleten",
+      "cta": "Kostenlos starten"
+    },
+    "locationNote": "Preise für {{countryName}}. Nicht dein Standort? <1>Kontaktiere uns</1>.",
     "free": {
       "label": "Free Plan",
       "tagline": "Perfekt für den Einstieg",
