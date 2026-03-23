@@ -4,6 +4,7 @@ import LanguageRedirect from './components/LanguageRedirect'
 import Home from './pages/Home'
 import Join from './pages/Join'
 import Find from './pages/Find'
+import Pricing from './pages/Pricing'
 import NotFound from './pages/NotFound'
 import CookieConsent from './components/CookieConsent'
 import CountdownBanner from './components/CountdownBanner'
@@ -30,6 +31,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="join" element={<Join />} />
           <Route path="find" element={<Find />} />
+          <Route path="pricing" element={<Pricing />} />
           <Route path="*" element={<NotFound />} />
         </Route>
 

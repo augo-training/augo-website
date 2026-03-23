@@ -3,6 +3,7 @@
     "forCoaches": "For Coaches",
     "forAthletes": "For Athletes",
     "findAMatch": "Find a Match",
+    "pricing": "Pricing",
     "joinAugo": "Join augo"
   },
   "hero": {
@@ -181,5 +182,116 @@
     "en": "EN",
     "de": "DE",
     "pt": "PT"
+  },
+  "pricing": {
+    "tag": "PRICING",
+    "heroHeadline": "Know what matters. Coach better.",
+    "heroBody": "augo gives you the clarity to coach with confidence. No more guessing, no more digging through scattered messages. Just the right insights, at the right time.",
+    "features": [
+      "Centralized coach-athlete communication",
+      "Post-session feedback collection",
+      "AI-powered athlete insights",
+      "Daily priority list curated by augo",
+      "Workout data from Garmin, Coros & TrainingPeaks",
+      "Long-term wellbeing trends tracking",
+      "Early warning detection for fatigue & injury",
+      "Built for endurance sports"
+    ],
+    "pricingHeadline": "Simple pricing. Built to scale your quality coaching.",
+    "trustLine1": "Start free. Upgrade only when you need more.",
+    "trustLine2": "No long contracts. No hidden fees. Cancel anytime.",
+    "trustQuote": "Your data is always yours; leave anytime you want and take all your data with you.",
+    "monthly": "Monthly",
+    "annual": "Annual",
+    "annualBadge": "20% OFF",
+    "free": {
+      "label": "Free Plan",
+      "tagline": "Perfect for getting started",
+      "price": "$0",
+      "period": "/ month",
+      "features": [
+        "Message up to 2 athletes",
+        "Limited access to the augo assistant",
+        "Daily priority list curated by augo's assistant",
+        "Receive athlete's workout data",
+        "Collect athlete session feedback"
+      ],
+      "cta": "Start for free"
+    },
+    "unlimited": {
+      "label": "Unlimited Plan",
+      "tagline": "For coaches ready to grow",
+      "priceMonthly": "$19.90",
+      "priceAnnual": "$191",
+      "periodMonthly": "/ month",
+      "periodAnnual": "/ year",
+      "everythingIn": "Everything in Free +",
+      "features": [
+        "Unlimited athletes",
+        "Unlimited access to augo's intelligent assistant",
+        "Access to augo's matching platform",
+        "Access to discord & augo's coach network",
+        "Priority support"
+      ],
+      "cta": "Upgrade to unlimited"
+    },
+    "bubbleText": "Built for coaches who truly care about delivering quality coaching to their athletes.",
+    "whyHeadline": "Why coaches choose augo",
+    "whyCards": [
+      {
+        "title": "Clarity over chaos",
+        "body": "All your athletes, data, and decisions — in one place."
+      },
+      {
+        "title": "Know how your athletes really feel",
+        "body": "Capture consistent session feedback to spot subtle changes that signal challenges ahead."
+      },
+      {
+        "title": "Automate the busywork",
+        "body": "Spend less time managing and more time coaching."
+      },
+      {
+        "title": "Coach with confidence",
+        "body": "Make better decisions with clear, actionable insights."
+      }
+    ],
+    "faqTitle": "Frequently asked questions",
+    "faqItems": [
+      {
+        "question": "Is the Free plan really free?",
+        "answer": "Yes. The Free plan is completely free, with no credit card required. You can message up to 2 athletes and access core features at no cost."
+      },
+      {
+        "question": "Can I switch between Monthly and Annual billing?",
+        "answer": "Yes, you can switch between billing cycles at any time. When switching to annual, you'll save 20% compared to monthly pricing."
+      },
+      {
+        "question": "What happens to my data if I cancel?",
+        "answer": "Your data is always yours. If you cancel, you can export all your data before leaving. We never hold your data hostage."
+      },
+      {
+        "question": "How many athletes can I have on the Unlimited plan?",
+        "answer": "There is no limit. The Unlimited plan allows you to manage as many athletes as you need."
+      },
+      {
+        "question": "What is the augo matching platform?",
+        "answer": "The matching platform helps coaches connect with athletes looking for a coach, and vice versa. It's available exclusively on the Unlimited plan."
+      },
+      {
+        "question": "Is there a trial period for the Unlimited plan?",
+        "answer": "Coming soon — we're working on a trial option to let you experience the full Unlimited plan before committing."
+      },
+      {
+        "question": "Do athletes need to pay?",
+        "answer": "Athletes join through their coach. Athlete access is included with the coach's plan — athletes do not need a separate subscription."
+      },
+      {
+        "question": "Can I get a refund?",
+        "answer": "Coming soon — our refund policy is being finalized. If you have concerns, reach out to us directly and we'll make it right."
+      }
+    ],
+    "closingHeadline": "Coaching shouldn't feel chaotic.",
+    "closingBody": "augo gives you the clarity to coach with confidence. Start free today and see what it means to truly know what matters.",
+    "closingCta": "Start free today"
   }
 }
