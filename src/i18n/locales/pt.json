@@ -3,6 +3,7 @@
     "forCoaches": "Para Coaches",
     "forAthletes": "Para Atletas",
     "findAMatch": "Encontrar um Match",
+    "pricing": "Preços",
     "joinAugo": "Junte-se à augo"
   },
   "hero": {
@@ -181,5 +182,116 @@
     "en": "EN",
     "de": "DE",
     "pt": "PT"
+  },
+  "pricing": {
+    "tag": "PREÇOS",
+    "heroHeadline": "Saiba o que importa. Treine melhor.",
+    "heroBody": "augo dá a você a clareza para treinar com confiança. Sem mais adivinhações, sem mais buscar em mensagens espalhadas. Apenas os insights certos, no momento certo.",
+    "features": [
+      "Comunicação centralizada coach-atleta",
+      "Coleta de feedback pós-sessão",
+      "Insights de atletas com IA",
+      "Lista de prioridades diárias curada pelo augo",
+      "Dados de treino do Garmin, Coros & TrainingPeaks",
+      "Acompanhamento de tendências de bem-estar a longo prazo",
+      "Detecção precoce de fadiga e lesões",
+      "Desenvolvido para esportes de endurance"
+    ],
+    "pricingHeadline": "Preços simples. Para escalar a qualidade do seu coaching.",
+    "trustLine1": "Comece grátis. Faça upgrade apenas quando precisar de mais.",
+    "trustLine2": "Sem contratos longos. Sem taxas ocultas. Cancele quando quiser.",
+    "trustQuote": "Seus dados são sempre seus; saia quando quiser e leve todos os seus dados com você.",
+    "monthly": "Mensal",
+    "annual": "Anual",
+    "annualBadge": "20% OFF",
+    "free": {
+      "label": "Plano Grátis",
+      "tagline": "Perfeito para começar",
+      "price": "$0",
+      "period": "/ mês",
+      "features": [
+        "Mensagens para até 2 atletas",
+        "Acesso limitado ao assistente augo",
+        "Lista de prioridades diárias curada pelo assistente augo",
+        "Receber dados de treino dos atletas",
+        "Coletar feedback de sessão dos atletas"
+      ],
+      "cta": "Começar grátis"
+    },
+    "unlimited": {
+      "label": "Plano Ilimitado",
+      "tagline": "Para coaches prontos para crescer",
+      "priceMonthly": "$19,90",
+      "priceAnnual": "$191",
+      "periodMonthly": "/ mês",
+      "periodAnnual": "/ ano",
+      "everythingIn": "Tudo do Grátis +",
+      "features": [
+        "Atletas ilimitados",
+        "Acesso ilimitado ao assistente inteligente augo",
+        "Acesso à plataforma de matching augo",
+        "Acesso ao Discord & rede de coaches augo",
+        "Suporte prioritário"
+      ],
+      "cta": "Fazer upgrade para ilimitado"
+    },
+    "bubbleText": "Desenvolvido para coaches que realmente se importam em oferecer um coaching de qualidade aos seus atletas.",
+    "whyHeadline": "Por que coaches escolhem o augo",
+    "whyCards": [
+      {
+        "title": "Clareza no lugar do caos",
+        "body": "Todos os seus atletas, dados e decisões — em um só lugar."
+      },
+      {
+        "title": "Saiba como seus atletas realmente se sentem",
+        "body": "Capture feedback consistente de sessões para identificar mudanças sutis que sinalizam desafios à frente."
+      },
+      {
+        "title": "Automatize as tarefas rotineiras",
+        "body": "Gaste menos tempo gerenciando e mais tempo treinando."
+      },
+      {
+        "title": "Treine com confiança",
+        "body": "Tome melhores decisões com insights claros e acionáveis."
+      }
+    ],
+    "faqTitle": "Perguntas frequentes",
+    "faqItems": [
+      {
+        "question": "O Plano Grátis é realmente gratuito?",
+        "answer": "Sim. O Plano Grátis é completamente gratuito, sem necessidade de cartão de crédito. Você pode enviar mensagens para até 2 atletas e acessar funcionalidades principais sem custo."
+      },
+      {
+        "question": "Posso mudar entre cobrança Mensal e Anual?",
+        "answer": "Sim, você pode alternar entre os ciclos de cobrança a qualquer momento. Ao mudar para anual, você economiza 20% em relação ao preço mensal."
+      },
+      {
+        "question": "O que acontece com meus dados se eu cancelar?",
+        "answer": "Seus dados são sempre seus. Se cancelar, você pode exportar todos os seus dados antes de sair. Nunca retemos seus dados."
+      },
+      {
+        "question": "Quantos atletas posso ter no Plano Ilimitado?",
+        "answer": "Não há limite. O Plano Ilimitado permite que você gerencie quantos atletas precisar."
+      },
+      {
+        "question": "O que é a plataforma de matching augo?",
+        "answer": "A plataforma de matching ajuda coaches a se conectar com atletas que procuram um coach, e vice-versa. Está disponível exclusivamente no Plano Ilimitado."
+      },
+      {
+        "question": "Há um período de teste para o Plano Ilimitado?",
+        "answer": "Em breve — estamos trabalhando em uma opção de teste para que você possa experimentar o Plano Ilimitado completo antes de se comprometer."
+      },
+      {
+        "question": "Os atletas precisam pagar?",
+        "answer": "Os atletas entram através do seu coach. O acesso dos atletas está incluído no plano do coach — atletas não precisam de uma assinatura separada."
+      },
+      {
+        "question": "Posso obter reembolso?",
+        "answer": "Em breve — nossa política de reembolso está sendo finalizada. Se tiver dúvidas, entre em contato diretamente conosco e resolveremos."
+      }
+    ],
+    "closingHeadline": "Coaching não deveria ser caótico.",
+    "closingBody": "augo dá a você a clareza para treinar com confiança. Comece grátis hoje e veja o que significa realmente saber o que importa.",
+    "closingCta": "Começar grátis hoje"
   }
 }

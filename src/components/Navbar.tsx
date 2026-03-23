@@ -66,11 +66,13 @@ export default function Navbar() {
     const navLinks = [
         { label: t('nav.forCoaches'), href: '#coaches' },
         { label: t('nav.forAthletes'), href: '#athletes' },
+        { label: t('nav.pricing'), href: `/${currentLang}/pricing` },
     ]
 
     const mobileMenuLinks = [
         { label: t('nav.forCoaches'), href: '#coaches' },
         { label: t('nav.forAthletes'), href: '#athletes' },
+        { label: t('nav.pricing'), href: `/${currentLang}/pricing` },
         { label: t('nav.findAMatch'), href: `/${currentLang}/find` },
     ]
 
