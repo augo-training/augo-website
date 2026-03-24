@@ -238,7 +238,7 @@
     },
     "locationNote": "Pricing shown for {{countryName}}. Not your location? <1>Contact us</1>.",
     "free": {
-      "label": "Free Plan",
+      "label": "Free",
       "tagline": "Perfect for getting started",
       "price": "$0",
       "period": "/ month",
@@ -252,7 +252,7 @@
       "cta": "Start for free"
     },
     "unlimited": {
-      "label": "Unlimited Plan",
+      "label": "Unlimited",
       "tagline": "For coaches ready to grow",
       "priceMonthly": "$19.90",
       "priceAnnual": "$191",

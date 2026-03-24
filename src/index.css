@@ -9,6 +9,8 @@
   --color-dark-800: #111111;
   --color-dark-700: #1A1A1A;
   --color-dark-600: #2D2D2D;
+  --color-dark-400: #595959;
+  --color-dark-200: #838383;
 
   --color-text: #FFFFFF;
   --color-text-muted: #969EA7;
@@ -42,6 +44,11 @@ body {
   background: linear-gradient(83.9deg, #151515 -4%, #C50017 38.22%, #FF5514 69.06%, #FFCA1E 99.9%);
   background-size: 200% 200%;
   animation: gradient-shift 4s ease-in-out infinite;
+}
+
+.ribbon-yellow {
+  background: var(--color-dark-400);
+  padding: 8px 16px;
 }
 
 @keyframes gradient-shift {
