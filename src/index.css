@@ -324,6 +324,23 @@ body {
   animation: rotate-border 4s linear infinite;
 }
 
+/* ─── Bubble Anchor: Animated border ─── */
+.bubble-border {
+  background: conic-gradient(from var(--border-angle),
+      rgba(200, 200, 200, 1),
+      rgba(60, 60, 60, 0.3),
+      rgba(160, 160, 160, 0.8),
+      rgba(60, 60, 60, 0.3),
+      rgba(200, 200, 200, 1));
+  animation: rotate-border 8s linear infinite;
+}
+
+/* ─── Bubble Anchor: Glow pulse ─── */
+.bubble-glow {
+  background: radial-gradient(ellipse, rgba(150, 158, 167, 0.18) 0%, transparent 70%);
+  animation: glow-pulse 4s ease-in-out infinite;
+}
+
 /* ─── Join Section: Glow pulse behind form ─── */
 .join-form-glow {
   background: radial-gradient(circle,

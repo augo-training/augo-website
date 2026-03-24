@@ -2,7 +2,8 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { useTranslation, Trans } from 'react-i18next'
 import { useParams } from 'react-router-dom'
 import { gsap } from 'gsap'
-import { Check } from 'lucide-react'
+import { Check, CircleCheck } from 'lucide-react'
+import bgSection1 from '../assets/images/bg_section_1.webp'
 import { useGeoCountry } from '../hooks/useGeoCountry'
 import { getPricingTier } from '../config/pricingConfig'
 import {
@@ -116,19 +117,20 @@ export default function PricingSection() {
     const { countryCode, loading } = useGeoCountry()
     const pricingTier = getPricingTier(countryCode ?? '')
 
+    const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly')
+    const isYearly = billingPeriod === 'yearly'
+    const YEARLY_DISCOUNT = 0.85
+
     // Refs for hero fade-in
     const heroTagRef = useRef<HTMLDivElement>(null)
     const heroHeadlineRef = useRef<HTMLHeadingElement>(null)
     const heroBodyRef = useRef<HTMLParagraphElement>(null)
-    const heroFeaturesRef = useRef<HTMLUListElement>(null)
 
     // Refs for why-cards stagger
-    const whyCardsRef = useRef<(HTMLDivElement | null)[]>([])
 
-    const features = t('pricing.features', { returnObjects: true }) as string[]
+    const featureColumns = t('pricing.featureColumns', { returnObjects: true }) as Array<{ title: string; items: string[] }>
     const freeFeatures = t('pricing.free.features', { returnObjects: true }) as string[]
     const unlimitedFeatures = t('pricing.unlimited.features', { returnObjects: true }) as string[]
-    const whyCards = t('pricing.whyCards', { returnObjects: true }) as Array<{ title: string; body: string }>
 
     // Hero fade-in on mount (IntersectionObserver + GSAP)
     useEffect(() => {
@@ -137,7 +139,7 @@ export default function PricingSection() {
         const slideDistance = isMobile ? 15 : 20
         const ease = 'cubic-bezier(0.16, 1, 0.3, 1)'
 
-        const elements = [heroTagRef.current, heroHeadlineRef.current, heroBodyRef.current, heroFeaturesRef.current]
+        const elements = [heroTagRef.current, heroHeadlineRef.current, heroBodyRef.current]
         elements.forEach((el) => { if (el) gsap.set(el, { opacity: 0, y: slideDistance }) })
 
         if (prefersReducedMotion) {
@@ -155,7 +157,7 @@ export default function PricingSection() {
                     if (heroTagRef.current) gsap.to(heroTagRef.current, { opacity: 1, y: 0, duration: 1.2, ease })
                     if (heroHeadlineRef.current) gsap.to(heroHeadlineRef.current, { opacity: 1, y: 0, duration: 1.6, delay: 0.1, ease })
                     if (heroBodyRef.current) gsap.to(heroBodyRef.current, { opacity: 1, y: 0, duration: 1.4, delay: 0.25, ease })
-                    if (heroFeaturesRef.current) gsap.to(heroFeaturesRef.current, { opacity: 1, y: 0, duration: 1.2, delay: 0.4, ease })
+
                 }
             },
             { threshold: 0.15 }
@@ -165,35 +167,6 @@ export default function PricingSection() {
     }, [])
 
     // Why-cards stagger on scroll
-    useEffect(() => {
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-        const ease = 'cubic-bezier(0.16, 1, 0.3, 1)'
-
-        const cards = whyCardsRef.current.filter(Boolean) as HTMLElement[]
-        cards.forEach((c) => gsap.set(c, { opacity: 0, y: 20 }))
-
-        if (prefersReducedMotion) {
-            cards.forEach((c) => gsap.set(c, { opacity: 1, y: 0 }))
-            return
-        }
-
-        const container = cards[0]?.parentElement
-        if (!container) return
-
-        const observer = new IntersectionObserver(
-            (entries) => {
-                if (entries[0].isIntersecting) {
-                    observer.disconnect()
-                    cards.forEach((card, i) => {
-                        gsap.to(card, { opacity: 1, y: 0, duration: 0.8, delay: i * 0.12, ease })
-                    })
-                }
-            },
-            { threshold: 0.1 }
-        )
-        observer.observe(container)
-        return () => observer.disconnect()
-    }, [])
 
     // Setup Mixpanel consent listener
     useEffect(() => {
@@ -218,13 +191,28 @@ export default function PricingSection() {
     }
 
     return (
-        <>
+        <div
+            className="relative"
+            style={{ overflowX: 'hidden' }}
+        >
+            {/* ─── Hero + Pricing Cards wrapper (topo bg scoped here) ─────────── */}
+            <div className="relative">
+                {/* Topo background — spans hero + pricing tiers only */}
+                <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                        backgroundImage: `url(${bgSection1})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                    }}
+                />
+
             {/* ─── 1. Hero ─────────────────────────────────────────────────────── */}
-            <section className="w-full pt-28 sm:pt-36 pb-16 sm:pb-20 px-5 sm:px-8">
-                <div className="max-w-[760px] mx-auto w-full flex flex-col gap-6 items-center text-center">
+            <section className="relative z-10 w-full pt-40 sm:pt-48 pb-8 sm:pb-10 px-5 sm:px-8">
+                <div className="max-w-[900px] mx-auto w-full flex flex-col gap-6 items-start text-left">
                     <div
                         ref={heroTagRef}
-                        className="font-mono text-[11px] tracking-[3px] uppercase text-[#969EA7]"
+                        className="font-mono text-[14px] tracking-[3px] uppercase text-[#969EA7]"
                     >
                         {t('pricing.tag')}
                     </div>
@@ -236,100 +224,105 @@ export default function PricingSection() {
                     </h1>
                     <p
                         ref={heroBodyRef}
-                        className="font-satoshi font-medium text-[16px] sm:text-[18px] leading-[160%] text-[#969EA7] max-w-[540px]"
+                        className="font-satoshi font-medium text-[16px] sm:text-[18px] leading-[160%] text-[#969EA7]"
                     >
                         {t('pricing.heroBody')}
                     </p>
-                    <ul ref={heroFeaturesRef} className="flex flex-col gap-3 mt-2 w-full max-w-[480px] text-left">
-                        {features.map((feature, i) => (
-                            <li key={i} className="flex items-start gap-3">
-                                <span className="flex-shrink-0 mt-0.5 w-5 h-5 rounded-full flex items-center justify-center"
-                                    style={{ background: 'linear-gradient(135deg, #C50017, #FF5514, #FFCA1E)' }}>
-                                    <Check size={11} color="#fff" strokeWidth={3} />
-                                </span>
-                                <span className="font-satoshi text-[15px] leading-[150%] text-[#969EA7]">{feature}</span>
-                            </li>
-                        ))}
-                    </ul>
                 </div>
             </section>
 
             {/* ─── 2. Pricing Cards ────────────────────────────────────────────── */}
-            <section className="w-full py-16 sm:py-20 px-5 sm:px-8">
+            <section className="relative z-10 w-full pt-8 sm:pt-10 pb-16 sm:pb-20 px-5 sm:px-8">
                 <div className="max-w-[900px] mx-auto w-full flex flex-col gap-10 items-center">
-                    {/* Above-card copy */}
-                    <div className="flex flex-col gap-4 items-center text-center">
-                        <h2 className="font-mono font-bold text-[24px] sm:text-[32px] leading-[120%] text-white max-w-[600px]">
-                            {t('pricing.pricingHeadline')}
-                        </h2>
-                        <p className="font-satoshi text-[14px] sm:text-[15px] leading-[150%] text-[#969EA7]">
-                            {t('pricing.trustLine1')}
-                        </p>
-                        <p className="font-satoshi text-[14px] sm:text-[15px] leading-[150%] text-[#969EA7]">
-                            {t('pricing.trustLine2')}
-                        </p>
-                        <p className="font-satoshi text-[13px] sm:text-[14px] leading-[150%] text-[#969EA7] italic max-w-[480px]">
-                            "{t('pricing.trustQuote')}"
-                        </p>
+                    {/* Billing period toggle */}
+                    <div className="flex items-center gap-3">
+                        <span className={`font-mono text-[13px] tracking-[1px] uppercase transition-colors duration-150 ${!isYearly ? 'text-white' : 'text-[#555]'}`}>
+                            {t('pricing.monthly')}
+                        </span>
+                        <button
+                            onClick={() => setBillingPeriod(isYearly ? 'monthly' : 'yearly')}
+                            className={`relative w-12 h-6 rounded-full focus:outline-none flex-shrink-0 ${isYearly ? 'btn-gradient' : 'bg-[#333]'}`}
+                            aria-label="Toggle billing period"
+                        >
+                            <span
+                                className="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white shadow transition-transform duration-200"
+                                style={{ transform: isYearly ? 'translateX(24px)' : 'translateX(0)' }}
+                            />
+                        </button>
+                        <span className={`flex items-center gap-2 font-mono text-[13px] tracking-[1px] uppercase transition-colors duration-150 ${isYearly ? 'text-white' : 'text-[#555]'}`}>
+                            {t('pricing.annual')}
+                            <span
+                                className="btn-gradient font-mono text-[10px] tracking-[1px] px-1.5 py-0.5 rounded text-white"
+                            >
+                                {t('pricing.annualBadge')}
+                            </span>
+                        </span>
                     </div>
-
-                    {/* Early access banner */}
-                    <div className="w-full rounded-lg border border-amber-500/30 bg-amber-500/10 px-5 py-4 text-center">
-                        <p className="font-satoshi text-[14px] sm:text-[15px] leading-[150%] text-amber-300">
-                            {t('pricing.earlyAccessBanner')}
-                        </p>
-                    </div>
-
                     {/* Cards */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
                         {/* Free Plan */}
                         <div
-                            className="rounded-2xl border border-[#2D2D2D] p-7 sm:p-8 flex flex-col gap-6"
+                            className="rounded-2xl p-[1px]"
+                            style={{ background: 'linear-gradient(135deg, rgba(80,80,80,0.3), rgba(60,60,60,0.2), rgba(40,40,40,0.15))' }}
+                        >
+                        <div
+                            className="rounded-[15px] p-7 sm:p-8 flex flex-col gap-6 h-full"
                             style={{ backgroundColor: '#151515' }}
                         >
                             <div className="flex flex-col gap-1">
-                                <span className="font-mono text-[11px] tracking-[2px] uppercase text-[#969EA7]">
+                                <span className="font-['JetBrains_Mono'] text-[20px] tracking-[2px] uppercase text-[#969EA7]">
                                     {t('pricing.free.label')}
                                 </span>
-                                <p className="font-satoshi text-[14px] text-[#969EA7]">
+                                <p className="font-satoshi font-medium text-[16px] sm:text-[18px] leading-[160%] text-[#969EA7]">
                                     {t('pricing.freeTierTagline')}
                                 </p>
                             </div>
-                            <div>
-                                <span className="font-mono font-bold text-[40px] sm:text-[48px] leading-none text-white">
-                                    {t('pricing.free.price')}
-                                </span>
-                                <span className="font-mono text-[14px] text-[#969EA7] ml-1">
-                                    {t('pricing.free.period')}
-                                </span>
+                            <div className="flex flex-col gap-2 min-h-[88px] justify-center">
+                                <div>
+                                    <span className="font-mono font-bold text-[40px] sm:text-[48px] leading-none text-[#555]">
+                                        {t('pricing.free.price')}
+                                    </span>
+                                    <span className="font-mono text-[14px] text-[#969EA7] ml-1">
+                                        {t('pricing.free.period')}
+                                    </span>
+                                </div>
                             </div>
                             <div className="h-px bg-[#2D2D2D]" />
-                            <ul className="flex flex-col gap-3 flex-1">
+                            <ul className="flex flex-col gap-3 flex-1 pt-7">
+                                <li className="invisible font-mono text-[12px] tracking-[1px] uppercase text-[#969EA7] mb-1" aria-hidden="true">
+                                    {t('pricing.unlimited.everythingIn')}
+                                </li>
                                 {freeFeatures.map((f, i) => (
                                     <li key={i} className="flex items-start gap-3">
                                         <span className="flex-shrink-0 mt-0.5 w-5 h-5 rounded-full flex items-center justify-center"
-                                            style={{ background: 'linear-gradient(135deg, #C50017, #FF5514, #FFCA1E)' }}>
-                                            <Check size={11} color="#fff" strokeWidth={3} />
+                                            style={{ background: 'transparent', border: '1.5px solid #555' }}>
+                                            <Check size={11} color="#666" strokeWidth={3} />
                                         </span>
-                                        <span className="font-satoshi text-[15px] leading-[150%] text-[#969EA7]">{f}</span>
+                                        <span className="font-satoshi font-medium text-[14px] sm:text-[15px] leading-[160%] text-[#969EA7]">{f}</span>
                                     </li>
                                 ))}
                             </ul>
-                            <a
-                                href={`/${currentLang}/join`}
-                                className="btn-gradient font-mono text-[12px] sm:text-[13px] font-extrabold tracking-[2px] uppercase text-white rounded-lg text-center py-3.5 px-6 hover:brightness-110 transition-all duration-200"
-                                onClick={() => void trackPricingCtaClicked({
-                                    country: countryCode ?? 'unknown',
-                                    cluster: pricingTier.cluster,
-                                    experiment_arm: pricingTier.arm,
-                                    pricing_currency: pricingTier.currency,
-                                    pricing_amount: pricingTier.arm === 'per_seat' ? pricingTier.perSeat! : pricingTier.flat!,
-                                    cta_text: t('pricing.free.cta'),
-                                    utm_source: getUtmParams().utm_source,
-                                })}
-                            >
-                                {t('pricing.free.cta')}
-                            </a>
+                            <div className="flex flex-col gap-1.5">
+                                <p className="invisible text-center font-mono text-[10px] tracking-[1.5px] uppercase line-through" aria-hidden="true">placeholder</p>
+                                <a
+                                    href="https://app.augotraining.com/download"
+                                    className="font-mono text-[12px] sm:text-[13px] font-extrabold tracking-[2px] uppercase rounded-lg text-center h-12 flex items-center justify-center px-6 transition-all duration-200 text-[#666] hover:text-[#888]"
+                                    style={{ background: '#1E1E1E', border: '1px solid #333' }}
+                                    onClick={() => void trackPricingCtaClicked({
+                                        country: countryCode ?? 'unknown',
+                                        cluster: pricingTier.cluster,
+                                        experiment_arm: pricingTier.arm,
+                                        pricing_currency: pricingTier.currency,
+                                        pricing_amount: pricingTier.arm === 'per_seat' ? pricingTier.perSeat! : pricingTier.flat!,
+                                        cta_text: t('pricing.free.cta'),
+                                        utm_source: getUtmParams().utm_source,
+                                    })}
+                                >
+                                    {t('pricing.free.cta')}
+                                </a>
+                                <p className="invisible text-center font-mono text-[10px] tracking-[1px] uppercase" aria-hidden="true">placeholder</p>
+                            </div>
+                        </div>
                         </div>
 
                         {/* Paid Plan — dynamic by arm */}
@@ -342,7 +335,7 @@ export default function PricingSection() {
                                 >
                                     <div className="flex flex-col gap-1">
                                         <span
-                                            className="font-mono text-[11px] tracking-[2px] uppercase font-bold"
+                                            className="font-['JetBrains_Mono'] text-[20px] tracking-[2px] uppercase font-bold"
                                             style={{
                                                 background: 'linear-gradient(83.9deg, #C50017 0%, #FF5514 55%, #FFCA1E 100%)',
                                                 WebkitBackgroundClip: 'text',
@@ -352,27 +345,27 @@ export default function PricingSection() {
                                         >
                                             {t('pricing.unlimited.label')}
                                         </span>
-                                        <p className="font-satoshi text-[14px] text-[#969EA7]">
+                                        <p className="font-satoshi font-medium text-[16px] sm:text-[18px] leading-[160%] text-[#969EA7]">
                                             {pricingTier.arm === 'per_seat'
                                                 ? t('pricing.perSeat.tagline')
                                                 : t('pricing.flat.tagline')}
                                         </p>
                                     </div>
-                                    <div className="flex flex-col gap-2">
+                                    <div className="flex flex-col gap-2 min-h-[88px] justify-center">
                                         {pricingTier.arm === 'per_seat' ? (
                                             <>
                                                 <div>
                                                     <span className="font-mono font-bold text-[40px] sm:text-[48px] leading-none text-white">
-                                                        {pricingTier.symbol}{formatPrice(pricingTier.perSeat!)}
+                                                        {pricingTier.symbol}{formatPrice(isYearly ? pricingTier.perSeat! * YEARLY_DISCOUNT : pricingTier.perSeat!)}
                                                     </span>
                                                     <span className="font-mono text-[14px] text-[#969EA7] ml-1">
-                                                        per athlete / month
+                                                        per athlete / month{isYearly ? ', billed annually' : ''}
                                                     </span>
                                                 </div>
                                                 <div className="flex flex-col gap-1">
                                                     {[5, 10, 20].map((n) => (
                                                         <span key={n} className="font-satoshi text-[13px] text-[#969EA7]">
-                                                            {n} athletes → {pricingTier.symbol}{formatPrice(pricingTier.perSeat! * n)}/mo
+                                                            {n} athletes → {pricingTier.symbol}{formatPrice((isYearly ? pricingTier.perSeat! * YEARLY_DISCOUNT : pricingTier.perSeat!) * n)}/mo
                                                         </span>
                                                     ))}
                                                 </div>
@@ -380,15 +373,18 @@ export default function PricingSection() {
                                         ) : (
                                             <div>
                                                 <span className="font-mono font-bold text-[40px] sm:text-[48px] leading-none text-white">
-                                                    {pricingTier.symbol}{formatPrice(pricingTier.flat!)}
+                                                    {pricingTier.symbol}{formatPrice(isYearly ? pricingTier.flat! * YEARLY_DISCOUNT : pricingTier.flat!)}
                                                 </span>
                                                 <span className="font-mono text-[14px] text-[#969EA7] ml-1">
-                                                    / month — unlimited athletes
+                                                    / month{isYearly ? ', billed annually' : ''}
                                                 </span>
                                             </div>
                                         )}
                                     </div>
-                                    <div className="h-px bg-[#2D2D2D]" />
+                                    <div className="-mx-7 sm:-mx-8 -mt-3 btn-gradient text-white text-center py-2 flex flex-col gap-0.5">
+                                        <span className="font-mono text-[10px] tracking-[2px] uppercase font-bold">{t('pricing.earlyAccessRibbon')}</span>
+                                        <span className="font-mono text-[8px] tracking-[1px] uppercase opacity-80">{t('pricing.earlyAccessRibbonSub')}</span>
+                                    </div>
                                     <ul className="flex flex-col gap-3 flex-1">
                                         <li className="font-mono text-[12px] tracking-[1px] uppercase text-[#969EA7] mb-1">
                                             {t('pricing.unlimited.everythingIn')}
@@ -396,41 +392,68 @@ export default function PricingSection() {
                                         {unlimitedFeatures.map((f, i) => (
                                             <li key={i} className="flex items-start gap-3">
                                                 <span className="flex-shrink-0 mt-0.5 w-5 h-5 rounded-full flex items-center justify-center"
-                                                    style={{ background: 'linear-gradient(135deg, #C50017, #FF5514, #FFCA1E)' }}>
-                                                    <Check size={11} color="#fff" strokeWidth={3} />
+                                                    style={{ background: 'transparent', border: '1.5px solid #969EA7' }}>
+                                                    <Check size={11} color="#969EA7" strokeWidth={3} />
                                                 </span>
-                                                <span className="font-satoshi text-[15px] leading-[150%] text-[#969EA7]">{f}</span>
+                                                <span className="font-satoshi font-medium text-[14px] sm:text-[15px] leading-[160%] text-[#969EA7]">{f}</span>
                                             </li>
                                         ))}
                                     </ul>
-                                    <a
-                                        href={`/${currentLang}/join`}
-                                        className="btn-gradient font-mono text-[12px] sm:text-[13px] font-extrabold tracking-[2px] uppercase text-white rounded-lg text-center py-3.5 px-6 hover:brightness-110 transition-all duration-200"
-                                        onClick={() => void trackPricingCtaClicked({
-                                            country: countryCode ?? 'unknown',
-                                            cluster: pricingTier.cluster,
-                                            experiment_arm: pricingTier.arm,
-                                            pricing_currency: pricingTier.currency,
-                                            pricing_amount: pricingTier.arm === 'per_seat' ? pricingTier.perSeat! : pricingTier.flat!,
-                                            cta_text: pricingTier.arm === 'per_seat' ? t('pricing.perSeat.cta') : t('pricing.flat.cta'),
-                                            utm_source: getUtmParams().utm_source,
-                                        })}
-                                    >
-                                        {pricingTier.arm === 'per_seat' ? t('pricing.perSeat.cta') : t('pricing.flat.cta')}
-                                    </a>
+                                    <div className="flex flex-col gap-1.5">
+                                        <a
+                                            href="https://app.augotraining.com/download"
+                                            className="btn-gradient font-mono text-[12px] sm:text-[13px] font-extrabold tracking-[2px] uppercase text-white rounded-lg text-center h-12 flex items-center justify-center px-6 hover:brightness-110 transition-all duration-200"
+                                            onClick={() => void trackPricingCtaClicked({
+                                                country: countryCode ?? 'unknown',
+                                                cluster: pricingTier.cluster,
+                                                experiment_arm: pricingTier.arm,
+                                                pricing_currency: pricingTier.currency,
+                                                pricing_amount: pricingTier.arm === 'per_seat' ? pricingTier.perSeat! : pricingTier.flat!,
+                                                cta_text: pricingTier.arm === 'per_seat' ? t('pricing.perSeat.cta') : t('pricing.flat.cta'),
+                                                utm_source: getUtmParams().utm_source,
+                                            })}
+                                        >
+                                            {pricingTier.arm === 'per_seat' ? t('pricing.perSeat.cta') : t('pricing.flat.cta')}
+                                        </a>
+                                        <p className="text-center font-mono text-[10px] tracking-[1px] uppercase text-[#FF5514]/60">
+                                            {t('pricing.unlimited.ctaPromo')}
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>{/* end cards grid */}
+                </div>{/* end max-w container */}
+            </section>
+            </div>{/* end topo bg wrapper */}
 
-                    {/* Always-free note */}
-                    <p className="font-satoshi text-[13px] sm:text-[14px] leading-[150%] text-[#969EA7] text-center">
-                        {t('pricing.alwaysFreeNote')}
-                    </p>
+            {/* ─── Supplementary pricing content ──────────────────────────────── */}
+            <section className="relative z-10 w-full pt-16 sm:pt-20 pb-16 sm:pb-20 px-5 sm:px-8">
+                <div className="max-w-[900px] mx-auto w-full flex flex-col gap-10 items-center">
+                    {/* Simple pricing headline + trust row */}
+                    <div className="w-full flex flex-col gap-5">
+                        <h2 className="font-mono font-bold text-[32px] sm:text-[44px] lg:text-[52px] leading-[120%] text-white">
+                            Simple pricing. Built to scale with your quality coaching.
+                        </h2>
+                        {/* Trust statements */}
+                        <div className="flex flex-col gap-3">
+                            {[
+                                t('pricing.trustLine1'),
+                                t('pricing.trustLine2'),
+                                t('pricing.trustQuote'),
+                                t('pricing.alwaysFreeNote'),
+                            ].map((line, i) => (
+                                <div key={i} className="group flex items-start gap-2 cursor-default">
+                                    <span className="font-satoshi font-black italic text-[14px] leading-[150%] tracking-[4px] text-[#969EA7] group-hover:text-white flex-shrink-0 transition-all duration-200 ease-out">///////</span>
+                                    <span className="font-satoshi font-medium text-[16px] sm:text-[18px] leading-[160%] text-[#969EA7] group-hover:text-white group-hover:font-bold group-hover:italic transition-all duration-200 ease-out">{line}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
 
                     {/* Location note */}
                     {!loading && countryCode && (
-                        <p className="font-satoshi text-[12px] sm:text-[13px] leading-[150%] text-[#969EA7] text-center">
+                        <p className="font-satoshi text-[12px] sm:text-[13px] leading-[150%] text-[#969EA7]">
                             <Trans
                                 i18nKey="pricing.locationNote"
                                 values={{ countryName: pricingTier.countryName }}
@@ -448,55 +471,88 @@ export default function PricingSection() {
                 </div>
             </section>
 
-            {/* ─── 3. Bubble Anchor ────────────────────────────────────────────── */}
-            <section className="w-full py-8 sm:py-12 px-5 sm:px-8">
-                <div className="max-w-[900px] mx-auto w-full flex justify-center">
-                    <div className="inline-block border border-[#2D2D2D] rounded-full px-6 sm:px-10 py-3 sm:py-4 text-center">
-                        <p className="font-satoshi text-[14px] sm:text-[16px] leading-[150%] text-[#969EA7]">
-                            {t('pricing.bubbleText')}
-                        </p>
+            {/* ─── 3. With augo, you can ───────────────────────────────────────── */}
+            <section className="w-full py-12 sm:py-16 px-5 sm:px-8">
+                <div className="max-w-[900px] mx-auto w-full flex flex-col gap-6">
+                    <div className="flex items-center gap-3">
+                        <div className="w-[3px] h-5 rounded-full flex-shrink-0"
+                            style={{ background: 'linear-gradient(180deg, #C50017, #FF5514, #FFCA1E)' }} />
+                        <span className="font-satoshi font-medium text-[16px] sm:text-[18px] leading-[160%] text-[#969EA7]">
+                            {t('pricing.featuresLabel')}
+                        </span>
                     </div>
-                </div>
-            </section>
-
-            {/* ─── 4. Why Coaches Choose augo ──────────────────────────────────── */}
-            <section className="w-full py-16 sm:py-20 px-5 sm:px-8">
-                <div className="max-w-[900px] mx-auto w-full flex flex-col gap-10">
-                    <h2 className="font-mono font-bold text-[28px] sm:text-[36px] leading-[120%] text-white text-center">
-                        {t('pricing.whyHeadline')}
-                    </h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                        {whyCards.map((card, i) => (
+                    <div
+                        className="w-full flex md:grid md:grid-cols-4 overflow-x-auto md:overflow-visible gap-4 snap-x snap-mandatory md:snap-none pb-2 md:pb-0"
+                        style={{ scrollbarWidth: 'none' }}
+                    >
+                        {featureColumns.map((col, i) => (
                             <div
                                 key={i}
-                                ref={(el) => { whyCardsRef.current[i] = el }}
-                                className="rounded-xl border border-[#1A1A1A] p-6 sm:p-7 flex flex-col gap-3 transition-colors duration-150"
+                                className="flex-shrink-0 min-w-[240px] md:min-w-0 snap-start flex flex-col gap-4 rounded-xl overflow-hidden"
                                 style={{ backgroundColor: '#151515' }}
-                                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#1c1c1c' }}
-                                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#151515' }}
                             >
-                                <h3 className="font-mono font-bold text-[16px] sm:text-[17px] leading-[130%] text-white">
-                                    {card.title}
-                                </h3>
-                                <p className="font-satoshi text-[15px] leading-[160%] text-[#969EA7]">
-                                    {card.body}
-                                </p>
+                                <div className="flex flex-col gap-3 px-4 pt-4 pb-4">
+                                    <span className="font-mono font-bold text-[14px] tracking-[1.5px] uppercase text-white">
+                                        {col.title}
+                                    </span>
+                                    <ul className="flex flex-col gap-3">
+                                        {col.items.map((item, j) => (
+                                            <li key={j} className="flex items-start gap-3">
+                                                <CircleCheck
+                                                    size={24}
+                                                    className="flex-shrink-0 mt-0.5"
+                                                    color="#969EA7"
+                                                    strokeWidth={1.5}
+                                                />
+                                                <span className="font-satoshi text-[17px] leading-[150%] text-white">{item}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* ─── 5. FAQ ──────────────────────────────────────────────────────── */}
+            {/* ─── 4. Bubble Anchor ────────────────────────────────────────────── */}
+            <section className="w-full py-8 sm:py-12 px-5 sm:px-8">
+                <div className="max-w-[900px] mx-auto w-full">
+                    <div className="relative">
+                        {/* Breathing glow behind the banner */}
+                        <div className="bubble-glow absolute -inset-6 rounded-2xl pointer-events-none" />
+                        {/* Animated rotating border */}
+                        <div className="bubble-border relative block w-full p-[1px] rounded-2xl">
+                            <div
+                                className="rounded-[20px] w-full px-6 sm:px-10 py-4 sm:py-5 text-center"
+                                style={{ backgroundColor: '#111111' }}
+                            >
+                                <p className="font-satoshi font-medium text-[16px] sm:text-[18px] leading-[150%] text-[#969EA7]">
+                                    {t('pricing.bubbleText')}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ─── 6. FAQ ──────────────────────────────────────────────────────── */}
             <PricingFaq />
 
-            {/* ─── 6. Closing CTA ──────────────────────────────────────────────── */}
+            {/* ─── 7. Closing CTA ──────────────────────────────────────────────── */}
             <section className="w-full py-20 sm:py-28 px-5 sm:px-8 relative overflow-hidden">
-                {/* Subtle blob */}
+                {/* Outer glow */}
                 <div
                     className="absolute inset-0 pointer-events-none"
                     style={{
-                        background: 'radial-gradient(ellipse 60% 40% at 50% 100%, rgba(197,0,23,0.07) 0%, transparent 70%)',
+                        background: 'radial-gradient(ellipse 80% 55% at 50% 70%, rgba(197,0,23,0.18) 0%, rgba(255,85,20,0.08) 45%, transparent 70%)',
+                    }}
+                />
+                {/* Inner glow */}
+                <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                        background: 'radial-gradient(ellipse 40% 30% at 50% 50%, rgba(255,85,20,0.1) 0%, transparent 60%)',
                     }}
                 />
                 <div className="relative z-10 max-w-[600px] mx-auto w-full flex flex-col gap-6 items-center text-center">
@@ -507,7 +563,7 @@ export default function PricingSection() {
                         {t('pricing.closingBody')}
                     </p>
                     <a
-                        href={`/${currentLang}/join`}
+                        href="https://app.augotraining.com/download"
                         className="btn-gradient font-mono text-sm font-extrabold tracking-[2px] uppercase text-white rounded-lg hover:brightness-110 transition-all duration-200 flex items-center justify-center mt-2"
                         data-cta="pricing"
                         style={{ width: '220px', height: '48px' }}
@@ -525,6 +581,6 @@ export default function PricingSection() {
                     </a>
                 </div>
             </section>
-        </>
+        </div>
     )
 }
