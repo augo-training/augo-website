@@ -44,6 +44,8 @@ interface PricingPageViewedProps {
     experiment_arm: string
     pricing_currency: string
     pricing_amount: number
+    fx_rate: number | null
+    discount_pct: number
     utm_source: string | null
     utm_medium: string | null
     utm_campaign: string | null
@@ -66,6 +68,8 @@ interface PricingCtaClickedProps {
     experiment_arm: string
     pricing_currency: string
     pricing_amount: number
+    fx_rate: number | null
+    discount_pct: number
     cta_text: string
     utm_source: string | null
 }

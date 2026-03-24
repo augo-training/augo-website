@@ -181,7 +181,9 @@ export default function PricingSection() {
             cluster: pricingTier.cluster,
             experiment_arm: pricingTier.arm,
             pricing_currency: pricingTier.currency,
-            pricing_amount: pricingTier.arm === 'per_seat' ? pricingTier.perSeat! : pricingTier.flat!,
+            pricing_amount: pricingTier.arm === 'per_seat' ? pricingTier.perSeat : pricingTier.flat,
+            fx_rate: pricingTier.fxRate,
+            discount_pct: pricingTier.discountPct,
             ...getUtmParams(),
         })
     }, [loading]) // eslint-disable-line react-hooks/exhaustive-deps
@@ -313,7 +315,9 @@ export default function PricingSection() {
                                         cluster: pricingTier.cluster,
                                         experiment_arm: pricingTier.arm,
                                         pricing_currency: pricingTier.currency,
-                                        pricing_amount: pricingTier.arm === 'per_seat' ? pricingTier.perSeat! : pricingTier.flat!,
+                                        pricing_amount: pricingTier.arm === 'per_seat' ? pricingTier.perSeat : pricingTier.flat,
+                                        fx_rate: pricingTier.fxRate,
+                                        discount_pct: pricingTier.discountPct,
                                         cta_text: t('pricing.free.cta'),
                                         utm_source: getUtmParams().utm_source,
                                     })}
@@ -356,24 +360,18 @@ export default function PricingSection() {
                                             <>
                                                 <div>
                                                     <span className="font-mono font-bold text-[40px] sm:text-[48px] leading-none text-white">
-                                                        {pricingTier.symbol}{formatPrice(isYearly ? pricingTier.perSeat! * YEARLY_DISCOUNT : pricingTier.perSeat!)}
+                                                        {pricingTier.symbol}{formatPrice(isYearly ? pricingTier.perSeat * YEARLY_DISCOUNT : pricingTier.perSeat)}
                                                     </span>
                                                     <span className="font-mono text-[14px] text-[#969EA7] ml-1">
                                                         per athlete / month{isYearly ? ', billed annually' : ''}
                                                     </span>
                                                 </div>
-                                                <div className="flex flex-col gap-1">
-                                                    {[5, 10, 20].map((n) => (
-                                                        <span key={n} className="font-satoshi text-[13px] text-[#969EA7]">
-                                                            {n} athletes → {pricingTier.symbol}{formatPrice((isYearly ? pricingTier.perSeat! * YEARLY_DISCOUNT : pricingTier.perSeat!) * n)}/mo
-                                                        </span>
-                                                    ))}
-                                                </div>
+
                                             </>
                                         ) : (
                                             <div>
                                                 <span className="font-mono font-bold text-[40px] sm:text-[48px] leading-none text-white">
-                                                    {pricingTier.symbol}{formatPrice(isYearly ? pricingTier.flat! * YEARLY_DISCOUNT : pricingTier.flat!)}
+                                                    {pricingTier.symbol}{formatPrice(isYearly ? pricingTier.flat * YEARLY_DISCOUNT : pricingTier.flat)}
                                                 </span>
                                                 <span className="font-mono text-[14px] text-[#969EA7] ml-1">
                                                     / month{isYearly ? ', billed annually' : ''}
@@ -408,7 +406,9 @@ export default function PricingSection() {
                                                 cluster: pricingTier.cluster,
                                                 experiment_arm: pricingTier.arm,
                                                 pricing_currency: pricingTier.currency,
-                                                pricing_amount: pricingTier.arm === 'per_seat' ? pricingTier.perSeat! : pricingTier.flat!,
+                                                pricing_amount: pricingTier.arm === 'per_seat' ? pricingTier.perSeat : pricingTier.flat,
+                                                fx_rate: pricingTier.fxRate,
+                                                discount_pct: pricingTier.discountPct,
                                                 cta_text: pricingTier.arm === 'per_seat' ? t('pricing.perSeat.cta') : t('pricing.flat.cta'),
                                                 utm_source: getUtmParams().utm_source,
                                             })}
@@ -572,7 +572,9 @@ export default function PricingSection() {
                             cluster: pricingTier.cluster,
                             experiment_arm: pricingTier.arm,
                             pricing_currency: pricingTier.currency,
-                            pricing_amount: pricingTier.arm === 'per_seat' ? pricingTier.perSeat! : pricingTier.flat!,
+                            pricing_amount: pricingTier.arm === 'per_seat' ? pricingTier.perSeat : pricingTier.flat,
+                            fx_rate: pricingTier.fxRate,
+                            discount_pct: pricingTier.discountPct,
                             cta_text: t('pricing.closingCta'),
                             utm_source: getUtmParams().utm_source,
                         })}
