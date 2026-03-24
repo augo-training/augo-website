@@ -186,8 +186,8 @@
   },
   "pricing": {
     "tag": "PREISE",
-    "heroHeadline": "Wissen, was zählt. Besser coachen.",
-    "heroBody": "augo organizes your conversations with your athletes, your athletes's workout data, and qualitative session feedback into clear, actionable insights — so you always know who needs attention, what to do, and why.",
+    "heroHeadline": "Die richtigen Signale. Zur richtigen Zeit.",
+    "heroBody": "augo bündelt deine Gespräche mit Athlet:innen, deren Trainingsdaten und qualitatives Session-Feedback zu klaren, umsetzbaren Erkenntnissen — damit du immer weißt, wer Aufmerksamkeit braucht, was zu tun ist und warum.",
     "featuresLabel": "Mit augo kannst du:",
     "featureColumns": [
       {
@@ -210,7 +210,7 @@
         "items": ["Überarbeite Workouts unterwegs, von überall. augo ist für Mobilgeräte entwickelt"]
       }
     ],
-    "pricingHeadline": "Einfache Preise. Für besseres Coaching in jedem Maßstab.",
+    "pricingHeadline": "Einfache Preisgestalltung. Gebaut um dein Qualitätscoaching zu skalieren.",
     "trustLine1": "Kostenlos starten. Nur upgraden, wenn du mehr brauchst.",
     "trustLine2": "Keine langen Verträge. Keine versteckten Gebühren. Jederzeit kündbar.",
     "trustQuote": "Deine Daten gehören immer dir; geh jederzeit und nimm alle deine Daten mit.",
@@ -292,40 +292,40 @@
     "faqTitle": "Häufig gestellte Fragen",
     "faqItems": [
       {
-        "question": "Can I change plans anytime?",
-        "answer": "Yes - upgrade, downgrade, or cancel whenever you want."
+        "question": "Kann ich meinen Plan jederzeit wechseln?",
+        "answer": "Ja – upgraden, downgraden oder kündigen, wann immer du möchtest."
       },
       {
-        "question": "Is there a free trial?",
-        "answer": "You can start with our free plan and upgrade when you're ready."
+        "question": "Gibt es eine kostenlose Testphase?",
+        "answer": "Du kannst mit unserem kostenlosen Plan starten und upgraden, wenn du bereit bist."
       },
       {
-        "question": "Do my athletes need to pay?",
-        "answer": "No - augo is built for coaches. Athletes simply follow your guidance."
+        "question": "Müssen meine Athlet:innen bezahlen?",
+        "answer": "Nein – augo ist für Coaches gemacht. Athlet:innen folgen einfach deiner Anleitung."
       },
       {
-        "question": "Do I need to cancel my training platform?",
-        "answer": "No - augo works on top of your current tools, helping you organize data and gain clarity across all athletes."
+        "question": "Muss ich meine Trainingsplattform kündigen?",
+        "answer": "Nein – augo ergänzt deine bestehenden Tools und hilft dir, Daten zu strukturieren und den Überblick über alle Athlet:innen zu behalten."
       },
       {
-        "question": "Are there any additional costs or add-ons?",
-        "answer": "No. There are no hidden fees."
+        "question": "Gibt es versteckte Kosten oder Zusatzpakete?",
+        "answer": "Nein. Es gibt keine versteckten Gebühren."
       },
       {
-        "question": "Which platforms does augo integrate with?",
-        "answer": "We currently support wearable data from Garmin, Polar, Apple Watch, Strava, Coros, Wahoo, and Zwift."
+        "question": "Mit welchen Plattformen ist augo kompatibel?",
+        "answer": "Wir unterstützen derzeit Wearable-Daten von Garmin, Polar, Apple Watch, Strava, Coros, Wahoo und Zwift."
       },
       {
-        "question": "Can I use augo with multiple sports or coaching styles?",
-        "answer": "Currently augo has been built to address the needs of running, cycling and triathlon coaches. If you'd like to use augo for another sport or coaching area, let's talk!"
+        "question": "Kann ich augo für mehrere Sportarten oder Coaching-Stile nutzen?",
+        "answer": "Aktuell ist augo auf die Bedürfnisse von Lauf-, Rad- und Triathlon-Coaches ausgerichtet. Wenn du augo für eine andere Sportart oder einen anderen Bereich nutzen möchtest, lass uns sprechen!"
       },
       {
-        "question": "What do my athletes see and use?",
-        "answer": "They are able to see their workout data, chat with you, share qualitative feedback, and receive guidance over training plans."
+        "question": "Was sehen und nutzen meine Athlet:innen?",
+        "answer": "Sie können ihre Trainingsdaten einsehen, mit dir chatten, qualitatives Feedback teilen und Hinweise zu Trainingsplänen erhalten."
       },
       {
-        "question": "Do I get a discount on the annual plan?",
-        "answer": "Yes, you save 15% when you commit to an annual plan."
+        "question": "Bekomme ich einen Rabatt auf den Jahresplan?",
+        "answer": "Ja, du sparst 15 %, wenn du dich für einen Jahresplan entscheidest."
       }
     ],
     "closingHeadline": "Coaching sollte sich nicht chaotisch anfühlen.",
