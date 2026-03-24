@@ -128,10 +128,9 @@
   },
   "join": {
     "headline": "Junte-se à comunidade de coaches e atletas que buscam um novo padrão",
-    "body": "Entre na lista de espera e seja o primeiro a experimentar o assistente inteligente que ajuda você a fornecer o melhor serviço para os atletas que você treina.",
-    "cookiesRequired": "Cookies necessários",
-    "cookiesMessage": "Este formulário usa cookies do Typeform. Por favor, aceite cookies para carregar o formulário.",
-    "acceptCookies": "Aceitar Cookies"
+    "body": "Baixe o app augo e comece a experimentar o assistente inteligente que aproxima coaches e atletas.",
+    "downloadOnAppStore": "Baixar na App Store",
+    "getItOnGooglePlay": "Disponível no Google Play"
   },
   "find": {
     "headline1": "Encontre seu",

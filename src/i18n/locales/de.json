@@ -128,10 +128,9 @@
   },
   "join": {
     "headline": "Werde Teil der Community aus Coaches und Athleten, die neue Maßstäbe setzen.",
-    "body": "Tritt der Warteliste bei und erlebe als Erste/r den intelligenten Assistenten, der dir hilft, den besten Service für deine Athleten zu bieten.",
-    "cookiesRequired": "Cookies erforderlich",
-    "cookiesMessage": "Dieses Formular verwendet Cookies von Typeform. Bitte akzeptiere Cookies, um das Formular zu laden.",
-    "acceptCookies": "Cookies akzeptieren"
+    "body": "Lade die augo App herunter und erlebe den intelligenten Assistenten, der Coaches und Athleten näher zusammenbringt.",
+    "downloadOnAppStore": "Im App Store laden",
+    "getItOnGooglePlay": "Bei Google Play herunterladen"
   },
   "find": {
     "headline1": "Finde dein",

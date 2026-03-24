@@ -128,10 +128,9 @@
   },
   "join": {
     "headline": "Join the community of coaches & athletes who are looking for a new standard",
-    "body": "Join the waitlist and be first to experience the intelligent assistant that helps you provide the best service for the athletes you coach.",
-    "cookiesRequired": "Cookies Required",
-    "cookiesMessage": "This form uses cookies from Typeform. Please accept cookies to load the form.",
-    "acceptCookies": "Accept Cookies"
+    "body": "Download the augo app and start experiencing the intelligent assistant that brings coaches and athletes closer together.",
+    "downloadOnAppStore": "Download on the App Store",
+    "getItOnGooglePlay": "Get it on Google Play"
   },
   "find": {
     "headline1": "Get matched",
