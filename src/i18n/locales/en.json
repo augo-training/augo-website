@@ -230,15 +230,19 @@
     "earlyAccessRibbonSub": "No credit card required",
     "perSeat": {
       "tagline": "3 athletes or more",
-      "cta": "Claim my offer"
+      "cta": "Claim my offer",
+      "period": "per athlete / month",
+      "periodAnnual": "per athlete / month, billed annually"
     },
     "flat": {
       "tagline": "3 athletes or more",
-      "cta": "Claim my offer"
+      "cta": "Claim my offer",
+      "period": "/ month",
+      "periodAnnual": "/ month, billed annually"
     },
     "locationNote": "Pricing shown for {{countryName}}. Not your location? <1>Contact us</1>.",
     "free": {
-      "label": "Free Plan",
+      "label": "Free",
       "tagline": "Perfect for getting started",
       "price": "$0",
       "period": "/ month",
@@ -252,7 +256,7 @@
       "cta": "Start for free"
     },
     "unlimited": {
-      "label": "Unlimited Plan",
+      "label": "Unlimited",
       "tagline": "For coaches ready to grow",
       "priceMonthly": "$19.90",
       "priceAnnual": "$191",

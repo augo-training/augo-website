@@ -211,7 +211,7 @@
         "items": ["Überarbeite Workouts unterwegs, von überall. augo ist für Mobilgeräte entwickelt"]
       }
     ],
-    "pricingHeadline": "Einfache Preisgestalltung. Gebaut um dein Qualitätscoaching zu skalieren.",
+    "pricingHeadline": "Einfache Preise. Gebaut, um mit deinem Qualitätscoaching zu wachsen.",
     "trustLine1": "Kostenlos starten. Nur upgraden, wenn du mehr brauchst.",
     "trustLine2": "Keine langen Verträge. Keine versteckten Gebühren. Jederzeit kündbar.",
     "trustQuote": "Deine Daten gehören immer dir; geh jederzeit und nimm alle deine Daten mit.",
@@ -222,7 +222,7 @@
     },
     "monthly": "Monatlich",
     "annual": "Jährlich",
-    "annualBadge": "Save 15%",
+    "annualBadge": "Spare 15%",
     "freeTierTagline": "Bis zu 2 Athleten",
     "alwaysFreeNote": "0-2 Athleten: immer kostenlos.",
     "earlyAccessBanner": "Bis zum 27. April 2026 kostenlos für alle Coaches — teste augo mit unbegrenzt vielen Athleten, ohne Kreditkarte.",
@@ -230,15 +230,19 @@
     "earlyAccessRibbonSub": "Keine Kreditkarte erforderlich",
     "perSeat": {
       "tagline": "Ab 3 Athleten",
-      "cta": "Kostenlos starten"
+      "cta": "Angebot sichern",
+      "period": "pro Athlet / Monat",
+      "periodAnnual": "pro Athlet / Monat, jährlich abgerechnet"
     },
     "flat": {
       "tagline": "Ab 3 Athleten",
-      "cta": "Kostenlos starten"
+      "cta": "Angebot sichern",
+      "period": "/ Monat",
+      "periodAnnual": "/ Monat, jährlich abgerechnet"
     },
     "locationNote": "Preise für {{countryName}}. Nicht dein Standort? <1>Kontaktiere uns</1>.",
     "free": {
-      "label": "Free Plan",
+      "label": "Free",
       "tagline": "Perfekt für den Einstieg",
       "price": "$0",
       "period": "/ Monat",
@@ -252,7 +256,7 @@
       "cta": "Kostenlos starten"
     },
     "unlimited": {
-      "label": "Unlimited Plan",
+      "label": "Unlimited",
       "tagline": "Für Coaches, die wachsen wollen",
       "priceMonthly": "$19,90",
       "priceAnnual": "$191",

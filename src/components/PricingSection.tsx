@@ -276,16 +276,16 @@ export default function PricingSection() {
                             style={{ backgroundColor: '#151515' }}
                         >
                             <div className="flex flex-col gap-1">
-                                <span className="font-['JetBrains_Mono'] text-[20px] tracking-[2px] uppercase text-[#969EA7]">
+                                <span className="font-['JetBrains_Mono'] text-[20px] tracking-[2px] uppercase text-[#FFFFFF]">
                                     {t('pricing.free.label')}
                                 </span>
-                                <p className="font-satoshi font-medium text-[16px] sm:text-[18px] leading-[160%] text-[#969EA7]">
+                                <p className="font-satoshi font-medium text-[16px] sm:text-[18px] leading-[160%] text-[#FFFFFF]">
                                     {t('pricing.freeTierTagline')}
                                 </p>
                             </div>
                             <div className="flex flex-col gap-2 min-h-[88px] justify-center">
                                 <div>
-                                    <span className="font-mono font-bold text-[40px] sm:text-[48px] leading-none text-[#555]">
+                                    <span className="font-mono font-bold text-[40px] sm:text-[48px] leading-none text-[#FFFFFF]">
                                         {t('pricing.free.price')}
                                     </span>
                                     <span className="font-mono text-[14px] text-[#969EA7] ml-1">
@@ -301,14 +301,14 @@ export default function PricingSection() {
                                             style={{ background: 'transparent', border: '1.5px solid #555' }}>
                                             <Check size={11} color="#666" strokeWidth={3} />
                                         </span>
-                                        <span className="font-satoshi font-medium text-[14px] sm:text-[15px] leading-[160%] text-[#969EA7]">{f}</span>
+                                        <span className="font-satoshi font-medium text-[14px] sm:text-[15px] leading-[160%] text-[#FFFFFF]">{f}</span>
                                     </li>
                                 ))}
                             </ul>
                             <div className="flex flex-col gap-1.5">
                                 <a
                                     href="https://app.augotraining.com/download"
-                                    className="font-mono text-[12px] sm:text-[13px] font-extrabold tracking-[2px] uppercase rounded-lg text-center h-12 flex items-center justify-center px-6 transition-all duration-200 text-[#666] hover:text-[#888]"
+                                    className="font-mono text-[12px] sm:text-[13px] font-extrabold tracking-[2px] uppercase rounded-lg text-center h-12 flex items-center justify-center px-6 transition-all duration-200 text-[#EEE] hover:text-[#FFF]"
                                     style={{ background: '#1E1E1E', border: '1px solid #333' }}
                                     onClick={() => void trackPricingCtaClicked({
                                         country: countryCode ?? 'unknown',
@@ -337,8 +337,8 @@ export default function PricingSection() {
                                     style={{ backgroundColor: '#0A0A0A' }}
                                 >
                                     <div className="btn-gradient text-white text-center py-2 flex flex-col gap-0.5">
-                                        <span className="font-mono text-[10px] tracking-[2px] uppercase font-bold">{t('pricing.earlyAccessRibbon')}</span>
-                                        <span className="font-mono text-[8px] tracking-[1px] uppercase opacity-80">{t('pricing.earlyAccessRibbonSub')}</span>
+                                        <span className="font-mono text-[12px] tracking-[2px] uppercase font-bold">{t('pricing.earlyAccessRibbon')}</span>
+                                        <span className="font-mono text-[12px] tracking-[1px] uppercase opacity-80">{t('pricing.earlyAccessRibbonSub')}</span>
                                     </div>
                                     <div className="px-7 sm:px-8 pb-7 sm:pb-8 flex flex-col gap-6 flex-1">
                                     <div className="flex flex-col gap-1">
@@ -353,7 +353,7 @@ export default function PricingSection() {
                                         >
                                             {t('pricing.unlimited.label')}
                                         </span>
-                                        <p className="font-satoshi font-medium text-[16px] sm:text-[18px] leading-[160%] text-[#969EA7]">
+                                        <p className="font-satoshi font-medium text-[16px] sm:text-[18px] leading-[160%] text-[#FFFFFF]">
                                             {pricingTier.arm === 'per_seat'
                                                 ? t('pricing.perSeat.tagline')
                                                 : t('pricing.flat.tagline')}
@@ -367,7 +367,7 @@ export default function PricingSection() {
                                                         {pricingTier.symbol}{formatPrice(isYearly ? pricingTier.perSeat * YEARLY_DISCOUNT : pricingTier.perSeat)}
                                                     </span>
                                                     <span className="font-mono text-[14px] text-[#969EA7] ml-1">
-                                                        per athlete / month{isYearly ? ', billed annually' : ''}
+                                                        {t(isYearly ? 'pricing.perSeat.periodAnnual' : 'pricing.perSeat.period')}
                                                     </span>
                                                 </div>
 
@@ -378,7 +378,7 @@ export default function PricingSection() {
                                                     {pricingTier.symbol}{formatPrice(isYearly ? pricingTier.flat * YEARLY_DISCOUNT : pricingTier.flat)}
                                                 </span>
                                                 <span className="font-mono text-[14px] text-[#969EA7] ml-1">
-                                                    / month{isYearly ? ', billed annually' : ''}
+                                                    {t(isYearly ? 'pricing.flat.periodAnnual' : 'pricing.flat.period')}
                                                 </span>
                                             </div>
                                         )}
@@ -393,7 +393,7 @@ export default function PricingSection() {
                                                     style={{ background: 'transparent', border: '1.5px solid #969EA7' }}>
                                                     <Check size={11} color="#969EA7" strokeWidth={3} />
                                                 </span>
-                                                <span className="font-satoshi font-medium text-[14px] sm:text-[15px] leading-[160%] text-[#969EA7]">{f}</span>
+                                                <span className="font-satoshi font-medium text-[14px] sm:text-[15px] leading-[160%] text-[#FFFFFF]">{f}</span>
                                             </li>
                                         ))}
                                     </ul>

@@ -222,7 +222,7 @@
     },
     "monthly": "Mensal",
     "annual": "Anual",
-    "annualBadge": "Save 15%",
+    "annualBadge": "Economize 15%",
     "freeTierTagline": "Até 2 atletas",
     "alwaysFreeNote": "0-2 atletas: sempre gratuito.",
     "earlyAccessBanner": "Gratuito para todos os coaches até 27 de abril de 2026 — experimente o augo com atletas ilimitados, sem cartão de crédito.",
@@ -230,15 +230,19 @@
     "earlyAccessRibbonSub": "Cartão de crédito não é necessário",
     "perSeat": {
       "tagline": "A partir de 3 atletas",
-      "cta": "Começar grátis"
+      "cta": "Aproveitar oferta",
+      "period": "por atleta / mês",
+      "periodAnnual": "por atleta / mês, cobrado anualmente"
     },
     "flat": {
       "tagline": "A partir de 3 atletas",
-      "cta": "Começar grátis"
+      "cta": "Aproveitar oferta",
+      "period": "/ mês",
+      "periodAnnual": "/ mês, cobrado anualmente"
     },
     "locationNote": "Preços exibidos para {{countryName}}. Não é o seu local? <1>Fale conosco</1>.",
     "free": {
-      "label": "Plano Grátis",
+      "label": "Grátis",
       "tagline": "Perfeito para começar",
       "price": "$0",
       "period": "/ mês",
@@ -252,7 +256,7 @@
       "cta": "Começar grátis"
     },
     "unlimited": {
-      "label": "Plano Ilimitado",
+      "label": "Ilimitado",
       "tagline": "Para coaches prontos para crescer",
       "priceMonthly": "$19,90",
       "priceAnnual": "$191",
