@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { useTranslation, Trans } from 'react-i18next'
 import { useParams } from 'react-router-dom'
 import { gsap } from 'gsap'
-import { Check } from 'lucide-react'
+import { Check, MessageCircle, ClipboardList, Bot, ListChecks, BarChart2 } from 'lucide-react'
 import bgSection1 from '../assets/images/bg_section_1.webp'
 import { useGeoCountry } from '../hooks/useGeoCountry'
 import { getPricingTier } from '../config/pricingConfig'
@@ -129,6 +129,7 @@ export default function PricingSection() {
     // Refs for why-cards stagger
 
     const featureColumns = t('pricing.featureColumns', { returnObjects: true }) as Array<{ title: string; items: string[] }>
+    const featureColumnIcons = [MessageCircle, ClipboardList, Bot, ListChecks, BarChart2]
     const freeFeatures = t('pricing.free.features', { returnObjects: true }) as string[]
     const unlimitedFeatures = t('pricing.unlimited.features', { returnObjects: true }) as string[]
 
@@ -235,9 +236,11 @@ export default function PricingSection() {
 
             {/* ─── 2. Pricing Cards ────────────────────────────────────────────── */}
             <section className="relative z-10 w-full pt-8 sm:pt-10 pb-16 sm:pb-20 px-5 sm:px-8">
-                <div className="max-w-[900px] mx-auto w-full flex flex-col gap-10 items-center">
-                    {/* Billing period toggle */}
-                    <div className="flex items-center gap-3">
+                <div className="max-w-[900px] mx-auto w-full flex flex-col gap-4">
+                    {/* Billing period toggle — aligned above unlimited (right) card */}
+                    <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div />
+                        <div className="flex items-center justify-center gap-3">
                         <span className={`font-mono text-[13px] tracking-[1px] uppercase transition-colors duration-150 ${!isYearly ? 'text-white' : 'text-[#555]'}`}>
                             {t('pricing.monthly')}
                         </span>
@@ -259,6 +262,7 @@ export default function PricingSection() {
                                 {t('pricing.annualBadge')}
                             </span>
                         </span>
+                        </div>
                     </div>
                     {/* Cards */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
@@ -329,9 +333,14 @@ export default function PricingSection() {
                             <div className="join-form-glow absolute -inset-6 rounded-[2rem] pointer-events-none" />
                             <div className="join-form-border relative rounded-[20px] p-[2px]">
                                 <div
-                                    className="join-form-inner rounded-[18px] p-7 sm:p-8 flex flex-col gap-6 h-full"
+                                    className="join-form-inner rounded-[18px] overflow-hidden flex flex-col gap-6 h-full"
                                     style={{ backgroundColor: '#0A0A0A' }}
                                 >
+                                    <div className="btn-gradient text-white text-center py-2 flex flex-col gap-0.5">
+                                        <span className="font-mono text-[10px] tracking-[2px] uppercase font-bold">{t('pricing.earlyAccessRibbon')}</span>
+                                        <span className="font-mono text-[8px] tracking-[1px] uppercase opacity-80">{t('pricing.earlyAccessRibbonSub')}</span>
+                                    </div>
+                                    <div className="px-7 sm:px-8 pb-7 sm:pb-8 flex flex-col gap-6 flex-1">
                                     <div className="flex flex-col gap-1">
                                         <span
                                             className="font-['JetBrains_Mono'] text-[20px] tracking-[2px] uppercase font-bold"
@@ -374,10 +383,6 @@ export default function PricingSection() {
                                             </div>
                                         )}
                                     </div>
-                                    <div className="-mx-7 sm:-mx-8 -mt-3 btn-gradient text-white text-center py-2 flex flex-col gap-0.5">
-                                        <span className="font-mono text-[10px] tracking-[2px] uppercase font-bold">{t('pricing.earlyAccessRibbon')}</span>
-                                        <span className="font-mono text-[8px] tracking-[1px] uppercase opacity-80">{t('pricing.earlyAccessRibbonSub')}</span>
-                                    </div>
                                     <ul className="flex flex-col gap-3 flex-1">
                                         <li className="font-mono text-[12px] tracking-[1px] uppercase text-[#969EA7] mb-1">
                                             {t('pricing.unlimited.everythingIn')}
@@ -411,6 +416,7 @@ export default function PricingSection() {
                                             {pricingTier.arm === 'per_seat' ? t('pricing.perSeat.cta') : t('pricing.flat.cta')}
                                         </a>
                                     </div>
+                                    </div>{/* end inner padding div */}
                                 </div>
                             </div>
                         </div>
@@ -464,12 +470,12 @@ export default function PricingSection() {
             </section>
 
             {/* ─── 3. With augo, you can ───────────────────────────────────────── */}
-            <section className="w-full py-12 sm:py-16 px-5 sm:px-8">
+            <section className="w-full pt-12 sm:pt-16 pb-4 px-5 sm:px-8">
                 <div className="max-w-[900px] mx-auto w-full flex flex-col gap-6">
                     <div className="flex items-center gap-3">
                         <div className="w-[3px] h-5 rounded-full flex-shrink-0"
                             style={{ background: 'linear-gradient(180deg, #C50017, #FF5514, #FFCA1E)' }} />
-                        <span className="font-satoshi font-medium text-[16px] sm:text-[18px] leading-[160%] text-[#969EA7]">
+                        <span className="font-satoshi font-bold text-[22px] sm:text-[26px] leading-[120%] text-white">
                             {t('pricing.featuresLabel')}
                         </span>
                     </div>
@@ -484,7 +490,8 @@ export default function PricingSection() {
                                 style={{ backgroundColor: '#151515' }}
                             >
                                 <div className="flex flex-col gap-3 px-4 pt-4 pb-4">
-                                    <span className="font-mono font-bold text-[14px] tracking-[1.5px] uppercase text-white">
+                                    {(() => { const Icon = featureColumnIcons[i]; return <Icon size={28} color="white" strokeWidth={1.5} /> })()}
+                                    <span className="font-mono font-bold text-[14px] tracking-[1.5px] uppercase text-white mt-2">
                                         {col.title}
                                     </span>
                                     <ul className="flex flex-col gap-3">
@@ -502,7 +509,7 @@ export default function PricingSection() {
             </section>
 
             {/* ─── 4. Bubble Anchor ────────────────────────────────────────────── */}
-            <section className="w-full py-8 sm:py-12 px-5 sm:px-8">
+            <section className="w-full pt-4 pb-8 sm:pb-12 px-5 sm:px-8">
                 <div className="max-w-[900px] mx-auto w-full">
                     <div className="relative">
                         {/* Breathing glow behind the banner */}

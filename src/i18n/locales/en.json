@@ -230,11 +230,11 @@
     "earlyAccessRibbonSub": "No credit card required",
     "perSeat": {
       "tagline": "3 athletes or more",
-      "cta": "Start free"
+      "cta": "Claim my offer"
     },
     "flat": {
       "tagline": "3 athletes or more",
-      "cta": "Start free"
+      "cta": "Claim my offer"
     },
     "locationNote": "Pricing shown for {{countryName}}. Not your location? <1>Contact us</1>.",
     "free": {
