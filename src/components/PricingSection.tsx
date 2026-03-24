@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { useTranslation, Trans } from 'react-i18next'
 import { useParams } from 'react-router-dom'
 import { gsap } from 'gsap'
-import { Check, CircleCheck } from 'lucide-react'
+import { Check } from 'lucide-react'
 import bgSection1 from '../assets/images/bg_section_1.webp'
 import { useGeoCountry } from '../hooks/useGeoCountry'
 import { getPricingTier } from '../config/pricingConfig'
@@ -291,9 +291,6 @@ export default function PricingSection() {
                             </div>
                             <div className="h-px bg-[#2D2D2D]" />
                             <ul className="flex flex-col gap-3 flex-1 pt-7">
-                                <li className="invisible font-mono text-[12px] tracking-[1px] uppercase text-[#969EA7] mb-1" aria-hidden="true">
-                                    {t('pricing.unlimited.everythingIn')}
-                                </li>
                                 {freeFeatures.map((f, i) => (
                                     <li key={i} className="flex items-start gap-3">
                                         <span className="flex-shrink-0 mt-0.5 w-5 h-5 rounded-full flex items-center justify-center"
@@ -305,7 +302,6 @@ export default function PricingSection() {
                                 ))}
                             </ul>
                             <div className="flex flex-col gap-1.5">
-                                <p className="invisible text-center font-mono text-[10px] tracking-[1.5px] uppercase line-through" aria-hidden="true">placeholder</p>
                                 <a
                                     href="https://app.augotraining.com/download"
                                     className="font-mono text-[12px] sm:text-[13px] font-extrabold tracking-[2px] uppercase rounded-lg text-center h-12 flex items-center justify-center px-6 transition-all duration-200 text-[#666] hover:text-[#888]"
@@ -324,7 +320,6 @@ export default function PricingSection() {
                                 >
                                     {t('pricing.free.cta')}
                                 </a>
-                                <p className="invisible text-center font-mono text-[10px] tracking-[1px] uppercase" aria-hidden="true">placeholder</p>
                             </div>
                         </div>
                         </div>
@@ -334,7 +329,7 @@ export default function PricingSection() {
                             <div className="join-form-glow absolute -inset-6 rounded-[2rem] pointer-events-none" />
                             <div className="join-form-border relative rounded-[20px] p-[2px]">
                                 <div
-                                    className="join-form-inner rounded-[18px] p-7 sm:p-8 flex flex-col gap-6"
+                                    className="join-form-inner rounded-[18px] p-7 sm:p-8 flex flex-col gap-6 h-full"
                                     style={{ backgroundColor: '#0A0A0A' }}
                                 >
                                     <div className="flex flex-col gap-1">
@@ -415,9 +410,6 @@ export default function PricingSection() {
                                         >
                                             {pricingTier.arm === 'per_seat' ? t('pricing.perSeat.cta') : t('pricing.flat.cta')}
                                         </a>
-                                        <p className="text-center font-mono text-[10px] tracking-[1px] uppercase text-[#FF5514]/60">
-                                            {t('pricing.unlimited.ctaPromo')}
-                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -433,7 +425,7 @@ export default function PricingSection() {
                     {/* Simple pricing headline + trust row */}
                     <div className="w-full flex flex-col gap-5">
                         <h2 className="font-mono font-bold text-[32px] sm:text-[44px] lg:text-[52px] leading-[120%] text-white">
-                            Simple pricing. Built to scale with your quality coaching.
+                            {t('pricing.pricingHeadline')}
                         </h2>
                         {/* Trust statements */}
                         <div className="flex flex-col gap-3">
@@ -482,7 +474,7 @@ export default function PricingSection() {
                         </span>
                     </div>
                     <div
-                        className="w-full flex md:grid md:grid-cols-4 overflow-x-auto md:overflow-visible gap-4 snap-x snap-mandatory md:snap-none pb-2 md:pb-0"
+                        className="w-full flex md:grid md:grid-cols-5 overflow-x-auto md:overflow-visible gap-4 snap-x snap-mandatory md:snap-none pb-2 md:pb-0"
                         style={{ scrollbarWidth: 'none' }}
                     >
                         {featureColumns.map((col, i) => (
@@ -497,13 +489,7 @@ export default function PricingSection() {
                                     </span>
                                     <ul className="flex flex-col gap-3">
                                         {col.items.map((item, j) => (
-                                            <li key={j} className="flex items-start gap-3">
-                                                <CircleCheck
-                                                    size={24}
-                                                    className="flex-shrink-0 mt-0.5"
-                                                    color="#969EA7"
-                                                    strokeWidth={1.5}
-                                                />
+                                            <li key={j}>
                                                 <span className="font-satoshi text-[17px] leading-[150%] text-white">{item}</span>
                                             </li>
                                         ))}

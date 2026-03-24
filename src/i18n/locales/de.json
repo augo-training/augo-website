@@ -188,7 +188,7 @@
     "tag": "PREISE",
     "heroHeadline": "Die richtigen Signale. Zur richtigen Zeit.",
     "heroBody": "augo bündelt deine Gespräche mit Athlet:innen, deren Trainingsdaten und qualitatives Session-Feedback zu klaren, umsetzbaren Erkenntnissen — damit du immer weißt, wer Aufmerksamkeit braucht, was zu tun ist und warum.",
-    "featuresLabel": "Mit augo kannst du:",
+    "featuresLabel": "augo liefert",
     "featureColumns": [
       {
         "title": "Kommunikation",
@@ -200,13 +200,14 @@
       },
       {
         "title": "KI-Assistent",
-        "items": [
-          "Chatte mit einem intelligenten Assistenten, der Zugriff auf alle deine Chats, Athleten-Feedback und Trainingsdaten hat",
-          "Starte den Tag mit Klarheit: augos Assistent erstellt eine Prioritätenliste, damit du genau weißt, womit du beginnen sollst"
-        ]
+        "items": ["Chatte mit einem intelligenten Assistenten, der Zugriff auf alle deine Chats, Athleten-Feedback und Trainingsdaten hat"]
       },
       {
-        "title": "Mobile-first",
+        "title": "Tägliche Prioritäten",
+        "items": ["Starte den Tag mit Klarheit: augos Assistent erstellt eine Prioritätenliste, damit du genau weißt, womit du beginnen sollst"]
+      },
+      {
+        "title": "Trainingsanalyse",
         "items": ["Überarbeite Workouts unterwegs, von überall. augo ist für Mobilgeräte entwickelt"]
       }
     ],
@@ -222,17 +223,17 @@
     "monthly": "Monatlich",
     "annual": "Jährlich",
     "annualBadge": "Save 15%",
-    "freeTierTagline": "Kostenlos für bis zu 2 Athleten",
+    "freeTierTagline": "Bis zu 2 Athleten",
     "alwaysFreeNote": "0-2 Athleten: immer kostenlos.",
     "earlyAccessBanner": "Bis zum 27. April 2026 kostenlos für alle Coaches — teste augo mit unbegrenzt vielen Athleten, ohne Kreditkarte.",
-    "earlyAccessRibbon": "Bis 27. April 2026 kostenlos für alle Coaches",
+    "earlyAccessRibbon": "Startangebot: Kostenlos bis 26. April 2026",
     "earlyAccessRibbonSub": "Keine Kreditkarte erforderlich",
     "perSeat": {
-      "tagline": "Wächst mit deinem Team",
+      "tagline": "Ab 3 Athleten",
       "cta": "Kostenlos starten"
     },
     "flat": {
-      "tagline": "Pauschalpreis, unbegrenzte Athleten",
+      "tagline": "Ab 3 Athleten",
       "cta": "Kostenlos starten"
     },
     "locationNote": "Preise für {{countryName}}. Nicht dein Standort? <1>Kontaktiere uns</1>.",

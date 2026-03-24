@@ -188,7 +188,7 @@
     "tag": "PRICING",
     "heroHeadline": "Know what matters. Coach better.",
     "heroBody": "augo organizes your conversations with your athletes, your athletes's workout data, and qualitative session feedback into clear, actionable insights — so you always know who needs attention, what to do, and why.",
-    "featuresLabel": "With augo, you can:",
+    "featuresLabel": "augo delivers",
     "featureColumns": [
       {
         "title": "Communication",
@@ -200,13 +200,14 @@
       },
       {
         "title": "AI Assistant",
-        "items": [
-          "Chat with an intelligent assistant that has access to all of your chats, athlete feedback, and workout data",
-          "Start your day with clarity: augo's assistant curates a priority list so you know exactly where to begin"
-        ]
+        "items": ["Chat with an intelligent assistant that has access to all of your chats, athlete feedback, and workout data"]
       },
       {
-        "title": "Mobile-first",
+        "title": "Daily Priorities",
+        "items": ["Start your day with clarity: augo's assistant curates a priority list so you know exactly where to begin"]
+      },
+      {
+        "title": "Workout Analysis",
         "items": ["Revise workouts on the go, from anywhere. augo is designed for mobile"]
       }
     ],
@@ -222,17 +223,17 @@
     "monthly": "Monthly",
     "annual": "Annual",
     "annualBadge": "Save 15%",
-    "freeTierTagline": "Free for up to 2 athletes",
+    "freeTierTagline": "Up to 2 athletes",
     "alwaysFreeNote": "0-2 athletes: always free.",
     "earlyAccessBanner": "Free for all coaches until April 27, 2026 — try augo with unlimited athletes, no credit card required.",
-    "earlyAccessRibbon": "Free for all Coaches until April 27, 2026",
+    "earlyAccessRibbon": "Launch offer: Free until April 26th 2026",
     "earlyAccessRibbonSub": "No credit card required",
     "perSeat": {
-      "tagline": "Flat rate, unlimited athletes",
+      "tagline": "3 athletes or more",
       "cta": "Start free"
     },
     "flat": {
-      "tagline": "Flat rate, unlimited athletes",
+      "tagline": "3 athletes or more",
       "cta": "Start free"
     },
     "locationNote": "Pricing shown for {{countryName}}. Not your location? <1>Contact us</1>.",

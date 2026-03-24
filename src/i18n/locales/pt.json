@@ -186,31 +186,32 @@
   },
   "pricing": {
     "tag": "PREÇOS",
-    "heroHeadline": "Saiba o que importa. Treine melhor.",
-    "heroBody": "augo organizes your conversations with your athletes, your athletes's workout data, and qualitative session feedback into clear, actionable insights — so you always know who needs attention, what to do, and why.",
-    "featuresLabel": "Com o augo, você pode:",
+    "heroHeadline": "Cada atleta em foco. Cada decisão com propósito.",
+    "heroBody": "A augo reúne suas conversas, dados de treino e feedbacks dos atletas em um só lugar — transformando tudo em insights claros para que você saiba exatamente quem precisa de atenção, o que fazer e por quê.",
+    "featuresLabel": "augo entrega",
     "featureColumns": [
       {
         "title": "Comunicação",
-        "items": ["Comunique-se com atletas de forma fluida de qualquer lugar: pelo celular ou pela Web"]
+        "items": ["Comunique-se com atletas de forma fluida de qualquer lugar: pelo celular ou pelo computador"]
       },
       {
         "title": "Feedback dos Atletas",
-        "items": ["Capture feedback consistente dos atletas sobre recuperação, dores e nutrição"]
+        "items": ["Saiba como seus atletas se sentiram após cada treino — recuperação, dores e nutrição, tudo em um só lugar"]
       },
       {
         "title": "Assistente de IA",
-        "items": [
-          "Converse com um assistente inteligente que tem acesso a todos os seus chats, feedback dos atletas e dados de treino",
-          "Comece o dia com clareza: o assistente do augo cria uma lista de prioridades para que você saiba exatamente por onde começar"
-        ]
+        "items": ["Tire dúvidas e tome decisões com um assistente que conhece cada atleta tão bem quanto você"]
       },
       {
-        "title": "Mobile-first",
-        "items": ["Revise treinos em qualquer lugar, a qualquer hora. O augo foi desenvolvido para mobile"]
+        "title": "Prioridades Diárias",
+        "items": ["Todo dia, o augo te diz quem precisa da sua atenção — para você começar o dia sabendo exatamente o que fazer"]
+      },
+      {
+        "title": "Análise de Treino",
+        "items": ["Revise os treinos dos seus atletas no rua, no carro, onde for — a augo foi feita para entregar insights diretamente pelo celular"]
       }
     ],
-    "pricingHeadline": "Preços simples. Para escalar a qualidade do seu coaching.",
+    "pricingHeadline": "Preço simples. Feito para um coaching de alto nível.",
     "trustLine1": "Comece grátis. Faça upgrade apenas quando precisar de mais.",
     "trustLine2": "Sem contratos longos. Sem taxas ocultas. Cancele quando quiser.",
     "trustQuote": "Seus dados são sempre seus; saia quando quiser e leve todos os seus dados com você.",
@@ -222,17 +223,17 @@
     "monthly": "Mensal",
     "annual": "Anual",
     "annualBadge": "Save 15%",
-    "freeTierTagline": "Gratuito para até 2 atletas",
+    "freeTierTagline": "Até 2 atletas",
     "alwaysFreeNote": "0-2 atletas: sempre gratuito.",
     "earlyAccessBanner": "Gratuito para todos os coaches até 27 de abril de 2026 — experimente o augo com atletas ilimitados, sem cartão de crédito.",
-    "earlyAccessRibbon": "Grátis para todos os Coaches até 27 de abril de 2026",
-    "earlyAccessRibbonSub": "Sem cartão de crédito",
+    "earlyAccessRibbon": "Promoção: Grátis até 26 de abril de 2026",
+    "earlyAccessRibbonSub": "Cartão de crédito não é necessário",
     "perSeat": {
-      "tagline": "Cresce com a sua equipe",
+      "tagline": "A partir de 3 atletas",
       "cta": "Começar grátis"
     },
     "flat": {
-      "tagline": "Preço fixo, atletas ilimitados",
+      "tagline": "A partir de 3 atletas",
       "cta": "Começar grátis"
     },
     "locationNote": "Preços exibidos para {{countryName}}. Não é o seu local? <1>Fale conosco</1>.",
@@ -243,7 +244,7 @@
       "period": "/ mês",
       "features": [
         "Mensagens para até 2 atletas",
-        "Acesso limitado ao assistente augo",
+        "Acesso limitado à assistente inteligente",
         "Lista de prioridades diárias curada pelo assistente augo",
         "Receber dados de treino dos atletas",
         "Coletar feedback de sessão dos atletas"
@@ -260,16 +261,16 @@
       "everythingIn": "Tudo do Grátis +",
       "features": [
         "Atletas ilimitados",
-        "Acesso ilimitado ao assistente inteligente augo",
-        "Acesso à plataforma de matching augo",
-        "Acesso ao Discord & rede de coaches augo",
+        "Acesso ilimitado à assistente inteligente",
+        "Encontre atletas através da plataforma de matching augo",
+        "Acesso à comunidade de coaches augo",
         "Suporte prioritário"
       ],
       "cta": "Fazer upgrade para ilimitado",
       "ctaOriginal": "Iniciar Plano Ilimitado",
       "ctaPromo": "Free until April 27, 2026 · Launch promo"
     },
-    "bubbleText": "Desenvolvido para coaches que realmente se importam em oferecer um coaching de qualidade aos seus atletas.",
+    "bubbleText": "Feito para coaches que levam cada atleta a sério.",
     "whyHeadline": "Por que coaches escolhem o augo",
     "whyCards": [
       {
@@ -292,40 +293,40 @@
     "faqTitle": "Perguntas frequentes",
     "faqItems": [
       {
-        "question": "Can I change plans anytime?",
-        "answer": "Yes - upgrade, downgrade, or cancel whenever you want."
+        "question": "Posso trocar de plano a qualquer momento?",
+        "answer": "Sim — faça upgrade, downgrade ou cancele quando quiser."
       },
       {
-        "question": "Is there a free trial?",
-        "answer": "You can start with our free plan and upgrade when you're ready."
+        "question": "Existe um período de teste gratuito?",
+        "answer": "Você pode começar com o plano gratuito e fazer upgrade quando estiver pronto."
       },
       {
-        "question": "Do my athletes need to pay?",
-        "answer": "No - augo is built for coaches. Athletes simply follow your guidance."
+        "question": "Meus atletas precisam pagar?",
+        "answer": "Não — o augo é feito para coaches. Seus atletas simplesmente seguem as suas orientações."
       },
       {
-        "question": "Do I need to cancel my training platform?",
-        "answer": "No - augo works on top of your current tools, helping you organize data and gain clarity across all athletes."
+        "question": "Preciso cancelar minha plataforma de treino atual?",
+        "answer": "Não — o augo funciona junto com as ferramentas que você já usa, ajudando a organizar dados e ter clareza sobre todos os seus atletas."
       },
       {
-        "question": "Are there any additional costs or add-ons?",
-        "answer": "No. There are no hidden fees."
+        "question": "Existem custos adicionais ou complementos?",
+        "answer": "Não. Não há taxas ocultas."
       },
       {
-        "question": "Which platforms does augo integrate with?",
-        "answer": "We currently support wearable data from Garmin, Polar, Apple Watch, Strava, Coros, Wahoo, and Zwift."
+        "question": "Com quais plataformas o augo se integra?",
+        "answer": "Atualmente suportamos dados de wearables da Garmin, Polar, Apple Watch, Strava, Coros, Wahoo e Zwift."
       },
       {
-        "question": "Can I use augo with multiple sports or coaching styles?",
-        "answer": "Currently augo has been built to address the needs of running, cycling and triathlon coaches. If you'd like to use augo for another sport or coaching area, let's talk!"
+        "question": "Posso usar o augo com diferentes esportes ou estilos de coaching?",
+        "answer": "Atualmente o augo foi desenvolvido para atender as necessidades de coaches de corrida, ciclismo e triathlon. Se você quer usar o augo para outro esporte ou área de coaching, fale com a gente!"
       },
       {
-        "question": "What do my athletes see and use?",
-        "answer": "They are able to see their workout data, chat with you, share qualitative feedback, and receive guidance over training plans."
+        "question": "O que meus atletas veem e usam?",
+        "answer": "Eles podem ver seus dados de treino, conversar com você, compartilhar feedback qualitativo e receber orientações sobre planos de treino."
       },
       {
-        "question": "Do I get a discount on the annual plan?",
-        "answer": "Yes, you save 15% when you commit to an annual plan."
+        "question": "Tem desconto no plano anual?",
+        "answer": "Sim, você economiza 15% ao optar pelo plano anual."
       }
     ],
     "closingHeadline": "Coaching não deveria ser caótico.",
