@@ -3,6 +3,7 @@
     "forCoaches": "Para Coaches",
     "forAthletes": "Para Atletas",
     "findAMatch": "Encontrar um Match",
+    "pricing": "Preços",
     "joinAugo": "Junte-se à augo"
   },
   "hero": {
@@ -126,6 +127,13 @@
     "cookiesMessage": "Este formulário usa cookies do Typeform. Por favor, aceite cookies para carregar o formulário de contato.",
     "acceptCookies": "Aceitar Cookies"
   },
+  "download": {
+    "headline": "Treine de forma mais inteligente.",
+    "body": "Experimente o assistente inteligente que te ajuda a oferecer o melhor serviço para seus atletas.",
+    "launchWebApp": "Abrir App Web",
+    "downloadOnAppStore": "Baixar na App Store",
+    "getItOnGooglePlay": "Disponível no Google Play"
+  },
   "join": {
     "headline": "Junte-se à comunidade de coaches e atletas que buscam um novo padrão",
     "body": "Entre na lista de espera e seja o primeiro a experimentar o assistente inteligente que ajuda você a fornecer o melhor serviço para os atletas que você treina.",
@@ -155,6 +163,7 @@
       "forCoaches": "Para coaches",
       "forAthletes": "Para atletas",
       "howItWorks": "Como funciona",
+      "pricing": "Preços",
       "about": "Sobre",
       "faq": "FAQ",
       "findAMatch": "Encontrar um match"
@@ -181,5 +190,169 @@
     "en": "EN",
     "de": "DE",
     "pt": "PT"
+  },
+  "pricing": {
+    "tag": "PREÇOS",
+    "heroHeadline": "Cada atleta em foco. Cada decisão com propósito.",
+    "heroBody": "A augo reúne suas conversas, dados de treino e feedbacks dos atletas em um só lugar — transformando tudo em insights claros para que você saiba exatamente quem precisa de atenção, o que fazer e por quê.",
+    "featuresLabel": "augo entrega",
+    "featureColumns": [
+      {
+        "title": "Comunicação",
+        "items": ["Comunique-se com atletas de forma fluida de qualquer lugar: pelo celular ou pelo computador"]
+      },
+      {
+        "title": "Feedback dos Atletas",
+        "items": ["Saiba como seus atletas se sentiram após cada treino — recuperação, dores e nutrição, tudo em um só lugar"]
+      },
+      {
+        "title": "Assistente de IA",
+        "items": ["Tire dúvidas e tome decisões com um assistente que conhece cada atleta tão bem quanto você"]
+      },
+      {
+        "title": "Prioridades Diárias",
+        "items": ["Todo dia, o augo te diz quem precisa da sua atenção — para você começar o dia sabendo exatamente o que fazer"]
+      },
+      {
+        "title": "Análise de Treino",
+        "items": ["Revise os treinos dos seus atletas no rua, no carro, onde for — a augo foi feita para entregar insights diretamente pelo celular"]
+      }
+    ],
+    "pricingHeadline": "Preço simples. Feito para um coaching de alto nível.",
+    "trustLine1": "Comece grátis. Faça upgrade apenas quando precisar de mais.",
+    "trustLine2": "Sem contratos longos. Sem taxas ocultas. Cancele quando quiser.",
+    "trustQuote": "Seus dados são sempre seus; saia quando quiser e leve todos os seus dados com você.",
+    "trust": {
+      "startFree": "Comece grátis",
+      "noContracts": "Sem contratos",
+      "yourData": "Seus dados, sempre"
+    },
+    "monthly": "Mensal",
+    "annual": "Anual",
+    "annualBadge": "Economize 15%",
+    "freeTierTagline": "Até 2 atletas",
+    "alwaysFreeNote": "0-2 atletas: sempre gratuito.",
+    "earlyAccessBanner": "Gratuito para todos os coaches até 27 de abril de 2026 — experimente o augo com atletas ilimitados, sem cartão de crédito.",
+    "earlyAccessRibbon": "Promoção: Grátis até 26 de abril de 2026",
+    "earlyAccessRibbonSub": "Cartão de crédito não é necessário",
+    "perSeat": {
+      "tagline": "A partir de 3 atletas",
+      "cta": "Aproveitar oferta",
+      "period": "por atleta / mês",
+      "periodAnnual": "por atleta / mês, cobrado anualmente"
+    },
+    "flat": {
+      "tagline": "A partir de 3 atletas",
+      "cta": "Aproveitar oferta",
+      "period": "/ mês",
+      "periodAnnual": "/ mês, cobrado anualmente"
+    },
+    "locationNote": "Preços exibidos para {{countryName}}. Não é o seu local? <1>Fale conosco</1>.",
+    "free": {
+      "label": "Grátis",
+      "tagline": "Perfeito para começar",
+      "price": "$0",
+      "period": "/ mês",
+      "features": [
+        "Mensagens para até 2 atletas",
+        "Acesso limitado à assistente inteligente",
+        "Lista de prioridades diárias curada pelo assistente augo",
+        "Receber dados de treino dos atletas",
+        "Coletar feedback de sessão dos atletas"
+      ],
+      "cta": "Começar grátis"
+    },
+    "unlimited": {
+      "label": "Ilimitado",
+      "tagline": "Para coaches prontos para crescer",
+      "priceMonthly": "$19,90",
+      "priceAnnual": "$191",
+      "periodMonthly": "/ mês",
+      "periodAnnual": "/ ano",
+      "everythingIn": "Tudo do Grátis +",
+      "features": [
+        "Atletas ilimitados",
+        "Acesso ilimitado à assistente inteligente",
+        "Encontre atletas através da plataforma de matching augo",
+        "Acesso à comunidade de coaches augo",
+        "Suporte prioritário"
+      ],
+      "cta": "Fazer upgrade para ilimitado",
+      "ctaOriginal": "Iniciar Plano Ilimitado",
+      "ctaPromo": "Free until April 27, 2026 · Launch promo"
+    },
+    "bubbleText": "Feito para coaches que levam cada atleta a sério.",
+    "whyHeadline": "Por que coaches escolhem o augo",
+    "whyCards": [
+      {
+        "title": "Clareza no lugar do caos",
+        "body": "Todos os seus atletas, dados e decisões — em um só lugar."
+      },
+      {
+        "title": "Saiba como seus atletas realmente se sentem",
+        "body": "Capture feedback consistente de sessões para identificar mudanças sutis que sinalizam desafios à frente."
+      },
+      {
+        "title": "Automatize as tarefas rotineiras",
+        "body": "Gaste menos tempo gerenciando e mais tempo treinando."
+      },
+      {
+        "title": "Treine com confiança",
+        "body": "Tome melhores decisões com insights claros e acionáveis."
+      }
+    ],
+    "faqTitle": "Perguntas frequentes",
+    "faqItems": [
+      {
+        "question": "Posso trocar de plano a qualquer momento?",
+        "answer": "Sim — faça upgrade, downgrade ou cancele quando quiser."
+      },
+      {
+        "question": "Existe um período de teste gratuito?",
+        "answer": "Você pode começar com o plano gratuito e fazer upgrade quando estiver pronto."
+      },
+      {
+        "question": "Meus atletas precisam pagar?",
+        "answer": "Não — o augo é feito para coaches. Seus atletas simplesmente seguem as suas orientações."
+      },
+      {
+        "question": "Preciso cancelar minha plataforma de treino atual?",
+        "answer": "Não — o augo funciona junto com as ferramentas que você já usa, ajudando a organizar dados e ter clareza sobre todos os seus atletas."
+      },
+      {
+        "question": "Existem custos adicionais ou complementos?",
+        "answer": "Não. Não há taxas ocultas."
+      },
+      {
+        "question": "Com quais plataformas o augo se integra?",
+        "answer": "Atualmente suportamos dados de wearables da Garmin, Polar, Apple Watch, Strava, Coros, Wahoo e Zwift."
+      },
+      {
+        "question": "Posso usar o augo com diferentes esportes ou estilos de coaching?",
+        "answer": "Atualmente o augo foi desenvolvido para atender as necessidades de coaches de corrida, ciclismo e triathlon. Se você quer usar o augo para outro esporte ou área de coaching, fale com a gente!"
+      },
+      {
+        "question": "O que meus atletas veem e usam?",
+        "answer": "Eles podem ver seus dados de treino, conversar com você, compartilhar feedback qualitativo e receber orientações sobre planos de treino."
+      },
+      {
+        "question": "Tem desconto no plano anual?",
+        "answer": "Sim, você economiza 15% ao optar pelo plano anual."
+      }
+    ],
+    "closingHeadline": "Coaching não deveria ser caótico.",
+    "closingBody": "augo dá a você a clareza para treinar com confiança. Comece grátis hoje e veja o que significa realmente saber o que importa.",
+    "closingCta": "Começar grátis hoje"
+  },
+  "emailCapture": {
+    "title": "Você está quase lá",
+    "subtitle": "Digite seu e-mail e enviaremos o link — mais dicas de acesso antecipado.",
+    "placeholder": "seu@email.com",
+    "cta": "Continuar para a App Store",
+    "skip": "Pular, me leve direto lá",
+    "error": "Algo deu errado. Por favor, tente novamente."
+  },
+  "floatingButton": {
+    "label": "Ver o filme"
   }
 }

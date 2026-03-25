@@ -3,6 +3,7 @@
     "forCoaches": "For Coaches",
     "forAthletes": "For Athletes",
     "findAMatch": "Find a Match",
+    "pricing": "Pricing",
     "joinAugo": "Join augo"
   },
   "hero": {
@@ -126,6 +127,13 @@
     "cookiesMessage": "This form uses cookies from Typeform. Please accept cookies to load the contact form.",
     "acceptCookies": "Accept Cookies"
   },
+  "download": {
+    "headline": "Start coaching smarter.",
+    "body": "Experience the intelligent assistant that helps you provide the best service for your athletes.",
+    "launchWebApp": "Launch Web App",
+    "downloadOnAppStore": "Download on the App Store",
+    "getItOnGooglePlay": "Get it on Google Play"
+  },
   "join": {
     "headline": "Join the community of coaches & athletes who are looking for a new standard",
     "body": "Join the waitlist and be first to experience the intelligent assistant that helps you provide the best service for the athletes you coach.",
@@ -155,6 +163,7 @@
       "forCoaches": "For coaches",
       "forAthletes": "For athletes",
       "howItWorks": "How it works",
+      "pricing": "Pricing",
       "about": "About",
       "faq": "FAQ",
       "findAMatch": "Find a match"
@@ -181,5 +190,169 @@
     "en": "EN",
     "de": "DE",
     "pt": "PT"
+  },
+  "pricing": {
+    "tag": "PRICING",
+    "heroHeadline": "Know what matters. Coach better.",
+    "heroBody": "augo organizes your conversations with your athletes, your athletes's workout data, and qualitative session feedback into clear, actionable insights — so you always know who needs attention, what to do, and why.",
+    "featuresLabel": "augo delivers",
+    "featureColumns": [
+      {
+        "title": "Communication",
+        "items": ["Communicate with athletes seamlessly from anywhere: On mobile or on Web"]
+      },
+      {
+        "title": "Athlete Feedback",
+        "items": ["Capture consistent athlete feedback on recovery, niggles, and nutrition"]
+      },
+      {
+        "title": "AI Assistant",
+        "items": ["Chat with an intelligent assistant that has access to all of your chats, athlete feedback, and workout data"]
+      },
+      {
+        "title": "Daily Priorities",
+        "items": ["Start your day with clarity: augo's assistant curates a priority list so you know exactly where to begin"]
+      },
+      {
+        "title": "Workout Analysis",
+        "items": ["Revise workouts on the go, from anywhere. augo is designed for mobile"]
+      }
+    ],
+    "pricingHeadline": "Simple pricing. Built to scale your quality coaching.",
+    "trustLine1": "Start free. Upgrade only when you need more.",
+    "trustLine2": "No long contracts. No hidden fees. Cancel anytime.",
+    "trustQuote": "Your data is always yours; leave anytime you want and take all your data with you.",
+    "trust": {
+      "startFree": "Start free",
+      "noContracts": "No contracts",
+      "yourData": "Your data, always"
+    },
+    "monthly": "Monthly",
+    "annual": "Annual",
+    "annualBadge": "Save 15%",
+    "freeTierTagline": "Up to 2 athletes",
+    "alwaysFreeNote": "0-2 athletes: always free.",
+    "earlyAccessBanner": "Free for all coaches until April 27, 2026 — try augo with unlimited athletes, no credit card required.",
+    "earlyAccessRibbon": "Launch offer: Free until April 26th 2026",
+    "earlyAccessRibbonSub": "No credit card required",
+    "perSeat": {
+      "tagline": "3 athletes or more",
+      "cta": "Claim my offer",
+      "period": "per athlete / month",
+      "periodAnnual": "per athlete / month, billed annually"
+    },
+    "flat": {
+      "tagline": "3 athletes or more",
+      "cta": "Claim my offer",
+      "period": "/ month",
+      "periodAnnual": "/ month, billed annually"
+    },
+    "locationNote": "Pricing shown for {{countryName}}. Not your location? <1>Contact us</1>.",
+    "free": {
+      "label": "Free",
+      "tagline": "Perfect for getting started",
+      "price": "$0",
+      "period": "/ month",
+      "features": [
+        "Message up to 2 athletes",
+        "Limited access to the augo assistant",
+        "Daily priority list curated by augo's assistant",
+        "Receive athlete's workout data",
+        "Collect athlete session feedback"
+      ],
+      "cta": "Start for free"
+    },
+    "unlimited": {
+      "label": "Unlimited",
+      "tagline": "For coaches ready to grow",
+      "priceMonthly": "$19.90",
+      "priceAnnual": "$191",
+      "periodMonthly": "/ month",
+      "periodAnnual": "/ year",
+      "everythingIn": "Everything in Free +",
+      "features": [
+        "Unlimited athletes",
+        "Unlimited access to augo's intelligent assistant",
+        "Access to augo's matching platform",
+        "Access to community channel & augo's coach network",
+        "Priority customer support"
+      ],
+      "cta": "Upgrade to unlimited",
+      "ctaOriginal": "Start Unlimited Plan",
+      "ctaPromo": "Free until April 27, 2026 · Launch promo"
+    },
+    "bubbleText": "Built for coaches who truly care about delivering quality coaching to their athletes.",
+    "whyHeadline": "Why coaches choose augo",
+    "whyCards": [
+      {
+        "title": "Clarity over chaos",
+        "body": "All your athletes, data, and decisions — in one place."
+      },
+      {
+        "title": "Know how your athletes really feel",
+        "body": "Capture consistent session feedback to spot subtle changes that signal challenges ahead."
+      },
+      {
+        "title": "Automate the busywork",
+        "body": "Spend less time managing and more time coaching."
+      },
+      {
+        "title": "Coach with confidence",
+        "body": "Make better decisions with clear, actionable insights."
+      }
+    ],
+    "faqTitle": "Frequently asked questions",
+    "faqItems": [
+      {
+        "question": "Can I change plans anytime?",
+        "answer": "Yes - upgrade, downgrade, or cancel whenever you want."
+      },
+      {
+        "question": "Is there a free trial?",
+        "answer": "You can start with our free plan and upgrade when you're ready."
+      },
+      {
+        "question": "Do my athletes need to pay?",
+        "answer": "No - augo is built for coaches. Athletes simply follow your guidance."
+      },
+      {
+        "question": "Do I need to cancel my training platform?",
+        "answer": "No - augo works on top of your current tools, helping you organize data and gain clarity across all athletes."
+      },
+      {
+        "question": "Are there any additional costs or add-ons?",
+        "answer": "No. There are no hidden fees."
+      },
+      {
+        "question": "Which platforms does augo integrate with?",
+        "answer": "We currently support wearable data from Garmin, Polar, Apple Watch, Strava, Coros, Wahoo, and Zwift."
+      },
+      {
+        "question": "Can I use augo with multiple sports or coaching styles?",
+        "answer": "Currently augo has been built to address the needs of running, cycling and triathlon coaches. If you'd like to use augo for another sport or coaching area, let's talk!"
+      },
+      {
+        "question": "What do my athletes see and use?",
+        "answer": "They are able to see their workout data, chat with you, share qualitative feedback, and receive guidance over training plans."
+      },
+      {
+        "question": "Do I get a discount on the annual plan?",
+        "answer": "Yes, you save 15% when you commit to an annual plan."
+      }
+    ],
+    "closingHeadline": "Coaching shouldn't feel chaotic.",
+    "closingBody": "augo gives you the clarity to coach with confidence. Start free today and see what it means to truly know what matters.",
+    "closingCta": "Start free today"
+  },
+  "emailCapture": {
+    "title": "You're almost in",
+    "subtitle": "Drop your email and we'll send you early access tips.",
+    "placeholder": "your@email.com",
+    "cta": "Continue to App Store",
+    "skip": "Skip, take me straight there",
+    "error": "Something went wrong. Please try again."
+  },
+  "floatingButton": {
+    "label": "Watch the film"
   }
 }

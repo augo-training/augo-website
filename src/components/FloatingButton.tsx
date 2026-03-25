@@ -1,4 +1,6 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { trackFloatingButtonClicked } from '../utils/analytics'
 
 function AugoIcon({ className }: { className?: string }) {
     return (
@@ -26,10 +28,16 @@ interface FloatingButtonProps {
     onClick?: () => void
 }
 
+const RING_GRADIENT = 'linear-gradient(83.9deg, #151515 -4%, #C50017 38.22%, #FF5514 69.06%, #FFCA1E 99.9%)'
+
 export default function FloatingButton({ onClick }: FloatingButtonProps) {
     const btnRef = useRef<HTMLButtonElement>(null)
+    const [showTooltip, setShowTooltip] = useState(false)
+    const [hovered, setHovered] = useState(false)
+    const [showRing, setShowRing] = useState(false)
+    const { t } = useTranslation()
 
-    // Entrance animation: fade in + scale 0.8 → 1, delay ~2s, duration 400ms
+    // Entrance animation + tooltip + ring timing
     useEffect(() => {
         const btn = btnRef.current
         if (!btn) return
@@ -37,23 +45,64 @@ export default function FloatingButton({ onClick }: FloatingButtonProps) {
         btn.style.opacity = '0'
         btn.style.transform = 'scale(0.8)'
 
-        const timer = setTimeout(() => {
+        const entranceTimer = setTimeout(() => {
             btn.style.transition = 'opacity 400ms ease-in-out, transform 400ms ease-in-out'
             btn.style.opacity = '1'
             btn.style.transform = 'scale(1)'
+            setShowRing(true)
         }, 2000)
 
-        return () => clearTimeout(timer)
+        const tooltipShowTimer = setTimeout(() => {
+            setShowTooltip(true)
+            setTimeout(() => setShowTooltip(false), 3000)
+        }, 2500)
+
+        const ringStopTimer = setTimeout(() => {
+            setShowRing(false)
+        }, 8000)
+
+        return () => {
+            clearTimeout(entranceTimer)
+            clearTimeout(tooltipShowTimer)
+            clearTimeout(ringStopTimer)
+        }
     }, [])
+
+    const tooltipVisible = showTooltip || hovered
 
     return (
         <button
             ref={btnRef}
-            onClick={onClick}
-            className="hidden floating-app-btn fixed z-50 flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl cursor-pointer bottom-6 right-5 sm:bottom-12 sm:right-12"
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+            onClick={() => {
+                trackFloatingButtonClicked({ page: window.location.pathname })
+                onClick?.()
+            }}
+            className="floating-app-btn fixed z-50 flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl cursor-pointer bottom-6 right-5 sm:bottom-12 sm:right-12"
             aria-label="Watch video"
         >
-            <AugoIcon className="w-[24px] h-[24px] sm:w-[28px] sm:h-[28px]" />
+            {/* Tooltip */}
+            <div
+                className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 whitespace-nowrap px-3 py-1.5 rounded-lg text-xs font-medium text-white transition-opacity duration-300 pointer-events-none"
+                style={{
+                    opacity: tooltipVisible ? 1 : 0,
+                    background: 'rgba(255,255,255,0.12)',
+                    backdropFilter: 'blur(8px)',
+                }}
+            >
+                {t('floatingButton.label')}
+            </div>
+
+            {/* Pulsing ring */}
+            {showRing && (
+                <span
+                    className="absolute inset-0 rounded-xl sm:rounded-2xl animate-ping opacity-60"
+                    style={{ background: RING_GRADIENT }}
+                />
+            )}
+
+            <AugoIcon className="w-[24px] h-[24px] sm:w-[28px] sm:h-[28px] relative z-10" />
         </button>
     )
 }

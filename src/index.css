@@ -9,6 +9,8 @@
   --color-dark-800: #111111;
   --color-dark-700: #1A1A1A;
   --color-dark-600: #2D2D2D;
+  --color-dark-400: #595959;
+  --color-dark-200: #838383;
 
   --color-text: #FFFFFF;
   --color-text-muted: #969EA7;
@@ -42,6 +44,11 @@ body {
   background: linear-gradient(83.9deg, #151515 -4%, #C50017 38.22%, #FF5514 69.06%, #FFCA1E 99.9%);
   background-size: 200% 200%;
   animation: gradient-shift 4s ease-in-out infinite;
+}
+
+.ribbon-yellow {
+  background: var(--color-dark-400);
+  padding: 8px 16px;
 }
 
 @keyframes gradient-shift {
@@ -322,6 +329,23 @@ body {
       #FF5514,
       #FFCA1E);
   animation: rotate-border 4s linear infinite;
+}
+
+/* ─── Bubble Anchor: Animated border ─── */
+.bubble-border {
+  background: conic-gradient(from var(--border-angle),
+      rgba(200, 200, 200, 1),
+      rgba(60, 60, 60, 0.3),
+      rgba(160, 160, 160, 0.8),
+      rgba(60, 60, 60, 0.3),
+      rgba(200, 200, 200, 1));
+  animation: rotate-border 8s linear infinite;
+}
+
+/* ─── Bubble Anchor: Glow pulse ─── */
+.bubble-glow {
+  background: radial-gradient(ellipse, rgba(150, 158, 167, 0.18) 0%, transparent 70%);
+  animation: glow-pulse 4s ease-in-out infinite;
 }
 
 /* ─── Join Section: Glow pulse behind form ─── */

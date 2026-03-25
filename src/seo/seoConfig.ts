@@ -59,6 +59,23 @@ const pageMeta: Record<string, Record<SupportedLanguage, PageMeta>> = {
         'Encontre o coach ou atleta de endurance perfeito. Responda algumas perguntas e a augo conecta você com base em objetivos de treino e estilo de comunicação.',
     },
   },
+  pricing: {
+    en: {
+      title: 'Pricing | augo — Know What Matters. Coach Better.',
+      description:
+        'Simple, transparent pricing for endurance coaches. Start free with 2 athletes or upgrade to Unlimited for full access to augo\'s intelligent coaching assistant.',
+    },
+    de: {
+      title: 'Preise | augo — Wissen, was zählt. Besser coachen.',
+      description:
+        'Einfache, transparente Preise für Ausdauer-Coaches. Kostenlos mit 2 Athleten starten oder auf Unlimited upgraden für vollen Zugang zu augos intelligentem Coaching-Assistenten.',
+    },
+    pt: {
+      title: 'Preços | augo — Saiba o que importa. Treine melhor.',
+      description:
+        'Preços simples e transparentes para coaches de endurance. Comece grátis com 2 atletas ou faça upgrade para Ilimitado para acesso completo ao assistente inteligente augo.',
+    },
+  },
 }
 
 export function getPageMeta(page: string, lang: SupportedLanguage): PageMeta {
