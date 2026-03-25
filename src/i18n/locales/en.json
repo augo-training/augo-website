@@ -344,5 +344,8 @@
     "cta": "Continue to App Store",
     "skip": "Skip, take me straight there",
     "error": "Something went wrong. Please try again."
+  },
+  "floatingButton": {
+    "label": "Watch the film"
   }
 }

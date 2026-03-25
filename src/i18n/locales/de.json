@@ -344,5 +344,8 @@
     "cta": "Weiter zum App Store",
     "skip": "Überspringen, direkt weiter",
     "error": "Etwas ist schiefgelaufen. Bitte versuche es erneut."
+  },
+  "floatingButton": {
+    "label": "Film ansehen"
   }
 }

@@ -79,6 +79,17 @@ export async function trackPricingCtaClicked(props: PricingCtaClickedProps): Pro
     }
 }
 
+export async function trackFloatingButtonClicked(props: { page: string }): Promise<void> {
+    await tryInit()
+    if (!initialized) return
+    try {
+        const { default: mixpanel } = await import('mixpanel-browser')
+        mixpanel.track('floating_button_clicked', props)
+    } catch {
+        // Silently ignore if blocked
+    }
+}
+
 export async function trackEmailCaptureSubmitted(props: { email: string; cta_text: string }): Promise<void> {
     await tryInit()
     if (!initialized) return

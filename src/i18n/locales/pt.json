@@ -344,5 +344,8 @@
     "cta": "Continuar para a App Store",
     "skip": "Pular, me leve direto lá",
     "error": "Algo deu errado. Por favor, tente novamente."
+  },
+  "floatingButton": {
+    "label": "Ver o filme"
   }
 }

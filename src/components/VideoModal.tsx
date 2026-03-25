@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
 import { createPortal } from 'react-dom'
-// import modalVideo from '../assets/videos/modal_video.mp4'
+import modalVideo from '../assets/videos/modal_video.mp4'
 
 interface VideoModalProps {
     isOpen: boolean
@@ -16,7 +16,7 @@ function formatTime(seconds: number) {
 export default function VideoModal({ isOpen, onClose }: VideoModalProps) {
     const [visible, setVisible] = useState(false)
     const [animating, setAnimating] = useState(false)
-    const [isMuted, setIsMuted] = useState(true)
+    const [isMuted, setIsMuted] = useState(false)
     const [isPlaying, setIsPlaying] = useState(true)
     const [currentTime, setCurrentTime] = useState(0)
     const [duration, setDuration] = useState(0)
@@ -33,7 +33,7 @@ export default function VideoModal({ isOpen, onClose }: VideoModalProps) {
             const id = requestAnimationFrame(() => {
                 setVisible(true)
                 setIsPlaying(true)
-                setIsMuted(true)
+                setIsMuted(false)
                 setCurrentTime(0)
                 requestAnimationFrame(() => setAnimating(true))
             })
@@ -190,16 +190,15 @@ export default function VideoModal({ isOpen, onClose }: VideoModalProps) {
 
                 {/* Video + controls container */}
                 <div className="relative w-full h-full rounded-[14px] overflow-hidden bg-[#0A0A0A]">
-                    {/* <video
+                    <video
                         ref={videoRef}
                         src={modalVideo}
                         autoPlay
-                        muted
                         loop
                         playsInline
                         onClick={togglePlay}
                         className="w-full h-full object-cover block cursor-pointer"
-                    /> */}
+                    />
 
                     {/* Custom controls bar */}
                     <div
