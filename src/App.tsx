@@ -8,6 +8,7 @@ import Pricing from './pages/Pricing'
 import NotFound from './pages/NotFound'
 import CookieConsent from './components/CookieConsent'
 import CountdownBanner from './components/CountdownBanner'
+import Download from "./pages/Download.tsx";
 
 // March 26, 2026 at 20:00 Zurich time
 // DST starts March 29, 2026, so March 26 is still CET (UTC+1)
@@ -23,12 +24,13 @@ function App() {
         <Route path="/" element={<LanguageRedirect />} />
 
         {/* Legacy routes: redirect to language-prefixed versions */}
-        <Route path="/join" element={<Navigate to="/en/join" replace />} />
+        <Route path="/join" element={<Navigate to="/en/download" replace />} />
         <Route path="/find" element={<Navigate to="/en/find" replace />} />
 
         {/* Language-prefixed routes */}
         <Route path="/:lang" element={<LanguageLayout />}>
           <Route index element={<Home />} />
+          <Route path="download" element={<Download />} />
           <Route path="join" element={<Join />} />
           <Route path="find" element={<Find />} />
           <Route path="pricing" element={<Pricing />} />

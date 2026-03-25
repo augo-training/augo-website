@@ -127,6 +127,13 @@
     "cookiesMessage": "Dieses Formular verwendet Cookies von Typeform. Bitte akzeptiere Cookies, um das Kontaktformular zu laden.",
     "acceptCookies": "Cookies akzeptieren"
   },
+  "download": {
+    "headline": "Smarter coachen.",
+    "body": "Erlebe den intelligenten Assistenten, der dir hilft, deinen Athleten den besten Service zu bieten.",
+    "launchWebApp": "Web-App öffnen",
+    "downloadOnAppStore": "Im App Store laden",
+    "getItOnGooglePlay": "Bei Google Play herunterladen"
+  },
   "join": {
     "headline": "Werde Teil der Community aus Coaches und Athleten, die neue Maßstäbe setzen.",
     "body": "Tritt der Warteliste bei und erlebe als Erste/r den intelligenten Assistenten, der dir hilft, den besten Service für deine Athleten zu bieten.",

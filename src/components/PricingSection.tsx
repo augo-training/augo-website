@@ -118,7 +118,7 @@ export default function PricingSection() {
     const { countryCode, loading } = useGeoCountry()
     const pricingTier = getPricingTier(countryCode ?? '')
 
-    const downloadUrl = 'https://app.augotraining.com/download'
+    const downloadUrl = `/${currentLang}/download`
     const [modalOpen, setModalOpen] = useState(false)
     const [modalCtaText, setModalCtaText] = useState('')
 

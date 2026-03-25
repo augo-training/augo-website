@@ -69,7 +69,7 @@ export default function FaqSection() {
                         {t('faq.ctaBody')}
                     </p>
                     <a
-                        href={`/${currentLang}/join`}
+                        href={`/${currentLang}/download`}
                         className="btn-gradient font-mono text-sm font-extrabold tracking-[2px] uppercase text-white rounded-lg hover:brightness-110 transition-all duration-200 flex items-center justify-center mt-2 lg:mt-0"
                         data-cta="faq"
                         style={{ width: '209px', height: '48px' }}
@@ -127,7 +127,7 @@ export default function FaqSection() {
                                             {faq.linkText && (
                                                 <>
                                                     <br />
-                                                    <a href={`/${currentLang}/join`} className="font-satoshi font-bold text-[16px] leading-[130%] underline hover:text-white transition-colors">
+                                                    <a href={`/${currentLang}/download`} className="font-satoshi font-bold text-[16px] leading-[130%] underline hover:text-white transition-colors">
                                                         {faq.linkText}
                                                     </a>{' '}
                                                     {currentLang === 'en' ? 'to secure your spot.' : currentLang === 'de' ? 'um deinen Platz zu sichern.' : 'para garantir sua vaga.'}

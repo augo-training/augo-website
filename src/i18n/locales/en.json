@@ -127,6 +127,13 @@
     "cookiesMessage": "This form uses cookies from Typeform. Please accept cookies to load the contact form.",
     "acceptCookies": "Accept Cookies"
   },
+  "download": {
+    "headline": "Start coaching smarter.",
+    "body": "Experience the intelligent assistant that helps you provide the best service for your athletes.",
+    "launchWebApp": "Launch Web App",
+    "downloadOnAppStore": "Download on the App Store",
+    "getItOnGooglePlay": "Get it on Google Play"
+  },
   "join": {
     "headline": "Join the community of coaches & athletes who are looking for a new standard",
     "body": "Join the waitlist and be first to experience the intelligent assistant that helps you provide the best service for the athletes you coach.",

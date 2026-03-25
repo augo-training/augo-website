@@ -76,7 +76,7 @@ export default function Navbar() {
         { label: t('nav.findAMatch'), href: `/${currentLang}/find` },
     ]
 
-    const [showJoinButton, setShowJoinButton] = useState(() => !location.pathname.endsWith('/join'))
+    const [showJoinButton, setShowJoinButton] = useState(() => !location.pathname.endsWith('/download'))
     const [menuOpen, setMenuOpen] = useState(false)
     const isAnimating = useRef(false)
 
@@ -88,7 +88,7 @@ export default function Navbar() {
     // Intersection Observer: hide Join Augo when Hero CTA or FAQ CTA is on screen
     useEffect(() => {
         // Already on the Join page → hide the button (handled by initial state)
-        if (location.pathname.endsWith('/join')) return
+        if (location.pathname.endsWith('/download')) return
 
         const heroCta = document.querySelector('[data-cta="hero"]')
         const faqCta = document.querySelector('[data-cta="faq"]')
@@ -284,7 +284,7 @@ export default function Navbar() {
                         <NavLink label={t('nav.findAMatch')} href={`/${currentLang}/find`} />
                     </div>
                     <a
-                        href={`/${currentLang}/join`}
+                        href={`/${currentLang}/download`}
                         className="join-augo-btn font-mono text-[11px] sm:text-sm font-extrabold tracking-[1.5px] sm:tracking-[2px] uppercase px-3.5 py-2 sm:px-6 sm:py-3 rounded-md sm:rounded-lg"
                         style={{
                             opacity: showJoinButton && !menuOpen ? 1 : 0,
@@ -359,8 +359,8 @@ export default function Navbar() {
                 <div className="px-5 sm:px-6 pb-10 w-full">
                     <a
                         ref={menuJoinRef}
-                        href={`/${currentLang}/join`}
-                        onClick={(e) => handleMenuLinkClick(e, `/${currentLang}/join`)}
+                        href={`/${currentLang}/download`}
+                        onClick={(e) => handleMenuLinkClick(e, `/${currentLang}/download`)}
                         className="btn-gradient block w-full font-mono text-sm font-extrabold tracking-[2px] uppercase text-white text-center py-4 rounded-lg"
                         style={{ opacity: 0 }}
                     >

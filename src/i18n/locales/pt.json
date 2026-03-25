@@ -127,6 +127,13 @@
     "cookiesMessage": "Este formulário usa cookies do Typeform. Por favor, aceite cookies para carregar o formulário de contato.",
     "acceptCookies": "Aceitar Cookies"
   },
+  "download": {
+    "headline": "Treine de forma mais inteligente.",
+    "body": "Experimente o assistente inteligente que te ajuda a oferecer o melhor serviço para seus atletas.",
+    "launchWebApp": "Abrir App Web",
+    "downloadOnAppStore": "Baixar na App Store",
+    "getItOnGooglePlay": "Disponível no Google Play"
+  },
   "join": {
     "headline": "Junte-se à comunidade de coaches e atletas que buscam um novo padrão",
     "body": "Entre na lista de espera e seja o primeiro a experimentar o assistente inteligente que ajuda você a fornecer o melhor serviço para os atletas que você treina.",
