@@ -56,6 +56,7 @@ export async function trackPricingPageViewed(props: PricingPageViewedProps): Pro
     if (!initialized) return
     try {
         const { default: mixpanel } = await import('mixpanel-browser')
+        mixpanel.register(props)
         mixpanel.track('pricing_page_viewed', props)
     } catch {
         // Silently ignore if blocked
@@ -63,15 +64,8 @@ export async function trackPricingPageViewed(props: PricingPageViewedProps): Pro
 }
 
 interface PricingCtaClickedProps {
-    country: string
-    cluster: string
-    experiment_arm: string
-    pricing_currency: string
-    pricing_amount: number
-    fx_rate: number | null
-    discount_pct: number
     cta_text: string
-    utm_source: string | null
+    billing_period: 'monthly' | 'yearly'
 }
 
 export async function trackPricingCtaClicked(props: PricingCtaClickedProps): Promise<void> {

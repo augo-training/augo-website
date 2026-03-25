@@ -315,17 +315,7 @@ export default function PricingSection() {
                                     className="font-mono text-[12px] sm:text-[13px] font-extrabold tracking-[2px] uppercase rounded-lg text-center h-12 flex items-center justify-center px-6 transition-all duration-200 text-[#EEE] hover:text-[#FFF] cursor-pointer"
                                     style={{ background: '#1E1E1E', border: '1px solid #333' }}
                                     onClick={() => {
-                                        void trackPricingCtaClicked({
-                                            country: countryCode ?? 'unknown',
-                                            cluster: pricingTier.cluster,
-                                            experiment_arm: pricingTier.arm,
-                                            pricing_currency: pricingTier.currency,
-                                            pricing_amount: pricingTier.arm === 'per_seat' ? pricingTier.perSeat : pricingTier.flat,
-                                            fx_rate: pricingTier.fxRate,
-                                            discount_pct: pricingTier.discountPct,
-                                            cta_text: t('pricing.free.cta'),
-                                            utm_source: getUtmParams().utm_source,
-                                        })
+                                        void trackPricingCtaClicked({ cta_text: t('pricing.free.cta'), billing_period: billingPeriod })
                                         setModalCtaText(t('pricing.free.cta'))
                                         setModalOpen(true)
                                     }}
@@ -410,17 +400,7 @@ export default function PricingSection() {
                                             className="btn-gradient font-mono text-[12px] sm:text-[13px] font-extrabold tracking-[2px] uppercase text-white rounded-lg text-center h-12 flex items-center justify-center px-6 hover:brightness-110 transition-all duration-200 cursor-pointer"
                                             onClick={() => {
                                                 const label = pricingTier.arm === 'per_seat' ? t('pricing.perSeat.cta') : t('pricing.flat.cta')
-                                                void trackPricingCtaClicked({
-                                                    country: countryCode ?? 'unknown',
-                                                    cluster: pricingTier.cluster,
-                                                    experiment_arm: pricingTier.arm,
-                                                    pricing_currency: pricingTier.currency,
-                                                    pricing_amount: pricingTier.arm === 'per_seat' ? pricingTier.perSeat : pricingTier.flat,
-                                                    fx_rate: pricingTier.fxRate,
-                                                    discount_pct: pricingTier.discountPct,
-                                                    cta_text: label,
-                                                    utm_source: getUtmParams().utm_source,
-                                                })
+                                                void trackPricingCtaClicked({ cta_text: label, billing_period: billingPeriod })
                                                 setModalCtaText(label)
                                                 setModalOpen(true)
                                             }}
@@ -580,17 +560,7 @@ export default function PricingSection() {
                         data-cta="pricing"
                         style={{ width: '220px', height: '48px' }}
                         onClick={() => {
-                            void trackPricingCtaClicked({
-                                country: countryCode ?? 'unknown',
-                                cluster: pricingTier.cluster,
-                                experiment_arm: pricingTier.arm,
-                                pricing_currency: pricingTier.currency,
-                                pricing_amount: pricingTier.arm === 'per_seat' ? pricingTier.perSeat : pricingTier.flat,
-                                fx_rate: pricingTier.fxRate,
-                                discount_pct: pricingTier.discountPct,
-                                cta_text: t('pricing.closingCta'),
-                                utm_source: getUtmParams().utm_source,
-                            })
+                            void trackPricingCtaClicked({ cta_text: t('pricing.closingCta'), billing_period: billingPeriod })
                             setModalCtaText(t('pricing.closingCta'))
                             setModalOpen(true)
                         }}
