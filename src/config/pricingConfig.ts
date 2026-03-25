@@ -14,7 +14,7 @@ export interface PricingTier {
 
 export const PRICING_CONFIG: Record<string, Omit<PricingTier, 'countryName'>> = {
     // ── Arm A — Per-Seat ──────────────────────────────────────────────────────
-    US: { cluster: 'us_canada',       arm: 'per_seat',   currency: 'USD', symbol: '$',       perSeat: 3.90,  flat: 25.90,  fxRate: 1.28,  discountPct: 0 },
+    US: { cluster: 'us_canada',       arm: 'per_seat',   currency: 'USD', symbol: '$',       perSeat: 4.90,  flat: 25.90,  fxRate: 1.28,  discountPct: 0 },
     CA: { cluster: 'us_canada',       arm: 'per_seat',   currency: 'USD', symbol: '$',       perSeat: 4.90,  flat: 25.90,  fxRate: 1.28,  discountPct: 0 },
     AU: { cluster: 'australia',       arm: 'per_seat',   currency: 'AUD', symbol: 'A$',      perSeat: 5.90,  flat: 30.90,  fxRate: 1.83,  discountPct: -0.15 },
     NZ: { cluster: 'new_zealand',     arm: 'per_seat',   currency: 'NZD', symbol: 'NZ$',     perSeat: 6.90,  flat: 34.90,  fxRate: 2.17,  discountPct: -0.20 },
