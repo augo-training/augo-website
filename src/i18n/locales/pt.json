@@ -336,5 +336,13 @@
     "closingHeadline": "Coaching não deveria ser caótico.",
     "closingBody": "augo dá a você a clareza para treinar com confiança. Comece grátis hoje e veja o que significa realmente saber o que importa.",
     "closingCta": "Começar grátis hoje"
+  },
+  "emailCapture": {
+    "title": "Você está quase lá",
+    "subtitle": "Digite seu e-mail e enviaremos o link — mais dicas de acesso antecipado.",
+    "placeholder": "seu@email.com",
+    "cta": "Continuar para a App Store",
+    "skip": "Pular, me leve direto lá",
+    "error": "Algo deu errado. Por favor, tente novamente."
   }
 }

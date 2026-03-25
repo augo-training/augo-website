@@ -336,5 +336,13 @@
     "closingHeadline": "Coaching shouldn't feel chaotic.",
     "closingBody": "augo gives you the clarity to coach with confidence. Start free today and see what it means to truly know what matters.",
     "closingCta": "Start free today"
+  },
+  "emailCapture": {
+    "title": "You're almost in",
+    "subtitle": "Drop your email and we'll send you early access tips.",
+    "placeholder": "your@email.com",
+    "cta": "Continue to App Store",
+    "skip": "Skip, take me straight there",
+    "error": "Something went wrong. Please try again."
   }
 }

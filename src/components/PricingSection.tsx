@@ -12,6 +12,7 @@ import {
     trackPricingPageViewed,
     trackPricingCtaClicked,
 } from '../utils/analytics'
+import EmailCaptureModal from './EmailCaptureModal'
 
 // ─── FAQ Accordion ────────────────────────────────────────────────────────────
 
@@ -116,6 +117,10 @@ export default function PricingSection() {
 
     const { countryCode, loading } = useGeoCountry()
     const pricingTier = getPricingTier(countryCode ?? '')
+
+    const downloadUrl = 'https://app.augotraining.com/download'
+    const [modalOpen, setModalOpen] = useState(false)
+    const [modalCtaText, setModalCtaText] = useState('')
 
     const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly')
     const isYearly = billingPeriod === 'yearly'
@@ -306,24 +311,27 @@ export default function PricingSection() {
                                 ))}
                             </ul>
                             <div className="flex flex-col gap-1.5">
-                                <a
-                                    href="https://app.augotraining.com/download"
-                                    className="font-mono text-[12px] sm:text-[13px] font-extrabold tracking-[2px] uppercase rounded-lg text-center h-12 flex items-center justify-center px-6 transition-all duration-200 text-[#EEE] hover:text-[#FFF]"
+                                <button
+                                    className="font-mono text-[12px] sm:text-[13px] font-extrabold tracking-[2px] uppercase rounded-lg text-center h-12 flex items-center justify-center px-6 transition-all duration-200 text-[#EEE] hover:text-[#FFF] cursor-pointer"
                                     style={{ background: '#1E1E1E', border: '1px solid #333' }}
-                                    onClick={() => void trackPricingCtaClicked({
-                                        country: countryCode ?? 'unknown',
-                                        cluster: pricingTier.cluster,
-                                        experiment_arm: pricingTier.arm,
-                                        pricing_currency: pricingTier.currency,
-                                        pricing_amount: pricingTier.arm === 'per_seat' ? pricingTier.perSeat : pricingTier.flat,
-                                        fx_rate: pricingTier.fxRate,
-                                        discount_pct: pricingTier.discountPct,
-                                        cta_text: t('pricing.free.cta'),
-                                        utm_source: getUtmParams().utm_source,
-                                    })}
+                                    onClick={() => {
+                                        void trackPricingCtaClicked({
+                                            country: countryCode ?? 'unknown',
+                                            cluster: pricingTier.cluster,
+                                            experiment_arm: pricingTier.arm,
+                                            pricing_currency: pricingTier.currency,
+                                            pricing_amount: pricingTier.arm === 'per_seat' ? pricingTier.perSeat : pricingTier.flat,
+                                            fx_rate: pricingTier.fxRate,
+                                            discount_pct: pricingTier.discountPct,
+                                            cta_text: t('pricing.free.cta'),
+                                            utm_source: getUtmParams().utm_source,
+                                        })
+                                        setModalCtaText(t('pricing.free.cta'))
+                                        setModalOpen(true)
+                                    }}
                                 >
                                     {t('pricing.free.cta')}
-                                </a>
+                                </button>
                             </div>
                         </div>
                         </div>
@@ -398,23 +406,27 @@ export default function PricingSection() {
                                         ))}
                                     </ul>
                                     <div className="flex flex-col gap-1.5">
-                                        <a
-                                            href="https://app.augotraining.com/download"
-                                            className="btn-gradient font-mono text-[12px] sm:text-[13px] font-extrabold tracking-[2px] uppercase text-white rounded-lg text-center h-12 flex items-center justify-center px-6 hover:brightness-110 transition-all duration-200"
-                                            onClick={() => void trackPricingCtaClicked({
-                                                country: countryCode ?? 'unknown',
-                                                cluster: pricingTier.cluster,
-                                                experiment_arm: pricingTier.arm,
-                                                pricing_currency: pricingTier.currency,
-                                                pricing_amount: pricingTier.arm === 'per_seat' ? pricingTier.perSeat : pricingTier.flat,
-                                                fx_rate: pricingTier.fxRate,
-                                                discount_pct: pricingTier.discountPct,
-                                                cta_text: pricingTier.arm === 'per_seat' ? t('pricing.perSeat.cta') : t('pricing.flat.cta'),
-                                                utm_source: getUtmParams().utm_source,
-                                            })}
+                                        <button
+                                            className="btn-gradient font-mono text-[12px] sm:text-[13px] font-extrabold tracking-[2px] uppercase text-white rounded-lg text-center h-12 flex items-center justify-center px-6 hover:brightness-110 transition-all duration-200 cursor-pointer"
+                                            onClick={() => {
+                                                const label = pricingTier.arm === 'per_seat' ? t('pricing.perSeat.cta') : t('pricing.flat.cta')
+                                                void trackPricingCtaClicked({
+                                                    country: countryCode ?? 'unknown',
+                                                    cluster: pricingTier.cluster,
+                                                    experiment_arm: pricingTier.arm,
+                                                    pricing_currency: pricingTier.currency,
+                                                    pricing_amount: pricingTier.arm === 'per_seat' ? pricingTier.perSeat : pricingTier.flat,
+                                                    fx_rate: pricingTier.fxRate,
+                                                    discount_pct: pricingTier.discountPct,
+                                                    cta_text: label,
+                                                    utm_source: getUtmParams().utm_source,
+                                                })
+                                                setModalCtaText(label)
+                                                setModalOpen(true)
+                                            }}
                                         >
                                             {pricingTier.arm === 'per_seat' ? t('pricing.perSeat.cta') : t('pricing.flat.cta')}
-                                        </a>
+                                        </button>
                                     </div>
                                     </div>{/* end inner padding div */}
                                 </div>
@@ -532,6 +544,14 @@ export default function PricingSection() {
             {/* ─── 6. FAQ ──────────────────────────────────────────────────────── */}
             <PricingFaq />
 
+            <EmailCaptureModal
+                key={String(modalOpen)}
+                isOpen={modalOpen}
+                onClose={() => setModalOpen(false)}
+                destinationUrl={downloadUrl}
+                ctaText={modalCtaText}
+            />
+
             {/* ─── 7. Closing CTA ──────────────────────────────────────────────── */}
             <section className="w-full py-20 sm:py-28 px-5 sm:px-8 relative overflow-hidden">
                 {/* Outer glow */}
@@ -555,25 +575,28 @@ export default function PricingSection() {
                     <p className="font-satoshi font-medium text-[16px] sm:text-[18px] leading-[160%] text-[#969EA7]">
                         {t('pricing.closingBody')}
                     </p>
-                    <a
-                        href="https://app.augotraining.com/download"
-                        className="btn-gradient font-mono text-sm font-extrabold tracking-[2px] uppercase text-white rounded-lg hover:brightness-110 transition-all duration-200 flex items-center justify-center mt-2"
+                    <button
+                        className="btn-gradient font-mono text-sm font-extrabold tracking-[2px] uppercase text-white rounded-lg hover:brightness-110 transition-all duration-200 flex items-center justify-center mt-2 cursor-pointer"
                         data-cta="pricing"
                         style={{ width: '220px', height: '48px' }}
-                        onClick={() => void trackPricingCtaClicked({
-                            country: countryCode ?? 'unknown',
-                            cluster: pricingTier.cluster,
-                            experiment_arm: pricingTier.arm,
-                            pricing_currency: pricingTier.currency,
-                            pricing_amount: pricingTier.arm === 'per_seat' ? pricingTier.perSeat : pricingTier.flat,
-                            fx_rate: pricingTier.fxRate,
-                            discount_pct: pricingTier.discountPct,
-                            cta_text: t('pricing.closingCta'),
-                            utm_source: getUtmParams().utm_source,
-                        })}
+                        onClick={() => {
+                            void trackPricingCtaClicked({
+                                country: countryCode ?? 'unknown',
+                                cluster: pricingTier.cluster,
+                                experiment_arm: pricingTier.arm,
+                                pricing_currency: pricingTier.currency,
+                                pricing_amount: pricingTier.arm === 'per_seat' ? pricingTier.perSeat : pricingTier.flat,
+                                fx_rate: pricingTier.fxRate,
+                                discount_pct: pricingTier.discountPct,
+                                cta_text: t('pricing.closingCta'),
+                                utm_source: getUtmParams().utm_source,
+                            })
+                            setModalCtaText(t('pricing.closingCta'))
+                            setModalOpen(true)
+                        }}
                     >
                         {t('pricing.closingCta')}
-                    </a>
+                    </button>
                 </div>
             </section>
         </div>

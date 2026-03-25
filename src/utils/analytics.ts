@@ -84,3 +84,14 @@ export async function trackPricingCtaClicked(props: PricingCtaClickedProps): Pro
         // Silently ignore if blocked
     }
 }
+
+export async function trackEmailCaptureSubmitted(props: { email: string; cta_text: string }): Promise<void> {
+    await tryInit()
+    if (!initialized) return
+    try {
+        const { default: mixpanel } = await import('mixpanel-browser')
+        mixpanel.track('pricing_email_capture_submitted', props)
+    } catch {
+        // Silently ignore if blocked
+    }
+}
