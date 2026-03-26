@@ -98,7 +98,7 @@ export default function Navbar() {
                 gsap.set(items, { opacity: 1, y: 0 })
                 if (joinBtn) gsap.set(joinBtn, { opacity: 1, y: 0 })
             }
-            setMenuOpen(true)
+            queueMicrotask(() => setMenuOpen(true))
         }
     }, [currentLang])
 
