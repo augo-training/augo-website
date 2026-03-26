@@ -19,10 +19,10 @@ export function useGeoCountry(): GeoCountryResult {
         const controller = new AbortController()
         const timeoutId = setTimeout(() => controller.abort(), 4000)
 
-        fetch('https://ip-api.com/json/?fields=countryCode', { signal: controller.signal })
+        fetch('https://api.country.is/', { signal: controller.signal })
             .then((res) => res.json())
-            .then((data: { countryCode?: string }) => {
-                const code = data.countryCode ?? null
+            .then((data: { country?: string }) => {
+                const code = data.country ?? null
                 if (code) localStorage.setItem(STORAGE_KEY, code)
                 setCountryCode(code)
             })
