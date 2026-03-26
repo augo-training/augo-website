@@ -1,6 +1,7 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
+import { QRCodeSVG } from 'qrcode.react'
 import bgImage from '../assets/images/bg_section_1.webp'
 
 // const WEBAPP_URL = 'https://webapp.augotraining.com'
@@ -9,10 +10,23 @@ const ANDROID_URL = 'https://play.google.com/store/apps/details?id=com.augotrain
 
 export default function DownloadSection() {
     const { t } = useTranslation()
+    const [currentUrl] = useState(() => window.location.href)
     const headlineRef = useRef<HTMLHeadingElement>(null)
     const bodyRef = useRef<HTMLParagraphElement>(null)
     const buttonsRef = useRef<HTMLDivElement>(null)
     const bgOverlayRef = useRef<HTMLDivElement>(null)
+
+    useEffect(() => {
+        const ua = navigator.userAgent
+        if (/android/i.test(ua)) {
+            window.location.replace(ANDROID_URL)
+            return
+        }
+        if (/iphone|ipad|ipod/i.test(ua)) {
+            window.location.replace(IOS_URL)
+            return
+        }
+    }, [])
 
     useEffect(() => {
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -100,6 +114,13 @@ export default function DownloadSection() {
                             />
                         </a>
                     </div>
+                </div>
+
+                <div className="hidden md:flex flex-col items-center gap-3 mt-2">
+                    <div className="p-3 bg-white rounded-xl">
+                        <QRCodeSVG value={currentUrl} size={240} />
+                    </div>
+                    <p className="font-satoshi text-[13px] text-[#969EA7]">Scan to download</p>
                 </div>
             </div>
         </section>
