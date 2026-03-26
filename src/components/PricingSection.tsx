@@ -273,7 +273,7 @@ export default function PricingSection() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
                         {/* Free Plan */}
                         <div
-                            className="rounded-2xl p-[1px]"
+                            className="rounded-2xl p-[1px] order-2 md:order-1"
                             style={{ background: 'linear-gradient(135deg, rgba(80,80,80,0.3), rgba(60,60,60,0.2), rgba(40,40,40,0.15))' }}
                         >
                         <div
@@ -327,16 +327,16 @@ export default function PricingSection() {
                         </div>
 
                         {/* Paid Plan — dynamic by arm */}
-                        <div className="join-form-wrapper relative rounded-2xl">
+                        <div className="join-form-wrapper relative rounded-2xl order-1 md:order-2">
                             <div className="join-form-glow absolute -inset-6 rounded-[2rem] pointer-events-none" />
                             <div className="join-form-border relative rounded-[20px] p-[2px]">
                                 <div
                                     className="join-form-inner rounded-[18px] overflow-hidden flex flex-col gap-6 h-full"
                                     style={{ backgroundColor: '#0A0A0A' }}
                                 >
-                                    <div className="btn-gradient text-white text-center py-2 flex flex-col gap-0.5">
-                                        <span className="font-mono text-[12px] tracking-[2px] uppercase font-bold">{t('pricing.earlyAccessRibbon')}</span>
-                                        <span className="font-mono text-[12px] tracking-[1px] uppercase opacity-80">{t('pricing.earlyAccessRibbonSub')}</span>
+                                    <div className="btn-gradient text-white text-center py-2 px-3 flex flex-col gap-0.5">
+                                        <span className="font-mono text-[10px] sm:text-[12px] tracking-[1.5px] sm:tracking-[2px] uppercase font-bold">{t('pricing.earlyAccessRibbon')}</span>
+                                        <span className="font-mono text-[10px] sm:text-[12px] tracking-[1px] uppercase opacity-80">{t('pricing.earlyAccessRibbonSub')}</span>
                                     </div>
                                     <div className="px-7 sm:px-8 pb-7 sm:pb-8 flex flex-col gap-6 flex-1">
                                     <div className="flex flex-col gap-1">
@@ -472,13 +472,12 @@ export default function PricingSection() {
                         </span>
                     </div>
                     <div
-                        className="w-full flex md:grid md:grid-cols-5 overflow-x-auto md:overflow-visible gap-4 snap-x snap-mandatory md:snap-none pb-2 md:pb-0"
-                        style={{ scrollbarWidth: 'none' }}
+                        className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4"
                     >
                         {featureColumns.map((col, i) => (
                             <div
                                 key={i}
-                                className="flex-shrink-0 min-w-[240px] md:min-w-0 snap-start flex flex-col gap-4 rounded-xl overflow-hidden"
+                                className="flex flex-col gap-4 rounded-xl overflow-hidden"
                                 style={{ backgroundColor: '#151515' }}
                             >
                                 <div className="flex flex-col gap-3 px-4 pt-4 pb-4">
@@ -486,6 +485,7 @@ export default function PricingSection() {
                                     <span className="font-mono font-bold text-[14px] tracking-[1.5px] uppercase text-white mt-2">
                                         {col.title}
                                     </span>
+                                    <hr className="border-t border-[#333]" />
                                     <ul className="flex flex-col gap-3">
                                         {col.items.map((item, j) => (
                                             <li key={j}>

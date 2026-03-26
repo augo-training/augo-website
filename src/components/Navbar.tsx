@@ -21,7 +21,7 @@ function NavLink({ label, href, onClick }: { label: string; href: string; onClic
     )
 }
 
-function LanguageSwitcher() {
+function LanguageSwitcher({ onSwitch }: { onSwitch?: () => void } = {}) {
     const { i18n } = useTranslation()
     const location = useLocation()
     const navigate = useNavigate()
@@ -29,7 +29,7 @@ function LanguageSwitcher() {
 
     const switchLanguage = (newLang: SupportedLanguage) => {
         if (newLang === currentLang) return
-        // Replace the language prefix in the current path
+        onSwitch?.()
         const pathWithoutLang = location.pathname.replace(/^\/(en|de|pt)/, '')
         i18n.changeLanguage(newLang)
         navigate(`/${newLang}${pathWithoutLang || ''}`, { replace: true })
@@ -79,11 +79,28 @@ export default function Navbar() {
     const [showJoinButton, setShowJoinButton] = useState(() => !location.pathname.endsWith('/download'))
     const [menuOpen, setMenuOpen] = useState(false)
     const isAnimating = useRef(false)
+    const keepMenuOpen = useRef(false)
 
     // Refs for GSAP animations
     const overlayRef = useRef<HTMLDivElement>(null)
     const menuItemRefs = useRef<(HTMLAnchorElement | null)[]>([])
     const menuJoinRef = useRef<HTMLAnchorElement>(null)
+
+    // After a language switch while menu is open, restore menu visibility
+    useEffect(() => {
+        if (keepMenuOpen.current) {
+            keepMenuOpen.current = false
+            const overlay = overlayRef.current
+            const items = menuItemRefs.current.filter(Boolean) as HTMLElement[]
+            const joinBtn = menuJoinRef.current
+            if (overlay) {
+                gsap.set(overlay, { display: 'flex', height: '100vh' })
+                gsap.set(items, { opacity: 1, y: 0 })
+                if (joinBtn) gsap.set(joinBtn, { opacity: 1, y: 0 })
+            }
+            setMenuOpen(true)
+        }
+    }, [currentLang])
 
     // Intersection Observer: hide Join Augo when Hero CTA or FAQ CTA is on screen
     useEffect(() => {
@@ -259,7 +276,7 @@ export default function Navbar() {
         <>
             <nav className="navbar-sticky fixed top-0 left-0 right-0 z-[60] flex items-center justify-between px-5 sm:px-6 md:px-8 lg:px-12 pt-6 pb-2">
                 {/* Left Side: Logo + Nav Links */}
-                <div className="flex items-center gap-[100px]">
+                <div className="flex items-center gap-8 xl:gap-[100px]">
                     {/* Logo */}
                     <a href={`/${currentLang}`} className="flex-shrink-0 relative z-[60]">
                         <img src={augoLogo} alt="augo" className="h-7" />
@@ -274,9 +291,9 @@ export default function Navbar() {
                 </div>
 
                 {/* Right Side */}
-                <div className="flex items-center gap-4 sm:gap-6 md:gap-8">
-                    {/* Language Switcher */}
-                    <div className="hidden sm:block">
+                <div className="flex items-center gap-3 lg:gap-6">
+                    {/* Language Switcher — desktop only (mobile uses hamburger menu) */}
+                    <div className="hidden md:block">
                         <LanguageSwitcher />
                     </div>
                     {/* Find a Match — visible only on md+ (tablet and desktop) */}
@@ -335,8 +352,8 @@ export default function Navbar() {
                 }}
             >
                 {/* Language switcher in mobile menu */}
-                <div className="pt-24 flex justify-center sm:hidden">
-                    <LanguageSwitcher />
+                <div className="pt-24 flex justify-center">
+                    <LanguageSwitcher onSwitch={() => { keepMenuOpen.current = true }} />
                 </div>
 
                 {/* Menu links — centered in the upper area */}
