@@ -6,19 +6,26 @@ let initialized = false
 function tryInit(): void {
     const token = import.meta.env.VITE_MIXPANEL_TOKEN
     if (!token || initialized || getConsentStatus() !== 'accepted') return
-    mixpanel.init(token, { persistence: 'localStorage' })
+    mixpanel.init(token, { persistence: 'localStorage', api_host: 'https://api-eu.mixpanel.com' })
     initialized = true
 }
 
 export function setupMixpanelConsentListener(): () => void {
     tryInit()
-    const handler = (e: StorageEvent) => {
+    const consentHandler = () => {
+        if (getConsentStatus() === 'accepted') tryInit()
+    }
+    window.addEventListener('cookie-consent-changed', consentHandler)
+    const storageHandler = (e: StorageEvent) => {
         if (e.key === 'augo_cookie_consent' && e.newValue === 'accepted') {
             tryInit()
         }
     }
-    window.addEventListener('storage', handler)
-    return () => window.removeEventListener('storage', handler)
+    window.addEventListener('storage', storageHandler)
+    return () => {
+        window.removeEventListener('cookie-consent-changed', consentHandler)
+        window.removeEventListener('storage', storageHandler)
+    }
 }
 
 export function getUtmParams(): {
