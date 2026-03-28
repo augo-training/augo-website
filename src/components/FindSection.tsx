@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
 import { getConsentStatus } from './cookieUtils'
 import bgImage from '../assets/images/bg_section_1.webp'
+import { trackFindPageViewed } from '../utils/analytics'
 
 const WORD_DURATION = 3
 const FADE_DURATION = 0.4
@@ -20,6 +21,7 @@ export default function FindSection() {
     const [consent, setConsent] = useState(getConsentStatus)
 
     useEffect(() => {
+        trackFindPageViewed()
         const handler = () => setConsent(getConsentStatus())
         window.addEventListener('cookie-consent-changed', handler)
         return () => window.removeEventListener('cookie-consent-changed', handler)

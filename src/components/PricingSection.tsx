@@ -7,10 +7,11 @@ import bgSection1 from '../assets/images/bg_section_1.webp'
 import { useGeoCountry } from '../hooks/useGeoCountry'
 import { getPricingTier } from '../config/pricingConfig'
 import {
-    setupMixpanelConsentListener,
     getUtmParams,
     trackPricingPageViewed,
     trackPricingCtaClicked,
+    trackBillingToggle,
+    trackFaqExpanded,
 } from '../utils/analytics'
 import EmailCaptureModal from './EmailCaptureModal'
 
@@ -40,13 +41,15 @@ function PricingFaq() {
                     setOpenIndex(index)
                     setTimeout(() => setIsAnimating(false), 500)
                 }, 800)
+                trackFaqExpanded({ question: faqs[index].question, page: 'pricing' })
             } else {
                 setIsAnimating(true)
                 setOpenIndex(index)
                 setTimeout(() => setIsAnimating(false), 500)
+                trackFaqExpanded({ question: faqs[index].question, page: 'pricing' })
             }
         },
-        [openIndex, isAnimating]
+        [openIndex, isAnimating, faqs]
     )
 
     return (
@@ -174,11 +177,6 @@ export default function PricingSection() {
 
     // Why-cards stagger on scroll
 
-    // Setup Mixpanel consent listener
-    useEffect(() => {
-        return setupMixpanelConsentListener()
-    }, [])
-
     // Fire page-view event once country resolves
     useEffect(() => {
         if (loading) return
@@ -250,7 +248,11 @@ export default function PricingSection() {
                             {t('pricing.monthly')}
                         </span>
                         <button
-                            onClick={() => setBillingPeriod(isYearly ? 'monthly' : 'yearly')}
+                            onClick={() => {
+                                const newPeriod = isYearly ? 'monthly' : 'yearly'
+                                setBillingPeriod(newPeriod)
+                                trackBillingToggle({ billing_period: newPeriod })
+                            }}
                             className={`relative w-12 h-6 rounded-full focus:outline-none flex-shrink-0 ${isYearly ? 'btn-gradient' : 'bg-[#333]'}`}
                             aria-label="Toggle billing period"
                         >

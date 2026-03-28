@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { getConsentStatus } from './cookieUtils'
+import { trackCookieConsentResponse } from '../utils/analytics'
 
 const COOKIE_CONSENT_KEY = 'augo_cookie_consent'
 
@@ -29,6 +30,7 @@ export default function CookieConsent() {
         localStorage.setItem(COOKIE_CONSENT_KEY, 'accepted')
         setVisible(false)
         window.dispatchEvent(new Event('cookie-consent-changed'))
+        trackCookieConsentResponse({ response: 'accepted' })
     }
 
     const handleDecline = () => {

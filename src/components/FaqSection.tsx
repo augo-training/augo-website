@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import bgSection from '../assets/images/bg_section_1.webp'
 import addIcon from '../assets/images/add.svg'
 import minusIcon from '../assets/images/minus.svg'
+import { trackFaqExpanded, trackCtaClicked } from '../utils/analytics'
 
 export default function FaqSection() {
     const { t, i18n } = useTranslation()
@@ -35,13 +36,15 @@ export default function FaqSection() {
                     setOpenIndex(index)
                     setTimeout(() => setIsAnimating(false), 500)
                 }, 800)
+                trackFaqExpanded({ question: faqItems[index].question, page: 'home' })
             } else {
                 setIsAnimating(true)
                 setOpenIndex(index)
                 setTimeout(() => setIsAnimating(false), 500)
+                trackFaqExpanded({ question: faqItems[index].question, page: 'home' })
             }
         },
-        [openIndex, isAnimating]
+        [openIndex, isAnimating, faqItems]
     )
 
     return (
@@ -73,6 +76,7 @@ export default function FaqSection() {
                         className="btn-gradient font-mono text-sm font-extrabold tracking-[2px] uppercase text-white rounded-lg hover:brightness-110 transition-all duration-200 flex items-center justify-center mt-2 lg:mt-0"
                         data-cta="faq"
                         style={{ width: '209px', height: '48px' }}
+                        onClick={() => trackCtaClicked({ cta_text: t('nav.joinAugo'), cta_location: 'faq', destination: '/download' })}
                     >
                         {t('nav.joinAugo')}
                     </a>
