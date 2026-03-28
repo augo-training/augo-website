@@ -41,15 +41,15 @@ function PricingFaq() {
                     setOpenIndex(index)
                     setTimeout(() => setIsAnimating(false), 500)
                 }, 800)
-                trackFaqExpanded({ question: faqs[index].question, page: 'pricing' })
+                trackFaqExpanded({ question: faqItems[index].question, page: 'pricing' })
             } else {
                 setIsAnimating(true)
                 setOpenIndex(index)
                 setTimeout(() => setIsAnimating(false), 500)
-                trackFaqExpanded({ question: faqs[index].question, page: 'pricing' })
+                trackFaqExpanded({ question: faqItems[index].question, page: 'pricing' })
             }
         },
-        [openIndex, isAnimating, faqs]
+        [openIndex, isAnimating, faqItems]
     )
 
     return (
