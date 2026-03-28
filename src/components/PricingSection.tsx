@@ -279,9 +279,14 @@ export default function PricingSection() {
                             style={{ background: 'linear-gradient(135deg, rgba(80,80,80,0.3), rgba(60,60,60,0.2), rgba(40,40,40,0.15))' }}
                         >
                         <div
-                            className="rounded-[15px] p-7 sm:p-8 flex flex-col gap-6 h-full"
+                            className="rounded-[15px] px-7 sm:px-8 pb-7 sm:pb-8 flex flex-col gap-6 h-full"
                             style={{ backgroundColor: '#151515' }}
                         >
+                            {/* Invisible spacer — mirrors banner height so tier name aligns with UNLIMITED card */}
+                            <div className="invisible py-2 flex flex-col gap-0.5" aria-hidden="true">
+                                <span className="font-mono text-[10px] sm:text-[12px]">&nbsp;</span>
+                                <span className="font-mono text-[10px] sm:text-[12px]">&nbsp;</span>
+                            </div>
                             <div className="flex flex-col gap-1">
                                 <span className="font-['JetBrains_Mono'] text-[20px] tracking-[2px] uppercase text-[#FFFFFF]">
                                     {t('pricing.free.label')}
