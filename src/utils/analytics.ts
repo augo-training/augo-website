@@ -14,7 +14,8 @@ async function tryInit(): Promise<void> {
     }
 }
 
-async function track(event: string, props?: Record<string, unknown>): Promise<void> {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+async function track(event: string, props?: Record<string, any>): Promise<void> {
     await tryInit()
     if (!initialized) return
     try {
