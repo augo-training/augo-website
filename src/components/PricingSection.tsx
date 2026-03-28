@@ -293,7 +293,7 @@ export default function PricingSection() {
                             <div className="flex flex-col gap-2 min-h-[88px] justify-center">
                                 <div>
                                     <span className="font-mono font-bold text-[40px] sm:text-[48px] leading-none text-[#FFFFFF]">
-                                        {t('pricing.free.price')}
+                                        {pricingTier.symbol}0
                                     </span>
                                     <span className="font-mono text-[14px] text-[#969EA7] ml-1">
                                         {t('pricing.free.period')}
