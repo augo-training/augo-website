@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { getConsentStatus } from './cookieUtils'
 import { gsap } from 'gsap'
+import { trackContactFormOpened } from '../utils/analytics'
 
 export default function ContactSection() {
     const { t } = useTranslation()
@@ -62,6 +63,7 @@ export default function ContactSection() {
 
     useEffect(() => {
         if (consent !== 'accepted') return
+        trackContactFormOpened()
         const script = document.createElement('script')
         script.src = '//embed.typeform.com/next/embed.js'
         script.async = true

@@ -5,12 +5,16 @@ import { gsap } from 'gsap'
 import { supportedLanguages } from '../i18n'
 import type { SupportedLanguage } from '../i18n'
 import augoLogo from '../assets/images/augo_footer_1.svg'
+import { trackNavLinkClicked, trackCtaClicked, trackLanguageSwitched } from '../utils/analytics'
 
 function NavLink({ label, href, onClick }: { label: string; href: string; onClick?: (e: React.MouseEvent) => void }) {
     return (
         <a
             href={href}
-            onClick={onClick}
+            onClick={(e) => {
+                trackNavLinkClicked({ link_text: label, destination: href, is_mobile: false })
+                onClick?.(e)
+            }}
             className="group flex items-center gap-1 font-['JetBrains_Mono'] text-[14px] font-normal leading-[100%] tracking-[2px] uppercase text-white no-underline transition-all duration-200 ease-out hover:font-bold hover:italic"
         >
             <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-out">
@@ -30,6 +34,7 @@ function LanguageSwitcher({ onSwitch }: { onSwitch?: () => void } = {}) {
     const switchLanguage = (newLang: SupportedLanguage) => {
         if (newLang === currentLang) return
         onSwitch?.()
+        trackLanguageSwitched({ from_language: currentLang, to_language: newLang })
         const pathWithoutLang = location.pathname.replace(/^\/(en|de|pt)/, '')
         i18n.changeLanguage(newLang)
         navigate(`/${newLang}${pathWithoutLang || ''}`, { replace: true })
@@ -309,6 +314,7 @@ export default function Navbar() {
                             pointerEvents: showJoinButton && !menuOpen ? 'auto' : 'none',
                             transition: 'opacity 300ms ease-in-out, transform 300ms ease-in-out, background 200ms ease-in-out, color 200ms ease-in-out',
                         }}
+                        onClick={() => trackCtaClicked({ cta_text: t('nav.joinAugo'), cta_location: 'navbar', destination: '/download' })}
                     >
                         {t('nav.joinAugo')}
                     </a>
@@ -363,7 +369,10 @@ export default function Navbar() {
                             key={link.href}
                             href={link.href}
                             ref={(el) => { menuItemRefs.current[i] = el }}
-                            onClick={(e) => handleMenuLinkClick(e, link.href)}
+                            onClick={(e) => {
+                                trackNavLinkClicked({ link_text: link.label, destination: link.href, is_mobile: true })
+                                handleMenuLinkClick(e, link.href)
+                            }}
                             className="font-['JetBrains_Mono'] font-normal text-[24px] leading-[150%] tracking-[0px] text-center uppercase text-white no-underline"
                             style={{ opacity: 0 }}
                         >
@@ -377,7 +386,10 @@ export default function Navbar() {
                     <a
                         ref={menuJoinRef}
                         href={`/${currentLang}/download`}
-                        onClick={(e) => handleMenuLinkClick(e, `/${currentLang}/download`)}
+                        onClick={(e) => {
+                            trackCtaClicked({ cta_text: t('nav.joinAugo'), cta_location: 'mobile_menu', destination: '/download' })
+                            handleMenuLinkClick(e, `/${currentLang}/download`)
+                        }}
                         className="btn-gradient block w-full font-mono text-sm font-extrabold tracking-[2px] uppercase text-white text-center py-4 rounded-lg"
                         style={{ opacity: 0 }}
                     >

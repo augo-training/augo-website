@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
 import { QRCodeSVG } from 'qrcode.react'
 import bgImage from '../assets/images/bg_section_1.webp'
+import { trackDownloadPageViewed, trackAppStoreClicked } from '../utils/analytics'
 
 // const WEBAPP_URL = 'https://webapp.augotraining.com'
 const IOS_URL = 'https://apps.apple.com/ph/app/augo-training/id6754562173'
@@ -19,13 +20,16 @@ export default function DownloadSection() {
     useEffect(() => {
         const ua = navigator.userAgent
         if (/android/i.test(ua)) {
+            trackDownloadPageViewed({ device: 'android', redirected: true })
             window.location.replace(ANDROID_URL)
             return
         }
         if (/iphone|ipad|ipod/i.test(ua)) {
+            trackDownloadPageViewed({ device: 'ios', redirected: true })
             window.location.replace(IOS_URL)
             return
         }
+        trackDownloadPageViewed({ device: 'desktop', redirected: false })
     }, [])
 
     useEffect(() => {
@@ -92,6 +96,7 @@ export default function DownloadSection() {
                             className="transition-opacity hover:opacity-80"
                             target="_blank"
                             rel="noopener noreferrer"
+                            onClick={() => trackAppStoreClicked({ store: 'app_store' })}
                         >
                             <img
                                 src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&releaseDate=1734307200"
@@ -106,6 +111,7 @@ export default function DownloadSection() {
                             className="transition-opacity hover:opacity-80"
                             target="_blank"
                             rel="noopener noreferrer"
+                            onClick={() => trackAppStoreClicked({ store: 'google_play' })}
                         >
                             <img
                                 src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
