@@ -10,6 +10,8 @@ import marcoPhoto from '../assets/images/Marco.webp?w=128&h=128&format=webp'
 import brianPhoto from '../assets/images/Brian.png?w=128&h=128&format=webp'
 import meganPhoto from '../assets/images/Megan.png?w=128&h=128&format=webp'
 import paoloPhoto from '../assets/images/Paolo.png?w=128&h=128&format=webp'
+import nellPhoto from '../assets/images/Nell.png?w=128&h=128&format=webp'
+import stefPhoto from '../assets/images/Stef.png?w=128&h=128&format=webp'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -34,6 +36,20 @@ const testimonials: Testimonial[] = [
         name: 'Mikael Eriksson',
         role: 'Triathlon Coach & Founder of Scientific Triathlon',
         photo: mikaelPhoto,
+    },
+    {
+        quote:
+            "I'm a proud augo founding coach. I use it to improve how I communicate, monitor, and track my athletes.",
+        name: 'Nell Rojas',
+        role: 'Former Pro-Runner & Coach',
+        photo: nellPhoto,
+    },
+    {
+        quote:
+            "As AI and data continue to evolve, it's easy to get lost in numbers and forget the human behind the athlete. augo allows me to connect data with real athlete feedback, leading to more meaningful insights and better coaching decisions.",
+        name: 'Stef Vanhaeren',
+        role: 'Performance Coach & Founder of Forward Coaching',
+        photo: stefPhoto,
     },
     {
         quote:
