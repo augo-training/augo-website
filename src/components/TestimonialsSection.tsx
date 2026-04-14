@@ -12,6 +12,7 @@ import meganPhoto from '../assets/images/Megan.png?w=128&h=128&format=webp'
 import paoloPhoto from '../assets/images/Paolo.png?w=128&h=128&format=webp'
 import nellPhoto from '../assets/images/Nell.png?w=128&h=128&format=webp'
 import stefPhoto from '../assets/images/Stef.png?w=128&h=128&format=webp'
+import markusPhoto from '../assets/images/Markus.png?w=128&h=128&format=webp'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -23,6 +24,13 @@ interface Testimonial {
 }
 
 const testimonials: Testimonial[] = [
+    {
+        quote:
+            "In 25 years of coaching, I've watched the pendulum swing from athlete feedback to athlete data. What once felt like a handful of data points has turned into hundreds. The truth sits somewhere between what the athlete feels and what the data shows. augo helps me get there faster. It surfaces patterns and connections, and my coaching perspective helps turn them into better decisions. That's the future of coaching.",
+        name: 'Markus Lombardini',
+        role: 'Triathlon Coach & Founder of MyTrainair',
+        photo: markusPhoto,
+    },
     {
         quote:
             'augo brings together workout data and athlete feedback in a simple overview that makes staying in tune with remote athletes effortless. In a world where wearables pretend to know better than the athlete, augo feels like fresh air: the only AI coaching platform that truly understands the coach-athlete relationship.',
