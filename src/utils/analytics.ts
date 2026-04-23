@@ -145,8 +145,8 @@ export async function trackFindPageViewed(): Promise<void> {
 
 // ── Download page tracking ──
 
-export async function trackDownloadPageViewed(props: { device: string; redirected: boolean }): Promise<void> {
-    return track('download_page_viewed', { ...props, ...getUtmParams() })
+export async function trackDownloadPageViewed(): Promise<void> {
+    return track('download_page_viewed', { ...getUtmParams() })
 }
 
 export async function trackAppStoreClicked(props: { store: 'app_store' | 'google_play' }): Promise<void> {
