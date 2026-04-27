@@ -241,13 +241,13 @@
     "earlyAccessRibbonSub": "Cartão de crédito não é necessário",
     "perSeat": {
       "tagline": "A partir de 3 atletas",
-      "cta": "Aproveitar oferta",
+      "cta": "Começar agora",
       "period": "por atleta / mês",
       "periodAnnual": "por atleta / mês, cobrado anualmente"
     },
     "flat": {
       "tagline": "A partir de 3 atletas",
-      "cta": "Aproveitar oferta",
+      "cta": "Começar agora",
       "period": "/ mês",
       "periodAnnual": "/ mês, cobrado anualmente"
     },

@@ -282,11 +282,6 @@ export default function PricingSection() {
                             className="rounded-[15px] px-7 sm:px-8 pb-7 sm:pb-8 flex flex-col gap-6 h-full"
                             style={{ backgroundColor: '#151515' }}
                         >
-                            {/* Invisible spacer — mirrors banner height so tier name aligns with UNLIMITED card */}
-                            <div className="invisible py-2 flex flex-col gap-0.5" aria-hidden="true">
-                                <span className="font-mono text-[10px] sm:text-[12px]">&nbsp;</span>
-                                <span className="font-mono text-[10px] sm:text-[12px]">&nbsp;</span>
-                            </div>
                             <div className="flex flex-col gap-1">
                                 <span className="font-['JetBrains_Mono'] text-[20px] tracking-[2px] uppercase text-[#FFFFFF]">
                                     {t('pricing.free.label')}
@@ -341,11 +336,7 @@ export default function PricingSection() {
                                     className="join-form-inner rounded-[18px] overflow-hidden flex flex-col gap-6 h-full"
                                     style={{ backgroundColor: '#0A0A0A' }}
                                 >
-                                    <div className="btn-gradient text-white text-center py-2 px-3 flex flex-col gap-0.5">
-                                        <span className="font-mono text-[10px] sm:text-[12px] tracking-[1.5px] sm:tracking-[2px] uppercase font-bold">{t('pricing.earlyAccessRibbon')}</span>
-                                        <span className="font-mono text-[10px] sm:text-[12px] tracking-[1px] uppercase opacity-80">{t('pricing.earlyAccessRibbonSub')}</span>
-                                    </div>
-                                    <div className="px-7 sm:px-8 pb-7 sm:pb-8 flex flex-col gap-6 flex-1">
+                                    <div className="px-7 sm:px-8 pt-7 pb-7 sm:pb-8 flex flex-col gap-6 flex-1">
                                     <div className="flex flex-col gap-1">
                                         <span
                                             className="font-['JetBrains_Mono'] text-[20px] tracking-[2px] uppercase font-bold"

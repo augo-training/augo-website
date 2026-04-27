@@ -241,13 +241,13 @@
     "earlyAccessRibbonSub": "No credit card required",
     "perSeat": {
       "tagline": "3 athletes or more",
-      "cta": "Claim my offer",
+      "cta": "Get started",
       "period": "per athlete / month",
       "periodAnnual": "per athlete / month, billed annually"
     },
     "flat": {
       "tagline": "3 athletes or more",
-      "cta": "Claim my offer",
+      "cta": "Get started",
       "period": "/ month",
       "periodAnnual": "/ month, billed annually"
     },
