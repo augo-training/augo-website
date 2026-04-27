@@ -81,6 +81,7 @@ export default function Navbar() {
         { label: t('nav.findAMatch'), href: `/${currentLang}/find` },
     ]
 
+    const [showJoinButton, setShowJoinButton] = useState(() => !location.pathname.endsWith('/download'))
     const [menuOpen, setMenuOpen] = useState(false)
     const isAnimating = useRef(false)
     const keepMenuOpen = useRef(false)
@@ -105,6 +106,42 @@ export default function Navbar() {
             queueMicrotask(() => setMenuOpen(true))
         }
     }, [currentLang])
+
+    // Intersection Observer: hide Join Augo when Hero CTA or FAQ CTA is on screen
+    useEffect(() => {
+        // Already on the Join page → hide the button (handled by initial state)
+        if (location.pathname.endsWith('/download')) return
+
+        const heroCta = document.querySelector('[data-cta="hero"]')
+        const faqCta = document.querySelector('[data-cta="faq"]')
+
+        const targets = [heroCta, faqCta].filter(Boolean) as Element[]
+        if (targets.length === 0) {
+            // No CTA targets on this page (e.g. /find) → always show the button
+            const id = requestAnimationFrame(() => setShowJoinButton(true))
+            return () => cancelAnimationFrame(id)
+        }
+
+        const visibleSet = new Set<Element>()
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        visibleSet.add(entry.target)
+                    } else {
+                        visibleSet.delete(entry.target)
+                    }
+                })
+                setShowJoinButton(visibleSet.size === 0)
+            },
+            { threshold: 0 }
+        )
+
+        targets.forEach((el) => observer.observe(el))
+
+        return () => observer.disconnect()
+    }, [location.pathname])
 
     // Lock body scroll when menu is open
     useEffect(() => {
@@ -269,19 +306,17 @@ export default function Navbar() {
                         <NavLink label={t('nav.findAMatch')} href={`/${currentLang}/find`} />
                     </div>
                     <a
-                        href="https://webapp.augotraining.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        href={`/${currentLang}/download`}
                         className="join-augo-btn font-mono text-[11px] sm:text-sm font-extrabold tracking-[1.5px] sm:tracking-[2px] uppercase px-3.5 py-2 sm:px-6 sm:py-3 rounded-md sm:rounded-lg"
                         style={{
-                            opacity: !menuOpen ? 1 : 0,
-                            transform: !menuOpen ? 'translateY(0)' : 'translateY(10px)',
-                            pointerEvents: !menuOpen ? 'auto' : 'none',
+                            opacity: showJoinButton && !menuOpen ? 1 : 0,
+                            transform: showJoinButton && !menuOpen ? 'translateY(0)' : 'translateY(10px)',
+                            pointerEvents: showJoinButton && !menuOpen ? 'auto' : 'none',
                             transition: 'opacity 300ms ease-in-out, transform 300ms ease-in-out, background 200ms ease-in-out, color 200ms ease-in-out',
                         }}
-                        onClick={() => trackCtaClicked({ cta_text: t('nav.accessWebApp'), cta_location: 'navbar', destination: 'https://webapp.augotraining.com/' })}
+                        onClick={() => trackCtaClicked({ cta_text: t('nav.joinAugo'), cta_location: 'navbar', destination: '/download' })}
                     >
-                        {t('nav.accessWebApp')}
+                        {t('nav.joinAugo')}
                     </a>
                     {/* Hamburger / Close toggle — visible only below md (mobile) */}
                     <button
@@ -350,16 +385,15 @@ export default function Navbar() {
                 <div className="px-5 sm:px-6 pb-10 w-full">
                     <a
                         ref={menuJoinRef}
-                        href="https://webapp.augotraining.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={() => {
-                            trackCtaClicked({ cta_text: t('nav.accessWebApp'), cta_location: 'mobile_menu', destination: 'https://webapp.augotraining.com/' })
+                        href={`/${currentLang}/download`}
+                        onClick={(e) => {
+                            trackCtaClicked({ cta_text: t('nav.joinAugo'), cta_location: 'mobile_menu', destination: '/download' })
+                            handleMenuLinkClick(e, `/${currentLang}/download`)
                         }}
                         className="btn-gradient block w-full font-mono text-sm font-extrabold tracking-[2px] uppercase text-white text-center py-4 rounded-lg"
                         style={{ opacity: 0 }}
                     >
-                        {t('nav.accessWebApp')}
+                        {t('nav.joinAugo')}
                     </a>
                 </div>
             </div>

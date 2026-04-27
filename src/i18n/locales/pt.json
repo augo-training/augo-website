@@ -4,8 +4,7 @@
     "forAthletes": "Para Atletas",
     "findAMatch": "Encontrar um Match",
     "pricing": "Preços",
-    "joinAugo": "Junte-se à augo",
-    "accessWebApp": "Acessar Web App"
+    "joinAugo": "Junte-se à augo"
   },
   "hero": {
     "line1": "Um novo padrão",
@@ -130,13 +129,10 @@
   },
   "download": {
     "headline": "Treine de forma mais inteligente.",
-    "body": "Experimente o assistente inteligente na web e no celular. Treinadores têm acesso completo em ambas as plataformas. Atletas se conectam pelo celular.",
-    "forCoaches": "Para Coaches",
-    "forCoachesAndAthletes": "Para Coaches e Atletas",
+    "body": "Experimente o assistente inteligente que te ajuda a oferecer o melhor serviço para seus atletas.",
     "launchWebApp": "Abrir App Web",
     "downloadOnAppStore": "Baixar na App Store",
-    "getItOnGooglePlay": "Disponível no Google Play",
-    "scanToDownload": "Escaneie para baixar"
+    "getItOnGooglePlay": "Disponível no Google Play"
   },
   "join": {
     "headline": "Junte-se à comunidade de coaches e atletas que buscam um novo padrão",

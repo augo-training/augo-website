@@ -5,7 +5,7 @@ import { QRCodeSVG } from 'qrcode.react'
 import bgImage from '../assets/images/bg_section_1.webp'
 import { trackDownloadPageViewed, trackAppStoreClicked } from '../utils/analytics'
 
-const WEBAPP_URL = 'https://webapp.augotraining.com'
+// const WEBAPP_URL = 'https://webapp.augotraining.com'
 const IOS_URL = 'https://apps.apple.com/ph/app/augo-training/id6754562173'
 const ANDROID_URL = 'https://play.google.com/store/apps/details?id=com.augotraining'
 
@@ -18,7 +18,18 @@ export default function DownloadSection() {
     const bgOverlayRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
-        trackDownloadPageViewed()
+        const ua = navigator.userAgent
+        if (/android/i.test(ua)) {
+            trackDownloadPageViewed({ device: 'android', redirected: true })
+            window.location.replace(ANDROID_URL)
+            return
+        }
+        if (/iphone|ipad|ipod/i.test(ua)) {
+            trackDownloadPageViewed({ device: 'ios', redirected: true })
+            window.location.replace(IOS_URL)
+            return
+        }
+        trackDownloadPageViewed({ device: 'desktop', redirected: false })
     }, [])
 
     useEffect(() => {
@@ -68,7 +79,7 @@ export default function DownloadSection() {
                 </p>
 
                 <div ref={buttonsRef} className="flex flex-col items-center gap-6 mt-2 w-full">
-                    <p className="font-satoshi text-[13px] uppercase tracking-[1.5px] text-[#969EA7]">{t('download.forCoaches')}</p>
+                    {/*
                     <a
                         href={WEBAPP_URL}
                         target="_blank"
@@ -77,7 +88,7 @@ export default function DownloadSection() {
                     >
                         {t('download.launchWebApp')}
                     </a>
-                    <p className="font-satoshi text-[13px] uppercase tracking-[1.5px] text-[#969EA7] mt-2">{t('download.forCoachesAndAthletes')}</p>
+                    */}
                     <div className="flex flex-row items-center justify-center gap-4">
                         <a
                             href={IOS_URL}
@@ -115,7 +126,7 @@ export default function DownloadSection() {
                     <div className="p-3 bg-white rounded-xl">
                         <QRCodeSVG value={currentUrl} size={240} />
                     </div>
-                    <p className="font-satoshi text-[13px] text-[#969EA7]">{t('download.scanToDownload')}</p>
+                    <p className="font-satoshi text-[13px] text-[#969EA7]">Scan to download</p>
                 </div>
             </div>
         </section>
