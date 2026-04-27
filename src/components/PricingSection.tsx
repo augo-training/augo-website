@@ -279,7 +279,7 @@ export default function PricingSection() {
                             style={{ background: 'linear-gradient(135deg, rgba(80,80,80,0.3), rgba(60,60,60,0.2), rgba(40,40,40,0.15))' }}
                         >
                         <div
-                            className="rounded-[15px] px-7 sm:px-8 pb-7 sm:pb-8 flex flex-col gap-6 h-full"
+                            className="rounded-[15px] px-7 sm:px-8 pt-7 sm:pt-8 pb-7 sm:pb-8 flex flex-col gap-6 h-full"
                             style={{ backgroundColor: '#151515' }}
                         >
                             <div className="flex flex-col gap-1">
