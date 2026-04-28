@@ -4,8 +4,7 @@
     "forAthletes": "Für Athleten",
     "findAMatch": "Match finden",
     "pricing": "Preise",
-    "joinAugo": "augo beitreten",
-    "accessWebApp": "Web-App öffnen"
+    "joinAugo": "augo beitreten"
   },
   "hero": {
     "line1": "Ein neuer Standard",
@@ -130,13 +129,10 @@
   },
   "download": {
     "headline": "Smarter coachen.",
-    "body": "Erlebe den intelligenten Assistenten auf Web und Mobil. Coaches haben vollen Zugriff auf beiden Plattformen. Athleten nutzen die mobile App.",
-    "forCoaches": "Für Coaches",
-    "forCoachesAndAthletes": "Für Coaches und Athleten",
+    "body": "Erlebe den intelligenten Assistenten, der dir hilft, deinen Athleten den besten Service zu bieten.",
     "launchWebApp": "Web-App öffnen",
     "downloadOnAppStore": "Im App Store laden",
-    "getItOnGooglePlay": "Bei Google Play herunterladen",
-    "scanToDownload": "Zum Herunterladen scannen"
+    "getItOnGooglePlay": "Bei Google Play herunterladen"
   },
   "join": {
     "headline": "Werde Teil der Community aus Coaches und Athleten, die neue Maßstäbe setzen.",
