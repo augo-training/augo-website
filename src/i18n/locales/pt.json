@@ -176,6 +176,9 @@
     "mins": "min",
     "secs": "seg"
   },
+  "launchOffer": {
+    "text": "Oferta de lançamento · <1>{{price}}/mês</1> atletas ilimitados"
+  },
   "cookies": {
     "message": "Usamos cookies de terceiros para melhorar sua experiência.",
     "decline": "Recusar",
@@ -235,12 +238,6 @@
     "earlyAccessBanner": "Gratuito para todos os coaches até 27 de abril de 2026 — experimente o augo com atletas ilimitados, sem cartão de crédito.",
     "earlyAccessRibbon": "Promoção: Grátis até 26 de abril de 2026",
     "earlyAccessRibbonSub": "Cartão de crédito não é necessário",
-    "perSeat": {
-      "tagline": "A partir de 3 atletas",
-      "cta": "Começar agora",
-      "period": "por atleta / mês",
-      "periodAnnual": "por atleta / mês, cobrado anualmente"
-    },
     "flat": {
       "tagline": "A partir de 3 atletas",
       "cta": "Começar agora",

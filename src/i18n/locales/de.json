@@ -176,6 +176,9 @@
     "mins": "Min",
     "secs": "Sek"
   },
+  "launchOffer": {
+    "text": "Launch-Angebot · <1>{{price}}/Monat</1> unbegrenzt Athleten"
+  },
   "cookies": {
     "message": "Wir verwenden Drittanbieter-Cookies, um dein Erlebnis zu verbessern.",
     "decline": "Ablehnen",
@@ -235,12 +238,6 @@
     "earlyAccessBanner": "Bis zum 27. April 2026 kostenlos für alle Coaches — teste augo mit unbegrenzt vielen Athleten, ohne Kreditkarte.",
     "earlyAccessRibbon": "Startangebot: Kostenlos bis 26. April 2026",
     "earlyAccessRibbonSub": "Keine Kreditkarte erforderlich",
-    "perSeat": {
-      "tagline": "Ab 3 Athleten",
-      "cta": "Jetzt starten",
-      "period": "pro Athlet / Monat",
-      "periodAnnual": "pro Athlet / Monat, jährlich abgerechnet"
-    },
     "flat": {
       "tagline": "Ab 3 Athleten",
       "cta": "Jetzt starten",

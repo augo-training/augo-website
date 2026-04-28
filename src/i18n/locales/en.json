@@ -176,6 +176,9 @@
     "mins": "mins",
     "secs": "secs"
   },
+  "launchOffer": {
+    "text": "Launch offer · <1>{{price}}/month</1> unlimited athletes"
+  },
   "cookies": {
     "message": "We use third-party cookies to improve your experience.",
     "decline": "Decline",
@@ -235,12 +238,6 @@
     "earlyAccessBanner": "Free for all coaches until April 27, 2026 — try augo with unlimited athletes, no credit card required.",
     "earlyAccessRibbon": "Launch offer: Free until April 26th 2026",
     "earlyAccessRibbonSub": "No credit card required",
-    "perSeat": {
-      "tagline": "3 athletes or more",
-      "cta": "Get started",
-      "period": "per athlete / month",
-      "periodAnnual": "per athlete / month, billed annually"
-    },
     "flat": {
       "tagline": "3 athletes or more",
       "cta": "Get started",

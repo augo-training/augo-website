@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
 import { trackCtaClicked } from '../utils/analytics'
+import LaunchOfferPill from './LaunchOfferPill'
 import bgSection1 from '../assets/images/bg_section_1.webp'
 import imgHome from '../assets/images/home.png'
 import imgAthlete from '../assets/images/athlete_home.png'
@@ -255,6 +256,7 @@ export default function Hero() {
             <div className="relative z-10 w-full max-w-[1440px] mx-auto px-5 sm:px-6 md:px-8 lg:px-12 flex flex-col items-center text-center lg:flex-row lg:items-center lg:justify-between lg:text-left pt-44 sm:pt-40 lg:pt-36 pb-12 lg:pb-0 gap-12 lg:gap-0">
                 {/* Left: Text Content */}
                 <div className="max-w-[480px] flex-shrink-0">
+                    <LaunchOfferPill className="mb-5" />
                     <h1 className="font-mono font-bold text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px] leading-[120%] text-white mb-6">
                         <span ref={line1Ref} className="block">
                             {t('hero.line1')}
