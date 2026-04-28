@@ -8,6 +8,7 @@ async function tryInit(): Promise<void> {
     try {
         const { default: mixpanel } = await import('mixpanel-browser')
         mixpanel.init(token, { persistence: 'localStorage', api_host: 'https://api-eu.mixpanel.com' })
+        mixpanel.register({ platform: 'website' })
         initialized = true
     } catch {
         // Ad blocker or network failure — silently ignore

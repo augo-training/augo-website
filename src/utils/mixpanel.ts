@@ -7,6 +7,7 @@ function tryInit(): void {
     const token = import.meta.env.VITE_MIXPANEL_TOKEN
     if (!token || initialized || getConsentStatus() !== 'accepted') return
     mixpanel.init(token, { persistence: 'localStorage', api_host: 'https://api-eu.mixpanel.com' })
+    mixpanel.register({ platform: 'website' })
     initialized = true
 }
 
