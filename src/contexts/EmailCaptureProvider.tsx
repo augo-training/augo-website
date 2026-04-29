@@ -1,12 +1,6 @@
-import { createContext, useCallback, useContext, useMemo, useState, type ReactNode } from 'react'
+import { useCallback, useMemo, useState, type ReactNode } from 'react'
 import EmailCaptureModal from '../components/EmailCaptureModal'
-
-interface EmailCaptureContextValue {
-    openModal: (ctaText: string) => void
-    closeModal: () => void
-}
-
-const EmailCaptureContext = createContext<EmailCaptureContextValue | null>(null)
+import { EmailCaptureContext, type EmailCaptureContextValue } from './EmailCaptureContext'
 
 interface EmailCaptureProviderProps {
     lang: string
@@ -43,12 +37,4 @@ export function EmailCaptureProvider({ lang, children }: EmailCaptureProviderPro
             />
         </EmailCaptureContext.Provider>
     )
-}
-
-export function useEmailCapture(): EmailCaptureContextValue {
-    const ctx = useContext(EmailCaptureContext)
-    if (!ctx) {
-        throw new Error('useEmailCapture must be used inside <EmailCaptureProvider>')
-    }
-    return ctx
 }
