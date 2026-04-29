@@ -6,6 +6,7 @@ import { supportedLanguages } from '../i18n'
 import type { SupportedLanguage } from '../i18n'
 import augoLogo from '../assets/images/augo_footer_1.svg'
 import { trackNavLinkClicked, trackCtaClicked, trackLanguageSwitched } from '../utils/analytics'
+import { useEmailCapture } from '../contexts/EmailCaptureContext'
 
 function NavLink({ label, href, onClick }: { label: string; href: string; onClick?: (e: React.MouseEvent) => void }) {
     return (
@@ -67,6 +68,7 @@ export default function Navbar() {
     const navigate = useNavigate()
     const { lang } = useParams<{ lang: string }>()
     const currentLang = lang || i18n.language || 'en'
+    const { openModal } = useEmailCapture()
 
     const navLinks = [
         { label: t('nav.forCoaches'), href: '#coaches' },
@@ -89,7 +91,7 @@ export default function Navbar() {
     // Refs for GSAP animations
     const overlayRef = useRef<HTMLDivElement>(null)
     const menuItemRefs = useRef<(HTMLAnchorElement | null)[]>([])
-    const menuJoinRef = useRef<HTMLAnchorElement>(null)
+    const menuJoinRef = useRef<HTMLButtonElement>(null)
 
     // After a language switch while menu is open, restore menu visibility
     useEffect(() => {
@@ -305,19 +307,22 @@ export default function Navbar() {
                     <div className="hidden md:block">
                         <NavLink label={t('nav.findAMatch')} href={`/${currentLang}/find`} />
                     </div>
-                    <a
-                        href={`/${currentLang}/download`}
-                        className="join-augo-btn font-mono text-[11px] sm:text-sm font-extrabold tracking-[1.5px] sm:tracking-[2px] uppercase px-3.5 py-2 sm:px-6 sm:py-3 rounded-md sm:rounded-lg"
+                    <button
+                        type="button"
+                        className="join-augo-btn font-mono text-[11px] sm:text-sm font-extrabold tracking-[1.5px] sm:tracking-[2px] uppercase px-3.5 py-2 sm:px-6 sm:py-3 rounded-md sm:rounded-lg cursor-pointer"
                         style={{
                             opacity: showJoinButton && !menuOpen ? 1 : 0,
                             transform: showJoinButton && !menuOpen ? 'translateY(0)' : 'translateY(10px)',
                             pointerEvents: showJoinButton && !menuOpen ? 'auto' : 'none',
                             transition: 'opacity 300ms ease-in-out, transform 300ms ease-in-out, background 200ms ease-in-out, color 200ms ease-in-out',
                         }}
-                        onClick={() => trackCtaClicked({ cta_text: t('nav.joinAugo'), cta_location: 'navbar', destination: '/download' })}
+                        onClick={() => {
+                            trackCtaClicked({ cta_text: t('nav.joinAugo'), cta_location: 'navbar', destination: '/download' })
+                            openModal(t('nav.joinAugo'))
+                        }}
                     >
                         {t('nav.joinAugo')}
-                    </a>
+                    </button>
                     {/* Hamburger / Close toggle — visible only below md (mobile) */}
                     <button
                         className="md:hidden relative z-[60] flex flex-col items-center justify-center w-8 h-8 cursor-pointer gap-[6px]"
@@ -383,18 +388,19 @@ export default function Navbar() {
 
                 {/* JOIN AUGO button — pinned to bottom */}
                 <div className="px-5 sm:px-6 pb-10 w-full">
-                    <a
+                    <button
                         ref={menuJoinRef}
-                        href={`/${currentLang}/download`}
-                        onClick={(e) => {
+                        type="button"
+                        onClick={() => {
                             trackCtaClicked({ cta_text: t('nav.joinAugo'), cta_location: 'mobile_menu', destination: '/download' })
-                            handleMenuLinkClick(e, `/${currentLang}/download`)
+                            closeMenu()
+                            openModal(t('nav.joinAugo'))
                         }}
-                        className="btn-gradient block w-full font-mono text-sm font-extrabold tracking-[2px] uppercase text-white text-center py-4 rounded-lg"
+                        className="btn-gradient block w-full font-mono text-sm font-extrabold tracking-[2px] uppercase text-white text-center py-4 rounded-lg cursor-pointer"
                         style={{ opacity: 0 }}
                     >
                         {t('nav.joinAugo')}
-                    </a>
+                    </button>
                 </div>
             </div>
         </>

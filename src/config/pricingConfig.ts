@@ -14,28 +14,28 @@ const CH_TIER: PricingConfig = {
     bucket: 'ch',
     currency: 'CHF',
     symbol: 'CHF ',
-    price: 20,
+    price: 19,
 }
 
 const EU_TIER: PricingConfig = {
     bucket: 'eu',
     currency: 'EUR',
     symbol: '€',
-    price: 21,
+    price: 19,
 }
 
 const BR_TIER: PricingConfig = {
     bucket: 'br',
     currency: 'BRL',
     symbol: 'R$ ',
-    price: 100,
+    price: 99,
 }
 
 const GLOBAL_TIER: PricingConfig = {
     bucket: 'global',
     currency: 'USD',
     symbol: '$',
-    price: 25,
+    price: 24,
 }
 
 const EU_COUNTRIES: readonly string[] = [
