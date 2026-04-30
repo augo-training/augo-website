@@ -1,4 +1,4 @@
-import { Trans } from 'react-i18next'
+import { Trans, useTranslation } from 'react-i18next'
 import { useGeoCountry } from '../hooks/useGeoCountry'
 import { getPricingTier } from '../config/pricingConfig'
 import { useEmailCapture } from '../contexts/EmailCaptureContext'
@@ -9,6 +9,7 @@ interface LaunchOfferPillProps {
 }
 
 export default function LaunchOfferPill({ className = '' }: LaunchOfferPillProps) {
+    const { t } = useTranslation()
     const { countryCode, loading } = useGeoCountry()
     const { openModal } = useEmailCapture()
 
@@ -21,8 +22,8 @@ export default function LaunchOfferPill({ className = '' }: LaunchOfferPillProps
         <button
             type="button"
             onClick={() => {
-                trackCtaClicked({ cta_text: 'launch_offer', cta_location: 'launch_offer_pill', destination: '/download' })
-                openModal('launch_offer')
+                trackCtaClicked({ cta_text: t('nav.joinAugo'), cta_location: 'launch_offer_pill', destination: '/download' })
+                openModal(t('nav.joinAugo'))
             }}
             className={`launch-offer-pill group inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 cursor-pointer transition-all duration-200 hover:brightness-125 ${className}`}
             style={{
