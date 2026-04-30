@@ -1,29 +1,29 @@
-import { Trans, useTranslation } from 'react-i18next'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { Trans } from 'react-i18next'
 import { useGeoCountry } from '../hooks/useGeoCountry'
 import { getPricingTier } from '../config/pricingConfig'
+import { useEmailCapture } from '../contexts/EmailCaptureContext'
+import { trackCtaClicked } from '../utils/analytics'
 
 interface LaunchOfferPillProps {
     className?: string
 }
 
 export default function LaunchOfferPill({ className = '' }: LaunchOfferPillProps) {
-    const { i18n } = useTranslation()
-    const location = useLocation()
-    const navigate = useNavigate()
     const { countryCode, loading } = useGeoCountry()
+    const { openModal } = useEmailCapture()
 
     if (loading || !countryCode) return null
 
     const tier = getPricingTier(countryCode)
     const formattedPrice = `${tier.symbol}${tier.price}`
-    const langMatch = location.pathname.match(/^\/(en|de|pt)(\/|$)/)
-    const targetLang = langMatch?.[1] ?? i18n.language ?? 'en'
 
     return (
         <button
             type="button"
-            onClick={() => navigate(`/${targetLang}/pricing`)}
+            onClick={() => {
+                trackCtaClicked({ cta_text: 'launch_offer', cta_location: 'launch_offer_pill', destination: '/download' })
+                openModal('launch_offer')
+            }}
             className={`launch-offer-pill group inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 cursor-pointer transition-all duration-200 hover:brightness-125 ${className}`}
             style={{
                 background: 'rgba(255, 85, 20, 0.08)',

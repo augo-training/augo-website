@@ -13,8 +13,8 @@ import {
     trackBillingToggle,
     trackFaqExpanded,
 } from '../utils/analytics'
-import EmailCaptureModal from './EmailCaptureModal'
 import LaunchOfferPill from './LaunchOfferPill'
+import { useEmailCapture } from '../contexts/EmailCaptureContext'
 
 // ─── FAQ Accordion ────────────────────────────────────────────────────────────
 
@@ -121,10 +121,7 @@ export default function PricingSection() {
 
     const { countryCode, loading } = useGeoCountry()
     const pricingTier = getPricingTier(countryCode ?? '')
-
-    const downloadUrl = `/${currentLang}/download`
-    const [modalOpen, setModalOpen] = useState(false)
-    const [modalCtaText, setModalCtaText] = useState('')
+    const { openModal } = useEmailCapture()
 
     const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly')
     const isYearly = billingPeriod === 'yearly'
@@ -317,8 +314,7 @@ export default function PricingSection() {
                                     style={{ background: '#1E1E1E', border: '1px solid #333' }}
                                     onClick={() => {
                                         void trackPricingCtaClicked({ cta_text: t('pricing.free.cta'), billing_period: billingPeriod })
-                                        setModalCtaText(t('pricing.free.cta'))
-                                        setModalOpen(true)
+                                        openModal(t('pricing.free.cta'))
                                     }}
                                 >
                                     {t('pricing.free.cta')}
@@ -382,8 +378,7 @@ export default function PricingSection() {
                                             onClick={() => {
                                                 const label = t('pricing.flat.cta')
                                                 void trackPricingCtaClicked({ cta_text: label, billing_period: billingPeriod })
-                                                setModalCtaText(label)
-                                                setModalOpen(true)
+                                                openModal(label)
                                             }}
                                         >
                                             {t('pricing.flat.cta')}
@@ -505,14 +500,6 @@ export default function PricingSection() {
             {/* ─── 6. FAQ ──────────────────────────────────────────────────────── */}
             <PricingFaq />
 
-            <EmailCaptureModal
-                key={String(modalOpen)}
-                isOpen={modalOpen}
-                onClose={() => setModalOpen(false)}
-                destinationUrl={downloadUrl}
-                ctaText={modalCtaText}
-            />
-
             {/* ─── 7. Closing CTA ──────────────────────────────────────────────── */}
             <section className="w-full py-20 sm:py-28 px-5 sm:px-8 relative overflow-hidden">
                 {/* Outer glow */}
@@ -542,8 +529,7 @@ export default function PricingSection() {
                         style={{ width: '220px', height: '48px' }}
                         onClick={() => {
                             void trackPricingCtaClicked({ cta_text: t('pricing.closingCta'), billing_period: billingPeriod })
-                            setModalCtaText(t('pricing.closingCta'))
-                            setModalOpen(true)
+                            openModal(t('pricing.closingCta'))
                         }}
                     >
                         {t('pricing.closingCta')}
