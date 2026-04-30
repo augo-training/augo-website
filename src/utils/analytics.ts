@@ -88,12 +88,9 @@ export async function trackNavLinkClicked(props: { link_text: string; destinatio
 
 interface PricingPageViewedProps {
     country: string
-    cluster: string
-    experiment_arm: string
+    pricing_bucket: string
     pricing_currency: string
     pricing_amount: number
-    fx_rate: number | null
-    discount_pct: number
     utm_source: string | null
     utm_medium: string | null
     utm_campaign: string | null

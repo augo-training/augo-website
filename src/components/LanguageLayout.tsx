@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { supportedLanguages } from '../i18n'
 import type { SupportedLanguage } from '../i18n'
 import { setupMixpanelConsentListener, trackPageViewed } from '../utils/analytics'
+import { EmailCaptureProvider } from '../contexts/EmailCaptureProvider'
 
 export default function LanguageLayout() {
   const { lang } = useParams<{ lang: string }>()
@@ -41,5 +42,9 @@ export default function LanguageLayout() {
     return <Navigate to="/en" replace />
   }
 
-  return <Outlet />
+  return (
+    <EmailCaptureProvider lang={lang!}>
+      <Outlet />
+    </EmailCaptureProvider>
+  )
 }

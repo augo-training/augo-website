@@ -13,7 +13,8 @@ import {
     trackBillingToggle,
     trackFaqExpanded,
 } from '../utils/analytics'
-import EmailCaptureModal from './EmailCaptureModal'
+import LaunchOfferPill from './LaunchOfferPill'
+import { useEmailCapture } from '../contexts/EmailCaptureContext'
 
 // ─── FAQ Accordion ────────────────────────────────────────────────────────────
 
@@ -120,10 +121,7 @@ export default function PricingSection() {
 
     const { countryCode, loading } = useGeoCountry()
     const pricingTier = getPricingTier(countryCode ?? '')
-
-    const downloadUrl = `/${currentLang}/download`
-    const [modalOpen, setModalOpen] = useState(false)
-    const [modalCtaText, setModalCtaText] = useState('')
+    const { openModal } = useEmailCapture()
 
     const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly')
     const isYearly = billingPeriod === 'yearly'
@@ -182,12 +180,9 @@ export default function PricingSection() {
         if (loading) return
         void trackPricingPageViewed({
             country: countryCode ?? 'unknown',
-            cluster: pricingTier.cluster,
-            experiment_arm: pricingTier.arm,
+            pricing_bucket: pricingTier.bucket,
             pricing_currency: pricingTier.currency,
-            pricing_amount: pricingTier.arm === 'per_seat' ? pricingTier.perSeat : pricingTier.flat,
-            fx_rate: pricingTier.fxRate,
-            discount_pct: pricingTier.discountPct,
+            pricing_amount: pricingTier.price,
             ...getUtmParams(),
         })
     }, [loading]) // eslint-disable-line react-hooks/exhaustive-deps
@@ -216,6 +211,7 @@ export default function PricingSection() {
             {/* ─── 1. Hero ─────────────────────────────────────────────────────── */}
             <section className="relative z-10 w-full pt-40 sm:pt-48 pb-8 sm:pb-10 px-5 sm:px-8">
                 <div className="max-w-[900px] mx-auto w-full flex flex-col gap-6 items-start text-left">
+                    <LaunchOfferPill />
                     <div
                         ref={heroTagRef}
                         className="font-mono text-[14px] tracking-[3px] uppercase text-[#969EA7]"
@@ -318,8 +314,7 @@ export default function PricingSection() {
                                     style={{ background: '#1E1E1E', border: '1px solid #333' }}
                                     onClick={() => {
                                         void trackPricingCtaClicked({ cta_text: t('pricing.free.cta'), billing_period: billingPeriod })
-                                        setModalCtaText(t('pricing.free.cta'))
-                                        setModalOpen(true)
+                                        openModal(t('pricing.free.cta'))
                                     }}
                                 >
                                     {t('pricing.free.cta')}
@@ -350,34 +345,18 @@ export default function PricingSection() {
                                             {t('pricing.unlimited.label')}
                                         </span>
                                         <p className="font-satoshi font-medium text-[16px] sm:text-[18px] leading-[160%] text-[#FFFFFF]">
-                                            {pricingTier.arm === 'per_seat'
-                                                ? t('pricing.perSeat.tagline')
-                                                : t('pricing.flat.tagline')}
+                                            {t('pricing.flat.tagline')}
                                         </p>
                                     </div>
                                     <div className="flex flex-col gap-2 min-h-[88px] justify-center">
-                                        {pricingTier.arm === 'per_seat' ? (
-                                            <>
-                                                <div>
-                                                    <span className="font-mono font-bold text-[40px] sm:text-[48px] leading-none text-white">
-                                                        {pricingTier.symbol}{formatPrice(isYearly ? pricingTier.perSeat * YEARLY_DISCOUNT : pricingTier.perSeat)}
-                                                    </span>
-                                                    <span className="font-mono text-[14px] text-[#969EA7] ml-1">
-                                                        {t(isYearly ? 'pricing.perSeat.periodAnnual' : 'pricing.perSeat.period')}
-                                                    </span>
-                                                </div>
-
-                                            </>
-                                        ) : (
-                                            <div>
-                                                <span className="font-mono font-bold text-[40px] sm:text-[48px] leading-none text-white">
-                                                    {pricingTier.symbol}{formatPrice(isYearly ? pricingTier.flat * YEARLY_DISCOUNT : pricingTier.flat)}
-                                                </span>
-                                                <span className="font-mono text-[14px] text-[#969EA7] ml-1">
-                                                    {t(isYearly ? 'pricing.flat.periodAnnual' : 'pricing.flat.period')}
-                                                </span>
-                                            </div>
-                                        )}
+                                        <div>
+                                            <span className="font-mono font-bold text-[40px] sm:text-[48px] leading-none text-white">
+                                                {pricingTier.symbol}{formatPrice(isYearly ? pricingTier.price * YEARLY_DISCOUNT : pricingTier.price)}
+                                            </span>
+                                            <span className="font-mono text-[14px] text-[#969EA7] ml-1">
+                                                {t(isYearly ? 'pricing.flat.periodAnnual' : 'pricing.flat.period')}
+                                            </span>
+                                        </div>
                                     </div>
                                     <ul className="flex flex-col gap-3 flex-1">
                                         <li className="font-mono text-[12px] tracking-[1px] uppercase text-[#969EA7] mb-1">
@@ -397,13 +376,12 @@ export default function PricingSection() {
                                         <button
                                             className="btn-gradient font-mono text-[12px] sm:text-[13px] font-extrabold tracking-[2px] uppercase text-white rounded-lg text-center h-12 flex items-center justify-center px-6 hover:brightness-110 transition-all duration-200 cursor-pointer"
                                             onClick={() => {
-                                                const label = pricingTier.arm === 'per_seat' ? t('pricing.perSeat.cta') : t('pricing.flat.cta')
+                                                const label = t('pricing.flat.cta')
                                                 void trackPricingCtaClicked({ cta_text: label, billing_period: billingPeriod })
-                                                setModalCtaText(label)
-                                                setModalOpen(true)
+                                                openModal(label)
                                             }}
                                         >
-                                            {pricingTier.arm === 'per_seat' ? t('pricing.perSeat.cta') : t('pricing.flat.cta')}
+                                            {t('pricing.flat.cta')}
                                         </button>
                                     </div>
                                     </div>{/* end inner padding div */}
@@ -522,14 +500,6 @@ export default function PricingSection() {
             {/* ─── 6. FAQ ──────────────────────────────────────────────────────── */}
             <PricingFaq />
 
-            <EmailCaptureModal
-                key={String(modalOpen)}
-                isOpen={modalOpen}
-                onClose={() => setModalOpen(false)}
-                destinationUrl={downloadUrl}
-                ctaText={modalCtaText}
-            />
-
             {/* ─── 7. Closing CTA ──────────────────────────────────────────────── */}
             <section className="w-full py-20 sm:py-28 px-5 sm:px-8 relative overflow-hidden">
                 {/* Outer glow */}
@@ -559,8 +529,7 @@ export default function PricingSection() {
                         style={{ width: '220px', height: '48px' }}
                         onClick={() => {
                             void trackPricingCtaClicked({ cta_text: t('pricing.closingCta'), billing_period: billingPeriod })
-                            setModalCtaText(t('pricing.closingCta'))
-                            setModalOpen(true)
+                            openModal(t('pricing.closingCta'))
                         }}
                     >
                         {t('pricing.closingCta')}

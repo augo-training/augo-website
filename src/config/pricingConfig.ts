@@ -1,66 +1,57 @@
-export type PricingArm = 'per_seat' | 'flat_unlock'
+export type PricingBucket = 'ch' | 'eu' | 'br' | 'global'
 
 export interface PricingTier {
-    cluster: string
-    arm: PricingArm
+    bucket: PricingBucket
     currency: string
     symbol: string
-    perSeat: number
-    flat: number
-    fxRate: number | null
-    discountPct: number
+    price: number
     countryName: string
 }
 
-export const PRICING_CONFIG: Record<string, Omit<PricingTier, 'countryName'>> = {
-    // ── Arm A — Per-Seat ──────────────────────────────────────────────────────
-    US: { cluster: 'us_canada',       arm: 'per_seat',   currency: 'USD', symbol: '$',       perSeat: 4.90,  flat: 25.90,  fxRate: 1.28,  discountPct: 0 },
-    CA: { cluster: 'us_canada',       arm: 'per_seat',   currency: 'USD', symbol: '$',       perSeat: 4.90,  flat: 25.90,  fxRate: 1.28,  discountPct: 0 },
-    AU: { cluster: 'australia',       arm: 'per_seat',   currency: 'AUD', symbol: 'A$',      perSeat: 5.90,  flat: 30.90,  fxRate: 1.83,  discountPct: -0.15 },
-    NZ: { cluster: 'new_zealand',     arm: 'per_seat',   currency: 'NZD', symbol: 'NZ$',     perSeat: 6.90,  flat: 34.90,  fxRate: 2.17,  discountPct: -0.20 },
-    DK: { cluster: 'scandinavia_dk',  arm: 'per_seat',   currency: 'DKK', symbol: 'kr\u00a0', perSeat: 21.90, flat: 113.90, fxRate: 8.19,  discountPct: -0.30 },
-    SE: { cluster: 'scandinavia_se',  arm: 'per_seat',   currency: 'SEK', symbol: 'kr\u00a0', perSeat: 32.90, flat: 165.90, fxRate: 11.89, discountPct: -0.30 },
-    NO: { cluster: 'scandinavia_no',  arm: 'per_seat',   currency: 'NOK', symbol: 'kr\u00a0', perSeat: 32.90, flat: 167.90, fxRate: 12.05, discountPct: -0.30 },
-    BR: { cluster: 'brazil',          arm: 'per_seat',   currency: 'BRL', symbol: 'R$\u00a0', perSeat: 12.90, flat: 66.90,  fxRate: 6.74,  discountPct: -0.50 },
-    FR: { cluster: 'romance_europe',  arm: 'per_seat',   currency: 'EUR', symbol: '€',       perSeat: 2.90,  flat: 15.90,  fxRate: 1.11,  discountPct: -0.30 },
-    IT: { cluster: 'romance_europe',  arm: 'per_seat',   currency: 'EUR', symbol: '€',       perSeat: 2.90,  flat: 15.90,  fxRate: 1.11,  discountPct: -0.30 },
-    ES: { cluster: 'romance_europe',  arm: 'per_seat',   currency: 'EUR', symbol: '€',       perSeat: 2.90,  flat: 15.90,  fxRate: 1.11,  discountPct: -0.30 },
-    PT: { cluster: 'romance_europe',  arm: 'per_seat',   currency: 'EUR', symbol: '€',       perSeat: 2.90,  flat: 15.90,  fxRate: 1.11,  discountPct: -0.30 },
-    PL: { cluster: 'eastern_europe',  arm: 'per_seat',   currency: 'EUR', symbol: '€',       perSeat: 2.90,  flat: 15.90,  fxRate: 1.11,  discountPct: -0.30 },
-    CZ: { cluster: 'eastern_europe',  arm: 'per_seat',   currency: 'EUR', symbol: '€',       perSeat: 2.90,  flat: 15.90,  fxRate: 1.11,  discountPct: -0.30 },
-    RO: { cluster: 'eastern_europe',  arm: 'per_seat',   currency: 'EUR', symbol: '€',       perSeat: 2.90,  flat: 15.90,  fxRate: 1.11,  discountPct: -0.30 },
-    HU: { cluster: 'eastern_europe',  arm: 'per_seat',   currency: 'EUR', symbol: '€',       perSeat: 2.90,  flat: 15.90,  fxRate: 1.11,  discountPct: -0.30 },
-    BG: { cluster: 'eastern_europe',  arm: 'per_seat',   currency: 'EUR', symbol: '€',       perSeat: 2.90,  flat: 15.90,  fxRate: 1.11,  discountPct: -0.30 },
-    HR: { cluster: 'eastern_europe',  arm: 'per_seat',   currency: 'EUR', symbol: '€',       perSeat: 2.90,  flat: 15.90,  fxRate: 1.11,  discountPct: -0.30 },
-    SK: { cluster: 'eastern_europe',  arm: 'per_seat',   currency: 'EUR', symbol: '€',       perSeat: 2.90,  flat: 15.90,  fxRate: 1.11,  discountPct: -0.30 },
-    SI: { cluster: 'eastern_europe',  arm: 'per_seat',   currency: 'EUR', symbol: '€',       perSeat: 2.90,  flat: 15.90,  fxRate: 1.11,  discountPct: -0.30 },
-    RS: { cluster: 'eastern_europe',  arm: 'per_seat',   currency: 'EUR', symbol: '€',       perSeat: 2.90,  flat: 15.90,  fxRate: 1.11,  discountPct: -0.30 },
-    GR: { cluster: 'eastern_europe',  arm: 'per_seat',   currency: 'EUR', symbol: '€',       perSeat: 2.90,  flat: 15.90,  fxRate: 1.11,  discountPct: -0.30 },
-    LV: { cluster: 'eastern_europe',  arm: 'per_seat',   currency: 'EUR', symbol: '€',       perSeat: 2.90,  flat: 15.90,  fxRate: 1.11,  discountPct: -0.30 },
-    LT: { cluster: 'eastern_europe',  arm: 'per_seat',   currency: 'EUR', symbol: '€',       perSeat: 2.90,  flat: 15.90,  fxRate: 1.11,  discountPct: -0.30 },
-    EE: { cluster: 'eastern_europe',  arm: 'per_seat',   currency: 'EUR', symbol: '€',       perSeat: 2.90,  flat: 15.90,  fxRate: 1.11,  discountPct: -0.30 },
-    AE: { cluster: 'uae',             arm: 'per_seat',   currency: 'USD', symbol: '$',       perSeat: 4.90,  flat: 25.90,  fxRate: 1.28,  discountPct: 0 },
+type PricingConfig = Omit<PricingTier, 'countryName'>
 
-    // ── Arm B — Flat Unlock ───────────────────────────────────────────────────
-    NL: { cluster: 'benelux',         arm: 'flat_unlock', currency: 'EUR', symbol: '€',       perSeat: 2.90, flat: 15.90, fxRate: 1.11, discountPct: -0.30 },
-    BE: { cluster: 'benelux',         arm: 'flat_unlock', currency: 'EUR', symbol: '€',       perSeat: 2.90, flat: 15.90, fxRate: 1.11, discountPct: -0.30 },
-    LU: { cluster: 'benelux',         arm: 'flat_unlock', currency: 'EUR', symbol: '€',       perSeat: 2.90, flat: 15.90, fxRate: 1.11, discountPct: -0.30 },
-    FI: { cluster: 'benelux',         arm: 'flat_unlock', currency: 'EUR', symbol: '€',       perSeat: 2.90, flat: 15.90, fxRate: 1.11, discountPct: -0.30 },
-    DE: { cluster: 'dach_eur',        arm: 'flat_unlock', currency: 'EUR', symbol: '€',       perSeat: 2.90, flat: 15.90, fxRate: 1.11, discountPct: -0.30 },
-    AT: { cluster: 'dach_eur',        arm: 'flat_unlock', currency: 'EUR', symbol: '€',       perSeat: 2.90, flat: 15.90, fxRate: 1.11, discountPct: -0.30 },
-    CH: { cluster: 'dach_chf',        arm: 'flat_unlock', currency: 'CHF', symbol: 'CHF\u00a0', perSeat: 3.90, flat: 19.90, fxRate: null, discountPct: 0 },
-    GB: { cluster: 'uk_ireland',      arm: 'flat_unlock', currency: 'GBP', symbol: '£',       perSeat: 2.90, flat: 16.90, fxRate: 0.96, discountPct: -0.10 },
-    IE: { cluster: 'uk_ireland',      arm: 'flat_unlock', currency: 'GBP', symbol: '£',       perSeat: 2.90, flat: 16.90, fxRate: 0.96, discountPct: -0.10 },
-    MX: { cluster: 'mexico',          arm: 'flat_unlock', currency: 'USD', symbol: '$',       perSeat: 2.90, flat: 12.90, fxRate: 1.28, discountPct: -0.50 },
-    CO: { cluster: 'latam_es',        arm: 'flat_unlock', currency: 'USD', symbol: '$',       perSeat: 2.90, flat: 12.90, fxRate: 1.28, discountPct: -0.50 },
-    CL: { cluster: 'latam_es',        arm: 'flat_unlock', currency: 'USD', symbol: '$',       perSeat: 2.90, flat: 12.90, fxRate: 1.28, discountPct: -0.50 },
-    AR: { cluster: 'latam_es',        arm: 'flat_unlock', currency: 'USD', symbol: '$',       perSeat: 2.90, flat: 12.90, fxRate: 1.28, discountPct: -0.50 },
-    PE: { cluster: 'latam_es',        arm: 'flat_unlock', currency: 'USD', symbol: '$',       perSeat: 2.90, flat: 12.90, fxRate: 1.28, discountPct: -0.50 },
-    ZA: { cluster: 'south_africa',    arm: 'flat_unlock', currency: 'USD', symbol: '$',       perSeat: 3.90, flat: 17.90, fxRate: 1.28, discountPct: -0.30 },
-    SG: { cluster: 'east_asia',       arm: 'flat_unlock', currency: 'USD', symbol: '$',       perSeat: 4.90, flat: 25.90, fxRate: 1.28, discountPct: 0 },
-    KR: { cluster: 'east_asia',       arm: 'flat_unlock', currency: 'USD', symbol: '$',       perSeat: 4.90, flat: 25.90, fxRate: 1.28, discountPct: 0 },
-    JP: { cluster: 'east_asia',       arm: 'flat_unlock', currency: 'USD', symbol: '$',       perSeat: 4.90, flat: 25.90, fxRate: 1.28, discountPct: 0 },
+const CH_TIER: PricingConfig = {
+    bucket: 'ch',
+    currency: 'CHF',
+    symbol: 'CHF ',
+    price: 19,
 }
+
+const EU_TIER: PricingConfig = {
+    bucket: 'eu',
+    currency: 'EUR',
+    symbol: '€',
+    price: 19,
+}
+
+const BR_TIER: PricingConfig = {
+    bucket: 'br',
+    currency: 'BRL',
+    symbol: 'R$ ',
+    price: 99,
+}
+
+const GLOBAL_TIER: PricingConfig = {
+    bucket: 'global',
+    currency: 'USD',
+    symbol: '$',
+    price: 24,
+}
+
+const EU_COUNTRIES: readonly string[] = [
+    // EU-27
+    'AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR',
+    'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK',
+    'SI', 'ES', 'SE',
+    // EEA non-EU (Iceland intentionally excluded → USD)
+    'NO', 'LI',
+    // UK
+    'GB',
+    // Eastern Europe / non-EU
+    'TR', 'RU', 'UA',
+    // Western Balkans + neighbors (EUR is the de-facto reference currency)
+    'AL', 'BA', 'ME', 'MK', 'RS', 'XK', 'MD', 'BY',
+]
 
 export const COUNTRY_NAMES: Record<string, string> = {
     US: 'the United States',
@@ -84,6 +75,7 @@ export const COUNTRY_NAMES: Record<string, string> = {
     NO: 'Norway',
     DK: 'Denmark',
     CH: 'Switzerland',
+    IS: 'Iceland',
     BR: 'Brazil',
     MX: 'Mexico',
     JP: 'Japan',
@@ -96,6 +88,8 @@ export const COUNTRY_NAMES: Record<string, string> = {
     KW: 'Kuwait',
     BH: 'Bahrain',
     TR: 'Turkey',
+    RU: 'Russia',
+    UA: 'Ukraine',
     ZA: 'South Africa',
     TH: 'Thailand',
     PL: 'Poland',
@@ -114,24 +108,29 @@ export const COUNTRY_NAMES: Record<string, string> = {
     CL: 'Chile',
     AR: 'Argentina',
     PE: 'Peru',
+    CY: 'Cyprus',
+    MT: 'Malta',
+    LI: 'Liechtenstein',
+    AL: 'Albania',
+    BA: 'Bosnia and Herzegovina',
+    ME: 'Montenegro',
+    MK: 'North Macedonia',
+    XK: 'Kosovo',
+    MD: 'Moldova',
+    BY: 'Belarus',
 }
 
-const GLOBAL_DEFAULT: Omit<PricingTier, 'countryName'> = {
-    cluster: 'global_default',
-    arm: 'per_seat',
-    currency: 'USD',
-    symbol: '$',
-    perSeat: 4.90,
-    flat: 25.90,
-    fxRate: 1.28,
-    discountPct: 0,
+function resolveTier(code: string): PricingConfig {
+    if (code === 'CH') return CH_TIER
+    if (code === 'BR') return BR_TIER
+    if (EU_COUNTRIES.includes(code)) return EU_TIER
+    return GLOBAL_TIER
 }
 
 export function getPricingTier(countryCode: string): PricingTier {
     const code = countryCode.toUpperCase()
-    const config = PRICING_CONFIG[code] ?? GLOBAL_DEFAULT
     return {
-        ...config,
+        ...resolveTier(code),
         countryName: COUNTRY_NAMES[code] ?? code,
     }
 }
