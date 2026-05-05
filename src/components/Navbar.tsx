@@ -206,7 +206,7 @@ export default function Navbar() {
     }, [])
 
     // Close menu animation
-    const closeMenu = useCallback(() => {
+    const closeMenu = useCallback((onDone?: () => void) => {
         if (isAnimating.current) return
         isAnimating.current = true
         setMenuOpen(false) // morph X → hamburger immediately
@@ -214,12 +214,16 @@ export default function Navbar() {
         const overlay = overlayRef.current
         const items = menuItemRefs.current.filter(Boolean) as HTMLElement[]
         const joinBtn = menuJoinRef.current
-        if (!overlay) return
+        if (!overlay) {
+            onDone?.()
+            return
+        }
 
         const tl = gsap.timeline({
             onComplete: () => {
                 gsap.set(overlay, { display: 'none' })
                 isAnimating.current = false
+                onDone?.()
             },
         })
 
@@ -393,8 +397,7 @@ export default function Navbar() {
                         type="button"
                         onClick={() => {
                             trackCtaClicked({ cta_text: t('nav.joinAugo'), cta_location: 'mobile_menu', destination: '/download' })
-                            closeMenu()
-                            openModal(t('nav.joinAugo'))
+                            closeMenu(() => openModal(t('nav.joinAugo')))
                         }}
                         className="btn-gradient block w-full font-mono text-sm font-extrabold tracking-[2px] uppercase text-white text-center py-4 rounded-lg cursor-pointer"
                         style={{ opacity: 0 }}

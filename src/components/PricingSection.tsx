@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useEffect, useMemo, useRef, useCallback } from 'react'
 import { useTranslation, Trans } from 'react-i18next'
 import { useParams } from 'react-router-dom'
 import { gsap } from 'gsap'
@@ -126,6 +126,15 @@ export default function PricingSection() {
     const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly')
     const isYearly = billingPeriod === 'yearly'
     const YEARLY_DISCOUNT = 0.85
+
+    const localizedCountryName = useMemo(() => {
+        if (!countryCode) return ''
+        try {
+            return new Intl.DisplayNames([currentLang], { type: 'region' }).of(countryCode.toUpperCase()) ?? countryCode
+        } catch {
+            return countryCode
+        }
+    }, [currentLang, countryCode])
 
     // Refs for hero fade-in
     const heroTagRef = useRef<HTMLDivElement>(null)
@@ -351,7 +360,7 @@ export default function PricingSection() {
                                     <div className="flex flex-col gap-2 min-h-[88px] justify-center">
                                         <div>
                                             <span className="font-mono font-bold text-[40px] sm:text-[48px] leading-none text-white">
-                                                {pricingTier.symbol}{formatPrice(isYearly ? pricingTier.price * YEARLY_DISCOUNT : pricingTier.price)}
+                                                {pricingTier.symbol}{formatPrice(isYearly ? Math.round(pricingTier.price * YEARLY_DISCOUNT) : pricingTier.price)}
                                             </span>
                                             <span className="font-mono text-[14px] text-[#969EA7] ml-1">
                                                 {t(isYearly ? 'pricing.flat.periodAnnual' : 'pricing.flat.period')}
@@ -422,11 +431,11 @@ export default function PricingSection() {
                         <p className="font-satoshi text-[12px] sm:text-[13px] leading-[150%] text-[#969EA7]">
                             <Trans
                                 i18nKey="pricing.locationNote"
-                                values={{ countryName: pricingTier.countryName }}
+                                values={{ countryName: localizedCountryName }}
                                 components={{
                                     1: (
                                         <a
-                                            href={`/${currentLang}/contact`}
+                                            href={`/${currentLang}#contact`}
                                             className="underline hover:text-white transition-colors duration-150"
                                         />
                                     ),

@@ -1,6 +1,5 @@
 import { useTranslation } from 'react-i18next'
 import stravaLogo from '../assets/images/strava.svg'
-import appleWatchLogo from '../assets/images/apple_watch.svg'
 import wahooLogo from '../assets/images/wahoo.svg'
 import corosLogo from '../assets/images/coros.svg'
 import polarLogo from '../assets/images/polar.svg'
@@ -14,7 +13,6 @@ const logos = [
     { src: wahooLogo, alt: 'Wahoo' },
     { src: zwiftLogo, alt: 'Zwift' },
     { src: polarLogo, alt: 'Polar' },
-    { src: appleWatchLogo, alt: 'Apple Watch' },
 ]
 
 function LogoSet() {

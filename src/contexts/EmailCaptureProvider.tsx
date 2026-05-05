@@ -29,7 +29,6 @@ export function EmailCaptureProvider({ lang, children }: EmailCaptureProviderPro
         <EmailCaptureContext.Provider value={value}>
             {children}
             <EmailCaptureModal
-                key={String(isOpen)}
                 isOpen={isOpen}
                 onClose={closeModal}
                 destinationUrl={`/${lang}/download`}
