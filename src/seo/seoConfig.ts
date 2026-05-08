@@ -76,6 +76,23 @@ const pageMeta: Record<string, Record<SupportedLanguage, PageMeta>> = {
         'Preços simples e transparentes para coaches de endurance. Comece grátis com 2 atletas ou faça upgrade para Ilimitado para acesso completo ao assistente inteligente augo.',
     },
   },
+  humanEdge: {
+    en: {
+      title: 'The Human Edge — One Year of Free Human Coaching | augo',
+      description:
+        "We're pairing one serious marathoner with a world-class human coach for a year of free, high-performance coaching. Apply now.",
+    },
+    de: {
+      title: 'The Human Edge — One Year of Free Human Coaching | augo',
+      description:
+        "We're pairing one serious marathoner with a world-class human coach for a year of free, high-performance coaching. Apply now.",
+    },
+    pt: {
+      title: 'The Human Edge — One Year of Free Human Coaching | augo',
+      description:
+        "We're pairing one serious marathoner with a world-class human coach for a year of free, high-performance coaching. Apply now.",
+    },
+  },
 }
 
 export function getPageMeta(page: string, lang: SupportedLanguage): PageMeta {

@@ -48,9 +48,9 @@ export function SoftwareApplicationJsonLd() {
   )
 }
 
-export function FAQJsonLd() {
+export function FAQJsonLd({ i18nKey = 'faq.items' }: { i18nKey?: string } = {}) {
   const { t } = useTranslation()
-  const items = t('faq.items', { returnObjects: true }) as Array<{
+  const items = t(i18nKey, { returnObjects: true }) as Array<{
     question: string
     answer: string
   }>
