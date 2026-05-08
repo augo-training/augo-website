@@ -44,7 +44,7 @@ export default function HumanEdge() {
 
     return (
         <>
-            <SEOHead page="humanEdge" path="/humanedge" />
+            <SEOHead page="humanEdge" path="/humanedge" ogImagePath="/humanedge-og.jpg" />
             <FAQJsonLd i18nKey="humanEdge.faq.items" />
             <HumanEdgeProgramJsonLd />
             <HumanEdgeCoachJsonLd />

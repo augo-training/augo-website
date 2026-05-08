@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import brianHero from '../../assets/images/brian-hero.png'
+import brianHero from '../../assets/images/brian-hero.webp'
 
 interface HumanEdgeHeroProps {
     onApply: () => void

@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import brianProfile from '../../assets/images/brian-profile.jpg'
+import brianProfile from '../../assets/images/brian-profile.webp'
 
 export default function HumanEdgeWhatYouGet() {
     const { t } = useTranslation()
