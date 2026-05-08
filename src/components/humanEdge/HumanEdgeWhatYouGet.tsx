@@ -6,10 +6,10 @@ export default function HumanEdgeWhatYouGet() {
     const credentials = t('humanEdge.whatYouGet.credentials', { returnObjects: true }) as string[]
 
     return (
-        <section className="w-full py-20 sm:py-24 px-5 sm:px-8 bg-dark">
+        <section id="what-you-get" aria-labelledby="what-you-get-title" className="w-full py-20 sm:py-24 px-5 sm:px-8 bg-dark">
             <div className="max-w-[1100px] mx-auto flex flex-col gap-8">
                 <div className="flex flex-col gap-3">
-                    <h2 className="font-mono font-bold text-[28px] sm:text-[36px] lg:text-[44px] leading-[120%] text-white">
+                    <h2 id="what-you-get-title" className="font-mono font-bold text-[28px] sm:text-[36px] lg:text-[44px] leading-[120%] text-white">
                         {t('humanEdge.whatYouGet.title')}
                     </h2>
                     <p className="font-satoshi text-[18px] text-text-muted">
@@ -26,7 +26,10 @@ export default function HumanEdgeWhatYouGet() {
                     >
                         <img
                             src={brianProfile}
-                            alt="Brian Boisvert"
+                            alt="Portrait of running coach Brian Boisvert — RRCA Level II Coach and 2:44 marathoner"
+                            width={200}
+                            height={200}
+                            loading="lazy"
                             className="w-full h-full object-cover"
                         />
                     </div>

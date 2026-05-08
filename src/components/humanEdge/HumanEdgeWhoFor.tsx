@@ -5,9 +5,9 @@ export default function HumanEdgeWhoFor() {
     const items = t('humanEdge.whoFor.items', { returnObjects: true }) as string[]
 
     return (
-        <section className="w-full py-20 sm:py-24 px-5 sm:px-8 bg-dark">
+        <section id="who-is-this-for" aria-labelledby="who-is-this-for-title" className="w-full py-20 sm:py-24 px-5 sm:px-8 bg-dark">
             <div className="max-w-[900px] mx-auto flex flex-col gap-6">
-                <h2 className="font-mono font-bold text-[28px] sm:text-[36px] lg:text-[44px] leading-[120%] text-white">
+                <h2 id="who-is-this-for-title" className="font-mono font-bold text-[28px] sm:text-[36px] lg:text-[44px] leading-[120%] text-white">
                     {t('humanEdge.whoFor.title')}
                 </h2>
                 <p className="font-satoshi text-[16px] sm:text-[18px] leading-[160%] text-text-muted">

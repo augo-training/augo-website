@@ -3,7 +3,13 @@ import { useTranslation } from 'react-i18next'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import SEOHead from '../seo/SEOHead'
-import { FAQJsonLd } from '../seo/JsonLd'
+import {
+    FAQJsonLd,
+    HumanEdgeProgramJsonLd,
+    HumanEdgeCoachJsonLd,
+    HumanEdgeHowToJsonLd,
+    HumanEdgeBreadcrumbJsonLd,
+} from '../seo/JsonLd'
 import EmailCaptureModal from '../components/EmailCaptureModal'
 import HumanEdgeHero from '../components/humanEdge/HumanEdgeHero'
 import HumanEdgeWhat from '../components/humanEdge/HumanEdgeWhat'
@@ -40,17 +46,23 @@ export default function HumanEdge() {
         <>
             <SEOHead page="humanEdge" path="/humanedge" />
             <FAQJsonLd i18nKey="humanEdge.faq.items" />
+            <HumanEdgeProgramJsonLd />
+            <HumanEdgeCoachJsonLd />
+            <HumanEdgeHowToJsonLd />
+            <HumanEdgeBreadcrumbJsonLd />
             <Navbar />
-            <HumanEdgeHero onApply={() => openApplyModal('hero')} />
-            <HumanEdgeWhat />
-            <HumanEdgeWhoFor />
-            <HumanEdgeWhy />
-            <HumanEdgeWhatYouGet />
-            <HumanEdgeDocumenting />
-            <HumanEdgeHowToApply ref={howToApplyRef} />
-            <HumanEdgeBonus />
-            <HumanEdgeFinalCta onApply={() => openApplyModal('final_cta')} />
-            <HumanEdgeFaq />
+            <article>
+                <HumanEdgeHero onApply={() => openApplyModal('hero')} />
+                <HumanEdgeWhat />
+                <HumanEdgeWhoFor />
+                <HumanEdgeWhy />
+                <HumanEdgeWhatYouGet />
+                <HumanEdgeDocumenting />
+                <HumanEdgeHowToApply ref={howToApplyRef} />
+                <HumanEdgeBonus />
+                <HumanEdgeFinalCta onApply={() => openApplyModal('final_cta')} />
+                <HumanEdgeFaq />
+            </article>
             <Footer />
             <EmailCaptureModal
                 isOpen={modalOpen}

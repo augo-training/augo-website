@@ -26,9 +26,9 @@ export default function HumanEdgeFaq() {
     )
 
     return (
-        <section className="w-full py-20 sm:py-24 px-5 sm:px-8 bg-dark-800">
+        <section id="human-edge-faq" aria-labelledby="human-edge-faq-title" className="w-full py-20 sm:py-24 px-5 sm:px-8 bg-dark-800">
             <div className="max-w-[800px] mx-auto flex flex-col gap-8">
-                <h2 className="font-mono font-bold text-[28px] sm:text-[36px] leading-[120%] text-white text-center">
+                <h2 id="human-edge-faq-title" className="font-mono font-bold text-[28px] sm:text-[36px] leading-[120%] text-white text-center">
                     {t('humanEdge.faq.title')}
                 </h2>
                 <div className="flex flex-col gap-[10px]">

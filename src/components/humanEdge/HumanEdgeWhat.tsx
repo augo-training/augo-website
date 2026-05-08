@@ -6,9 +6,9 @@ export default function HumanEdgeWhat() {
     const positives = t('humanEdge.what.positives', { returnObjects: true }) as string[]
 
     return (
-        <section className="w-full py-20 sm:py-24 px-5 sm:px-8 bg-dark-800">
+        <section id="what-is-the-human-edge" aria-labelledby="what-is-the-human-edge-title" className="w-full py-20 sm:py-24 px-5 sm:px-8 bg-dark-800">
             <div className="max-w-[900px] mx-auto flex flex-col gap-8 text-center">
-                <h2 className="font-mono font-bold text-[28px] sm:text-[36px] lg:text-[44px] leading-[120%] text-white">
+                <h2 id="what-is-the-human-edge-title" className="font-mono font-bold text-[28px] sm:text-[36px] lg:text-[44px] leading-[120%] text-white">
                     {t('humanEdge.what.title')}
                 </h2>
                 <p className="font-satoshi text-[18px] sm:text-[20px] text-yellow font-medium">

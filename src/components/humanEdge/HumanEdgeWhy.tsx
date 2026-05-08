@@ -5,9 +5,9 @@ export default function HumanEdgeWhy() {
     const items = t('humanEdge.why.items', { returnObjects: true }) as string[]
 
     return (
-        <section className="w-full py-20 sm:py-24 px-5 sm:px-8 bg-dark-800">
+        <section id="why-this-exists" aria-labelledby="why-this-exists-title" className="w-full py-20 sm:py-24 px-5 sm:px-8 bg-dark-800">
             <div className="max-w-[900px] mx-auto flex flex-col gap-6">
-                <h2 className="font-mono font-bold text-[28px] sm:text-[36px] lg:text-[44px] leading-[120%] text-white">
+                <h2 id="why-this-exists-title" className="font-mono font-bold text-[28px] sm:text-[36px] lg:text-[44px] leading-[120%] text-white">
                     {t('humanEdge.why.title')}
                 </h2>
                 <p className="font-satoshi font-medium text-[18px] sm:text-[22px] leading-[150%] text-white">
