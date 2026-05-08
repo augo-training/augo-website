@@ -127,7 +127,7 @@ const HumanEdgeHowToApply = forwardRef<HTMLDivElement>(function HumanEdgeHowToAp
                             className="font-mono text-[12px] tracking-[1.5px] uppercase font-bold text-yellow px-4 py-3 rounded-lg text-center"
                             style={{ backgroundColor: '#2D2D2D', border: '1px dashed #FFCA1E' }}
                         >
-                            ✓ Check your DMs
+                            {t('humanEdge.howToApply.step3.badge')}
                         </div>
                     </div>
                 </div>

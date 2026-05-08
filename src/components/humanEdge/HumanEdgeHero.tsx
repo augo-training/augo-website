@@ -61,7 +61,10 @@ export default function HumanEdgeHero({ onApply }: HumanEdgeHeroProps) {
                     >
                         <img
                             src={brianHero}
-                            alt="Brian Boisvert"
+                            alt="Brian Boisvert, elite marathon coach for The Human Edge Initiative"
+                            width={460}
+                            height={575}
+                            loading="eager"
                             className="w-full h-full object-cover"
                         />
                     </div>

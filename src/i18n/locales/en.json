@@ -454,7 +454,8 @@
       "step3": {
         "number": "03",
         "title": "Receive your application in DMs",
-        "description": "We'll send you the application form via DM with everything you need to apply."
+        "description": "We'll send you the application form via DM with everything you need to apply.",
+        "badge": "✓ Check your DMs"
       }
     },
     "bonus": {

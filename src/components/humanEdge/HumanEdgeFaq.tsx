@@ -37,10 +37,7 @@ export default function HumanEdgeFaq() {
                         return (
                             <div
                                 key={index}
-                                className="rounded-lg transition-colors duration-150"
-                                style={{ backgroundColor: '#151515' }}
-                                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#1c1c1c' }}
-                                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#151515' }}
+                                className="rounded-lg bg-[#151515] hover:bg-[#1c1c1c] transition-colors duration-150"
                             >
                                 <button
                                     onClick={() => handleToggle(index)}
@@ -57,7 +54,7 @@ export default function HumanEdgeFaq() {
                                 </button>
                                 <div
                                     className="overflow-hidden transition-[max-height] duration-500 ease-in-out"
-                                    style={{ maxHeight: isOpen ? '400px' : '0px' }}
+                                    style={{ maxHeight: isOpen ? '1000px' : '0px' }}
                                 >
                                     <div
                                         className="px-6 pb-4 font-satoshi font-normal text-[16px] leading-[150%] text-text-muted transition-opacity duration-350 ease-in-out"
