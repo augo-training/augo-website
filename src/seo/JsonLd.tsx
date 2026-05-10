@@ -171,8 +171,8 @@ export function HumanEdgeHowToJsonLd() {
       {
         '@type': 'HowToStep',
         position: 2,
-        name: 'Comment "Human Coach"',
-        text: 'Comment "Human Coach" on any post in the Human Edge series on Augo or Brian Boisvert\'s Instagram.',
+        name: 'Comment "Human Edge"',
+        text: 'Comment "Human Edge" on any post in the Human Edge series on Augo or Brian Boisvert\'s Instagram.',
         url: `${HUMAN_EDGE_URL}#how-to-apply`,
       },
       {
