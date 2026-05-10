@@ -6,15 +6,17 @@ import type { SupportedLanguage } from '../i18n'
 interface SEOHeadProps {
   page: string
   path: string
+  /** Optional per-page OG image path, e.g. "/humanedge-og.jpg". Falls back to /og-image.jpg. */
+  ogImagePath?: string
 }
 
-export default function SEOHead({ page, path }: SEOHeadProps) {
+export default function SEOHead({ page, path, ogImagePath }: SEOHeadProps) {
   const { i18n } = useTranslation()
   const lang = i18n.language as SupportedLanguage
   const meta = getPageMeta(page, lang)
   const canonical = getCanonicalUrl(lang, path)
   const alternates = getAlternateUrls(path)
-  const ogImage = `${BASE_URL}/og-image.jpg`
+  const ogImage = `${BASE_URL}${ogImagePath ?? '/og-image.jpg'}`
 
   return (
     <Helmet>
