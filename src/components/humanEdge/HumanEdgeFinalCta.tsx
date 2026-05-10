@@ -7,52 +7,78 @@ interface HumanEdgeFinalCtaProps {
 
 export default function HumanEdgeFinalCta({ onApply }: HumanEdgeFinalCtaProps) {
     const { t } = useTranslation()
+    const note = t('humanEdge.finalCta.note', { returnObjects: true }) as string[]
+    const titleLines = t('humanEdge.finalCta.title', { returnObjects: true }) as string[]
 
     return (
-        <section className="w-full py-20 sm:py-28 px-5 sm:px-8 bg-dark">
-            <div className="max-w-[800px] mx-auto flex flex-col gap-6 text-center">
-                <div className="flex flex-col gap-2 mb-4">
-                    <p className="font-satoshi text-[18px] leading-[150%] text-text-muted">
-                        {t('humanEdge.finalNote.lead1')}
+        <section className="w-full py-20 sm:py-28 px-5 sm:px-8 bg-dark border-t border-white/[0.06] texture-grain">
+            <div className="max-w-[1100px] mx-auto">
+                {/* Document header — status indicator */}
+                <div className="flex items-baseline justify-between gap-6 pb-5 border-b border-white/[0.10]">
+                    <p className="font-mono text-[11px] sm:text-[12px] tracking-[3px] uppercase text-white/55">
+                        {t('humanEdge.finalCta.statusLabel')}
                     </p>
-                    <p className="font-satoshi font-bold text-[18px] leading-[150%] text-white">
-                        {t('humanEdge.finalNote.lead2')}
-                    </p>
-                    <p className="font-mono text-[14px] tracking-[1px] uppercase text-yellow">
-                        {t('humanEdge.finalNote.lead3')}
+                    <p className="font-mono text-[11px] sm:text-[12px] tracking-[3px] uppercase text-white">
+                        <span className="inline-block w-1.5 h-1.5 rounded-full bg-white mr-2 align-middle animate-pulse" aria-hidden="true" />
+                        {t('humanEdge.finalCta.statusValue')}
                     </p>
                 </div>
-                <h2 className="font-mono font-bold text-[32px] sm:text-[44px] lg:text-[56px] leading-[110%] text-white">
-                    {t('humanEdge.finalCta.title')}
+
+                {/* Quiet note — three lines */}
+                <div className="mt-10 sm:mt-12 flex flex-col gap-2 max-w-[700px]">
+                    {note.map((line, i) => (
+                        <p
+                            key={i}
+                            className={`font-satoshi text-[17px] sm:text-[19px] leading-[150%] ${
+                                i === note.length - 1 ? 'text-white' : 'text-text-muted'
+                            }`}
+                        >
+                            {line}
+                        </p>
+                    ))}
+                </div>
+
+                {/* Massive headline */}
+                <h2 className="mt-16 sm:mt-20 font-satoshi font-bold text-[56px] sm:text-[88px] md:text-[112px] lg:text-[140px] xl:text-[160px] leading-[90%] tracking-[-0.04em] text-white">
+                    {titleLines.map((line, i) => (
+                        <span key={i} className="block">{line}</span>
+                    ))}
                 </h2>
-                <div className="flex flex-col gap-1 max-w-[560px] mx-auto">
-                    <p className="font-satoshi text-[16px] sm:text-[18px] text-text-muted">
+
+                {/* Subtitle */}
+                <div className="mt-10 sm:mt-12 flex flex-col gap-1 max-w-[640px]">
+                    <p className="font-satoshi font-medium text-[18px] sm:text-[22px] leading-[140%] text-white">
                         {t('humanEdge.finalCta.subtitle1')}
                     </p>
-                    <p className="font-satoshi text-[16px] sm:text-[18px] text-white">
+                    <p className="font-satoshi text-[17px] sm:text-[20px] leading-[150%] text-text-muted">
                         {t('humanEdge.finalCta.subtitle2')}
                     </p>
                 </div>
-                <button
-                    type="button"
-                    onClick={onApply}
-                    className="btn-gradient self-center font-mono text-sm font-extrabold tracking-[2px] uppercase text-white rounded-lg hover:brightness-110 transition-all duration-200 border-0 cursor-pointer mt-2"
-                    style={{ width: '209px', height: '48px' }}
-                >
-                    {t('humanEdge.finalCta.cta')}
-                </button>
-                <p className="font-satoshi text-[13px] text-text-muted mt-4">
-                    {t('humanEdge.finalCta.termsPrefix')}{' '}
-                    <a
-                        href={TERMS_URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="underline hover:text-white transition-colors"
+
+                {/* CTA + terms */}
+                <div className="mt-10 sm:mt-12 flex flex-col gap-6">
+                    <button
+                        type="button"
+                        onClick={onApply}
+                        className="btn-gradient self-start font-mono text-sm font-extrabold tracking-[2px] uppercase text-white rounded-lg hover:brightness-110 transition-all duration-200 border-0 cursor-pointer"
+                        style={{ width: '209px', height: '48px' }}
                     >
-                        {t('humanEdge.finalCta.termsLink')}
-                    </a>{' '}
-                    {t('humanEdge.finalCta.termsSuffix')}
-                </p>
+                        {t('humanEdge.finalCta.cta')}
+                    </button>
+
+                    <p className="font-mono text-[11px] sm:text-[12px] tracking-[1.5px] uppercase text-white/40">
+                        {t('humanEdge.finalCta.termsPrefix')}{' '}
+                        <a
+                            href={TERMS_URL}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="underline underline-offset-4 decoration-white/40 hover:text-white hover:decoration-white transition-colors duration-200"
+                        >
+                            {t('humanEdge.finalCta.termsLink')}
+                        </a>{' '}
+                        {t('humanEdge.finalCta.termsSuffix')}
+                    </p>
+                </div>
             </div>
         </section>
     )

@@ -356,12 +356,12 @@
   "humanEdge": {
     "hero": {
       "eyebrow": "The Human Edge",
-      "title": "One athlete. One coach. One shot at a new personal best.",
+      "title": ["One athlete.", "One coach.", "One shot at a new PB."],
       "body": [
         "You've trained hard.",
         "You've followed the plans.",
         "You've trusted the data.",
-        "And still — you feel stuck."
+        "And still, you feel stuck."
       ],
       "tagline": "Plateaus don't happen because you're not trying hard enough. They happen because optimization has limits.",
       "tagline2": "This is where human coaches come in.",
@@ -370,111 +370,118 @@
     "what": {
       "title": "What is The Human Edge Initiative?",
       "lead": "The Human Edge is a performance experiment.",
-      "body": "We're selecting one serious marathon runner — someone who has already gone the distance — and pairing them with a world-class human coach for one year of free, high-performance coaching.",
-      "negatives": ["No templates.", "No generic plans.", "No algorithm guessing."],
-      "positives": ["Just real coaching.", "In real conditions.", "With real stakes."]
+      "body": "We're selecting one serious marathon runner, someone who has already gone the distance, and pairing them with a world-class human coach for one year of free, high-performance coaching, to maximize the chances of achieving, together, a PB.",
+      "callout": [
+        "Just real coaching.",
+        "In real conditions.",
+        "With real stakes."
+      ]
     },
     "whoFor": {
       "title": "Who This Is For",
       "lead": "This isn't for first-timers. It's for one runner who wants to chase their limits and reach breakthrough performance.",
-      "subtitle": "This is for you if you:",
+      "subtitle": "Selection criteria",
       "items": [
-        "Have finished at least three marathons",
-        "Are chasing a real PB — not another finisher's medal",
-        "Are planning a marathon PB attempt in spring 2027",
-        "Are self-coached, leverage standard training plans, or rely entirely on an AI coach",
-        "Have never worked with a human coach before",
-        "Can feel the ceiling but can't break it",
-        "Are excited to document your year with a human coach — the wins and the messy parts"
+        { "label": "Experience", "statement": "3+ marathons completed" },
+        { "label": "Ambition", "statement": "Chasing a real PB, not another finisher's medal" },
+        { "label": "Timeline", "statement": "Spring 2027 PB attempt" },
+        { "label": "History", "statement": "Self-coached, on standard plans, or relying on AI" },
+        { "label": "Coaching", "statement": "Have never worked with a human coach" },
+        { "label": "Signal", "statement": "Can feel the ceiling but can't break it" },
+        { "label": "Mindset", "statement": "Ready to document the journey, wins and messy parts" }
       ]
     },
     "why": {
       "title": "Why This Exists",
-      "lead": "Performance at the limit is rarely an optimization problem. It's a judgment problem.",
-      "body1": "Most runners hit a ceiling not because they aren't training hard, but because the hardest calls — when to push, when to back off, when to rebuild — are nearly impossible to make for yourself. We're poor judges of ourselves. We overestimate when motivated, underestimate when fatigued, and second-guess in the moments that matter most.",
-      "body2": "AI can optimize patterns. Standard plans can give structure. Neither can replace what a great coach sees from the outside.",
-      "subtitle": "An outside expert with human judgment can:",
-      "items": [
-        "Feel when something is off — even when the data looks fine",
-        "Push back when your ideas are wrong, and back you when they're right",
-        "Read pressure, doubt, and instinct",
-        "Make judgment calls in uncertainty",
-        "See what's not in the data"
+      "context": [
+        { "label": "Problem", "text": "Most runners hit a ceiling not because they aren't training hard, but because the hardest calls (when to push, when to back off, when to rebuild) are impossible to make alone." },
+        { "label": "Blindspot", "text": "We underestimate when fatigued, overestimate when fresh, and second-guess in the moments that matter most." },
+        { "label": "Limit", "text": "AI optimizes patterns. Plans give structure. Neither replaces what a great coach sees from the outside." }
       ],
-      "closing1": "Performance at the highest level isn't just calculated — it's interpreted.",
-      "closing2": "That's the human edge."
+      "pullQuote": "Performance at the limit is interpreted, not calculated.",
+      "subtitle": "What a human coach does",
+      "items": [
+        { "label": "Instinct", "statement": "Feels when something is off, even when the data looks fine" },
+        { "label": "Judgment", "statement": "Pushes back when your ideas are wrong, backs you when they're right" },
+        { "label": "Pressure", "statement": "Reads pressure, doubt, and instinct" },
+        { "label": "Uncertainty", "statement": "Makes the call when the data won't" },
+        { "label": "Unseen", "statement": "Sees what's not in the data" }
+      ],
+      "closing": "That's the human edge."
     },
     "whatYouGet": {
       "title": "What You Get",
-      "lead": "If selected, you'll receive:",
-      "headline": "1 year of free coaching with",
-      "coachName": "Brian Boisvert",
-      "credentials": [
-        "2h44 marathoner",
-        "RRCA Level II Coach",
-        "Level 3 Personal Trainer",
-        "Registered yoga teacher (RYT 200)",
-        "18x marathoner",
-        "2x 50-mile Ultra Marathoner"
+      "lead": "A year of coaching, built around one runner.",
+      "coach": {
+        "role": "Head Coach · Great Day For Runners",
+        "name": "Brian Boisvert",
+        "url": "https://greatdayforrunners.com/",
+        "stats": [
+          { "value": "2:44", "label": "Marathon PB" },
+          { "value": "18×", "label": "Marathoner" },
+          { "value": "Level II", "label": "RRCA Certified" },
+          { "value": "2×", "label": "50-mile Ultra" }
+        ]
+      },
+      "programLabel": "What's included",
+      "program": [
+        { "label": "Duration", "value": "12 months of coaching" },
+        { "label": "Format", "value": "1:1, personalized to your training" },
+        { "label": "Cadence", "value": "Direct, ongoing access to Brian" },
+        { "label": "Story", "value": "Year-long documentary of your progression" }
       ],
-      "extraTitle": "And one more thing:",
-      "extraBody": "Your journey will be documented. Not as a highlight reel — but as a real story of progression, setbacks, decisions, and breakthroughs."
+      "valueLabel": "Program Value",
+      "valueOriginal": "$2,400 USD",
+      "valueOffer": "Free",
+      "valueNote": "For the selected athlete"
     },
     "documenting": {
       "title": "What We're Documenting",
-      "lead1": "This isn't about motivation.",
-      "lead2": "It's about performance moments that change outcomes:",
+      "lead1": "Not motivation. Moments.",
+      "lead2": "The choices that change outcomes.",
+      "shotListLabel": "Shot list",
       "items": [
         "When the plan needs to change",
         "When fatigue doesn't match the data",
         "When race strategy becomes critical",
         "When doubt shows up",
         "When instinct overrides optimization"
-      ],
-      "closing": "You'll see both sides:",
-      "sides": ["The athlete.", "The coach.", "The decisions in between."]
+      ]
     },
     "howToApply": {
       "title": "How to Apply",
-      "lead": "We're opening applications through the community.",
+      "lead": "Three steps. One application.",
+      "applicationLabel": "Application",
       "step1": {
-        "number": "01",
+        "label": "Follow",
         "title": "Follow Augo and Brian",
-        "description": "Make sure you're following both accounts on Instagram so you don't miss the series posts.",
+        "description": "Don't miss the series posts on Instagram.",
         "ctaAugo": "Follow @augo",
         "ctaBrian": "Follow @brian"
       },
       "step2": {
-        "number": "02",
-        "title": "Comment \"Human Coach\"",
-        "description": "Drop the comment on any post in the Human Edge series. That's how we know you want in.",
-        "cta": "Copy \"Human Coach\"",
+        "label": "Comment",
+        "title": "Drop \"Human Edge\" on any series post",
+        "description": "That's how we know you want in.",
+        "cta": "Copy \"Human Edge\"",
         "copied": "Copied!"
       },
       "step3": {
-        "number": "03",
-        "title": "Receive your application in DMs",
-        "description": "We'll send you the application form via DM with everything you need to apply.",
-        "badge": "✓ Check your DMs"
+        "label": "Receive",
+        "title": "Get the application in your DMs",
+        "description": "We'll send the form with everything you need.",
+        "badge": "Check your DMs"
       }
     },
-    "bonus": {
-      "title": "Bonus: The Human Coach Guide",
-      "body": "Everyone who applies gets a guide on how to approach training in a more human way:",
-      "items": [
-        "What AI misses",
-        "Where human judgment matters most",
-        "How elite athletes actually improve"
-      ]
-    },
-    "finalNote": {
-      "title": "Final Note",
-      "lead1": "A coach does not guarantee a personal best.",
-      "lead2": "But they change your probability of achieving one.",
-      "lead3": "This initiative exists to show how."
-    },
     "finalCta": {
-      "title": "Applications Are Open",
+      "statusLabel": "Human Edge Initiative",
+      "statusValue": "Status · Open",
+      "note": [
+        "A coach does not guarantee a personal best.",
+        "But they change your probability of achieving one.",
+        "This initiative exists to show how."
+      ],
+      "title": ["Applications", "are open."],
       "subtitle1": "One athlete will be selected.",
       "subtitle2": "If you've hit a plateau, this is your chance to go beyond it.",
       "cta": "Apply now",
@@ -489,20 +496,20 @@
         { "question": "Who is this for?", "answer": "Experienced marathoners chasing a real personal best." },
         { "question": "Who is this not for?", "answer": "Beginners or anyone training just to finish." },
         { "question": "What do I get if selected?", "answer": "One year of free, fully personalized coaching." },
-        { "question": "Is a PB guaranteed?", "answer": "No—only a higher probability of achieving one." },
-        { "question": "Why human coaching?", "answer": "Because performance isn't just data—it's judgment." },
+        { "question": "Is a PB guaranteed?", "answer": "No, only a higher probability of achieving one." },
+        { "question": "Why human coaching?", "answer": "Because performance isn't just data. It's judgment." },
         { "question": "Will my journey be public?", "answer": "Yes, the full process will be documented." },
         { "question": "How much time does it take?", "answer": "A serious, consistent training commitment." },
-        { "question": "How do I apply?", "answer": "Comment \"Human Coach\" on one of the Human Edge posts on Augo's or Brian's Instagram and follow the instructions in the DM." },
+        { "question": "How do I apply?", "answer": "Comment \"Human Edge\" on one of the Human Edge posts on Augo's or Brian's Instagram and follow the instructions in the DM." },
         { "question": "How is the athlete selected?", "answer": "Based on experience, plateau, and readiness to be coached." },
-        { "question": "What if I'm not selected?", "answer": "You still receive the Human Coach Guide." },
+        { "question": "What if I'm not selected?", "answer": "You'll be in the loop for future Human Edge programs." },
         { "question": "What's the goal of this initiative?", "answer": "To prove what human coaching changes at the edge of performance." }
       ]
     },
     "modal": {
       "title": "You're almost in",
-      "subtitle": "Drop your email — we'll send you the Human Coach Guide and remind you to apply on Instagram.",
-      "cta": "Get the guide"
+      "subtitle": "Drop your email & we'll share everything you need to know about the program.",
+      "cta": "Submit"
     }
   }
 }

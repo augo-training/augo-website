@@ -18,7 +18,6 @@ import HumanEdgeWhy from '../components/humanEdge/HumanEdgeWhy'
 import HumanEdgeWhatYouGet from '../components/humanEdge/HumanEdgeWhatYouGet'
 import HumanEdgeDocumenting from '../components/humanEdge/HumanEdgeDocumenting'
 import HumanEdgeHowToApply from '../components/humanEdge/HumanEdgeHowToApply'
-import HumanEdgeBonus from '../components/humanEdge/HumanEdgeBonus'
 import HumanEdgeFinalCta from '../components/humanEdge/HumanEdgeFinalCta'
 import HumanEdgeFaq from '../components/humanEdge/HumanEdgeFaq'
 import { HUMAN_EDGE_GROUP_ID } from '../components/humanEdge/constants'
@@ -59,7 +58,6 @@ export default function HumanEdge() {
                 <HumanEdgeWhatYouGet />
                 <HumanEdgeDocumenting />
                 <HumanEdgeHowToApply ref={howToApplyRef} />
-                <HumanEdgeBonus />
                 <HumanEdgeFinalCta onApply={() => openApplyModal('final_cta')} />
                 <HumanEdgeFaq />
             </article>

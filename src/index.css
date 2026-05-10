@@ -158,6 +158,34 @@ body {
   background: linear-gradient(24.78deg, #C50017 -23.17%, #FF5514 91.92%, #FFCA1E 108.36%);
 }
 
+/* Brand gradient text (red→orange→yellow). Static; reuse for editorial moments. */
+.brand-gradient-text {
+  background: linear-gradient(83.9deg, #C50017 0%, #FF5514 50%, #FFCA1E 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Subtle grain/texture overlay — TEXTURED brand attribute. Apply to a <section>. */
+.texture-grain {
+  position: relative;
+  isolation: isolate;
+}
+.texture-grain::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 1   0 0 0 0 1   0 0 0 0 1   0 0 0 0.5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  opacity: 0.025;
+  mix-blend-mode: overlay;
+  z-index: 0;
+}
+.texture-grain > * {
+  position: relative;
+  z-index: 1;
+}
+
 /* Floating animation */
 @keyframes float {
 

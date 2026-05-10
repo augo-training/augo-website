@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next'
-import brianHero from '../../assets/images/brian-hero.webp'
+import heroVideo from '../../assets/videos/human-edge-hero.mp4'
+import heroPoster from '../../assets/images/human-edge-hero-poster.jpg'
 
 interface HumanEdgeHeroProps {
     onApply: () => void
@@ -8,67 +9,57 @@ interface HumanEdgeHeroProps {
 export default function HumanEdgeHero({ onApply }: HumanEdgeHeroProps) {
     const { t } = useTranslation()
     const bodyLines = t('humanEdge.hero.body', { returnObjects: true }) as string[]
+    const titleLines = t('humanEdge.hero.title', { returnObjects: true }) as string[]
 
     return (
-        <section className="w-full pt-32 pb-20 sm:pt-40 sm:pb-24 px-5 sm:px-8 bg-dark">
-            <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-16 items-center">
-                <div className="flex flex-col gap-6 sm:gap-8">
-                    <span className="font-mono text-[12px] tracking-[3px] uppercase text-yellow">
-                        {t('humanEdge.hero.eyebrow')}
-                    </span>
-                    <h1 className="font-mono font-bold text-[36px] sm:text-[48px] lg:text-[60px] leading-[110%] text-white">
-                        {t('humanEdge.hero.title')}
-                    </h1>
-                    <div className="flex flex-col gap-2 font-satoshi text-[18px] sm:text-[20px] leading-[150%] text-text-muted">
-                        {bodyLines.map((line, i) => <p key={i}>{line}</p>)}
-                    </div>
-                    {/* Mobile-only image: sits after the body, before the tagline */}
-                    <div className="lg:hidden w-full max-w-[460px] mx-auto">
-                        <div
-                            className="aspect-[4/5] w-full rounded-2xl overflow-hidden bg-dark-700"
-                            style={{ border: '1px solid #222' }}
-                        >
-                            <img
-                                src={brianHero}
-                                alt="Brian Boisvert, elite marathon coach for The Human Edge Initiative"
-                                width={460}
-                                height={575}
-                                loading="eager"
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
-                    </div>
-                    <p className="font-satoshi text-[16px] sm:text-[17px] leading-[160%] text-white max-w-[560px]">
+        <section className="w-full pt-32 pb-20 sm:pt-40 sm:pb-24 px-5 sm:px-8 bg-dark texture-grain">
+            <div className="max-w-[1100px] mx-auto flex flex-col gap-6 sm:gap-8">
+                <span className="font-mono text-[12px] tracking-[3px] uppercase text-white">
+                    {t('humanEdge.hero.eyebrow')}
+                </span>
+                <h1 className="font-satoshi font-bold text-[40px] sm:text-[56px] md:text-[68px] lg:text-[80px] xl:text-[88px] leading-[100%] tracking-[-0.03em] text-white">
+                    {titleLines.map((line, i) => (
+                        <span key={i} className="block">{line}</span>
+                    ))}
+                </h1>
+                <div className="relative w-full aspect-[21/9] rounded-2xl overflow-hidden bg-dark-700 my-2 ring-1 ring-white/[0.08]">
+                    <video
+                        src={heroVideo}
+                        poster={heroPoster}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        preload="metadata"
+                        aria-hidden="true"
+                        className="w-full h-full object-cover motion-reduce:hidden"
+                    />
+                    <img
+                        src={heroPoster}
+                        alt=""
+                        aria-hidden="true"
+                        className="hidden motion-reduce:block w-full h-full object-cover"
+                    />
+                </div>
+                <div className="mt-2 sm:mt-4 flex flex-col font-satoshi font-medium text-[20px] sm:text-[24px] md:text-[26px] leading-[140%] tracking-[-0.005em] text-white/85 max-w-[760px]">
+                    {bodyLines.map((line, i) => <p key={i}>{line}</p>)}
+                </div>
+                <div className="mt-8 sm:mt-10 pt-8 sm:pt-10 border-t border-white/[0.10] max-w-[820px] flex flex-col gap-5 sm:gap-6">
+                    <p className="font-satoshi font-medium text-[22px] sm:text-[28px] md:text-[32px] leading-[125%] tracking-[-0.015em] text-white">
                         {t('humanEdge.hero.tagline')}
                     </p>
-                    <p className="font-mono text-[14px] sm:text-[15px] tracking-[1px] text-yellow uppercase">
+                    <p className="font-mono text-[12px] sm:text-[13px] tracking-[2.5px] uppercase text-white/55">
                         {t('humanEdge.hero.tagline2')}
                     </p>
-                    <button
-                        type="button"
-                        onClick={onApply}
-                        className="btn-gradient self-start font-mono text-sm font-extrabold tracking-[2px] uppercase text-white rounded-lg hover:brightness-110 transition-all duration-200 border-0 cursor-pointer mt-2"
-                        style={{ width: '209px', height: '48px' }}
-                    >
-                        {t('humanEdge.hero.cta')}
-                    </button>
                 </div>
-                {/* Desktop-only image: right column */}
-                <div className="hidden lg:block relative w-full max-w-[460px] mx-auto lg:mx-0 lg:justify-self-end">
-                    <div
-                        className="aspect-[4/5] w-full rounded-2xl overflow-hidden bg-dark-700"
-                        style={{ border: '1px solid #222' }}
-                    >
-                        <img
-                            src={brianHero}
-                            alt="Brian Boisvert, elite marathon coach for The Human Edge Initiative"
-                            width={460}
-                            height={575}
-                            loading="eager"
-                            className="w-full h-full object-cover"
-                        />
-                    </div>
-                </div>
+                <button
+                    type="button"
+                    onClick={onApply}
+                    className="btn-gradient self-start font-mono text-sm font-extrabold tracking-[2px] uppercase text-white rounded-lg hover:brightness-110 transition-all duration-200 border-0 cursor-pointer mt-4"
+                    style={{ width: '209px', height: '48px' }}
+                >
+                    {t('humanEdge.hero.cta')}
+                </button>
             </div>
         </section>
     )
