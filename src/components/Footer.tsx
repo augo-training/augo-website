@@ -43,6 +43,7 @@ export default function Footer() {
             title: t('footer.columns.explore'),
             links: [
                 { label: t('footer.links.findAMatch'), href: `/${currentLang}/find` },
+                { label: t('footer.links.humanEdge'), href: `/${currentLang}/humanedge` },
             ],
         },
     ]
