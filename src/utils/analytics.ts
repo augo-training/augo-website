@@ -125,6 +125,10 @@ export async function trackEmailCaptureSubmitted(props: { email: string; cta_tex
     return track('pricing_email_capture_submitted', props)
 }
 
+export async function trackEmailCaptureFailed(props: { cta_text: string; status: number | 'network_error'; error?: string }): Promise<void> {
+    return track('email_capture_failed', props)
+}
+
 // ── Video tracking ──
 
 export async function trackVideoOpened(props: { trigger: string; page: string }): Promise<void> {

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
-import { trackEmailCaptureSubmitted } from '../utils/analytics'
+import { trackEmailCaptureSubmitted, trackEmailCaptureFailed } from '../utils/analytics'
 
 interface EmailCaptureModalProps {
     isOpen: boolean
@@ -72,7 +72,7 @@ export default function EmailCaptureModal({
             try {
                 const body: Record<string, unknown> = { email }
                 if (effectiveGroupId) body.groups = [effectiveGroupId]
-                await fetch('https://connect.mailerlite.com/api/subscribers', {
+                const response = await fetch('https://connect.mailerlite.com/api/subscribers', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -81,8 +81,18 @@ export default function EmailCaptureModal({
                     },
                     body: JSON.stringify(body),
                 })
-            } catch {
-                // Never block the user on API failure
+                if (!response.ok) {
+                    const responseText = await response.text().catch(() => '')
+                    console.warn('[EmailCaptureModal] MailerLite API returned non-OK status', {
+                        status: response.status,
+                        body: responseText,
+                        groupId: effectiveGroupId,
+                    })
+                    void trackEmailCaptureFailed({ cta_text: ctaText, status: response.status, error: responseText.slice(0, 200) })
+                }
+            } catch (err) {
+                console.warn('[EmailCaptureModal] MailerLite API network error', err)
+                void trackEmailCaptureFailed({ cta_text: ctaText, status: 'network_error', error: err instanceof Error ? err.message : String(err) })
             }
         }
 
