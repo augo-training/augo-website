@@ -52,14 +52,19 @@ export default function HumanEdgeHero({ onApply }: HumanEdgeHeroProps) {
                         {t('humanEdge.hero.tagline2')}
                     </p>
                 </div>
-                <button
-                    type="button"
-                    onClick={onApply}
-                    className="btn-gradient self-start font-mono text-sm font-extrabold tracking-[2px] uppercase text-white rounded-lg hover:brightness-110 transition-all duration-200 border-0 cursor-pointer mt-4"
-                    style={{ width: '209px', height: '48px' }}
-                >
-                    {t('humanEdge.hero.cta')}
-                </button>
+                <div className="flex flex-col gap-3 mt-4">
+                    <button
+                        type="button"
+                        onClick={onApply}
+                        className="btn-gradient self-start font-mono text-sm font-extrabold tracking-[2px] uppercase text-white rounded-lg hover:brightness-110 transition-all duration-200 border-0 cursor-pointer"
+                        style={{ width: '209px', height: '48px' }}
+                    >
+                        {t('humanEdge.hero.cta')}
+                    </button>
+                    <p className="font-mono text-[11px] sm:text-[12px] tracking-[2.5px] uppercase text-white/55">
+                        {t('humanEdge.hero.deadline')}
+                    </p>
+                </div>
             </div>
         </section>
     )
