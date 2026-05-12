@@ -1,0 +1,99 @@
+name: Sync Substack post
+
+# Triggers:
+#   1. repository_dispatch with event_type="substack-post" — fired by Make.com
+#      when a new RSS item appears on augotraining.substack.com. Payload should
+#      include { url: "<substack post url>" }.
+#   2. workflow_dispatch — manual trigger for testing or one-off backfill.
+#      Inputs: url (single post URL) or all (true to ingest every feed item).
+
+on:
+  repository_dispatch:
+    types: [substack-post]
+  workflow_dispatch:
+    inputs:
+      url:
+        description: 'Substack post URL to ingest (leave blank if using "all")'
+        required: false
+        type: string
+      all:
+        description: 'Backfill every post currently in the RSS feed'
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: sync-substack
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Determine target
+        id: target
+        run: |
+          if [[ "${{ github.event_name }}" == "repository_dispatch" ]]; then
+            echo "url=${{ github.event.client_payload.url }}" >> "$GITHUB_OUTPUT"
+            echo "all=false" >> "$GITHUB_OUTPUT"
+          elif [[ "${{ inputs.all }}" == "true" ]]; then
+            echo "url=" >> "$GITHUB_OUTPUT"
+            echo "all=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "url=${{ inputs.url }}" >> "$GITHUB_OUTPUT"
+            echo "all=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Ingest single post
+        if: steps.target.outputs.all == 'false' && steps.target.outputs.url != ''
+        run: node scripts/ingest-substack-post.mjs "${{ steps.target.outputs.url }}"
+
+      - name: Ingest all feed items
+        if: steps.target.outputs.all == 'true'
+        run: node scripts/ingest-substack-post.mjs --all
+
+      - name: Detect changes
+        id: changes
+        run: |
+          if [[ -n "$(git status --porcelain src/content/blog/ public/blog/)" ]]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create pull request
+        if: steps.changes.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: 'feat(blog): sync Substack post(s)'
+          branch: 'auto/substack-sync'
+          delete-branch: true
+          title: 'Sync new Substack post(s)'
+          body: |
+            Auto-synced by `.github/workflows/sync-substack.yml`.
+
+            Source: ${{ steps.target.outputs.url || 'Substack RSS feed' }}
+
+            Review the generated JSON in `src/content/blog/` and image assets in
+            `public/blog/` before merging. Author attribution may need manual
+            correction for posts that lack a "By <Name>" byline in the RSS
+            description.
+          add-paths: |
+            src/content/blog/*.json
+            public/blog/**
