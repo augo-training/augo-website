@@ -356,7 +356,7 @@
   },
   "humanEdge": {
     "hero": {
-      "eyebrow": "The Human Edge",
+      "eyebrow": "The Human Edge Initiative",
       "title": ["One athlete.", "One coach.", "One shot at a new PB."],
       "body": [
         "You've trained hard.",
@@ -366,14 +366,15 @@
       ],
       "tagline": "Plateaus don't happen because you're not trying hard enough. They happen because optimization has limits.",
       "tagline2": "This is where human coaches come in.",
-      "cta": "Apply now"
+      "cta": "Apply now",
+      "deadline": "Applications close May 31"
     },
     "what": {
-      "title": "What is The Human Edge Initiative?",
-      "lead": "The Human Edge is a performance experiment.",
+      "title": "What is it?",
+      "lead": "The Human Edge Initiative is a performance experiment.",
       "body": "We're selecting one serious marathon runner, someone who has already gone the distance, and pairing them with a world-class human coach for one year of free, high-performance coaching, to maximize the chances of achieving, together, a PB.",
       "callout": [
-        "Just real coaching.",
+        "Real top coaching.",
         "In real conditions.",
         "With real stakes."
       ]
@@ -386,7 +387,7 @@
         { "label": "Experience", "statement": "3+ marathons completed" },
         { "label": "Ambition", "statement": "Chasing a real PB, not another finisher's medal" },
         { "label": "Timeline", "statement": "Spring 2027 PB attempt" },
-        { "label": "History", "statement": "Self-coached, on standard plans, or relying on AI" },
+        { "label": "History", "statement": "Self-coached,  relying on standard plans and AI" },
         { "label": "Coaching", "statement": "Have never worked with a human coach" },
         { "label": "Signal", "statement": "Can feel the ceiling but can't break it" },
         { "label": "Mindset", "statement": "Ready to document the journey, wins and messy parts" }
@@ -399,7 +400,7 @@
         { "label": "Blindspot", "text": "We underestimate when fatigued, overestimate when fresh, and second-guess in the moments that matter most." },
         { "label": "Limit", "text": "AI optimizes patterns. Plans give structure. Neither replaces what a great coach sees from the outside." }
       ],
-      "pullQuote": "Performance at the limit is interpreted, not calculated.",
+      "pullQuote": " Because peak performance is interpreted, not calculated.",
       "subtitle": "What a human coach does",
       "items": [
         { "label": "Instinct", "statement": "Feels when something is off, even when the data looks fine" },
@@ -412,7 +413,7 @@
     },
     "whatYouGet": {
       "title": "What You Get",
-      "lead": "A year of coaching, built around one runner.",
+      "lead": "A year of coaching, built around you only.",
       "coach": {
         "role": "Head Coach · Great Day For Runners",
         "name": "Brian Boisvert",
@@ -477,6 +478,8 @@
     "finalCta": {
       "statusLabel": "Human Edge Initiative",
       "statusValue": "Status · Open",
+      "deadlineLabel": "Application deadline",
+      "deadlineValue": "May 31",
       "note": [
         "A coach does not guarantee a personal best.",
         "But they change your probability of achieving one.",

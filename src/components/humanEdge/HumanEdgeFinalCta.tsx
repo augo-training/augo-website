@@ -14,14 +14,24 @@ export default function HumanEdgeFinalCta({ onApply }: HumanEdgeFinalCtaProps) {
         <section className="w-full py-20 sm:py-28 px-5 sm:px-8 bg-dark border-t border-white/[0.06] texture-grain">
             <div className="max-w-[1100px] mx-auto">
                 {/* Document header — status indicator */}
-                <div className="flex items-baseline justify-between gap-6 pb-5 border-b border-white/[0.10]">
-                    <p className="font-mono text-[11px] sm:text-[12px] tracking-[3px] uppercase text-white/55">
-                        {t('humanEdge.finalCta.statusLabel')}
-                    </p>
-                    <p className="font-mono text-[11px] sm:text-[12px] tracking-[3px] uppercase text-white">
-                        <span className="inline-block w-1.5 h-1.5 rounded-full bg-white mr-2 align-middle animate-pulse" aria-hidden="true" />
-                        {t('humanEdge.finalCta.statusValue')}
-                    </p>
+                <div className="flex flex-col gap-2 pb-5 border-b border-white/[0.10]">
+                    <div className="flex items-baseline justify-between gap-6">
+                        <p className="font-mono text-[11px] sm:text-[12px] tracking-[3px] uppercase text-white/55">
+                            {t('humanEdge.finalCta.statusLabel')}
+                        </p>
+                        <p className="font-mono text-[11px] sm:text-[12px] tracking-[3px] uppercase text-[#34D399]">
+                            <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#34D399] mr-2 align-middle animate-pulse" aria-hidden="true" />
+                            {t('humanEdge.finalCta.statusValue')}
+                        </p>
+                    </div>
+                    <div className="flex items-baseline justify-between gap-6">
+                        <p className="font-mono text-[11px] sm:text-[12px] tracking-[3px] uppercase text-white/55">
+                            {t('humanEdge.finalCta.deadlineLabel')}
+                        </p>
+                        <p className="font-mono text-[11px] sm:text-[12px] tracking-[3px] uppercase text-white">
+                            {t('humanEdge.finalCta.deadlineValue')}
+                        </p>
+                    </div>
                 </div>
 
                 {/* Quiet note — three lines */}
