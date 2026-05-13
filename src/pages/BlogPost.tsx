@@ -1,13 +1,13 @@
 import { useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Navigate, useParams } from 'react-router-dom'
-import DOMPurify from 'dompurify'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import SEOHead from '../seo/SEOHead'
 import { OrganizationJsonLd } from '../seo/JsonLd'
 import { buildArticleSchema } from '../seo/articleSchema'
 import NotFound from './NotFound'
+import { sanitizeBlogHtml } from '../utils/blogHtmlSanitizer.ts'
 
 interface BlogPostData {
   slug: string
@@ -54,13 +54,7 @@ export default function BlogPost() {
 
   const sanitizedBody = useMemo(() => {
     if (!post) return ''
-    if (typeof window === 'undefined') return post.bodyHtml
-    return DOMPurify.sanitize(post.bodyHtml, {
-      ADD_TAGS: ['picture', 'source', 'figure', 'figcaption'],
-      ADD_ATTR: ['srcset', 'sizes', 'loading', 'decoding'],
-      FORBID_TAGS: ['script', 'iframe', 'object', 'embed', 'form'],
-      FORBID_ATTR: ['onerror', 'onload', 'onclick'],
-    })
+    return sanitizeBlogHtml(post.bodyHtml)
   }, [post])
 
   // English-only at launch. Redirect /de/blog/* and /pt/blog/* to /en/blog/*.

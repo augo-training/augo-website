@@ -7,6 +7,7 @@
 
 import { writeFile, mkdir } from 'node:fs/promises'
 import { join } from 'node:path'
+import { pathToFileURL } from 'node:url'
 import { getSitemapEntries, ROOT, BASE_URL } from './routes.mjs'
 
 function escapeXml(s) {
@@ -18,7 +19,7 @@ function escapeXml(s) {
     .replace(/'/g, '&apos;')
 }
 
-function renderEntry({ url, priority, alternates, xDefault, changefreq }) {
+export function renderEntry({ url, priority, alternates, xDefault, changefreq }) {
   const lines = []
   lines.push('  <url>')
   lines.push(`    <loc>${escapeXml(url)}</loc>`)
@@ -38,10 +39,8 @@ function renderEntry({ url, priority, alternates, xDefault, changefreq }) {
   return lines.join('\n')
 }
 
-async function main() {
-  const entries = await getSitemapEntries()
-
-  const xml = [
+export function renderSitemapXml(entries) {
+  return [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
     '        xmlns:xhtml="http://www.w3.org/1999/xhtml">',
@@ -53,6 +52,11 @@ async function main() {
     '</urlset>',
     '',
   ].join('\n')
+}
+
+export async function main() {
+  const entries = await getSitemapEntries()
+  const xml = renderSitemapXml(entries)
 
   const publicPath = join(ROOT, 'public', 'sitemap.xml')
   const distPath = join(ROOT, 'dist', 'sitemap.xml')
@@ -68,7 +72,9 @@ async function main() {
   console.log(`Sitemap: ${entries.length} URLs`)
 }
 
-main().catch((err) => {
-  console.error(err)
-  process.exit(1)
-})
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main().catch((err) => {
+    console.error(err)
+    process.exit(1)
+  })
+}
