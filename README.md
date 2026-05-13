@@ -6,7 +6,7 @@ Marketing site and blog for augo, built with React, TypeScript, and Vite.
 
 Requirements:
 
-- Node.js 20
+- Node.js 22.18+
 - npm
 
 Install dependencies:

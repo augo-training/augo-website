@@ -5,8 +5,8 @@
 //   npm run ingest-substack:all   (backfill from RSS)
 //
 // Direct execution:
-//   node --experimental-strip-types scripts/ingest-substack-post.ts <substack-post-url>
-//   node --experimental-strip-types scripts/ingest-substack-post.ts --all
+//   node scripts/ingest-substack-post.ts <substack-post-url>
+//   node scripts/ingest-substack-post.ts --all
 //
 // Output:
 //   - src/content/blog/<slug>.json         (post data + cleaned HTML body)
