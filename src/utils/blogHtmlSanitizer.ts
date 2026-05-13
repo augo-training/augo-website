@@ -17,7 +17,7 @@ function sanitizeForServer(html: string): string {
 export function sanitizeBlogHtml(html: string): string {
   if (!html) return ''
 
-  if (typeof window === 'undefined') {
+  if (typeof (globalThis as { window?: unknown }).window === 'undefined') {
     return sanitizeForServer(html)
   }
 
