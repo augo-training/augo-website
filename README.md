@@ -7,30 +7,30 @@ Marketing site and blog for augo, built with React, TypeScript, and Vite.
 Requirements:
 
 - Node.js 22.18+
-- npm
+- Yarn 1.x
 
 Install dependencies:
 
 ```sh
-npm ci
+yarn install --frozen-lockfile
 ```
 
 Start the dev server:
 
 ```sh
-npm run dev
+yarn dev
 ```
 
 Useful commands:
 
-- `npm run build` builds the site, generates the sitemap, and prerenders routes with Puppeteer.
-- `npm run prerender` reruns the prerender step against an existing build.
-- `npm run sitemap` regenerates the sitemap.
-- `npm run lint` runs ESLint.
+- `yarn build` builds the site, generates the sitemap, and prerenders routes with Puppeteer.
+- `yarn prerender` reruns the prerender step against an existing build.
+- `yarn sitemap` regenerates the sitemap.
+- `yarn lint` runs ESLint.
 
 ## Build and deploy
 
-`npm run build` is the production build path used in CI and deploy workflows. It performs these steps:
+`yarn build` is the production build path used in CI and deploy workflows. It performs these steps:
 
 1. TypeScript build
 2. Vite build
@@ -57,8 +57,8 @@ Blog posts are sourced from Substack and stored in the repo as:
 
 The workflow:
 
-1. Checks out the repo and installs dependencies with `npm ci`
-2. Runs `npm run ingest-substack -- <url>` or `npm run ingest-substack:all`
+1. Checks out the repo and installs dependencies with `yarn install --frozen-lockfile`
+2. Runs `yarn ingest-substack <url>` or `yarn ingest-substack --all`
 3. Detects changes under `src/content/blog/` and `public/blog/`
 4. Opens a pull request with the generated content
 
@@ -73,20 +73,20 @@ Review the generated PR before merging. In particular, check:
 Ingest a single post:
 
 ```sh
-npm run ingest-substack -- <substack-post-url>
+yarn ingest-substack <substack-post-url>
 ```
 
 Backfill all current feed items:
 
 ```sh
-npm run ingest-substack:all
+yarn ingest-substack --all
 ```
 
 After ingesting content locally:
 
 1. Review the JSON added under `src/content/blog/`
 2. Review downloaded assets under `public/blog/`
-3. Run `npm run build` to verify the post renders and prerenders correctly
+3. Run `yarn build` to verify the post renders and prerenders correctly
 
 ## Notes
 
