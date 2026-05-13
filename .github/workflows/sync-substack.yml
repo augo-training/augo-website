@@ -41,10 +41,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22.18'
-          cache: 'npm'
+          cache: 'yarn'
 
       - name: Install deps
-        run: npm ci
+        run: yarn install --frozen-lockfile
 
       - name: Determine target
         id: target
@@ -62,11 +62,11 @@ jobs:
 
       - name: Ingest single post
         if: steps.target.outputs.all == 'false' && steps.target.outputs.url != ''
-        run: npm run ingest-substack -- "${{ steps.target.outputs.url }}"
+        run: yarn ingest-substack "${{ steps.target.outputs.url }}"
 
       - name: Ingest all feed items
         if: steps.target.outputs.all == 'true'
-        run: npm run ingest-substack:all
+        run: yarn ingest-substack --all
 
       - name: Detect changes
         id: changes
