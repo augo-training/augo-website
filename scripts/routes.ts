@@ -1,5 +1,5 @@
 // Single source of truth for all routes the site exposes.
-// Used by prerender.mjs and generate-sitemap.mjs.
+// Used by prerender.ts and generate-sitemap.ts.
 
 import { readdir } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
@@ -9,7 +9,7 @@ const here = dirname(fileURLToPath(import.meta.url))
 export const ROOT = dirname(here)
 export const BASE_URL = 'https://augotraining.com'
 
-export const LANGS = ['en', 'de', 'pt']
+export const LANGS = ['en', 'de', 'pt'] as const
 export const DEFAULT_LANG = 'en'
 
 // Paths under /:lang. Keep in sync with src/App.tsx routes.
@@ -24,9 +24,22 @@ export const PATH_PRIORITY = {
   '/find': 0.7,
   '/pricing': 0.9,
   '/humanedge': 0.9,
+} as const
+
+export interface SitemapAlternate {
+  lang: (typeof LANGS)[number]
+  url: string
 }
 
-export async function discoverBlogSlugs() {
+export interface SitemapEntry {
+  url: string
+  priority: number
+  alternates: SitemapAlternate[] | null
+  xDefault: string
+  changefreq: 'weekly' | 'monthly'
+}
+
+export async function discoverBlogSlugs(): Promise<string[]> {
   const blogDir = join(ROOT, 'src/content/blog')
   try {
     const entries = await readdir(blogDir)
@@ -34,8 +47,15 @@ export async function discoverBlogSlugs() {
       .filter((f) => f.endsWith('.json'))
       .map((f) => f.replace(/\.json$/, ''))
       .sort()
-  } catch (err) {
-    if (err.code === 'ENOENT') return []
+  } catch (err: unknown) {
+    if (
+      typeof err === 'object' &&
+      err !== null &&
+      'code' in err &&
+      err.code === 'ENOENT'
+    ) {
+      return []
+    }
     throw err
   }
 }
@@ -44,8 +64,8 @@ export async function discoverBlogSlugs() {
  * Returns the list of routes to prerender, e.g.
  *   ['/en', '/de', '/pt', '/en/download', ..., '/en/blog/<slug>']
  */
-export async function getAllPrerenderRoutes() {
-  const routes = []
+export async function getAllPrerenderRoutes(): Promise<string[]> {
+  const routes: string[] = []
   for (const lang of LANGS) {
     for (const path of STATIC_PATHS) {
       routes.push(`/${lang}${path}`)
@@ -63,13 +83,13 @@ export async function getAllPrerenderRoutes() {
  * Returns sitemap entries with multilingual alternates.
  * Each entry: { path, priority, alternates: [{lang, url}] }
  */
-export async function getSitemapEntries() {
-  const entries = []
+export async function getSitemapEntries(): Promise<SitemapEntry[]> {
+  const entries: SitemapEntry[] = []
   for (const path of STATIC_PATHS) {
     for (const lang of LANGS) {
       entries.push({
         url: `${BASE_URL}/${lang}${path}`,
-        priority: PATH_PRIORITY[path] ?? 0.5,
+        priority: PATH_PRIORITY[path as keyof typeof PATH_PRIORITY] ?? 0.5,
         alternates: LANGS.map((l) => ({ lang: l, url: `${BASE_URL}/${l}${path}` })),
         xDefault: `${BASE_URL}/${DEFAULT_LANG}${path}`,
         changefreq: 'weekly',

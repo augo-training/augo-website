@@ -1,8 +1,12 @@
 // Ingests a single Substack post URL into the website's blog content.
 //
 // Usage:
-//   node scripts/ingest-substack-post.mjs <substack-post-url>
-//   node scripts/ingest-substack-post.mjs --all   (backfill from RSS)
+//   npm run ingest-substack -- <substack-post-url>
+//   npm run ingest-substack:all   (backfill from RSS)
+//
+// Direct execution:
+//   node --experimental-strip-types scripts/ingest-substack-post.ts <substack-post-url>
+//   node --experimental-strip-types scripts/ingest-substack-post.ts --all
 //
 // Output:
 //   - src/content/blog/<slug>.json         (post data + cleaned HTML body)
@@ -20,20 +24,21 @@ import * as cheerio from 'cheerio'
 import { mkdir, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { createHash } from 'node:crypto'
-import { ROOT } from './routes.mjs'
+import { pathToFileURL } from 'node:url'
+import { ROOT } from './routes.ts'
 
 const SUBSTACK_HOST = 'augotraining.substack.com'
 const SUBSTACK_FEED = `https://${SUBSTACK_HOST}/feed`
 
 // ── URL & slug helpers ──────────────────────────────────────────────────────
 
-function slugFromUrl(url) {
+function slugFromUrl(url: string): string {
   const match = url.match(/\/p\/([^/?#]+)/)
   if (!match) throw new Error(`Cannot extract slug from URL: ${url}`)
   return match[1]
 }
 
-function hashFilename(url, fallbackExt = '.jpg') {
+function hashFilename(url: string, fallbackExt = '.jpg'): string {
   const hash = createHash('sha1').update(url).digest('hex').slice(0, 12)
   const match = url.match(/\.(jpe?g|png|gif|webp|avif)(\?|$|\/)/i)
   const ext = match ? `.${match[1].toLowerCase().replace('jpeg', 'jpg')}` : fallbackExt
@@ -42,7 +47,22 @@ function hashFilename(url, fallbackExt = '.jpg') {
 
 // ── Source fetchers ─────────────────────────────────────────────────────────
 
-async function fetchPostFromFeed(targetUrl) {
+interface ScrapedPost {
+  title: string
+  link: string
+  pubDate: string
+  author: string
+  contentHtml: string
+  description: string
+}
+
+interface MediaItem {
+  localPath: string
+  originalUrl: string
+  filename: string
+}
+
+async function fetchPostFromFeed(targetUrl: string): Promise<ScrapedPost | null> {
   const res = await fetch(SUBSTACK_FEED)
   if (!res.ok) throw new Error(`Feed fetch failed: ${res.status}`)
   const xml = await res.text()
@@ -66,7 +86,7 @@ async function fetchPostFromFeed(targetUrl) {
   return found
 }
 
-async function fetchPostFromUrl(url) {
+async function fetchPostFromUrl(url: string): Promise<ScrapedPost> {
   const res = await fetch(url, {
     headers: { 'User-Agent': 'augo-website-ingester/1.0' },
   })
@@ -98,12 +118,12 @@ async function fetchPostFromUrl(url) {
   return { title, link: url, pubDate, author, contentHtml, description }
 }
 
-async function listAllFeedItems() {
+async function listAllFeedItems(): Promise<string[]> {
   const res = await fetch(SUBSTACK_FEED)
   if (!res.ok) throw new Error(`Feed fetch failed: ${res.status}`)
   const xml = await res.text()
   const $ = cheerio.load(xml, { xmlMode: true })
-  const items = []
+  const items: string[] = []
   $('item').each((_, el) => {
     items.push($(el).find('link').first().text().trim())
   })
@@ -112,7 +132,7 @@ async function listAllFeedItems() {
 
 // ── Body cleaning ───────────────────────────────────────────────────────────
 
-function stripSubstackWidgets($) {
+function stripSubstackWidgets($: cheerio.CheerioAPI): void {
   // Subscription / email capture widgets
   $('.subscription-widget-wrap, .subscription-widget, .subscribe-widget').remove()
   $('div[data-component-name="SubscribeWidget"]').remove()
@@ -151,7 +171,11 @@ function stripSubstackWidgets($) {
   })
 }
 
-function flattenPicturesAndRewriteImages($, slug, mediaToDownload) {
+function flattenPicturesAndRewriteImages(
+  $: cheerio.CheerioAPI,
+  slug: string,
+  mediaToDownload: Map<string, MediaItem>
+): void {
   // Convert <picture><source/><img/></picture> to a single <img/>
   $('picture').each((_, el) => {
     const $picture = $(el)
@@ -201,7 +225,7 @@ function flattenPicturesAndRewriteImages($, slug, mediaToDownload) {
 
 // ── Image download ──────────────────────────────────────────────────────────
 
-async function downloadMedia(mediaMap, slug) {
+async function downloadMedia(mediaMap: Map<string, MediaItem>, slug: string): Promise<void> {
   if (mediaMap.size === 0) return
   const outDir = join(ROOT, 'public/blog', slug)
   await mkdir(outDir, { recursive: true })
@@ -217,15 +241,16 @@ async function downloadMedia(mediaMap, slug) {
       const buf = Buffer.from(await res.arrayBuffer())
       await writeFile(join(outDir, filename), buf)
       console.log(`  ↓ ${filename} (${(buf.byteLength / 1024).toFixed(1)} kB)`)
-    } catch (err) {
-      console.warn(`  ! image error ${originalUrl}: ${err.message}`)
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : String(err)
+      console.warn(`  ! image error ${originalUrl}: ${message}`)
     }
   }
 }
 
 // ── Output ──────────────────────────────────────────────────────────────────
 
-function deriveDescription(rawDescription, $cleaned) {
+function deriveDescription(rawDescription: string, $cleaned: cheerio.CheerioAPI): string {
   const stripped = rawDescription.replace(/<[^>]+>/g, '').trim()
   // Substack descriptions often end with "By <Author>, <role>..." — drop the
   // byline for the meta description so it's clean lede text only.
@@ -244,9 +269,9 @@ function deriveDescription(rawDescription, $cleaned) {
 //   3. Fall back to "About the Author: <Name>" pattern.
 //   4. Default to "augo".
 
-function extractAuthorFromHtml(html) {
+function extractAuthorFromHtml(html: string): string | null {
   const PUBLICATION_NAMES = new Set(['augo', "augo's substack", 'augo training'])
-  function pickRealAuthor(author) {
+  function pickRealAuthor(author: unknown): string | null {
     if (!author) return null
     if (typeof author === 'string') {
       return PUBLICATION_NAMES.has(author.toLowerCase()) ? null : author
@@ -261,7 +286,12 @@ function extractAuthorFromHtml(html) {
       // No non-publication author found.
       return null
     }
-    if (author.name) {
+    if (
+      typeof author === 'object' &&
+      author !== null &&
+      'name' in author &&
+      typeof author.name === 'string'
+    ) {
       return PUBLICATION_NAMES.has(author.name.toLowerCase()) ? null : author.name
     }
     return null
@@ -294,14 +324,14 @@ function extractAuthorFromHtml(html) {
 }
 
 // Strip trailing credentials like ", PhD" or ", MD" from a name.
-function cleanName(name) {
+function cleanName(name: string): string {
   return name
     .replace(/,\s*(PhD|MD|MS|MSc|DPT|RD|MA|MBA|PT|RN)\b.*$/i, '')
     .replace(/\s+\(.*\)\s*$/, '')
     .trim()
 }
 
-function extractAuthorFromDescription(rawDescription) {
+function extractAuthorFromDescription(rawDescription: string): string | null {
   const stripped = rawDescription.replace(/<[^>]+>/g, '').trim()
   // No /i flag anywhere — we rely on [A-Z] vs [a-z] character classes.
   // "By Firstname Lastname" — name parts must start uppercase, body lowercase.
@@ -316,7 +346,7 @@ function extractAuthorFromDescription(rawDescription) {
   return null
 }
 
-async function resolveAuthor(url, rawDescription) {
+async function resolveAuthor(url: string, rawDescription: string): Promise<string> {
   try {
     const res = await fetch(url, {
       headers: { 'User-Agent': 'augo-website-ingester/1.0' },
@@ -332,7 +362,7 @@ async function resolveAuthor(url, rawDescription) {
   return extractAuthorFromDescription(rawDescription) || 'augo'
 }
 
-async function ingest(url) {
+async function ingest(url: string): Promise<string> {
   const slug = slugFromUrl(url)
   console.log(`\nIngesting ${url}\n  slug=${slug}`)
 
@@ -347,7 +377,7 @@ async function ingest(url) {
 
   const $body = cheerio.load(post.contentHtml, null, false)
   stripSubstackWidgets($body)
-  const mediaToDownload = new Map()
+  const mediaToDownload = new Map<string, MediaItem>()
   flattenPicturesAndRewriteImages($body, slug, mediaToDownload)
 
   await downloadMedia(mediaToDownload, slug)
@@ -379,10 +409,10 @@ async function ingest(url) {
 
 // ── Entry ───────────────────────────────────────────────────────────────────
 
-async function main() {
+async function main(): Promise<void> {
   const arg = process.argv[2]
   if (!arg) {
-    console.error('Usage: node scripts/ingest-substack-post.mjs <url> | --all')
+    console.error('Usage: npm run ingest-substack -- <url> | npm run ingest-substack:all')
     process.exit(1)
   }
 
@@ -392,8 +422,9 @@ async function main() {
     for (const url of urls) {
       try {
         await ingest(url)
-      } catch (err) {
-        console.error(`  ✗ ${url}: ${err.message}`)
+      } catch (err: unknown) {
+        const message = err instanceof Error ? err.message : String(err)
+        console.error(`  ✗ ${url}: ${message}`)
       }
     }
     return
@@ -402,7 +433,9 @@ async function main() {
   await ingest(arg)
 }
 
-main().catch((err) => {
-  console.error(err)
-  process.exit(1)
-})
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main().catch((err: unknown) => {
+    console.error(err)
+    process.exit(1)
+  })
+}

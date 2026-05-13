@@ -58,7 +58,7 @@ Blog posts are sourced from Substack and stored in the repo as:
 The workflow:
 
 1. Checks out the repo and installs dependencies with `npm ci`
-2. Runs `node scripts/ingest-substack-post.mjs <url>` or `node scripts/ingest-substack-post.mjs --all`
+2. Runs `npm run ingest-substack -- <url>` or `npm run ingest-substack:all`
 3. Detects changes under `src/content/blog/` and `public/blog/`
 4. Opens a pull request with the generated content
 
@@ -73,19 +73,13 @@ Review the generated PR before merging. In particular, check:
 Ingest a single post:
 
 ```sh
-node scripts/ingest-substack-post.mjs <substack-post-url>
-```
-
-Or via the npm script:
-
-```sh
 npm run ingest-substack -- <substack-post-url>
 ```
 
 Backfill all current feed items:
 
 ```sh
-node scripts/ingest-substack-post.mjs --all
+npm run ingest-substack:all
 ```
 
 After ingesting content locally:

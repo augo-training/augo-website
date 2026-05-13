@@ -62,11 +62,11 @@ jobs:
 
       - name: Ingest single post
         if: steps.target.outputs.all == 'false' && steps.target.outputs.url != ''
-        run: node scripts/ingest-substack-post.mjs "${{ steps.target.outputs.url }}"
+        run: npm run ingest-substack -- "${{ steps.target.outputs.url }}"
 
       - name: Ingest all feed items
         if: steps.target.outputs.all == 'true'
-        run: node scripts/ingest-substack-post.mjs --all
+        run: npm run ingest-substack:all
 
       - name: Detect changes
         id: changes
