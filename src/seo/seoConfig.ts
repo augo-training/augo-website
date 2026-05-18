@@ -1,6 +1,5 @@
 import type { SupportedLanguage } from '../i18n'
-
-const BASE_URL = 'https://augotraining.com'
+import { BASE_URL } from './seoConstants.ts'
 
 interface PageMeta {
   title: string

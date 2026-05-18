@@ -10,6 +10,7 @@ import CookieConsent from './components/CookieConsent'
 import CountdownBanner from './components/CountdownBanner'
 import Download from "./pages/Download.tsx";
 import HumanEdge from './pages/HumanEdge'
+import BlogPost from './pages/BlogPost'
 
 // March 26, 2026 at 20:00 Zurich time
 // DST starts March 29, 2026, so March 26 is still CET (UTC+1)
@@ -37,6 +38,7 @@ function App() {
           <Route path="find" element={<Find />} />
           <Route path="pricing" element={<Pricing />} />
           <Route path="humanedge" element={<HumanEdge />} />
+          <Route path="blog/:slug" element={<BlogPost />} />
           <Route path="*" element={<NotFound />} />
         </Route>
 
