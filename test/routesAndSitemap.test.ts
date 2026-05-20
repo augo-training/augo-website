@@ -13,13 +13,16 @@ describe('routes and sitemap', () => {
     const routes = await getAllPrerenderRoutes()
     const slugs = await discoverBlogSlugs()
 
-    expect(routes).toHaveLength(LANGS.length * STATIC_PATHS.length + slugs.length)
+    // +1 for the /en/blog index route.
+    expect(routes).toHaveLength(LANGS.length * STATIC_PATHS.length + slugs.length + 1)
 
     for (const lang of LANGS) {
       for (const path of STATIC_PATHS) {
         expect(routes).toContain(`/${lang}${path}`)
       }
     }
+
+    expect(routes).toContain('/en/blog')
 
     for (const slug of slugs) {
       expect(routes).toContain(`/en/blog/${slug}`)
