@@ -72,6 +72,7 @@ export async function getAllPrerenderRoutes(): Promise<string[]> {
     }
   }
   // Blog posts are English-only at launch (Substack posts are in English).
+  routes.push(`/${DEFAULT_LANG}/blog`)
   const slugs = await discoverBlogSlugs()
   for (const slug of slugs) {
     routes.push(`/${DEFAULT_LANG}/blog/${slug}`)
@@ -96,6 +97,14 @@ export async function getSitemapEntries(): Promise<SitemapEntry[]> {
       })
     }
   }
+  const blogIndexUrl = `${BASE_URL}/${DEFAULT_LANG}/blog`
+  entries.push({
+    url: blogIndexUrl,
+    priority: 0.8,
+    alternates: null,
+    xDefault: blogIndexUrl,
+    changefreq: 'weekly',
+  })
   const slugs = await discoverBlogSlugs()
   for (const slug of slugs) {
     const url = `${BASE_URL}/${DEFAULT_LANG}/blog/${slug}`

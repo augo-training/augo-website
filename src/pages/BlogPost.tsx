@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
-import { Navigate, useParams } from 'react-router-dom'
+import { Link, Navigate, useParams } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import SEOHead from '../seo/SEOHead'
@@ -8,45 +8,11 @@ import { OrganizationJsonLd } from '../seo/JsonLd'
 import { buildArticleSchema } from '../seo/articleSchema'
 import NotFound from './NotFound'
 import { sanitizeBlogHtml } from '../utils/blogHtmlSanitizer.ts'
-
-interface BlogPostData {
-  slug: string
-  title: string
-  description: string
-  author: { name: string; url?: string }
-  datePublished: string
-  dateModified?: string
-  coverImage?: string
-  bodyHtml: string
-  substackUrl?: string
-  tags?: string[]
-}
-
-// Vite eager-loads every JSON file in src/content/blog/ at build time, so the
-// prerender step (and runtime) both have synchronous access to the post data.
-const postModules = import.meta.glob<{ default: BlogPostData }>(
-  '../content/blog/*.json',
-  { eager: true }
-)
-
-const postsBySlug: Record<string, BlogPostData> = Object.fromEntries(
-  Object.entries(postModules).map(([path, mod]) => {
-    const slug = path.split('/').pop()!.replace(/\.json$/, '')
-    return [slug, mod.default]
-  })
-)
-
-function formatDate(iso: string): string {
-  try {
-    return new Date(iso).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    })
-  } catch {
-    return iso
-  }
-}
+import {
+  formatPostDate,
+  getAdjacentPosts,
+  postsBySlug,
+} from '../utils/blogPosts'
 
 export default function BlogPost() {
   const { lang, slug } = useParams<{ lang: string; slug: string }>()
@@ -65,6 +31,8 @@ export default function BlogPost() {
   if (!post) {
     return <NotFound />
   }
+
+  const { newer, older } = getAdjacentPosts(post.slug)
 
   const articleSchema = buildArticleSchema({
     slug: post.slug,
@@ -107,7 +75,7 @@ export default function BlogPost() {
           <div className="flex flex-wrap items-center gap-3 text-text-muted text-sm">
             <span>By {post.author.name}</span>
             <span aria-hidden>·</span>
-            <time dateTime={post.datePublished}>{formatDate(post.datePublished)}</time>
+            <time dateTime={post.datePublished}>{formatPostDate(post.datePublished)}</time>
           </div>
         </header>
 
@@ -139,6 +107,52 @@ export default function BlogPost() {
             .
           </footer>
         )}
+
+        <nav
+          aria-label="More blog posts"
+          className="mt-16 pt-8 border-t border-dark-600 flex flex-col gap-8"
+        >
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {newer ? (
+              <Link
+                to={`/en/blog/${newer.slug}`}
+                className="group flex flex-col gap-2 sm:text-left"
+              >
+                <span className="font-mono text-[12px] uppercase tracking-[0.08em] text-text-muted">
+                  ← Newer post
+                </span>
+                <span className="font-satoshi font-bold text-[18px] sm:text-[20px] leading-[130%] text-white group-hover:underline">
+                  {newer.title}
+                </span>
+              </Link>
+            ) : (
+              <span aria-hidden className="hidden sm:block" />
+            )}
+            {older ? (
+              <Link
+                to={`/en/blog/${older.slug}`}
+                className="group flex flex-col gap-2 sm:text-right sm:items-end"
+              >
+                <span className="font-mono text-[12px] uppercase tracking-[0.08em] text-text-muted">
+                  Older post →
+                </span>
+                <span className="font-satoshi font-bold text-[18px] sm:text-[20px] leading-[130%] text-white group-hover:underline">
+                  {older.title}
+                </span>
+              </Link>
+            ) : (
+              <span aria-hidden className="hidden sm:block" />
+            )}
+          </div>
+          <div className="text-center">
+            <Link
+              to="/en/blog"
+              className="font-satoshi text-[14px] sm:text-[15px] text-text-muted hover:text-white underline-offset-4 hover:underline"
+            >
+              View all posts
+            </Link>
+          </div>
+        </nav>
       </article>
       <Footer />
     </>
