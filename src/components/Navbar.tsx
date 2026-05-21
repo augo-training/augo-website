@@ -88,7 +88,7 @@ export default function Navbar() {
     // Refs for GSAP animations
     const overlayRef = useRef<HTMLDivElement>(null)
     const menuItemRefs = useRef<(HTMLAnchorElement | null)[]>([])
-    const menuJoinRef = useRef<HTMLButtonElement>(null)
+    const menuJoinRef = useRef<HTMLAnchorElement>(null)
 
     // After a language switch while menu is open, restore menu visibility
     useEffect(() => {
