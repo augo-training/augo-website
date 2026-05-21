@@ -354,7 +354,7 @@ export default function Navbar() {
 
                 {/* JOIN AUGO button — pinned to bottom */}
                 <div className="px-5 sm:px-6 pb-10 w-full">
-                    <button
+                    <a
                         ref={menuJoinRef}
                         href="https://webapp.augotraining.com/"
                         target="_blank"
