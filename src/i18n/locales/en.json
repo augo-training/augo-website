@@ -4,7 +4,8 @@
     "forAthletes": "For Athletes",
     "findAMatch": "Find a Match",
     "pricing": "Pricing",
-    "joinAugo": "Join augo"
+    "joinAugo": "Join augo",
+    "accessWebApp": "Access Web App"
   },
   "hero": {
     "line1": "A new standard",
@@ -129,10 +130,13 @@
   },
   "download": {
     "headline": "Start coaching smarter.",
-    "body": "Experience the intelligent assistant that helps you provide the best service for your athletes.",
+    "body": "Experience the intelligent assistant across web and mobile. Coaches get full access on both platforms. Athletes connect on mobile.",
+    "forCoaches": "For Coaches",
+    "forCoachesAndAthletes": "For Coaches and Athletes",
     "launchWebApp": "Launch Web App",
     "downloadOnAppStore": "Download on the App Store",
-    "getItOnGooglePlay": "Get it on Google Play"
+    "getItOnGooglePlay": "Get it on Google Play",
+    "scanToDownload": "Scan to download"
   },
   "join": {
     "headline": "Join the community of coaches & athletes who are looking for a new standard",
