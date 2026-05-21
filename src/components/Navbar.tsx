@@ -6,6 +6,7 @@ import { supportedLanguages } from '../i18n'
 import type { SupportedLanguage } from '../i18n'
 import augoLogo from '../assets/images/augo_footer_1.svg'
 import { trackNavLinkClicked, trackCtaClicked, trackLanguageSwitched } from '../utils/analytics'
+import { useEmailCapture } from '../contexts/EmailCaptureContext'
 
 function NavLink({ label, href, onClick }: { label: string; href: string; onClick?: (e: React.MouseEvent) => void }) {
     return (
@@ -67,6 +68,7 @@ export default function Navbar() {
     const navigate = useNavigate()
     const { lang } = useParams<{ lang: string }>()
     const currentLang = lang || i18n.language || 'en'
+    const { openModal } = useEmailCapture()
 
     const navLinks = [
         { label: t('nav.forCoaches'), href: '#coaches' },
@@ -88,7 +90,7 @@ export default function Navbar() {
     // Refs for GSAP animations
     const overlayRef = useRef<HTMLDivElement>(null)
     const menuItemRefs = useRef<(HTMLAnchorElement | null)[]>([])
-    const menuJoinRef = useRef<HTMLAnchorElement>(null)
+    const menuJoinRef = useRef<HTMLButtonElement>(null)
 
     // After a language switch while menu is open, restore menu visibility
     useEffect(() => {
@@ -167,7 +169,7 @@ export default function Navbar() {
     }, [])
 
     // Close menu animation
-    const closeMenu = useCallback(() => {
+    const closeMenu = useCallback((onDone?: () => void) => {
         if (isAnimating.current) return
         isAnimating.current = true
         setMenuOpen(false) // morph X → hamburger immediately
@@ -175,12 +177,16 @@ export default function Navbar() {
         const overlay = overlayRef.current
         const items = menuItemRefs.current.filter(Boolean) as HTMLElement[]
         const joinBtn = menuJoinRef.current
-        if (!overlay) return
+        if (!overlay) {
+            onDone?.()
+            return
+        }
 
         const tl = gsap.timeline({
             onComplete: () => {
                 gsap.set(overlay, { display: 'none' })
                 isAnimating.current = false
+                onDone?.()
             },
         })
 
@@ -348,7 +354,7 @@ export default function Navbar() {
 
                 {/* JOIN AUGO button — pinned to bottom */}
                 <div className="px-5 sm:px-6 pb-10 w-full">
-                    <a
+                    <button
                         ref={menuJoinRef}
                         href="https://webapp.augotraining.com/"
                         target="_blank"
@@ -356,7 +362,7 @@ export default function Navbar() {
                         onClick={() => {
                             trackCtaClicked({ cta_text: t('nav.accessWebApp'), cta_location: 'mobile_menu', destination: 'https://webapp.augotraining.com/' })
                         }}
-                        className="btn-gradient block w-full font-mono text-sm font-extrabold tracking-[2px] uppercase text-white text-center py-4 rounded-lg"
+                        className="btn-gradient block w-full font-mono text-sm font-extrabold tracking-[2px] uppercase text-white text-center py-4 rounded-lg cursor-pointer"
                         style={{ opacity: 0 }}
                     >
                         {t('nav.accessWebApp')}

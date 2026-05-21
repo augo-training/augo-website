@@ -8,6 +8,7 @@ async function tryInit(): Promise<void> {
     try {
         const { default: mixpanel } = await import('mixpanel-browser')
         mixpanel.init(token, { persistence: 'localStorage', api_host: 'https://api-eu.mixpanel.com' })
+        mixpanel.register({ platform: 'website' })
         initialized = true
     } catch {
         // Ad blocker or network failure — silently ignore
@@ -87,12 +88,9 @@ export async function trackNavLinkClicked(props: { link_text: string; destinatio
 
 interface PricingPageViewedProps {
     country: string
-    cluster: string
-    experiment_arm: string
+    pricing_bucket: string
     pricing_currency: string
     pricing_amount: number
-    fx_rate: number | null
-    discount_pct: number
     utm_source: string | null
     utm_medium: string | null
     utm_campaign: string | null
@@ -125,6 +123,10 @@ export async function trackFloatingButtonClicked(props: { page: string }): Promi
 
 export async function trackEmailCaptureSubmitted(props: { email: string; cta_text: string }): Promise<void> {
     return track('pricing_email_capture_submitted', props)
+}
+
+export async function trackEmailCaptureFailed(props: { cta_text: string; status: number | 'network_error'; error?: string }): Promise<void> {
+    return track('email_capture_failed', props)
 }
 
 // ── Video tracking ──

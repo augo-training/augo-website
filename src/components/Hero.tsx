@@ -2,6 +2,8 @@ import { useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
 import { trackCtaClicked } from '../utils/analytics'
+import LaunchOfferPill from './LaunchOfferPill'
+import { useEmailCapture } from '../contexts/EmailCaptureContext'
 import bgSection1 from '../assets/images/bg_section_1.webp'
 import imgHome from '../assets/images/home.png'
 import imgAthlete from '../assets/images/athlete_home.png'
@@ -12,7 +14,7 @@ const FADE_DURATION = 0.4 // seconds for fade in/out
 
 export default function Hero() {
     const { t, i18n } = useTranslation()
-    const currentLang = i18n.language || 'en'
+    const { openModal } = useEmailCapture()
     const rotatingWords = t('hero.rotatingWords', { returnObjects: true }) as string[]
 
     const line1Ref = useRef<HTMLSpanElement>(null)
@@ -20,7 +22,7 @@ export default function Hero() {
     const line3Ref = useRef<HTMLSpanElement>(null)
     const subheadlineRef = useRef<HTMLParagraphElement>(null)
     const rotatingRef = useRef<HTMLSpanElement>(null)
-    const ctaRef = useRef<HTMLAnchorElement>(null)
+    const ctaRef = useRef<HTMLButtonElement>(null)
     const sectionRef = useRef<HTMLElement>(null)
     const mockupsRef = useRef<HTMLDivElement>(null)
     const glowRef = useRef<HTMLDivElement>(null)
@@ -255,6 +257,7 @@ export default function Hero() {
             <div className="relative z-10 w-full max-w-[1440px] mx-auto px-5 sm:px-6 md:px-8 lg:px-12 flex flex-col items-center text-center lg:flex-row lg:items-center lg:justify-between lg:text-left pt-44 sm:pt-40 lg:pt-36 pb-12 lg:pb-0 gap-12 lg:gap-0">
                 {/* Left: Text Content */}
                 <div className="max-w-[480px] flex-shrink-0">
+                    <LaunchOfferPill className="mb-5" />
                     <h1 className="font-mono font-bold text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px] leading-[120%] text-white mb-6">
                         <span ref={line1Ref} className="block">
                             {t('hero.line1')}
@@ -284,12 +287,15 @@ export default function Hero() {
                     <p ref={subheadlineRef} className="font-satoshi font-medium text-base sm:text-lg leading-[130%] text-text-muted mb-8 sm:mb-10" style={{ opacity: 0 }}>
                         {t('hero.subheadline')}
                     </p>
-                    <a
+                    <button
                         ref={ctaRef}
-                        href={`/${currentLang}/download`}
-                        className="btn-gradient inline-block font-mono text-sm font-extrabold tracking-[2px] uppercase text-white px-8 py-4 rounded-lg transition-all duration-200 cursor-pointer"
+                        type="button"
+                        className="btn-gradient inline-block font-mono text-sm font-extrabold tracking-[2px] uppercase text-white px-8 py-4 rounded-lg transition-all duration-200 cursor-pointer border-0"
                         data-cta="hero"
-                        onClick={() => trackCtaClicked({ cta_text: t('nav.joinAugo'), cta_location: 'hero', destination: '/download' })}
+                        onClick={() => {
+                            trackCtaClicked({ cta_text: t('nav.joinAugo'), cta_location: 'hero', destination: '/download' })
+                            openModal(t('nav.joinAugo'))
+                        }}
                         style={{
                             opacity: 0,
                             transitionProperty: 'transform, box-shadow, filter',
@@ -326,7 +332,7 @@ export default function Hero() {
                         }}
                     >
                         {t('nav.joinAugo')}
-                    </a>
+                    </button>
                 </div>
 
                 {/* Right: App Mockups */}

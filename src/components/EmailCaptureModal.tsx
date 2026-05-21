@@ -1,24 +1,41 @@
 import { useState, useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
-import { trackEmailCaptureSubmitted } from '../utils/analytics'
+import { trackEmailCaptureSubmitted, trackEmailCaptureFailed } from '../utils/analytics'
 
 interface EmailCaptureModalProps {
     isOpen: boolean
     onClose: () => void
-    destinationUrl: string
+    destinationUrl?: string
     ctaText: string
+    groupId?: string
+    onSuccess?: () => void
+    title?: string
+    subtitle?: string
+    submitLabel?: string
 }
 
-export default function EmailCaptureModal({ isOpen, onClose, destinationUrl, ctaText }: EmailCaptureModalProps) {
+export default function EmailCaptureModal({
+    isOpen,
+    onClose,
+    destinationUrl,
+    ctaText,
+    groupId,
+    onSuccess,
+    title,
+    subtitle,
+    submitLabel,
+}: EmailCaptureModalProps) {
     const { t } = useTranslation()
     const [email, setEmail] = useState('')
     const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
     const inputRef = useRef<HTMLInputElement>(null)
     const firstFocusableRef = useRef<HTMLButtonElement>(null)
 
-    function redirect() {
+    function dismiss() {
         onClose()
-        window.location.href = destinationUrl
+        if (destinationUrl) {
+            window.location.href = destinationUrl
+        }
     }
 
     useEffect(() => {
@@ -28,7 +45,7 @@ export default function EmailCaptureModal({ isOpen, onClose, destinationUrl, cta
 
         function handleKeyDown(e: KeyboardEvent) {
             if (e.key === 'Escape') {
-                redirect()
+                dismiss()
             }
         }
         document.addEventListener('keydown', handleKeyDown)
@@ -50,12 +67,12 @@ export default function EmailCaptureModal({ isOpen, onClose, destinationUrl, cta
         setStatus('loading')
 
         const apiKey = import.meta.env.VITE_MAILERLITE_API_KEY
-        const groupId = import.meta.env.VITE_MAILERLITE_GROUP_ID
+        const effectiveGroupId = groupId ?? import.meta.env.VITE_MAILERLITE_GROUP_ID
         if (apiKey) {
             try {
                 const body: Record<string, unknown> = { email }
-                if (groupId) body.groups = [groupId]
-                await fetch('https://connect.mailerlite.com/api/subscribers', {
+                if (effectiveGroupId) body.groups = [effectiveGroupId]
+                const response = await fetch('https://connect.mailerlite.com/api/subscribers', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -64,13 +81,29 @@ export default function EmailCaptureModal({ isOpen, onClose, destinationUrl, cta
                     },
                     body: JSON.stringify(body),
                 })
-            } catch {
-                // Never block the user on API failure
+                if (!response.ok) {
+                    const responseText = await response.text().catch(() => '')
+                    console.warn('[EmailCaptureModal] MailerLite API returned non-OK status', {
+                        status: response.status,
+                        body: responseText,
+                        groupId: effectiveGroupId,
+                    })
+                    void trackEmailCaptureFailed({ cta_text: ctaText, status: response.status, error: responseText.slice(0, 200) })
+                }
+            } catch (err) {
+                console.warn('[EmailCaptureModal] MailerLite API network error', err)
+                void trackEmailCaptureFailed({ cta_text: ctaText, status: 'network_error', error: err instanceof Error ? err.message : String(err) })
             }
         }
 
         void trackEmailCaptureSubmitted({ email, cta_text: ctaText })
-        redirect()
+
+        if (onSuccess) {
+            onClose()
+            onSuccess()
+        } else {
+            dismiss()
+        }
     }
 
     if (!isOpen) return null
@@ -79,7 +112,7 @@ export default function EmailCaptureModal({ isOpen, onClose, destinationUrl, cta
         <div
             className="fixed inset-0 z-50 flex items-center justify-center px-5"
             style={{ backgroundColor: 'rgba(0,0,0,0.75)', backdropFilter: 'blur(4px)' }}
-            onClick={(e) => { if (e.target === e.currentTarget) redirect() }}
+            onClick={(e) => { if (e.target === e.currentTarget) dismiss() }}
         >
             <div
                 className="w-full max-w-[420px] rounded-2xl p-8 flex flex-col gap-6"
@@ -93,10 +126,10 @@ export default function EmailCaptureModal({ isOpen, onClose, destinationUrl, cta
                         id="email-modal-title"
                         className="font-mono font-bold text-[22px] leading-[120%] text-white"
                     >
-                        {t('emailCapture.title')}
+                        {title ?? t('emailCapture.title')}
                     </h2>
                     <p className="font-satoshi text-[15px] leading-[160%] text-[#969EA7]">
-                        {t('emailCapture.subtitle')}
+                        {subtitle ?? t('emailCapture.subtitle')}
                     </p>
                 </div>
 
@@ -123,7 +156,7 @@ export default function EmailCaptureModal({ isOpen, onClose, destinationUrl, cta
                         disabled={status === 'loading'}
                         className="btn-gradient font-mono text-[12px] font-extrabold tracking-[2px] uppercase text-white rounded-lg h-12 flex items-center justify-center hover:brightness-110 transition-all duration-200 disabled:opacity-60"
                     >
-                        {status === 'loading' ? '...' : t('emailCapture.cta')}
+                        {status === 'loading' ? '...' : (submitLabel ?? t('emailCapture.cta'))}
                     </button>
                 </form>
 

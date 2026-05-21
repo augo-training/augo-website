@@ -5,11 +5,13 @@ import bgSection from '../assets/images/bg_section_1.webp'
 import addIcon from '../assets/images/add.svg'
 import minusIcon from '../assets/images/minus.svg'
 import { trackFaqExpanded, trackCtaClicked } from '../utils/analytics'
+import { useEmailCapture } from '../contexts/EmailCaptureContext'
 
 export default function FaqSection() {
     const { t, i18n } = useTranslation()
     const { lang } = useParams<{ lang: string }>()
     const currentLang = lang || i18n.language || 'en'
+    const { openModal } = useEmailCapture()
 
     const faqItems = t('faq.items', { returnObjects: true }) as Array<{
         question: string
@@ -71,15 +73,18 @@ export default function FaqSection() {
                     <p className="font-satoshi font-medium text-[16px] sm:text-[18px] leading-[130%] text-[#969EA7] max-w-[500px] lg:max-w-none">
                         {t('faq.ctaBody')}
                     </p>
-                    <a
-                        href={`/${currentLang}/download`}
-                        className="btn-gradient font-mono text-sm font-extrabold tracking-[2px] uppercase text-white rounded-lg hover:brightness-110 transition-all duration-200 flex items-center justify-center mt-2 lg:mt-0"
+                    <button
+                        type="button"
+                        className="btn-gradient font-mono text-sm font-extrabold tracking-[2px] uppercase text-white rounded-lg hover:brightness-110 transition-all duration-200 flex items-center justify-center mt-2 lg:mt-0 cursor-pointer border-0"
                         data-cta="faq"
                         style={{ width: '209px', height: '48px' }}
-                        onClick={() => trackCtaClicked({ cta_text: t('nav.joinAugo'), cta_location: 'faq', destination: '/download' })}
+                        onClick={() => {
+                            trackCtaClicked({ cta_text: t('nav.joinAugo'), cta_location: 'faq', destination: '/download' })
+                            openModal(t('nav.joinAugo'))
+                        }}
                     >
                         {t('nav.joinAugo')}
-                    </a>
+                    </button>
                 </div>
 
                 {/* Right: FAQ */}
@@ -131,9 +136,16 @@ export default function FaqSection() {
                                             {faq.linkText && (
                                                 <>
                                                     <br />
-                                                    <a href={`/${currentLang}/download`} className="font-satoshi font-bold text-[16px] leading-[130%] underline hover:text-white transition-colors">
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => {
+                                                            trackCtaClicked({ cta_text: faq.linkText!, cta_location: 'faq_inline', destination: '/download' })
+                                                            openModal(faq.linkText!)
+                                                        }}
+                                                        className="font-satoshi font-bold text-[16px] leading-[130%] underline hover:text-white transition-colors bg-transparent border-0 p-0 cursor-pointer text-inherit"
+                                                    >
                                                         {faq.linkText}
-                                                    </a>{' '}
+                                                    </button>{' '}
                                                     {currentLang === 'en' ? 'to secure your spot.' : currentLang === 'de' ? 'um deinen Platz zu sichern.' : 'para garantir sua vaga.'}
                                                 </>
                                             )}

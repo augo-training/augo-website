@@ -1,73 +1,94 @@
-# React + TypeScript + Vite
+# augo website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Marketing site and blog for augo, built with React, TypeScript, and Vite.
 
-Currently, two official plugins are available:
+## Local development
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Requirements:
 
-## React Compiler
+- Node.js 22.18+
+- npm
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Install dependencies:
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```sh
+npm ci
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Start the dev server:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```sh
+npm run dev
 ```
+
+Useful commands:
+
+- `npm run build` builds the site, generates the sitemap, and prerenders routes with Puppeteer.
+- `npm run prerender` reruns the prerender step against an existing build.
+- `npm run sitemap` regenerates the sitemap.
+- `npm run lint` runs ESLint.
+
+## Build and deploy
+
+`npm run build` is the production build path used in CI and deploy workflows. It performs these steps:
+
+1. TypeScript build
+2. Vite build
+3. Sitemap generation
+4. Route prerendering with Puppeteer
+
+During prerendering, the script also preserves the original SPA shell as `dist/404.html` for GitHub Pages fallback routing.
+
+## Blog content workflow
+
+Blog posts are sourced from Substack and stored in the repo as:
+
+- `src/content/blog/*.json` for post metadata and cleaned HTML
+- `public/blog/**` for downloaded image assets
+
+### Automatic sync
+
+[`.github/workflows/sync-substack.yml`](/Users/ahermann/Workspaces/augo/augo-website/.github/workflows/sync-substack.yml:1) supports two triggers:
+
+- `repository_dispatch` with `event_type=substack-post`
+  The intended caller is Make.com when a new item appears in the augotraining Substack RSS feed.
+- `workflow_dispatch`
+  Manual trigger from GitHub Actions for a single post URL or a full RSS backfill.
+
+The workflow:
+
+1. Checks out the repo and installs dependencies with `npm ci`
+2. Runs `npm run ingest-substack -- <url>` or `npm run ingest-substack:all`
+3. Detects changes under `src/content/blog/` and `public/blog/`
+4. Opens a pull request with the generated content
+
+Review the generated PR before merging. In particular, check:
+
+- author attribution
+- cleaned article HTML
+- downloaded images under `public/blog/`
+
+### Manual local sync
+
+Ingest a single post:
+
+```sh
+npm run ingest-substack -- <substack-post-url>
+```
+
+Backfill all current feed items:
+
+```sh
+npm run ingest-substack:all
+```
+
+After ingesting content locally:
+
+1. Review the JSON added under `src/content/blog/`
+2. Review downloaded assets under `public/blog/`
+3. Run `npm run build` to verify the post renders and prerenders correctly
+
+## Notes
+
+- Blog pages are currently English-only. Non-English blog routes redirect to `/en/blog/:slug`.
+- Imported blog HTML is sanitized before rendering in the app. Keep that protection intact when changing the blog pipeline.

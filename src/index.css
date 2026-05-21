@@ -39,6 +39,98 @@ body {
   overflow-x: hidden;
 }
 
+/* Blog post article prose */
+.blog-prose {
+  color: var(--color-text);
+  font-size: 18px;
+  line-height: 1.7;
+}
+.blog-prose > * + * {
+  margin-top: 1.5em;
+}
+.blog-prose h2 {
+  font-family: var(--font-satoshi);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-top: 2.5em;
+}
+.blog-prose h3 {
+  font-family: var(--font-satoshi);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.3;
+  margin-top: 2em;
+}
+.blog-prose h4 {
+  font-family: var(--font-satoshi);
+  font-weight: 600;
+  font-size: 20px;
+  margin-top: 1.75em;
+}
+.blog-prose p {
+  color: var(--color-text);
+}
+.blog-prose a {
+  color: var(--color-orange);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.blog-prose a:hover {
+  color: var(--color-yellow);
+}
+.blog-prose blockquote {
+  border-left: 3px solid var(--color-orange);
+  padding-left: 1.25em;
+  font-style: italic;
+  color: var(--color-text-muted);
+}
+.blog-prose ul,
+.blog-prose ol {
+  padding-left: 1.5em;
+}
+.blog-prose ul { list-style: disc; }
+.blog-prose ol { list-style: decimal; }
+.blog-prose li { margin-top: 0.5em; }
+.blog-prose img,
+.blog-prose picture {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin: 2em auto;
+}
+.blog-prose figure { margin: 2em 0; }
+.blog-prose figcaption {
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 14px;
+  margin-top: 0.5em;
+}
+.blog-prose hr {
+  border: none;
+  border-top: 1px solid var(--color-dark-600);
+  margin: 3em 0;
+}
+.blog-prose code {
+  background: var(--color-dark-700);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+.blog-prose pre {
+  background: var(--color-dark-800);
+  padding: 1em;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+.blog-prose pre code {
+  background: transparent;
+  padding: 0;
+}
+
 /* Gradient Button */
 .btn-gradient {
   background: linear-gradient(83.9deg, #151515 -4%, #C50017 38.22%, #FF5514 69.06%, #FFCA1E 99.9%);
@@ -156,6 +248,34 @@ body {
 /* Gradient border glow (behind hero images) */
 .gradient-glow {
   background: linear-gradient(24.78deg, #C50017 -23.17%, #FF5514 91.92%, #FFCA1E 108.36%);
+}
+
+/* Brand gradient text (red→orange→yellow). Static; reuse for editorial moments. */
+.brand-gradient-text {
+  background: linear-gradient(83.9deg, #C50017 0%, #FF5514 50%, #FFCA1E 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Subtle grain/texture overlay — TEXTURED brand attribute. Apply to a <section>. */
+.texture-grain {
+  position: relative;
+  isolation: isolate;
+}
+.texture-grain::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 1   0 0 0 0 1   0 0 0 0 1   0 0 0 0.5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  opacity: 0.025;
+  mix-blend-mode: overlay;
+  z-index: 0;
+}
+.texture-grain > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* Floating animation */
