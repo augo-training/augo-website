@@ -6,7 +6,6 @@ import { supportedLanguages } from '../i18n'
 import type { SupportedLanguage } from '../i18n'
 import augoLogo from '../assets/images/augo_footer_1.svg'
 import { trackNavLinkClicked, trackCtaClicked, trackLanguageSwitched } from '../utils/analytics'
-import { useEmailCapture } from '../contexts/EmailCaptureContext'
 
 function NavLink({ label, href, onClick }: { label: string; href: string; onClick?: (e: React.MouseEvent) => void }) {
     return (
@@ -68,7 +67,6 @@ export default function Navbar() {
     const navigate = useNavigate()
     const { lang } = useParams<{ lang: string }>()
     const currentLang = lang || i18n.language || 'en'
-    const { openModal } = useEmailCapture()
 
     const navLinks = [
         { label: t('nav.forCoaches'), href: '#coaches' },
