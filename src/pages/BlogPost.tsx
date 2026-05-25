@@ -6,6 +6,7 @@ import Footer from '../components/Footer'
 import SEOHead from '../seo/SEOHead'
 import { OrganizationJsonLd } from '../seo/JsonLd'
 import { buildArticleSchema } from '../seo/articleSchema'
+import { buildFaqSchema } from '../seo/articleSchema.shared'
 import NotFound from './NotFound'
 import { sanitizeBlogHtml } from '../utils/blogHtmlSanitizer.ts'
 import {
@@ -65,6 +66,11 @@ export default function BlogPost() {
       <OrganizationJsonLd />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
+        {post.faqs && post.faqs.length > 0 && (
+          <script type="application/ld+json">
+            {JSON.stringify(buildFaqSchema(post.faqs))}
+          </script>
+        )}
       </Helmet>
       <Navbar />
       <article className="blog-post mx-auto max-w-[760px] px-6 pt-32 pb-24 text-white">
