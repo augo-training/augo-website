@@ -382,8 +382,15 @@ async function ingest(url: string): Promise<string> {
 
   await downloadMedia(mediaToDownload, slug)
 
-  // First image after cleanup = cover image
-  const firstImgSrc = $body('img').first().attr('src') || null
+  // First image after cleanup = cover image. Remove its wrapping figure
+  // from the body so it isn't rendered twice (once as hero, once inline).
+  const firstImg = $body('img').first()
+  const firstImgSrc = firstImg.attr('src') || null
+  if (firstImg.length) {
+    const wrapper = firstImg.closest('figure, .captioned-image-container')
+    if (wrapper.length) wrapper.remove()
+    else firstImg.remove()
+  }
 
   const authorName = await resolveAuthor(url, post.description)
 

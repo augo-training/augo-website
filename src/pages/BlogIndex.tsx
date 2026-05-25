@@ -38,24 +38,37 @@ export default function BlogIndex() {
             <li key={post.slug} className="py-8 first:pt-0 last:pb-0">
               <Link
                 to={`/en/blog/${post.slug}`}
-                className="group flex flex-col gap-3"
+                className="group flex flex-col sm:flex-row gap-5 sm:gap-6"
               >
-                <div className="flex flex-wrap items-center gap-2 font-mono text-[13px] sm:text-[14px] text-text-muted">
-                  <time dateTime={post.datePublished}>
-                    {formatPostDate(post.datePublished)}
-                  </time>
-                  <span aria-hidden>·</span>
-                  <span>By {post.author.name}</span>
+                {post.coverImage && (
+                  <div className="sm:flex-shrink-0 sm:w-60">
+                    <img
+                      src={post.coverImage}
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full aspect-[3/2] object-cover rounded-xl"
+                    />
+                  </div>
+                )}
+                <div className="flex flex-col gap-3 min-w-0 flex-1">
+                  <div className="flex flex-wrap items-center gap-2 font-mono text-[13px] sm:text-[14px] text-text-muted">
+                    <time dateTime={post.datePublished}>
+                      {formatPostDate(post.datePublished)}
+                    </time>
+                    <span aria-hidden>·</span>
+                    <span>By {post.author.name}</span>
+                  </div>
+                  <h2 className="font-satoshi font-bold text-[24px] sm:text-[28px] leading-[120%] tracking-[-0.01em] group-hover:underline">
+                    {post.title}
+                  </h2>
+                  <p className="font-satoshi text-[15px] sm:text-[17px] leading-[150%] text-text-muted">
+                    {post.description}
+                  </p>
+                  <span className="font-satoshi text-[14px] text-text-muted group-hover:text-white transition-colors">
+                    Read more →
+                  </span>
                 </div>
-                <h2 className="font-satoshi font-bold text-[24px] sm:text-[28px] leading-[120%] tracking-[-0.01em] group-hover:underline">
-                  {post.title}
-                </h2>
-                <p className="font-satoshi text-[15px] sm:text-[17px] leading-[150%] text-text-muted">
-                  {post.description}
-                </p>
-                <span className="font-satoshi text-[14px] text-text-muted group-hover:text-white transition-colors">
-                  Read more →
-                </span>
               </Link>
             </li>
           ))}

@@ -9,6 +9,7 @@ export interface BlogPostData {
   bodyHtml: string
   substackUrl?: string
   tags?: string[]
+  faqs?: { question: string; answer: string }[]
 }
 
 const postModules = import.meta.glob<{ default: BlogPostData }>(
