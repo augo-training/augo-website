@@ -60,7 +60,7 @@ export default function BlogPost() {
           author: post.author.name,
           tags: post.tags,
         }}
-        canonicalOverride={`https://augotraining.com/en/blog/${post.slug}`}
+        canonicalOverride={`https://augotraining.com/en/blog/${post.slug}/`}
         noAlternates
       />
       <OrganizationJsonLd />

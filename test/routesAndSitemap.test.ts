@@ -34,7 +34,7 @@ describe('routes and sitemap', () => {
     const entries = await getSitemapEntries()
     const xml = renderSitemapXml(entries)
     const blogEntry = entries.find((entry) => entry.url.includes('/en/blog/'))
-    const staticEntry = entries.find((entry) => entry.url === 'https://augotraining.com/en')
+    const staticEntry = entries.find((entry) => entry.url === 'https://augotraining.com/en/')
 
     expect(blogEntry).toBeTruthy()
     expect(blogEntry?.alternates).toBeNull()

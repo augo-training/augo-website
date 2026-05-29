@@ -18,7 +18,7 @@ export default function BlogIndex() {
         path="/blog"
         title="Blog | augo"
         description="Essays from the augo team on coaching, endurance training, and building tools that respect both athletes and coaches."
-        canonicalOverride="https://augotraining.com/en/blog"
+        canonicalOverride="https://augotraining.com/en/blog/"
         noAlternates
       />
       <OrganizationJsonLd />

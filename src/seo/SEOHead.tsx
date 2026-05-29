@@ -78,11 +78,7 @@ export default function SEOHead({
         <link key={altLang} rel="alternate" hrefLang={altLang} href={url} />
       ))}
       {!noAlternates && (
-        <link
-          rel="alternate"
-          hrefLang="x-default"
-          href={`${BASE_URL}/en${path === '/' ? '' : path}`}
-        />
+        <link rel="alternate" hrefLang="x-default" href={getCanonicalUrl('en', path)} />
       )}
 
       {/* Open Graph */}
