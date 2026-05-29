@@ -99,7 +99,9 @@ export function getPageMeta(page: string, lang: SupportedLanguage): PageMeta {
 }
 
 export function getCanonicalUrl(lang: SupportedLanguage, path: string): string {
-  return `${BASE_URL}/${lang}${path === '/' ? '' : path}`
+  // Trailing slash matches what GitHub Pages serves with a 200; without it the
+  // host 301-redirects /en → /en/, so a no-slash canonical points at a redirect.
+  return `${BASE_URL}/${lang}${path === '/' ? '' : path}/`
 }
 
 export function getAlternateUrls(path: string): { lang: SupportedLanguage; url: string }[] {

@@ -81,6 +81,16 @@ export async function getAllPrerenderRoutes(): Promise<string[]> {
 }
 
 /**
+ * Builds a canonical URL with a trailing slash. The slash matches what GitHub
+ * Pages serves with a 200; without it the host 301-redirects /en → /en/, which
+ * is what made every sitemap <loc> show up as "Page with redirect" in GSC.
+ * Must stay byte-identical to getCanonicalUrl() in src/seo/seoConfig.ts.
+ */
+function langUrl(lang: string, path: string): string {
+  return `${BASE_URL}/${lang}${path}/`
+}
+
+/**
  * Returns sitemap entries with multilingual alternates.
  * Each entry: { path, priority, alternates: [{lang, url}] }
  */
@@ -89,15 +99,15 @@ export async function getSitemapEntries(): Promise<SitemapEntry[]> {
   for (const path of STATIC_PATHS) {
     for (const lang of LANGS) {
       entries.push({
-        url: `${BASE_URL}/${lang}${path}`,
+        url: langUrl(lang, path),
         priority: PATH_PRIORITY[path as keyof typeof PATH_PRIORITY] ?? 0.5,
-        alternates: LANGS.map((l) => ({ lang: l, url: `${BASE_URL}/${l}${path}` })),
-        xDefault: `${BASE_URL}/${DEFAULT_LANG}${path}`,
+        alternates: LANGS.map((l) => ({ lang: l, url: langUrl(l, path) })),
+        xDefault: langUrl(DEFAULT_LANG, path),
         changefreq: 'weekly',
       })
     }
   }
-  const blogIndexUrl = `${BASE_URL}/${DEFAULT_LANG}/blog`
+  const blogIndexUrl = langUrl(DEFAULT_LANG, '/blog')
   entries.push({
     url: blogIndexUrl,
     priority: 0.8,
@@ -107,7 +117,7 @@ export async function getSitemapEntries(): Promise<SitemapEntry[]> {
   })
   const slugs = await discoverBlogSlugs()
   for (const slug of slugs) {
-    const url = `${BASE_URL}/${DEFAULT_LANG}/blog/${slug}`
+    const url = langUrl(DEFAULT_LANG, `/blog/${slug}`)
     entries.push({
       url,
       priority: 0.6,

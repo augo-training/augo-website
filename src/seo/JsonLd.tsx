@@ -77,7 +77,7 @@ export function FAQJsonLd({ i18nKey = 'faq.items' }: { i18nKey?: string } = {}) 
 
 // ── Human Edge structured data ──────────────────────────────────────────────
 
-const HUMAN_EDGE_URL = 'https://augotraining.com/en/humanedge'
+const HUMAN_EDGE_URL = 'https://augotraining.com/en/humanedge/'
 
 export function HumanEdgeProgramJsonLd() {
   const schema = {
@@ -201,7 +201,7 @@ export function HumanEdgeBreadcrumbJsonLd() {
         '@type': 'ListItem',
         position: 1,
         name: 'augo',
-        item: 'https://augotraining.com/en',
+        item: 'https://augotraining.com/en/',
       },
       {
         '@type': 'ListItem',
