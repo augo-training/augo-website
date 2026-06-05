@@ -371,8 +371,8 @@
       ],
       "tagline": "Plateaus don't happen because you're not trying hard enough. They happen because optimization has limits.",
       "tagline2": "This is where human coaches come in.",
-      "cta": "Apply now",
-      "deadline": "Applications close May 31"
+      "cta": "Join the waitlist",
+      "deadline": "Applications are closed — join the waitlist for the next cohort"
     },
     "what": {
       "title": "What is it?",
@@ -456,8 +456,10 @@
       ]
     },
     "howToApply": {
-      "title": "How to Apply",
-      "lead": "Three steps. One application.",
+      "title": "Applications Are Closed",
+      "lead": "This round is closed to new applications. Join the waitlist and you'll be first to know when the next Human Edge opens.",
+      "closedBadge": "Closed",
+      "closedNote": "We're selecting the athlete for this round. The next program will be announced to the waitlist first.",
       "applicationLabel": "Application",
       "step1": {
         "label": "Follow",
@@ -482,18 +484,18 @@
     },
     "finalCta": {
       "statusLabel": "Human Edge Initiative",
-      "statusValue": "Status · Open",
-      "deadlineLabel": "Application deadline",
+      "statusValue": "Status · Closed",
+      "deadlineLabel": "Applications closed",
       "deadlineValue": "May 31",
       "note": [
         "A coach does not guarantee a personal best.",
         "But they change your probability of achieving one.",
         "This initiative exists to show how."
       ],
-      "title": ["Applications", "are open."],
-      "subtitle1": "One athlete will be selected.",
-      "subtitle2": "If you've hit a plateau, this is your chance to go beyond it.",
-      "cta": "Apply now",
+      "title": ["Applications", "are closed."],
+      "subtitle1": "One athlete is being selected.",
+      "subtitle2": "Join the waitlist to be first in line for the next Human Edge.",
+      "cta": "Join the waitlist",
       "termsPrefix": "Read more about the program's",
       "termsLink": "terms & conditions",
       "termsSuffix": "here."
@@ -509,15 +511,15 @@
         { "question": "Why human coaching?", "answer": "Because performance isn't just data. It's judgment." },
         { "question": "Will my journey be public?", "answer": "Yes, the full process will be documented." },
         { "question": "How much time does it take?", "answer": "A serious, consistent training commitment." },
-        { "question": "How do I apply?", "answer": "Comment \"Human Edge\" on one of the Human Edge posts on Augo's or Brian's Instagram and follow the instructions in the DM." },
+        { "question": "How do I apply?", "answer": "Applications for this round are now closed. Join the waitlist on this page and we'll notify you first when the next Human Edge program opens." },
         { "question": "How is the athlete selected?", "answer": "Based on experience, plateau, and readiness to be coached." },
         { "question": "What if I'm not selected?", "answer": "You'll be in the loop for future Human Edge programs." },
         { "question": "What's the goal of this initiative?", "answer": "To prove what human coaching changes at the edge of performance." }
       ]
     },
     "modal": {
-      "title": "You're almost in",
-      "subtitle": "Drop your email & we'll share everything you need to know about the program.",
+      "title": "Join the waitlist",
+      "subtitle": "Drop your email and we'll let you know first when the next Human Edge program opens.",
       "cta": "Submit"
     }
   }

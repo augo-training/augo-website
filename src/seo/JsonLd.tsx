@@ -96,7 +96,7 @@ export function HumanEdgeProgramJsonLd() {
       '@type': 'Offer',
       price: '0',
       priceCurrency: 'USD',
-      availability: 'https://schema.org/LimitedAvailability',
+      availability: 'https://schema.org/SoldOut',
     },
     provider: {
       '@type': 'Organization',

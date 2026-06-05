@@ -19,8 +19,8 @@ export default function HumanEdgeFinalCta({ onApply }: HumanEdgeFinalCtaProps) {
                         <p className="font-mono text-[11px] sm:text-[12px] tracking-[3px] uppercase text-white/55">
                             {t('humanEdge.finalCta.statusLabel')}
                         </p>
-                        <p className="font-mono text-[11px] sm:text-[12px] tracking-[3px] uppercase text-[#34D399]">
-                            <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#34D399] mr-2 align-middle animate-pulse" aria-hidden="true" />
+                        <p className="font-mono text-[11px] sm:text-[12px] tracking-[3px] uppercase text-[#FBBF24]">
+                            <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#FBBF24] mr-2 align-middle" aria-hidden="true" />
                             {t('humanEdge.finalCta.statusValue')}
                         </p>
                     </div>

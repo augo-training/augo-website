@@ -7,7 +7,6 @@ import {
     FAQJsonLd,
     HumanEdgeProgramJsonLd,
     HumanEdgeCoachJsonLd,
-    HumanEdgeHowToJsonLd,
     HumanEdgeBreadcrumbJsonLd,
 } from '../seo/JsonLd'
 import EmailCaptureModal from '../components/EmailCaptureModal'
@@ -47,7 +46,6 @@ export default function HumanEdge() {
             <FAQJsonLd i18nKey="humanEdge.faq.items" />
             <HumanEdgeProgramJsonLd />
             <HumanEdgeCoachJsonLd />
-            <HumanEdgeHowToJsonLd />
             <HumanEdgeBreadcrumbJsonLd />
             <Navbar />
             <article>

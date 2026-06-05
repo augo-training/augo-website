@@ -79,17 +79,17 @@ const pageMeta: Record<string, Record<SupportedLanguage, PageMeta>> = {
     en: {
       title: 'The Human Edge: 1 Year of Free Human Marathon Coaching | augo',
       description:
-        'Apply to The Human Edge Initiative: one year of free, personalized human marathon coaching with elite coach Brian Boisvert. For experienced marathoners chasing a real PB in spring 2027.',
+        'Applications are now closed. The Human Edge Initiative pairs one experienced marathoner with elite coach Brian Boisvert for a year of free, personalized coaching — join the waitlist for the next program.',
     },
     de: {
       title: 'The Human Edge: 1 Year of Free Human Marathon Coaching | augo',
       description:
-        'Apply to The Human Edge Initiative: one year of free, personalized human marathon coaching with elite coach Brian Boisvert. For experienced marathoners chasing a real PB in spring 2027.',
+        'Applications are now closed. The Human Edge Initiative pairs one experienced marathoner with elite coach Brian Boisvert for a year of free, personalized coaching — join the waitlist for the next program.',
     },
     pt: {
       title: 'The Human Edge: 1 Year of Free Human Marathon Coaching | augo',
       description:
-        'Apply to The Human Edge Initiative: one year of free, personalized human marathon coaching with elite coach Brian Boisvert. For experienced marathoners chasing a real PB in spring 2027.',
+        'Applications are now closed. The Human Edge Initiative pairs one experienced marathoner with elite coach Brian Boisvert for a year of free, personalized coaching — join the waitlist for the next program.',
     },
   },
 }
