@@ -14,6 +14,7 @@
     "lint": "eslint .",
     "test": "vitest run --config vitest.config.ts",
     "test:watch": "vitest --config vitest.config.ts",
+    "og-image": "node --experimental-strip-types scripts/generate-og-image.ts",
     "preview": "vite preview"
   },
   "dependencies": {
