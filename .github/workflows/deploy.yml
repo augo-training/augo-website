@@ -36,7 +36,7 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          VITE_MAILERLITE_API_KEY: ${{ secrets.VITE_MAILERLITE_API_KEY }}
+          VITE_SIGNUP_WEBHOOK_URL: ${{ secrets.VITE_SIGNUP_WEBHOOK_URL }}
           VITE_MAILERLITE_GROUP_ID: ${{ secrets.VITE_MAILERLITE_GROUP_ID }}
           VITE_MAILERLITE_HUMANEDGE_GROUP_ID: ${{ secrets.VITE_MAILERLITE_HUMANEDGE_GROUP_ID }}
           VITE_MIXPANEL_TOKEN: ${{ secrets.VITE_MIXPANEL_TOKEN }}
