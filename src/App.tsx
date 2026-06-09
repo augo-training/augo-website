@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate, useParams } from 'react-router-dom'
 import LanguageLayout from './components/LanguageLayout'
 import LanguageRedirect from './components/LanguageRedirect'
 import Home from './pages/Home'
@@ -8,8 +8,10 @@ import Pricing from './pages/Pricing'
 import NotFound from './pages/NotFound'
 import CookieConsent from './components/CookieConsent'
 import CountdownBanner from './components/CountdownBanner'
+import ScrollToTop from './components/ScrollToTop'
 import Download from "./pages/Download.tsx";
 import HumanEdge from './pages/HumanEdge'
+import CoachProfile from './pages/CoachProfile'
 import BlogPost from './pages/BlogPost'
 import BlogIndex from './pages/BlogIndex'
 
@@ -18,9 +20,20 @@ import BlogIndex from './pages/BlogIndex'
 // March 26 20:00 CET = March 26 19:00 UTC
 const LAUNCH_DATE = new Date('2026-03-26T19:00:00Z')
 
+function CoachSlugLegacyRedirect() {
+  const { slug } = useParams<{ slug: string }>()
+  return <Navigate to={`/en/coaches/${slug ?? ''}`} replace />
+}
+
+function CoachesIndexToFind() {
+  const { lang } = useParams<{ lang: string }>()
+  return <Navigate to={`/${lang ?? 'en'}/find`} replace />
+}
+
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <CountdownBanner targetDate={LAUNCH_DATE} />
       <Routes>
         {/* Root: redirect to detected language */}
@@ -30,6 +43,8 @@ function App() {
         <Route path="/join" element={<Navigate to="/en/download" replace />} />
         <Route path="/find" element={<Navigate to="/en/find" replace />} />
         <Route path="/humanedge" element={<Navigate to="/en/humanedge" replace />} />
+        <Route path="/coaches" element={<Navigate to="/en/find" replace />} />
+        <Route path="/coaches/:slug" element={<CoachSlugLegacyRedirect />} />
 
         {/* Language-prefixed routes */}
         <Route path="/:lang" element={<LanguageLayout />}>
@@ -39,6 +54,8 @@ function App() {
           <Route path="find" element={<Find />} />
           <Route path="pricing" element={<Pricing />} />
           <Route path="humanedge" element={<HumanEdge />} />
+          <Route path="coaches" element={<CoachesIndexToFind />} />
+          <Route path="coaches/:slug" element={<CoachProfile />} />
           <Route path="blog" element={<BlogIndex />} />
           <Route path="blog/:slug" element={<BlogPost />} />
           <Route path="*" element={<NotFound />} />

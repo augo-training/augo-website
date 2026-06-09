@@ -1,7 +1,7 @@
 // Single source of truth for all routes the site exposes.
 // Used by prerender.ts and generate-sitemap.ts.
 
-import { readdir } from 'node:fs/promises'
+import { readdir, readFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -39,6 +39,25 @@ export interface SitemapEntry {
   changefreq: 'weekly' | 'monthly'
 }
 
+export async function discoverCoachSlugs(): Promise<string[]> {
+  const rosterPath = join(ROOT, 'src/data/coaches/roster.ts')
+  try {
+    const text = await readFile(rosterPath, 'utf8')
+    const slugs = [...text.matchAll(/^\s*slug:\s*'([^']+)'/gm)].map((m) => m[1])
+    return [...new Set(slugs)].sort()
+  } catch (err: unknown) {
+    if (
+      typeof err === 'object' &&
+      err !== null &&
+      'code' in err &&
+      err.code === 'ENOENT'
+    ) {
+      return []
+    }
+    throw err
+  }
+}
+
 export async function discoverBlogSlugs(): Promise<string[]> {
   const blogDir = join(ROOT, 'src/content/blog')
   try {
@@ -69,6 +88,13 @@ export async function getAllPrerenderRoutes(): Promise<string[]> {
   for (const lang of LANGS) {
     for (const path of STATIC_PATHS) {
       routes.push(`/${lang}${path}`)
+    }
+  }
+  // Coach profiles — multilingual, mirroring the find directory.
+  const coachSlugs = await discoverCoachSlugs()
+  for (const lang of LANGS) {
+    for (const slug of coachSlugs) {
+      routes.push(`/${lang}/coaches/${slug}`)
     }
   }
   // Blog posts are English-only at launch (Substack posts are in English).
@@ -104,6 +130,20 @@ export async function getSitemapEntries(): Promise<SitemapEntry[]> {
         alternates: LANGS.map((l) => ({ lang: l, url: langUrl(l, path) })),
         xDefault: langUrl(DEFAULT_LANG, path),
         changefreq: 'weekly',
+      })
+    }
+  }
+  // Coach profiles — multilingual with hreflang alternates.
+  const coachSlugs = await discoverCoachSlugs()
+  for (const slug of coachSlugs) {
+    const path = `/coaches/${slug}`
+    for (const lang of LANGS) {
+      entries.push({
+        url: langUrl(lang, path),
+        priority: 0.8,
+        alternates: LANGS.map((l) => ({ lang: l, url: langUrl(l, path) })),
+        xDefault: langUrl(DEFAULT_LANG, path),
+        changefreq: 'monthly',
       })
     }
   }

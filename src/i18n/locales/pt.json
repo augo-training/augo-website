@@ -154,7 +154,68 @@
     "body": "Responda algumas perguntas sobre seu treino, objetivos e estilo de comunicação. Vamos conectá-lo com o match ideal com base no que mais importa para você.",
     "cookiesRequired": "Cookies necessários",
     "cookiesMessage": "Este formulário usa cookies do Typeform. Por favor, aceite cookies para carregar o formulário.",
-    "acceptCookies": "Aceitar Cookies"
+    "acceptCookies": "Aceitar Cookies",
+    "directory": {
+      "h1": "Encontre o coach perfeito para você.",
+      "subhead": "Treinadores de corrida, ciclismo e triatlon alinhados aos seus objetivos, à sua rotina e ao jeito como você gosta de se comunicar.",
+      "ctaAthlete": "Encontre seu treinador",
+      "ctaCoach": "Sou treinador"
+    },
+    "standard": {
+      "badge": "O Padrão augo",
+      "title": "É isso que os diferencia.",
+      "pillars": [
+        {
+          "label": "Comunicação",
+          "statement": "Eles respondem. Sempre. O relacionamento é o trabalho."
+        },
+        {
+          "label": "Excelência",
+          "statement": "Treinam poucos, e treinam com profundidade."
+        },
+        {
+          "label": "Inteligência emocional",
+          "statement": "Leem o ser humano, não só o relógio."
+        },
+        {
+          "label": "Dados + sensação",
+          "statement": "Como você se sente tem o mesmo peso que potência, pace e FC."
+        },
+        {
+          "label": "Antecipação",
+          "statement": "Fadiga e lesão detectadas cedo, antes de custarem uma temporada."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Suas perguntas respondidas",
+      "items": [
+        {
+          "question": "Como encontro o treinador de endurance certo online?",
+          "answer": "Comece pelo seu esporte e objetivo — corrida, ciclismo ou triatlo — e depois pela sua experiência, sua rotina e o estilo de comunicação que você quer. Na augo você pode pesquisar o diretório de treinadores em linguagem natural (por exemplo, 'um treinador de maratona para mãe ou pai com agenda cheia') ou conversar com a augo, que envia por e-mail os melhores treinadores do nosso roster."
+        },
+        {
+          "question": "Os treinadores da augo treinam remotamente ou online?",
+          "answer": "Sim. A maioria dos treinadores da augo trabalha com atletas online, em qualquer lugar do mundo — com planos de treino, feedback e comunicação diária pelo app. Alguns também treinam presencialmente. O perfil de cada treinador mostra se ele treina remotamente e quais idiomas fala."
+        },
+        {
+          "question": "Quanto custa um treinador online de corrida, ciclismo ou triatlo?",
+          "answer": "Depende do treinador, da experiência e do nível de acompanhamento. Muitos treinadores de endurance cobram uma mensalidade, e os preços iniciais típicos aparecem nos perfis individuais. A augo conecta você diretamente com o treinador para que vocês combinem o que está incluído antes de fechar."
+        },
+        {
+          "question": "Posso ter um treinador para minha primeira maratona ou primeiro IRONMAN?",
+          "answer": "Com certeza. Os treinadores da augo trabalham com todo mundo — de iniciantes a atletas de elite. Seja sua primeira maratona, seu primeiro IRONMAN 70.3 ou uma meta de recorde pessoal, você pode filtrar o roster por disciplina e especialidade e encontrar um treinador que já guiou atletas exatamente nisso."
+        },
+        {
+          "question": "O que devo procurar em um bom treinador de endurance?",
+          "answer": "Procure experiência real na sua disciplina e na sua prova, um estilo de comunicação que combine com você e uma filosofia de treino na qual você acredita. Os melhores treinadores combinam os dados de treino com o que você realmente sente, adaptam o plano à vida real e seguem acessíveis. Cada perfil da augo lista especialidades, credenciais, idiomas e filosofia para você comparar."
+        },
+        {
+          "question": "Como a augo me conecta com um treinador?",
+          "answer": "Conte à augo sobre seu esporte, objetivos, experiência, rotina e o que é mais importante para você em um treinador. A augo pesquisa o roster por disciplina, especialidade, localização e idioma, mostra os melhores matches e apresenta vocês por e-mail para começarem dali."
+        }
+      ]
+    }
   },
   "footer": {
     "tagline1": "Um novo padrão",

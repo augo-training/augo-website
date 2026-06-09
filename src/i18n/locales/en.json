@@ -154,7 +154,68 @@
     "body": "Answer a few questions about your training, goals, and communication style. We'll connect you with the right match based on what matters most to you.",
     "cookiesRequired": "Cookies Required",
     "cookiesMessage": "This form uses cookies from Typeform. Please accept cookies to load the form.",
-    "acceptCookies": "Accept Cookies"
+    "acceptCookies": "Accept Cookies",
+    "directory": {
+      "h1": "Find your endurance coach.",
+      "subhead": "Running, cycling and triathlon coaches matched to your goals, your schedule and the way you like to communicate.",
+      "ctaAthlete": "Find your coach",
+      "ctaCoach": "I'm a coach"
+    },
+    "standard": {
+      "badge": "The augo standard",
+      "title": "Here's what sets them apart.",
+      "pillars": [
+        {
+          "label": "Communication",
+          "statement": "They write back. Always. The relationship is the work."
+        },
+        {
+          "label": "Craft",
+          "statement": "They coach few, and coach them deeply."
+        },
+        {
+          "label": "High EQ",
+          "statement": "They read the human, not just the watch."
+        },
+        {
+          "label": "Data + feel",
+          "statement": "How you feel carries the same weight as power, pace, and HR."
+        },
+        {
+          "label": "Foresight",
+          "statement": "Fatigue and injury caught early, before they cost a season."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Finding your coach — questions, answered.",
+      "items": [
+        {
+          "question": "How do I find the right endurance coach online?",
+          "answer": "Start with your sport and goal — running, cycling or triathlon — then your experience, schedule and the communication style you want. On augo you can search the coach directory in plain English (for example, 'a marathon coach for a busy parent') or chat with augo and we'll email you the closest matches from our roster."
+        },
+        {
+          "question": "Do augo coaches coach remotely or online?",
+          "answer": "Yes. Most augo coaches work with athletes online, anywhere in the world — delivering training plans, feedback and day-to-day communication through the app. Some also coach in person locally. Each coach's profile shows whether they coach remotely and which languages they speak."
+        },
+        {
+          "question": "How much does an online running, cycling or triathlon coach cost?",
+          "answer": "It varies by coach, experience and how hands-on the support is. Many endurance coaches charge a monthly fee, and typical starting prices are listed on individual coach profiles. augo connects you directly with the coach so you can agree on what's included before you commit."
+        },
+        {
+          "question": "Can I get a coach for my first marathon or first IRONMAN?",
+          "answer": "Absolutely. augo coaches work with everyone from complete beginners to elite athletes. Whether it's your first marathon, your first IRONMAN 70.3 or a goal personal best, you can filter the roster by discipline and specialty to find a coach who has guided athletes through exactly that."
+        },
+        {
+          "question": "What should I look for in a good endurance coach?",
+          "answer": "Look for real experience in your discipline and event, a communication style that suits you, and a coaching philosophy you believe in. The best coaches combine training data with how you actually feel, adapt the plan to real life, and stay responsive. Every augo profile lists specialties, credentials, languages and philosophy so you can compare."
+        },
+        {
+          "question": "How does augo match me with a coach?",
+          "answer": "Tell augo about your sport, goals, experience, schedule and what matters most to you in a coach. augo searches the roster across discipline, specialty, location and language, then surfaces your best-fit matches and introduces you over email so you can take it from there."
+        }
+      ]
+    }
   },
   "footer": {
     "tagline1": "A new standard",
