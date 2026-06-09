@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import {
   discoverBlogSlugs,
+  discoverCoachSlugs,
   getAllPrerenderRoutes,
   getSitemapEntries,
   LANGS,
@@ -12,13 +13,23 @@ describe('routes and sitemap', () => {
   it('includes all localized static routes and english-only blog routes', async () => {
     const routes = await getAllPrerenderRoutes()
     const slugs = await discoverBlogSlugs()
+    const coachSlugs = await discoverCoachSlugs()
 
-    // +1 for the /en/blog index route.
-    expect(routes).toHaveLength(LANGS.length * STATIC_PATHS.length + slugs.length + 1)
+    // localized static + localized coach profiles + english-only blog posts
+    // + 1 for the /en/blog index route.
+    expect(routes).toHaveLength(
+      LANGS.length * STATIC_PATHS.length +
+        LANGS.length * coachSlugs.length +
+        slugs.length +
+        1,
+    )
 
     for (const lang of LANGS) {
       for (const path of STATIC_PATHS) {
         expect(routes).toContain(`/${lang}${path}`)
+      }
+      for (const slug of coachSlugs) {
+        expect(routes).toContain(`/${lang}/coaches/${slug}`)
       }
     }
 
