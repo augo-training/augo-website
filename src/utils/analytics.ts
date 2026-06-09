@@ -185,3 +185,35 @@ export async function trackLanguageSwitched(props: { from_language: string; to_l
 export async function trackBillingToggle(props: { billing_period: 'monthly' | 'yearly' }): Promise<void> {
     return track('billing_toggle_switched', props)
 }
+
+// ── Coach matcher chat tracking ──
+
+export async function trackCoachMatchChatOpened(props: { entry_point: string }): Promise<void> {
+    return track('coach_match_chat_opened', props)
+}
+
+export async function trackCoachMatchChatQuestionAnswered(props: {
+    step: string
+    skipped: boolean
+}): Promise<void> {
+    return track('coach_match_chat_question_answered', props)
+}
+
+export async function trackCoachMatchChatCompleted(props: {
+    questions_answered: number
+}): Promise<void> {
+    return track('coach_match_chat_completed', props)
+}
+
+export async function trackCoachMatchChatEmailSubmitted(props: {
+    matches: string[]
+}): Promise<void> {
+    return track('coach_match_chat_email_submitted', props)
+}
+
+export async function trackCoachMatchChatAbandoned(props: {
+    questions_answered: number
+    phase: string
+}): Promise<void> {
+    return track('coach_match_chat_abandoned', props)
+}

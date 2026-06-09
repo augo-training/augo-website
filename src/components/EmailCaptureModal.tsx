@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
-import { trackEmailCaptureSubmitted, trackEmailCaptureFailed } from '../utils/analytics'
+import { trackEmailCaptureSubmitted } from '../utils/analytics'
+import { subscribeToMailerLite } from '../utils/mailerlite'
 
 interface EmailCaptureModalProps {
     isOpen: boolean
@@ -8,6 +9,8 @@ interface EmailCaptureModalProps {
     destinationUrl?: string
     ctaText: string
     groupId?: string
+    /** Extra MailerLite custom fields to store with the subscriber (keyed by field key). */
+    fields?: Record<string, string | number | null>
     onSuccess?: () => void
     title?: string
     subtitle?: string
@@ -20,6 +23,7 @@ export default function EmailCaptureModal({
     destinationUrl,
     ctaText,
     groupId,
+    fields,
     onSuccess,
     title,
     subtitle,
@@ -66,36 +70,7 @@ export default function EmailCaptureModal({
 
         setStatus('loading')
 
-        const apiKey = import.meta.env.VITE_MAILERLITE_API_KEY
-        const effectiveGroupId = groupId ?? import.meta.env.VITE_MAILERLITE_GROUP_ID
-        if (apiKey) {
-            try {
-                const body: Record<string, unknown> = { email }
-                if (effectiveGroupId) body.groups = [effectiveGroupId]
-                const response = await fetch('https://connect.mailerlite.com/api/subscribers', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json',
-                        'Authorization': `Bearer ${apiKey}`,
-                    },
-                    body: JSON.stringify(body),
-                })
-                if (!response.ok) {
-                    const responseText = await response.text().catch(() => '')
-                    console.warn('[EmailCaptureModal] MailerLite API returned non-OK status', {
-                        status: response.status,
-                        body: responseText,
-                        groupId: effectiveGroupId,
-                    })
-                    void trackEmailCaptureFailed({ cta_text: ctaText, status: response.status, error: responseText.slice(0, 200) })
-                }
-            } catch (err) {
-                console.warn('[EmailCaptureModal] MailerLite API network error', err)
-                void trackEmailCaptureFailed({ cta_text: ctaText, status: 'network_error', error: err instanceof Error ? err.message : String(err) })
-            }
-        }
-
+        await subscribeToMailerLite({ email, groupId, fields, ctaText })
         void trackEmailCaptureSubmitted({ email, cta_text: ctaText })
 
         if (onSuccess) {

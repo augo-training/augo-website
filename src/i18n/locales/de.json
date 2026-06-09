@@ -154,7 +154,68 @@
     "body": "Beantworte ein paar Fragen zu deinem Training, deinen Zielen und deinem Kommunikationsstil. Wir verbinden dich mit dem richtigen Match basierend auf dem, was dir am wichtigsten ist.",
     "cookiesRequired": "Cookies erforderlich",
     "cookiesMessage": "Dieses Formular verwendet Cookies von Typeform. Bitte akzeptiere Cookies, um das Formular zu laden.",
-    "acceptCookies": "Cookies akzeptieren"
+    "acceptCookies": "Cookies akzeptieren",
+    "directory": {
+      "h1": "Finde deinen Ausdauercoach.",
+      "subhead": "Coaches fürs Laufen, Radsport und Triathlon, passend zu deinen Zielen, deinem Zeitplan und der Art, wie du kommunizierst.",
+      "ctaAthlete": "Finde deinen Coach",
+      "ctaCoach": "Ich bin Coach"
+    },
+    "standard": {
+      "badge": "Der augo-Standard",
+      "title": "Das macht den Unterschied.",
+      "pillars": [
+        {
+          "label": "Kommunikation",
+          "statement": "Sie antworten. Immer. Die Beziehung ist die Arbeit."
+        },
+        {
+          "label": "Handwerk",
+          "statement": "Sie coachen wenige — und dafür tief."
+        },
+        {
+          "label": "Emotionale Intelligenz",
+          "statement": "Sie lesen den Menschen, nicht nur die Uhr."
+        },
+        {
+          "label": "Daten + Gefühl",
+          "statement": "Wie du dich fühlst, zählt genauso viel wie Watt, Pace und Puls."
+        },
+        {
+          "label": "Weitsicht",
+          "statement": "Ermüdung und Verletzungen früh erkannt, bevor sie eine Saison kosten."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Den richtigen Coach finden — Fragen, beantwortet.",
+      "items": [
+        {
+          "question": "Wie finde ich online den richtigen Ausdauercoach?",
+          "answer": "Beginne mit deiner Sportart und deinem Ziel — Laufen, Radsport oder Triathlon — und dann mit deiner Erfahrung, deinem Zeitplan und deinem gewünschten Kommunikationsstil. Bei augo kannst du das Coach-Verzeichnis in einfacher Sprache durchsuchen (zum Beispiel 'ein Marathon-Coach für berufstätige Eltern') oder mit augo chatten — wir senden dir die besten Matches aus unserem Roster per E-Mail."
+        },
+        {
+          "question": "Coachen die augo-Coaches aus der Ferne oder online?",
+          "answer": "Ja. Die meisten augo-Coaches arbeiten online mit Athletinnen und Athleten weltweit — mit Trainingsplänen, Feedback und täglicher Kommunikation über die App. Manche coachen zusätzlich lokal vor Ort. Jedes Coach-Profil zeigt, ob remote gecoacht wird und welche Sprachen gesprochen werden."
+        },
+        {
+          "question": "Was kostet ein Online-Coach fürs Laufen, Radsport oder Triathlon?",
+          "answer": "Das hängt vom Coach, der Erfahrung und der Intensität der Betreuung ab. Viele Ausdauercoaches berechnen eine monatliche Gebühr; typische Einstiegspreise findest du auf den einzelnen Coach-Profilen. augo verbindet dich direkt mit dem Coach, sodass ihr vor einer Zusage klären könnt, was enthalten ist."
+        },
+        {
+          "question": "Bekomme ich einen Coach für meinen ersten Marathon oder ersten IRONMAN?",
+          "answer": "Auf jeden Fall. augo-Coaches arbeiten mit allen — von kompletten Einsteigern bis zu Elite-Athleten. Ob erster Marathon, erster IRONMAN 70.3 oder eine angestrebte Bestzeit: Du kannst das Roster nach Disziplin und Spezialgebiet filtern und einen Coach finden, der genau dabei schon Athleten begleitet hat."
+        },
+        {
+          "question": "Worauf sollte ich bei einem guten Ausdauercoach achten?",
+          "answer": "Achte auf echte Erfahrung in deiner Disziplin und deinem Wettkampf, einen zu dir passenden Kommunikationsstil und eine Coaching-Philosophie, hinter der du stehst. Die besten Coaches verbinden Trainingsdaten mit deinem tatsächlichen Gefühl, passen den Plan ans echte Leben an und bleiben ansprechbar. Jedes augo-Profil listet Spezialgebiete, Qualifikationen, Sprachen und Philosophie auf, damit du vergleichen kannst."
+        },
+        {
+          "question": "Wie matcht mich augo mit einem Coach?",
+          "answer": "Erzähl augo von deiner Sportart, deinen Zielen, deiner Erfahrung, deinem Zeitplan und dem, was dir bei einem Coach am wichtigsten ist. augo durchsucht das Roster nach Disziplin, Spezialgebiet, Ort und Sprache, zeigt dir die besten Matches und stellt dich per E-Mail vor, sodass ihr direkt loslegen könnt."
+        }
+      ]
+    }
   },
   "footer": {
     "tagline1": "Ein neuer Standard",

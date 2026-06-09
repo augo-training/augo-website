@@ -1,5 +1,9 @@
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
+import { coaches } from '../data/coaches'
+import type { Coach } from '../data/coaches/types'
+import { GENDER_LABEL } from '../data/coaches/types'
+import { BASE_URL } from './seoConstants'
 
 export function OrganizationJsonLd() {
   const schema = {
@@ -212,6 +216,144 @@ export function HumanEdgeBreadcrumbJsonLd() {
     ],
   }
 
+  return (
+    <Helmet>
+      <script type="application/ld+json">{JSON.stringify(schema)}</script>
+    </Helmet>
+  )
+}
+
+// ── Coach Directory structured data ─────────────────────────────────────────
+
+function coachUrl(coach: Coach, lang: string = 'en'): string {
+  return `${BASE_URL}/${lang}/coaches/${coach.slug}`
+}
+
+// Person schema for one coach — WITHOUT @context, so it can be embedded inside
+// the directory's CollectionPage graph. Standalone callers add @context.
+function coachPersonSchema(coach: Coach, lang: string = 'en') {
+  const disciplineLabel = coach.disciplines
+    .map((d) => d.charAt(0).toUpperCase() + d.slice(1))
+    .join(' & ')
+
+  // Advertise the coaching service (and starting price, when known) so answer
+  // engines can field "online <discipline> coach" and "how much" style queries.
+  const offer = {
+    '@type': 'Offer',
+    ...(coach.pricingFrom
+      ? {
+          price: String(coach.pricingFrom.amount),
+          priceCurrency: coach.pricingFrom.currency,
+        }
+      : {}),
+    itemOffered: {
+      '@type': 'Service',
+      serviceType: `${disciplineLabel} coaching`,
+      areaServed: coach.coachesRemote ? 'Worldwide' : coach.location.country,
+    },
+  }
+
+  return {
+    '@type': 'Person',
+    name: coach.name,
+    jobTitle: `${disciplineLabel} Coach`,
+    ...(coach.gender ? { gender: GENDER_LABEL[coach.gender] } : {}),
+    description: coach.bio.short,
+    url: coachUrl(coach, lang),
+    image: coach.media.portrait,
+    knowsAbout: coach.specialties,
+    knowsLanguage: coach.languages.map((l) => l.label),
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: coach.location.city,
+      addressCountry: coach.location.countryCode,
+    },
+    worksFor: { '@type': 'Organization', name: 'augo', url: BASE_URL },
+    makesOffer: offer,
+    hasCredential: coach.credentials.map((c) => ({
+      '@type': 'EducationalOccupationalCredential',
+      name: c,
+    })),
+    ...(coach.socials?.website || coach.socials?.instagram
+      ? {
+          sameAs: [coach.socials?.website, coach.socials?.instagram].filter(
+            Boolean,
+          ),
+        }
+      : {}),
+  }
+}
+
+export function CoachJsonLd({ coach }: { coach: Coach }) {
+  const { i18n } = useTranslation()
+  const lang = i18n.language || 'en'
+  const schema = { '@context': 'https://schema.org', ...coachPersonSchema(coach, lang) }
+  return (
+    <Helmet>
+      <script type="application/ld+json">{JSON.stringify(schema)}</script>
+    </Helmet>
+  )
+}
+
+export function FindJsonLd() {
+  const { i18n } = useTranslation()
+  const lang = i18n.language || 'en'
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Find an Endurance Coach — augo',
+    description:
+      "Browse augo's roster of online running, cycling and triathlon coaches and find one matched to your goals, schedule and communication style.",
+    url: `${BASE_URL}/${lang}/find`,
+    isPartOf: { '@type': 'WebSite', name: 'augo', url: BASE_URL },
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: coaches.length,
+      itemListElement: coaches.map((coach, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        url: coachUrl(coach, lang),
+        item: coachPersonSchema(coach, lang),
+      })),
+    },
+  }
+  return (
+    <Helmet>
+      <script type="application/ld+json">{JSON.stringify(schema)}</script>
+    </Helmet>
+  )
+}
+
+export function CoachBreadcrumbJsonLd() {
+  const { i18n } = useTranslation()
+  const lang = i18n.language || 'en'
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'augo', item: `${BASE_URL}/${lang}` },
+      { '@type': 'ListItem', position: 2, name: 'Find a Coach', item: `${BASE_URL}/${lang}/find` },
+    ],
+  }
+  return (
+    <Helmet>
+      <script type="application/ld+json">{JSON.stringify(schema)}</script>
+    </Helmet>
+  )
+}
+
+export function CoachProfileBreadcrumbJsonLd({ coach }: { coach: Coach }) {
+  const { i18n } = useTranslation()
+  const lang = i18n.language || 'en'
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'augo', item: `${BASE_URL}/${lang}` },
+      { '@type': 'ListItem', position: 2, name: 'Find a Coach', item: `${BASE_URL}/${lang}/find` },
+      { '@type': 'ListItem', position: 3, name: coach.name, item: coachUrl(coach, lang) },
+    ],
+  }
   return (
     <Helmet>
       <script type="application/ld+json">{JSON.stringify(schema)}</script>
