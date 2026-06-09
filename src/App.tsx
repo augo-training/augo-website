@@ -8,6 +8,7 @@ import Pricing from './pages/Pricing'
 import NotFound from './pages/NotFound'
 import CookieConsent from './components/CookieConsent'
 import CountdownBanner from './components/CountdownBanner'
+import ScrollToTop from './components/ScrollToTop'
 import Download from "./pages/Download.tsx";
 import HumanEdge from './pages/HumanEdge'
 import CoachProfile from './pages/CoachProfile'
@@ -32,6 +33,7 @@ function CoachesIndexToFind() {
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <CountdownBanner targetDate={LAUNCH_DATE} />
       <Routes>
         {/* Root: redirect to detected language */}
