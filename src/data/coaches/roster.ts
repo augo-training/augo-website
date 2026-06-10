@@ -4,6 +4,7 @@ import brianPortrait from '../../assets/images/Brian.png'
 import brianHero from '../../assets/images/brian-hero.webp'
 import marcoPortrait from '../../assets/images/Marco.webp'
 import meganPortrait from '../../assets/images/Megan.png'
+import meganTobinPortrait from '../../assets/images/MeganTobin.png'
 import mikaelPortrait from '../../assets/images/Mikael.png'
 import markusPortrait from '../../assets/images/Markus.png'
 import paoloPortrait from '../../assets/images/Paolo.png'
@@ -1110,5 +1111,42 @@ export const coaches: Coach[] = [
         pricingFrom: { currency: 'USD', amount: 260, period: 'month' },
         media: { portrait: placeholderPortrait },
         socials: { website: 'https://www.breakaway-coaching.com' },
+    },
+    {
+        slug: 'megan-tobin',
+        name: 'Megan Tobin',
+        firstName: 'Megan',
+        gender: 'female',
+        tagline:
+            'Whole-athlete endurance coach blending nutrition, strength and mindset — for long-course and adventure junkies.',
+        isFoundingCoach: true,
+        status: 'accepting',
+        disciplines: ['triathlon', 'running', 'cycling'],
+        specialties: [
+            'short-course triathlon',
+            'long-course triathlon',
+            'multi-day events',
+            'marathon swimming',
+            'trail running',
+            'road running',
+            'cycling',
+        ],
+        location: { city: 'Boulder', country: 'United States', countryCode: 'US', timezone: 'America/Denver' },
+        coachesRemote: true,
+        languages: [EN],
+        credentials: ['TrainingPeaks Level 2', 'Strength training certified'],
+        bio: {
+            short:
+                'Coaches the whole athlete — nutrition, strength and mindset — with a focus on women and motivated endurance athletes.',
+            long: [
+                'Megan is a certified short- and long-course triathlon specialist who coaches the whole athlete, consulting on nutrition, strength and mindset alongside the training plan.',
+                'She specialises in coaching women and motivated athletes, and her range runs from multi-day cycling and running events to marathon swimming.',
+                'Available 24/7 to her athletes, she works with dedicated endurance athletes of any experience level — particularly long-course and adventure junkies.',
+            ],
+            philosophy: 'Coach the whole athlete. Nutrition, strength and mindset belong in the plan too.',
+        },
+        pricingFrom: { currency: 'USD', amount: 345, period: 'month' },
+        media: { portrait: meganTobinPortrait },
+        socials: { website: 'https://www.tmtcoaching.com' },
     },
 ]
