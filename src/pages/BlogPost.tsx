@@ -88,7 +88,7 @@ export default function BlogPost() {
         {post.coverImage && (
           <img
             src={post.coverImage}
-            alt=""
+            alt={post.coverImageAlt ?? ''}
             className="w-full rounded-2xl mb-12"
             loading="eager"
           />
