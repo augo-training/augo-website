@@ -6,6 +6,7 @@ export interface BlogPostData {
   datePublished: string
   dateModified?: string
   coverImage?: string
+  coverImageAlt?: string
   bodyHtml: string
   substackUrl?: string
   tags?: string[]
