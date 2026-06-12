@@ -464,6 +464,33 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://augotraining.com/en/coaches/gordon-crawford/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://augotraining.com/en/coaches/gordon-crawford/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://augotraining.com/de/coaches/gordon-crawford/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://augotraining.com/pt/coaches/gordon-crawford/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://augotraining.com/en/coaches/gordon-crawford/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://augotraining.com/de/coaches/gordon-crawford/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://augotraining.com/en/coaches/gordon-crawford/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://augotraining.com/de/coaches/gordon-crawford/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://augotraining.com/pt/coaches/gordon-crawford/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://augotraining.com/en/coaches/gordon-crawford/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://augotraining.com/pt/coaches/gordon-crawford/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://augotraining.com/en/coaches/gordon-crawford/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://augotraining.com/de/coaches/gordon-crawford/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://augotraining.com/pt/coaches/gordon-crawford/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://augotraining.com/en/coaches/gordon-crawford/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://augotraining.com/en/coaches/gregory-narmont/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://augotraining.com/en/coaches/gregory-narmont/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://augotraining.com/de/coaches/gregory-narmont/" />
@@ -730,6 +757,33 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://augotraining.com/de/coaches/megan-edwards/" />
     <xhtml:link rel="alternate" hreflang="pt" href="https://augotraining.com/pt/coaches/megan-edwards/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://augotraining.com/en/coaches/megan-edwards/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://augotraining.com/en/coaches/megan-tobin/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://augotraining.com/en/coaches/megan-tobin/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://augotraining.com/de/coaches/megan-tobin/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://augotraining.com/pt/coaches/megan-tobin/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://augotraining.com/en/coaches/megan-tobin/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://augotraining.com/de/coaches/megan-tobin/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://augotraining.com/en/coaches/megan-tobin/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://augotraining.com/de/coaches/megan-tobin/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://augotraining.com/pt/coaches/megan-tobin/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://augotraining.com/en/coaches/megan-tobin/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://augotraining.com/pt/coaches/megan-tobin/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://augotraining.com/en/coaches/megan-tobin/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://augotraining.com/de/coaches/megan-tobin/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://augotraining.com/pt/coaches/megan-tobin/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://augotraining.com/en/coaches/megan-tobin/" />
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1079,6 +1133,11 @@
   </url>
   <url>
     <loc>https://augotraining.com/en/blog/future-of-coaching/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://augotraining.com/en/blog/kraichgau-70-3-race-report/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

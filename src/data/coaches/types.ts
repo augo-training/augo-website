@@ -28,12 +28,6 @@ export interface CoachLanguage {
     label: string // e.g. 'English'
 }
 
-export interface CoachPricing {
-    currency: string // 'USD', 'EUR', 'CHF'
-    amount: number
-    period: 'month' | 'block'
-}
-
 export interface CoachMedia {
     portrait: string
     hero?: string
@@ -69,7 +63,8 @@ export interface Coach {
         philosophy: string
     }
     testimonials?: CoachTestimonial[]
-    pricingFrom?: CoachPricing
+    // Coach pricing is intentionally not modeled here: anything in this data
+    // file ships to the browser and gets scraped. Keep rates off the website.
     media: CoachMedia
     socials?: CoachSocials
 }
