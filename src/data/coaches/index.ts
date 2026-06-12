@@ -6,6 +6,7 @@ import { coaches as rawCoaches } from './roster'
 const FOUNDING_ORDER: string[] = [
     'marco-altini',
     'andrea-salvisberg',
+    'gordon-crawford',
     'bevan-mckinnon',
     'brian-boisvert',
     'markus-lombardini',

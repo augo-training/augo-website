@@ -236,16 +236,10 @@ function coachPersonSchema(coach: Coach, lang: string = 'en') {
     .map((d) => d.charAt(0).toUpperCase() + d.slice(1))
     .join(' & ')
 
-  // Advertise the coaching service (and starting price, when known) so answer
-  // engines can field "online <discipline> coach" and "how much" style queries.
+  // Advertise the coaching service so answer engines can field "online
+  // <discipline> coach" queries. Pricing is deliberately never published.
   const offer = {
     '@type': 'Offer',
-    ...(coach.pricingFrom
-      ? {
-          price: String(coach.pricingFrom.amount),
-          priceCurrency: coach.pricingFrom.currency,
-        }
-      : {}),
     itemOffered: {
       '@type': 'Service',
       serviceType: `${disciplineLabel} coaching`,
