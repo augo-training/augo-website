@@ -35,8 +35,8 @@ export default function Find() {
                     searchResults={searchResults}
                     searchSlot={<CoachSearchBar onResults={setSearchResults} />}
                 />
-                <FindFaq />
                 <CoachApplyBand />
+                <FindFaq />
             </main>
             <Footer />
         </>

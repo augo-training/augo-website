@@ -17,3 +17,13 @@ export type MatchingFormSource =
 export function matchingFormUrl(source: MatchingFormSource): string {
     return `${MATCHING_FORM_BASE}?source=${encodeURIComponent(source)}`
 }
+
+/**
+ * Dedicated founding coach application form (separate Typeform from the
+ * shared matching form above). Source-tagged the same way for attribution.
+ */
+const FOUNDING_FORM_BASE = 'https://augo.typeform.com/to/oykIVYQo'
+
+export function foundingFormUrl(): string {
+    return `${FOUNDING_FORM_BASE}?source=founding-band`
+}
