@@ -10,9 +10,9 @@ import marcoPhoto from '../assets/images/Marco.webp?w=128&h=128&format=webp'
 import brianPhoto from '../assets/images/Brian.png?w=128&h=128&format=webp'
 import meganPhoto from '../assets/images/Megan.png?w=128&h=128&format=webp'
 import paoloPhoto from '../assets/images/Paolo.png?w=128&h=128&format=webp'
-import nellPhoto from '../assets/images/Nell.png?w=128&h=128&format=webp'
 import stefPhoto from '../assets/images/Stef.png?w=128&h=128&format=webp'
 import markusPhoto from '../assets/images/Markus.png?w=128&h=128&format=webp'
+import janaPhoto from '../assets/images/Jana.png?w=128&h=128&format=webp'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -47,10 +47,10 @@ const testimonials: Testimonial[] = [
     },
     {
         quote:
-            "I'm a proud augo founding coach. I use it to improve how I communicate, monitor, and track my athletes.",
-        name: 'Nell Rojas',
-        role: 'Former Pro-Runner & Coach',
-        photo: nellPhoto,
+            'What impressed me most about augo is that it doesn’t try to replace the coach: it strengthens the coach. By bringing training data, athlete feedback and communication into one place, it helps me quickly identify patterns and focus on the insights that matter most. For me, the real value is simple: less time spent managing information and more time spent coaching people. That’s where great coaching happens.',
+        name: 'Jana Perrone',
+        role: 'Triathlon Coach',
+        photo: janaPhoto,
     },
     {
         quote:
