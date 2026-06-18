@@ -1031,6 +1031,33 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://augotraining.com/en/coaches/sander-berk/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://augotraining.com/en/coaches/sander-berk/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://augotraining.com/de/coaches/sander-berk/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://augotraining.com/pt/coaches/sander-berk/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://augotraining.com/en/coaches/sander-berk/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://augotraining.com/de/coaches/sander-berk/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://augotraining.com/en/coaches/sander-berk/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://augotraining.com/de/coaches/sander-berk/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://augotraining.com/pt/coaches/sander-berk/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://augotraining.com/en/coaches/sander-berk/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://augotraining.com/pt/coaches/sander-berk/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://augotraining.com/en/coaches/sander-berk/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://augotraining.com/de/coaches/sander-berk/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://augotraining.com/pt/coaches/sander-berk/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://augotraining.com/en/coaches/sander-berk/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://augotraining.com/en/coaches/stef-vanhaeren/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://augotraining.com/en/coaches/stef-vanhaeren/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://augotraining.com/de/coaches/stef-vanhaeren/" />

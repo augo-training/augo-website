@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import type { Coach } from '../../data/coaches/types'
 import DisciplineIcons, { DISCIPLINE_LABEL } from '../coachDirectory/DisciplineIcons'
 import FoundingBadge from '../coachDirectory/FoundingBadge'
+import placeholderPortrait from '../../assets/images/brian-profile.webp'
 
 interface Props {
     coach: Coach
@@ -60,8 +61,11 @@ export default function CoachHero({ coach, onContact }: Props) {
         </p>
     )
 
-    // Founding coach — featured portrait, two columns.
-    if (coach.isFoundingCoach) {
+    // A real portrait (founding coaches, or others with dedicated photography)
+    // gets the featured two-column layout. The founding badge only shows for
+    // actual founding coaches.
+    const hasPortrait = coach.media.portrait !== placeholderPortrait
+    if (hasPortrait) {
         return (
             <section className="w-full pt-32 pb-12 sm:pt-40 sm:pb-16 px-5 sm:px-8 bg-dark texture-grain">
                 <div className="max-w-[1200px] mx-auto flex flex-col gap-10">
@@ -70,7 +74,7 @@ export default function CoachHero({ coach, onContact }: Props) {
                     <div className="flex flex-col gap-6 order-2 lg:order-1">
                         <div className="flex items-center gap-4 flex-wrap">
                             {eyebrow}
-                            <FoundingBadge size="md" />
+                            {coach.isFoundingCoach && <FoundingBadge size="md" />}
                         </div>
                         <h1 className="font-satoshi font-bold text-[44px] sm:text-[64px] lg:text-[80px] leading-[98%] tracking-[-0.03em] text-white">
                             {coach.name}
@@ -94,7 +98,7 @@ export default function CoachHero({ coach, onContact }: Props) {
         )
     }
 
-    // Non-founding (no photo) — brand gradient cover band.
+    // No dedicated photo yet — brand gradient cover band.
     return (
         <section className="w-full pt-28 pb-12 sm:pt-32 sm:pb-16 px-5 sm:px-8 bg-dark texture-grain">
             <div className="max-w-[1200px] mx-auto flex flex-col gap-8">
