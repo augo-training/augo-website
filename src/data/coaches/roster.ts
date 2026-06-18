@@ -19,6 +19,7 @@ import peterPortrait from '../../assets/images/Peter.png'
 import andersonPortrait from '../../assets/images/Anderson.png'
 import gordonPortrait from '../../assets/images/Gordon.png'
 import maxPortrait from '../../assets/images/Max.png'
+import sanderPortrait from '../../assets/images/Sander.png'
 // Generic placeholder for coaches without dedicated photography yet.
 import placeholderPortrait from '../../assets/images/brian-profile.webp'
 
@@ -34,6 +35,7 @@ const BG: CoachLanguage = { code: 'bg', flag: '🇧🇬', label: 'Bulgarian' }
 const SV: CoachLanguage = { code: 'sv', flag: '🇸🇪', label: 'Swedish' }
 const GSW: CoachLanguage = { code: 'gsw', flag: '🇨🇭', label: 'Swiss German' }
 const MT: CoachLanguage = { code: 'mt', flag: '🇲🇹', label: 'Maltese' }
+const AF: CoachLanguage = { code: 'af', flag: '🇿🇦', label: 'Afrikaans' }
 
 export const coaches: Coach[] = [
     {
@@ -1153,5 +1155,47 @@ export const coaches: Coach[] = [
                 'Engage, enable, educate and empower — for athletes who invest in the process, work smart and grow.',
         },
         media: { portrait: gordonPortrait },
+    },
+    {
+        slug: 'sander-berk',
+        name: 'Sander Berk',
+        firstName: 'Sander',
+        gender: 'male',
+        tagline:
+            'Former Olympic triathlete coaching across triathlon, running and cycling — building athletes who outgrow their coach.',
+        isFoundingCoach: false,
+        status: 'accepting',
+        disciplines: ['triathlon', 'running', 'cycling'],
+        specialties: [
+            'triathlon',
+            'road running',
+            'trail running',
+            'cycling',
+            'Paralympic cycling',
+            'Paralympic triathlon',
+            'strength training',
+        ],
+        location: { city: 'Geleen', country: 'The Netherlands', countryCode: 'NL', timezone: 'Europe/Amsterdam' },
+        coachesRemote: true,
+        languages: [EN, DE, FR, NL, AF],
+        credentials: [
+            'MSc in Human Movement Science',
+            'Former Olympic triathlete (Beijing 2008)',
+        ],
+        notableResults: [
+            'Olympic triathlete — Beijing 2008',
+            'Coached within the national federations of Luxembourg and the Netherlands since 2010',
+        ],
+        bio: {
+            short:
+                'Former Olympic triathlete and Human Movement Science MSc who coaches with athletes, not just for them.',
+            long: [
+                'Sander is a former Olympic triathlete (Beijing 2008) with an MSc in Human Movement Science, and has worked within the national federations of Luxembourg and the Netherlands since 2010.',
+                'He coaches triathlon, road and trail running, cycling, and Paralympic cycling and triathlon — across essentially any distance and discipline — and incorporates strength training and certified coaching practice.',
+                "He likes to work with athletes, not just for them: his ideal athlete is a self-sufficient intermediate with a strong work ethic, willing to learn and to share experiences and feelings. 'No news is good news', and he favours doing what works over chasing the latest fad. He is available to his athletes 24/7.",
+            ],
+            philosophy: 'Work with athletes, not just for them — my goal is to make myself obsolete.',
+        },
+        media: { portrait: sanderPortrait },
     },
 ]
