@@ -1198,4 +1198,44 @@ export const coaches: Coach[] = [
         },
         media: { portrait: sanderPortrait },
     },
+    {
+        slug: 'pete-wilby',
+        name: 'Pete Wilby',
+        firstName: 'Pete',
+        gender: 'male',
+        tagline:
+            'Sports-science-led triathlon and open-water swimming coach — kind, encouraging, and big on trusting the process.',
+        isFoundingCoach: false,
+        status: 'accepting',
+        disciplines: ['triathlon', 'running'],
+        specialties: [
+            'triathlon (sprint to Ironman)',
+            'open-water swimming',
+            'swimming',
+            'running (short to ultra)',
+            'strength training',
+        ],
+        location: { city: 'Dawlish', country: 'United Kingdom', countryCode: 'GB', timezone: 'Europe/London' },
+        coachesRemote: true,
+        languages: [EN],
+        credentials: [
+            'Sports science background (University of Exeter)',
+            'British Triathlon Federation (BTF) Level 3 Coach',
+            'STA Level 2 Open Water Coach',
+            'TrainingPeaks Level 2 Coach',
+        ],
+        yearsCoaching: 15,
+        bio: {
+            short:
+                'Conscientious, sports-science-led triathlon and open-water swimming coach who aims to be kind and encouraging.',
+            long: [
+                'Pete is an experienced triathlon and open-water swimming coach with a sports science background from the University of Exeter and over 15 years of coaching.',
+                'He coaches triathlon from sprint through to Ironman and running from short distances through to ultra, includes strength training, and typically communicates with his athletes on a weekly basis. He works best with intermediate athletes.',
+                'A conscientious planner, he values athletes who are coachable, show grit, and trust the coaching process to work through challenges and weaknesses — staying open to changing their perspective along the way.',
+            ],
+            philosophy: 'Be kind, be encouraging, and trust the process — coachable athletes with grit go furthest.',
+        },
+        media: { portrait: placeholderPortrait },
+        socials: { website: 'https://petewilbytriathlon.co.uk' },
+    },
 ]
