@@ -245,7 +245,9 @@
     "secs": "seg"
   },
   "launchOffer": {
-    "text": "Oferta de lançamento · <1>{{price}}/mês</1> atletas ilimitados"
+    "text": "<1>{{price}}/mês</1> atletas ilimitados",
+    "daysLeft_one": "resta {{count}} dia",
+    "daysLeft_other": "restam {{count}} dias"
   },
   "cookies": {
     "message": "Usamos cookies de terceiros para melhorar sua experiência.",
@@ -302,6 +304,8 @@
     "annual": "Anual",
     "annualBadge": "Economize 15%",
     "freeTierTagline": "Até 2 atletas",
+    "earlyBirdDaysLeft_one": "resta {{count}} dia com este preço",
+    "earlyBirdDaysLeft_other": "restam {{count}} dias com este preço",
     "alwaysFreeNote": "0-2 atletas: sempre gratuito.",
     "earlyAccessBanner": "Gratuito para todos os coaches até 27 de abril de 2026 — experimente o augo com atletas ilimitados, sem cartão de crédito.",
     "earlyAccessRibbon": "Promoção: Grátis até 26 de abril de 2026",

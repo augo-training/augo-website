@@ -57,3 +57,12 @@ export function getPricingTier(countryCode: string): PricingTier {
     if (EU_COUNTRIES.includes(code)) return EU_TIER
     return GLOBAL_TIER
 }
+
+// End of the early-bird window. Pricing changes Aug 15, 2026.
+export const EARLY_BIRD_END_DATE = new Date('2026-08-15T22:00:00Z') // ~midnight CEST
+
+export function getEarlyBirdDaysLeft(now: Date = new Date()): number {
+    const ms = EARLY_BIRD_END_DATE.getTime() - now.getTime()
+    if (ms <= 0) return 0
+    return Math.ceil(ms / (1000 * 60 * 60 * 24)) // ceil → shows "1 day left" on the final day
+}
