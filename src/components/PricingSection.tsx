@@ -5,7 +5,7 @@ import { gsap } from 'gsap'
 import { Check, MessageCircle, ClipboardList, Bot, ListChecks, BarChart2 } from 'lucide-react'
 import bgSection1 from '../assets/images/bg_section_1.webp'
 import { useGeoCountry } from '../hooks/useGeoCountry'
-import { getPricingTier } from '../config/pricingConfig'
+import { getPricingTier, getEarlyBirdDaysLeft } from '../config/pricingConfig'
 import {
     getUtmParams,
     trackPricingPageViewed,
@@ -126,6 +126,7 @@ export default function PricingSection() {
     const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly')
     const isYearly = billingPeriod === 'yearly'
     const YEARLY_DISCOUNT = 0.85
+    const earlyBirdDaysLeft = getEarlyBirdDaysLeft()
 
     const localizedCountryName = useMemo(() => {
         if (!countryCode) return ''
@@ -366,6 +367,22 @@ export default function PricingSection() {
                                                 {t(isYearly ? 'pricing.flat.periodAnnual' : 'pricing.flat.period')}
                                             </span>
                                         </div>
+                                        {earlyBirdDaysLeft > 0 && (
+                                            <div className="inline-flex items-center gap-2 self-start rounded-full px-3 py-1"
+                                                style={{
+                                                    background: 'rgba(255, 85, 20, 0.08)',
+                                                    border: '1px solid rgba(255, 202, 30, 0.28)',
+                                                }}>
+                                                <span className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+                                                    style={{
+                                                        background: 'linear-gradient(83.9deg, #C50017 0%, #FF5514 55%, #FFCA1E 100%)',
+                                                        boxShadow: '0 0 8px rgba(255, 138, 30, 0.6)',
+                                                    }} />
+                                                <span className="font-mono text-[10px] sm:text-[11px] tracking-[1.5px] uppercase text-white/80 leading-none">
+                                                    {t('pricing.earlyBirdDaysLeft', { count: earlyBirdDaysLeft })}
+                                                </span>
+                                            </div>
+                                        )}
                                     </div>
                                     <ul className="flex flex-col gap-3 flex-1">
                                         <li className="font-mono text-[12px] tracking-[1px] uppercase text-[#969EA7] mb-1">

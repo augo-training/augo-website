@@ -245,7 +245,9 @@
     "secs": "Sek"
   },
   "launchOffer": {
-    "text": "Launch-Angebot · <1>{{price}}/Monat</1> unbegrenzt Athleten"
+    "text": "<1>{{price}}/Monat</1> unbegrenzt Athleten",
+    "daysLeft_one": "noch {{count}} Tag",
+    "daysLeft_other": "noch {{count}} Tage"
   },
   "cookies": {
     "message": "Wir verwenden Drittanbieter-Cookies, um dein Erlebnis zu verbessern.",
@@ -302,6 +304,8 @@
     "annual": "Jährlich",
     "annualBadge": "Spare 15%",
     "freeTierTagline": "Bis zu 2 Athleten",
+    "earlyBirdDaysLeft_one": "noch {{count}} Tag zu diesem Preis",
+    "earlyBirdDaysLeft_other": "noch {{count}} Tage zu diesem Preis",
     "alwaysFreeNote": "0-2 Athleten: immer kostenlos.",
     "earlyAccessBanner": "Bis zum 27. April 2026 kostenlos für alle Coaches — teste augo mit unbegrenzt vielen Athleten, ohne Kreditkarte.",
     "earlyAccessRibbon": "Startangebot: Kostenlos bis 26. April 2026",

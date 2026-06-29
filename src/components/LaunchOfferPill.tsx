@@ -1,6 +1,6 @@
 import { Trans, useTranslation } from 'react-i18next'
 import { useGeoCountry } from '../hooks/useGeoCountry'
-import { getPricingTier } from '../config/pricingConfig'
+import { getPricingTier, getEarlyBirdDaysLeft } from '../config/pricingConfig'
 import { useEmailCapture } from '../contexts/EmailCaptureContext'
 import { trackCtaClicked } from '../utils/analytics'
 
@@ -14,6 +14,9 @@ export default function LaunchOfferPill({ className = '' }: LaunchOfferPillProps
     const { openModal } = useEmailCapture()
 
     if (loading || !countryCode) return null
+
+    const daysLeft = getEarlyBirdDaysLeft()
+    if (daysLeft <= 0) return null
 
     const tier = getPricingTier(countryCode)
     const formattedPrice = `${tier.symbol}${tier.price}`
@@ -30,7 +33,7 @@ export default function LaunchOfferPill({ className = '' }: LaunchOfferPillProps
                 background: 'rgba(255, 85, 20, 0.08)',
                 border: '1px solid rgba(255, 202, 30, 0.28)',
             }}
-            aria-label="View launch pricing"
+            aria-label="View early bird pricing"
         >
             <span
                 className="w-1.5 h-1.5 rounded-full flex-shrink-0"
@@ -44,19 +47,11 @@ export default function LaunchOfferPill({ className = '' }: LaunchOfferPillProps
                     i18nKey="launchOffer.text"
                     values={{ price: formattedPrice }}
                     components={{
-                        1: (
-                            <span
-                                className="font-bold"
-                                style={{
-                                    background: 'linear-gradient(83.9deg, #FF5514 0%, #FFCA1E 100%)',
-                                    WebkitBackgroundClip: 'text',
-                                    WebkitTextFillColor: 'transparent',
-                                    backgroundClip: 'text',
-                                }}
-                            />
-                        ),
+                        1: <span className="font-bold" />,
                     }}
                 />
+                {' · '}
+                {t('launchOffer.daysLeft', { count: daysLeft })}
             </span>
         </button>
     )
