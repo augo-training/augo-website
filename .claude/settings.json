@@ -1,0 +1,10 @@
+{
+  "extraKnownMarketplaces": {
+    "augo-plugins": {
+      "source": { "source": "github", "repo": "augo-training/augo-shared" }
+    }
+  },
+  "enabledPlugins": {
+    "augo@augo-plugins": true
+  }
+}
