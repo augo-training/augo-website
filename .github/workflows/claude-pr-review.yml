@@ -1,0 +1,42 @@
+name: Claude PR Review
+
+# Review mechanics and style (checkout, hiding stale comments, the review format,
+# and the critical-issue gate) live in the shared reusable workflow
+# augo-training/augo-shared/.github/workflows/claude-review.yml — this file only
+# defines the triggers and the project-specific context.
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+# Dedup rapid pushes to the same PR (the reusable job can't own this safely).
+concurrency:
+  group: claude-review-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  review:
+    # The reusable workflow needs these; a caller can only grant permissions it
+    # has, and this repo's default GITHUB_TOKEN is read-only, so declare them here.
+    permissions:
+      contents: read
+      pull-requests: write
+    uses: augo-training/augo-shared/.github/workflows/claude-review.yml@main
+    secrets:
+      CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+    with:
+      fail_on_critical: true
+      project_context: |
+        This is the augo-website project: a React 19 + Vite + TypeScript marketing/content website (yarn) with static prerendering (vite build + prerender + sitemap).
+
+        Enforce these project conventions:
+        - yarn only (no npm/npx)
+        - TypeScript strict; React 19 hook correctness (exhaustive deps in
+          useEffect/useCallback/useMemo)
+        - Tailwind CSS v4 for styling; avoid inline hardcoded style values
+        - react-router-dom v7 routing patterns
+        - i18next for all user-facing copy — no hardcoded UI strings
+        - Sanitize any HTML rendered via dangerouslySetInnerHTML with DOMPurify (no XSS)
+        - Don't break the build/prerender pipeline (vite build + scripts/prerender + sitemap)
+        - No hardcoded secrets or API keys (use import.meta.env)
+        - Adequate test coverage for new logic (vitest)
