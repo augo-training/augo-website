@@ -88,7 +88,7 @@ export default function CoachGrid({ coaches, searchResults, excludeFounding = fa
                     <div className="flex items-baseline justify-between gap-6 flex-wrap">
                         <h2
                             id="coach-roster-title"
-                            className="font-satoshi font-bold text-[28px] sm:text-[36px] lg:text-[44px] leading-[110%] tracking-[-0.02em] text-white"
+                            className="font-satoshi font-bold text-[28px] sm:text-[36px] lg:text-[44px] leading-[110%] tracking-[-0.02em] text-white scroll-mt-24"
                         >
                             {searchResults
                                 ? 'Matches from the roster.'
