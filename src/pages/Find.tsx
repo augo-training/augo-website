@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import SEOHead from '../seo/SEOHead'
@@ -15,10 +16,22 @@ import type { CoachSearchResult } from '../utils/coachSearch'
 
 export default function Find() {
     const [searchResults, setSearchResults] = useState<CoachSearchResult[] | null>(null)
+    const location = useLocation()
 
     useEffect(() => {
         trackFindPageViewed()
     }, [])
+
+    // Scroll to hash section when navigating from another page or a deep link
+    // (e.g. /find#coach-roster-title, used by the mobile app webview).
+    useEffect(() => {
+        if (location.hash) {
+            requestAnimationFrame(() => {
+                const el = document.querySelector(location.hash)
+                if (el) el.scrollIntoView({ behavior: 'smooth' })
+            })
+        }
+    }, [location.hash])
 
     return (
         <>
