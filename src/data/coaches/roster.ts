@@ -1238,4 +1238,40 @@ export const coaches: Coach[] = [
         media: { portrait: placeholderPortrait },
         socials: { website: 'https://petewilbytriathlon.co.uk' },
     },
+    {
+        slug: 'pablo-marcos',
+        name: 'Pablo Marcos',
+        firstName: 'Pablo',
+        gender: 'male',
+        tagline:
+            'Detail-obsessed endurance coach for high-performance triathletes and ultra runners — building trust and chasing ambitious goals together.',
+        isFoundingCoach: false,
+        status: 'accepting',
+        disciplines: ['triathlon', 'running', 'cycling'],
+        specialties: [
+            'triathlon (sprint to Ironman)',
+            'trail running (up to ultra — UTMB, Western States)',
+            'road running',
+            'cycling',
+            'swimming',
+            'strength training',
+        ],
+        location: { city: 'Amsterdam', country: 'Netherlands', countryCode: 'NL', timezone: 'Europe/Amsterdam' },
+        coachesRemote: true,
+        languages: [EN, PT, ES],
+        credentials: ['Certified endurance coach'],
+        bio: {
+            short:
+                'Open-minded, extroverted endurance coach who lives in the details — building trust with athletes chasing ambitious goals.',
+            long: [
+                'Pablo is the coach behind Pro Endurance Lab, working with athletes across triathlon (sprint to Ironman), road and trail running up to ultras such as UTMB and Western States, cycling and swimming, with strength training built in.',
+                'An open-minded extrovert who loves learning, he obsesses over the smallest details to keep improving his athletes’ plans, while building a genuine connection of trust along the way. He coaches remotely and is based between Amsterdam, Lanzarote and London.',
+                'He works best with high-performance-minded, elite and pro athletes who commit to their goals, learn through the process, keep a good life balance, communicate openly, and treat feedback as a way to grow. He makes himself available to his athletes 24/7.',
+            ],
+            philosophy:
+                'Sweat the smallest details, build real trust, and chase ambitious goals — feedback is how we grow.',
+        },
+        media: { portrait: placeholderPortrait },
+        socials: { website: 'https://www.proendurancelab.com' },
+    },
 ]
