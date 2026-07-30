@@ -1,0 +1,48 @@
+{
+  "slug": "garmin-acquires-trainingpeaks-what-it-means-for-coaches",
+  "title": "Garmin Acquires TrainingPeaks and TrainHeroic: What It Means for Coaches",
+  "description": "Garmin acquired TrainingPeaks and TrainHeroic on July 22, 2026. augo co-founder and CEO Bruna on what the deal changes for endurance coaches — and the principles augo commits to: coach-first, device-agnostic, and your data stays yours.",
+  "author": {
+    "name": "Bruna, augo Co-founder & CEO"
+  },
+  "datePublished": "2026-07-29T00:00:00.000Z",
+  "dateModified": "2026-07-30T00:00:00.000Z",
+  "coverImage": "/blog/garmin-acquires-trainingpeaks-what-it-means-for-coaches/cover.jpg",
+  "coverImageAlt": "A runner cresting a steep road at sunrise, with a city skyline and harbour glowing in the distance behind them.",
+  "bodyHtml": "<p>Dear augo community,</p><p>Garmin acquired <strong>TrainingPeaks</strong> and <strong>TrainHeroic</strong> on July 22, 2026. Needless to say, this is a major move in the industry.</p><h2><strong>In this article</strong></h2><ul><li><p>What the Garmin acquisition of TrainingPeaks and TrainHeroic means for endurance coaches, and what is still an open question.</p></li><li><p>Why the coaching software market was due for a change, and what we owe to the platforms that built it.</p></li><li><p>The era we think comes next: coaches working with AI, seeing beyond power and zones, and spending more time talking to athletes.</p></li><li><p>The five principles augo commits to — coach-first, device-agnostic, data ownership, whole-athlete data, and serious UX/UI.</p></li></ul><h2><strong>What happens next is an open question</strong></h2><p>Whether TrainingPeaks tilts toward Garmin devices, or Garmin tilts toward AI coaching, we don't know. What we do know is that the market is changing. And we think it's about time.</p><p>Technology today is nothing like it was 20 years ago, when TrainingPeaks started. What they built was revolutionary, and the value they created for coaches around the world is worth celebrating.</p><h2><strong>The next era of coaching software</strong></h2><p>But their technology is not what will bring coaches into the next era. The era where coaches work with AI to deliver even higher quality coaching. The era where coaches see beyond power numbers, threshold values, and zones, and account for athlete feel, psychology, and nutrition. The era where coaches spend less time on manual work and clicking, and more time talking to their athletes. We are here to make that happen.</p><p>We know this is an uncertain moment for some, but we want to assure you that this move only opens room for what comes next, and we are here to build it: from coaches, with coaches, for coaches.</p><h2><strong>Principles we stand by</strong></h2><ul><li><p><strong>augo is coach-first by design.</strong> We will never use coach data to train models served directly to athletes.</p></li><li><p><strong>augo is device-agnostic.</strong> Garmin, Coros, Polar, Wahoo, Zwift: all equal.</p></li><li><p><strong>You own your data at augo</strong>, and you can export it in full, any time.</p></li><li><p><strong>augo goes beyond what wearables collect.</strong> Power, pace, and heart rate are one part of coaching. Feel, nutrition, and recovery data let coaches see the whole athlete.</p></li><li><p><strong>augo invests heavily in UX/UI</strong>, because coaches and athletes both deserve a frictionless experience.</p></li></ul><h2><strong>It's early days</strong></h2><p>It's early days, but we are confident we're building the future of coaching. If you want to learn more about augo, our roadmap, our vision, or anything in between, reach out — I'd love to talk.</p><p>Warm regards,</p><p><strong>Bruna, Co-founder &amp; CEO</strong></p><h2><strong>Further reading</strong></h2><ul><li><p><a href=\"/en/blog/why-im-building-augo\">Why I'm building augo</a></p></li><li><p><a href=\"/en/blog/future-of-coaching\">Will AI replace endurance coaches? The future of coaching</a></p></li><li><p><a href=\"/en/blog/the-limits-of-ai-coaching\">The limits of AI training plans</a></p></li><li><p><a href=\"/en/blog/the-search-for-athlete-context-subjective\">The search for athlete context: why subjective feedback matters</a></p></li></ul>",
+  "tags": [
+    "Garmin",
+    "TrainingPeaks",
+    "TrainHeroic",
+    "coaching software",
+    "endurance coaching",
+    "AI coaching",
+    "augo"
+  ],
+  "faqs": [
+    {
+      "question": "Did Garmin acquire TrainingPeaks and TrainHeroic?",
+      "answer": "Yes. Garmin announced on July 22, 2026 that it had acquired both TrainingPeaks and TrainHeroic, the endurance and strength training platforms used by coaches and athletes. Financial terms were not disclosed."
+    },
+    {
+      "question": "What does the Garmin acquisition of TrainingPeaks mean for coaches?",
+      "answer": "It is still an open question. TrainingPeaks may tilt toward Garmin devices, or Garmin may tilt toward AI coaching — neither direction has been confirmed. What is clear is that the coaching software market is changing, and coaches now have a good reason to look at what alternatives commit to."
+    },
+    {
+      "question": "Is augo tied to a specific device brand like Garmin?",
+      "answer": "No. augo is device-agnostic by design. Garmin, Coros, Polar, Wahoo, and Zwift are all treated equally, so a coach's roster is never split by which watch or head unit each athlete happens to own."
+    },
+    {
+      "question": "Does augo use coach data to train AI models?",
+      "answer": "augo is coach-first by design and will never use coach data to train models served directly to athletes. Coaches own their data on augo and can export it in full at any time."
+    },
+    {
+      "question": "What data does augo capture beyond wearables?",
+      "answer": "Power, pace, and heart rate are only one part of coaching. augo also captures how the athlete felt, plus nutrition and recovery data, so the coach can see the whole athlete rather than just the numbers a device records."
+    },
+    {
+      "question": "Is there an alternative to TrainingPeaks for endurance coaches?",
+      "answer": "augo is being built as a coach-first, device-agnostic coaching platform: full data ownership and export, subjective athlete feedback alongside device data, and a strong focus on UX/UI so coaches spend less time clicking and more time coaching."
+    }
+  ]
+}
