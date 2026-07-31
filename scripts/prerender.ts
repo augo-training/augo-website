@@ -20,6 +20,28 @@ const INTER_ROUTE_DELAY_MS = 150
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 
+// Puppeteer ships its own Chrome, which is what we use locally and in GitHub
+// Actions (the ubuntu-latest runner has the system libraries it links against).
+// Vercel's build image does not — that Chrome fails to start with
+// "libnspr4.so: cannot open shared object file". @sparticuz/chromium carries a
+// Chromium build plus those libraries and unpacks them to /tmp, so we point
+// Puppeteer at that binary instead when building on Vercel.
+async function launchOptions(): Promise<Parameters<typeof puppeteer.launch>[0]> {
+  if (!process.env.VERCEL) {
+    return { headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox'] }
+  }
+
+  const { default: chromium } = await import('@sparticuz/chromium')
+  return {
+    headless: true,
+    // chromium.args is tuned for Lambda, where memory is scarce and a function
+    // renders one page. We render 148 routes on a 30-core build machine, and
+    // --single-process makes a browser that long-lived prone to hanging.
+    args: chromium.args.filter((arg) => arg !== '--single-process'),
+    executablePath: await chromium.executablePath(),
+  }
+}
+
 async function prerenderRouteOnce(
   browser: Browser,
   baseUrl: string,
@@ -99,10 +121,7 @@ async function main() {
   if (!baseUrl) throw new Error('Failed to start vite preview server')
   console.log(`  preview server: ${baseUrl}`)
 
-  const browser = await puppeteer.launch({
-    headless: true,
-    args: ['--no-sandbox', '--disable-setuid-sandbox'],
-  })
+  const browser = await puppeteer.launch(await launchOptions())
 
   try {
     for (const route of routes) {
