@@ -923,6 +923,33 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://augotraining.com/en/coaches/pablo-marcos/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://augotraining.com/en/coaches/pablo-marcos/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://augotraining.com/de/coaches/pablo-marcos/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://augotraining.com/pt/coaches/pablo-marcos/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://augotraining.com/en/coaches/pablo-marcos/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://augotraining.com/de/coaches/pablo-marcos/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://augotraining.com/en/coaches/pablo-marcos/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://augotraining.com/de/coaches/pablo-marcos/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://augotraining.com/pt/coaches/pablo-marcos/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://augotraining.com/en/coaches/pablo-marcos/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://augotraining.com/pt/coaches/pablo-marcos/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://augotraining.com/en/coaches/pablo-marcos/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://augotraining.com/de/coaches/pablo-marcos/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://augotraining.com/pt/coaches/pablo-marcos/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://augotraining.com/en/coaches/pablo-marcos/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://augotraining.com/en/coaches/paolo-gaffurini/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://augotraining.com/en/coaches/paolo-gaffurini/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://augotraining.com/de/coaches/paolo-gaffurini/" />
@@ -973,6 +1000,33 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://augotraining.com/de/coaches/patrick-hunkeler/" />
     <xhtml:link rel="alternate" hreflang="pt" href="https://augotraining.com/pt/coaches/patrick-hunkeler/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://augotraining.com/en/coaches/patrick-hunkeler/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://augotraining.com/en/coaches/pete-wilby/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://augotraining.com/en/coaches/pete-wilby/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://augotraining.com/de/coaches/pete-wilby/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://augotraining.com/pt/coaches/pete-wilby/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://augotraining.com/en/coaches/pete-wilby/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://augotraining.com/de/coaches/pete-wilby/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://augotraining.com/en/coaches/pete-wilby/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://augotraining.com/de/coaches/pete-wilby/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://augotraining.com/pt/coaches/pete-wilby/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://augotraining.com/en/coaches/pete-wilby/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://augotraining.com/pt/coaches/pete-wilby/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://augotraining.com/en/coaches/pete-wilby/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://augotraining.com/de/coaches/pete-wilby/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://augotraining.com/pt/coaches/pete-wilby/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://augotraining.com/en/coaches/pete-wilby/" />
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1154,12 +1208,22 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://augotraining.com/en/blog/adding-quality-to-workouts/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://augotraining.com/en/blog/coaching-through-the-cycle/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://augotraining.com/en/blog/future-of-coaching/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://augotraining.com/en/blog/garmin-acquires-trainingpeaks-what-it-means-for-coaches/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
