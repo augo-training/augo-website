@@ -1,6 +1,13 @@
 export interface BlogPostData {
   slug: string
   title: string
+  /**
+   * Optional <title>/og:title override. The on-page H1 is often longer than
+   * what fits a SERP listing, so SEO-targeted posts can ship a shorter,
+   * keyword-front-loaded title here. Used verbatim — add "| augo" yourself if
+   * you want it. Falls back to `${title} | augo`.
+   */
+  seoTitle?: string
   description: string
   author: { name: string; url?: string }
   datePublished: string

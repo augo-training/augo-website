@@ -50,7 +50,7 @@ export default function BlogPost() {
     <>
       <SEOHead
         path={`/blog/${post.slug}`}
-        title={`${post.title} | augo`}
+        title={post.seoTitle ?? `${post.title} | augo`}
         description={post.description}
         ogImagePath={post.coverImage}
         ogType="article"
