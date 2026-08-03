@@ -1274,4 +1274,44 @@ export const coaches: Coach[] = [
         media: { portrait: placeholderPortrait },
         socials: { website: 'https://www.proendurancelab.com' },
     },
+    {
+        slug: 'jose-aristides-molinos',
+        name: 'Jose Aristides Molinos',
+        firstName: 'Jose',
+        gender: 'male',
+        tagline:
+            'Endurance coach for runners, cyclists, triathletes and swimmers who want individualised training and long-term progression.',
+        isFoundingCoach: false,
+        status: 'accepting',
+        disciplines: ['triathlon', 'running', 'cycling'],
+        specialties: [
+            'triathlon (short to long course)',
+            'road running',
+            'trail running (short to ultra)',
+            'cycling',
+            'swimming',
+            'strength training',
+        ],
+        location: { city: 'Gáldar', country: 'Spain', countryCode: 'ES', timezone: 'Atlantic/Canary' },
+        coachesRemote: true,
+        languages: [ES],
+        credentials: [
+            'Triathlon Coach Level 3',
+            'Long Distance Specialist Coach',
+            'Superior Technician in Physical and Sports Activities',
+        ],
+        yearsCoaching: 20,
+        bio: {
+            short:
+                'Endurance coach focused on individualised training, evidence-based methods and sustainable progress.',
+            long: [
+                'Jose is an endurance coach based in Gáldar, Gran Canaria, with two decades spent competing and coaching across triathlon, road and trail running, cycling and swimming.',
+                'He coaches triathlon from short through to long course and running from short distances through to ultras, with strength training built in, and works with athletes from beginner level upwards. He makes himself available to his athletes 24/7.',
+                'His focus is individualised training, performance development and long-term progression — he works best with motivated endurance athletes who enjoy the process, train consistently, and are looking for structure or a new endurance challenge.',
+            ],
+            philosophy:
+                'Individualise the training, trust the evidence, and build progress that lasts.',
+        },
+        media: { portrait: placeholderPortrait },
+    },
 ]
