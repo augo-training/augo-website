@@ -1,3 +1,7 @@
+// FALLBACK ONLY: displayed prices are sourced from the backend
+// (GET /billing/plans via src/utils/planPricing.ts, INV-7). These hardcoded
+// tiers remain solely as the fallback while billing is not yet enabled in
+// production or the API is unreachable. Remove once billing is GA.
 export type PricingBucket = 'ch' | 'eu' | 'br' | 'global'
 
 export interface PricingTier {

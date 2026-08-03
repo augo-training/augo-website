@@ -4,8 +4,8 @@ import { useParams } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { Check, MessageCircle, ClipboardList, Bot, ListChecks, BarChart2 } from 'lucide-react'
 import bgSection1 from '../assets/images/bg_section_1.webp'
-import { useGeoCountry } from '../hooks/useGeoCountry'
-import { getPricingTier, getEarlyBirdDaysLeft } from '../config/pricingConfig'
+import { usePlanPricing } from '../hooks/usePlanPricing'
+import { getEarlyBirdDaysLeft } from '../config/pricingConfig'
 import {
     getUtmParams,
     trackPricingPageViewed,
@@ -119,8 +119,7 @@ export default function PricingSection() {
     const { i18n: i18nObj } = useTranslation()
     const currentLang = lang || i18nObj.language || 'en'
 
-    const { countryCode, loading } = useGeoCountry()
-    const pricingTier = getPricingTier(countryCode ?? '')
+    const { tier: pricingTier, source: pricingSource, countryCode, loading } = usePlanPricing()
     const { openModal } = useEmailCapture()
 
     const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly')
@@ -185,7 +184,7 @@ export default function PricingSection() {
 
     // Why-cards stagger on scroll
 
-    // Fire page-view event once country resolves
+    // Fire page-view event once pricing resolves (country + backend price)
     useEffect(() => {
         if (loading) return
         void trackPricingPageViewed({
@@ -193,6 +192,7 @@ export default function PricingSection() {
             pricing_bucket: pricingTier.bucket,
             pricing_currency: pricingTier.currency,
             pricing_amount: pricingTier.price,
+            pricing_source: pricingSource,
             ...getUtmParams(),
         })
     }, [loading]) // eslint-disable-line react-hooks/exhaustive-deps
