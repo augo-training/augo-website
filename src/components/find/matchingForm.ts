@@ -6,7 +6,7 @@
  * Opened as a plain new-tab link (no inline embed, no third-party script on our
  * page). Update the base URL here if the form ever moves.
  */
-const MATCHING_FORM_BASE = 'https://augo.typeform.com/to/CdJ3pQgD'
+const MATCHING_FORM_BASE = 'https://form.typeform.com/to/CdJ3pQgD'
 
 export type MatchingFormSource =
     | 'athlete-hero'
@@ -22,7 +22,7 @@ export function matchingFormUrl(source: MatchingFormSource): string {
  * Dedicated founding coach application form (separate Typeform from the
  * shared matching form above). Source-tagged the same way for attribution.
  */
-const FOUNDING_FORM_BASE = 'https://augo.typeform.com/to/oykIVYQo'
+const FOUNDING_FORM_BASE = 'https://form.typeform.com/to/oykIVYQo'
 
 export function foundingFormUrl(): string {
     return `${FOUNDING_FORM_BASE}?source=founding-band`
