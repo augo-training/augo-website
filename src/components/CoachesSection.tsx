@@ -10,10 +10,8 @@ import coachesImg1_5 from '../assets/images/img_section_coaches_1_5.png'
 import coachesImg1_6 from '../assets/images/img_section_coaches_1_6.png'
 import coachesImg1_7 from '../assets/images/img_section_coaches_1_7.png'
 import carouselImgBg from '../assets/images/carousel_img_bg.webp'
-import coachesImg2_1 from '../assets/images/img_section_coaches_2_1.png'
-import coachesImg2_2 from '../assets/images/img_section_coaches_2_2.png'
-import coachesImg3_1 from '../assets/images/img_section_coaches_3_1.png'
-import coachesImg3_2 from '../assets/images/img_section_coaches_3_2.png'
+import coachesImg2 from '../assets/images/img_section_coaches_2.png?w=786&format=webp'
+import coachesImg3 from '../assets/images/img_section_coaches_3.png?w=652&format=webp'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -37,13 +35,13 @@ const panelImages: PanelImage[][] = [
     ],
     [
         { src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' },
-        { src: coachesImg2_1, className: 'absolute top-[15%] left-[30%] w-[50%] z-10' },
-        { src: coachesImg2_2, className: 'absolute top-[60%] left-[15%] w-[65%] z-10' },
+        // below md the phone is top-anchored and sized by width, so the container
+        // crops off its lower third — keeps the screenshot legible on small viewports
+        { src: coachesImg2, className: 'absolute inset-x-0 top-0 mx-auto w-[75%] md:inset-y-0 md:my-auto md:w-auto md:h-[90%] z-10' },
     ],
     [
         { src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' },
-        { src: coachesImg3_1, className: 'absolute top-[15%] left-[18%] w-[50%] z-10' },
-        { src: coachesImg3_2, className: 'absolute top-[53%] left-[32%] w-[50%] z-10' },
+        { src: coachesImg3, className: 'absolute inset-0 m-auto w-auto h-[90%] z-10' },
     ],
 ]
 
