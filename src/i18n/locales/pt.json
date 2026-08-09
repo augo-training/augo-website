@@ -88,17 +88,8 @@
     "title": "FAQ",
     "items": [
       {
-        "question": "Quando a augo será lançada?",
-        "answer": "augo está disponível na App Store e Google Play para um grupo seleto de usuários Beta desde novembro de 2025. augo estará disponível para todos os usuários em março de 2026. O acesso será liberado em ondas e os usuários na lista de espera terão preços especiais. Atletas podem entrar através do seu coach.",
-        "linkText": "Entre na lista de espera"
-      },
-      {
         "question": "Quanto custa a augo?",
-        "answer": "augo oferece planos de preços flexíveis para coaches e atletas. Membros da lista de espera receberão preços especiais de acesso antecipado. Visite nossa página de preços ou entre na lista de espera para os detalhes mais recentes."
-      },
-      {
-        "question": "Quais são os benefícios da lista de espera?",
-        "answer": "Entrar na lista de espera dá acesso prioritário à augo, preços introdutórios especiais e a oportunidade de moldar o produto com seu feedback durante a fase de acesso antecipado."
+        "answer": "Até o final de agosto de 2026, a augo custa {{price}} por mês para atletas ilimitados — esse é o nosso preço early bird."
       },
       {
         "question": "A augo vai substituir coaches?",
@@ -106,11 +97,7 @@
       },
       {
         "question": "Atletas podem usar a augo sem um coach?",
-        "answer": "Atletas podem entrar na augo através do seu coach. A plataforma é construída em torno da relação coach-atleta, melhorando a comunicação e fornecendo insights baseados em dados para ambos."
-      },
-      {
-        "question": "Como a IA da augo analisa treinos?",
-        "answer": "A IA da augo processa dados de treino de dispositivos e plataformas populares, combinando métricas de desempenho com informações contextuais para entregar insights e recomendações personalizadas."
+        "answer": "Não. A experiência é feita para atletas que trabalham com um coach. Atletas que treinam por conta própria precisam criar uma conta de coach e uma conta de atleta e conectá-las entre si."
       },
       {
         "question": "Por que escolher a augo em vez de apps de coaching com IA?",

@@ -5,9 +5,9 @@ import { trackCtaClicked } from '../utils/analytics'
 import LaunchOfferPill from './LaunchOfferPill'
 import { useEmailCapture } from '../contexts/EmailCaptureContext'
 import bgSection1 from '../assets/images/bg_section_1.webp'
-import imgHome from '../assets/images/home.png'
-import imgAthlete from '../assets/images/athlete_home.png'
-import imgCoach from '../assets/images/coach_home.png'
+import imgWeb from '../assets/images/app_web_dashboard.png?w=1400&format=webp'
+import imgSignals from '../assets/images/app_athlete_signals.png?w=560&format=webp'
+import imgAssistant from '../assets/images/app_assistant.png?w=560&format=webp'
 
 const WORD_DURATION = 3 // seconds each word is visible
 const FADE_DURATION = 0.4 // seconds for fade in/out
@@ -122,37 +122,48 @@ export default function Hero() {
             rotateTl.to({}, { duration: WORD_DURATION })
         }
 
-        // 5. Mockups floating animation — different speeds for depth
-        const homeImg = mockups.querySelector('.mockup-home')
-        const athleteImg = mockups.querySelector('.mockup-athlete')
-        const coachImg = mockups.querySelector('.mockup-coach')
+        // 5. Mockups — phones fan out on entrance, then float at different speeds for depth
+        const webImg = mockups.querySelector<HTMLElement>('.mockup-web')
+        const leftImg = mockups.querySelector<HTMLElement>('.mockup-left')
+        const rightImg = mockups.querySelector<HTMLElement>('.mockup-right')
+        const phones = [webImg, leftImg, rightImg].filter(Boolean) as HTMLElement[]
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-        if (homeImg) {
-            gsap.to(homeImg, {
-                y: -10,
-                duration: 6,
-                ease: 'sine.inOut',
-                yoyo: true,
-                repeat: -1,
+        // Tracked so they can be killed on cleanup — the effect re-runs on language change
+        const floatTweens: gsap.core.Tween[] = []
+        let entranceTween: gsap.core.Tween | null = null
+        let driftTl: gsap.core.Timeline | null = null
+
+        const startFloats = () => {
+            const floats: [HTMLElement | null, number, number][] = [
+                [webImg, -8, 6.5],
+                [leftImg, -14, 5],
+                [rightImg, -11, 5.8],
+            ]
+            floats.forEach(([el, y, duration]) => {
+                if (!el) return
+                floatTweens.push(gsap.to(el, { y, duration, ease: 'sine.inOut', yoyo: true, repeat: -1 }))
             })
         }
-        if (athleteImg) {
-            gsap.to(athleteImg, {
-                y: -14,
-                duration: 5,
-                ease: 'sine.inOut',
-                yoyo: true,
-                repeat: -1,
+
+        if (phones.length > 0 && !prefersReducedMotion) {
+            gsap.set(phones, { opacity: 0, scale: 0.92, y: 28 })
+            entranceTween = gsap.to(phones, {
+                opacity: 1,
+                scale: 1,
+                y: 0,
+                duration: 0.9,
+                ease: 'power3.out',
+                stagger: 0.12,
+                delay: 0.35,
+                onComplete: startFloats,
             })
         }
-        if (coachImg) {
-            gsap.to(coachImg, {
-                y: -12,
-                duration: 5.5,
-                ease: 'sine.inOut',
-                yoyo: true,
-                repeat: -1,
-            })
+
+        const killMockupTweens = () => {
+            entranceTween?.kill()
+            floatTweens.forEach((tween) => tween.kill())
+            driftTl?.kill()
         }
 
         // 6. Glow mouse-follow (desktop) — set up event listeners
@@ -161,7 +172,7 @@ export default function Hero() {
         if (isMobile) {
             // Mobile: simple ambient drift behind mockups
             gsap.set(glow, { opacity: 0.7 })
-            const driftTl = gsap.timeline({ repeat: -1, yoyo: true })
+            driftTl = gsap.timeline({ repeat: -1, yoyo: true })
             driftTl.to(glow, {
                 x: 30,
                 y: -20,
@@ -213,6 +224,7 @@ export default function Hero() {
             return () => {
                 tl.kill()
                 rotateTl.kill()
+                killMockupTweens()
                 section.removeEventListener('mousemove', handleMouseMove)
                 section.removeEventListener('mouseenter', handleMouseEnter)
                 section.removeEventListener('mouseleave', handleMouseLeave)
@@ -223,6 +235,7 @@ export default function Hero() {
         return () => {
             tl.kill()
             rotateTl.kill()
+            killMockupTweens()
             cancelAnimationFrame(rafId.current)
         }
     }, [i18n.language]) // eslint-disable-line react-hooks/exhaustive-deps
@@ -336,15 +349,15 @@ export default function Hero() {
                 </div>
 
                 {/* Right: App Mockups */}
-                <div ref={mockupsRef} className="relative z-10 w-full max-w-[300px] sm:max-w-[400px] md:max-w-[620px] lg:w-[420px] xl:w-[620px] lg:max-w-none aspect-[620/580] flex-shrink-0">
-                    {/* Static gradient glow behind mockups */}
+                <div ref={mockupsRef} className="relative z-10 w-full max-w-[340px] sm:max-w-[440px] md:max-w-[620px] lg:w-[420px] xl:w-[620px] lg:max-w-none aspect-[620/580] flex-shrink-0" style={{ perspective: '1400px' }}>
+                    {/* Static gradient glow behind mockups — warm core behind the web window */}
                     <div
                         className="absolute pointer-events-none"
                         style={{
-                            width: '106%',
-                            height: '106%',
-                            top: '50%',
-                            left: '70%',
+                            width: '100%',
+                            height: '100%',
+                            top: '38%',
+                            left: '55%',
                             transform: 'translate(-50%, -50%)',
                             borderRadius: '50%',
                             background: 'radial-gradient(circle, rgba(255,202,30,0.5) 0%, rgba(255,85,20,0.3) 35%, rgba(197,0,23,0.15) 65%, transparent 100%)',
@@ -352,13 +365,14 @@ export default function Hero() {
                             zIndex: 0,
                         }}
                     />
+                    {/* Low wash spanning beneath both phones */}
                     <div
                         className="absolute pointer-events-none"
                         style={{
-                            width: '106%',
-                            height: '69%',
-                            top: '30%',
-                            left: '20%',
+                            width: '120%',
+                            height: '50%',
+                            top: '80%',
+                            left: '50%',
                             transform: 'translate(-50%, -50%)',
                             borderRadius: '50%',
                             background: 'radial-gradient(circle, rgba(255,202,30,0.5) 0%, rgba(255,85,20,0.3) 35%, rgba(197,0,23,0.15) 65%, transparent 100%)',
@@ -366,40 +380,48 @@ export default function Hero() {
                             zIndex: 0,
                         }}
                     />
-                    {/* home.png — main dashboard (back, largest) */}
+                    {/* Web app — flat anchor at the back */}
                     <img
-                        src={imgHome}
-                        alt="augo Coach Dashboard"
-                        className="mockup-home absolute rounded-2xl shadow-2xl"
+                        src={imgWeb}
+                        alt="augo web app — coach dashboard with athlete profile, training zones and chat"
+                        className="mockup-web absolute block rounded-[14px]"
                         style={{
                             width: '100%',
                             top: 0,
-                            right: 0,
+                            left: 0,
                             zIndex: 1,
+                            border: '1px solid rgba(255,255,255,0.10)',
+                            boxShadow: '0 30px 80px -20px rgba(0,0,0,0.75)',
                         }}
                     />
-                    {/* athlete_home.png — phone on the left */}
+                    {/* Athlete signals — behind, angled in */}
                     <img
-                        src={imgAthlete}
-                        alt="augo Athlete App"
-                        className="mockup-athlete absolute rounded-2xl shadow-2xl"
+                        src={imgSignals}
+                        alt="augo athlete signals"
+                        className="mockup-left absolute rounded-[24px] shadow-2xl"
                         style={{
-                            width: '30.6%',
-                            bottom: '13.8%',
-                            left: '-9.7%',
-                            zIndex: 3,
+                            width: '25%',
+                            bottom: '10%',
+                            left: '-3%',
+                            zIndex: 2,
+                            transform: 'rotateY(10deg) rotate(-2deg)',
+                            filter: 'brightness(0.85)',
+                            border: '1px solid rgba(255,255,255,0.08)',
                         }}
                     />
-                    {/* coach_home.png — phone center/below */}
+                    {/* Assistant — forward, bracketing the window's right edge */}
                     <img
-                        src={imgCoach}
-                        alt="augo Coach App"
-                        className="mockup-coach absolute rounded-2xl shadow-2xl"
+                        src={imgAssistant}
+                        alt="augo AI coaching assistant"
+                        className="mockup-right absolute rounded-[24px]"
                         style={{
-                            width: '30.6%',
-                            bottom: 0,
-                            left: '16.1%',
+                            width: '28%',
+                            bottom: '-2%',
+                            right: '-3%',
                             zIndex: 3,
+                            transform: 'rotateY(-10deg) rotate(2deg)',
+                            border: '1px solid rgba(255,255,255,0.10)',
+                            boxShadow: '0 30px 80px -20px rgba(0,0,0,0.75)',
                         }}
                     />
                 </div>

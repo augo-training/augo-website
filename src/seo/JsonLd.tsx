@@ -4,6 +4,7 @@ import { coaches } from '../data/coaches'
 import type { Coach } from '../data/coaches/types'
 import { GENDER_LABEL } from '../data/coaches/types'
 import { BASE_URL } from './seoConstants'
+import { getPricingTier } from '../config/pricingConfig'
 
 export function OrganizationJsonLd() {
   const schema = {
@@ -59,15 +60,19 @@ export function FAQJsonLd({ i18nKey = 'faq.items' }: { i18nKey?: string } = {}) 
     answer: string
   }>
 
+  // Fixed global tier, not a geo lookup: prerendered schema must be deterministic
+  const tier = getPricingTier('US')
+  const price = `${tier.symbol}${tier.price}`
+
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: items.map((item) => ({
+    mainEntity: items.map((item, index) => ({
       '@type': 'Question',
       name: item.question,
       acceptedAnswer: {
         '@type': 'Answer',
-        text: item.answer,
+        text: t(`${i18nKey}.${index}.answer`, { price }),
       },
     })),
   }
