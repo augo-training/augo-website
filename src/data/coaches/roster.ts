@@ -20,6 +20,7 @@ import andersonPortrait from '../../assets/images/Anderson.png'
 import gordonPortrait from '../../assets/images/Gordon.png'
 import maxPortrait from '../../assets/images/Max.png'
 import sanderPortrait from '../../assets/images/Sander.png'
+import amandaPortrait from '../../assets/images/Amanda.png'
 // Generic placeholder for coaches without dedicated photography yet.
 import placeholderPortrait from '../../assets/images/brian-profile.webp'
 
@@ -61,12 +62,16 @@ export const coaches: Coach[] = [
             'Strength and Conditioning for Endurance Athletes',
             'Cycling Coach Certification',
         ],
-        yearsCoaching: 2,
         notableResults: [
             '50+ publications on HRV, training load, injury risk, VO2max',
             'Co-founder of HRV4Training',
             'Practicing ultrarunner',
         ],
+        yearsCoaching: 2,
+        athleteLevels: ['Beginner', 'Intermediate', 'Advanced'],
+        communication: 'always-on',
+        offersStrength: true,
+        idealAthlete: 'Motivated runners who care about the process and their long-term health',
         bio: {
             short:
                 'Honest, curious, grounded. Marco coaches runners who care about process and long-term health.',
@@ -95,6 +100,10 @@ export const coaches: Coach[] = [
         languages: [EN],
         credentials: ['RRCA Certified Coach', 'Doctor of Physical Therapy (DPT)'],
         yearsCoaching: 4,
+        athleteLevels: ['Intermediate', 'Advanced'],
+        communication: 'weekly',
+        offersStrength: false,
+        idealAthlete: 'Recreational runners chasing a first or faster half or full marathon',
         bio: {
             short:
                 'Megan keeps runners healthy on the way to PRs — DPT-trained, race-goal focused, weekly check-ins.',
@@ -126,6 +135,10 @@ export const coaches: Coach[] = [
             'Registered Yoga Teacher (RYT 200)',
         ],
         yearsCoaching: 6,
+        athleteLevels: ['Intermediate'],
+        communication: 'weekly',
+        offersStrength: true,
+        idealAthlete: 'Runners who already run regularly and are ready to train more seriously',
         bio: {
             short:
                 'Soft, joyful coaching with sharp running results. Brian builds runners for the long arc — and the long run.',
@@ -155,6 +168,10 @@ export const coaches: Coach[] = [
         languages: [GSW, DE],
         credentials: ['Certified triathlon coach', 'Strength training certified'],
         yearsCoaching: 15,
+        athleteLevels: ['Beginner', 'Intermediate', 'Advanced', 'Elite/Pro'],
+        communication: 'always-on',
+        offersStrength: true,
+        idealAthlete: 'Focused athletes who stay curious about their training',
         bio: {
             short:
                 'Fifteen years coaching across triathlon, running and swimming — from beginner up to elite.',
@@ -165,7 +182,7 @@ export const coaches: Coach[] = [
             philosophy: 'Focused, interested athletes go furthest. Show up, stay curious.',
         },
         media: { portrait: manuelPortrait },
-        socials: { website: 'https://team-wyss.ch' },
+        socials: { website: 'https://www.manuelwyss.ch/' },
     },
     {
         slug: 'thierry-bessede',
@@ -182,6 +199,10 @@ export const coaches: Coach[] = [
         languages: [EN, FR],
         credentials: ['Certified cycling coach', 'Certified triathlon coach', 'Strength training certified'],
         yearsCoaching: 9,
+        athleteLevels: ['Advanced', 'Elite/Pro'],
+        communication: 'monthly',
+        offersStrength: true,
+        idealAthlete: 'Dedicated, ambitious athletes who stay open and honest',
         bio: {
             short:
                 'Cycling is the passion; coaching young and ambitious athletes is the craft. Trust and the long arc come first.',
@@ -211,6 +232,10 @@ export const coaches: Coach[] = [
         languages: [EN, DE, BG],
         credentials: ['Certified triathlon coach', 'Strength training certified'],
         yearsCoaching: 3,
+        athleteLevels: ['Beginner', 'Intermediate'],
+        communication: 'weekly',
+        offersStrength: true,
+        idealAthlete: 'Busy professionals who want structure, support and accountability',
         bio: {
             short:
                 'Reliable, community-driven and supportive. Momchil specialises in long-course triathlon and longer-distance running.',
@@ -247,6 +272,10 @@ export const coaches: Coach[] = [
         languages: [EN, PT, SV],
         credentials: ['Certified triathlon coach', 'Strength training certified'],
         yearsCoaching: 10,
+        athleteLevels: ['Beginner', 'Intermediate', 'Advanced', 'Elite/Pro'],
+        communication: 'as-needed',
+        offersStrength: true,
+        idealAthlete: 'Consistent athletes whose effort matches their ambition',
         bio: {
             short:
                 'Curious, empathetic, systematic. Mikael coaches across triathlon, running and cycling — beginner to pro.',
@@ -284,6 +313,10 @@ export const coaches: Coach[] = [
         languages: [EN, DE],
         credentials: ['Certified triathlon coach', 'Strength training certified'],
         yearsCoaching: 15,
+        athleteLevels: ['Intermediate', 'Advanced', 'Elite/Pro'],
+        communication: 'weekly',
+        offersStrength: true,
+        idealAthlete: 'Driven athletes with clear goals who still keep the fun in it',
         bio: {
             short:
                 'Fifteen years of multi-sport coaching with a creative streak. Tobi works with intermediate to pro athletes.',
@@ -312,6 +345,10 @@ export const coaches: Coach[] = [
         languages: [EN, ES],
         credentials: ['Certified triathlon coach', 'Strength training certified'],
         yearsCoaching: 2,
+        athleteLevels: ['Intermediate', 'Advanced', 'Elite/Pro'],
+        communication: 'weekly',
+        offersStrength: true,
+        idealAthlete: 'Disciplined, hard-working athletes who back themselves',
         bio: {
             short: 'Attentive, friendly, hard-working — and with character.',
             long: [
@@ -337,6 +374,10 @@ export const coaches: Coach[] = [
         languages: [PT, EN],
         credentials: ['Certified triathlon coach', 'Strength training certified'],
         yearsCoaching: 10,
+        athleteLevels: ['Beginner', 'Intermediate', 'Advanced'],
+        communication: 'weekly',
+        offersStrength: true,
+        idealAthlete: 'Athletes with specific goals who take their training seriously',
         bio: {
             short: 'Endurance practitioner first, coach second. Rodrigo specialises in short-course triathlon.',
             long: [
@@ -376,6 +417,10 @@ export const coaches: Coach[] = [
             'Strength training certified',
         ],
         yearsCoaching: 9,
+        athleteLevels: ['Beginner', 'Intermediate', 'Advanced', 'Elite/Pro'],
+        communication: 'always-on',
+        offersStrength: true,
+        idealAthlete: 'Athletes who want to understand their body, not just push it',
         bio: {
             short:
                 'Blends science, physiology and consciousness. Available 24/7 to his athletes.',
@@ -406,6 +451,10 @@ export const coaches: Coach[] = [
         languages: [EN],
         credentials: ['Certified running coach', 'Strength training certified'],
         yearsCoaching: 5,
+        athleteLevels: ['Beginner', 'Intermediate', 'Advanced', 'Elite/Pro'],
+        communication: 'always-on',
+        offersStrength: true,
+        idealAthlete: 'Runners after a holistic journey that connects running to the rest of life',
         bio: {
             short:
                 'Holistic coaching that considers sleep, hormones, family, nutrition and training — not just kilometres.',
@@ -435,6 +484,10 @@ export const coaches: Coach[] = [
         languages: [EN],
         credentials: ['Sports medicine background', 'Certified running coach'],
         yearsCoaching: 2,
+        athleteLevels: ['Beginner', 'Intermediate', 'Advanced'],
+        communication: 'weekly',
+        offersStrength: false,
+        idealAthlete: 'Everyone from first-timers to 20-time marathon finishers',
         bio: {
             short:
                 'Sports-medicine background, week-to-week adjustments, calm guidance through pain or injury.',
@@ -467,6 +520,10 @@ export const coaches: Coach[] = [
             'Strength training certified',
         ],
         yearsCoaching: 20,
+        athleteLevels: ['Intermediate', 'Advanced'],
+        communication: 'weekly',
+        offersStrength: true,
+        idealAthlete: 'Busy adults taking the long view, mostly off-road cyclists who cross-train',
         bio: {
             short:
                 'Practical, athlete-centred coaching focused on long-term development and durable habits.',
@@ -495,6 +552,10 @@ export const coaches: Coach[] = [
         languages: [EN, IT],
         credentials: ['PhD', 'Certified cycling coach', 'Strength training certified'],
         yearsCoaching: 5,
+        athleteLevels: ['Beginner', 'Intermediate'],
+        communication: 'weekly',
+        offersStrength: true,
+        idealAthlete: 'Athletes chasing health and enjoyment through sport, not just results',
         bio: {
             short:
                 'Training as a gradual process, not an obsession. Paolo blends sport science with calm patience.',
@@ -523,6 +584,10 @@ export const coaches: Coach[] = [
         languages: [PT],
         credentials: ['Certified cycling coach', 'Bike fit specialist', 'Strength training certified'],
         yearsCoaching: 20,
+        athleteLevels: ['Advanced', 'Elite/Pro'],
+        communication: 'always-on',
+        offersStrength: true,
+        idealAthlete: 'Dedicated, curious and communicative athletes',
         bio: {
             short:
                 'Disciplined, engaged, good-humoured. Twenty years of endurance sports and bike fitting under one roof.',
@@ -560,6 +625,10 @@ export const coaches: Coach[] = [
         languages: [EN],
         credentials: ['Certified triathlon coach', 'Mindset coach', 'Strength training certified'],
         yearsCoaching: 5,
+        athleteLevels: ['Beginner', 'Intermediate', 'Advanced'],
+        communication: 'always-on',
+        offersStrength: true,
+        idealAthlete: 'Athletes building endurance sport into their life year round, adventures included',
         bio: {
             short:
                 'Open, supportive, mindset-led. Jennifer coaches the long edges — ultra triathlon and extreme running.',
@@ -588,7 +657,11 @@ export const coaches: Coach[] = [
         coachesRemote: true,
         languages: [EN, NL],
         credentials: ['Certified triathlon coach', 'Strength training certified'],
-        yearsCoaching: 5,
+        yearsCoaching: 7,
+        athleteLevels: ['Intermediate'],
+        communication: 'always-on',
+        offersStrength: true,
+        idealAthlete: 'Dedicated and motivated athletes',
         bio: {
             short:
                 'Highly communicative, science-driven. Pleasure and performance — both, at the same time.',
@@ -616,6 +689,10 @@ export const coaches: Coach[] = [
         languages: [EN, PT],
         credentials: ['Certified triathlon coach', 'Strength training certified'],
         yearsCoaching: 15,
+        athleteLevels: ['Intermediate', 'Advanced', 'Elite/Pro'],
+        communication: 'weekly',
+        offersStrength: true,
+        idealAthlete: 'Athletes with a base in running, swimming or cycling, ready for a bigger challenge',
         bio: {
             short:
                 'Fifteen years of multi-sport coaching, patience as the headline trait.',
@@ -651,6 +728,9 @@ export const coaches: Coach[] = [
         languages: [EN, DE, GSW],
         credentials: ['Certified triathlon coach', 'Strength training certified'],
         yearsCoaching: 10,
+        communication: 'weekly',
+        offersStrength: true,
+        idealAthlete: 'Organised, enthusiastic athletes who are open to learning',
         bio: {
             short:
                 'Sympathetic, open-minded, plenty of life and sport experience under the belt.',
@@ -679,6 +759,10 @@ export const coaches: Coach[] = [
         languages: [EN, GSW, DE],
         credentials: ['Certified triathlon coach', 'Strength training certified'],
         yearsCoaching: 4,
+        athleteLevels: ['Intermediate', 'Advanced', 'Elite/Pro'],
+        communication: 'always-on',
+        offersStrength: true,
+        idealAthlete: 'People who think for themselves and want to build their development together',
         bio: {
             short:
                 'Structured, performance-oriented, physiologically precise — and calm with it.',
@@ -712,7 +796,11 @@ export const coaches: Coach[] = [
         coachesRemote: true,
         languages: [EN],
         credentials: ['Certified triathlon coach', 'Strength training certified'],
-        yearsCoaching: 26,
+        yearsCoaching: 6,
+        athleteLevels: ['Advanced'],
+        communication: 'always-on',
+        offersStrength: true,
+        idealAthlete: 'Athletes willing to learn, fitting training around the life they already have',
         bio: {
             short:
                 'Twenty-six years of endurance coaching. Open, honest, grounded — and ready to learn alongside you.',
@@ -740,7 +828,11 @@ export const coaches: Coach[] = [
         coachesRemote: true,
         languages: [EN],
         credentials: ['Certified triathlon coach', 'Strength training certified'],
-        yearsCoaching: 29,
+        yearsCoaching: 30,
+        athleteLevels: ['Elite/Pro'],
+        communication: 'weekly',
+        offersStrength: true,
+        idealAthlete: 'Professionally minded athletes, pro or amateur',
         bio: {
             short: 'Straight-talking, evidence-led, decades of success.',
             long: [
@@ -775,7 +867,11 @@ export const coaches: Coach[] = [
         coachesRemote: true,
         languages: [DE, EN],
         credentials: ['Certified triathlon coach', 'Strength training certified'],
-        yearsCoaching: 38,
+        yearsCoaching: 10,
+        athleteLevels: ['Advanced'],
+        communication: 'always-on',
+        offersStrength: true,
+        idealAthlete: 'Athletes who are open to feedback and value communication',
         bio: {
             short:
                 'Helpful, open, honest, direct — and willing to put in the extra steps when the athlete will too.',
@@ -803,7 +899,11 @@ export const coaches: Coach[] = [
         coachesRemote: true,
         languages: [EN, NL],
         credentials: ['Certified running coach', 'Strength training certified'],
-        yearsCoaching: 5,
+        yearsCoaching: 7,
+        athleteLevels: ['Advanced'],
+        communication: 'always-on',
+        offersStrength: true,
+        idealAthlete: 'Self-driven athletes who want more out of themselves',
         bio: {
             short:
                 'Passionate, committed, and a parent — Stef gets what a busy life does to a training plan.',
@@ -839,6 +939,10 @@ export const coaches: Coach[] = [
             '80/20 Endurance',
         ],
         yearsCoaching: 5,
+        athleteLevels: ['Beginner'],
+        communication: 'weekly',
+        offersStrength: true,
+        idealAthlete: 'Beginners, non-traditional and older athletes',
         bio: {
             short:
                 'Trained life coach who folds endurance and nutrition certifications into one holistic engagement.',
@@ -872,7 +976,11 @@ export const coaches: Coach[] = [
             'Oxygen Advantage Instructor',
             'NLP Master',
         ],
-        yearsCoaching: 20,
+        yearsCoaching: 26,
+        athleteLevels: ['Advanced'],
+        communication: 'always-on',
+        offersStrength: true,
+        idealAthlete: 'Athletes open to change, new solutions and real commitment',
         bio: {
             short:
                 "Specialist in 'little effort, big impact'. Twenty years of efficient training, technique and mindset.",
@@ -900,6 +1008,11 @@ export const coaches: Coach[] = [
         coachesRemote: true,
         languages: [EN, IT, MT],
         credentials: ['Certified running coach'],
+        yearsCoaching: 1,
+        athleteLevels: ['Intermediate'],
+        communication: 'always-on',
+        offersStrength: false,
+        idealAthlete: 'Athletes who show up and do the work — no ideal type beyond that',
         bio: {
             short:
                 'Dedicated, passionate, and hard-working, with a specialty in Backyard Ultras.',
@@ -928,7 +1041,11 @@ export const coaches: Coach[] = [
         coachesRemote: true,
         languages: [DE, EN],
         credentials: ['Certified triathlon coach', 'Strength training certified'],
-        yearsCoaching: 15,
+        yearsCoaching: 17,
+        athleteLevels: ['Advanced'],
+        communication: 'always-on',
+        offersStrength: true,
+        idealAthlete: 'Experienced, passionate athletes who are eager to learn',
         bio: {
             short:
                 'Dedicated, calm, scientifically-driven, focused on the basics that actually move the needle.',
@@ -956,7 +1073,11 @@ export const coaches: Coach[] = [
         coachesRemote: true,
         languages: [EN, DE, GSW, FR],
         credentials: ['2x Olympian', 'Certified triathlon coach', 'Strength training certified'],
-        yearsCoaching: 8,
+        yearsCoaching: 2,
+        athleteLevels: ['Intermediate'],
+        communication: 'always-on',
+        offersStrength: true,
+        idealAthlete: "Consistent athletes who don't need motivation — they need precision",
         bio: {
             short:
                 'Two-time Olympian coaching like one — precision, execution, data-driven, no hype.',
@@ -990,6 +1111,11 @@ export const coaches: Coach[] = [
         languages: [EN],
         credentials: ['Certified triathlon coach'],
         notableResults: ['Professional triathlete', 'Coach with Matt Hanson Racing'],
+        yearsCoaching: 4,
+        athleteLevels: ['Advanced'],
+        communication: 'always-on',
+        offersStrength: false,
+        idealAthlete: 'Committed, coachable athletes who communicate honestly and trust the process',
         bio: {
             short:
                 'Professional triathlete and working mom. Supportive, highly individualized coaching with a focus on female endurance athletes and postpartum return-to-sport.',
@@ -1028,7 +1154,11 @@ export const coaches: Coach[] = [
             'Bike NZ Coach',
             'NETFIT Strength and Conditioning Coach',
         ],
-        yearsCoaching: 20,
+        yearsCoaching: 25,
+        athleteLevels: ['Intermediate'],
+        communication: 'always-on',
+        offersStrength: true,
+        idealAthlete: 'Curious athletes open to learning about themselves along the way',
         bio: {
             short:
                 'Calm, analytical, empathetic — a strong listener combining objective data with athlete feedback.',
@@ -1069,7 +1199,11 @@ export const coaches: Coach[] = [
             'PhD candidate (marathon running)',
             'Certified triathlon coach',
         ],
-        yearsCoaching: 28,
+        yearsCoaching: 6,
+        athleteLevels: ['Advanced'],
+        communication: 'weekly',
+        offersStrength: true,
+        idealAthlete: 'Athletes who know endurance takes time — attitude over demographics',
         bio: {
             short:
                 'Athlete, coach and researcher. Human-first then scientific — never the other way around.',
@@ -1105,6 +1239,11 @@ export const coaches: Coach[] = [
         coachesRemote: true,
         languages: [EN],
         credentials: ['TrainingPeaks Level 2', 'Strength training certified'],
+        yearsCoaching: 10,
+        athleteLevels: ['Intermediate'],
+        communication: 'always-on',
+        offersStrength: true,
+        idealAthlete: 'Dedicated endurance athletes at any level, long course and adventure junkies',
         bio: {
             short:
                 'Coaches the whole athlete — nutrition, strength and mindset — with a focus on women and motivated endurance athletes.',
@@ -1142,7 +1281,11 @@ export const coaches: Coach[] = [
         coachesRemote: true,
         languages: [EN],
         credentials: ['Certified coach', 'Strength training certified'],
-        yearsCoaching: 62,
+        yearsCoaching: 38,
+        athleteLevels: ['Elite/Pro'],
+        communication: 'always-on',
+        offersStrength: true,
+        idealAthlete: 'Athletes who want to invest in the process, learn and be empowered',
         bio: {
             short:
                 'Inspires everyone he coaches to be the best they can be in sport and life — through engaging, enabling, educating and empowering.',
@@ -1186,6 +1329,11 @@ export const coaches: Coach[] = [
             'Olympic triathlete — Beijing 2008',
             'Coached within the national federations of Luxembourg and the Netherlands since 2010',
         ],
+        yearsCoaching: 16,
+        athleteLevels: ['Intermediate'],
+        communication: 'always-on',
+        offersStrength: true,
+        idealAthlete: 'Self-sufficient athletes with a strong work ethic who share how they feel',
         bio: {
             short:
                 'Former Olympic triathlete and Human Movement Science MSc who coaches with athletes, not just for them.',
@@ -1224,7 +1372,11 @@ export const coaches: Coach[] = [
             'STA Level 2 Open Water Coach',
             'TrainingPeaks Level 2 Coach',
         ],
-        yearsCoaching: 15,
+        yearsCoaching: 16,
+        athleteLevels: ['Intermediate'],
+        communication: 'weekly',
+        offersStrength: true,
+        idealAthlete: 'Coachable athletes with grit who trust their coach through the hard parts',
         bio: {
             short:
                 'Conscientious, sports-science-led triathlon and open-water swimming coach who aims to be kind and encouraging.',
@@ -1260,6 +1412,11 @@ export const coaches: Coach[] = [
         coachesRemote: true,
         languages: [EN, PT, ES],
         credentials: ['Certified endurance coach'],
+        yearsCoaching: 9,
+        athleteLevels: ['Elite/Pro'],
+        communication: 'always-on',
+        offersStrength: true,
+        idealAthlete: 'Performance-minded athletes at any level who commit and communicate openly',
         bio: {
             short:
                 'Open-minded, extroverted endurance coach who lives in the details — building trust with athletes chasing ambitious goals.',
@@ -1300,7 +1457,11 @@ export const coaches: Coach[] = [
             'Long Distance Specialist Coach',
             'Superior Technician in Physical and Sports Activities',
         ],
-        yearsCoaching: 20,
+        yearsCoaching: 22,
+        athleteLevels: ['Beginner'],
+        communication: 'always-on',
+        offersStrength: true,
+        idealAthlete: 'Motivated endurance athletes after individualised, long-term development',
         bio: {
             short:
                 'Endurance coach focused on individualised training, evidence-based methods and sustainable progress.',
@@ -1313,5 +1474,45 @@ export const coaches: Coach[] = [
                 'Individualise the training, trust the evidence, and build progress that lasts.',
         },
         media: { portrait: placeholderPortrait },
+    },
+    {
+        slug: 'amanda-martin',
+        name: 'Amanda Martin',
+        firstName: 'Amanda',
+        gender: 'female',
+        tagline:
+            'Physical therapist coaching runners holistically — training, strength, sleep and nutrition, from first walk-run to a Boston Qualifier.',
+        isFoundingCoach: true,
+        status: 'accepting',
+        disciplines: ['running'],
+        specialties: [
+            '5K',
+            '10K',
+            'half marathon',
+            'marathon',
+            'road running',
+            'strength training',
+        ],
+        location: { city: 'Salt Lake City', country: 'United States', countryCode: 'US', timezone: 'America/Denver' },
+        coachesRemote: true,
+        languages: [EN],
+        credentials: ['Doctor of Physical Therapy (DPT)'],
+        athleteLevels: ['Intermediate'],
+        communication: 'weekly',
+        offersStrength: true,
+        idealAthlete: 'Runners from first walk-run programs through to structured intermediate training',
+        bio: {
+            short:
+                'A physical therapist who coaches the whole athlete — running, strength, sleep and nutrition — with a laid-back, autonomy-first style.',
+            long: [
+                'Amanda is a physical therapist who coaches runners holistically: the training plan sits alongside strength work, sleep and nutrition rather than apart from them.',
+                'Laid back by nature, she gives athletes real autonomy and a flexible schedule while keeping the structure and guidance underneath it clear.',
+                'Her range runs from beginners starting a walk-run program through to intermediate and advanced runners chasing a Boston Qualifier or beyond, using either time- or mileage-based plans, with weekly check-ins throughout.',
+            ],
+            philosophy:
+                'Train the whole athlete — strength, sleep and nutrition belong in the plan. Structure that leaves room for autonomy.',
+        },
+        media: { portrait: amandaPortrait },
+        socials: { website: 'https://warriorendurance.lovable.app' },
     },
 ]

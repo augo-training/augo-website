@@ -13,6 +13,7 @@ const FOUNDING_ORDER: string[] = [
     'stef-vanhaeren',
     'megan-edwards',
     'megan-tobin',
+    'amanda-martin',
 ]
 
 function foundingRank(slug: string): number {
