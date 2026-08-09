@@ -398,7 +398,7 @@ export default function Hero() {
                     <img
                         src={imgSignals}
                         alt="augo athlete signals"
-                        className="mockup-left absolute rounded-[24px] shadow-2xl"
+                        className="mockup-left absolute shadow-2xl"
                         style={{
                             width: '25%',
                             bottom: '10%',
@@ -406,6 +406,7 @@ export default function Hero() {
                             zIndex: 2,
                             transform: 'rotateY(10deg) rotate(-2deg)',
                             filter: 'brightness(0.85)',
+                            borderRadius: '4.33% / 2%',
                             border: '1px solid rgba(255,255,255,0.08)',
                         }}
                     />
@@ -413,13 +414,14 @@ export default function Hero() {
                     <img
                         src={imgAssistant}
                         alt="augo AI coaching assistant"
-                        className="mockup-right absolute rounded-[24px]"
+                        className="mockup-right absolute"
                         style={{
                             width: '28%',
                             bottom: '-2%',
                             right: '-3%',
                             zIndex: 3,
                             transform: 'rotateY(-10deg) rotate(2deg)',
+                            borderRadius: '4.33% / 2%',
                             border: '1px solid rgba(255,255,255,0.10)',
                             boxShadow: '0 30px 80px -20px rgba(0,0,0,0.75)',
                         }}
