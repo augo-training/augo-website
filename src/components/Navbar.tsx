@@ -276,12 +276,12 @@ export default function Navbar() {
                         href="https://webapp.augotraining.com/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="join-augo-btn font-mono text-[11px] sm:text-sm font-extrabold tracking-[1.5px] sm:tracking-[2px] uppercase px-3.5 py-2 sm:px-6 sm:py-3 rounded-md sm:rounded-lg"
+                        className="nav-cta-btn font-mono text-[11px] sm:text-sm font-extrabold tracking-[1.5px] sm:tracking-[2px] uppercase px-3.5 py-2 sm:px-6 sm:py-3 rounded-md sm:rounded-lg"
                         style={{
                             opacity: !menuOpen ? 1 : 0,
                             transform: !menuOpen ? 'translateY(0)' : 'translateY(10px)',
                             pointerEvents: !menuOpen ? 'auto' : 'none',
-                            transition: 'opacity 300ms ease-in-out, transform 300ms ease-in-out, background 200ms ease-in-out, color 200ms ease-in-out',
+                            transition: 'opacity 300ms ease-in-out, transform 300ms ease-in-out, background 200ms ease-in-out, border-color 200ms ease-in-out, color 200ms ease-in-out',
                         }}
                         onClick={() => trackCtaClicked({ cta_text: t('nav.accessWebApp'), cta_location: 'navbar', destination: 'https://webapp.augotraining.com/' })}
                     >
@@ -360,7 +360,7 @@ export default function Navbar() {
                         onClick={() => {
                             trackCtaClicked({ cta_text: t('nav.accessWebApp'), cta_location: 'mobile_menu', destination: 'https://webapp.augotraining.com/' })
                         }}
-                        className="btn-gradient block w-full font-mono text-sm font-extrabold tracking-[2px] uppercase text-white text-center py-4 rounded-lg cursor-pointer"
+                        className="nav-cta-btn block w-full font-mono text-sm font-extrabold tracking-[2px] uppercase text-center py-4 rounded-lg cursor-pointer"
                         style={{ opacity: 0 }}
                     >
                         {t('nav.accessWebApp')}

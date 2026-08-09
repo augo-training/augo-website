@@ -305,6 +305,20 @@ body {
   color: #090909;
 }
 
+/* Nav CTA — deliberately quieter than the page CTAs: no gradient, no pulse */
+.nav-cta-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
+  transition: background 200ms ease-in-out, border-color 200ms ease-in-out, color 200ms ease-in-out;
+}
+
+.nav-cta-btn:hover {
+  background: #FFFFFF;
+  border-color: #FFFFFF;
+  color: #090909;
+}
+
 /* Floating App Icon Button (Bottom Right) */
 .floating-app-btn {
   background: linear-gradient(83.9deg, #151515 -4%, #C50017 38.22%, #FF5514 69.06%, #FFCA1E 99.9%);
