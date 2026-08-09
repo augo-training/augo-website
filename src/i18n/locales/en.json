@@ -88,17 +88,8 @@
     "title": "FAQ",
     "items": [
       {
-        "question": "When is augo launching?",
-        "answer": "augo is available on the App Store and Google Play for a select group of Beta users as of November 2025. augo will become generally available to all users in March 2026. Access will be released in waves and users on the waitlist will have special pricing. Athletes can join through their coach.",
-        "linkText": "Join the waitlist"
-      },
-      {
         "question": "How much does augo cost?",
-        "answer": "augo offers flexible pricing plans designed for both coaches and athletes. Waitlist members will receive special early-access pricing. Visit our pricing page or join the waitlist for the latest details."
-      },
-      {
-        "question": "What are the benefits of joining the waitlist?",
-        "answer": "Joining the waitlist gives you priority access to augo, special introductory pricing, and the opportunity to shape the product with your feedback during the early-access phase."
+        "answer": "Until the end of August 2026, augo costs {{price}} per month for unlimited athletes — that's our early bird pricing."
       },
       {
         "question": "Will augo replace coaches?",
@@ -106,11 +97,7 @@
       },
       {
         "question": "Can athletes use augo without a coach?",
-        "answer": "Athletes can join augo through their coach. The platform is built around the coach-athlete relationship, enhancing communication and providing data-driven insights for both."
-      },
-      {
-        "question": "How does augo's AI analyze workouts?",
-        "answer": "augo's AI processes workout data from popular devices and platforms, combining performance metrics with contextual information to deliver personalized insights and recommendations."
+        "answer": "No. The experience is designed for athletes working with a coach. Self-coached athletes need to create both a coach account and an athlete account, and connect them to each other."
       },
       {
         "question": "Why choose augo over AI coaching apps?",

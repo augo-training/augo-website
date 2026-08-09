@@ -1,22 +1,25 @@
 import { useState, useRef, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useParams } from 'react-router-dom'
 import bgSection from '../assets/images/bg_section_1.webp'
 import addIcon from '../assets/images/add.svg'
 import minusIcon from '../assets/images/minus.svg'
 import { trackFaqExpanded, trackCtaClicked } from '../utils/analytics'
 import { useEmailCapture } from '../contexts/EmailCaptureContext'
+import { useGeoCountry } from '../hooks/useGeoCountry'
+import { getPricingTier } from '../config/pricingConfig'
 
 export default function FaqSection() {
-    const { t, i18n } = useTranslation()
-    const { lang } = useParams<{ lang: string }>()
-    const currentLang = lang || i18n.language || 'en'
+    const { t } = useTranslation()
     const { openModal } = useEmailCapture()
+
+    // Fall back to the global tier while geo resolves — the FAQ always has to render text
+    const { countryCode } = useGeoCountry()
+    const tier = getPricingTier(countryCode || 'US')
+    const price = `${tier.symbol}${tier.price}`
 
     const faqItems = t('faq.items', { returnObjects: true }) as Array<{
         question: string
         answer: string
-        linkText?: string
     }>
 
     const [openIndex, setOpenIndex] = useState<number | null>(null)
@@ -95,6 +98,10 @@ export default function FaqSection() {
                     <div className="flex flex-col gap-[10px]">
                         {faqItems.map((faq, index) => {
                             const isOpen = openIndex === index
+                            // returnObjects skips interpolation — re-resolve by dot-path where a price is referenced
+                            const answer = faq.answer.includes('{{price}}')
+                                ? t(`faq.items.${index}.answer`, { price })
+                                : faq.answer
                             return (
                                 <div
                                     key={index}
@@ -132,23 +139,7 @@ export default function FaqSection() {
                                                 transitionDelay: isOpen ? '150ms' : '0ms',
                                             }}
                                         >
-                                            {faq.answer}
-                                            {faq.linkText && (
-                                                <>
-                                                    <br />
-                                                    <button
-                                                        type="button"
-                                                        onClick={() => {
-                                                            trackCtaClicked({ cta_text: faq.linkText!, cta_location: 'faq_inline', destination: '/download' })
-                                                            openModal(faq.linkText!)
-                                                        }}
-                                                        className="font-satoshi font-bold text-[16px] leading-[130%] underline hover:text-white transition-colors bg-transparent border-0 p-0 cursor-pointer text-inherit"
-                                                    >
-                                                        {faq.linkText}
-                                                    </button>{' '}
-                                                    {currentLang === 'en' ? 'to secure your spot.' : currentLang === 'de' ? 'um deinen Platz zu sichern.' : 'para garantir sua vaga.'}
-                                                </>
-                                            )}
+                                            {answer}
                                         </div>
                                     </div>
                                 </div>

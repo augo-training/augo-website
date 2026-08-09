@@ -88,17 +88,8 @@
     "title": "FAQ",
     "items": [
       {
-        "question": "Wann startet augo?",
-        "answer": "augo ist seit November 2025 im App Store und bei Google Play für eine ausgewählte Gruppe von Beta-Nutzern verfügbar. augo wird im März 2026 allgemein für alle Nutzer verfügbar. Der Zugang wird in Wellen freigegeben und Nutzer auf der Warteliste erhalten Sonderpreise. Athleten können über ihren Coach beitreten.",
-        "linkText": "Auf die Warteliste"
-      },
-      {
         "question": "Was kostet augo?",
-        "answer": "augo bietet flexible Preispläne für Coaches und Athleten. Mitglieder der Warteliste erhalten spezielle Frühzugangspreise. Besuche unsere Preisseite oder tritt der Warteliste bei für die neuesten Details."
-      },
-      {
-        "question": "Was bringt die Warteliste?",
-        "answer": "Die Warteliste gibt dir Prioritätszugang zu augo, spezielle Einführungspreise und die Möglichkeit, das Produkt mit deinem Feedback während der Early-Access-Phase mitzugestalten."
+        "answer": "Bis Ende August 2026 kostet augo {{price}} pro Monat für unbegrenzt viele Athleten – das ist unser Early-Bird-Preis."
       },
       {
         "question": "Wird augo Coaches ersetzen?",
@@ -106,11 +97,7 @@
       },
       {
         "question": "Können Athleten augo ohne Coach nutzen?",
-        "answer": "Athleten können augo über ihren Coach beitreten. Die Plattform ist um die Coach-Athleten-Beziehung aufgebaut und verbessert die Kommunikation und liefert datengesteuerte Erkenntnisse für beide."
-      },
-      {
-        "question": "Wie analysiert augos KI Trainingseinheiten?",
-        "answer": "augos KI verarbeitet Trainingsdaten von gängigen Geräten und Plattformen, kombiniert Leistungsmetriken mit kontextuellen Informationen und liefert personalisierte Erkenntnisse und Empfehlungen."
+        "answer": "Nein. Das Erlebnis ist für Athleten konzipiert, die mit einem Coach arbeiten. Selbst-Coaches müssen sowohl ein Coach-Konto als auch ein Athleten-Konto erstellen und diese miteinander verbinden."
       },
       {
         "question": "Warum augo statt KI-Coaching-Apps?",
