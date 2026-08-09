@@ -1,13 +1,34 @@
+import { ArrowUpRight } from 'lucide-react'
 import type { Coach } from '../../data/coaches/types'
-import { GENDER_LABEL } from '../../data/coaches/types'
+import { COMMUNICATION_LABEL, GENDER_LABEL } from '../../data/coaches/types'
 import { DISCIPLINE_LABEL } from '../coachDirectory/DisciplineIcons'
 
 interface Props {
     coach: Coach
 }
 
+/**
+ * Coach sites are stored as full URLs, and some deep-link to a page rather than
+ * a home page. We keep the path when it's short enough to stay readable (a
+ * bare "linkedin.com" tells an athlete nothing) and fall back to the host alone
+ * when it isn't. Either way the link points at the full URL.
+ */
+const MAX_WEBSITE_LABEL = 40
+
+function websiteLabel(url: string): string {
+    try {
+        const { hostname, pathname } = new URL(url)
+        const host = hostname.replace(/^www\./, '')
+        const path = pathname.replace(/\/$/, '')
+        const full = `${host}${path}`
+        return full.length <= MAX_WEBSITE_LABEL ? full : host
+    } catch {
+        return url.replace(/^https?:\/\//, '').replace(/^www\./, '').replace(/\/$/, '')
+    }
+}
+
 export default function CoachSpecSheet({ coach }: Props) {
-    const rows: { label: string; value: string }[] = [
+    const rows: { label: string; value: string; href?: string }[] = [
         {
             label: 'Discipline',
             value: coach.disciplines.map((d) => DISCIPLINE_LABEL[d]).join(' · '),
@@ -21,8 +42,35 @@ export default function CoachSpecSheet({ coach }: Props) {
         rows.splice(1, 0, { label: 'Gender', value: GENDER_LABEL[coach.gender] })
     }
 
+    if (coach.yearsCoaching) {
+        rows.push({ label: 'Experience', value: `${coach.yearsCoaching} years coaching` })
+    }
+
+    if (coach.athleteLevels?.length) {
+        rows.push({ label: 'Works with', value: coach.athleteLevels.join(' · ') })
+    }
+
+    if (coach.communication) {
+        rows.push({ label: 'Communication', value: COMMUNICATION_LABEL[coach.communication] })
+    }
+
+    if (typeof coach.offersStrength === 'boolean') {
+        rows.push({
+            label: 'Strength training',
+            value: coach.offersStrength ? 'Included' : 'Not offered',
+        })
+    }
+
     if (coach.credentials.length > 0) {
         rows.push({ label: 'Credentials', value: coach.credentials.join(' · ') })
+    }
+
+    if (coach.socials?.website) {
+        rows.push({
+            label: 'Website',
+            value: websiteLabel(coach.socials.website),
+            href: coach.socials.website,
+        })
     }
 
     return (
@@ -56,12 +104,54 @@ export default function CoachSpecSheet({ coach }: Props) {
                                 {row.label}
                             </dt>
                             <dd className="font-satoshi font-medium text-[15px] sm:text-[18px] leading-[140%] text-white">
-                                {row.value}
+                                {row.href ? (
+                                    <a
+                                        href={row.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer nofollow"
+                                        className="inline-flex items-center gap-1.5 break-all underline decoration-white/25 underline-offset-4 hover:decoration-white transition-colors"
+                                    >
+                                        {row.value}
+                                        <ArrowUpRight
+                                            className="w-4 h-4 flex-shrink-0 text-white/45"
+                                            strokeWidth={2}
+                                            aria-hidden="true"
+                                        />
+                                    </a>
+                                ) : (
+                                    row.value
+                                )}
                             </dd>
                         </div>
                     ))}
                 </dl>
 
+                {/* The numbered rows cover the facts; this is where the coach's
+                    own voice comes through. Hidden entirely if neither is set. */}
+                {(coach.bio.philosophy || coach.idealAthlete) && (
+                    <div className="mt-12 sm:mt-16 flex flex-col gap-8 max-w-[760px]">
+                        <span className="font-mono text-[11px] sm:text-[12px] tracking-[2.5px] uppercase text-white/55">
+                            In their own words
+                        </span>
+
+                        {coach.bio.philosophy && (
+                            <blockquote className="font-satoshi font-medium text-[20px] sm:text-[26px] leading-[135%] tracking-[-0.015em] text-white border-l-2 border-white/20 pl-5 sm:pl-6">
+                                {coach.bio.philosophy}
+                            </blockquote>
+                        )}
+
+                        {coach.idealAthlete && (
+                            <div className="flex flex-col gap-2">
+                                <span className="font-mono text-[11px] sm:text-[12px] tracking-[2.5px] uppercase text-white/55">
+                                    Works best with
+                                </span>
+                                <p className="font-satoshi font-medium text-[15px] sm:text-[18px] leading-[150%] text-white">
+                                    {coach.idealAthlete}
+                                </p>
+                            </div>
+                        )}
+                    </div>
+                )}
             </div>
         </section>
     )

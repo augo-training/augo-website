@@ -19,11 +19,12 @@ export function matchingFormUrl(source: MatchingFormSource): string {
 }
 
 /**
- * Dedicated founding coach application form (separate Typeform from the
+ * Dedicated augo ambassador application form (separate Typeform from the
  * shared matching form above). Source-tagged the same way for attribution.
+ * This is the form that used to serve the now-closed founding coach round.
  */
-const FOUNDING_FORM_BASE = 'https://augo.typeform.com/to/oykIVYQo'
+const AMBASSADOR_FORM_BASE = 'https://augo.typeform.com/to/oykIVYQo'
 
-export function foundingFormUrl(): string {
-    return `${FOUNDING_FORM_BASE}?source=founding-band`
+export function ambassadorFormUrl(): string {
+    return `${AMBASSADOR_FORM_BASE}?source=ambassador-band`
 }

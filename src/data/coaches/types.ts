@@ -1,12 +1,21 @@
 export type Discipline = 'running' | 'cycling' | 'triathlon'
 export type CoachStatus = 'accepting' | 'waitlist' | 'full'
 export type CoachGender = 'female' | 'male' | 'non-binary'
+export type AthleteLevel = 'Beginner' | 'Intermediate' | 'Advanced' | 'Elite/Pro'
+export type CommunicationStyle = 'always-on' | 'weekly' | 'monthly' | 'as-needed'
 
 // Shared display labels so cards, the profile spec sheet and JSON-LD stay in sync.
 export const GENDER_LABEL: Record<CoachGender, string> = {
     female: 'Female',
     male: 'Male',
     'non-binary': 'Non-binary',
+}
+
+export const COMMUNICATION_LABEL: Record<CommunicationStyle, string> = {
+    'always-on': 'Available 24/7',
+    weekly: 'Weekly check-ins',
+    monthly: 'Monthly check-ins',
+    'as-needed': 'As needed, a few times a week',
 }
 
 export interface CoachTestimonial {
@@ -55,6 +64,12 @@ export interface Coach {
     languages: CoachLanguage[]
     credentials: string[]
     yearsCoaching?: number
+    /** Levels the coach prefers working with, ordered Beginner → Elite/Pro. */
+    athleteLevels?: AthleteLevel[]
+    communication?: CommunicationStyle
+    offersStrength?: boolean
+    /** One edited line on who this coach fits best, from their sign-up answer. */
+    idealAthlete?: string
     athletesCoached?: number
     notableResults?: string[]
     bio: {

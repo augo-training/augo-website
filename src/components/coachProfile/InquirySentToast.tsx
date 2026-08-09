@@ -44,7 +44,7 @@ export default function InquirySentToast({ coachName, onDismiss }: Props) {
                 </span>
                 <p className="font-satoshi text-[14px] sm:text-[15px] leading-[140%] text-white flex-1">
                     Sent to <span className="font-bold">{coachName}</span>.
-                    <span className="text-white/55"> Replies within 48 hours.</span>
+                    <span className="text-white/55"> Introduction coming by email — check your inbox.</span>
                 </p>
                 <button
                     type="button"
