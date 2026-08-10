@@ -12,6 +12,7 @@ import coachesImg1_7 from '../assets/images/img_section_coaches_1_7.png'
 import carouselImgBg from '../assets/images/carousel_img_bg.webp'
 import coachesImg2 from '../assets/images/img_section_coaches_2.png?w=786&format=webp'
 import coachesImg3 from '../assets/images/img_section_coaches_3.png?w=652&format=webp'
+import coachesImg4 from '../assets/images/img_section_coaches_4.png?w=786&format=webp'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -42,6 +43,12 @@ const panelImages: PanelImage[][] = [
     [
         { src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' },
         { src: coachesImg3, className: 'absolute inset-0 m-auto w-auto h-[90%] z-10' },
+    ],
+    [
+        { src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' },
+        // below md the phone is top-anchored and sized by width, so the container
+        // clips whatever overflows — keeps the note cards legible on small viewports
+        { src: coachesImg4, className: 'absolute inset-x-0 top-0 mx-auto w-[75%] md:inset-y-0 md:my-auto md:w-auto md:h-[90%] z-10' },
     ],
 ]
 
