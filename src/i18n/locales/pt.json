@@ -23,7 +23,7 @@
     "headline2": "fortalecer coaches,",
     "headline3": "não substituí-los.",
     "body": "Muitas ferramentas de coaching focam em planos, não em pessoas. Mensagens se espalham por plataformas. O contexto se perde. E sinais importantes passam despercebidos no ruído.",
-    "highlight": "augo reúne tudo – combinando dados do atleta, feedback e tendências em uma única visão que ajuda você a treinar melhor."
+    "highlight": "augo reúne tudo – combinando dados de treino, a percepção subjetiva do atleta e as conversas entre treinador e atleta em um único lugar."
   },
   "coaches": {
     "tag": "PARA COACHES",
@@ -42,6 +42,11 @@
         "headline": "Saiba como seus\natletas realmente se sentem",
         "body": "augo captura feedback pós-sessão, dando ao coach visibilidade sobre tendências de bem-estar de longo prazo, ajudando a detectar mudanças sutis que sinalizam desafios à frente.",
         "tagline": "Detecte fadiga, quedas de motivação ou sinais precoces de lesão enquanto ainda há tempo para agir."
+      },
+      {
+        "headline": "Escreva uma vez.\naugo lembra para sempre.",
+        "body": "Um lugar para tudo o que você sabe sobre cada atleta. Privado para você, acessível apenas ao seu assistente inteligente. É isso que o diferencia de qualquer caderno que você já usou: augo consegue ler suas anotações e te ajuda a acompanhá-las, de forma consistente e sem esforço.",
+        "tagline": "Suas anotações deixam de ser algo que você escreve e esquece."
       }
     ]
   },

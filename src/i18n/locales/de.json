@@ -23,7 +23,7 @@
     "headline2": "Coaches zu stärken",
     "headline3": "– nicht zu ersetzen.",
     "body": "Zu viele Coaching-Tools konzentrieren sich auf Pläne, nicht auf Menschen. Nachrichten sind über Plattformen verstreut. Der Kontext geht verloren. Und wichtige Signale gehen im Rauschen unter.",
-    "highlight": "augo bringt alles zusammen – kombiniert Athletendaten, Feedback und Trends in einer einzigen Ansicht, die dir hilft, besser zu coachen."
+    "highlight": "augo bringt alles zusammen – kombiniert Trainingsdaten, das subjektive Empfinden der Athleten und die Gespräche zwischen Coach und Athlet an einem einzigen Ort."
   },
   "coaches": {
     "tag": "FÜR COACHES",
@@ -42,6 +42,11 @@
         "headline": "Erkenne, wie sich deine\nAthleten wirklich fühlen",
         "body": "augo kombiniert Session-Feedbacks mit langfristigen Trends. So erkennst du subtile Veränderungen sofort, bevor Herausforderungen zu Problemen werden.",
         "tagline": "Erkenne Ermüdung, Motivationstiefs oder frühe Verletzungsanzeichen, solange noch Zeit zum Handeln bleibt."
+      },
+      {
+        "headline": "Einmal schreiben.\naugo merkt es sich für immer.",
+        "body": "Ein Ort für alles, was du über jeden einzelnen Athleten weißt. Privat für dich, zugänglich nur für deinen intelligenten Assistenten. Das unterscheidet es von jedem Notizbuch, das du bisher genutzt hast: augo kann es lesen und hilft dir, konsequent und mühelos den Überblick zu behalten.",
+        "tagline": "Deine Notizen sind nicht länger etwas, das du schreibst und vergisst."
       }
     ]
   },

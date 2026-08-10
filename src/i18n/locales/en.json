@@ -23,7 +23,7 @@
     "headline2": "empower coaches,",
     "headline3": "not replace them.",
     "body": "Too many coaching tools focus on plans, not people. Messages scatter across platforms. Context gets lost. And important signals go unnoticed in the noise.",
-    "highlight": "augo brings everything together - combining athlete data, feedback, and trends into a single view that helps you coach better."
+    "highlight": "augo brings everything together - combining workout data, subjective athlete feeling, and coach-athlete conversations in a single place."
   },
   "coaches": {
     "tag": "FOR COACHES",
@@ -42,6 +42,11 @@
         "headline": "Know how your\nathletes really feel",
         "body": "augo captures post-session feedback, providing the coach visibility on long-term wellbeing trends, helping you spot subtle changes that signal challenges ahead.",
         "tagline": "Catch fatigue, motivation dips, or early injury signs while there's still time to act."
+      },
+      {
+        "headline": "Write it once.\naugo remembers it forever.",
+        "body": "One place for everything you know about each individual athlete. Private to you, available only to your intelligent assistant. Here's what makes it different from every notebook you've used: augo can read it and help you keep track of it, consistently and effortlessly.",
+        "tagline": "Your notes stop being something you write and forget."
       }
     ]
   },
