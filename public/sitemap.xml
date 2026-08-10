@@ -1322,6 +1322,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://augotraining.com/en/blog/which-athlete-needs-attention/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://augotraining.com/en/blog/why-im-building-augo/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
