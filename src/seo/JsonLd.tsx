@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
-import { coaches } from '../data/coaches'
+import { coaches, hasPortrait } from '../data/coaches'
 import type { Coach } from '../data/coaches/types'
 import { GENDER_LABEL } from '../data/coaches/types'
 import { BASE_URL } from './seoConstants'
@@ -259,7 +259,10 @@ function coachPersonSchema(coach: Coach, lang: string = 'en') {
     ...(coach.gender ? { gender: GENDER_LABEL[coach.gender] } : {}),
     description: coach.bio.short,
     url: coachUrl(coach, lang),
-    image: coach.media.portrait,
+    // Coaches without dedicated photography carry a shared placeholder — a real
+    // person's face. Publishing it as their Person.image would attribute one
+    // coach's likeness to another, so it's omitted rather than substituted.
+    ...(hasPortrait(coach) ? { image: coach.media.portrait } : {}),
     knowsAbout: coach.specialties,
     knowsLanguage: coach.languages.map((l) => l.label),
     address: {

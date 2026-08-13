@@ -12,7 +12,6 @@ import jazminePortrait from '../../assets/images/Jazmine.png'
 import tobiasPortrait from '../../assets/images/Tobias.png'
 import manuelPortrait from '../../assets/images/Manuel.png'
 import stefPortrait from '../../assets/images/Stef.png'
-import nellPortrait from '../../assets/images/Nell.png'
 import andreaPortrait from '../../assets/images/Andrea.png'
 import bevanPortrait from '../../assets/images/Bevan.png'
 import peterPortrait from '../../assets/images/Peter.png'
@@ -1023,7 +1022,7 @@ export const coaches: Coach[] = [
             ],
             philosophy: 'Make athletes smarter and more knowledgeable about their training.',
         },
-        media: { portrait: nellPortrait },
+        media: { portrait: placeholderPortrait },
         socials: { website: 'https://bornonthetrail.substack.com/' },
     },
     {

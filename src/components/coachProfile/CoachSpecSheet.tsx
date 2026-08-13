@@ -7,26 +7,6 @@ interface Props {
     coach: Coach
 }
 
-/**
- * Coach sites are stored as full URLs, and some deep-link to a page rather than
- * a home page. We keep the path when it's short enough to stay readable (a
- * bare "linkedin.com" tells an athlete nothing) and fall back to the host alone
- * when it isn't. Either way the link points at the full URL.
- */
-const MAX_WEBSITE_LABEL = 40
-
-function websiteLabel(url: string): string {
-    try {
-        const { hostname, pathname } = new URL(url)
-        const host = hostname.replace(/^www\./, '')
-        const path = pathname.replace(/\/$/, '')
-        const full = `${host}${path}`
-        return full.length <= MAX_WEBSITE_LABEL ? full : host
-    } catch {
-        return url.replace(/^https?:\/\//, '').replace(/^www\./, '').replace(/\/$/, '')
-    }
-}
-
 export default function CoachSpecSheet({ coach }: Props) {
     const rows: { label: string; value: string; href?: string }[] = [
         {
@@ -43,7 +23,10 @@ export default function CoachSpecSheet({ coach }: Props) {
     }
 
     if (coach.yearsCoaching) {
-        rows.push({ label: 'Experience', value: `${coach.yearsCoaching} years coaching` })
+        rows.push({
+            label: 'Experience',
+            value: `${coach.yearsCoaching} ${coach.yearsCoaching === 1 ? 'year' : 'years'} coaching`,
+        })
     }
 
     if (coach.athleteLevels?.length) {
@@ -63,14 +46,6 @@ export default function CoachSpecSheet({ coach }: Props) {
 
     if (coach.credentials.length > 0) {
         rows.push({ label: 'Credentials', value: coach.credentials.join(' · ') })
-    }
-
-    if (coach.socials?.website) {
-        rows.push({
-            label: 'Website',
-            value: websiteLabel(coach.socials.website),
-            href: coach.socials.website,
-        })
     }
 
     return (
@@ -125,33 +100,6 @@ export default function CoachSpecSheet({ coach }: Props) {
                         </div>
                     ))}
                 </dl>
-
-                {/* The numbered rows cover the facts; this is where the coach's
-                    own voice comes through. Hidden entirely if neither is set. */}
-                {(coach.bio.philosophy || coach.idealAthlete) && (
-                    <div className="mt-12 sm:mt-16 flex flex-col gap-8 max-w-[760px]">
-                        <span className="font-mono text-[11px] sm:text-[12px] tracking-[2.5px] uppercase text-white/55">
-                            In their own words
-                        </span>
-
-                        {coach.bio.philosophy && (
-                            <blockquote className="font-satoshi font-medium text-[20px] sm:text-[26px] leading-[135%] tracking-[-0.015em] text-white border-l-2 border-white/20 pl-5 sm:pl-6">
-                                {coach.bio.philosophy}
-                            </blockquote>
-                        )}
-
-                        {coach.idealAthlete && (
-                            <div className="flex flex-col gap-2">
-                                <span className="font-mono text-[11px] sm:text-[12px] tracking-[2.5px] uppercase text-white/55">
-                                    Works best with
-                                </span>
-                                <p className="font-satoshi font-medium text-[15px] sm:text-[18px] leading-[150%] text-white">
-                                    {coach.idealAthlete}
-                                </p>
-                            </div>
-                        )}
-                    </div>
-                )}
             </div>
         </section>
     )
