@@ -1514,4 +1514,47 @@ export const coaches: Coach[] = [
         media: { portrait: amandaPortrait },
         socials: { website: 'https://warriorendurance.lovable.app' },
     },
+    {
+        slug: 'kevin-brann',
+        name: 'Kevin Brann',
+        firstName: 'Kevin',
+        gender: 'male',
+        tagline:
+            'Fitness instructor, personal trainer and professional sports coach for athletes from first steps to performance goals.',
+        isFoundingCoach: false,
+        status: 'accepting',
+        disciplines: ['triathlon', 'running', 'cycling'],
+        specialties: [
+            'triathlon',
+            'road running (all distances)',
+            'trail running',
+            'cycling',
+            'strength training',
+        ],
+        location: { city: 'Sachseln', country: 'Switzerland', countryCode: 'CH', timezone: 'Europe/Zurich' },
+        coachesRemote: true,
+        languages: [EN, DE, GSW],
+        credentials: [
+            'Certified Personal Trainer (Dipl. Personaltrainer)',
+            'Fitness Instructor with Swiss Federal Certificate (eidg. Fachausweis)',
+        ],
+        yearsCoaching: 7,
+        athleteLevels: ['Beginner', 'Intermediate'],
+        communication: 'always-on',
+        offersStrength: true,
+        idealAthlete: 'Beginners through to performance-oriented athletes chasing a competitive goal',
+        bio: {
+            short:
+                'Fitness instructor, personal trainer and professional sports coach — coaching triathlon, running, cycling and strength across every target group.',
+            long: [
+                'Kevin brings seven years as a fitness instructor working with all target groups and focus groups, six years as a personal trainer, and three years in professional sport.',
+                'He coaches triathlon, road and trail running and cycling, with strength training built in rather than bolted on — a direct carry-over from the gym floor and personal training work he still does day to day.',
+                'His athletes range from beginners taking their first structured steps through to performance-oriented competitors, and he makes himself available to them 24/7.',
+            ],
+            philosophy:
+                'Strength underpins endurance. Meet athletes where they are, then build them toward the goal.',
+        },
+        media: { portrait: placeholderPortrait },
+        socials: { website: 'https://www.branning.ch' },
+    },
 ]
