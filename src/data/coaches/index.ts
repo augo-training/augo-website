@@ -1,5 +1,13 @@
 import type { Coach, Discipline } from './types'
 import { coaches as rawCoaches } from './roster'
+import placeholderPortrait from '../../assets/images/brian-profile.webp'
+
+// `media.portrait` is required, so coaches without dedicated photography carry a
+// shared placeholder asset rather than an empty field. Comparing against that
+// import is how we tell "has a real photo" from "doesn't yet".
+export function hasPortrait(coach: Coach): boolean {
+    return coach.media.portrait !== placeholderPortrait
+}
 
 // Explicit display priority for founding coaches (highest value to us first).
 // Founding coaches not listed here fall after, in roster order.
