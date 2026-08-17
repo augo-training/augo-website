@@ -1,0 +1,68 @@
+{
+  "slug": "add-an-athlete",
+  "title": "How do I add an athlete to augo?",
+  "seoTitle": "Adding an Athlete to augo | augo support",
+  "description": "How to invite an athlete to your augo roster and what happens on their side.",
+  "summary": "You invite an athlete from your coach account, and they join by accepting the invitation in the augo mobile app. Once connected, they appear on your roster and their workouts flow in as soon as they link a device.",
+  "audience": "coach",
+  "category": "athletes",
+  "keywords": [
+    "invite",
+    "add athlete",
+    "new athlete",
+    "roster",
+    "onboard athlete",
+    "client"
+  ],
+  "questionForms": [
+    "how do i invite an athlete",
+    "how do i add someone to my roster",
+    "my athlete cant find the invite",
+    "how does my athlete join augo",
+    "add a new client",
+    "how do i grow my roster",
+    "invite link for athletes",
+    "how do athletes accept an invitation",
+    "adding athletes to augo"
+  ],
+  "weight": 3,
+  "platforms": [
+    "ios",
+    "android",
+    "web"
+  ],
+  "datePublished": "2026-08-17",
+  "body": [
+    {
+      "type": "html",
+      "html": "<p class=\"support-callout\"><strong>Note for the augo team:</strong> this article needs a walkthrough or screenshots of the real invite flow before publishing. The steps below describe the shape of the flow but have not been verified against the product.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"inviting-an-athlete\">Inviting an athlete</h2><p>Invitations are sent from your coach account. The athlete receives an invitation and accepts it in the augo mobile app, which creates the coach–athlete link.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"what-the-athlete-does\">What the athlete does</h2><p>They download augo from the App Store or Google Play, accept your invitation, and connect their device or app. Until that last step happens their training feed will be empty — see <a href=\"/en/support/connect-devices-and-apps/\">which devices and apps augo syncs with</a>.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"how-many-athletes-you-can-add\">How many athletes you can add</h2><p>Up to 2 athletes is free permanently. Beyond that you need the Unlimited plan — see <a href=\"/en/support/whats-free-and-when-do-i-pay/\">what’s free and when you need to pay</a>.</p>"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "How many athletes can I have on the free plan?",
+      "answer": "Two. The free tier is permanent rather than a trial, so you can coach two athletes on augo indefinitely without paying."
+    },
+    {
+      "question": "Why is my new athlete’s training feed empty?",
+      "answer": "Almost always because they have joined but not yet connected a data source. The athlete has to link Garmin, Polar, Strava, Coros, Wahoo or Zwift from their own account — a coach cannot do it for them."
+    }
+  ],
+  "related": [
+    "getting-started-as-a-coach",
+    "connect-devices-and-apps",
+    "whats-free-and-when-do-i-pay"
+  ]
+}

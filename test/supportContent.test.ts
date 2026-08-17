@@ -143,6 +143,51 @@ describe('support content', () => {
     }
   })
 
+  it.each(articles)('$file declares usable question forms', ({ article }) => {
+    const forms = article.questionForms ?? []
+    // Below ~8 the field stops covering the four intent shapes (definitional,
+    // procedural, troubleshooting, decisional) and search quality drops.
+    expect(forms.length).toBeGreaterThanOrEqual(8)
+
+    for (const form of forms) {
+      expect(form.length).toBeGreaterThan(2)
+      expect(form.length).toBeLessThanOrEqual(90)
+      // Lowercase and punctuation-free keeps them comparable to a typed query.
+      expect(form).toBe(form.toLowerCase())
+    }
+
+    expect(new Set(forms).size).toBe(forms.length)
+  })
+
+  it('has no question form claimed by two articles', () => {
+    // A question form is an ownership claim, and an exact match is the single
+    // strongest ranking signal. Two articles claiming the same phrasing would
+    // silently decide ranking by tiebreak rather than by relevance.
+    const owners = new Map<string, string>()
+    for (const { article } of articles) {
+      for (const form of article.questionForms ?? []) {
+        const key = form.trim().toLowerCase()
+        const existing = owners.get(key)
+        expect(
+          existing,
+          `"${key}" claimed by both ${existing} and ${article.slug}`,
+        ).toBeUndefined()
+        owners.set(key, article.slug)
+      }
+    }
+  })
+
+  it('gives every body heading an id, since section anchors depend on it', () => {
+    for (const { article } of articles) {
+      for (const block of article.body) {
+        if (block.type !== 'html') continue
+        for (const match of block.html.matchAll(/<h([23])\b([^>]*)>/gi)) {
+          expect(match[2], `${article.slug}: <h${match[1]}> without an id`).toMatch(/\bid\s*=/)
+        }
+      }
+    }
+  })
+
   it('has no duplicate slugs', () => {
     const slugs = articles.map(({ article }) => article.slug)
     expect(new Set(slugs).size).toBe(slugs.length)

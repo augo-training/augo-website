@@ -1,0 +1,70 @@
+{
+  "slug": "getting-started-as-an-athlete",
+  "title": "How do I get started with augo as an athlete?",
+  "seoTitle": "Getting Started With augo as an Athlete | augo support",
+  "description": "Download the augo app, connect with your coach, link your watch, and start sharing how sessions actually felt.",
+  "summary": "Download the augo app, accept your coach’s invitation, and connect the device or app you already train with. From then on your workouts arrive automatically and you can tell your coach how each session felt.",
+  "audience": "athlete",
+  "category": "getting-started",
+  "keywords": [
+    "athlete setup",
+    "new athlete",
+    "download app",
+    "join my coach",
+    "first time"
+  ],
+  "questionForms": [
+    "how do i start using augo as an athlete",
+    "my coach invited me what do i do",
+    "where do i download the app",
+    "how do i connect with my coach",
+    "i just joined augo what now",
+    "do i need to pay to use augo",
+    "how do i see my training",
+    "how do i log in as an athlete",
+    "what do i do first"
+  ],
+  "weight": 3,
+  "platforms": [
+    "ios",
+    "android"
+  ],
+  "datePublished": "2026-08-17",
+  "body": [
+    {
+      "type": "html",
+      "html": "<p>Athletes use augo on mobile, and it is free — augo is paid for by your coach, never by you.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"download-the-app\">Download the app</h2><p>Get augo from the <a href=\"https://apps.apple.com/ph/app/augo-training/id6754562173\" target=\"_blank\" rel=\"noopener noreferrer\">App Store</a> or <a href=\"https://play.google.com/store/apps/details?id=com.augotraining\" target=\"_blank\" rel=\"noopener noreferrer\">Google Play</a>.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"connect-with-your-coach\">Connect with your coach</h2><p>You reach augo through your coach — athletes are connected to a coach rather than working alone. If you don’t have a coach yet, you can <a href=\"/en/find\">find one in the augo directory</a>.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"link-your-watch-or-app\">Link your watch or app</h2><p>Connect Garmin, Polar, Strava, Coros, Wahoo or Zwift from your own account. Your completed sessions then arrive in augo automatically — you never upload anything by hand. Keep training with the device you already own; augo doesn’t ask you to change anything.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"tell-your-coach-how-it-felt\">Tell your coach how it felt</h2><p>After each session augo asks a short set of questions — how it felt, whether anything hurt, and anything else worth flagging. You can type or record a voice note; voice notes are transcribed automatically.</p><p>This is the part that makes the difference. Your watch tells your coach what you did; only you can tell them what it cost you.</p>"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Do athletes pay for augo?",
+      "answer": "No. augo is billed to your coach. There is no athlete subscription."
+    },
+    {
+      "question": "Can I use augo without a coach?",
+      "answer": "Not in the normal way — athletes on augo are connected through a coach. If you coach yourself, there is a workaround: create both a coach account and an athlete account and connect them."
+    }
+  ],
+  "related": [
+    "connect-devices-and-apps",
+    "session-feedback-explained",
+    "workout-not-showing-up"
+  ]
+}

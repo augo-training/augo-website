@@ -1,0 +1,68 @@
+{
+  "slug": "workout-templates",
+  "title": "How do workout templates work?",
+  "seoTitle": "Workout Templates in augo | augo support",
+  "description": "Build a library of reusable workouts, search it by discipline, RPE, duration or purpose, and assign them to athletes.",
+  "summary": "Workout templates are your reusable library. Save a session once, then find it again by discipline, RPE, duration or purpose — the search is typo-tolerant — and assign it to any athlete. augo tracks how many times each athlete has completed a session built from it.",
+  "audience": "coach",
+  "category": "training",
+  "keywords": [
+    "template",
+    "library",
+    "reuse",
+    "saved workouts",
+    "assign workout",
+    "prescribe",
+    "repeat session",
+    "favourite workouts"
+  ],
+  "questionForms": [
+    "how do workout templates work",
+    "reuse the same workout every week",
+    "can i save a session and use it again",
+    "how do i assign a workout to an athlete",
+    "where is my workout library",
+    "how do i find a session i built before",
+    "can i search my saved workouts",
+    "how do i see how often an athlete did a session",
+    "building a workout library"
+  ],
+  "weight": 1,
+  "datePublished": "2026-08-17",
+  "body": [
+    {
+      "type": "html",
+      "html": "<p>A workout template is a session you save once and reuse. If you coach more than a handful of athletes, this is where most of the repetitive work goes away.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"finding-a-template\">Finding one again</h2><p>The library is searchable, and the filters combine:</p><ul><li><strong>Discipline</strong> — run, bike, swim or other</li><li><strong>RPE</strong> — matches any template with a step whose RPE range overlaps yours</li><li><strong>Estimated duration</strong></li><li><strong>Purpose</strong> — what the session is for</li><li><strong>Free text</strong> — typo-tolerant search across title and purpose</li></ul><p>You can also filter by when a template was last assigned, which is a quick way to find the sessions you’ve quietly stopped using.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"assigning-to-athletes\">Assigning to athletes</h2><p>Assign a template to any athlete on your roster. augo tracks how many times that athlete has completed a workout descended from it, so you can see at a glance whether a key session is actually getting done.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"ad-hoc-workouts\">One-off sessions</h2><p>Not everything needs to become a template. You can assign a one-off workout without saving it to the library — useful for the session you built because of one specific week.</p>"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Can I search my workout library?",
+      "answer": "Yes, with typo-tolerant free-text search across title and purpose, plus filters for discipline, RPE, estimated duration and last-used date."
+    },
+    {
+      "question": "Can I see how often an athlete has done a session?",
+      "answer": "Yes. When you look at a template in the context of a specific athlete, augo reports how many times that athlete has completed a workout descended from it."
+    },
+    {
+      "question": "Do I have to save every workout as a template?",
+      "answer": "No. One-off workouts can be assigned directly without adding them to your library."
+    }
+  ],
+  "related": [
+    "training-zones-and-zone-models",
+    "performance-anchors"
+  ]
+}

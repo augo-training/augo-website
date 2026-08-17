@@ -1,0 +1,74 @@
+{
+  "slug": "daily-priority-list",
+  "title": "What is the daily priority list?",
+  "seoTitle": "The Daily Priority List and Athlete Signals | augo support",
+  "description": "Overnight, augo reads the last seven days across your whole roster and ranks the athletes who need you today.",
+  "summary": "Overnight augo reviews the last seven days of data for every athlete on your roster and, by morning, gives you a ranked list of who needs attention today — each with a one-line reason. Athletes are compared against their own recent baseline, not a population average.",
+  "audience": "coach",
+  "category": "assistant",
+  "keywords": [
+    "priorities",
+    "athlete signals",
+    "who needs attention",
+    "daily list",
+    "flags",
+    "alerts",
+    "morning",
+    "triage",
+    "dashboard"
+  ],
+  "questionForms": [
+    "what is the daily priority list",
+    "who needs my attention today",
+    "what are athlete signals",
+    "how does augo decide who needs attention",
+    "the thing that tells me who needs attention",
+    "how often does the priority list update",
+    "why is this athlete flagged",
+    "what data does the priority list use",
+    "my priority list is empty",
+    "how many athletes appear on the list"
+  ],
+  "weight": 3,
+  "datePublished": "2026-08-17",
+  "body": [
+    {
+      "type": "html",
+      "html": "<p>The hardest question in coaching a full roster isn’t what to prescribe — it’s who to look at first. The daily priority list answers that one.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"how-it-works\">How it works</h2><p>Overnight, augo reads the last seven days of data across every athlete you coach. By the morning a ranked list is waiting, showing something like “7 of 12” — the athletes who warrant a look today, not the whole roster.</p><p>Each entry carries a one-line reason, so you can tell at a glance why someone surfaced, and tap through to ask the assistant for more.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"what-it-reads\">What it reads</h2><ul><li>Completed workouts and their metrics — pace, power, heart rate, duration, distance</li><li>Structured session feedback — feel, aches and pains, RPE, fuelling, written and voice notes</li><li>Coach–athlete chat messages</li><li>Your own private notes</li></ul>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"compared-against-themselves\">Compared against themselves</h2><p>Each athlete is measured against <em>their own</em> recent baseline rather than a population average. A 150bpm easy run means nothing in isolation; it means something if that athlete has run the same route at 138bpm for a month.</p><p>This is also why the list needs about a week of data before it is useful for a new athlete — there is no baseline to deviate from yet.</p>"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "How often does the priority list update?",
+      "answer": "It is rebuilt overnight, so a fresh ranked list is waiting each morning."
+    },
+    {
+      "question": "What data does it analyse?",
+      "answer": "Completed workouts and their metrics, structured session feedback including voice notes, coach–athlete chat messages, and your own private coach notes."
+    },
+    {
+      "question": "Why is my priority list empty for a new athlete?",
+      "answer": "augo compares each athlete against their own recent baseline, so it needs roughly a week of data before it can tell what is unusual for them."
+    },
+    {
+      "question": "Does it show my whole roster?",
+      "answer": "No — only the athletes who warrant attention, shown as a count like \"7 of 12\"."
+    }
+  ],
+  "related": [
+    "session-feedback-explained",
+    "getting-started-as-a-coach"
+  ]
+}

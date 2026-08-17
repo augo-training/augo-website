@@ -1,0 +1,57 @@
+{
+  "slug": "can-i-use-augo-if-i-coach-myself",
+  "title": "Can I use augo if I coach myself?",
+  "seoTitle": "Using augo as a Self-Coached Athlete | augo support",
+  "description": "augo is built around the coach–athlete relationship. Self-coached athletes can create both a coach and an athlete account and connect them.",
+  "summary": "augo is designed around a coach and an athlete working together, so there is no dedicated self-coached mode. If you coach yourself, create a coach account and an athlete account and connect them to each other — you then get the assistant, feedback trends and priorities on your own training.",
+  "audience": "athlete",
+  "category": "getting-started",
+  "keywords": [
+    "self coached",
+    "no coach",
+    "solo",
+    "on my own",
+    "without a coach",
+    "self-coaching"
+  ],
+  "questionForms": [
+    "can i use augo without a coach",
+    "can i coach myself with augo",
+    "i dont have a coach can i still use it",
+    "is there a solo mode",
+    "do i need a coach to use augo",
+    "can i be my own coach on augo",
+    "using augo self coached",
+    "im self coached is augo for me"
+  ],
+  "weight": 1,
+  "datePublished": "2026-08-17",
+  "body": [
+    {
+      "type": "html",
+      "html": "<p>The short answer: yes, but not directly. augo’s experience is built around two people — a coach who needs context on their athletes, and an athlete who needs a place to report back. Athletes are connected <em>through</em> their coach, not independently.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"the-workaround\">The workaround</h2><p>Create a coach account and a separate athlete account, then connect them to each other. You train on the athlete side and review on the coach side.</p><p>This gives you the assistant, the daily priority list and feedback trends on your own training, which is genuinely useful for spotting patterns you would otherwise talk yourself out of.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"what-it-wont-do\">What it won’t do</h2><p>augo does not write training plans, and it will not coach you. The assistant surfaces context and drafts messages; the judgement stays human. If what you want is an AI that prescribes your training, augo isn’t that product, and deliberately so.</p><p>If you’d rather work with a person, the <a href=\"/en/find\">augo coach directory</a> lists coaches taking on athletes.</p>"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Is there a self-coached plan?",
+      "answer": "Not as a separate product. Self-coached athletes create both a coach account and an athlete account and connect them. Coach pricing applies, and a single connected athlete falls inside the free tier."
+    },
+    {
+      "question": "Will augo write me a training plan?",
+      "answer": "No. augo does not generate training plans, and there is no AI on the athlete side at all. It organises data, surfaces what needs attention, and helps a human coach act on it."
+    }
+  ],
+  "related": [
+    "getting-started-as-an-athlete",
+    "whats-free-and-when-do-i-pay"
+  ]
+}

@@ -95,10 +95,34 @@ export interface SupportArticleData {
   category: SupportCategoryId
   /**
    * Search synonyms, misspellings, error strings, old product names. Never rendered.
-   * The highest-leverage authoring field: no-results queries from analytics get
-   * folded back in here.
+   * Short terms and phrases — concept vocabulary, not whole questions. Whole
+   * questions belong in `questionForms`.
    */
   keywords?: string[]
+  /**
+   * Complete phrasings a person would actually type, e.g. "my watch won't sync".
+   * Never rendered as page content; drives search and the "did you mean" chips.
+   *
+   * This is the highest-leverage authoring field. An exact match here is the
+   * single strongest ranking signal in the system, so the field must stay
+   * homogeneous — a list of complete queries this article claims to answer, and
+   * nothing else. Concept nouns go in `keywords`; mixing them here would make a
+   * one-word query fire a whole-form bonus it hasn't earned.
+   *
+   * Writing them:
+   * - 10-20 entries, lowercase, punctuation optional.
+   * - Cover all four intent shapes: definitional ("what is session feedback"),
+   *   procedural ("how do i turn on feedback"), troubleshooting ("my athletes
+   *   aren't getting asked"), decisional ("should i use session feedback").
+   * - Include the blunt, frustrated register — "watch not syncing", "stop
+   *   paying" — not only polite full sentences.
+   * - Include pre-product vocabulary: what someone calls it before they know the
+   *   real term ("the thing that tells me who needs attention").
+   * - Don't restate the title; it is already indexed at a high weight.
+   * - A question form is a claim of ownership. Never write one that another
+   *   article should win — test/supportContent.test.ts enforces uniqueness.
+   */
+  questionForms?: string[]
   /** Hand ordering for "Popular" and a ranking tiebreak. 0 default; 1–3 for top articles. */
   weight?: number
   platforms?: SupportPlatform[]

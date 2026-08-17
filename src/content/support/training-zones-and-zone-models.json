@@ -1,0 +1,73 @@
+{
+  "slug": "training-zones-and-zone-models",
+  "title": "How do training zones and zone models work?",
+  "seoTitle": "Training Zones and Zone Models in augo | augo support",
+  "description": "augo ships seven zone models across run, bike and swim, and coaches can build their own. Zones are percentages of a performance anchor.",
+  "summary": "A zone model defines training zones as percentages of a performance anchor — threshold pace, FTP, lactate threshold heart rate or critical power. augo ships seven models across run, bike and swim, and you can build your own or customise one for a single athlete.",
+  "audience": "coach",
+  "category": "training",
+  "keywords": [
+    "zones",
+    "zone model",
+    "threshold",
+    "ftp",
+    "lthr",
+    "heart rate zones",
+    "power zones",
+    "pace zones",
+    "zone 2",
+    "five zone",
+    "seven zone",
+    "intensity"
+  ],
+  "questionForms": [
+    "how do zones work in augo",
+    "how do i set up training zones",
+    "set my athletes threshold pace",
+    "can i make my own zone model",
+    "what zone models come with augo",
+    "how do i change an athletes zones",
+    "do you support power zones",
+    "can different athletes have different zones",
+    "how many zones can i have",
+    "what is a zone model"
+  ],
+  "weight": 2,
+  "datePublished": "2026-08-17",
+  "body": [
+    {
+      "type": "html",
+      "html": "<p>A zone model turns one baseline number into a set of training zones. The zones are defined as percentages of a <a href=\"/en/support/performance-anchors/\">performance anchor</a>, so when the athlete’s threshold moves, every zone moves with it.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"the-models-augo-ships\">The models augo ships</h2><ul><li><strong>Run</strong> — heart rate 5-zone, heart rate 7-zone, pace 7-zone</li><li><strong>Bike</strong> — heart rate 5-zone, heart rate 7-zone, power 6-zone</li><li><strong>Swim</strong> — pace 5-zone</li></ul><p>Zones are labelled in the usual language — Recovery, Endurance, Tempo, Threshold, VO2 Max, Anaerobic capacity — with the 7-zone models splitting threshold into sub- and super-threshold. The top zone is open-ended.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"the-four-anchor-types\">The four anchor types</h2><p>Every model is built on one of four anchors:</p><ul><li>Threshold pace</li><li>Lactate threshold heart rate</li><li>Functional threshold power (FTP)</li><li>Critical power</li></ul><p>Which one you use is a coaching decision. augo doesn’t impose a methodology.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"building-your-own\">Building your own</h2><p>You can create your own models with your own zone count, labels, colours and percentage bounds — and you can customise a model for a single athlete when someone doesn’t fit your standard template. Models you don’t use can be hidden so your catalogue stays short.</p>"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Which zone models does augo provide?",
+      "answer": "Seven: run heart-rate 5 and 7 zone, run pace 7 zone, bike heart-rate 5 and 7 zone, bike power 6 zone, and swim pace 5 zone. You can also build your own."
+    },
+    {
+      "question": "Can I customise zones for one athlete?",
+      "answer": "Yes. A model can be customised for a single athlete without changing the version other athletes are on."
+    },
+    {
+      "question": "What are zones based on?",
+      "answer": "Percentages of a performance anchor — threshold pace, lactate threshold heart rate, FTP or critical power."
+    }
+  ],
+  "related": [
+    "performance-anchors",
+    "workout-templates"
+  ]
+}

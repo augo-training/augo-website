@@ -36,7 +36,7 @@
     },
     {
       "type": "html",
-      "html": "<h2 id=\"what-athletes-are-asked\">What athletes are asked</h2><p>There are 11 questions in the library, grouped into four areas. Coaches choose which optional ones to switch on.</p><h3 id=\"how-they-felt\">How they felt</h3><ul><li><strong>Energy level before training</strong> — low energy, normal, or high energy.</li><li><strong>How did you feel during training?</strong> — struggled/bad, average/normal, or strong/great. <em>Always asked.</em></li><li><strong>How hard did it feel? (RPE)</strong> — a five-point scale described in plain language, from \"Very easy — like a relaxing walk\" through to \"Maximum effort — all-out, couldn't go harder\".</li></ul><h3 id=\"fuel-and-hydration\">Fuel &amp; hydration</h3><ul><li><strong>What did you consume before the session?</strong></li><li><strong>Carbs consumed per hour</strong></li><li><strong>What did you consume during the session?</strong></li><li><strong>Did you have any digestive or gut issues?</strong> — had issues, felt OK, or dialled in.</li></ul><h3 id=\"recovery-and-other\">Recovery &amp; other</h3><ul><li><strong>How did you recover between intervals/sets?</strong> — recovered quickly, took some time, or struggled to recover.</li><li><strong>Any aches or pains?</strong> — no issues, minor discomfort, or something concerning. <em>Always asked.</em></li><li><strong>How do you feel about your performance during this session?</strong> — below, met, or exceeded expectations.</li></ul><h3 id=\"notes\">Notes</h3><ul><li><strong>Anything else to add?</strong> — free text. <em>Always asked.</em></li></ul>"
+      "html": "<h2 id=\"what-athletes-are-asked\">What athletes are asked</h2><p>There are 11 questions in the library, grouped into four areas. Coaches choose which optional ones to switch on — see <a href=\"/en/support/choose-feedback-questions/\">choosing which feedback questions your athletes see</a>.</p><h3 id=\"how-they-felt\">How they felt</h3><ul><li><strong>Energy level before training</strong> — low energy, normal, or high energy.</li><li><strong>How did you feel during training?</strong> — struggled/bad, average/normal, or strong/great. <em>Always asked.</em></li><li><strong>How hard did it feel? (RPE)</strong> — a five-point scale described in plain language, from \"Very easy — like a relaxing walk\" through to \"Maximum effort — all-out, couldn't go harder\".</li></ul><h3 id=\"fuel-and-hydration\">Fuel &amp; hydration</h3><ul><li><strong>What did you consume before the session?</strong></li><li><strong>Carbs consumed per hour</strong></li><li><strong>What did you consume during the session?</strong></li><li><strong>Did you have any digestive or gut issues?</strong> — had issues, felt OK, or dialled in.</li></ul><h3 id=\"recovery-and-other\">Recovery &amp; other</h3><ul><li><strong>How did you recover between intervals/sets?</strong> — recovered quickly, took some time, or struggled to recover.</li><li><strong>Any aches or pains?</strong> — no issues, minor discomfort, or something concerning. <em>Always asked.</em></li><li><strong>How do you feel about your performance during this session?</strong> — below, met, or exceeded expectations.</li></ul><h3 id=\"notes\">Notes</h3><ul><li><strong>Anything else to add?</strong> — free text. <em>Always asked.</em></li></ul>"
     },
     {
       "type": "html",
@@ -48,7 +48,7 @@
     },
     {
       "type": "html",
-      "html": "<h2 id=\"what-happens-to-the-answers\">What happens to the answers</h2><p>Answers are visible to the athlete's coach against the session they belong to, and they feed two things:</p><ul><li><strong>Trends.</strong> Both coach and athlete can see how the answers move over weeks and months, which is where fatigue, motivation dips and niggles-becoming-injuries become visible.</li><li><strong>The daily priority list.</strong> augo weighs feedback alongside workout data when deciding which athletes to surface for attention each morning.</li></ul><p>Feedback is part of the coaching record between an athlete and their coach. It isn't shared with other athletes, and it isn't used to train models served to athletes.</p>"
+      "html": "<h2 id=\"what-happens-to-the-answers\">What happens to the answers</h2><p>Answers are visible to the athlete's coach against the session they belong to, and they feed two things:</p><ul><li><strong>Trends.</strong> Both coach and athlete can see how the answers move over weeks and months, which is where fatigue, motivation dips and niggles-becoming-injuries become visible.</li><li><strong>The daily priority list.</strong> augo weighs feedback alongside workout data when deciding which athletes to surface for attention. See <a href=\"/en/support/daily-priority-list/\">what the daily priority list is</a>.</li></ul><p>Feedback is part of the coaching record between an athlete and their coach. It isn't shared with other athletes, and it isn't used to train models served to athletes.</p>"
     }
   ],
   "faqs": [
@@ -70,6 +70,21 @@
     }
   ],
   "related": [
+    "choose-feedback-questions",
+    "daily-priority-list",
     "connect-devices-and-apps"
+  ],
+  "questionForms": [
+    "what happens after i finish a workout",
+    "what are the questions after training",
+    "how did it feel question",
+    "what is rpe",
+    "can my athletes record a voice note",
+    "why do i get asked about aches",
+    "what do athletes have to fill in",
+    "do athletes have to answer every question",
+    "where does session feedback go",
+    "can athletes see their own feedback",
+    "what is post session feedback"
   ]
 }

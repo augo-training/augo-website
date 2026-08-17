@@ -44,7 +44,7 @@
     },
     {
       "type": "html",
-      "html": "<h2 id=\"not-currently-supported\">Not currently supported</h2><p>Apple Health, Whoop, Oura and Suunto are not connected sources today. If your athletes rely on one of these, tell us — the roadmap is shaped by what coaches actually ask for.</p><p>TrainingPeaks is a different case: it isn't a data source, and it isn't meant to be. augo is designed to sit alongside it rather than replace it. Coaches keep TrainingPeaks for planning; augo handles communication, feedback and insight around it.</p>"
+      "html": "<h2 id=\"not-currently-supported\">Not currently supported</h2><p>Apple Health, Whoop, Oura and Suunto are not connected sources today. If your athletes rely on one of these, tell us — the roadmap is shaped by what coaches actually ask for.</p><p>TrainingPeaks is a different case: it isn't a data source, and it isn't meant to be. augo is designed to sit alongside it rather than replace it. See <a href=\"/en/support/do-i-have-to-stop-using-trainingpeaks/\">do I have to stop using TrainingPeaks?</a></p>"
     },
     {
       "type": "html",
@@ -52,7 +52,7 @@
     },
     {
       "type": "html",
-      "html": "<h2 id=\"when-workouts-dont-appear\">When workouts don't appear</h2><p>Sync is automatic once connected, but it isn't instant — a session has to finish uploading from the watch to the provider before augo can see it. If a workout is missing, check that it has finished syncing to Garmin Connect, Strava or whichever source is connected — augo can only see what the provider has already received.</p>"
+      "html": "<h2 id=\"when-workouts-dont-appear\">When workouts don't appear</h2><p>Sync is automatic once connected, but it isn't instant — a session has to finish uploading from the watch to the provider before augo can see it. If a workout is missing, start with <a href=\"/en/support/workout-not-showing-up/\">my workout isn't showing up in augo</a>.</p>"
     },
     {
       "type": "html",
@@ -78,6 +78,21 @@
     }
   ],
   "related": [
-    "session-feedback-explained"
+    "workout-not-showing-up",
+    "do-i-have-to-stop-using-trainingpeaks",
+    "getting-started-as-an-athlete"
+  ],
+  "questionForms": [
+    "my watch wont sync",
+    "does augo work with garmin",
+    "can i use my apple watch",
+    "how do i connect strava",
+    "how do i link my watch",
+    "what devices work with augo",
+    "do you support whoop",
+    "how do i pair my coros",
+    "can my coach connect my garmin for me",
+    "watch not syncing",
+    "how do i connect my device"
   ]
 }
