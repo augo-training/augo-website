@@ -43,6 +43,10 @@ export default function Footer() {
             title: t('footer.columns.explore'),
             links: [
                 { label: t('footer.links.blog'), href: `/${currentLang}/blog` },
+                // Support is English-only, like the blog. The lang-prefixed href is
+                // deliberate: /de/support client-redirects to /en/support, matching
+                // how the blog link already behaves from a non-English page.
+                { label: t('footer.links.support'), href: `/${currentLang}/support` },
                 { label: t('footer.links.findAMatch'), href: `/${currentLang}/find` },
                 { label: t('footer.links.humanEdge'), href: `/${currentLang}/humanedge` },
             ],
