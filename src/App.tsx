@@ -14,6 +14,8 @@ import HumanEdge from './pages/HumanEdge'
 import CoachProfile from './pages/CoachProfile'
 import BlogPost from './pages/BlogPost'
 import BlogIndex from './pages/BlogIndex'
+import SupportHub from './pages/SupportHub'
+import SupportArticle from './pages/SupportArticle'
 
 // March 26, 2026 at 20:00 Zurich time
 // DST starts March 29, 2026, so March 26 is still CET (UTC+1)
@@ -45,6 +47,9 @@ function App() {
         <Route path="/humanedge" element={<Navigate to="/en/humanedge" replace />} />
         <Route path="/coaches" element={<Navigate to="/en/find" replace />} />
         <Route path="/coaches/:slug" element={<CoachSlugLegacyRedirect />} />
+        {/* /help is the URL people type and paste, even though the section is /support. */}
+        <Route path="/support" element={<Navigate to="/en/support" replace />} />
+        <Route path="/help" element={<Navigate to="/en/support" replace />} />
 
         {/* Language-prefixed routes */}
         <Route path="/:lang" element={<LanguageLayout />}>
@@ -58,6 +63,8 @@ function App() {
           <Route path="coaches/:slug" element={<CoachProfile />} />
           <Route path="blog" element={<BlogIndex />} />
           <Route path="blog/:slug" element={<BlogPost />} />
+          <Route path="support" element={<SupportHub />} />
+          <Route path="support/:slug" element={<SupportArticle />} />
           <Route path="*" element={<NotFound />} />
         </Route>
 

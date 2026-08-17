@@ -1,0 +1,83 @@
+{
+  "slug": "connect-devices-and-apps",
+  "title": "Which devices and apps does augo sync with?",
+  "seoTitle": "Devices augo Syncs With: Garmin, Polar, Strava, Coros | augo support",
+  "description": "augo syncs wearable and workout data from Garmin, Polar, Strava, Coros, Wahoo and Zwift. Connect once from the athlete's account and workouts flow in automatically.",
+  "summary": "augo currently syncs workout data from Garmin, Polar, Strava, Coros, Wahoo and Zwift. The athlete connects their account once, and completed sessions flow into augo automatically — no manual uploads, and no need to change the device they already own.",
+  "audience": "both",
+  "category": "integrations",
+  "keywords": [
+    "garmin",
+    "polar",
+    "strava",
+    "coros",
+    "wahoo",
+    "zwift",
+    "connect",
+    "sync",
+    "pair",
+    "link account",
+    "watch",
+    "device",
+    "wearable",
+    "integration",
+    "apple health",
+    "whoop",
+    "oura",
+    "suunto"
+  ],
+  "weight": 3,
+  "platforms": [
+    "ios",
+    "android",
+    "web"
+  ],
+  "datePublished": "2026-08-17",
+  "body": [
+    {
+      "type": "html",
+      "html": "<p>augo is device-agnostic on purpose. It doesn't sell a watch, so it has no reason to treat one brand better than another — Garmin, Coros, Polar, Wahoo and Zwift are all equal citizens.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"supported-sources\">Supported sources</h2><p>augo currently syncs workout data from:</p><ul><li><strong>Garmin</strong></li><li><strong>Polar</strong></li><li><strong>Strava</strong></li><li><strong>Coros</strong></li><li><strong>Wahoo</strong></li><li><strong>Zwift</strong></li></ul><p>Connecting any one of these is enough. If an athlete's watch already pushes to Strava, connecting Strava alone will bring the sessions across — there's no need to connect both, and doing so can produce duplicate activities.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"not-currently-supported\">Not currently supported</h2><p>Apple Health, Whoop, Oura and Suunto are not connected sources today. If your athletes rely on one of these, tell us — the roadmap is shaped by what coaches actually ask for.</p><p>TrainingPeaks is a different case: it isn't a data source, and it isn't meant to be. augo is designed to sit alongside it rather than replace it. Coaches keep TrainingPeaks for planning; augo handles communication, feedback and insight around it.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"who-connects-the-account\">Who connects the account</h2><p><strong>The athlete connects their own device or app</strong>, from their own augo account. A coach can't connect an athlete's Garmin on their behalf — the authorisation belongs to the account that owns the data.</p><p>This is usually the fastest thing to check when a coach sees an empty training feed for a new athlete: the athlete has joined, but hasn't linked a data source yet.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"when-workouts-dont-appear\">When workouts don't appear</h2><p>Sync is automatic once connected, but it isn't instant — a session has to finish uploading from the watch to the provider before augo can see it. If a workout is missing, check that it has finished syncing to Garmin Connect, Strava or whichever source is connected — augo can only see what the provider has already received.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"who-owns-the-data\">Who owns the data</h2><p>You do. You can export your data in full, at any time, and take it with you if you leave. Coach data is never used to train models served directly to athletes.</p>"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Which devices does augo sync with?",
+      "answer": "augo currently syncs workout data from Garmin, Polar, Strava, Coros, Wahoo and Zwift. Connecting one source is enough — if a watch already pushes to Strava, connecting Strava alone brings the sessions across."
+    },
+    {
+      "question": "Does augo work with Apple Health, Whoop or Oura?",
+      "answer": "Not today. The supported sources are Garmin, Polar, Strava, Coros, Wahoo and Zwift. If your athletes depend on another source, let us know — coach demand drives what gets added."
+    },
+    {
+      "question": "Can a coach connect an athlete's device for them?",
+      "answer": "No. The athlete connects their own device or app from their own augo account, because the authorisation belongs to the account that owns the data. An empty training feed for a new athlete usually means this step hasn't happened yet."
+    },
+    {
+      "question": "Is augo tied to a specific device brand?",
+      "answer": "No. augo doesn't sell hardware, so it has no reason to favour one brand. Garmin, Coros, Polar, Wahoo and Zwift are all treated equally."
+    }
+  ],
+  "related": [
+    "session-feedback-explained"
+  ]
+}

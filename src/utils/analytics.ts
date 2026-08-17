@@ -217,3 +217,19 @@ export async function trackCoachMatchChatAbandoned(props: {
 }): Promise<void> {
     return track('coach_match_chat_abandoned', props)
 }
+
+export async function trackSupportArticleViewed(props: {
+    slug: string
+    category: string
+    audience: string
+}): Promise<void> {
+    return track('support_article_viewed', props)
+}
+
+export async function trackSupportVideoPlayed(props: {
+    slug: string
+    provider: string
+    id: string
+}): Promise<void> {
+    return track('support_video_played', props)
+}

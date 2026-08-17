@@ -1,0 +1,75 @@
+{
+  "slug": "session-feedback-explained",
+  "title": "What is session feedback and how does it work?",
+  "seoTitle": "Session Feedback in augo: How It Works | augo support",
+  "description": "Session feedback is the short set of questions augo asks an athlete after every workout. Coaches choose which questions appear; three are always asked.",
+  "summary": "After each workout, augo asks the athlete a short set of questions about how the session actually felt — energy, effort, fuelling, aches and anything else worth flagging. Coaches pick which of the 11 available questions their athletes see, and three of them are always asked.",
+  "audience": "both",
+  "category": "feedback",
+  "keywords": [
+    "session feedback",
+    "post-workout",
+    "post session",
+    "rpe",
+    "how did it feel",
+    "subjective data",
+    "aches and pains",
+    "niggles",
+    "fuelling",
+    "fueling",
+    "voice note",
+    "questions",
+    "survey",
+    "check in"
+  ],
+  "weight": 3,
+  "platforms": [
+    "ios",
+    "android",
+    "web"
+  ],
+  "datePublished": "2026-08-17",
+  "body": [
+    {
+      "type": "html",
+      "html": "<p>Workout files tell you what an athlete did. They don't tell you what it cost them. Session feedback is how augo captures the second half of that picture — a short, structured check-in attached to each session, so the athlete's own account of the workout sits next to the data from their watch.</p><p>Because the answers are structured rather than free-form chat, augo can track them over time and surface changes as trends, instead of leaving them buried in a message thread.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"what-athletes-are-asked\">What athletes are asked</h2><p>There are 11 questions in the library, grouped into four areas. Coaches choose which optional ones to switch on.</p><h3 id=\"how-they-felt\">How they felt</h3><ul><li><strong>Energy level before training</strong> — low energy, normal, or high energy.</li><li><strong>How did you feel during training?</strong> — struggled/bad, average/normal, or strong/great. <em>Always asked.</em></li><li><strong>How hard did it feel? (RPE)</strong> — a five-point scale described in plain language, from \"Very easy — like a relaxing walk\" through to \"Maximum effort — all-out, couldn't go harder\".</li></ul><h3 id=\"fuel-and-hydration\">Fuel &amp; hydration</h3><ul><li><strong>What did you consume before the session?</strong></li><li><strong>Carbs consumed per hour</strong></li><li><strong>What did you consume during the session?</strong></li><li><strong>Did you have any digestive or gut issues?</strong> — had issues, felt OK, or dialled in.</li></ul><h3 id=\"recovery-and-other\">Recovery &amp; other</h3><ul><li><strong>How did you recover between intervals/sets?</strong> — recovered quickly, took some time, or struggled to recover.</li><li><strong>Any aches or pains?</strong> — no issues, minor discomfort, or something concerning. <em>Always asked.</em></li><li><strong>How do you feel about your performance during this session?</strong> — below, met, or exceeded expectations.</li></ul><h3 id=\"notes\">Notes</h3><ul><li><strong>Anything else to add?</strong> — free text. <em>Always asked.</em></li></ul>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"the-three-questions-that-are-always-asked\">The three questions that are always asked</h2><p>Three questions are required and can't be switched off:</p><ol><li>How did you feel during training?</li><li>Any aches or pains?</li><li>Anything else to add?</li></ol><p>They're fixed because they're the ones that catch problems early. \"Something concerning\" on the aches question is the single most useful signal augo collects — it's the difference between hearing about an injury now and hearing about it in three weeks.</p><p>Everything else is the coach's call. A time-crunched age-grouper and an athlete deep in a fuelling block don't need the same questionnaire.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"writing-or-speaking-the-answer\">Writing or speaking the answer</h2><p>The free-text questions accept typing or a voice note. Voice notes are transcribed automatically, so a rushed two-sentence recording after a long ride still ends up searchable and readable alongside everything else.</p><p>In practice this is what gets feedback completion rates up. Athletes who won't type a paragraph on a phone will happily talk for twenty seconds.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"what-happens-to-the-answers\">What happens to the answers</h2><p>Answers are visible to the athlete's coach against the session they belong to, and they feed two things:</p><ul><li><strong>Trends.</strong> Both coach and athlete can see how the answers move over weeks and months, which is where fatigue, motivation dips and niggles-becoming-injuries become visible.</li><li><strong>The daily priority list.</strong> augo weighs feedback alongside workout data when deciding which athletes to surface for attention each morning.</li></ul><p>Feedback is part of the coaching record between an athlete and their coach. It isn't shared with other athletes, and it isn't used to train models served to athletes.</p>"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "How many session feedback questions are there?",
+      "answer": "There are 11 questions available, across four groups: how they felt, fuel and hydration, recovery and other, and notes. Coaches choose which optional questions their athletes see, and three questions are always asked."
+    },
+    {
+      "question": "Which session feedback questions can't be turned off?",
+      "answer": "Three are required: \"How did you feel during training?\", \"Any aches or pains?\", and \"Anything else to add?\". They're fixed because they're the questions most likely to catch a developing problem early."
+    },
+    {
+      "question": "Can athletes answer session feedback by voice?",
+      "answer": "Yes. Free-text questions accept a typed answer or a voice note, and voice notes are transcribed automatically so they're searchable alongside everything else."
+    },
+    {
+      "question": "Does the athlete see their own feedback trends?",
+      "answer": "Yes. Feedback isn't only logged for the coach — trends are visible to both the athlete and their coach, so early warning signs can be spotted together."
+    }
+  ],
+  "related": [
+    "connect-devices-and-apps"
+  ]
+}
