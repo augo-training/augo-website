@@ -233,3 +233,22 @@ export async function trackSupportVideoPlayed(props: {
 }): Promise<void> {
     return track('support_video_played', props)
 }
+
+export async function trackSupportSearch(props: {
+    query: string
+    result_count: number
+    confidence: number
+    tier: string
+    top_slug: string
+}): Promise<void> {
+    return track('support_search', props)
+}
+
+// The queries we can't answer are the content roadmap: unknown_terms is
+// literally the list of words the corpus has never seen.
+export async function trackSupportSearchNoResults(props: {
+    query: string
+    unknown_terms: string
+}): Promise<void> {
+    return track('support_search_no_results', props)
+}

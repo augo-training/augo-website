@@ -50,7 +50,7 @@ export default function SupportBody({ blocks, slug }: Props) {
             )}
             <ol className="support-steps">
               {block.steps.map((step, s) => (
-                <li key={s} id={`step-${s + 1}`}>
+                <li key={s} id={`step-${i}-${s + 1}`}>
                   <h3 className="support-step-title">{step.title}</h3>
                   <HtmlBlock html={step.html} />
                   {step.media && <Media media={step.media} slug={slug} />}

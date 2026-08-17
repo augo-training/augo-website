@@ -593,6 +593,28 @@
       "browseTitle": "Browse by topic",
       "clearCategory": "Show all topics"
     },
+    "search": {
+      "inputLabel": "Search augo support — ask in your own words",
+      "clear": "Clear search",
+      "resultCount_one": "{{count}} result",
+      "resultCount_other": "{{count}} results",
+      "resultsTitle_one": "{{count}} result",
+      "resultsTitle_other": "{{count}} results",
+      "closestTitle": "Closest matches for '{{query}}'",
+      "closestBody": "We're not certain this is what you meant — these are the nearest articles we have.",
+      "unsureTitle": "We don't have an answer for that yet",
+      "unsureBody": "Nothing in the help centre matches closely enough for us to be useful here. Ask us directly and we'll get back to you — and write the article.",
+      "mostAsked": "Most asked",
+      "didYouMean": "Did you mean",
+      "jumpTo": "Jump to: {{heading}}"
+    },
+    "contact": {
+      "quiet": "Still stuck?",
+      "quietLink": "Talk to a human",
+      "title": "Ask us directly",
+      "body": "Tell us what you were trying to do and we'll come back to you. Questions we can't answer here are what we write next.",
+      "cta": "Contact augo"
+    },
     "audience": {
       "all": "Everyone",
       "coach": "Coaches",

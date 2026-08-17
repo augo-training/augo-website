@@ -6,6 +6,8 @@
 // no vite/client types. Keep it that way.
 
 import { SUPPORT_CATEGORY_IDS } from './supportTypes'
+import { buildSupportSearchIndex } from './supportSearchIndex'
+import type { SupportSearchIndex } from './supportSearchIndex'
 import type {
   SupportArticleData,
   SupportAudienceFilter,
@@ -119,6 +121,21 @@ export function getRelated(slug: string, limit = 3): SupportArticleData[] {
 
 export function getArticlesBySlugs(slugs: string[]): SupportArticleData[] {
   return slugs.map((s) => articlesBySlug[s]).filter((a): a is SupportArticleData => !!a)
+}
+
+/**
+ * The search index, built on first use and reused thereafter.
+ *
+ * Lazy so SupportArticle.tsx — which only needs articlesBySlug — doesn't pay to
+ * tokenise the whole corpus. Kept here rather than in a module-level const so
+ * the single-glob invariant holds: supportSearchIndex.ts stays pure and takes
+ * articles as an argument, which is what lets tests import it.
+ */
+let cachedIndex: SupportSearchIndex | null = null
+
+export function getSupportSearchIndex(): SupportSearchIndex {
+  cachedIndex ??= buildSupportSearchIndex(allArticles)
+  return cachedIndex
 }
 
 export function formatSupportDate(iso: string): string {
