@@ -51,6 +51,9 @@ const EVAL: { query: string; expect: string; why: string }[] = [
   { query: 'how much does augo cost', expect: 'whats-free-and-when-do-i-pay', why: 'cost/price group' },
   { query: 'where do i download the app', expect: 'getting-started-as-an-athlete', why: 'athlete onboarding' },
   { query: 'my priority list is empty', expect: 'daily-priority-list', why: 'empty -> missing group must not pull troubleshooting' },
+  { query: 'where do i find my invite link', expect: 'add-an-athlete', why: 'invite-flow vocabulary' },
+  { query: 'what is my coach code', expect: 'add-an-athlete', why: 'coach code is only in the invite article' },
+  { query: 'my athlete tapped the link and nothing happened', expect: 'add-an-athlete', why: 'troubleshooting phrasing must not pull workout-not-showing-up' },
 ]
 
 describe('support search — eval set', () => {
