@@ -950,6 +950,33 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://augotraining.com/en/coaches/nathaniel-fisher/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://augotraining.com/en/coaches/nathaniel-fisher/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://augotraining.com/de/coaches/nathaniel-fisher/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://augotraining.com/pt/coaches/nathaniel-fisher/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://augotraining.com/en/coaches/nathaniel-fisher/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://augotraining.com/de/coaches/nathaniel-fisher/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://augotraining.com/en/coaches/nathaniel-fisher/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://augotraining.com/de/coaches/nathaniel-fisher/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://augotraining.com/pt/coaches/nathaniel-fisher/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://augotraining.com/en/coaches/nathaniel-fisher/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://augotraining.com/pt/coaches/nathaniel-fisher/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://augotraining.com/en/coaches/nathaniel-fisher/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://augotraining.com/de/coaches/nathaniel-fisher/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://augotraining.com/pt/coaches/nathaniel-fisher/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://augotraining.com/en/coaches/nathaniel-fisher/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://augotraining.com/en/coaches/nick-dill/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://augotraining.com/en/coaches/nick-dill/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://augotraining.com/de/coaches/nick-dill/" />
