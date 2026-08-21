@@ -1,7 +1,14 @@
 import { createContext, useContext } from 'react'
 
+export interface EmailCaptureModalOptions {
+    /** Called after a successful submit instead of redirecting to the download page. */
+    onSuccess?: () => void
+    subtitle?: string
+    submitLabel?: string
+}
+
 export interface EmailCaptureContextValue {
-    openModal: (ctaText: string) => void
+    openModal: (ctaText: string, options?: EmailCaptureModalOptions) => void
     closeModal: () => void
 }
 

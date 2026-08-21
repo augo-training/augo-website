@@ -407,10 +407,18 @@
   },
   "emailCapture": {
     "title": "Você está quase lá",
-    "subtitle": "Digite seu e-mail e enviaremos o link — mais dicas de acesso antecipado.",
+    "subtitle": "Digite seu nome e e-mail e enviaremos o link — mais dicas de acesso antecipado.",
+    "filmSubtitle": "Deixe seu nome e e-mail e o filme começa em seguida.",
+    "namePlaceholder": "Nome",
     "placeholder": "seu@email.com",
+    "typeLabel": "Eu sou…",
+    "typeCoach": "Treinador",
+    "typeAthlete": "Atleta",
+    "typeOther": "Outro",
     "cta": "Continuar para a App Store",
     "skip": "Pular, me leve direto lá",
+    "typeError": "Por favor, selecione uma opção.",
+    "nameError": "Por favor, digite seu nome.",
     "error": "Algo deu errado. Por favor, tente novamente."
   },
   "floatingButton": {

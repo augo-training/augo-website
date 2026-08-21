@@ -121,7 +121,7 @@ export async function trackFloatingButtonClicked(props: { page: string }): Promi
     return track('floating_button_clicked', props)
 }
 
-export async function trackEmailCaptureSubmitted(props: { email: string; cta_text: string }): Promise<void> {
+export async function trackEmailCaptureSubmitted(props: { email: string; cta_text: string; visitor_type?: string }): Promise<void> {
     return track('pricing_email_capture_submitted', props)
 }
 

@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
 import { trackCtaClicked } from '../utils/analytics'
 import LaunchOfferPill from './LaunchOfferPill'
-import { useEmailCapture } from '../contexts/EmailCaptureContext'
 import bgSection1 from '../assets/images/bg_section_1.webp'
 import imgWeb from '../assets/images/app_web_dashboard.png?w=1400&format=webp'
 import imgSignals from '../assets/images/app_athlete_signals.png?w=560&format=webp'
@@ -12,9 +11,13 @@ import imgAssistant from '../assets/images/app_assistant.png?w=560&format=webp'
 const WORD_DURATION = 3 // seconds each word is visible
 const FADE_DURATION = 0.4 // seconds for fade in/out
 
-export default function Hero() {
+interface HeroProps {
+    /** Called on "Watch the film" click — gates behind email capture and plays the film. */
+    onWatchFilm?: () => void
+}
+
+export default function Hero({ onWatchFilm }: HeroProps) {
     const { t, i18n } = useTranslation()
-    const { openModal } = useEmailCapture()
     const rotatingWords = t('hero.rotatingWords', { returnObjects: true }) as string[]
 
     const line1Ref = useRef<HTMLSpanElement>(null)
@@ -306,8 +309,8 @@ export default function Hero() {
                         className="btn-gradient inline-block font-mono text-sm font-extrabold tracking-[2px] uppercase text-white px-8 py-4 rounded-lg transition-all duration-200 cursor-pointer border-0"
                         data-cta="hero"
                         onClick={() => {
-                            trackCtaClicked({ cta_text: t('nav.joinAugo'), cta_location: 'hero', destination: '/download' })
-                            openModal(t('nav.joinAugo'))
+                            trackCtaClicked({ cta_text: t('floatingButton.label'), cta_location: 'hero', destination: 'film' })
+                            onWatchFilm?.()
                         }}
                         style={{
                             opacity: 0,
@@ -344,7 +347,7 @@ export default function Hero() {
                             })
                         }}
                     >
-                        {t('nav.joinAugo')}
+                        {t('floatingButton.label')}
                     </button>
                 </div>
 

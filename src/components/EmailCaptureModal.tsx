@@ -30,8 +30,11 @@ export default function EmailCaptureModal({
     submitLabel,
 }: EmailCaptureModalProps) {
     const { t } = useTranslation()
+    const [visitorType, setVisitorType] = useState<'coach' | 'athlete' | 'other' | null>(null)
+    const [firstName, setFirstName] = useState('')
     const [email, setEmail] = useState('')
     const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+    const [errorKey, setErrorKey] = useState<'typeError' | 'nameError' | 'error'>('error')
     const inputRef = useRef<HTMLInputElement>(null)
     const firstFocusableRef = useRef<HTMLButtonElement>(null)
 
@@ -62,16 +65,36 @@ export default function EmailCaptureModal({
     async function handleSubmit(e: React.FormEvent) {
         e.preventDefault()
 
+        if (!visitorType) {
+            setErrorKey('typeError')
+            setStatus('error')
+            return
+        }
+
+        const name = firstName.trim()
+        if (!name) {
+            setErrorKey('nameError')
+            setStatus('error')
+            return
+        }
+
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
         if (!emailRegex.test(email)) {
+            setErrorKey('error')
             setStatus('error')
             return
         }
 
         setStatus('loading')
 
-        await subscribeToMailerLite({ email, groupId, fields, ctaText })
-        void trackEmailCaptureSubmitted({ email, cta_text: ctaText })
+        await subscribeToMailerLite({
+            email,
+            name,
+            groupId,
+            fields: { ...fields, visitor_type: visitorType },
+            ctaText,
+        })
+        void trackEmailCaptureSubmitted({ email, cta_text: ctaText, visitor_type: visitorType })
 
         if (onSuccess) {
             onClose()
@@ -109,8 +132,45 @@ export default function EmailCaptureModal({
                 </div>
 
                 <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+                    <div className="flex flex-col gap-2">
+                        <span className="font-satoshi text-[13px] text-[#969EA7]">
+                            {t('emailCapture.typeLabel')}
+                        </span>
+                        <div className="flex gap-2" role="group" aria-label={t('emailCapture.typeLabel')}>
+                            {(['coach', 'athlete', 'other'] as const).map((type) => {
+                                const selected = visitorType === type
+                                return (
+                                    <button
+                                        key={type}
+                                        type="button"
+                                        aria-pressed={selected}
+                                        onClick={() => { setVisitorType(type); setStatus('idle') }}
+                                        disabled={status === 'loading'}
+                                        className="flex-1 h-10 rounded-lg font-satoshi text-[14px] cursor-pointer transition-colors duration-150"
+                                        style={{
+                                            backgroundColor: selected ? 'rgba(255, 85, 20, 0.15)' : '#151515',
+                                            border: selected ? '1px solid #FF5514' : '1px solid #333',
+                                            color: selected ? '#FFFFFF' : '#969EA7',
+                                        }}
+                                    >
+                                        {t(`emailCapture.type${type.charAt(0).toUpperCase()}${type.slice(1)}`)}
+                                    </button>
+                                )
+                            })}
+                        </div>
+                    </div>
                     <input
                         ref={inputRef}
+                        type="text"
+                        value={firstName}
+                        onChange={(e) => { setFirstName(e.target.value); setStatus('idle') }}
+                        placeholder={t('emailCapture.namePlaceholder')}
+                        className="w-full h-12 rounded-lg px-4 font-satoshi text-[15px] text-white placeholder-[#555] outline-none focus:ring-1 focus:ring-[#FF5514]"
+                        style={{ backgroundColor: '#151515', border: '1px solid #333' }}
+                        disabled={status === 'loading'}
+                        autoComplete="given-name"
+                    />
+                    <input
                         type="email"
                         value={email}
                         onChange={(e) => { setEmail(e.target.value); setStatus('idle') }}
@@ -122,7 +182,7 @@ export default function EmailCaptureModal({
                     />
                     {status === 'error' && (
                         <p className="font-satoshi text-[13px] text-red-400">
-                            {t('emailCapture.error')}
+                            {t(`emailCapture.${errorKey}`)}
                         </p>
                     )}
                     <button

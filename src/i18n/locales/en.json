@@ -407,10 +407,18 @@
   },
   "emailCapture": {
     "title": "You're almost in",
-    "subtitle": "Drop your email and we'll send you early access tips.",
+    "subtitle": "Drop your first name and email and we'll send you early access tips.",
+    "filmSubtitle": "Leave your first name and email and the film starts right away.",
+    "namePlaceholder": "First name",
     "placeholder": "your@email.com",
+    "typeLabel": "I am a…",
+    "typeCoach": "Coach",
+    "typeAthlete": "Athlete",
+    "typeOther": "Other",
     "cta": "Continue to App Store",
     "skip": "Skip, take me straight there",
+    "typeError": "Please select an option.",
+    "nameError": "Please enter your first name.",
     "error": "Something went wrong. Please try again."
   },
   "floatingButton": {

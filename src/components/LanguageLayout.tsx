@@ -5,6 +5,7 @@ import { supportedLanguages } from '../i18n'
 import type { SupportedLanguage } from '../i18n'
 import { setupMixpanelConsentListener, trackPageViewed } from '../utils/analytics'
 import { EmailCaptureProvider } from '../contexts/EmailCaptureProvider'
+import { FilmProvider } from '../contexts/FilmProvider'
 
 export default function LanguageLayout() {
   const { lang } = useParams<{ lang: string }>()
@@ -44,7 +45,9 @@ export default function LanguageLayout() {
 
   return (
     <EmailCaptureProvider lang={lang!}>
-      <Outlet />
+      <FilmProvider>
+        <Outlet />
+      </FilmProvider>
     </EmailCaptureProvider>
   )
 }

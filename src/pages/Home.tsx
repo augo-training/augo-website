@@ -1,9 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
-import FloatingButton from '../components/FloatingButton'
-import VideoModal from '../components/VideoModal'
 import ConnectsSection from '../components/ConnectsSection'
 import EmpowerSection from '../components/EmpowerSection'
 import CoachesSection from '../components/CoachesSection'
@@ -17,12 +15,11 @@ import Footer from '../components/Footer'
 import SEOHead from '../seo/SEOHead'
 import { OrganizationJsonLd, SoftwareApplicationJsonLd, FAQJsonLd } from '../seo/JsonLd'
 import { useTrackSectionView } from '../hooks/useTrackSectionView'
-import { trackVideoOpened, trackVideoClosed } from '../utils/analytics'
+import { useFilm } from '../contexts/FilmContext'
 
 function Home() {
-    const [videoOpen, setVideoOpen] = useState(false)
-    const [videoOpenedAt, setVideoOpenedAt] = useState<number | null>(null)
     const location = useLocation()
+    const { requestFilm } = useFilm()
 
     const heroRef = useTrackSectionView('hero', 'home')
     const coachesRef = useTrackSectionView('coaches', 'home')
@@ -42,19 +39,6 @@ function Home() {
         }
     }, [location.hash])
 
-    const handleVideoOpen = () => {
-        setVideoOpen(true)
-        setVideoOpenedAt(Date.now())
-        trackVideoOpened({ trigger: 'floating_button', page: 'home' })
-    }
-
-    const handleVideoClose = () => {
-        setVideoOpen(false)
-        const duration = videoOpenedAt ? Math.round((Date.now() - videoOpenedAt) / 1000) : 0
-        trackVideoClosed({ page: 'home', watch_duration_seconds: duration })
-        setVideoOpenedAt(null)
-    }
-
     return (
         <>
             <SEOHead page="home" path="/" />
@@ -62,7 +46,7 @@ function Home() {
             <SoftwareApplicationJsonLd />
             <FAQJsonLd />
             <Navbar />
-            <div ref={heroRef}><Hero /></div>
+            <div ref={heroRef}><Hero onWatchFilm={() => requestFilm('hero_cta')} /></div>
             <ConnectsSection />
             <EmpowerSection />
             <div ref={coachesRef}><CoachesSection /></div>
@@ -73,8 +57,6 @@ function Home() {
             <div ref={faqRef}><FaqSection /></div>
             <div ref={contactRef}><ContactSection /></div>
             <Footer />
-            <FloatingButton onClick={handleVideoOpen} />
-            <VideoModal isOpen={videoOpen} onClose={handleVideoClose} />
         </>
     )
 }
