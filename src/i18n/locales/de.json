@@ -50,10 +50,6 @@
       }
     ]
   },
-  "integration": {
-    "headline": "augo arbeitet mit dem, was du bereits nutzt",
-    "body": "Du behältst TrainingPeaks für die Trainingsplanung. Athleten behalten ihre Garmin oder Coros. augo sitzt in der Mitte und verbindet alles mit zentralisierter Kommunikation und intelligenten Erkenntnissen."
-  },
   "athletes": {
     "tag": "FÜR ATHLETEN",
     "sectionHeadline": "Alles, was deine Athleten brauchen, an einem Ort",
@@ -220,7 +216,6 @@
     "links": {
       "forCoaches": "Für Coaches",
       "forAthletes": "Für Athleten",
-      "howItWorks": "So funktioniert's",
       "pricing": "Preise",
       "about": "Über uns",
       "faq": "FAQ",

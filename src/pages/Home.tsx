@@ -5,7 +5,6 @@ import Hero from '../components/Hero'
 import ConnectsSection from '../components/ConnectsSection'
 import EmpowerSection from '../components/EmpowerSection'
 import CoachesSection from '../components/CoachesSection'
-import IntegrationSection from '../components/IntegrationSection'
 import AthletesSection from '../components/AthletesSection'
 import TestimonialsSection from '../components/TestimonialsSection'
 import AboutSection from '../components/AboutSection'
@@ -50,7 +49,6 @@ function Home() {
             <ConnectsSection />
             <EmpowerSection />
             <div ref={coachesRef}><CoachesSection /></div>
-            <IntegrationSection />
             <div ref={athletesRef}><AthletesSection /></div>
             <div ref={testimonialsRef}><TestimonialsSection /></div>
             <div ref={aboutRef}><AboutSection /></div>
