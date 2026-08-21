@@ -1,6 +1,6 @@
 import { Trans, useTranslation } from 'react-i18next'
-import { useGeoCountry } from '../hooks/useGeoCountry'
-import { getPricingTier, getEarlyBirdDaysLeft } from '../config/pricingConfig'
+import { usePlanPricing } from '../hooks/usePlanPricing'
+import { getEarlyBirdDaysLeft } from '../config/pricingConfig'
 import { useEmailCapture } from '../contexts/EmailCaptureContext'
 import { trackCtaClicked } from '../utils/analytics'
 
@@ -10,7 +10,7 @@ interface LaunchOfferPillProps {
 
 export default function LaunchOfferPill({ className = '' }: LaunchOfferPillProps) {
     const { t } = useTranslation()
-    const { countryCode, loading } = useGeoCountry()
+    const { tier, countryCode, loading } = usePlanPricing()
     const { openModal } = useEmailCapture()
 
     if (loading || !countryCode) return null
@@ -18,7 +18,6 @@ export default function LaunchOfferPill({ className = '' }: LaunchOfferPillProps
     const daysLeft = getEarlyBirdDaysLeft()
     if (daysLeft <= 0) return null
 
-    const tier = getPricingTier(countryCode)
     const formattedPrice = `${tier.symbol}${tier.price}`
 
     return (

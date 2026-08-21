@@ -91,6 +91,8 @@ interface PricingPageViewedProps {
     pricing_bucket: string
     pricing_currency: string
     pricing_amount: number
+    /** 'api' = backend-sourced price; 'fallback' = legacy hardcoded tier. */
+    pricing_source: string
     utm_source: string | null
     utm_medium: string | null
     utm_campaign: string | null
