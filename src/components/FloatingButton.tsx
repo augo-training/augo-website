@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { trackFloatingButtonClicked } from '../utils/analytics'
 
@@ -26,53 +26,49 @@ function AugoIcon({ className }: { className?: string }) {
 
 interface FloatingButtonProps {
     onClick?: () => void
+    /** When false the button fades out and ignores input; it fades back in when true again. */
+    visible?: boolean
+    /** Delay before the first entrance animation once visible. */
+    entranceDelayMs?: number
 }
 
 const RING_GRADIENT = 'linear-gradient(83.9deg, #151515 -4%, #C50017 38.22%, #FF5514 69.06%, #FFCA1E 99.9%)'
 
-export default function FloatingButton({ onClick }: FloatingButtonProps) {
-    const btnRef = useRef<HTMLButtonElement>(null)
+export default function FloatingButton({ onClick, visible = true, entranceDelayMs = 2000 }: FloatingButtonProps) {
+    const [revealed, setRevealed] = useState(false)
     const [showTooltip, setShowTooltip] = useState(false)
     const [hovered, setHovered] = useState(false)
     const [showRing, setShowRing] = useState(false)
     const { t } = useTranslation()
 
-    // Entrance animation + tooltip + ring timing
+    // First reveal: wait out the entrance delay while visible
     useEffect(() => {
-        const btn = btnRef.current
-        if (!btn) return
-
-        btn.style.opacity = '0'
-        btn.style.transform = 'scale(0.8)'
-
+        if (!visible || revealed) return
         const entranceTimer = setTimeout(() => {
-            btn.style.transition = 'opacity 400ms ease-in-out, transform 400ms ease-in-out'
-            btn.style.opacity = '1'
-            btn.style.transform = 'scale(1)'
+            setRevealed(true)
             setShowRing(true)
-        }, 2000)
+        }, entranceDelayMs)
+        return () => clearTimeout(entranceTimer)
+    }, [visible, revealed, entranceDelayMs])
 
-        const tooltipShowTimer = setTimeout(() => {
-            setShowTooltip(true)
-            setTimeout(() => setShowTooltip(false), 3000)
-        }, 2500)
-
-        const ringStopTimer = setTimeout(() => {
-            setShowRing(false)
-        }, 8000)
-
+    // Tooltip + pulsing ring sequence, once, on the first reveal
+    useEffect(() => {
+        if (!revealed) return
+        const tooltipShowTimer = setTimeout(() => setShowTooltip(true), 500)
+        const tooltipHideTimer = setTimeout(() => setShowTooltip(false), 3500)
+        const ringStopTimer = setTimeout(() => setShowRing(false), 6000)
         return () => {
-            clearTimeout(entranceTimer)
             clearTimeout(tooltipShowTimer)
+            clearTimeout(tooltipHideTimer)
             clearTimeout(ringStopTimer)
         }
-    }, [])
+    }, [revealed])
 
-    const tooltipVisible = showTooltip || hovered
+    const shown = visible && revealed
+    const tooltipVisible = shown && (showTooltip || hovered)
 
     return (
         <button
-            ref={btnRef}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
             onClick={() => {
@@ -80,6 +76,14 @@ export default function FloatingButton({ onClick }: FloatingButtonProps) {
                 onClick?.()
             }}
             className="floating-app-btn fixed z-50 flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl cursor-pointer bottom-6 right-5 sm:bottom-12 sm:right-12"
+            style={{
+                opacity: shown ? 1 : 0,
+                transform: shown ? 'scale(1)' : 'scale(0.8)',
+                transition: 'opacity 400ms ease-in-out, transform 400ms ease-in-out',
+                pointerEvents: shown ? 'auto' : 'none',
+            }}
+            tabIndex={shown ? 0 : -1}
+            aria-hidden={!shown}
             aria-label="Watch video"
         >
             {/* Tooltip */}

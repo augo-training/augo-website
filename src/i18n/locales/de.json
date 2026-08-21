@@ -407,10 +407,18 @@
   },
   "emailCapture": {
     "title": "Du bist fast dabei",
-    "subtitle": "Gib deine E-Mail-Adresse ein und wir schicken dir den Link — plus Tipps für frühen Zugang.",
+    "subtitle": "Gib deinen Vornamen und deine E-Mail-Adresse ein und wir schicken dir den Link — plus Tipps für frühen Zugang.",
+    "filmSubtitle": "Hinterlasse Vornamen und E-Mail und der Film startet sofort.",
+    "namePlaceholder": "Vorname",
     "placeholder": "deine@email.com",
+    "typeLabel": "Ich bin…",
+    "typeCoach": "Coach",
+    "typeAthlete": "Athlet",
+    "typeOther": "Andere",
     "cta": "Weiter zum App Store",
     "skip": "Überspringen, direkt weiter",
+    "typeError": "Bitte wähle eine Option.",
+    "nameError": "Bitte gib deinen Vornamen ein.",
     "error": "Etwas ist schiefgelaufen. Bitte versuche es erneut."
   },
   "floatingButton": {
