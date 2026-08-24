@@ -4,6 +4,7 @@
     "forAthletes": "Para Atletas",
     "findAMatch": "Encontrar um Match",
     "pricing": "Preços",
+    "bookDemo": "Agendar Demo",
     "humanEdge": "Human Edge",
     "joinAugo": "Junte-se à augo",
     "accessWebApp": "Acessar Web App"
@@ -217,6 +218,7 @@
       "forCoaches": "Para coaches",
       "forAthletes": "Para atletas",
       "pricing": "Preços",
+      "bookDemo": "Agendar Demo",
       "about": "Sobre",
       "faq": "FAQ",
       "findAMatch": "Encontrar um match",
@@ -399,6 +401,14 @@
     "closingHeadline": "Coaching não deveria ser caótico.",
     "closingBody": "augo dá a você a clareza para treinar com confiança. Comece grátis hoje e veja o que significa realmente saber o que importa.",
     "closingCta": "Começar grátis hoje"
+  },
+  "bookDemo": {
+    "hero": {
+      "title": "Agendar demo",
+      "lead": "Trinta minutos com Bruna — co-founder, CEO e running coach. Veja a augo em ação, entenda como funciona e tire todas as suas dúvidas.",
+      "imageAlt": "Bruna, co-founder e running coach da augo, se alongando em uma pista de atletismo",
+      "cta": "Agendar demo"
+    }
   },
   "emailCapture": {
     "title": "Você está quase lá",

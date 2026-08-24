@@ -75,6 +75,23 @@ const pageMeta: Record<string, Record<SupportedLanguage, PageMeta>> = {
         'Preços simples e transparentes para coaches de endurance. Comece grátis com 2 atletas ou faça upgrade para Ilimitado para acesso completo ao assistente inteligente augo.',
     },
   },
+  bookDemo: {
+    en: {
+      title: 'Book a Demo | augo — Thirty Minutes With Our Co-Founder',
+      description:
+        'Book thirty minutes with Bruna, augo co-founder, CEO and running coach. See augo in action, understand how it works, and ask any questions.',
+    },
+    de: {
+      title: 'Demo buchen | augo — Dreißig Minuten mit unserem Co-Founder',
+      description:
+        'Buche dreißig Minuten mit Bruna, Co-Founder, CEO und Running Coach bei augo. Sieh augo in Aktion, versteh, wie es funktioniert, und stell alle deine Fragen.',
+    },
+    pt: {
+      title: 'Agende uma Demo | augo — Trinta minutos com nosso co-founder',
+      description:
+        'Agende trinta minutos com Bruna, co-founder, CEO e running coach da augo. Veja a augo em ação, entenda como funciona e tire todas as suas dúvidas.',
+    },
+  },
   humanEdge: {
     en: {
       title: 'The Human Edge: 1 Year of Free Human Marathon Coaching | augo',

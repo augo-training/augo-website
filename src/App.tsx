@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import Join from './pages/Join'
 import Find from './pages/Find'
 import Pricing from './pages/Pricing'
+import BookDemo from './pages/BookDemo'
 import NotFound from './pages/NotFound'
 import CookieConsent from './components/CookieConsent'
 import CountdownBanner from './components/CountdownBanner'
@@ -43,6 +44,7 @@ function App() {
         <Route path="/join" element={<Navigate to="/en/download" replace />} />
         <Route path="/find" element={<Navigate to="/en/find" replace />} />
         <Route path="/humanedge" element={<Navigate to="/en/humanedge" replace />} />
+        <Route path="/book-a-demo" element={<Navigate to="/en/book-a-demo" replace />} />
         <Route path="/coaches" element={<Navigate to="/en/find" replace />} />
         <Route path="/coaches/:slug" element={<CoachSlugLegacyRedirect />} />
 
@@ -53,6 +55,7 @@ function App() {
           <Route path="join" element={<Join />} />
           <Route path="find" element={<Find />} />
           <Route path="pricing" element={<Pricing />} />
+          <Route path="book-a-demo" element={<BookDemo />} />
           <Route path="humanedge" element={<HumanEdge />} />
           <Route path="coaches" element={<CoachesIndexToFind />} />
           <Route path="coaches/:slug" element={<CoachProfile />} />

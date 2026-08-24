@@ -72,12 +72,14 @@ export default function Navbar() {
         { label: t('nav.forCoaches'), href: '#coaches' },
         { label: t('nav.forAthletes'), href: '#athletes' },
         { label: t('nav.pricing'), href: `/${currentLang}/pricing` },
+        { label: t('nav.bookDemo'), href: `/${currentLang}/book-a-demo` },
     ]
 
     const mobileMenuLinks = [
         { label: t('nav.forCoaches'), href: '#coaches' },
         { label: t('nav.forAthletes'), href: '#athletes' },
         { label: t('nav.pricing'), href: `/${currentLang}/pricing` },
+        { label: t('nav.bookDemo'), href: `/${currentLang}/book-a-demo` },
         { label: t('nav.findAMatch'), href: `/${currentLang}/find` },
     ]
 
@@ -248,14 +250,14 @@ export default function Navbar() {
         <>
             <nav className="navbar-sticky fixed top-0 left-0 right-0 z-[60] flex items-center justify-between px-5 sm:px-6 md:px-8 lg:px-12 pt-6 pb-2">
                 {/* Left Side: Logo + Nav Links */}
-                <div className="flex items-center gap-8 xl:gap-[100px]">
+                <div className="flex items-center gap-6 xl:gap-[100px]">
                     {/* Logo */}
                     <a href={`/${currentLang}`} className="flex-shrink-0 relative z-[60]">
                         <img src={augoLogo} alt="augo" className="h-7" />
                     </a>
 
                     {/* Nav Links — visible only on lg+ (desktop) */}
-                    <div className="hidden lg:flex items-center gap-10">
+                    <div className="hidden lg:flex items-center gap-5 xl:gap-10">
                         {navLinks.map((link) => (
                             <NavLink key={link.href} label={link.label} href={link.href} onClick={(e) => handleHashLinkClick(e, link.href)} />
                         ))}
@@ -263,7 +265,7 @@ export default function Navbar() {
                 </div>
 
                 {/* Right Side */}
-                <div className="flex items-center gap-3 lg:gap-6">
+                <div className="flex items-center gap-3 lg:gap-4 xl:gap-6">
                     {/* Language Switcher — desktop only (mobile uses hamburger menu) */}
                     <div className="hidden md:block">
                         <LanguageSwitcher />

@@ -14,7 +14,7 @@ export const DEFAULT_LANG = 'en'
 
 // Paths under /:lang. Keep in sync with src/App.tsx routes.
 // Empty string = lang root (e.g. /en).
-export const STATIC_PATHS = ['', '/download', '/join', '/find', '/pricing', '/humanedge']
+export const STATIC_PATHS = ['', '/download', '/join', '/find', '/pricing', '/book-a-demo', '/humanedge']
 
 // Sitemap priority per path
 export const PATH_PRIORITY = {
@@ -23,6 +23,7 @@ export const PATH_PRIORITY = {
   '/join': 0.8,
   '/find': 0.7,
   '/pricing': 0.9,
+  '/book-a-demo': 0.9,
   '/humanedge': 0.9,
 } as const
 
