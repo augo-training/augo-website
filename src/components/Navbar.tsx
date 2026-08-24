@@ -15,9 +15,11 @@ function NavLink({ label, href, onClick }: { label: string; href: string; onClic
                 trackNavLinkClicked({ link_text: label, destination: href, is_mobile: false })
                 onClick?.(e)
             }}
-            className="group flex items-center gap-1 font-['JetBrains_Mono'] text-[14px] font-normal leading-[100%] tracking-[2px] uppercase text-white no-underline transition-all duration-200 ease-out hover:font-bold hover:italic"
+            className="group relative flex items-center font-['JetBrains_Mono'] text-[13px] xl:text-[14px] font-normal leading-[100%] tracking-[1.5px] xl:tracking-[2px] uppercase text-white no-underline transition-all duration-200 ease-out hover:font-bold hover:italic"
         >
-            <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-out">
+            {/* Out of flow: in flow it reserved ~31px per link even while invisible,
+                which is what forced the links to collapse below 1280px. */}
+            <span className="absolute right-full mr-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-out">
                 ///
             </span>
             <span>{label}</span>
@@ -246,6 +248,14 @@ export default function Navbar() {
         closeMenu()
     }, [closeMenu, handleHashLinkClick])
 
+    // Both bar buttons fade out while the menu is open.
+    const ctaFadeStyle: React.CSSProperties = {
+        opacity: !menuOpen ? 1 : 0,
+        transform: !menuOpen ? 'translateY(0)' : 'translateY(10px)',
+        pointerEvents: !menuOpen ? 'auto' : 'none',
+        transition: 'opacity 300ms ease-in-out, transform 300ms ease-in-out, background 200ms ease-in-out, border-color 200ms ease-in-out, color 200ms ease-in-out',
+    }
+
     return (
         <>
             <nav className="navbar-sticky fixed top-0 left-0 right-0 z-[60] flex items-center justify-between px-5 sm:px-6 md:px-8 lg:px-12 pt-6 pb-2">
@@ -258,7 +268,7 @@ export default function Navbar() {
 
                     {/* Nav Links — visible only on xl+; below that the hamburger carries them */}
                     <div
-                        className="hidden xl:flex items-center gap-10"
+                        className="hidden lg:flex items-center gap-10"
                         style={{
                             opacity: !menuOpen ? 1 : 0,
                             transform: !menuOpen ? 'translateY(0)' : 'translateY(10px)',
@@ -274,17 +284,24 @@ export default function Navbar() {
 
                 {/* Right Side */}
                 <div className="flex items-center gap-3 lg:gap-6">
+                    {/* Below lg the bar has room for exactly one button, and it should be
+                        the conversion action rather than the one for existing users.
+                        Coach Login stays reachable at the bottom of the hamburger menu.
+                        Two elements rather than one because href can't switch responsively. */}
+                    <a
+                        href={`/${currentLang}/book-a-demo`}
+                        className="lg:hidden nav-cta-btn font-mono text-[11px] sm:text-sm font-extrabold tracking-[1.5px] sm:tracking-[2px] uppercase px-3.5 py-2 sm:px-6 sm:py-3 rounded-md sm:rounded-lg"
+                        style={ctaFadeStyle}
+                        onClick={() => trackCtaClicked({ cta_text: t('nav.bookDemo'), cta_location: 'navbar_mobile', destination: `/${currentLang}/book-a-demo` })}
+                    >
+                        {t('nav.bookDemo')}
+                    </a>
                     <a
                         href="https://webapp.augotraining.com/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="nav-cta-btn font-mono text-[11px] sm:text-sm font-extrabold tracking-[1.5px] sm:tracking-[2px] uppercase px-3.5 py-2 sm:px-6 sm:py-3 rounded-md sm:rounded-lg"
-                        style={{
-                            opacity: !menuOpen ? 1 : 0,
-                            transform: !menuOpen ? 'translateY(0)' : 'translateY(10px)',
-                            pointerEvents: !menuOpen ? 'auto' : 'none',
-                            transition: 'opacity 300ms ease-in-out, transform 300ms ease-in-out, background 200ms ease-in-out, border-color 200ms ease-in-out, color 200ms ease-in-out',
-                        }}
+                        className="hidden lg:inline-flex nav-cta-btn font-mono text-[11px] sm:text-sm font-extrabold tracking-[1.5px] sm:tracking-[2px] uppercase px-3.5 py-2 sm:px-6 sm:py-3 rounded-md sm:rounded-lg"
+                        style={ctaFadeStyle}
                         onClick={() => trackCtaClicked({ cta_text: t('nav.coachLogin'), cta_location: 'navbar', destination: 'https://webapp.augotraining.com/' })}
                     >
                         {t('nav.coachLogin')}
