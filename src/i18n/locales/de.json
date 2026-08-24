@@ -414,6 +414,7 @@
     "title": "Du bist fast dabei",
     "subtitle": "Gib deinen Vornamen und deine E-Mail-Adresse ein und wir schicken dir den Link — plus Tipps für frühen Zugang.",
     "filmSubtitle": "Hinterlasse Vornamen und E-Mail und der Film startet sofort.",
+    "filmSubmit": "Film ansehen",
     "namePlaceholder": "Vorname",
     "placeholder": "deine@email.com",
     "typeLabel": "Ich bin…",
@@ -427,7 +428,7 @@
     "error": "Etwas ist schiefgelaufen. Bitte versuche es erneut."
   },
   "floatingButton": {
-    "label": "Film ansehen"
+    "label": "Mehr erfahren"
   },
   "humanEdge": {
     "hero": {
