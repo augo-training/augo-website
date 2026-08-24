@@ -26,6 +26,11 @@ export function FilmProvider({ children }: FilmProviderProps) {
 
     const page = location.pathname.replace(`/${lang}`, '') || '/'
     const isHome = page === '/'
+    // Below lg the navbar carries its own "Book a Demo" button, so on the demo
+    // page that would put the film CTA on screen beside two demo CTAs. The demo
+    // is the one action that page exists for, so the film button stands down —
+    // on narrow screens only; desktop has room for both.
+    const isBookDemo = page === '/book-a-demo'
 
     // On home, reveal the floating button only once the visitor scrolls past the hero
     useEffect(() => {
@@ -75,6 +80,7 @@ export function FilmProvider({ children }: FilmProviderProps) {
             <FloatingButton
                 visible={isHome ? pastHero : true}
                 entranceDelayMs={isHome ? 200 : 2000}
+                className={isBookDemo ? 'max-lg:hidden' : ''}
                 onClick={() => requestFilm('floating_button')}
             />
             <VideoModal isOpen={videoOpen} onClose={closeVideo} />

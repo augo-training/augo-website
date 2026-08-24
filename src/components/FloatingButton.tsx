@@ -30,11 +30,13 @@ interface FloatingButtonProps {
     visible?: boolean
     /** Delay before the first entrance animation once visible. */
     entranceDelayMs?: number
+    /** Extra classes, e.g. a responsive variant that hides the button at some widths. */
+    className?: string
 }
 
 const RING_GRADIENT = 'linear-gradient(83.9deg, #151515 -4%, #C50017 38.22%, #FF5514 69.06%, #FFCA1E 99.9%)'
 
-export default function FloatingButton({ onClick, visible = true, entranceDelayMs = 2000 }: FloatingButtonProps) {
+export default function FloatingButton({ onClick, visible = true, entranceDelayMs = 2000, className = '' }: FloatingButtonProps) {
     const [revealed, setRevealed] = useState(false)
     const [showTooltip, setShowTooltip] = useState(false)
     const [hovered, setHovered] = useState(false)
@@ -75,7 +77,7 @@ export default function FloatingButton({ onClick, visible = true, entranceDelayM
                 trackFloatingButtonClicked({ page: window.location.pathname })
                 onClick?.()
             }}
-            className="floating-app-btn fixed z-50 flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl cursor-pointer bottom-6 right-5 sm:bottom-12 sm:right-12"
+            className={`floating-app-btn fixed z-50 flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl cursor-pointer bottom-6 right-5 sm:bottom-12 sm:right-12 ${className}`}
             style={{
                 opacity: shown ? 1 : 0,
                 transform: shown ? 'scale(1)' : 'scale(0.8)',
