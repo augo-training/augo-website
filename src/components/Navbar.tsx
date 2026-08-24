@@ -250,14 +250,22 @@ export default function Navbar() {
         <>
             <nav className="navbar-sticky fixed top-0 left-0 right-0 z-[60] flex items-center justify-between px-5 sm:px-6 md:px-8 lg:px-12 pt-6 pb-2">
                 {/* Left Side: Logo + Nav Links */}
-                <div className="flex items-center gap-6 xl:gap-[100px]">
+                <div className="flex items-center gap-8 xl:gap-[100px]">
                     {/* Logo */}
                     <a href={`/${currentLang}`} className="flex-shrink-0 relative z-[60]">
                         <img src={augoLogo} alt="augo" className="h-7" />
                     </a>
 
-                    {/* Nav Links — visible only on lg+ (desktop) */}
-                    <div className="hidden lg:flex items-center gap-5 xl:gap-10">
+                    {/* Nav Links — visible only on xl+; below that the hamburger carries them */}
+                    <div
+                        className="hidden xl:flex items-center gap-10"
+                        style={{
+                            opacity: !menuOpen ? 1 : 0,
+                            transform: !menuOpen ? 'translateY(0)' : 'translateY(10px)',
+                            pointerEvents: !menuOpen ? 'auto' : 'none',
+                            transition: 'opacity 300ms ease-in-out, transform 300ms ease-in-out',
+                        }}
+                    >
                         {navLinks.map((link) => (
                             <NavLink key={link.href} label={link.label} href={link.href} onClick={(e) => handleHashLinkClick(e, link.href)} />
                         ))}
@@ -265,15 +273,7 @@ export default function Navbar() {
                 </div>
 
                 {/* Right Side */}
-                <div className="flex items-center gap-3 lg:gap-4 xl:gap-6">
-                    {/* Language Switcher — desktop only (mobile uses hamburger menu) */}
-                    <div className="hidden md:block">
-                        <LanguageSwitcher />
-                    </div>
-                    {/* Find a Match — visible only on md+ (tablet and desktop) */}
-                    <div className="hidden md:block">
-                        <NavLink label={t('nav.findAMatch')} href={`/${currentLang}/find`} />
-                    </div>
+                <div className="flex items-center gap-3 lg:gap-6">
                     <a
                         href="https://webapp.augotraining.com/"
                         target="_blank"
@@ -285,13 +285,13 @@ export default function Navbar() {
                             pointerEvents: !menuOpen ? 'auto' : 'none',
                             transition: 'opacity 300ms ease-in-out, transform 300ms ease-in-out, background 200ms ease-in-out, border-color 200ms ease-in-out, color 200ms ease-in-out',
                         }}
-                        onClick={() => trackCtaClicked({ cta_text: t('nav.accessWebApp'), cta_location: 'navbar', destination: 'https://webapp.augotraining.com/' })}
+                        onClick={() => trackCtaClicked({ cta_text: t('nav.coachLogin'), cta_location: 'navbar', destination: 'https://webapp.augotraining.com/' })}
                     >
-                        {t('nav.accessWebApp')}
+                        {t('nav.coachLogin')}
                     </a>
-                    {/* Hamburger / Close toggle — visible only below md (mobile) */}
+                    {/* Hamburger / Close toggle — every width: it holds Find a Match and the language switcher */}
                     <button
-                        className="md:hidden relative z-[60] flex flex-col items-center justify-center w-8 h-8 cursor-pointer gap-[6px]"
+                        className="relative z-[60] flex flex-col items-center justify-center w-8 h-8 cursor-pointer gap-[6px]"
                         aria-label={menuOpen ? 'Close menu' : 'Open menu'}
                         onClick={handleToggle}
                     >
@@ -353,19 +353,19 @@ export default function Navbar() {
                 </nav>
 
                 {/* JOIN AUGO button — pinned to bottom */}
-                <div className="px-5 sm:px-6 pb-10 w-full">
+                <div className="px-5 sm:px-6 pb-10 w-full max-w-[520px] mx-auto">
                     <a
                         ref={menuJoinRef}
                         href="https://webapp.augotraining.com/"
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={() => {
-                            trackCtaClicked({ cta_text: t('nav.accessWebApp'), cta_location: 'mobile_menu', destination: 'https://webapp.augotraining.com/' })
+                            trackCtaClicked({ cta_text: t('nav.coachLogin'), cta_location: 'mobile_menu', destination: 'https://webapp.augotraining.com/' })
                         }}
                         className="nav-cta-btn block w-full font-mono text-sm font-extrabold tracking-[2px] uppercase text-center py-4 rounded-lg cursor-pointer"
                         style={{ opacity: 0 }}
                     >
-                        {t('nav.accessWebApp')}
+                        {t('nav.coachLogin')}
                     </a>
                 </div>
             </div>
