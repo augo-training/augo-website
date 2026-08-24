@@ -29,6 +29,7 @@ export default function Footer() {
                 { label: t('footer.links.forCoaches'), href: '#coaches' },
                 { label: t('footer.links.forAthletes'), href: '#athletes' },
                 { label: t('footer.links.pricing'), href: `/${currentLang}/pricing` },
+                { label: t('footer.links.bookDemo'), href: `/${currentLang}/book-a-demo` },
             ],
         },
         {
