@@ -413,7 +413,6 @@
   "emailCapture": {
     "title": "Você está quase lá",
     "subtitle": "Digite seu nome e e-mail e enviaremos o link — mais dicas de acesso antecipado.",
-    "filmSubtitle": "Deixe seu nome e e-mail e o filme começa em seguida.",
     "filmSubmit": "Ver o filme",
     "namePlaceholder": "Nome",
     "placeholder": "seu@email.com",
