@@ -19,7 +19,7 @@ function NavLink({ label, href, onClick }: { label: string; href: string; onClic
         >
             {/* Out of flow: in flow it reserved ~31px per link even while invisible,
                 which is what forced the links to collapse below 1280px. */}
-            <span className="absolute right-full mr-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-out">
+            <span className="absolute right-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-out">
                 ///
             </span>
             <span>{label}</span>
@@ -260,7 +260,7 @@ export default function Navbar() {
         <>
             <nav className="navbar-sticky fixed top-0 left-0 right-0 z-[60] flex items-center justify-between px-5 sm:px-6 md:px-8 lg:px-12 pt-6 pb-2">
                 {/* Left Side: Logo + Nav Links */}
-                <div className="flex items-center gap-8 xl:gap-[100px]">
+                <div className="flex items-center gap-12 xl:gap-[100px]">
                     {/* Logo */}
                     <a href={`/${currentLang}`} className="flex-shrink-0 relative z-[60]">
                         <img src={augoLogo} alt="augo" className="h-7" />
@@ -268,7 +268,7 @@ export default function Navbar() {
 
                     {/* Nav Links — visible only on xl+; below that the hamburger carries them */}
                     <div
-                        className="hidden lg:flex items-center gap-10"
+                        className="hidden lg:flex items-center gap-12"
                         style={{
                             opacity: !menuOpen ? 1 : 0,
                             transform: !menuOpen ? 'translateY(0)' : 'translateY(10px)',
