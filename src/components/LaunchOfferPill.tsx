@@ -1,4 +1,5 @@
 import { Trans, useTranslation } from 'react-i18next'
+import { useParams } from 'react-router-dom'
 import { useGeoCountry } from '../hooks/useGeoCountry'
 import { getPricingTier, getEarlyBirdDaysLeft } from '../config/pricingConfig'
 import { useEmailCapture } from '../contexts/EmailCaptureContext'
@@ -6,10 +7,18 @@ import { trackCtaClicked } from '../utils/analytics'
 
 interface LaunchOfferPillProps {
     className?: string
+    /**
+     * Navigate to the pricing page instead of opening the email capture.
+     * Used on the home page, where the offer is an invitation to go read the
+     * pricing rather than a signup in its own right. On the pricing page the
+     * pill keeps the capture, since linking there would link to itself.
+     */
+    linkToPricing?: boolean
 }
 
-export default function LaunchOfferPill({ className = '' }: LaunchOfferPillProps) {
-    const { t } = useTranslation()
+export default function LaunchOfferPill({ className = '', linkToPricing = false }: LaunchOfferPillProps) {
+    const { t, i18n } = useTranslation()
+    const { lang } = useParams<{ lang: string }>()
     const { countryCode, loading } = useGeoCountry()
     const { openModal } = useEmailCapture()
 
@@ -20,21 +29,17 @@ export default function LaunchOfferPill({ className = '' }: LaunchOfferPillProps
 
     const tier = getPricingTier(countryCode)
     const formattedPrice = `${tier.symbol}${tier.price}`
+    const currentLang = lang || i18n.language || 'en'
+    const pricingHref = `/${currentLang}/pricing`
 
-    return (
-        <button
-            type="button"
-            onClick={() => {
-                trackCtaClicked({ cta_text: t('nav.joinAugo'), cta_location: 'launch_offer_pill', destination: '/download' })
-                openModal(t('nav.joinAugo'))
-            }}
-            className={`launch-offer-pill group inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 cursor-pointer transition-all duration-200 hover:brightness-125 ${className}`}
-            style={{
-                background: 'rgba(255, 85, 20, 0.08)',
-                border: '1px solid rgba(255, 202, 30, 0.28)',
-            }}
-            aria-label="View early bird pricing"
-        >
+    const sharedClassName = `launch-offer-pill group inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 cursor-pointer transition-all duration-200 hover:brightness-125 ${className}`
+    const sharedStyle = {
+        background: 'rgba(255, 85, 20, 0.08)',
+        border: '1px solid rgba(255, 202, 30, 0.28)',
+    }
+
+    const content = (
+        <>
             <span
                 className="w-1.5 h-1.5 rounded-full flex-shrink-0"
                 style={{
@@ -53,6 +58,37 @@ export default function LaunchOfferPill({ className = '' }: LaunchOfferPillProps
                 {' · '}
                 {t('launchOffer.daysLeft', { count: daysLeft })}
             </span>
+        </>
+    )
+
+    if (linkToPricing) {
+        return (
+            <a
+                href={pricingHref}
+                onClick={() => {
+                    trackCtaClicked({ cta_text: t('nav.joinAugo'), cta_location: 'launch_offer_pill', destination: pricingHref })
+                }}
+                className={`${sharedClassName} no-underline`}
+                style={sharedStyle}
+                aria-label="View early bird pricing"
+            >
+                {content}
+            </a>
+        )
+    }
+
+    return (
+        <button
+            type="button"
+            onClick={() => {
+                trackCtaClicked({ cta_text: t('nav.joinAugo'), cta_location: 'launch_offer_pill', destination: '/download' })
+                openModal(t('nav.joinAugo'))
+            }}
+            className={sharedClassName}
+            style={sharedStyle}
+            aria-label="View early bird pricing"
+        >
+            {content}
         </button>
     )
 }

@@ -40,7 +40,7 @@ export function useFilmGate(): (play: () => void) => void {
                     markCaptured()
                     play()
                 },
-                subtitle: t('emailCapture.filmSubtitle'),
+                subtitle: '',
                 submitLabel: t('floatingButton.label'),
             })
         },

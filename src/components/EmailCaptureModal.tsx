@@ -30,6 +30,7 @@ export default function EmailCaptureModal({
     submitLabel,
 }: EmailCaptureModalProps) {
     const { t } = useTranslation()
+    const resolvedSubtitle = subtitle ?? t('emailCapture.subtitle')
     const [visitorType, setVisitorType] = useState<'coach' | 'athlete' | 'other' | null>(null)
     const [firstName, setFirstName] = useState('')
     const [email, setEmail] = useState('')
@@ -126,9 +127,13 @@ export default function EmailCaptureModal({
                     >
                         {title ?? t('emailCapture.title')}
                     </h2>
-                    <p className="font-satoshi text-[15px] leading-[160%] text-[#969EA7]">
-                        {subtitle ?? t('emailCapture.subtitle')}
-                    </p>
+                    {/* An explicit empty string means "no subtitle"; omitting the prop
+                        still falls back to the default copy. */}
+                    {resolvedSubtitle && (
+                        <p className="font-satoshi text-[15px] leading-[160%] text-[#969EA7]">
+                            {resolvedSubtitle}
+                        </p>
+                    )}
                 </div>
 
                 <form onSubmit={handleSubmit} className="flex flex-col gap-3">

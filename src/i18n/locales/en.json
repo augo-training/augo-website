@@ -7,7 +7,7 @@
     "bookDemo": "Book a Demo",
     "humanEdge": "Human Edge",
     "joinAugo": "Join augo",
-    "accessWebApp": "Access Web App"
+    "coachLogin": "Coach Login"
   },
   "hero": {
     "line1": "A new standard",
@@ -413,7 +413,6 @@
   "emailCapture": {
     "title": "You're almost in",
     "subtitle": "Drop your first name and email and we'll send you early access tips.",
-    "filmSubtitle": "Leave your first name and email and the film starts right away.",
     "namePlaceholder": "First name",
     "placeholder": "your@email.com",
     "typeLabel": "I am a…",
@@ -427,7 +426,7 @@
     "error": "Something went wrong. Please try again."
   },
   "floatingButton": {
-    "label": "Watch the film"
+    "label": "Learn more"
   },
   "humanEdge": {
     "hero": {
