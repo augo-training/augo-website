@@ -413,7 +413,6 @@
   "emailCapture": {
     "title": "You're almost in",
     "subtitle": "Drop your first name and email and we'll send you early access tips.",
-    "filmSubmit": "Watch the film",
     "namePlaceholder": "First name",
     "placeholder": "your@email.com",
     "typeLabel": "I am a…",

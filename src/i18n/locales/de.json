@@ -413,7 +413,6 @@
   "emailCapture": {
     "title": "Du bist fast dabei",
     "subtitle": "Gib deinen Vornamen und deine E-Mail-Adresse ein und wir schicken dir den Link — plus Tipps für frühen Zugang.",
-    "filmSubmit": "Film ansehen",
     "namePlaceholder": "Vorname",
     "placeholder": "deine@email.com",
     "typeLabel": "Ich bin…",

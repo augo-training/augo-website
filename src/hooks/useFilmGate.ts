@@ -41,9 +41,7 @@ export function useFilmGate(): (play: () => void) => void {
                     play()
                 },
                 subtitle: '',
-                // Stays film-specific: by this point they have typed their email and
-                // are one click from playing, so name what actually happens next.
-                submitLabel: t('emailCapture.filmSubmit'),
+                submitLabel: t('floatingButton.label'),
             })
         },
         [openModal, t],
