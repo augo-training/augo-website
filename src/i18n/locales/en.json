@@ -73,6 +73,10 @@
     "headline1": "What coaches",
     "headline2": "say about augo"
   },
+  "athleteTestimonials": {
+    "headline1": "What athletes",
+    "headline2": "say about augo"
+  },
   "about": {
     "tag": "ABOUT AUGO",
     "body1": "augo was founded by Fabi and Bruna, two endurance coaches who also happened to work in tech. As a business analyst and data scientist, they expected their tools to help them coach better.",

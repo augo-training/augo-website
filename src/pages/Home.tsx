@@ -7,6 +7,7 @@ import EmpowerSection from '../components/EmpowerSection'
 import CoachesSection from '../components/CoachesSection'
 import AthletesSection from '../components/AthletesSection'
 import TestimonialsSection from '../components/TestimonialsSection'
+import AthleteTestimonialsSection from '../components/AthleteTestimonialsSection'
 import AboutSection from '../components/AboutSection'
 import FaqSection from '../components/FaqSection'
 import ContactSection from '../components/ContactSection'
@@ -24,6 +25,7 @@ function Home() {
     const coachesRef = useTrackSectionView('coaches', 'home')
     const athletesRef = useTrackSectionView('athletes', 'home')
     const testimonialsRef = useTrackSectionView('testimonials', 'home')
+    const athleteTestimonialsRef = useTrackSectionView('athlete-testimonials', 'home')
     const aboutRef = useTrackSectionView('about', 'home')
     const faqRef = useTrackSectionView('faq', 'home')
     const contactRef = useTrackSectionView('contact', 'home')
@@ -51,6 +53,7 @@ function Home() {
             <div ref={coachesRef}><CoachesSection /></div>
             <div ref={athletesRef}><AthletesSection /></div>
             <div ref={testimonialsRef}><TestimonialsSection /></div>
+            <div ref={athleteTestimonialsRef}><AthleteTestimonialsSection /></div>
             <div ref={aboutRef}><AboutSection /></div>
             <div ref={faqRef}><FaqSection /></div>
             <div ref={contactRef}><ContactSection /></div>
