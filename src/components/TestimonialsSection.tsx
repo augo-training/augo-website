@@ -2,10 +2,7 @@ import { useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import tobiasPhoto from '../assets/images/Tobias.png?w=128&h=128&format=webp'
 import mikaelPhoto from '../assets/images/Mikael.png?w=128&h=128&format=webp'
-import jazminePhoto from '../assets/images/Jazmine.png?w=128&h=128&format=webp'
-import manuelPhoto from '../assets/images/Manuel.png?w=128&h=128&format=webp'
 import marcoPhoto from '../assets/images/Marco.webp?w=128&h=128&format=webp'
 import brianPhoto from '../assets/images/Brian.png?w=128&h=128&format=webp'
 import meganPhoto from '../assets/images/Megan.png?w=128&h=128&format=webp'
@@ -13,6 +10,7 @@ import paoloPhoto from '../assets/images/Paolo.png?w=128&h=128&format=webp'
 import stefPhoto from '../assets/images/Stef.png?w=128&h=128&format=webp'
 import markusPhoto from '../assets/images/Markus.png?w=128&h=128&format=webp'
 import janaPhoto from '../assets/images/Jana.png?w=128&h=128&format=webp'
+import thierryPhoto from '../assets/images/Thierry.png?w=128&h=128&format=webp'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -49,7 +47,7 @@ const testimonials: Testimonial[] = [
         quote:
             'What impressed me most about augo is that it doesn’t try to replace the coach: it strengthens the coach. By bringing training data, athlete feedback and communication into one place, it helps me quickly identify patterns and focus on the insights that matter most. For me, the real value is simple: less time spent managing information and more time spent coaching people. That’s where great coaching happens.',
         name: 'Jana Perrone',
-        role: 'Triathlon Coach',
+        role: 'Triathlon Coach & Founder of ProTrain',
         photo: janaPhoto,
     },
     {
@@ -82,24 +80,10 @@ const testimonials: Testimonial[] = [
     },
     {
         quote:
-            'With augo, I track specific metrics related to RED-S, like carbohydrates consumed and perceived energy levels during sessions. This helps illuminate patterns and prevent low energy.',
-        name: 'Jazmine Lowther',
-        role: 'Pro Trail Runner & Coach',
-        photo: jazminePhoto,
-    },
-    {
-        quote:
-            'A training program is only as strong as the communication between coach and athlete. augo bridges the gap that arises from remote coaching, allowing coaches to truly coach.',
-        name: 'Tobias Haumann',
-        role: 'Triathlon Coach at Scientific Triathlon',
-        photo: tobiasPhoto,
-    },
-    {
-        quote:
-            'Throughout nearly 20 years of coaching, I\'ve needed a tool that lets me stay connected and truly present for the people I coach. augo is that tool. It finally exists.',
-        name: 'Manuel Wyss',
-        role: 'Triathlon Coach & Former Pro Triathlete',
-        photo: manuelPhoto,
+            'augo is a very powerful tool that can not only make the coach’s time more efficient, but also help the coach make sure he doesn’t miss anything! Right now the platform is a rough diamond, but Fabi and Bruna are passionate and constantly improving the app. augo is the future for coaches.',
+        name: 'Thierry Bessède',
+        role: 'Triathlon Coach & Founder of Jura Sports',
+        photo: thierryPhoto,
     },
 ]
 
