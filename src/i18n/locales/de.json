@@ -237,10 +237,6 @@
     "mins": "Min",
     "secs": "Sek"
   },
-  "launchOffer": {
-    "text": "<1>{{price}}/Monat pro Athlet</1>",
-    "badge": "Limitiertes Angebot"
-  },
   "cookies": {
     "message": "Wir verwenden Drittanbieter-Cookies, um dein Erlebnis zu verbessern.",
     "decline": "Ablehnen",
@@ -312,7 +308,6 @@
     "closingCta": "Kostenlos testen",
     "pro": {
       "label": "Pro",
-      "badge": "Limitiertes Angebot",
       "tagline": "Die komplette Plattform für dein Coaching.",
       "priceSuffix": "/Monat pro Athlet",
       "everythingIn": "Alles, was du zum Coachen brauchst:",

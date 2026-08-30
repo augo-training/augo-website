@@ -13,7 +13,6 @@ import {
     trackBillingToggle,
     trackFaqExpanded,
 } from '../utils/analytics'
-import LaunchOfferPill from './LaunchOfferPill'
 import { useEmailCapture } from '../contexts/EmailCaptureContext'
 
 // ─── FAQ Accordion ────────────────────────────────────────────────────────────
@@ -230,7 +229,6 @@ export default function PricingSection() {
             {/* ─── 1. Hero ─────────────────────────────────────────────────────── */}
             <section className="relative z-10 w-full pt-40 sm:pt-48 pb-8 sm:pb-10 px-5 sm:px-8">
                 <div className="max-w-[900px] mx-auto w-full flex flex-col gap-6 items-start text-left">
-                    <LaunchOfferPill />
                     <div
                         ref={heroTagRef}
                         className="font-mono text-[14px] tracking-[3px] uppercase text-[#969EA7]"
@@ -267,28 +265,17 @@ export default function PricingSection() {
                                 >
                                     <div className="px-7 sm:px-8 pt-7 pb-7 sm:pb-8 flex flex-col gap-6 flex-1">
                                         <div className="flex flex-col gap-1">
-                                            <div className="flex items-start justify-between gap-3">
-                                                <span
-                                                    className="font-['JetBrains_Mono'] text-[20px] tracking-[2px] uppercase font-bold"
-                                                    style={{
-                                                        background: 'linear-gradient(83.9deg, #C50017 0%, #FF5514 55%, #FFCA1E 100%)',
-                                                        WebkitBackgroundClip: 'text',
-                                                        WebkitTextFillColor: 'transparent',
-                                                        backgroundClip: 'text',
-                                                    }}
-                                                >
-                                                    {t('pricing.pro.label')}
-                                                </span>
-                                                <span
-                                                    className="flex-shrink-0 mt-1 font-mono text-[10px] tracking-[1.5px] uppercase leading-none text-white/80 rounded px-2 py-1"
-                                                    style={{
-                                                        background: 'rgba(255, 85, 20, 0.12)',
-                                                        border: '1px solid rgba(255, 202, 30, 0.28)',
-                                                    }}
-                                                >
-                                                    {t('pricing.pro.badge')}
-                                                </span>
-                                            </div>
+                                            <span
+                                                className="font-['JetBrains_Mono'] text-[20px] tracking-[2px] uppercase font-bold"
+                                                style={{
+                                                    background: 'linear-gradient(83.9deg, #C50017 0%, #FF5514 55%, #FFCA1E 100%)',
+                                                    WebkitBackgroundClip: 'text',
+                                                    WebkitTextFillColor: 'transparent',
+                                                    backgroundClip: 'text',
+                                                }}
+                                            >
+                                                {t('pricing.pro.label')}
+                                            </span>
                                             <p className="font-satoshi font-medium text-[16px] sm:text-[18px] leading-[160%] text-[#FFFFFF]">
                                                 {t('pricing.pro.tagline')}
                                             </p>

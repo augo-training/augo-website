@@ -33,12 +33,6 @@ describe('pricing copy parity across locales', () => {
         expect(expected.filter((p) => !actual.has(p))).toEqual([])
     })
 
-    it.each(TRANSLATIONS)('%s defines every leaf key that en defines under `launchOffer`', (lang) => {
-        const expected = leafPaths(get(en, 'launchOffer'))
-        const actual = new Set(leafPaths(get(LOCALES[lang], 'launchOffer')))
-        expect(expected.filter((p) => !actual.has(p))).toEqual([])
-    })
-
     it.each(Object.keys(LOCALES))('%s has the right number of plan features', (lang) => {
         expect(get(LOCALES[lang], 'pricing.pro.features')).toHaveLength(15)
         expect(get(LOCALES[lang], 'pricing.enterprise.features')).toHaveLength(3)
@@ -50,12 +44,6 @@ describe('interpolation contracts the components depend on', () => {
         const items = get(LOCALES[lang], 'faq.items') as Array<{ answer: string }>
         expect(items[0].answer).toContain('{{price}}')
     })
-
-    it.each(Object.keys(LOCALES))('%s keeps {{price}} and the <1> tag in launchOffer.text', (lang) => {
-        const text = get(LOCALES[lang], 'launchOffer.text') as string
-        expect(text).toContain('{{price}}')
-        expect(text).toMatch(/<1>.*<\/1>/)
-    })
 })
 
 describe('retired pricing keys', () => {
@@ -66,6 +54,7 @@ describe('retired pricing keys', () => {
         'pricing.earlyBirdDaysLeft_one', 'pricing.earlyAccessBanner',
         'pricing.earlyAccessRibbon', 'launchOffer.daysLeft_one',
         'pricing.featureColumns', 'pricing.featuresLabel',
+        'pricing.pro.badge', 'launchOffer',
     ]
 
     it.each(Object.keys(LOCALES))('%s no longer carries the old flat-plan keys', (lang) => {
