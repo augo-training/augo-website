@@ -5,7 +5,7 @@ import { gsap } from 'gsap'
 import { Check, MessageCircle, ClipboardList, Bot, ListChecks, BarChart2 } from 'lucide-react'
 import bgSection1 from '../assets/images/bg_section_1.webp'
 import { useGeoCountry } from '../hooks/useGeoCountry'
-import { getPricingTier, getEarlyBirdDaysLeft } from '../config/pricingConfig'
+import { getPricingTier } from '../config/pricingConfig'
 import {
     getUtmParams,
     trackPricingPageViewed,
@@ -120,13 +120,13 @@ export default function PricingSection() {
     const currentLang = lang || i18nObj.language || 'en'
 
     const { countryCode, loading } = useGeoCountry()
-    const pricingTier = getPricingTier(countryCode ?? '')
+    const pricingTier = getPricingTier(countryCode ?? 'US')
     const { openModal } = useEmailCapture()
 
-    const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly')
-    const isYearly = billingPeriod === 'yearly'
-    const YEARLY_DISCOUNT = 0.85
-    const earlyBirdDaysLeft = getEarlyBirdDaysLeft()
+    // The only billing choice on the page: the Elite add-on. Plans are monthly-only.
+    const [eliteBilling, setEliteBilling] = useState<'monthly' | 'yearly'>('monthly')
+    const isEliteYearly = eliteBilling === 'yearly'
+    const elitePrice = isEliteYearly ? pricingTier.eliteYearly : pricingTier.eliteMonthly
 
     const localizedCountryName = useMemo(() => {
         if (!countryCode) return ''
@@ -146,8 +146,8 @@ export default function PricingSection() {
 
     const featureColumns = t('pricing.featureColumns', { returnObjects: true }) as Array<{ title: string; items: string[] }>
     const featureColumnIcons = [MessageCircle, ClipboardList, Bot, ListChecks, BarChart2]
-    const freeFeatures = t('pricing.free.features', { returnObjects: true }) as string[]
-    const unlimitedFeatures = t('pricing.unlimited.features', { returnObjects: true }) as string[]
+    const proFeatures = t('pricing.pro.features', { returnObjects: true }) as string[]
+    const enterpriseFeatures = t('pricing.enterprise.features', { returnObjects: true }) as string[]
 
     // Hero fade-in on mount (IntersectionObserver + GSAP)
     useEffect(() => {
@@ -192,7 +192,8 @@ export default function PricingSection() {
             country: countryCode ?? 'unknown',
             pricing_bucket: pricingTier.bucket,
             pricing_currency: pricingTier.currency,
-            pricing_amount: pricingTier.price,
+            pricing_amount: pricingTier.proPrice,
+            pricing_list_amount: pricingTier.listPrice,
             ...getUtmParams(),
         })
     }, [loading]) // eslint-disable-line react-hooks/exhaustive-deps
@@ -243,178 +244,207 @@ export default function PricingSection() {
                 </div>
             </section>
 
-            {/* ─── 2. Pricing Cards ────────────────────────────────────────────── */}
+            {/* ─── 2. Plans + Add-ons ──────────────────────────────────────────── */}
             <section className="relative z-10 w-full pt-8 sm:pt-10 pb-16 sm:pb-20 px-5 sm:px-8">
-                <div className="max-w-[900px] mx-auto w-full flex flex-col gap-4">
-                    {/* Billing period toggle — aligned above unlimited (right) card */}
-                    <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div />
-                        <div className="flex items-center justify-center gap-3">
-                        <span className={`font-mono text-[13px] tracking-[1px] uppercase transition-colors duration-150 ${!isYearly ? 'text-white' : 'text-[#555]'}`}>
-                            {t('pricing.monthly')}
-                        </span>
-                        <button
-                            onClick={() => {
-                                const newPeriod = isYearly ? 'monthly' : 'yearly'
-                                setBillingPeriod(newPeriod)
-                                trackBillingToggle({ billing_period: newPeriod })
-                            }}
-                            className={`relative w-12 h-6 rounded-full focus:outline-none flex-shrink-0 ${isYearly ? 'btn-gradient' : 'bg-[#333]'}`}
-                            aria-label="Toggle billing period"
-                        >
-                            <span
-                                className="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white shadow transition-transform duration-200"
-                                style={{ transform: isYearly ? 'translateX(24px)' : 'translateX(0)' }}
-                            />
-                        </button>
-                        <span className={`flex items-center gap-2 font-mono text-[13px] tracking-[1px] uppercase transition-colors duration-150 ${isYearly ? 'text-white' : 'text-[#555]'}`}>
-                            {t('pricing.annual')}
-                            <span
-                                className="btn-gradient font-mono text-[10px] tracking-[1px] px-1.5 py-0.5 rounded text-white"
-                            >
-                                {t('pricing.annualBadge')}
-                            </span>
-                        </span>
-                        </div>
-                    </div>
-                    {/* Cards */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
-                        {/* Free Plan */}
-                        <div
-                            className="rounded-2xl p-[1px] order-2 md:order-1"
-                            style={{ background: 'linear-gradient(135deg, rgba(80,80,80,0.3), rgba(60,60,60,0.2), rgba(40,40,40,0.15))' }}
-                        >
-                        <div
-                            className="rounded-[15px] px-7 sm:px-8 pt-7 sm:pt-8 pb-7 sm:pb-8 flex flex-col gap-6 h-full"
-                            style={{ backgroundColor: '#151515' }}
-                        >
-                            <div className="flex flex-col gap-1">
-                                <span className="font-['JetBrains_Mono'] text-[20px] tracking-[2px] uppercase text-[#FFFFFF]">
-                                    {t('pricing.free.label')}
-                                </span>
-                                <p className="font-satoshi font-medium text-[16px] sm:text-[18px] leading-[160%] text-[#FFFFFF]">
-                                    {t('pricing.freeTierTagline')}
-                                </p>
-                            </div>
-                            <div className="flex flex-col gap-2 min-h-[88px] justify-center">
-                                <div>
-                                    <span className="font-mono font-bold text-[40px] sm:text-[48px] leading-none text-[#FFFFFF]">
-                                        {pricingTier.symbol}0
-                                    </span>
-                                    <span className="font-mono text-[14px] text-[#969EA7] ml-1">
-                                        {t('pricing.free.period')}
-                                    </span>
-                                </div>
-                            </div>
-                            <div className="h-px bg-[#2D2D2D]" />
-                            <ul className="flex flex-col gap-3 flex-1 pt-7">
-                                {freeFeatures.map((f, i) => (
-                                    <li key={i} className="flex items-start gap-3">
-                                        <span className="flex-shrink-0 mt-0.5 w-5 h-5 rounded-full flex items-center justify-center"
-                                            style={{ background: 'transparent', border: '1.5px solid #555' }}>
-                                            <Check size={11} color="#666" strokeWidth={3} />
-                                        </span>
-                                        <span className="font-satoshi font-medium text-[14px] sm:text-[15px] leading-[160%] text-[#FFFFFF]">{f}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                            <div className="flex flex-col gap-1.5">
-                                <button
-                                    className="font-mono text-[12px] sm:text-[13px] font-extrabold tracking-[2px] uppercase rounded-lg text-center h-12 flex items-center justify-center px-6 transition-all duration-200 text-[#EEE] hover:text-[#FFF] cursor-pointer"
-                                    style={{ background: '#1E1E1E', border: '1px solid #333' }}
-                                    onClick={() => {
-                                        void trackPricingCtaClicked({ cta_text: t('pricing.free.cta'), billing_period: billingPeriod })
-                                        openModal(t('pricing.free.cta'))
-                                    }}
-                                >
-                                    {t('pricing.free.cta')}
-                                </button>
-                            </div>
-                        </div>
-                        </div>
-
-                        {/* Paid Plan — dynamic by arm */}
-                        <div className="join-form-wrapper relative rounded-2xl order-1 md:order-2">
+                <div className="max-w-[900px] mx-auto w-full flex flex-col gap-12">
+                    {/* Plan cards */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full items-stretch">
+                        {/* Pro — featured */}
+                        <div className="join-form-wrapper relative rounded-2xl order-1">
                             <div className="join-form-glow absolute -inset-6 rounded-[2rem] pointer-events-none" />
-                            <div className="join-form-border relative rounded-[20px] p-[2px]">
+                            <div className="join-form-border relative rounded-[20px] p-[2px] h-full">
                                 <div
                                     className="join-form-inner rounded-[18px] overflow-hidden flex flex-col gap-6 h-full"
                                     style={{ backgroundColor: '#0A0A0A' }}
                                 >
                                     <div className="px-7 sm:px-8 pt-7 pb-7 sm:pb-8 flex flex-col gap-6 flex-1">
-                                    <div className="flex flex-col gap-1">
-                                        <span
-                                            className="font-['JetBrains_Mono'] text-[20px] tracking-[2px] uppercase font-bold"
-                                            style={{
-                                                background: 'linear-gradient(83.9deg, #C50017 0%, #FF5514 55%, #FFCA1E 100%)',
-                                                WebkitBackgroundClip: 'text',
-                                                WebkitTextFillColor: 'transparent',
-                                                backgroundClip: 'text',
-                                            }}
-                                        >
-                                            {t('pricing.unlimited.label')}
-                                        </span>
-                                        <p className="font-satoshi font-medium text-[16px] sm:text-[18px] leading-[160%] text-[#FFFFFF]">
-                                            {t('pricing.flat.tagline')}
-                                        </p>
-                                    </div>
-                                    <div className="flex flex-col gap-2 min-h-[88px] justify-center">
-                                        <div>
-                                            <span className="font-mono font-bold text-[40px] sm:text-[48px] leading-none text-white">
-                                                {pricingTier.symbol}{formatPrice(isYearly ? Math.round(pricingTier.price * YEARLY_DISCOUNT) : pricingTier.price)}
-                                            </span>
-                                            <span className="font-mono text-[14px] text-[#969EA7] ml-1">
-                                                {t(isYearly ? 'pricing.flat.periodAnnual' : 'pricing.flat.period')}
-                                            </span>
-                                        </div>
-                                        {earlyBirdDaysLeft > 0 && (
-                                            <div className="inline-flex items-center gap-2 self-start rounded-full px-3 py-1"
-                                                style={{
-                                                    background: 'rgba(255, 85, 20, 0.08)',
-                                                    border: '1px solid rgba(255, 202, 30, 0.28)',
-                                                }}>
-                                                <span className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+                                        <div className="flex flex-col gap-1">
+                                            <div className="flex items-start justify-between gap-3">
+                                                <span
+                                                    className="font-['JetBrains_Mono'] text-[20px] tracking-[2px] uppercase font-bold"
                                                     style={{
                                                         background: 'linear-gradient(83.9deg, #C50017 0%, #FF5514 55%, #FFCA1E 100%)',
-                                                        boxShadow: '0 0 8px rgba(255, 138, 30, 0.6)',
-                                                    }} />
-                                                <span className="font-mono text-[10px] sm:text-[11px] tracking-[1.5px] uppercase text-white/80 leading-none">
-                                                    {t('pricing.earlyBirdDaysLeft', { count: earlyBirdDaysLeft })}
+                                                        WebkitBackgroundClip: 'text',
+                                                        WebkitTextFillColor: 'transparent',
+                                                        backgroundClip: 'text',
+                                                    }}
+                                                >
+                                                    {t('pricing.pro.label')}
+                                                </span>
+                                                <span
+                                                    className="flex-shrink-0 mt-1 font-mono text-[10px] tracking-[1.5px] uppercase leading-none text-white/80 rounded px-2 py-1"
+                                                    style={{
+                                                        background: 'rgba(255, 85, 20, 0.12)',
+                                                        border: '1px solid rgba(255, 202, 30, 0.28)',
+                                                    }}
+                                                >
+                                                    {t('pricing.pro.badge')}
                                                 </span>
                                             </div>
-                                        )}
-                                    </div>
-                                    <ul className="flex flex-col gap-3 flex-1">
-                                        <li className="font-mono text-[12px] tracking-[1px] uppercase text-[#969EA7] mb-1">
-                                            {t('pricing.unlimited.everythingIn')}
-                                        </li>
-                                        {unlimitedFeatures.map((f, i) => (
-                                            <li key={i} className="flex items-start gap-3">
-                                                <span className="flex-shrink-0 mt-0.5 w-5 h-5 rounded-full flex items-center justify-center"
-                                                    style={{ background: 'transparent', border: '1.5px solid #969EA7' }}>
-                                                    <Check size={11} color="#969EA7" strokeWidth={3} />
+                                            <p className="font-satoshi font-medium text-[16px] sm:text-[18px] leading-[160%] text-[#FFFFFF]">
+                                                {t('pricing.pro.tagline')}
+                                            </p>
+                                        </div>
+                                        <div className="flex flex-col gap-2 min-h-[88px] justify-center">
+                                            {/* <s> rather than a line-through span: screen readers and
+                                                crawlers get "former price" semantics for free. */}
+                                            <s className="font-mono text-[14px] leading-none text-[#595959]">
+                                                {pricingTier.symbol}{formatPrice(pricingTier.listPrice)}{t('pricing.pro.priceSuffix')}
+                                            </s>
+                                            <div>
+                                                <span className="font-mono font-bold text-[40px] sm:text-[48px] leading-none text-white">
+                                                    {pricingTier.symbol}{formatPrice(pricingTier.proPrice)}
                                                 </span>
-                                                <span className="font-satoshi font-medium text-[14px] sm:text-[15px] leading-[160%] text-[#FFFFFF]">{f}</span>
+                                                <span className="font-mono text-[14px] text-[#969EA7] ml-1">
+                                                    {t('pricing.pro.priceSuffix')}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <ul className="flex flex-col gap-3 flex-1">
+                                            <li className="font-mono text-[12px] tracking-[1px] uppercase text-[#969EA7] mb-1">
+                                                {t('pricing.pro.everythingIn')}
                                             </li>
-                                        ))}
-                                    </ul>
-                                    <div className="flex flex-col gap-1.5">
-                                        <button
-                                            className="btn-gradient font-mono text-[12px] sm:text-[13px] font-extrabold tracking-[2px] uppercase text-white rounded-lg text-center h-12 flex items-center justify-center px-6 hover:brightness-110 transition-all duration-200 cursor-pointer"
-                                            onClick={() => {
-                                                const label = t('pricing.flat.cta')
-                                                void trackPricingCtaClicked({ cta_text: label, billing_period: billingPeriod })
-                                                openModal(label)
-                                            }}
-                                        >
-                                            {t('pricing.flat.cta')}
-                                        </button>
+                                            {proFeatures.map((f, i) => (
+                                                <li key={i} className="flex items-start gap-3">
+                                                    <span className="flex-shrink-0 mt-0.5 w-5 h-5 rounded-full flex items-center justify-center"
+                                                        style={{ background: 'transparent', border: '1.5px solid #969EA7' }}>
+                                                        <Check size={11} color="#969EA7" strokeWidth={3} />
+                                                    </span>
+                                                    <span className="font-satoshi font-medium text-[14px] sm:text-[15px] leading-[160%] text-[#FFFFFF]">{f}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                        <div className="flex flex-col gap-1.5">
+                                            <button
+                                                className="btn-gradient font-mono text-[12px] sm:text-[13px] font-extrabold tracking-[2px] uppercase text-white rounded-lg text-center h-12 flex items-center justify-center px-6 hover:brightness-110 transition-all duration-200 cursor-pointer"
+                                                onClick={() => {
+                                                    const label = t('pricing.pro.cta')
+                                                    void trackPricingCtaClicked({ cta_text: label, plan: 'pro' })
+                                                    openModal(label)
+                                                }}
+                                            >
+                                                {t('pricing.pro.cta')}
+                                            </button>
+                                        </div>
                                     </div>
-                                    </div>{/* end inner padding div */}
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Enterprise — quiet */}
+                        <div
+                            className="rounded-2xl p-[1px] order-2"
+                            style={{ background: 'linear-gradient(135deg, rgba(80,80,80,0.3), rgba(60,60,60,0.2), rgba(40,40,40,0.15))' }}
+                        >
+                            <div
+                                className="rounded-[15px] px-7 sm:px-8 pt-7 sm:pt-8 pb-7 sm:pb-8 flex flex-col gap-6 h-full"
+                                style={{ backgroundColor: '#151515' }}
+                            >
+                                <div className="flex flex-col gap-1">
+                                    <span className="font-['JetBrains_Mono'] text-[20px] tracking-[2px] uppercase text-[#FFFFFF]">
+                                        {t('pricing.enterprise.label')}
+                                    </span>
+                                    <p className="font-satoshi font-medium text-[16px] sm:text-[18px] leading-[160%] text-[#FFFFFF]">
+                                        {t('pricing.enterprise.tagline')}
+                                    </p>
+                                </div>
+                                <div className="flex flex-col gap-2 min-h-[88px] justify-center">
+                                    <span className="font-mono text-[13px] tracking-[1px] text-[#969EA7]">
+                                        {t('pricing.enterprise.planLabel')}
+                                    </span>
+                                    <span className="font-mono font-bold text-[40px] sm:text-[48px] leading-none text-white">
+                                        {t('pricing.enterprise.price')}
+                                    </span>
+                                </div>
+                                <ul className="flex flex-col gap-3 flex-1">
+                                    <li className="font-mono text-[12px] tracking-[1px] uppercase text-[#969EA7] mb-1">
+                                        {t('pricing.enterprise.everythingIn')}
+                                    </li>
+                                    {enterpriseFeatures.map((f, i) => (
+                                        <li key={i} className="flex items-start gap-3">
+                                            <span className="flex-shrink-0 mt-0.5 w-5 h-5 flex items-center justify-center font-mono text-[16px] leading-none text-[#969EA7]">
+                                                +
+                                            </span>
+                                            <span className="font-satoshi font-medium text-[14px] sm:text-[15px] leading-[160%] text-[#FFFFFF]">{f}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                                <div className="flex flex-col gap-1.5">
+                                    <button
+                                        className="font-mono text-[12px] sm:text-[13px] font-extrabold tracking-[2px] uppercase rounded-lg text-center h-12 flex items-center justify-center px-6 transition-all duration-200 bg-white text-[#0A0A0A] hover:bg-white/90 cursor-pointer"
+                                        onClick={() => {
+                                            const label = t('pricing.enterprise.cta')
+                                            void trackPricingCtaClicked({ cta_text: label, plan: 'enterprise' })
+                                            openModal(label)
+                                        }}
+                                    >
+                                        {t('pricing.enterprise.cta')}
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>{/* end cards grid */}
+
+                    {/* Add-ons */}
+                    <div className="w-full flex flex-col gap-4">
+                        <div className="flex items-center gap-3">
+                            <div className="w-[3px] h-5 rounded-full flex-shrink-0"
+                                style={{ background: 'linear-gradient(180deg, #C50017, #FF5514, #FFCA1E)' }} />
+                            <span className="font-satoshi font-bold text-[22px] sm:text-[26px] leading-[120%] text-white">
+                                {t('pricing.addOnsTitle')}
+                            </span>
+                        </div>
+                        <div
+                            className="rounded-2xl px-6 py-5 flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-8"
+                            style={{ backgroundColor: '#151515' }}
+                        >
+                            <div className="flex flex-col gap-1 flex-1">
+                                <span className="font-['JetBrains_Mono'] text-[16px] tracking-[2px] uppercase text-white">
+                                    {t('pricing.elite.label')}
+                                </span>
+                                <p className="font-satoshi font-bold text-[15px] sm:text-[16px] leading-[150%] text-white">
+                                    {t('pricing.elite.tagline')}
+                                </p>
+                                <p className="font-satoshi font-medium text-[13px] sm:text-[14px] leading-[150%] text-[#969EA7]">
+                                    {t('pricing.elite.description')}
+                                </p>
+                            </div>
+                            <div className="flex flex-col items-start sm:items-end gap-3 flex-shrink-0">
+                                <div
+                                    className="inline-flex rounded-lg p-0.5"
+                                    style={{ backgroundColor: '#1E1E1E', border: '1px solid #333' }}
+                                >
+                                    {(['monthly', 'yearly'] as const).map((period) => {
+                                        const isActive = eliteBilling === period
+                                        return (
+                                            <button
+                                                key={period}
+                                                type="button"
+                                                aria-pressed={isActive}
+                                                onClick={() => {
+                                                    setEliteBilling(period)
+                                                    trackBillingToggle({ billing_period: period, plan: 'elite' })
+                                                }}
+                                                className={`font-mono text-[11px] font-bold tracking-[1px] uppercase px-3 py-1.5 rounded-md transition-colors duration-150 cursor-pointer ${
+                                                    isActive ? 'bg-white text-[#0A0A0A]' : 'bg-transparent text-[#969EA7] hover:text-white'
+                                                }`}
+                                            >
+                                                {t(period === 'monthly' ? 'pricing.monthly' : 'pricing.annual')}
+                                            </button>
+                                        )
+                                    })}
+                                </div>
+                                <div>
+                                    <span className="font-mono font-bold text-[28px] sm:text-[32px] leading-none text-white">
+                                        +{pricingTier.symbol}{formatPrice(elitePrice)}
+                                    </span>
+                                    <span className="font-mono text-[13px] text-[#969EA7] ml-1">
+                                        {t('pricing.elite.priceSuffix')}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>{/* end add-ons */}
                 </div>{/* end max-w container */}
             </section>
             </div>{/* end topo bg wrapper */}
@@ -433,7 +463,7 @@ export default function PricingSection() {
                                 t('pricing.trustLine1'),
                                 t('pricing.trustLine2'),
                                 t('pricing.trustQuote'),
-                                t('pricing.alwaysFreeNote'),
+                                t('pricing.perAthleteNote'),
                             ].map((line, i) => (
                                 <div key={i} className="group flex items-start gap-2 cursor-default">
                                     <span className="font-satoshi font-black italic text-[14px] leading-[150%] tracking-[4px] text-[#969EA7] group-hover:text-white flex-shrink-0 transition-all duration-200 ease-out">///////</span>
@@ -554,7 +584,7 @@ export default function PricingSection() {
                         data-cta="pricing"
                         style={{ width: '220px', height: '48px' }}
                         onClick={() => {
-                            void trackPricingCtaClicked({ cta_text: t('pricing.closingCta'), billing_period: billingPeriod })
+                            void trackPricingCtaClicked({ cta_text: t('pricing.closingCta') })
                             openModal(t('pricing.closingCta'))
                         }}
                     >

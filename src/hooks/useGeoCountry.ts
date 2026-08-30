@@ -86,13 +86,18 @@ interface GeoCountryResult {
 }
 
 export function useGeoCountry(): GeoCountryResult {
-    const cached = typeof window !== 'undefined' ? localStorage.getItem(STORAGE_KEY) : null
+    // During the build-time prerender the lookup would resolve against the build
+    // machine's IP and bake that currency into every shipped HTML file. Skip it and
+    // let consumers fall back to the global tier, which is deterministic.
+    const isPrerender = typeof window !== 'undefined' && window.__PRERENDER__ === true
+
+    const cached = !isPrerender && typeof window !== 'undefined' ? localStorage.getItem(STORAGE_KEY) : null
 
     const [countryCode, setCountryCode] = useState<string | null>(cached)
-    const [loading, setLoading] = useState<boolean>(cached === null)
+    const [loading, setLoading] = useState<boolean>(!isPrerender && cached === null)
 
     useEffect(() => {
-        if (cached !== null) return
+        if (isPrerender || cached !== null) return
 
         const controller = new AbortController()
         const timeoutId = setTimeout(() => controller.abort(), 4000)

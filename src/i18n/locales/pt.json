@@ -95,7 +95,7 @@
     "items": [
       {
         "question": "Quanto custa a augo?",
-        "answer": "Até 8 de setembro de 2026, a augo custa {{price}} por mês para atletas ilimitados — esse é o nosso preço early bird."
+        "answer": "A augo custa {{price}} por mês por atleta, e todo coach começa com 14 dias de teste grátis."
       },
       {
         "question": "A augo vai substituir coaches?",
@@ -238,9 +238,8 @@
     "secs": "seg"
   },
   "launchOffer": {
-    "text": "<1>{{price}}/mês</1> atletas ilimitados",
-    "daysLeft_one": "resta {{count}} dia",
-    "daysLeft_other": "restam {{count}} dias"
+    "text": "<1>{{price}}/mês por atleta</1>",
+    "badge": "Oferta limitada"
   },
   "cookies": {
     "message": "Usamos cookies de terceiros para melhorar sua experiência.",
@@ -285,84 +284,13 @@
       }
     ],
     "pricingHeadline": "Preço simples. Feito para um coaching de alto nível.",
-    "trustLine1": "Comece grátis. Faça upgrade apenas quando precisar de mais.",
+    "trustLine1": "Comece com 14 dias grátis. Sem precisar de cartão de crédito.",
     "trustLine2": "Sem contratos longos. Sem taxas ocultas. Cancele quando quiser.",
     "trustQuote": "Seus dados são sempre seus; saia quando quiser e leve todos os seus dados com você.",
-    "trust": {
-      "startFree": "Comece grátis",
-      "noContracts": "Sem contratos",
-      "yourData": "Seus dados, sempre"
-    },
     "monthly": "Mensal",
     "annual": "Anual",
-    "annualBadge": "Economize 15%",
-    "freeTierTagline": "Até 2 atletas",
-    "earlyBirdDaysLeft_one": "resta {{count}} dia com este preço",
-    "earlyBirdDaysLeft_other": "restam {{count}} dias com este preço",
-    "alwaysFreeNote": "0-2 atletas: sempre gratuito.",
-    "earlyAccessBanner": "Gratuito para todos os coaches até 27 de abril de 2026 — experimente o augo com atletas ilimitados, sem cartão de crédito.",
-    "earlyAccessRibbon": "Promoção: Grátis até 26 de abril de 2026",
-    "earlyAccessRibbonSub": "Cartão de crédito não é necessário",
-    "flat": {
-      "tagline": "A partir de 3 atletas",
-      "cta": "Começar agora",
-      "period": "/ mês",
-      "periodAnnual": "/ mês, cobrado anualmente"
-    },
     "locationNote": "Preços exibidos para {{countryName}}. Não é o seu local? <1>Fale conosco</1>.",
-    "free": {
-      "label": "Grátis",
-      "tagline": "Perfeito para começar",
-      "price": "$0",
-      "period": "/ mês",
-      "features": [
-        "Mensagens para até 2 atletas",
-        "Acesso limitado à assistente inteligente",
-        "Lista de prioridades diárias curada pelo assistente augo",
-        "Receber dados de treino dos atletas",
-        "Coletar feedback de sessão dos atletas"
-      ],
-      "cta": "Começar grátis"
-    },
-    "unlimited": {
-      "label": "Ilimitado",
-      "tagline": "Para coaches prontos para crescer",
-      "priceMonthly": "$19,90",
-      "priceAnnual": "$191",
-      "periodMonthly": "/ mês",
-      "periodAnnual": "/ ano",
-      "everythingIn": "Tudo do Grátis +",
-      "features": [
-        "Atletas ilimitados",
-        "Acesso ilimitado à assistente inteligente",
-        "Encontre atletas através da plataforma de matching augo",
-        "Acesso à comunidade de coaches augo",
-        "Suporte prioritário"
-      ],
-      "cta": "Fazer upgrade para ilimitado",
-      "ctaOriginal": "Iniciar Plano Ilimitado",
-      "ctaPromo": "Free until April 27, 2026 · Launch promo"
-    },
     "bubbleText": "Feito para coaches que levam cada atleta a sério.",
-    "whyHeadline": "Por que coaches escolhem o augo",
-    "whyCards": [
-      {
-        "title": "Clareza no lugar do caos",
-        "body": "Todos os seus atletas, dados e decisões — em um só lugar."
-      },
-      {
-        "title": "Saiba como seus atletas realmente se sentem",
-        "body": "Capture feedback consistente de sessões para identificar mudanças sutis que sinalizam desafios à frente."
-      },
-      {
-        "title": "Automatize as tarefas rotineiras",
-        "body": "Gaste menos tempo gerenciando e mais tempo treinando."
-      },
-      {
-        "title": "Treine com confiança",
-        "body": "Tome melhores decisões com insights claros e acionáveis."
-      }
-    ],
     "faqTitle": "Perguntas frequentes",
     "faqItems": [
       {
@@ -371,7 +299,7 @@
       },
       {
         "question": "Existe um período de teste gratuito?",
-        "answer": "Você pode começar com o plano gratuito e fazer upgrade quando estiver pronto."
+        "answer": "Sim — todo coach começa com 14 dias de teste grátis. Sem precisar de cartão de crédito."
       },
       {
         "question": "Meus atletas precisam pagar?",
@@ -383,7 +311,7 @@
       },
       {
         "question": "Existem custos adicionais ou complementos?",
-        "answer": "Não. Não há taxas ocultas."
+        "answer": "O Pro inclui tudo o que você precisa para treinar. O Elite é um complemento opcional para coaches que querem suporte dedicado. Sem taxas ocultas."
       },
       {
         "question": "Com quais plataformas o augo se integra?",
@@ -398,13 +326,49 @@
         "answer": "Eles podem ver seus dados de treino, conversar com você, compartilhar feedback qualitativo e receber orientações sobre planos de treino."
       },
       {
-        "question": "Tem desconto no plano anual?",
-        "answer": "Sim, você economiza 15% ao optar pelo plano anual."
+        "question": "Como funciona o preço por atleta?",
+        "answer": "Você paga por cada atleta que treina ativamente. Adicione ou remova atletas quando quiser e sua cobrança se ajusta."
       }
     ],
     "closingHeadline": "Coaching não deveria ser caótico.",
     "closingBody": "augo dá a você a clareza para treinar com confiança. Comece grátis hoje e veja o que significa realmente saber o que importa.",
-    "closingCta": "Começar grátis hoje"
+    "closingCta": "Começar teste grátis",
+    "pro": {
+      "label": "Pro",
+      "badge": "Oferta limitada",
+      "tagline": "A plataforma completa para o seu coaching.",
+      "priceSuffix": "/mês por atleta",
+      "everythingIn": "Tudo o que você precisa para começar:",
+      "features": [
+        "Todos os recursos da augo",
+        "Assistente de IA com tecnologia Claude",
+        "Matching de atletas e comunidade de coaches",
+        "Conexão com suas ferramentas de IA favoritas",
+        "Suporte na migração de plataforma"
+      ],
+      "cta": "Teste grátis por 14 dias"
+    },
+    "enterprise": {
+      "label": "Enterprise",
+      "tagline": "Feito para negócios de coaching e equipes com vários coaches.",
+      "planLabel": "Plano sob medida",
+      "price": "Personalizado",
+      "everythingIn": "Tudo do Pro, mais:",
+      "features": [
+        "Múltiplos coaches",
+        "White label",
+        "Personalização da plataforma"
+      ],
+      "cta": "Fale conosco"
+    },
+    "addOnsTitle": "Complementos",
+    "elite": {
+      "label": "Elite",
+      "tagline": "Suporte dedicado enquanto o seu negócio de coaching cresce.",
+      "description": "Inclui um executivo de contas dedicado, consultoria e treinamento em IA, e o modelo de IA da sua escolha: Claude, GPT ou Gemini.",
+      "priceSuffix": "/mês"
+    },
+    "perAthleteNote": "Pague apenas pelos atletas que você treina ativamente."
   },
   "bookDemo": {
     "hero": {
@@ -461,30 +425,75 @@
       "lead": "This isn't for first-timers. It's for one runner who wants to chase their limits and reach breakthrough performance.",
       "subtitle": "Selection criteria",
       "items": [
-        { "label": "Experience", "statement": "3+ marathons completed" },
-        { "label": "Ambition", "statement": "Chasing a real PB, not another finisher's medal" },
-        { "label": "Timeline", "statement": "Spring 2027 PB attempt" },
-        { "label": "History", "statement": "Self-coached, on standard plans, or relying on AI" },
-        { "label": "Coaching", "statement": "Have never worked with a human coach" },
-        { "label": "Signal", "statement": "Can feel the ceiling but can't break it" },
-        { "label": "Mindset", "statement": "Ready to document the journey, wins and messy parts" }
+        {
+          "label": "Experience",
+          "statement": "3+ marathons completed"
+        },
+        {
+          "label": "Ambition",
+          "statement": "Chasing a real PB, not another finisher's medal"
+        },
+        {
+          "label": "Timeline",
+          "statement": "Spring 2027 PB attempt"
+        },
+        {
+          "label": "History",
+          "statement": "Self-coached, on standard plans, or relying on AI"
+        },
+        {
+          "label": "Coaching",
+          "statement": "Have never worked with a human coach"
+        },
+        {
+          "label": "Signal",
+          "statement": "Can feel the ceiling but can't break it"
+        },
+        {
+          "label": "Mindset",
+          "statement": "Ready to document the journey, wins and messy parts"
+        }
       ]
     },
     "why": {
       "title": "Why This Exists",
       "context": [
-        { "label": "Problem", "text": "Most runners hit a ceiling not because they aren't training hard, but because the hardest calls (when to push, when to back off, when to rebuild) are impossible to make alone." },
-        { "label": "Blindspot", "text": "We underestimate when fatigued, overestimate when fresh, and second-guess in the moments that matter most." },
-        { "label": "Limit", "text": "AI optimizes patterns. Plans give structure. Neither replaces what a great coach sees from the outside." }
+        {
+          "label": "Problem",
+          "text": "Most runners hit a ceiling not because they aren't training hard, but because the hardest calls (when to push, when to back off, when to rebuild) are impossible to make alone."
+        },
+        {
+          "label": "Blindspot",
+          "text": "We underestimate when fatigued, overestimate when fresh, and second-guess in the moments that matter most."
+        },
+        {
+          "label": "Limit",
+          "text": "AI optimizes patterns. Plans give structure. Neither replaces what a great coach sees from the outside."
+        }
       ],
       "pullQuote": "Performance at the limit is interpreted, not calculated.",
       "subtitle": "What a human coach does",
       "items": [
-        { "label": "Instinct", "statement": "Feels when something is off, even when the data looks fine" },
-        { "label": "Judgment", "statement": "Pushes back when your ideas are wrong, backs you when they're right" },
-        { "label": "Pressure", "statement": "Reads pressure, doubt, and instinct" },
-        { "label": "Uncertainty", "statement": "Makes the call when the data won't" },
-        { "label": "Unseen", "statement": "Sees what's not in the data" }
+        {
+          "label": "Instinct",
+          "statement": "Feels when something is off, even when the data looks fine"
+        },
+        {
+          "label": "Judgment",
+          "statement": "Pushes back when your ideas are wrong, backs you when they're right"
+        },
+        {
+          "label": "Pressure",
+          "statement": "Reads pressure, doubt, and instinct"
+        },
+        {
+          "label": "Uncertainty",
+          "statement": "Makes the call when the data won't"
+        },
+        {
+          "label": "Unseen",
+          "statement": "Sees what's not in the data"
+        }
       ],
       "closing": "That's the human edge."
     },
@@ -496,18 +505,42 @@
         "name": "Brian Boisvert",
         "url": "https://greatdayforrunners.com/",
         "stats": [
-          { "value": "2:44", "label": "Marathon PB" },
-          { "value": "18×", "label": "Marathoner" },
-          { "value": "Level II", "label": "RRCA Certified" },
-          { "value": "2×", "label": "50-mile Ultra" }
+          {
+            "value": "2:44",
+            "label": "Marathon PB"
+          },
+          {
+            "value": "18×",
+            "label": "Marathoner"
+          },
+          {
+            "value": "Level II",
+            "label": "RRCA Certified"
+          },
+          {
+            "value": "2×",
+            "label": "50-mile Ultra"
+          }
         ]
       },
       "programLabel": "What's included",
       "program": [
-        { "label": "Duration", "value": "12 months of coaching" },
-        { "label": "Format", "value": "1:1, personalized to your training" },
-        { "label": "Cadence", "value": "Direct, ongoing access to Brian" },
-        { "label": "Story", "value": "Year-long documentary of your progression" }
+        {
+          "label": "Duration",
+          "value": "12 months of coaching"
+        },
+        {
+          "label": "Format",
+          "value": "1:1, personalized to your training"
+        },
+        {
+          "label": "Cadence",
+          "value": "Direct, ongoing access to Brian"
+        },
+        {
+          "label": "Story",
+          "value": "Year-long documentary of your progression"
+        }
       ],
       "valueLabel": "Program Value",
       "valueOriginal": "$2,400 USD",
@@ -573,18 +606,54 @@
     "faq": {
       "title": "FAQ",
       "items": [
-        { "question": "What is The Human Edge?", "answer": "A one-year experiment pairing one serious runner with a world-class human coach." },
-        { "question": "Who is this for?", "answer": "Experienced marathoners chasing a real personal best." },
-        { "question": "Who is this not for?", "answer": "Beginners or anyone training just to finish." },
-        { "question": "What do I get if selected?", "answer": "One year of free, fully personalized coaching." },
-        { "question": "Is a PB guaranteed?", "answer": "No, only a higher probability of achieving one." },
-        { "question": "Why human coaching?", "answer": "Because performance isn't just data. It's judgment." },
-        { "question": "Will my journey be public?", "answer": "Yes, the full process will be documented." },
-        { "question": "How much time does it take?", "answer": "A serious, consistent training commitment." },
-        { "question": "How do I apply?", "answer": "Applications for this round are now closed. Join the waitlist on this page and we'll notify you first when the next Human Edge program opens." },
-        { "question": "How is the athlete selected?", "answer": "Based on experience, plateau, and readiness to be coached." },
-        { "question": "What if I'm not selected?", "answer": "You'll be in the loop for future Human Edge programs." },
-        { "question": "What's the goal of this initiative?", "answer": "To prove what human coaching changes at the edge of performance." }
+        {
+          "question": "What is The Human Edge?",
+          "answer": "A one-year experiment pairing one serious runner with a world-class human coach."
+        },
+        {
+          "question": "Who is this for?",
+          "answer": "Experienced marathoners chasing a real personal best."
+        },
+        {
+          "question": "Who is this not for?",
+          "answer": "Beginners or anyone training just to finish."
+        },
+        {
+          "question": "What do I get if selected?",
+          "answer": "One year of free, fully personalized coaching."
+        },
+        {
+          "question": "Is a PB guaranteed?",
+          "answer": "No, only a higher probability of achieving one."
+        },
+        {
+          "question": "Why human coaching?",
+          "answer": "Because performance isn't just data. It's judgment."
+        },
+        {
+          "question": "Will my journey be public?",
+          "answer": "Yes, the full process will be documented."
+        },
+        {
+          "question": "How much time does it take?",
+          "answer": "A serious, consistent training commitment."
+        },
+        {
+          "question": "How do I apply?",
+          "answer": "Applications for this round are now closed. Join the waitlist on this page and we'll notify you first when the next Human Edge program opens."
+        },
+        {
+          "question": "How is the athlete selected?",
+          "answer": "Based on experience, plateau, and readiness to be coached."
+        },
+        {
+          "question": "What if I'm not selected?",
+          "answer": "You'll be in the loop for future Human Edge programs."
+        },
+        {
+          "question": "What's the goal of this initiative?",
+          "answer": "To prove what human coaching changes at the edge of performance."
+        }
       ]
     },
     "modal": {

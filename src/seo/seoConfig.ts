@@ -62,17 +62,17 @@ const pageMeta: Record<string, Record<SupportedLanguage, PageMeta>> = {
     en: {
       title: 'Pricing | augo — Know What Matters. Coach Better.',
       description:
-        'Simple, transparent pricing for endurance coaches. Start free with 2 athletes or upgrade to Unlimited for full access to augo\'s intelligent coaching assistant.',
+        'Simple, transparent pricing for endurance coaches. Pay per athlete, start with a 14-day free trial, and get full access to augo\'s intelligent coaching assistant.',
     },
     de: {
       title: 'Preise | augo — Wissen, was zählt. Besser coachen.',
       description:
-        'Einfache, transparente Preise für Ausdauer-Coaches. Kostenlos mit 2 Athleten starten oder auf Unlimited upgraden für vollen Zugang zu augos intelligentem Coaching-Assistenten.',
+        'Einfache, transparente Preise für Ausdauer-Coaches. Zahle pro Athlet, starte mit einer 14-tägigen kostenlosen Testphase und erhalte vollen Zugang zu augos intelligentem Coaching-Assistenten.',
     },
     pt: {
       title: 'Preços | augo — Saiba o que importa. Treine melhor.',
       description:
-        'Preços simples e transparentes para coaches de endurance. Comece grátis com 2 atletas ou faça upgrade para Ilimitado para acesso completo ao assistente inteligente augo.',
+        'Preços simples e transparentes para coaches de endurance. Pague por atleta, comece com 14 dias de teste grátis e tenha acesso completo ao assistente inteligente augo.',
     },
   },
   bookDemo: {

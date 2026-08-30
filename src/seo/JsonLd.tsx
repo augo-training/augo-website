@@ -30,6 +30,8 @@ export function OrganizationJsonLd() {
 }
 
 export function SoftwareApplicationJsonLd() {
+  // Pinned to the global tier, not a geo lookup: prerendered schema must be deterministic.
+  const tier = getPricingTier('US')
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
@@ -40,9 +42,18 @@ export function SoftwareApplicationJsonLd() {
       'AI-powered coaching assistant for endurance sports that combines communication, workout data, and session feedback.',
     offers: {
       '@type': 'Offer',
-      availability: 'https://schema.org/PreOrder',
-      price: '0',
-      priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock',
+      price: String(tier.proPrice),
+      priceCurrency: tier.currency,
+      priceSpecification: {
+        '@type': 'UnitPriceSpecification',
+        price: String(tier.proPrice),
+        priceCurrency: tier.currency,
+        unitText: 'athlete',
+        billingDuration: 1,
+        billingIncrement: 1,
+        billingPeriod: 'P1M',
+      },
     },
   }
 
@@ -62,7 +73,7 @@ export function FAQJsonLd({ i18nKey = 'faq.items' }: { i18nKey?: string } = {}) 
 
   // Fixed global tier, not a geo lookup: prerendered schema must be deterministic
   const tier = getPricingTier('US')
-  const price = `${tier.symbol}${tier.price}`
+  const price = `${tier.symbol}${tier.proPrice}`
 
   const schema = {
     '@context': 'https://schema.org',

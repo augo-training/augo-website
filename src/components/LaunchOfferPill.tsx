@@ -1,7 +1,7 @@
 import { Trans, useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom'
 import { useGeoCountry } from '../hooks/useGeoCountry'
-import { getPricingTier, getEarlyBirdDaysLeft } from '../config/pricingConfig'
+import { getPricingTier } from '../config/pricingConfig'
 import { useEmailCapture } from '../contexts/EmailCaptureContext'
 import { trackCtaClicked } from '../utils/analytics'
 
@@ -24,11 +24,8 @@ export default function LaunchOfferPill({ className = '', linkToPricing = false 
 
     if (loading || !countryCode) return null
 
-    const daysLeft = getEarlyBirdDaysLeft()
-    if (daysLeft <= 0) return null
-
     const tier = getPricingTier(countryCode)
-    const formattedPrice = `${tier.symbol}${tier.price}`
+    const formattedPrice = `${tier.symbol}${tier.proPrice}`
     const currentLang = lang || i18n.language || 'en'
     const pricingHref = `/${currentLang}/pricing`
 
@@ -56,7 +53,7 @@ export default function LaunchOfferPill({ className = '', linkToPricing = false 
                     }}
                 />
                 {' · '}
-                {t('launchOffer.daysLeft', { count: daysLeft })}
+                {t('launchOffer.badge')}
             </span>
         </>
     )
@@ -70,7 +67,7 @@ export default function LaunchOfferPill({ className = '', linkToPricing = false 
                 }}
                 className={`${sharedClassName} no-underline`}
                 style={sharedStyle}
-                aria-label="View early bird pricing"
+                aria-label="View pricing"
             >
                 {content}
             </a>
@@ -86,7 +83,7 @@ export default function LaunchOfferPill({ className = '', linkToPricing = false 
             }}
             className={sharedClassName}
             style={sharedStyle}
-            aria-label="View early bird pricing"
+            aria-label="View pricing"
         >
             {content}
         </button>
