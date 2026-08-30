@@ -384,14 +384,6 @@ body {
   background: linear-gradient(24.78deg, #C50017 -23.17%, #FF5514 91.92%, #FFCA1E 108.36%);
 }
 
-/* Brand gradient text (red→orange→yellow). Static; reuse for editorial moments. */
-.brand-gradient-text {
-  background: linear-gradient(83.9deg, #C50017 0%, #FF5514 50%, #FFCA1E 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 /* Subtle grain/texture overlay — TEXTURED brand attribute. Apply to a <section>. */
 .texture-grain {
   position: relative;
@@ -446,19 +438,6 @@ body {
 
   50% {
     transform: translateY(-3px);
-  }
-}
-
-/* Glow pulse */
-@keyframes glow-pulse {
-
-  0%,
-  100% {
-    opacity: 0.7;
-  }
-
-  50% {
-    opacity: 1;
   }
 }
 
@@ -611,23 +590,6 @@ body {
   animation: rotate-border 4s linear infinite;
 }
 
-/* ─── Bubble Anchor: Animated border ─── */
-.bubble-border {
-  background: conic-gradient(from var(--border-angle),
-      #C50017,
-      #FF5514,
-      #FFCA1E,
-      #FF5514,
-      #C50017);
-  animation: rotate-border 8s linear infinite;
-}
-
-/* ─── Bubble Anchor: Glow pulse ─── */
-.bubble-glow {
-  background: radial-gradient(ellipse, rgba(255, 85, 20, 0.12) 0%, transparent 70%);
-  animation: glow-pulse 4s ease-in-out infinite;
-}
-
 /* ─── Join Section: Glow pulse behind form ─── */
 .join-form-glow {
   background: radial-gradient(circle,
@@ -708,10 +670,5 @@ body {
 }
 
 .countdown-number {
-  background: linear-gradient(83.9deg, #C50017 0%, #FF5514 50%, #FFCA1E 100%);
-  background-size: 200% 200%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradient-shift 4s ease-in-out infinite;
+  color: #FFFFFF;
 }

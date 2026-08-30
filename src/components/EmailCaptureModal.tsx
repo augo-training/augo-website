@@ -31,11 +31,12 @@ export default function EmailCaptureModal({
 }: EmailCaptureModalProps) {
     const { t } = useTranslation()
     const resolvedSubtitle = subtitle ?? t('emailCapture.subtitle')
-    const [visitorType, setVisitorType] = useState<'coach' | 'athlete' | 'other' | null>(null)
+    // Defaults to coach: nearly everyone reaching these CTAs is one, and it is still switchable.
+    const [visitorType, setVisitorType] = useState<'coach' | 'athlete' | 'other'>('coach')
     const [firstName, setFirstName] = useState('')
     const [email, setEmail] = useState('')
     const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
-    const [errorKey, setErrorKey] = useState<'typeError' | 'nameError' | 'error'>('error')
+    const [errorKey, setErrorKey] = useState<'nameError' | 'error'>('error')
     const inputRef = useRef<HTMLInputElement>(null)
     const firstFocusableRef = useRef<HTMLButtonElement>(null)
 
@@ -65,12 +66,6 @@ export default function EmailCaptureModal({
 
     async function handleSubmit(e: React.FormEvent) {
         e.preventDefault()
-
-        if (!visitorType) {
-            setErrorKey('typeError')
-            setStatus('error')
-            return
-        }
 
         const name = firstName.trim()
         if (!name) {

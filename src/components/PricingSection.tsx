@@ -265,15 +265,7 @@ export default function PricingSection() {
                                 >
                                     <div className="px-7 sm:px-8 pt-7 pb-7 sm:pb-8 flex flex-col gap-6 flex-1">
                                         <div className="flex flex-col gap-1">
-                                            <span
-                                                className="font-['JetBrains_Mono'] text-[20px] tracking-[2px] uppercase font-bold"
-                                                style={{
-                                                    background: 'linear-gradient(83.9deg, #C50017 0%, #FF5514 55%, #FFCA1E 100%)',
-                                                    WebkitBackgroundClip: 'text',
-                                                    WebkitTextFillColor: 'transparent',
-                                                    backgroundClip: 'text',
-                                                }}
-                                            >
+                                            <span className="font-['JetBrains_Mono'] text-[20px] tracking-[2px] uppercase font-bold text-[#FFFFFF]">
                                                 {t('pricing.pro.label')}
                                             </span>
                                             <p className="font-satoshi font-medium text-[16px] sm:text-[18px] leading-[160%] text-[#FFFFFF]">
@@ -505,66 +497,8 @@ export default function PricingSection() {
                 </div>
             </section>
 
-            {/* ─── 4. Bubble Anchor ────────────────────────────────────────────── */}
-            <section className="w-full pt-4 pb-8 sm:pb-12 px-5 sm:px-8">
-                <div className="max-w-[900px] mx-auto w-full">
-                    <div className="relative">
-                        {/* Breathing glow behind the banner */}
-                        <div className="bubble-glow absolute -inset-6 rounded-2xl pointer-events-none" />
-                        {/* Animated rotating border */}
-                        <div className="bubble-border relative block w-full p-[1px] rounded-2xl">
-                            <div
-                                className="rounded-[20px] w-full px-6 sm:px-10 py-4 sm:py-5 text-center"
-                                style={{ backgroundColor: '#111111' }}
-                            >
-                                <p className="font-satoshi font-medium text-[16px] sm:text-[18px] leading-[150%] text-[#969EA7]">
-                                    {t('pricing.bubbleText')}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
             {/* ─── 6. FAQ ──────────────────────────────────────────────────────── */}
             <PricingFaq />
-
-            {/* ─── 7. Closing CTA ──────────────────────────────────────────────── */}
-            <section className="w-full py-20 sm:py-28 px-5 sm:px-8 relative overflow-hidden">
-                {/* Outer glow */}
-                <div
-                    className="absolute inset-0 pointer-events-none"
-                    style={{
-                        background: 'radial-gradient(ellipse 80% 55% at 50% 70%, rgba(197,0,23,0.18) 0%, rgba(255,85,20,0.08) 45%, transparent 70%)',
-                    }}
-                />
-                {/* Inner glow */}
-                <div
-                    className="absolute inset-0 pointer-events-none"
-                    style={{
-                        background: 'radial-gradient(ellipse 40% 30% at 50% 50%, rgba(255,85,20,0.1) 0%, transparent 60%)',
-                    }}
-                />
-                <div className="relative z-10 max-w-[600px] mx-auto w-full flex flex-col gap-6 items-center text-center">
-                    <h2 className="font-mono font-bold text-[28px] sm:text-[40px] lg:text-[48px] leading-[120%] text-white">
-                        {t('pricing.closingHeadline')}
-                    </h2>
-                    <p className="font-satoshi font-medium text-[16px] sm:text-[18px] leading-[160%] text-[#969EA7]">
-                        {t('pricing.closingBody')}
-                    </p>
-                    <button
-                        className="btn-gradient font-mono text-sm font-extrabold tracking-[2px] uppercase text-white rounded-lg hover:brightness-110 transition-all duration-200 flex items-center justify-center mt-2 cursor-pointer"
-                        data-cta="pricing"
-                        style={{ width: '220px', height: '48px' }}
-                        onClick={() => {
-                            void trackPricingCtaClicked({ cta_text: t('pricing.closingCta') })
-                            openModal(t('pricing.closingCta'))
-                        }}
-                    >
-                        {t('pricing.closingCta')}
-                    </button>
-                </div>
-            </section>
         </div>
     )
 }

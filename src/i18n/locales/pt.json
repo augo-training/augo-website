@@ -263,7 +263,6 @@
     "monthly": "Mensal",
     "annual": "Anual",
     "locationNote": "Preços exibidos para {{countryName}}. Não é o seu local? <1>Fale conosco</1>.",
-    "bubbleText": "Feito para coaches que levam cada atleta a sério.",
     "faqTitle": "Perguntas frequentes",
     "faqItems": [
       {
@@ -303,12 +302,9 @@
         "answer": "Você paga por cada atleta que treina ativamente. Adicione ou remova atletas quando quiser e sua cobrança se ajusta."
       }
     ],
-    "closingHeadline": "Coaching não deveria ser caótico.",
-    "closingBody": "augo dá a você a clareza para treinar com confiança. Comece grátis hoje e veja o que significa realmente saber o que importa.",
-    "closingCta": "Começar teste grátis",
     "pro": {
       "label": "Pro",
-      "tagline": "A plataforma completa para o seu coaching.",
+      "tagline": "A plataforma completa para um coaching de alta qualidade.",
       "priceSuffix": "/mês por atleta",
       "cta": "Teste grátis por 14 dias",
       "featureGroups": [
@@ -391,7 +387,6 @@
     "typeOther": "Outro",
     "cta": "Continuar para a App Store",
     "skip": "Pular, me leve direto lá",
-    "typeError": "Por favor, selecione uma opção.",
     "nameError": "Por favor, digite seu nome.",
     "error": "Algo deu errado. Por favor, tente novamente."
   },

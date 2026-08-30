@@ -66,6 +66,9 @@ describe('retired pricing keys', () => {
         'pricing.featureColumns', 'pricing.featuresLabel',
         'pricing.pro.badge', 'launchOffer',
         'pricing.pro.features', 'pricing.pro.everythingIn',
+        'pricing.bubbleText', 'pricing.closingHeadline',
+        'emailCapture.typeError',
+        'pricing.closingBody', 'pricing.closingCta',
     ]
 
     it.each(Object.keys(LOCALES))('%s no longer carries the old flat-plan keys', (lang) => {

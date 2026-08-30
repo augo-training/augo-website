@@ -263,7 +263,6 @@
     "monthly": "Monthly",
     "annual": "Yearly",
     "locationNote": "Pricing shown for {{countryName}}. Not your location? <1>Contact us</1>.",
-    "bubbleText": "Built for coaches who truly care about delivering quality coaching to their athletes.",
     "faqTitle": "Frequently asked questions",
     "faqItems": [
       {
@@ -303,12 +302,9 @@
         "answer": "You pay for each athlete you actively coach. Add or remove athletes at any time and your bill adjusts."
       }
     ],
-    "closingHeadline": "Coaching shouldn't feel chaotic.",
-    "closingBody": "augo gives you the clarity to coach with confidence. Start free today and see what it means to truly know what matters.",
-    "closingCta": "Start your free trial",
     "pro": {
       "label": "Pro",
-      "tagline": "The complete platform for coaching.",
+      "tagline": "The complete platform for high quality coaching.",
       "priceSuffix": "/month per athlete",
       "cta": "Start 14-day free trial",
       "featureGroups": [
@@ -391,7 +387,6 @@
     "typeOther": "Other",
     "cta": "Continue to App Store",
     "skip": "Skip, take me straight there",
-    "typeError": "Please select an option.",
     "nameError": "Please enter your first name.",
     "error": "Something went wrong. Please try again."
   },
