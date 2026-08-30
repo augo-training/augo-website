@@ -2,7 +2,6 @@ import { useState, useEffect, useMemo, useRef, useCallback } from 'react'
 import { useTranslation, Trans } from 'react-i18next'
 import { useParams } from 'react-router-dom'
 import { gsap } from 'gsap'
-import { Check } from 'lucide-react'
 import bgSection1 from '../assets/images/bg_section_1.webp'
 import { useGeoCountry } from '../hooks/useGeoCountry'
 import { getPricingTier } from '../config/pricingConfig'
@@ -289,20 +288,25 @@ export default function PricingSection() {
                                         </div>
                                         {/* Grouped rather than one flat list: the categories do the
                                             chunking, so a coach can scan headings before bullets. */}
-                                        <div className="flex flex-col gap-5 flex-1">
+                                        {/* Multi-column, not a grid: the blocks have uneven heights
+                                            (one line vs three) and a grid would align rows to the
+                                            tallest and leave gaps. break-inside-avoid keeps each
+                                            heading with its own text. */}
+                                        <div className="flex-1 columns-1 sm:columns-2 gap-x-6">
                                             {proFeatureGroups.map((group, g) => (
-                                                <div key={g} className="flex flex-col gap-2.5">
-                                                    <span className="font-mono text-[11px] tracking-[1.5px] uppercase text-[#969EA7]">
+                                                <div key={g} className="break-inside-avoid mb-5">
+                                                    <span className="block font-mono text-[11px] tracking-[1.5px] uppercase text-[#969EA7] mb-1">
                                                         {group.title}
                                                     </span>
-                                                    <ul className="flex flex-col gap-2.5">
+                                                    {/* Items flow as prose to save vertical space.
+                                                        Inline <li> drops the list role in Safari, so
+                                                        role="list" restores it; the separators are
+                                                        decorative and stay unannounced. */}
+                                                    <ul role="list" className="font-satoshi font-medium text-[14px] sm:text-[15px] leading-[160%] text-[#FFFFFF]">
                                                         {group.items.map((f, i) => (
-                                                            <li key={i} className="flex items-start gap-3">
-                                                                <span className="flex-shrink-0 mt-0.5 w-5 h-5 rounded-full flex items-center justify-center"
-                                                                    style={{ background: 'transparent', border: '1.5px solid #969EA7' }}>
-                                                                    <Check size={11} color="#969EA7" strokeWidth={3} />
-                                                                </span>
-                                                                <span className="font-satoshi font-medium text-[14px] sm:text-[15px] leading-[160%] text-[#FFFFFF]">{f}</span>
+                                                            <li key={i} className="inline">
+                                                                {i > 0 && <span aria-hidden="true" className="text-[#595959]"> · </span>}
+                                                                {f}
                                                             </li>
                                                         ))}
                                                     </ul>

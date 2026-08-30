@@ -311,7 +311,7 @@
         {
           "title": "Coaching",
           "items": [
-            "Athlete chat, subjective feedback, coach private notes, training plan creation and workout analysis — on mobile and web"
+            "Athlete chat, subjective feedback, coach private notes, training plan creation and workout analysis"
           ]
         },
         {
@@ -324,7 +324,7 @@
         {
           "title": "Data",
           "items": [
-            "Two-way sync with Garmin, Coros, Polar, Wahoo and Zwift, plus workout import from Strava",
+            "Two-way sync with Garmin, Coros, Polar, Wahoo, Zwift; import from Strava",
             "3 months of training history imported"
           ]
         },

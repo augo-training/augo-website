@@ -311,7 +311,7 @@
         {
           "title": "Coaching",
           "items": [
-            "Chat com atletas, feedback subjetivo, notas privadas do coach, criação de planos de treino e análise de treinos — no mobile e na web"
+            "Chat com atletas, feedback subjetivo, notas privadas do coach, criação de planos de treino e análise de treinos"
           ]
         },
         {
@@ -324,7 +324,7 @@
         {
           "title": "Dados",
           "items": [
-            "Sincronização bidirecional com Garmin, Coros, Polar, Wahoo e Zwift, mais importação de treinos do Strava",
+            "Sincronização bidirecional com Garmin, Coros, Polar, Wahoo, Zwift; importação do Strava",
             "3 meses de histórico de treinos importados"
           ]
         },
