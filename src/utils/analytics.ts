@@ -115,7 +115,7 @@ interface PricingCtaClickedProps {
     cta_text: string
     /** Only set for CTAs that sit under a billing toggle; the plan CTAs are monthly-only. */
     billing_period?: 'monthly' | 'yearly'
-    plan?: 'pro' | 'enterprise'
+    plan?: 'pro' | 'enterprise' | 'elite'
 }
 
 export async function trackPricingCtaClicked(props: PricingCtaClickedProps): Promise<void> {

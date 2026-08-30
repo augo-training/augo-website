@@ -364,7 +364,8 @@
       "description": "Inklusive persönlichem Account Executive, KI-Beratung und -Schulung sowie deiner Wahl des KI-Modells: Claude Sonnet, Claude Opus, Gemini oder ChatGPT.",
       "priceSuffix": "/Monat",
       "annualSuffix": "/Jahr",
-      "annualNote": "Zwei Monate gratis"
+      "annualNote": "Zwei Monate gratis",
+      "cta": "Zur Testphase hinzufügen"
     },
     "perAthleteNote": "Zahle nur für die Athleten, die du aktiv coachst."
   },

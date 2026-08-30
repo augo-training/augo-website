@@ -364,7 +364,8 @@
       "description": "Inclui um executivo de contas dedicado, consultoria e treinamento em IA, e o modelo de IA da sua escolha: Claude Sonnet, Claude Opus, Gemini ou ChatGPT.",
       "priceSuffix": "/mês",
       "annualSuffix": "/ano",
-      "annualNote": "Dois meses grátis"
+      "annualNote": "Dois meses grátis",
+      "cta": "Adicionar ao teste"
     },
     "perAthleteNote": "Pague apenas pelos atletas que você treina ativamente."
   },

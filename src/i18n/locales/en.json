@@ -364,7 +364,8 @@
       "description": "Includes a dedicated account executive, AI consulting and training, and your choice of AI model: Claude Sonnet, Claude Opus, Gemini or ChatGPT.",
       "priceSuffix": "/month",
       "annualSuffix": "/year",
-      "annualNote": "Two months free"
+      "annualNote": "Two months free",
+      "cta": "Add to your trial"
     },
     "perAthleteNote": "Pay only for the athletes you actively coach."
   },

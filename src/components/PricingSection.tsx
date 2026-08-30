@@ -382,19 +382,22 @@ export default function PricingSection() {
 
                     {/* Add-ons */}
                     <div className="w-full flex flex-col gap-4">
-                        <div className="flex items-center gap-3">
-                            <div className="w-[3px] h-5 rounded-full flex-shrink-0"
-                                style={{ background: 'linear-gradient(180deg, #C50017, #FF5514, #FFCA1E)' }} />
-                            <span className="font-satoshi font-bold text-[22px] sm:text-[26px] leading-[120%] text-white">
-                                {t('pricing.addOnsTitle')}
-                            </span>
-                        </div>
+                        {/* Section eyebrow, same idiom as the hero's "PRICING" */}
+                        <span className="font-mono text-[14px] tracking-[3px] uppercase text-[#969EA7]">
+                            {t('pricing.addOnsTitle')}
+                        </span>
+                        {/* Same shell as the Enterprise card, so the band reads as a peer of the
+                            plans above rather than an unbordered slab beneath them. */}
                         <div
-                            className="rounded-2xl px-6 py-5 flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-8"
+                            className="rounded-2xl p-[1px]"
+                            style={{ background: 'linear-gradient(135deg, rgba(80,80,80,0.3), rgba(60,60,60,0.2), rgba(40,40,40,0.15))' }}
+                        >
+                        <div
+                            className="rounded-[15px] px-7 sm:px-8 py-7 sm:py-8 flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-8"
                             style={{ backgroundColor: '#151515' }}
                         >
-                            <div className="flex flex-col gap-1 flex-1">
-                                <span className="font-['JetBrains_Mono'] text-[16px] tracking-[2px] uppercase text-white">
+                            <div className="flex flex-col gap-1 flex-1 sm:max-w-[520px]">
+                                <span className="font-['JetBrains_Mono'] text-[20px] tracking-[2px] uppercase text-white">
                                     {t('pricing.elite.label')}
                                 </span>
                                 <p className="font-satoshi font-bold text-[15px] sm:text-[16px] leading-[150%] text-white">
@@ -446,7 +449,21 @@ export default function PricingSection() {
                                         </span>
                                     )}
                                 </div>
+                                {/* Quiet secondary: Elite is the smallest of the three commitments,
+                                    so it should not match Pro's gradient or Enterprise's white. */}
+                                <button
+                                    className="w-full sm:w-auto font-mono text-[12px] font-extrabold tracking-[2px] uppercase rounded-lg text-center h-11 flex items-center justify-center px-6 transition-all duration-200 text-[#EEE] hover:text-[#FFF] cursor-pointer"
+                                    style={{ background: '#1E1E1E', border: '1px solid #333' }}
+                                    onClick={() => {
+                                        const label = t('pricing.elite.cta')
+                                        void trackPricingCtaClicked({ cta_text: label, plan: 'elite' })
+                                        openModal(label)
+                                    }}
+                                >
+                                    {t('pricing.elite.cta')}
+                                </button>
                             </div>
+                        </div>
                         </div>
                     </div>{/* end add-ons */}
                 </div>{/* end max-w container */}
