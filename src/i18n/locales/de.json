@@ -260,29 +260,6 @@
     "tag": "PREISE",
     "heroHeadline": "Die richtigen Signale. Zur richtigen Zeit.",
     "heroBody": "augo bündelt deine Gespräche mit Athlet:innen, deren Trainingsdaten und qualitatives Session-Feedback zu klaren, umsetzbaren Erkenntnissen — damit du immer weißt, wer Aufmerksamkeit braucht, was zu tun ist und warum.",
-    "featuresLabel": "augo liefert",
-    "featureColumns": [
-      {
-        "title": "Kommunikation",
-        "items": ["Kommuniziere mit deinen Athleten nahtlos von überall: Mobil oder im Web"]
-      },
-      {
-        "title": "Athleten-Feedback",
-        "items": ["Erfasse konsistentes Athleten-Feedback zu Regeneration, Beschwerden und Ernährung"]
-      },
-      {
-        "title": "KI-Assistent",
-        "items": ["Chatte mit einem intelligenten Assistenten, der Zugriff auf alle deine Chats, Athleten-Feedback und Trainingsdaten hat"]
-      },
-      {
-        "title": "Tägliche Prioritäten",
-        "items": ["Starte den Tag mit Klarheit: augos Assistent erstellt eine Prioritätenliste, damit du genau weißt, womit du beginnen sollst"]
-      },
-      {
-        "title": "Trainingsanalyse",
-        "items": ["Überarbeite Workouts unterwegs, von überall. augo ist für Mobilgeräte entwickelt"]
-      }
-    ],
     "pricingHeadline": "Einfache Preise. Gebaut, um mit deinem Qualitätscoaching zu wachsen.",
     "trustLine1": "Starte mit einer 14-tägigen kostenlosen Testphase. Keine Kreditkarte nötig.",
     "trustLine2": "Keine langen Verträge. Keine versteckten Gebühren. Jederzeit kündbar.",
@@ -340,12 +317,20 @@
       "priceSuffix": "/Monat pro Athlet",
       "everythingIn": "Alles, was du zum Coachen brauchst:",
       "features": [
-        "Alle augo-Funktionen",
-        "KI-Assistent powered by Claude Sonnet",
-        "Athleten-Matching und Coach-Community",
-        "Verbindung zu deinen liebsten KI-Tools über MCP",
+        "Athleten-Chat",
+        "Subjektives Athleten-Feedback",
+        "Private Coach-Notizen",
+        "Trainingsplan-Erstellung",
+        "Workout-Analyse",
+        "In-App-Assistent powered by Claude Sonnet",
+        "Konnektoren für Claude und ChatGPT",
+        "Mobile- und Web-App",
+        "Automatische Trainingsdaten von Garmin, Strava, Coros, Polar, Wahoo und Zwift",
+        "Strukturierte Workouts an Garmin, Coros, Polar, Wahoo und Zwift",
+        "Athleten-Matching",
+        "Coach-Community",
         "Vollständige Unterstützung beim Plattformwechsel",
-        "3 Monate deiner Trainingshistorie importiert",
+        "3 Monate Trainingshistorie importiert",
         "45-minütiges Onboarding-Gespräch"
       ],
       "cta": "14 Tage kostenlos testen"

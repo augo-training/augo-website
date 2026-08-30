@@ -260,29 +260,6 @@
     "tag": "PRICING",
     "heroHeadline": "Know what matters. Coach better.",
     "heroBody": "augo organizes your conversations with your athletes, your athletes's workout data, and qualitative session feedback into clear, actionable insights — so you always know who needs attention, what to do, and why.",
-    "featuresLabel": "augo delivers",
-    "featureColumns": [
-      {
-        "title": "Communication",
-        "items": ["Communicate with athletes seamlessly from anywhere: On mobile or on Web"]
-      },
-      {
-        "title": "Athlete Feedback",
-        "items": ["Capture consistent athlete feedback on recovery, niggles, and nutrition"]
-      },
-      {
-        "title": "AI Assistant",
-        "items": ["Chat with an intelligent assistant that has access to all of your chats, athlete feedback, and workout data"]
-      },
-      {
-        "title": "Daily Priorities",
-        "items": ["Start your day with clarity: augo's assistant curates a priority list so you know exactly where to begin"]
-      },
-      {
-        "title": "Workout Analysis",
-        "items": ["Revise workouts on the go, from anywhere. augo is designed for mobile"]
-      }
-    ],
     "pricingHeadline": "Simple pricing. Built to scale your quality coaching.",
     "trustLine1": "Start with a 14-day free trial. No credit card required.",
     "trustLine2": "No long contracts. No hidden fees. Cancel anytime.",
@@ -340,12 +317,20 @@
       "priceSuffix": "/month per athlete",
       "everythingIn": "Everything you need to start coaching:",
       "features": [
-        "All augo features",
-        "AI assistant powered by Claude Sonnet",
-        "Athlete matching and coach community",
-        "Connection to your favorite AI tools via MCP",
+        "Athlete chat",
+        "Subjective athlete feedback",
+        "Private coach notes",
+        "Training plan creation",
+        "Workout analysis",
+        "In-app assistant powered by Claude Sonnet",
+        "Claude and ChatGPT connectors",
+        "Mobile and web apps",
+        "Automatic training data from Garmin, Strava, Coros, Polar, Wahoo and Zwift",
+        "Structured workouts pushed to Garmin, Coros, Polar, Wahoo and Zwift",
+        "Athlete matching",
+        "Coach community",
         "Full platform migration support",
-        "3 months of your training history imported",
+        "3 months of training history imported",
         "45-minute onboarding call"
       ],
       "cta": "Start 14-day free trial"

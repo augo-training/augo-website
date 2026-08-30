@@ -260,29 +260,6 @@
     "tag": "PREÇOS",
     "heroHeadline": "Cada atleta em foco. Cada decisão com propósito.",
     "heroBody": "A augo reúne suas conversas, dados de treino e feedbacks dos atletas em um só lugar — transformando tudo em insights claros para que você saiba exatamente quem precisa de atenção, o que fazer e por quê.",
-    "featuresLabel": "augo entrega",
-    "featureColumns": [
-      {
-        "title": "Comunicação",
-        "items": ["Comunique-se com atletas de forma fluida de qualquer lugar: pelo celular ou pelo computador"]
-      },
-      {
-        "title": "Feedback dos Atletas",
-        "items": ["Saiba como seus atletas se sentiram após cada treino — recuperação, dores e nutrição, tudo em um só lugar"]
-      },
-      {
-        "title": "Assistente de IA",
-        "items": ["Tire dúvidas e tome decisões com um assistente que conhece cada atleta tão bem quanto você"]
-      },
-      {
-        "title": "Prioridades Diárias",
-        "items": ["Todo dia, o augo te diz quem precisa da sua atenção — para você começar o dia sabendo exatamente o que fazer"]
-      },
-      {
-        "title": "Análise de Treino",
-        "items": ["Revise os treinos dos seus atletas no rua, no carro, onde for — a augo foi feita para entregar insights diretamente pelo celular"]
-      }
-    ],
     "pricingHeadline": "Preço simples. Feito para um coaching de alto nível.",
     "trustLine1": "Comece com 14 dias grátis. Sem precisar de cartão de crédito.",
     "trustLine2": "Sem contratos longos. Sem taxas ocultas. Cancele quando quiser.",
@@ -340,12 +317,20 @@
       "priceSuffix": "/mês por atleta",
       "everythingIn": "Tudo o que você precisa para começar:",
       "features": [
-        "Todos os recursos da augo",
-        "Assistente de IA com tecnologia Claude Sonnet",
-        "Matching de atletas e comunidade de coaches",
-        "Conexão com suas ferramentas de IA favoritas via MCP",
+        "Chat com atletas",
+        "Feedback subjetivo dos atletas",
+        "Notas privadas do coach",
+        "Criação de planos de treino",
+        "Análise de treinos",
+        "Assistente no app com tecnologia Claude Sonnet",
+        "Conectores para Claude e ChatGPT",
+        "Apps mobile e web",
+        "Dados de treino automáticos de Garmin, Strava, Coros, Polar, Wahoo e Zwift",
+        "Treinos estruturados enviados para Garmin, Coros, Polar, Wahoo e Zwift",
+        "Matching de atletas",
+        "Comunidade de coaches",
         "Suporte completo na migração de plataforma",
-        "3 meses do seu histórico de treinos importados",
+        "3 meses de histórico de treinos importados",
         "Call de onboarding de 45 minutos"
       ],
       "cta": "Teste grátis por 14 dias"

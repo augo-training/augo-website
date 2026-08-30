@@ -40,7 +40,7 @@ describe('pricing copy parity across locales', () => {
     })
 
     it.each(Object.keys(LOCALES))('%s has the right number of plan features', (lang) => {
-        expect(get(LOCALES[lang], 'pricing.pro.features')).toHaveLength(7)
+        expect(get(LOCALES[lang], 'pricing.pro.features')).toHaveLength(15)
         expect(get(LOCALES[lang], 'pricing.enterprise.features')).toHaveLength(3)
     })
 })
@@ -65,6 +65,7 @@ describe('retired pricing keys', () => {
         'pricing.alwaysFreeNote', 'pricing.freeTierTagline',
         'pricing.earlyBirdDaysLeft_one', 'pricing.earlyAccessBanner',
         'pricing.earlyAccessRibbon', 'launchOffer.daysLeft_one',
+        'pricing.featureColumns', 'pricing.featuresLabel',
     ]
 
     it.each(Object.keys(LOCALES))('%s no longer carries the old flat-plan keys', (lang) => {

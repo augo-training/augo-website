@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo, useRef, useCallback } from 'react'
 import { useTranslation, Trans } from 'react-i18next'
 import { useParams } from 'react-router-dom'
 import { gsap } from 'gsap'
-import { Check, MessageCircle, ClipboardList, Bot, ListChecks, BarChart2 } from 'lucide-react'
+import { Check } from 'lucide-react'
 import bgSection1 from '../assets/images/bg_section_1.webp'
 import { useGeoCountry } from '../hooks/useGeoCountry'
 import { getPricingTier } from '../config/pricingConfig'
@@ -144,8 +144,6 @@ export default function PricingSection() {
 
     // Refs for why-cards stagger
 
-    const featureColumns = t('pricing.featureColumns', { returnObjects: true }) as Array<{ title: string; items: string[] }>
-    const featureColumnIcons = [MessageCircle, ClipboardList, Bot, ListChecks, BarChart2]
     const proFeatures = t('pricing.pro.features', { returnObjects: true }) as string[]
     const enterpriseFeatures = t('pricing.enterprise.features', { returnObjects: true }) as string[]
 
@@ -256,7 +254,7 @@ export default function PricingSection() {
 
             {/* ─── 2. Plans + Add-ons ──────────────────────────────────────────── */}
             <section className="relative z-10 w-full pt-8 sm:pt-10 pb-16 sm:pb-20 px-5 sm:px-8">
-                <div className="max-w-[900px] mx-auto w-full flex flex-col gap-12">
+                <div className="max-w-[1000px] mx-auto w-full flex flex-col gap-12">
                     {/* Plan cards */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full items-stretch">
                         {/* Pro — featured */}
@@ -310,12 +308,16 @@ export default function PricingSection() {
                                                 </span>
                                             </div>
                                         </div>
-                                        <ul className="flex flex-col gap-3 flex-1">
-                                            <li className="font-mono text-[12px] tracking-[1px] uppercase text-[#969EA7] mb-1">
+                                        <div className="flex flex-col gap-3 flex-1">
+                                            <span className="font-mono text-[12px] tracking-[1px] uppercase text-[#969EA7]">
                                                 {t('pricing.pro.everythingIn')}
-                                            </li>
+                                            </span>
+                                            {/* Multi-column rather than a grid: the bullets have very
+                                                uneven heights (two words vs. six device names), and
+                                                columns flow them without leaving ragged holes. */}
+                                            <ul className="columns-1 sm:columns-2 gap-x-6">
                                             {proFeatures.map((f, i) => (
-                                                <li key={i} className="flex items-start gap-3">
+                                                <li key={i} className="flex items-start gap-3 break-inside-avoid mb-3">
                                                     <span className="flex-shrink-0 mt-0.5 w-5 h-5 rounded-full flex items-center justify-center"
                                                         style={{ background: 'transparent', border: '1.5px solid #969EA7' }}>
                                                         <Check size={11} color="#969EA7" strokeWidth={3} />
@@ -323,7 +325,8 @@ export default function PricingSection() {
                                                     <span className="font-satoshi font-medium text-[14px] sm:text-[15px] leading-[160%] text-[#FFFFFF]">{f}</span>
                                                 </li>
                                             ))}
-                                        </ul>
+                                            </ul>
+                                        </div>
                                         <div className="flex flex-col gap-1.5">
                                             <button
                                                 className="btn-gradient font-mono text-[12px] sm:text-[13px] font-extrabold tracking-[2px] uppercase text-white rounded-lg text-center h-12 flex items-center justify-center px-6 hover:brightness-110 transition-all duration-200 cursor-pointer"
@@ -509,45 +512,6 @@ export default function PricingSection() {
                             />
                         </p>
                     )}
-                </div>
-            </section>
-
-            {/* ─── 3. With augo, you can ───────────────────────────────────────── */}
-            <section className="w-full pt-12 sm:pt-16 pb-4 px-5 sm:px-8">
-                <div className="max-w-[900px] mx-auto w-full flex flex-col gap-6">
-                    <div className="flex items-center gap-3">
-                        <div className="w-[3px] h-5 rounded-full flex-shrink-0"
-                            style={{ background: 'linear-gradient(180deg, #C50017, #FF5514, #FFCA1E)' }} />
-                        <span className="font-satoshi font-bold text-[22px] sm:text-[26px] leading-[120%] text-white">
-                            {t('pricing.featuresLabel')}
-                        </span>
-                    </div>
-                    <div
-                        className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4"
-                    >
-                        {featureColumns.map((col, i) => (
-                            <div
-                                key={i}
-                                className="flex flex-col gap-4 rounded-xl overflow-hidden"
-                                style={{ backgroundColor: '#151515' }}
-                            >
-                                <div className="flex flex-col gap-3 px-4 pt-4 pb-4">
-                                    {(() => { const Icon = featureColumnIcons[i]; return <Icon size={28} color="white" strokeWidth={1.5} /> })()}
-                                    <span className="font-mono font-bold text-[14px] tracking-[1.5px] uppercase text-white mt-2">
-                                        {col.title}
-                                    </span>
-                                    <hr className="border-t border-[#333]" />
-                                    <ul className="flex flex-col gap-3">
-                                        {col.items.map((item, j) => (
-                                            <li key={j}>
-                                                <span className="font-satoshi text-[17px] leading-[150%] text-white">{item}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
                 </div>
             </section>
 
