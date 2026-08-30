@@ -311,7 +311,7 @@
       },
       {
         "question": "Are there any additional costs or add-ons?",
-        "answer": "Pro includes everything you need to coach. Elite is an optional add-on for coaches who want dedicated support. No hidden fees."
+        "answer": "Pro includes everything you need to coach. Elite is an optional add-on for coaches who want dedicated support, and can be prepaid yearly for two months free. No hidden fees."
       },
       {
         "question": "Which platforms does augo integrate with?",
@@ -341,10 +341,12 @@
       "everythingIn": "Everything you need to start coaching:",
       "features": [
         "All augo features",
-        "AI assistant powered by Claude",
+        "AI assistant powered by Claude Sonnet",
         "Athlete matching and coach community",
-        "Connection to your favorite AI tools",
-        "Platform migration support"
+        "Connection to your favorite AI tools via MCP",
+        "Full platform migration support",
+        "3 months of your training history imported",
+        "45-minute onboarding call"
       ],
       "cta": "Start 14-day free trial"
     },
@@ -365,8 +367,10 @@
     "elite": {
       "label": "Elite",
       "tagline": "Dedicated support as your coaching business grows.",
-      "description": "Includes a dedicated account executive, AI consulting and training, and your choice of AI model: Claude, GPT or Gemini.",
-      "priceSuffix": "/month"
+      "description": "Includes a dedicated account executive, AI consulting and training, and your choice of AI model: Claude Sonnet, Claude Opus, Gemini or ChatGPT.",
+      "priceSuffix": "/month",
+      "annualSuffix": "/year",
+      "annualNote": "Two months free"
     },
     "perAthleteNote": "Pay only for the athletes you actively coach."
   },

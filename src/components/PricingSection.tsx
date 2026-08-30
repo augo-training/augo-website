@@ -126,7 +126,7 @@ export default function PricingSection() {
     // The only billing choice on the page: the Elite add-on. Plans are monthly-only.
     const [eliteBilling, setEliteBilling] = useState<'monthly' | 'yearly'>('monthly')
     const isEliteYearly = eliteBilling === 'yearly'
-    const elitePrice = isEliteYearly ? pricingTier.eliteYearly : pricingTier.eliteMonthly
+    const elitePrice = isEliteYearly ? pricingTier.eliteAnnual : pricingTier.eliteMonthly
 
     const localizedCountryName = useMemo(() => {
         if (!countryCode) return ''
@@ -199,7 +199,17 @@ export default function PricingSection() {
     }, [loading]) // eslint-disable-line react-hooks/exhaustive-deps
 
     function formatPrice(price: number): string {
-        return price % 1 === 0 ? price.toString() : price.toFixed(2)
+        // Grouped thousands: the Elite annual prepay is a four-digit figure, and the
+        // separator is language-specific (€1,000 in en, €1.000 in de).
+        const fractionDigits = price % 1 === 0 ? 0 : 2
+        try {
+            return new Intl.NumberFormat(currentLang, {
+                minimumFractionDigits: fractionDigits,
+                maximumFractionDigits: fractionDigits,
+            }).format(price)
+        } catch {
+            return fractionDigits === 0 ? price.toString() : price.toFixed(2)
+        }
     }
 
     return (
@@ -434,13 +444,22 @@ export default function PricingSection() {
                                         )
                                     })}
                                 </div>
-                                <div>
-                                    <span className="font-mono font-bold text-[28px] sm:text-[32px] leading-none text-white">
-                                        +{pricingTier.symbol}{formatPrice(elitePrice)}
-                                    </span>
-                                    <span className="font-mono text-[13px] text-[#969EA7] ml-1">
-                                        {t('pricing.elite.priceSuffix')}
-                                    </span>
+                                <div className="flex flex-col items-start sm:items-end gap-1">
+                                    <div>
+                                        <span className="font-mono font-bold text-[28px] sm:text-[32px] leading-none text-white">
+                                            +{pricingTier.symbol}{formatPrice(elitePrice)}
+                                        </span>
+                                        {/* The yearly figure is a prepaid annual total, not a
+                                            monthly rate, so the period label switches with it. */}
+                                        <span className="font-mono text-[13px] text-[#969EA7] ml-1">
+                                            {t(isEliteYearly ? 'pricing.elite.annualSuffix' : 'pricing.elite.priceSuffix')}
+                                        </span>
+                                    </div>
+                                    {isEliteYearly && (
+                                        <span className="font-satoshi font-medium text-[12px] leading-none text-[#969EA7]">
+                                            {t('pricing.elite.annualNote')}
+                                        </span>
+                                    )}
                                 </div>
                             </div>
                         </div>

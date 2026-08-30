@@ -1,14 +1,14 @@
 import { describe, expect, it } from 'vitest'
 import { getPricingTier, type PricingBucket } from '../src/config/pricingConfig'
 
-/** Elite on a yearly commitment is 20% off the monthly rate. */
-const ELITE_YEARLY_DISCOUNT = 0.2
+/** Annual prepay buys twelve months for the price of ten. */
+const ELITE_ANNUAL_MONTHS = 10
 
 const EXPECTED = {
-    ch: { currency: 'CHF', symbol: 'CHF ', listPrice: 19, proPrice: 9, eliteMonthly: 100, eliteYearly: 80 },
-    eu: { currency: 'EUR', symbol: '€', listPrice: 19, proPrice: 9, eliteMonthly: 100, eliteYearly: 80 },
-    br: { currency: 'BRL', symbol: 'R$ ', listPrice: 99, proPrice: 49, eliteMonthly: 549, eliteYearly: 439 },
-    global: { currency: 'USD', symbol: '$', listPrice: 19, proPrice: 9, eliteMonthly: 100, eliteYearly: 80 },
+    ch: { currency: 'CHF', symbol: 'CHF ', listPrice: 19, proPrice: 9, eliteMonthly: 100, eliteAnnual: 1000 },
+    eu: { currency: 'EUR', symbol: '€', listPrice: 19, proPrice: 9, eliteMonthly: 100, eliteAnnual: 1000 },
+    br: { currency: 'BRL', symbol: 'R$ ', listPrice: 99, proPrice: 49, eliteMonthly: 549, eliteAnnual: 5490 },
+    global: { currency: 'USD', symbol: '$', listPrice: 19, proPrice: 9, eliteMonthly: 100, eliteAnnual: 1000 },
 } as const
 
 const BUCKETS = Object.keys(EXPECTED) as PricingBucket[]
@@ -53,9 +53,9 @@ describe('pricing amounts', () => {
         expect(tier.proPrice).toBeLessThan(tier.listPrice)
     })
 
-    it.each(BUCKETS)('%s Elite yearly is 20%% off the monthly rate, rounded', (bucket) => {
+    it.each(BUCKETS)('%s Elite annual prepay is ten months for twelve', (bucket) => {
         const tier = getPricingTier(sample[bucket])
-        expect(tier.eliteYearly).toBe(Math.round(tier.eliteMonthly * (1 - ELITE_YEARLY_DISCOUNT)))
+        expect(tier.eliteAnnual).toBe(tier.eliteMonthly * ELITE_ANNUAL_MONTHS)
     })
 
     it('gives every bucket a distinct currency', () => {

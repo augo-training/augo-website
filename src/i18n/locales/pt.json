@@ -311,7 +311,7 @@
       },
       {
         "question": "Existem custos adicionais ou complementos?",
-        "answer": "O Pro inclui tudo o que você precisa para treinar. O Elite é um complemento opcional para coaches que querem suporte dedicado. Sem taxas ocultas."
+        "answer": "O Pro inclui tudo o que você precisa para treinar. O Elite é um complemento opcional para coaches que querem suporte dedicado, e pode ser pago anualmente com dois meses grátis. Sem taxas ocultas."
       },
       {
         "question": "Com quais plataformas o augo se integra?",
@@ -341,10 +341,12 @@
       "everythingIn": "Tudo o que você precisa para começar:",
       "features": [
         "Todos os recursos da augo",
-        "Assistente de IA com tecnologia Claude",
+        "Assistente de IA com tecnologia Claude Sonnet",
         "Matching de atletas e comunidade de coaches",
-        "Conexão com suas ferramentas de IA favoritas",
-        "Suporte na migração de plataforma"
+        "Conexão com suas ferramentas de IA favoritas via MCP",
+        "Suporte completo na migração de plataforma",
+        "3 meses do seu histórico de treinos importados",
+        "Call de onboarding de 45 minutos"
       ],
       "cta": "Teste grátis por 14 dias"
     },
@@ -365,8 +367,10 @@
     "elite": {
       "label": "Elite",
       "tagline": "Suporte dedicado enquanto o seu negócio de coaching cresce.",
-      "description": "Inclui um executivo de contas dedicado, consultoria e treinamento em IA, e o modelo de IA da sua escolha: Claude, GPT ou Gemini.",
-      "priceSuffix": "/mês"
+      "description": "Inclui um executivo de contas dedicado, consultoria e treinamento em IA, e o modelo de IA da sua escolha: Claude Sonnet, Claude Opus, Gemini ou ChatGPT.",
+      "priceSuffix": "/mês",
+      "annualSuffix": "/ano",
+      "annualNote": "Dois meses grátis"
     },
     "perAthleteNote": "Pague apenas pelos atletas que você treina ativamente."
   },

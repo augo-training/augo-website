@@ -10,8 +10,8 @@ export interface PricingTier {
     proPrice: number
     /** Elite add-on, per month on monthly billing. */
     eliteMonthly: number
-    /** Elite add-on, per month when billed yearly (20% off the monthly rate). */
-    eliteYearly: number
+    /** Elite add-on, total for a year paid up front — ten months' price for twelve. */
+    eliteAnnual: number
 }
 
 const CH_TIER: PricingTier = {
@@ -21,7 +21,7 @@ const CH_TIER: PricingTier = {
     listPrice: 19,
     proPrice: 9,
     eliteMonthly: 100,
-    eliteYearly: 80,
+    eliteAnnual: 1000,
 }
 
 const EU_TIER: PricingTier = {
@@ -31,7 +31,7 @@ const EU_TIER: PricingTier = {
     listPrice: 19,
     proPrice: 9,
     eliteMonthly: 100,
-    eliteYearly: 80,
+    eliteAnnual: 1000,
 }
 
 const BR_TIER: PricingTier = {
@@ -41,7 +41,7 @@ const BR_TIER: PricingTier = {
     listPrice: 99,
     proPrice: 49,
     eliteMonthly: 549,
-    eliteYearly: 439,
+    eliteAnnual: 5490,
 }
 
 const GLOBAL_TIER: PricingTier = {
@@ -51,7 +51,7 @@ const GLOBAL_TIER: PricingTier = {
     listPrice: 19,
     proPrice: 9,
     eliteMonthly: 100,
-    eliteYearly: 80,
+    eliteAnnual: 1000,
 }
 
 const EU_COUNTRIES: readonly string[] = [

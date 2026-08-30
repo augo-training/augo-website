@@ -40,7 +40,7 @@ describe('pricing copy parity across locales', () => {
     })
 
     it.each(Object.keys(LOCALES))('%s has the right number of plan features', (lang) => {
-        expect(get(LOCALES[lang], 'pricing.pro.features')).toHaveLength(5)
+        expect(get(LOCALES[lang], 'pricing.pro.features')).toHaveLength(7)
         expect(get(LOCALES[lang], 'pricing.enterprise.features')).toHaveLength(3)
     })
 })
