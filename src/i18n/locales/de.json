@@ -310,25 +310,43 @@
       "label": "Pro",
       "tagline": "Die komplette Plattform für dein Coaching.",
       "priceSuffix": "/Monat pro Athlet",
-      "everythingIn": "Alles, was du zum Coachen brauchst:",
-      "features": [
-        "Athleten-Chat",
-        "Subjektives Athleten-Feedback",
-        "Private Coach-Notizen",
-        "Trainingsplan-Erstellung",
-        "Workout-Analyse",
-        "In-App-Assistent powered by Claude Sonnet",
-        "Konnektoren für Claude und ChatGPT",
-        "Mobile- und Web-App",
-        "Automatische Trainingsdaten von Garmin, Strava, Coros, Polar, Wahoo und Zwift",
-        "Strukturierte Workouts an Garmin, Coros, Polar, Wahoo und Zwift",
-        "Athleten-Matching",
-        "Coach-Community",
-        "Vollständige Unterstützung beim Plattformwechsel",
-        "3 Monate Trainingshistorie importiert",
-        "45-minütiges Onboarding-Gespräch"
-      ],
-      "cta": "14 Tage kostenlos testen"
+      "cta": "14 Tage kostenlos testen",
+      "featureGroups": [
+        {
+          "title": "Coaching",
+          "items": [
+            "Athleten-Chat, subjektives Feedback, private Coach-Notizen, Trainingsplan-Erstellung und Workout-Analyse – auf Mobile und Web"
+          ]
+        },
+        {
+          "title": "KI",
+          "items": [
+            "In-App-Assistent powered by Claude Sonnet",
+            "Konnektoren für Claude und ChatGPT"
+          ]
+        },
+        {
+          "title": "Daten",
+          "items": [
+            "Zwei-Wege-Sync mit Garmin, Coros, Polar, Wahoo und Zwift, plus Workout-Import von Strava",
+            "3 Monate Trainingshistorie importiert"
+          ]
+        },
+        {
+          "title": "Migration",
+          "items": [
+            "Vollständige Unterstützung beim Plattformwechsel",
+            "45-minütiges Onboarding-Gespräch"
+          ]
+        },
+        {
+          "title": "Wachstum",
+          "items": [
+            "Athleten-Matching",
+            "Coach-Community"
+          ]
+        }
+      ]
     },
     "enterprise": {
       "label": "Enterprise",

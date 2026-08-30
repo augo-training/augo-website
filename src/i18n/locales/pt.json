@@ -310,25 +310,43 @@
       "label": "Pro",
       "tagline": "A plataforma completa para o seu coaching.",
       "priceSuffix": "/mês por atleta",
-      "everythingIn": "Tudo o que você precisa para começar:",
-      "features": [
-        "Chat com atletas",
-        "Feedback subjetivo dos atletas",
-        "Notas privadas do coach",
-        "Criação de planos de treino",
-        "Análise de treinos",
-        "Assistente no app com tecnologia Claude Sonnet",
-        "Conectores para Claude e ChatGPT",
-        "Apps mobile e web",
-        "Dados de treino automáticos de Garmin, Strava, Coros, Polar, Wahoo e Zwift",
-        "Treinos estruturados enviados para Garmin, Coros, Polar, Wahoo e Zwift",
-        "Matching de atletas",
-        "Comunidade de coaches",
-        "Suporte completo na migração de plataforma",
-        "3 meses de histórico de treinos importados",
-        "Call de onboarding de 45 minutos"
-      ],
-      "cta": "Teste grátis por 14 dias"
+      "cta": "Teste grátis por 14 dias",
+      "featureGroups": [
+        {
+          "title": "Coaching",
+          "items": [
+            "Chat com atletas, feedback subjetivo, notas privadas do coach, criação de planos de treino e análise de treinos — no mobile e na web"
+          ]
+        },
+        {
+          "title": "IA",
+          "items": [
+            "Assistente no app com tecnologia Claude Sonnet",
+            "Conectores para Claude e ChatGPT"
+          ]
+        },
+        {
+          "title": "Dados",
+          "items": [
+            "Sincronização bidirecional com Garmin, Coros, Polar, Wahoo e Zwift, mais importação de treinos do Strava",
+            "3 meses de histórico de treinos importados"
+          ]
+        },
+        {
+          "title": "Migração",
+          "items": [
+            "Suporte completo na migração de plataforma",
+            "Call de onboarding de 45 minutos"
+          ]
+        },
+        {
+          "title": "Crescimento",
+          "items": [
+            "Matching de atletas",
+            "Comunidade de coaches"
+          ]
+        }
+      ]
     },
     "enterprise": {
       "label": "Enterprise",

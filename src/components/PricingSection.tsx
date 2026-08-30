@@ -143,7 +143,7 @@ export default function PricingSection() {
 
     // Refs for why-cards stagger
 
-    const proFeatures = t('pricing.pro.features', { returnObjects: true }) as string[]
+    const proFeatureGroups = t('pricing.pro.featureGroups', { returnObjects: true }) as Array<{ title: string; items: string[] }>
     const enterpriseFeatures = t('pricing.enterprise.features', { returnObjects: true }) as string[]
 
     // Hero fade-in on mount (IntersectionObserver + GSAP)
@@ -252,7 +252,7 @@ export default function PricingSection() {
 
             {/* ─── 2. Plans + Add-ons ──────────────────────────────────────────── */}
             <section className="relative z-10 w-full pt-8 sm:pt-10 pb-16 sm:pb-20 px-5 sm:px-8">
-                <div className="max-w-[1000px] mx-auto w-full flex flex-col gap-12">
+                <div className="max-w-[900px] mx-auto w-full flex flex-col gap-12">
                     {/* Plan cards */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full items-stretch">
                         {/* Pro — featured */}
@@ -295,24 +295,27 @@ export default function PricingSection() {
                                                 </span>
                                             </div>
                                         </div>
-                                        <div className="flex flex-col gap-3 flex-1">
-                                            <span className="font-mono text-[12px] tracking-[1px] uppercase text-[#969EA7]">
-                                                {t('pricing.pro.everythingIn')}
-                                            </span>
-                                            {/* Multi-column rather than a grid: the bullets have very
-                                                uneven heights (two words vs. six device names), and
-                                                columns flow them without leaving ragged holes. */}
-                                            <ul className="columns-1 sm:columns-2 gap-x-6">
-                                            {proFeatures.map((f, i) => (
-                                                <li key={i} className="flex items-start gap-3 break-inside-avoid mb-3">
-                                                    <span className="flex-shrink-0 mt-0.5 w-5 h-5 rounded-full flex items-center justify-center"
-                                                        style={{ background: 'transparent', border: '1.5px solid #969EA7' }}>
-                                                        <Check size={11} color="#969EA7" strokeWidth={3} />
+                                        {/* Grouped rather than one flat list: the categories do the
+                                            chunking, so a coach can scan headings before bullets. */}
+                                        <div className="flex flex-col gap-5 flex-1">
+                                            {proFeatureGroups.map((group, g) => (
+                                                <div key={g} className="flex flex-col gap-2.5">
+                                                    <span className="font-mono text-[11px] tracking-[1.5px] uppercase text-[#969EA7]">
+                                                        {group.title}
                                                     </span>
-                                                    <span className="font-satoshi font-medium text-[14px] sm:text-[15px] leading-[160%] text-[#FFFFFF]">{f}</span>
-                                                </li>
+                                                    <ul className="flex flex-col gap-2.5">
+                                                        {group.items.map((f, i) => (
+                                                            <li key={i} className="flex items-start gap-3">
+                                                                <span className="flex-shrink-0 mt-0.5 w-5 h-5 rounded-full flex items-center justify-center"
+                                                                    style={{ background: 'transparent', border: '1.5px solid #969EA7' }}>
+                                                                    <Check size={11} color="#969EA7" strokeWidth={3} />
+                                                                </span>
+                                                                <span className="font-satoshi font-medium text-[14px] sm:text-[15px] leading-[160%] text-[#FFFFFF]">{f}</span>
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                </div>
                                             ))}
-                                            </ul>
                                         </div>
                                         <div className="flex flex-col gap-1.5">
                                             <button

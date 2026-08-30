@@ -310,25 +310,43 @@
       "label": "Pro",
       "tagline": "The complete platform for coaching.",
       "priceSuffix": "/month per athlete",
-      "everythingIn": "Everything you need to start coaching:",
-      "features": [
-        "Athlete chat",
-        "Subjective athlete feedback",
-        "Private coach notes",
-        "Training plan creation",
-        "Workout analysis",
-        "In-app assistant powered by Claude Sonnet",
-        "Claude and ChatGPT connectors",
-        "Mobile and web apps",
-        "Automatic training data from Garmin, Strava, Coros, Polar, Wahoo and Zwift",
-        "Structured workouts pushed to Garmin, Coros, Polar, Wahoo and Zwift",
-        "Athlete matching",
-        "Coach community",
-        "Full platform migration support",
-        "3 months of training history imported",
-        "45-minute onboarding call"
-      ],
-      "cta": "Start 14-day free trial"
+      "cta": "Start 14-day free trial",
+      "featureGroups": [
+        {
+          "title": "Coaching",
+          "items": [
+            "Athlete chat, subjective feedback, coach private notes, training plan creation and workout analysis — on mobile and web"
+          ]
+        },
+        {
+          "title": "AI",
+          "items": [
+            "In-app assistant powered by Claude Sonnet",
+            "Claude and ChatGPT connectors"
+          ]
+        },
+        {
+          "title": "Data",
+          "items": [
+            "Two-way sync with Garmin, Coros, Polar, Wahoo and Zwift, plus workout import from Strava",
+            "3 months of training history imported"
+          ]
+        },
+        {
+          "title": "Migration support",
+          "items": [
+            "Full platform migration support",
+            "45-minute onboarding call"
+          ]
+        },
+        {
+          "title": "Grow your business",
+          "items": [
+            "Athlete matching",
+            "Coach community"
+          ]
+        }
+      ]
     },
     "enterprise": {
       "label": "Enterprise",

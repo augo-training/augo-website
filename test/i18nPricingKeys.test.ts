@@ -34,8 +34,18 @@ describe('pricing copy parity across locales', () => {
     })
 
     it.each(Object.keys(LOCALES))('%s has the right number of plan features', (lang) => {
-        expect(get(LOCALES[lang], 'pricing.pro.features')).toHaveLength(15)
+        expect(get(LOCALES[lang], 'pricing.pro.featureGroups')).toHaveLength(5)
         expect(get(LOCALES[lang], 'pricing.enterprise.features')).toHaveLength(3)
+    })
+
+    // Leaf-path parity catches a missing key but not a group that lost a bullet,
+    // which is the realistic way a translation drifts.
+    it.each(TRANSLATIONS)('%s matches en group-for-group and bullet-for-bullet', (lang) => {
+        type Group = { title: string; items: string[] }
+        const expected = get(en, 'pricing.pro.featureGroups') as Group[]
+        const actual = get(LOCALES[lang], 'pricing.pro.featureGroups') as Group[]
+        expect(actual.map((g) => g.items.length)).toEqual(expected.map((g) => g.items.length))
+        expect(actual.every((g) => g.title.trim().length > 0)).toBe(true)
     })
 })
 
@@ -55,6 +65,7 @@ describe('retired pricing keys', () => {
         'pricing.earlyAccessRibbon', 'launchOffer.daysLeft_one',
         'pricing.featureColumns', 'pricing.featuresLabel',
         'pricing.pro.badge', 'launchOffer',
+        'pricing.pro.features', 'pricing.pro.everythingIn',
     ]
 
     it.each(Object.keys(LOCALES))('%s no longer carries the old flat-plan keys', (lang) => {
