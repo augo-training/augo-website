@@ -1598,4 +1598,53 @@ export const coaches: Coach[] = [
         media: { portrait: placeholderPortrait },
         socials: { website: 'https://bit.ly/breakthrough-distance' },
     },
+    {
+        slug: 'roberto-rivola',
+        name: 'Roberto Rivola',
+        firstName: 'Roberto',
+        gender: 'male',
+        tagline:
+            'Swiss trail and mountain running coach for runners who chase the challenge and the landscape, not the podium.',
+        isFoundingCoach: false,
+        status: 'accepting',
+        disciplines: ['running'],
+        specialties: [
+            'trail running',
+            'mountain running',
+            'ultra',
+            'stage races',
+            'desert racing',
+        ],
+        location: { city: 'La Punt', country: 'Switzerland', countryCode: 'CH', timezone: 'Europe/Zurich' },
+        coachesRemote: true,
+        languages: [EN, DE, GSW, FR, IT],
+        credentials: [
+            'Swiss Athletics Running Coach 2',
+            'Certified instructor and expert in trail and mountain running',
+            'Certified instructor in hiking and snowshoeing',
+            'Trailrunning guide',
+        ],
+        notableResults: [
+            'Numerous ultramarathons',
+            '250 km desert stage races around the world',
+        ],
+        athleteLevels: ['Beginner', 'Intermediate'],
+        communication: 'weekly',
+        offersStrength: false,
+        idealAthlete:
+            'Runners with some experience who love moving in nature and value the challenge over the result',
+        bio: {
+            short:
+                'Individual, practical and empathetic coaching from a mountain, ultra and desert stage-race veteran.',
+            long: [
+                'Roberto combines professional qualifications with many years of racing in the mountains, at ultra distance, and across deserts and stage races.',
+                'He is a Swiss Athletics Running Coach 2, a certified instructor and expert in trail and mountain running, hiking and snowshoeing, and a trailrunning guide. His own racing includes numerous ultramarathons and 250 km stage races in deserts around the world.',
+                'His coaching is individual, practical and empathetic — training adapted to your goals, your abilities and your everyday life, with sustainable progress and staying healthy as the point.',
+            ],
+            philosophy:
+                'Running is not just performance. It is enjoying movement and nature, taking on new challenges, and discovering what you are capable of.',
+        },
+        media: { portrait: placeholderPortrait },
+        socials: { website: 'https://www.movimentor.ch' },
+    },
 ]

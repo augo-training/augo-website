@@ -1193,6 +1193,33 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://augotraining.com/en/coaches/roberto-rivola/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://augotraining.com/en/coaches/roberto-rivola/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://augotraining.com/de/coaches/roberto-rivola/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://augotraining.com/pt/coaches/roberto-rivola/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://augotraining.com/en/coaches/roberto-rivola/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://augotraining.com/de/coaches/roberto-rivola/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://augotraining.com/en/coaches/roberto-rivola/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://augotraining.com/de/coaches/roberto-rivola/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://augotraining.com/pt/coaches/roberto-rivola/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://augotraining.com/en/coaches/roberto-rivola/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://augotraining.com/pt/coaches/roberto-rivola/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://augotraining.com/en/coaches/roberto-rivola/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://augotraining.com/de/coaches/roberto-rivola/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://augotraining.com/pt/coaches/roberto-rivola/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://augotraining.com/en/coaches/roberto-rivola/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://augotraining.com/en/coaches/rodrigo-moro-backes/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://augotraining.com/en/coaches/rodrigo-moro-backes/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://augotraining.com/de/coaches/rodrigo-moro-backes/" />
