@@ -113,19 +113,19 @@ const pageMeta: Record<string, Record<SupportedLanguage, PageMeta>> = {
   // satisfy the type and are never served (SEOHead runs with noAlternates).
   niceAthletes: {
     en: {
-      title: 'Ironman Nice Bike Course: 5 Things to Know — augo',
+      title: 'IRONMAN 70.3 Worlds Nice 2026: Bike Course Guide — augo',
       description:
-        'Nice has one of the hardest bike courses in the IM circuit. Get 5 things to know about the bike course before race day, from riders who have raced it.',
+        'Nice has one of the hardest bike courses in the IM circuit. 5 things to know about the 2026 IRONMAN 70.3 Worlds bike course, from riders who have raced it.',
     },
     de: {
-      title: 'Ironman Nice Bike Course: 5 Things to Know — augo',
+      title: 'IRONMAN 70.3 Worlds Nice 2026: Bike Course Guide — augo',
       description:
-        'Nice has one of the hardest bike courses in the IM circuit. Get 5 things to know about the bike course before race day, from riders who have raced it.',
+        'Nice has one of the hardest bike courses in the IM circuit. 5 things to know about the 2026 IRONMAN 70.3 Worlds bike course, from riders who have raced it.',
     },
     pt: {
-      title: 'Ironman Nice Bike Course: 5 Things to Know — augo',
+      title: 'IRONMAN 70.3 Worlds Nice 2026: Bike Course Guide — augo',
       description:
-        'Nice has one of the hardest bike courses in the IM circuit. Get 5 things to know about the bike course before race day, from riders who have raced it.',
+        'Nice has one of the hardest bike courses in the IM circuit. 5 things to know about the 2026 IRONMAN 70.3 Worlds bike course, from riders who have raced it.',
     },
   },
 }

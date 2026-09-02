@@ -20,7 +20,7 @@ export const NICE_ATHLETES_GROUP_ID = import.meta.env
 export const NICE_ATHLETES_CTA_TEXT = 'Nice Athletes'
 
 export const COPY = {
-    eyebrow: 'IRONMAN NICE',
+    eyebrow: '2026 IRONMAN 70.3 WORLDS NICE',
     title: 'Nice has one of the hardest bike courses in the IM circuit.',
     subtitle:
         '5 things to know about the bike course before race day, so nothing catches you by surprise.',
