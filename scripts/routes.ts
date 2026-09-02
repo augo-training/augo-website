@@ -98,6 +98,9 @@ export async function getAllPrerenderRoutes(): Promise<string[]> {
       routes.push(`/${lang}/coaches/${slug}`)
     }
   }
+  // Ironman Nice landing page — English-only, so it stays out of STATIC_PATHS
+  // (which is looped over every language) and is listed once here.
+  routes.push(`/${DEFAULT_LANG}/nice-athletes`)
   // Blog posts are English-only at launch (Substack posts are in English).
   routes.push(`/${DEFAULT_LANG}/blog`)
   const slugs = await discoverBlogSlugs()
@@ -148,6 +151,15 @@ export async function getSitemapEntries(): Promise<SitemapEntry[]> {
       })
     }
   }
+  // Ironman Nice landing page: unlinked from the site but indexable, English-only.
+  const niceAthletesUrl = langUrl(DEFAULT_LANG, '/nice-athletes')
+  entries.push({
+    url: niceAthletesUrl,
+    priority: 0.9,
+    alternates: null,
+    xDefault: niceAthletesUrl,
+    changefreq: 'weekly',
+  })
   const blogIndexUrl = langUrl(DEFAULT_LANG, '/blog')
   entries.push({
     url: blogIndexUrl,

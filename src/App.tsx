@@ -15,6 +15,7 @@ import HumanEdge from './pages/HumanEdge'
 import CoachProfile from './pages/CoachProfile'
 import BlogPost from './pages/BlogPost'
 import BlogIndex from './pages/BlogIndex'
+import NiceAthletes from './pages/NiceAthletes'
 
 // March 26, 2026 at 20:00 Zurich time
 // DST starts March 29, 2026, so March 26 is still CET (UTC+1)
@@ -57,6 +58,8 @@ function App() {
           <Route path="pricing" element={<Pricing />} />
           <Route path="book-a-demo" element={<BookDemo />} />
           <Route path="humanedge" element={<HumanEdge />} />
+          {/* Standalone ad landing page — nothing on the site links to it. */}
+          <Route path="nice-athletes" element={<NiceAthletes />} />
           <Route path="coaches" element={<CoachesIndexToFind />} />
           <Route path="coaches/:slug" element={<CoachProfile />} />
           <Route path="blog" element={<BlogIndex />} />

@@ -31,6 +31,10 @@ export function FilmProvider({ children }: FilmProviderProps) {
     // is the one action that page exists for, so the film button stands down —
     // on narrow screens only; desktop has room for both.
     const isBookDemo = page === '/book-a-demo'
+    // The Ironman Nice landing page is a deliberate dead end with a single CTA. A
+    // floating button offering a film is exactly the distraction it is built to
+    // avoid, so it doesn't render there at all.
+    const isNiceAthletes = page === '/nice-athletes'
 
     // On home, reveal the floating button only once the visitor scrolls past the hero
     useEffect(() => {
@@ -78,7 +82,7 @@ export function FilmProvider({ children }: FilmProviderProps) {
         <FilmContext.Provider value={value}>
             {children}
             <FloatingButton
-                visible={isHome ? pastHero : true}
+                visible={isNiceAthletes ? false : isHome ? pastHero : true}
                 entranceDelayMs={isHome ? 200 : 2000}
                 className={isBookDemo ? 'max-lg:hidden' : ''}
                 onClick={() => requestFilm('floating_button')}

@@ -16,13 +16,16 @@ describe('routes and sitemap', () => {
     const coachSlugs = await discoverCoachSlugs()
 
     // localized static + localized coach profiles + english-only blog posts
-    // + 1 for the /en/blog index route.
+    // + 1 for the /en/blog index route + 1 for the /en/nice-athletes landing page.
     expect(routes).toHaveLength(
       LANGS.length * STATIC_PATHS.length +
         LANGS.length * coachSlugs.length +
         slugs.length +
-        1,
+        2,
     )
+
+    expect(routes).toContain('/en/nice-athletes')
+    expect(routes.filter((route) => route.endsWith('/nice-athletes'))).toHaveLength(1)
 
     for (const lang of LANGS) {
       for (const path of STATIC_PATHS) {

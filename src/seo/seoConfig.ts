@@ -109,6 +109,25 @@ const pageMeta: Record<string, Record<SupportedLanguage, PageMeta>> = {
         'Applications are now closed. The Human Edge Initiative pairs one experienced marathoner with elite coach Brian Boisvert for a year of free, personalized coaching — join the waitlist for the next program.',
     },
   },
+  // Ironman Nice landing page is English-only; the de/pt entries exist to
+  // satisfy the type and are never served (SEOHead runs with noAlternates).
+  niceAthletes: {
+    en: {
+      title: 'Ironman Nice Bike Course: 5 Things to Know — augo',
+      description:
+        'Nice has one of the hardest bike courses in the IM circuit. Get 5 things to know about the bike course before race day, from riders who have raced it.',
+    },
+    de: {
+      title: 'Ironman Nice Bike Course: 5 Things to Know — augo',
+      description:
+        'Nice has one of the hardest bike courses in the IM circuit. Get 5 things to know about the bike course before race day, from riders who have raced it.',
+    },
+    pt: {
+      title: 'Ironman Nice Bike Course: 5 Things to Know — augo',
+      description:
+        'Nice has one of the hardest bike courses in the IM circuit. Get 5 things to know about the bike course before race day, from riders who have raced it.',
+    },
+  },
 }
 
 export function getPageMeta(page: string, lang: SupportedLanguage): PageMeta {
