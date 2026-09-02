@@ -33,13 +33,23 @@ jobs:
           key: puppeteer-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
       - name: Install dependencies
         run: npm install
+      - name: Check required build secrets
+        env:
+          VITE_MIXPANEL_TOKEN: ${{ secrets.MIXPANEL }}
+        run: |
+          if [ -z "$VITE_MIXPANEL_TOKEN" ]; then
+            echo "::error::MIXPANEL repo secret is not set; the build would ship without analytics."
+            exit 1
+          fi
       - name: Build
         run: npm run build
         env:
           VITE_SIGNUP_WEBHOOK_URL: ${{ secrets.VITE_SIGNUP_WEBHOOK_URL }}
           VITE_MAILERLITE_GROUP_ID: ${{ secrets.VITE_MAILERLITE_GROUP_ID }}
           VITE_MAILERLITE_HUMANEDGE_GROUP_ID: ${{ secrets.VITE_MAILERLITE_HUMANEDGE_GROUP_ID }}
-          VITE_MIXPANEL_TOKEN: ${{ secrets.VITE_MIXPANEL_TOKEN }}
+          # The repo secret is named MIXPANEL (not VITE_MIXPANEL_TOKEN). Vite only
+          # exposes VITE_-prefixed vars, so it is mapped here.
+          VITE_MIXPANEL_TOKEN: ${{ secrets.MIXPANEL }}
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
