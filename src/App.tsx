@@ -1,6 +1,8 @@
-import { BrowserRouter, Routes, Route, Navigate, useParams } from 'react-router-dom'
+import { useEffect } from 'react'
+import { BrowserRouter, Routes, Route, useParams } from 'react-router-dom'
 import LanguageLayout from './components/LanguageLayout'
 import LanguageRedirect from './components/LanguageRedirect'
+import LegacyRedirect from './components/LegacyRedirect'
 import Home from './pages/Home'
 import Join from './pages/Join'
 import Find from './pages/Find'
@@ -15,6 +17,7 @@ import HumanEdge from './pages/HumanEdge'
 import CoachProfile from './pages/CoachProfile'
 import BlogPost from './pages/BlogPost'
 import BlogIndex from './pages/BlogIndex'
+import { setupMixpanelConsentListener } from './utils/analytics'
 
 // March 26, 2026 at 20:00 Zurich time
 // DST starts March 29, 2026, so March 26 is still CET (UTC+1)
@@ -23,15 +26,19 @@ const LAUNCH_DATE = new Date('2026-03-26T19:00:00Z')
 
 function CoachSlugLegacyRedirect() {
   const { slug } = useParams<{ slug: string }>()
-  return <Navigate to={`/en/coaches/${slug ?? ''}`} replace />
+  return <LegacyRedirect to={`/en/coaches/${slug ?? ''}`} />
 }
 
 function CoachesIndexToFind() {
   const { lang } = useParams<{ lang: string }>()
-  return <Navigate to={`/${lang ?? 'en'}/find`} replace />
+  return <LegacyRedirect to={`/${lang ?? 'en'}/find`} />
 }
 
 function App() {
+  // App-level so Mixpanel also initialises after consent on routes outside
+  // LanguageLayout (the top-level 404 and legacy redirects).
+  useEffect(() => setupMixpanelConsentListener(), [])
+
   return (
     <BrowserRouter>
       <ScrollToTop />
@@ -41,11 +48,11 @@ function App() {
         <Route path="/" element={<LanguageRedirect />} />
 
         {/* Legacy routes: redirect to language-prefixed versions */}
-        <Route path="/join" element={<Navigate to="/en/download" replace />} />
-        <Route path="/find" element={<Navigate to="/en/find" replace />} />
-        <Route path="/humanedge" element={<Navigate to="/en/humanedge" replace />} />
-        <Route path="/book-a-demo" element={<Navigate to="/en/book-a-demo" replace />} />
-        <Route path="/coaches" element={<Navigate to="/en/find" replace />} />
+        <Route path="/join" element={<LegacyRedirect to="/en/download" />} />
+        <Route path="/find" element={<LegacyRedirect to="/en/find" />} />
+        <Route path="/humanedge" element={<LegacyRedirect to="/en/humanedge" />} />
+        <Route path="/book-a-demo" element={<LegacyRedirect to="/en/book-a-demo" />} />
+        <Route path="/coaches" element={<LegacyRedirect to="/en/find" />} />
         <Route path="/coaches/:slug" element={<CoachSlugLegacyRedirect />} />
 
         {/* Language-prefixed routes */}

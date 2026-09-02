@@ -186,34 +186,12 @@ export async function trackBillingToggle(props: { billing_period: 'monthly' | 'y
     return track('billing_toggle_switched', props)
 }
 
-// ── Coach matcher chat tracking ──
+// ── 404 and redirect tracking ──
 
-export async function trackCoachMatchChatOpened(props: { entry_point: string }): Promise<void> {
-    return track('coach_match_chat_opened', props)
+export async function trackPageNotFound(props: { path: string; referrer: string }): Promise<void> {
+    return track('page_not_found', { ...props, ...getUtmParams() })
 }
 
-export async function trackCoachMatchChatQuestionAnswered(props: {
-    step: string
-    skipped: boolean
-}): Promise<void> {
-    return track('coach_match_chat_question_answered', props)
-}
-
-export async function trackCoachMatchChatCompleted(props: {
-    questions_answered: number
-}): Promise<void> {
-    return track('coach_match_chat_completed', props)
-}
-
-export async function trackCoachMatchChatEmailSubmitted(props: {
-    matches: string[]
-}): Promise<void> {
-    return track('coach_match_chat_email_submitted', props)
-}
-
-export async function trackCoachMatchChatAbandoned(props: {
-    questions_answered: number
-    phase: string
-}): Promise<void> {
-    return track('coach_match_chat_abandoned', props)
+export async function trackLegacyRedirect(props: { from: string; to: string; reason?: string }): Promise<void> {
+    return track('legacy_redirect', { ...props, referrer: document.referrer })
 }
