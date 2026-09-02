@@ -12,6 +12,7 @@ interface NiceAthletesEmailFormProps {
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 const ERRORS = {
+    statusError: 'Pick one so we know what to send you.',
     nameError: 'We need a first name.',
     emailError: 'That email address does not look right.',
     submitError: 'Something went wrong on our side. Try again in a moment.',
@@ -21,10 +22,16 @@ const INPUT_CLASS =
     'w-full h-11 sm:h-12 rounded-lg px-4 font-satoshi text-[15px] text-white placeholder-[#555] outline-none focus:ring-1 focus:ring-[#FF5514]'
 const INPUT_STYLE = { backgroundColor: '#151515', border: '1px solid #333' } as const
 
+type CoachingStatus = (typeof COPY.coaching.options)[number]['value']
+
 /**
- * First name, email, button. Same validation order as EmailCaptureModal, minus
- * the visitor-type pills — we already know who lands here — and inline rather
- * than in a modal, since it is the one action this page exists for.
+ * Coaching status, first name, email, button. Same validation order and pill
+ * styling as EmailCaptureModal, inline rather than in a modal since this is the
+ * one action the page exists for.
+ *
+ * The coaching answer rides along as the `coaching_status` custom field. It is
+ * what the two MailerLite segments filter on — segments cannot be assigned to,
+ * only derived — so a submission missing it lands in neither.
  *
  * Unlike the modal, this checks what subscribeToMailerLite returns: the logo
  * only unlocks on a signup the webhook actually accepted.
@@ -33,6 +40,7 @@ export default function NiceAthletesEmailForm({
     onCaptured,
     unlocked,
 }: NiceAthletesEmailFormProps) {
+    const [coachingStatus, setCoachingStatus] = useState<CoachingStatus | null>(null)
     const [firstName, setFirstName] = useState('')
     const [email, setEmail] = useState('')
     const [status, setStatus] = useState<'idle' | 'loading' | 'error'>('idle')
@@ -46,6 +54,8 @@ export default function NiceAthletesEmailForm({
     async function handleSubmit(e: React.FormEvent) {
         e.preventDefault()
 
+        if (!coachingStatus) return fail('statusError')
+
         const name = firstName.trim()
         if (!name) return fail('nameError')
         if (!EMAIL_REGEX.test(email)) return fail('emailError')
@@ -56,6 +66,7 @@ export default function NiceAthletesEmailForm({
             email,
             name,
             groupId: NICE_ATHLETES_GROUP_ID,
+            fields: { coaching_status: coachingStatus },
             ctaText: NICE_ATHLETES_CTA_TEXT,
         })
 
@@ -84,8 +95,37 @@ export default function NiceAthletesEmailForm({
     }
 
     return (
-        <form onSubmit={handleSubmit} className="flex flex-col gap-2.5 max-w-[560px]">
-            <div className="flex flex-col sm:flex-row gap-2.5">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-2 sm:gap-2.5 max-w-[560px]">
+            <div
+                className="flex gap-2 sm:gap-2.5"
+                role="group"
+                aria-label={COPY.coaching.label}
+            >
+                {COPY.coaching.options.map((option) => {
+                    const selected = coachingStatus === option.value
+                    return (
+                        <button
+                            key={option.value}
+                            type="button"
+                            aria-pressed={selected}
+                            onClick={() => {
+                                setCoachingStatus(option.value)
+                                setStatus('idle')
+                            }}
+                            disabled={status === 'loading'}
+                            className="flex-1 h-11 sm:h-12 rounded-lg font-satoshi text-[14px] cursor-pointer transition-colors duration-150"
+                            style={{
+                                backgroundColor: selected ? 'rgba(255, 85, 20, 0.15)' : '#151515',
+                                border: selected ? '1px solid #FF5514' : '1px solid #333',
+                                color: selected ? '#FFFFFF' : '#969EA7',
+                            }}
+                        >
+                            {option.label}
+                        </button>
+                    )
+                })}
+            </div>
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-2.5">
                 <input
                     type="text"
                     value={firstName}

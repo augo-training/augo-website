@@ -1355,6 +1355,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://augotraining.com/en/nice-athletes/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://augotraining.com/en/blog/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

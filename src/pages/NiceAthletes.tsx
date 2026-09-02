@@ -43,7 +43,7 @@ export default function NiceAthletes() {
         <>
             <SEOHead page="niceAthletes" path={NICE_ATHLETES_PATH} noAlternates />
             <div
-                className="relative min-h-[100dvh] overflow-hidden flex flex-col bg-dark px-5 sm:px-8 py-6 sm:py-8"
+                className="relative min-h-[100dvh] overflow-hidden flex flex-col bg-dark px-5 sm:px-8 py-3 sm:py-8"
                 style={{ paddingBottom: cookieBannerHeight ? cookieBannerHeight + 20 : undefined }}
             >
                 <img
@@ -68,7 +68,7 @@ export default function NiceAthletes() {
                 />
 
                 <NiceAthletesHeader unlocked={unlocked} />
-                <main className="relative z-10 flex-1 w-full max-w-[900px] mx-auto flex flex-col justify-center gap-7 sm:gap-10 py-0 sm:py-6">
+                <main className="relative z-10 flex-1 w-full max-w-[900px] mx-auto flex flex-col justify-center gap-4 sm:gap-8 py-0 sm:py-4">
                     <NiceAthletesHero />
                     <NiceAthletesEmailForm onCaptured={unlock} unlocked={unlocked} />
                 </main>
