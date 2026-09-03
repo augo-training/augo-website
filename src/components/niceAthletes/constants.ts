@@ -39,8 +39,8 @@ export const COPY = {
     coaching: {
         label: 'Right now I am…',
         options: [
-            { value: 'self_coached', label: 'Self-coached' },
-            { value: 'human_coach', label: 'Working with a coach' },
+            { value: 'self_coached', label: "I'm self-coached" },
+            { value: 'human_coach', label: 'I work with a coach' },
         ],
     },
     /** Unsplash asks for credit as a courtesy. Plain text, never a link — the
