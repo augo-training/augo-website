@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { normalizePage } from '../src/utils/analytics'
+import { normalizePage } from '../src/utils/page'
 
 describe('normalizePage', () => {
     it('strips the language prefix and trailing slash', () => {

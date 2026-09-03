@@ -1,4 +1,5 @@
 import { getConsentStatus } from '../components/cookieUtils'
+import { normalizePage } from './page'
 
 /**
  * Mixpanel wrapper for the website.
@@ -140,17 +141,7 @@ export function setupMixpanelConsentListener(): () => void {
 
 // ── Shared helpers ──
 
-/**
- * The `page` property used across events: the path with the language prefix
- * and any trailing slash removed, so /en/nice-athletes/ and /en/nice-athletes
- * both report as "/nice-athletes". The home page is "/".
- */
-export function normalizePage(pathname: string, lang?: string): string {
-    const withoutLang = lang
-        ? pathname.replace(`/${lang}`, '')
-        : pathname.replace(/^\/(en|de|pt)(?=\/|$)/, '')
-    return withoutLang.replace(/\/$/, '') || '/'
-}
+export { normalizePage }
 
 function currentPage(): string {
     return normalizePage(window.location.pathname)
