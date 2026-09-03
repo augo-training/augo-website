@@ -24,7 +24,9 @@ export function FilmProvider({ children }: FilmProviderProps) {
     const [videoOpenedAt, setVideoOpenedAt] = useState<number | null>(null)
     const [pastHero, setPastHero] = useState(false)
 
-    const page = location.pathname.replace(`/${lang}`, '') || '/'
+    // The site serves trailing-slash URLs (/en/nice-athletes/), so strip the
+    // slash before comparing — otherwise every page check below misses.
+    const page = location.pathname.replace(`/${lang}`, '').replace(/\/$/, '') || '/'
     const isHome = page === '/'
     // Below lg the navbar carries its own "Book a Demo" button, so on the demo
     // page that would put the film CTA on screen beside two demo CTAs. The demo
@@ -81,12 +83,14 @@ export function FilmProvider({ children }: FilmProviderProps) {
     return (
         <FilmContext.Provider value={value}>
             {children}
-            <FloatingButton
-                visible={isNiceAthletes ? false : isHome ? pastHero : true}
-                entranceDelayMs={isHome ? 200 : 2000}
-                className={isBookDemo ? 'max-lg:hidden' : ''}
-                onClick={() => requestFilm('floating_button')}
-            />
+            {!isNiceAthletes && (
+                <FloatingButton
+                    visible={isHome ? pastHero : true}
+                    entranceDelayMs={isHome ? 200 : 2000}
+                    className={isBookDemo ? 'max-lg:hidden' : ''}
+                    onClick={() => requestFilm('floating_button')}
+                />
+            )}
             <VideoModal isOpen={videoOpen} onClose={closeVideo} />
         </FilmContext.Provider>
     )
