@@ -9,6 +9,7 @@ import meganPhoto from '../assets/images/Megan.png?w=128&h=128&format=webp'
 import paoloPhoto from '../assets/images/Paolo.png?w=128&h=128&format=webp'
 import stefPhoto from '../assets/images/Stef.png?w=128&h=128&format=webp'
 import markusPhoto from '../assets/images/Markus.png?w=128&h=128&format=webp'
+import bevanPhoto from '../assets/images/Bevan.png?w=128&h=128&format=webp'
 import janaPhoto from '../assets/images/Jana.png?w=128&h=128&format=webp'
 import thierryPhoto from '../assets/images/Thierry.png?w=128&h=128&format=webp'
 
@@ -28,6 +29,13 @@ const testimonials: Testimonial[] = [
         name: 'Markus Lombardini',
         role: 'Triathlon Coach & Founder of MyTrainair',
         photo: markusPhoto,
+    },
+    {
+        quote:
+            "I tested everything, from full AI-driven programming to the lightest-touch tools out there. It wasn't until I found augo that I knew I'd found the right fit: it kept the coach-athlete relationship front and centre. Having it all pulled together clearly means I spend my time on what actually matters — the relationship, the communication, the education. That's real coaching. augo just lets me do more of it.",
+        name: 'Bevan McKinnon',
+        role: 'Triathlon Coach & Founder of Fitter Coaching',
+        photo: bevanPhoto,
     },
     {
         quote:
