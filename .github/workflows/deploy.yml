@@ -41,6 +41,13 @@ jobs:
             echo "::error::MIXPANEL repo secret is not set; the build would ship without analytics."
             exit 1
           fi
+          # A Mixpanel project token is exactly 32 hex characters. Anything else
+          # (e.g. "VITE_MIXPANEL_TOKEN = abc..." pasted with the key name) makes
+          # Mixpanel silently drop every event.
+          if ! printf '%s' "$VITE_MIXPANEL_TOKEN" | grep -Eq '^[0-9a-f]{32}$'; then
+            echo "::error::MIXPANEL repo secret is not a bare 32-character hex Mixpanel project token."
+            exit 1
+          fi
       - name: Build
         run: npm run build
         env:
