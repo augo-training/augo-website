@@ -26,6 +26,8 @@ function AugoIcon({ className }: { className?: string }) {
 
 interface FloatingButtonProps {
     onClick?: () => void
+    /** Normalised page for analytics, e.g. '/' or '/coaches'. */
+    page: string
     /** When false the button fades out and ignores input; it fades back in when true again. */
     visible?: boolean
     /** Delay before the first entrance animation once visible. */
@@ -36,7 +38,7 @@ interface FloatingButtonProps {
 
 const RING_GRADIENT = 'linear-gradient(83.9deg, #151515 -4%, #C50017 38.22%, #FF5514 69.06%, #FFCA1E 99.9%)'
 
-export default function FloatingButton({ onClick, visible = true, entranceDelayMs = 2000, className = '' }: FloatingButtonProps) {
+export default function FloatingButton({ onClick, page, visible = true, entranceDelayMs = 2000, className = '' }: FloatingButtonProps) {
     const [revealed, setRevealed] = useState(false)
     const [showTooltip, setShowTooltip] = useState(false)
     const [hovered, setHovered] = useState(false)
@@ -74,7 +76,7 @@ export default function FloatingButton({ onClick, visible = true, entranceDelayM
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
             onClick={() => {
-                trackFloatingButtonClicked({ page: window.location.pathname })
+                trackFloatingButtonClicked({ page })
                 onClick?.()
             }}
             className={`floating-app-btn fixed z-50 flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl cursor-pointer bottom-6 right-5 sm:bottom-12 sm:right-12 ${className}`}

@@ -3,7 +3,7 @@ import { Outlet, useParams, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { supportedLanguages } from '../i18n'
 import type { SupportedLanguage } from '../i18n'
-import { trackPageViewed } from '../utils/analytics'
+import { trackPageViewed, normalizePage } from '../utils/analytics'
 import LegacyRedirect from './LegacyRedirect'
 import { EmailCaptureProvider } from '../contexts/EmailCaptureProvider'
 import { FilmProvider } from '../contexts/FilmProvider'
@@ -28,7 +28,7 @@ export default function LanguageLayout() {
     if (prevPathRef.current === currentPath) return
     prevPathRef.current = currentPath
 
-    const pageName = currentPath.replace(`/${lang}`, '') || '/'
+    const pageName = normalizePage(currentPath, lang)
     trackPageViewed({
       page: pageName,
       referrer: document.referrer,
