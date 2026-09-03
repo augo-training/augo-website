@@ -6,6 +6,7 @@ import {
     trackEmailCaptureUnlocked,
     trackCoachingStatusSelected,
     identifyEmailCapture,
+    getUtmParams,
 } from '../../utils/analytics'
 import { COPY, NICE_ATHLETES_CTA_TEXT, NICE_ATHLETES_GROUP_ID, NICE_ATHLETES_PATH } from './constants'
 
@@ -83,7 +84,11 @@ export default function NiceAthletesEmailForm({
             email,
             name,
             groupId: NICE_ATHLETES_GROUP_ID,
-            fields: { coaching_status: coachingStatus },
+            // UTMs and landing page ride along to MailerLite so a signup is
+            // attributable to its ad campaign even when cookies were declined.
+            // The page is a single-screen dead end, so the landing URL (and its
+            // UTMs) is still the current URL at submit time.
+            fields: { coaching_status: coachingStatus, ...getUtmParams(), landing_page: NICE_ATHLETES_PATH },
             ctaText: NICE_ATHLETES_CTA_TEXT,
         })
 
