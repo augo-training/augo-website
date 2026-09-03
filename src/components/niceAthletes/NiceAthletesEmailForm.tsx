@@ -19,15 +19,25 @@ const ERRORS = {
 } as const
 
 const INPUT_CLASS =
-    'w-full h-11 sm:h-12 rounded-lg px-4 font-satoshi text-[15px] text-white placeholder-[#555] outline-none focus:ring-1 focus:ring-[#FF5514]'
-const INPUT_STYLE = { backgroundColor: '#151515', border: '1px solid #333' } as const
+    'w-full h-11 sm:h-12 rounded-lg px-4 font-satoshi text-[15px] text-white placeholder-[#555] bg-[#151515] border border-[#333] outline-none transition-colors duration-150 focus:border-white/40 focus:ring-1 focus:ring-white/40'
+
+/**
+ * Selected pills go white, not brand orange: a soft white fill and a near-white
+ * border, matching the white rings used for "selected" on CoachCard. The
+ * gradient submit button is the one place the brand colours appear in the form.
+ */
+const PILL_CLASS =
+    'flex-1 h-11 sm:h-12 rounded-lg font-satoshi text-[14px] cursor-pointer border transition-colors duration-150 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/40'
+const PILL_SELECTED = 'bg-white/10 border-white/85 text-white font-medium'
+const PILL_IDLE = 'bg-[#151515] border-[#333] text-[#969EA7] hover:border-white/30'
 
 type CoachingStatus = (typeof COPY.coaching.options)[number]['value']
 
 /**
- * Coaching status, first name, email, button. Same validation order and pill
- * styling as EmailCaptureModal, inline rather than in a modal since this is the
- * one action the page exists for.
+ * Coaching status, first name, email, button. Same validation order as
+ * EmailCaptureModal, inline rather than in a modal since this is the one action
+ * the page exists for. The pills deliberately use the white selected state
+ * (PILL_SELECTED) rather than the modal's orange one.
  *
  * The coaching answer rides along as the `coaching_status` custom field. It is
  * what the two MailerLite segments filter on — segments cannot be assigned to,
@@ -113,12 +123,7 @@ export default function NiceAthletesEmailForm({
                                 setStatus('idle')
                             }}
                             disabled={status === 'loading'}
-                            className="flex-1 h-11 sm:h-12 rounded-lg font-satoshi text-[14px] cursor-pointer transition-colors duration-150"
-                            style={{
-                                backgroundColor: selected ? 'rgba(255, 85, 20, 0.15)' : '#151515',
-                                border: selected ? '1px solid #FF5514' : '1px solid #333',
-                                color: selected ? '#FFFFFF' : '#969EA7',
-                            }}
+                            className={`${PILL_CLASS} ${selected ? PILL_SELECTED : PILL_IDLE}`}
                         >
                             {option.label}
                         </button>
@@ -136,7 +141,6 @@ export default function NiceAthletesEmailForm({
                     placeholder="First name"
                     aria-label="First name"
                     className={INPUT_CLASS}
-                    style={INPUT_STYLE}
                     disabled={status === 'loading'}
                     autoComplete="given-name"
                 />
@@ -150,7 +154,6 @@ export default function NiceAthletesEmailForm({
                     placeholder="you@example.com"
                     aria-label="Email address"
                     className={INPUT_CLASS}
-                    style={INPUT_STYLE}
                     disabled={status === 'loading'}
                     autoComplete="email"
                 />
