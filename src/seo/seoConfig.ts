@@ -24,6 +24,23 @@ const pageMeta: Record<string, Record<SupportedLanguage, PageMeta>> = {
         'augo combina comunicação coach-atleta, dados de treino e feedback de sessão em uma plataforma. O assistente com IA que fortalece coaches de endurance.',
     },
   },
+  download: {
+    en: {
+      title: 'Download augo — Coach on Web and Mobile',
+      description:
+        'Get augo on web or mobile. Coaches create an account on whichever platform they prefer; athletes download the app to work with their coach.',
+    },
+    de: {
+      title: 'augo herunterladen — Coaching auf Web und Mobile',
+      description:
+        'Hol dir augo für Web oder Mobile. Coaches erstellen ihr Konto auf der Plattform ihrer Wahl; Athleten laden die App herunter, um mit ihrem Coach zu arbeiten.',
+    },
+    pt: {
+      title: 'Baixar a augo — Coaching na Web e no Mobile',
+      description:
+        'Use a augo na web ou no mobile. Coaches criam sua conta na plataforma que preferirem; atletas baixam o app para treinar com seu coach.',
+    },
+  },
   join: {
     en: {
       title: 'Join the Waitlist — augo',
