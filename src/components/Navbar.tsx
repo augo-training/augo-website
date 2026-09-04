@@ -19,7 +19,7 @@ function NavLink({ label, href, onClick }: { label: string; href: string; onClic
         >
             {/* Out of flow: in flow it reserved ~31px per link even while invisible,
                 which is what forced the links to collapse below 1280px. */}
-            <span className="absolute right-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-out">
+            <span className="absolute right-full mr-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-out">
                 ///
             </span>
             <span>{label}</span>
@@ -75,6 +75,7 @@ export default function Navbar() {
         { label: t('nav.forAthletes'), href: '#athletes' },
         { label: t('nav.pricing'), href: `/${currentLang}/pricing` },
         { label: t('nav.bookDemo'), href: `/${currentLang}/book-a-demo` },
+        { label: t('nav.findAMatch'), href: `/${currentLang}/find` },
     ]
 
     const mobileMenuLinks = [
@@ -260,7 +261,7 @@ export default function Navbar() {
         <>
             <nav className="navbar-sticky fixed top-0 left-0 right-0 z-[60] flex items-center justify-between px-5 sm:px-6 md:px-8 lg:px-12 pt-6 pb-2">
                 {/* Left Side: Logo + Nav Links */}
-                <div className="flex items-center gap-12 xl:gap-[100px]">
+                <div className="flex items-center gap-12 2xl:gap-[100px]">
                     {/* Logo */}
                     <a href={`/${currentLang}`} className="flex-shrink-0 relative z-[60]">
                         <img src={augoLogo} alt="augo" className="h-7" />
@@ -268,7 +269,7 @@ export default function Navbar() {
 
                     {/* Nav Links — visible only on xl+; below that the hamburger carries them */}
                     <div
-                        className="hidden lg:flex items-center gap-12"
+                        className="hidden xl:flex items-center gap-12 min-[1440px]:gap-16"
                         style={{
                             opacity: !menuOpen ? 1 : 0,
                             transform: !menuOpen ? 'translateY(0)' : 'translateY(10px)',
@@ -283,14 +284,14 @@ export default function Navbar() {
                 </div>
 
                 {/* Right Side */}
-                <div className="flex items-center gap-3 lg:gap-6">
-                    {/* Below lg the bar has room for exactly one button, and it should be
+                <div className="flex items-center gap-3 xl:gap-6">
+                    {/* Below xl the bar has room for exactly one button, and it should be
                         the conversion action rather than the one for existing users.
                         Coach Login stays reachable at the bottom of the hamburger menu.
                         Two elements rather than one because href can't switch responsively. */}
                     <a
                         href={`/${currentLang}/book-a-demo`}
-                        className="lg:hidden nav-cta-btn font-mono text-[11px] sm:text-sm font-extrabold tracking-[1.5px] sm:tracking-[2px] uppercase px-3.5 py-2 sm:px-6 sm:py-3 rounded-md sm:rounded-lg"
+                        className="xl:hidden nav-cta-btn font-mono text-[11px] sm:text-sm font-extrabold tracking-[1.5px] sm:tracking-[2px] uppercase px-3.5 py-2 sm:px-6 sm:py-3 rounded-md sm:rounded-lg"
                         style={ctaFadeStyle}
                         onClick={() => trackCtaClicked({ cta_text: t('nav.bookDemo'), cta_location: 'navbar_mobile', destination: `/${currentLang}/book-a-demo` })}
                     >
@@ -300,13 +301,13 @@ export default function Navbar() {
                         href="https://webapp.augotraining.com/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hidden lg:inline-flex nav-cta-btn font-mono text-[11px] sm:text-sm font-extrabold tracking-[1.5px] sm:tracking-[2px] uppercase px-3.5 py-2 sm:px-6 sm:py-3 rounded-md sm:rounded-lg"
+                        className="hidden xl:inline-flex nav-cta-btn font-mono text-[11px] sm:text-sm font-extrabold tracking-[1.5px] sm:tracking-[2px] uppercase px-3.5 py-2 sm:px-6 sm:py-3 rounded-md sm:rounded-lg"
                         style={ctaFadeStyle}
                         onClick={() => trackCtaClicked({ cta_text: t('nav.coachLogin'), cta_location: 'navbar', destination: 'https://webapp.augotraining.com/' })}
                     >
                         {t('nav.coachLogin')}
                     </a>
-                    {/* Hamburger / Close toggle — every width: it holds Find a Match and the language switcher */}
+                    {/* Hamburger / Close toggle — every width: it holds the language switcher, and below xl the whole link list */}
                     <button
                         className="relative z-[60] flex flex-col items-center justify-center w-8 h-8 cursor-pointer gap-[6px]"
                         aria-label={menuOpen ? 'Close menu' : 'Open menu'}
