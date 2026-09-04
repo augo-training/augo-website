@@ -84,6 +84,7 @@ export default function Navbar() {
         { label: t('nav.pricing'), href: `/${currentLang}/pricing` },
         { label: t('nav.bookDemo'), href: `/${currentLang}/book-a-demo` },
         { label: t('nav.findAMatch'), href: `/${currentLang}/find` },
+        { label: t('nav.signUp'), href: `/${currentLang}/download` },
     ]
 
     const [menuOpen, setMenuOpen] = useState(false)

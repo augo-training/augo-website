@@ -7,6 +7,7 @@
     "bookDemo": "Agendar Demo",
     "humanEdge": "Human Edge",
     "joinAugo": "Junte-se à augo",
+    "signUp": "Criar conta",
     "coachLogin": "Coach Login"
   },
   "hero": {
@@ -123,14 +124,17 @@
     "acceptCookies": "Aceitar Cookies"
   },
   "download": {
-    "headline": "Treine de forma mais inteligente.",
-    "body": "Experimente o assistente inteligente na web e no celular. Treinadores têm acesso completo em ambas as plataformas. Atletas se conectam pelo celular.",
-    "forCoaches": "Para Coaches",
-    "forCoachesAndAthletes": "Para Coaches e Atletas",
-    "launchWebApp": "Abrir App Web",
+    "tag": "Download",
+    "headline": "Faça parte do futuro do coaching.",
+    "forCoaches": "Para coaches",
+    "coachesNote": "A augo funciona no mobile e na web. Crie sua conta onde preferir.",
+    "signUp": "Criar conta",
+    "forAthletes": "Para atletas",
+    "athletesNote": "Para atletas, a augo funciona no mobile. Baixe o app para treinar com seu coach.",
+    "getTheApp": "Baixar o app",
     "downloadOnAppStore": "Baixar na App Store",
     "getItOnGooglePlay": "Disponível no Google Play",
-    "scanToDownload": "Escaneie para baixar"
+    "scanToDownload": "Escaneie para baixar o app"
   },
   "join": {
     "headline": "Junte-se à comunidade de coaches e atletas que buscam um novo padrão",
@@ -416,7 +420,6 @@
   },
   "emailCapture": {
     "title": "Você está quase lá",
-    "subtitle": "Digite seu nome e e-mail e enviaremos o link — mais dicas de acesso antecipado.",
     "namePlaceholder": "Nome",
     "placeholder": "seu@email.com",
     "typeLabel": "Eu sou…",

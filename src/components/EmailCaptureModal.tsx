@@ -30,7 +30,9 @@ export default function EmailCaptureModal({
     submitLabel,
 }: EmailCaptureModalProps) {
     const { t } = useTranslation()
-    const resolvedSubtitle = subtitle ?? t('emailCapture.subtitle')
+    // No default subtitle: the old copy promised early-access tips that never get sent.
+    // Call sites that genuinely explain what happens next pass their own.
+    const resolvedSubtitle = subtitle ?? ''
     const [visitorType, setVisitorType] = useState<'coach' | 'athlete' | 'other' | null>(null)
     const [firstName, setFirstName] = useState('')
     const [email, setEmail] = useState('')
@@ -129,8 +131,7 @@ export default function EmailCaptureModal({
                     >
                         {title ?? t('emailCapture.title')}
                     </h2>
-                    {/* An explicit empty string means "no subtitle"; omitting the prop
-                        still falls back to the default copy. */}
+                    {/* Only the call sites that pass a subtitle get one. */}
                     {resolvedSubtitle && (
                         <p className="font-satoshi text-[15px] leading-[160%] text-[#969EA7]">
                             {resolvedSubtitle}

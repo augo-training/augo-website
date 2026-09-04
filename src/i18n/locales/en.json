@@ -7,6 +7,7 @@
     "bookDemo": "Book a Demo",
     "humanEdge": "Human Edge",
     "joinAugo": "Join augo",
+    "signUp": "Sign up",
     "coachLogin": "Coach Login"
   },
   "hero": {
@@ -123,14 +124,17 @@
     "acceptCookies": "Accept Cookies"
   },
   "download": {
-    "headline": "Start coaching smarter.",
-    "body": "Experience the intelligent assistant across web and mobile. Coaches get full access on both platforms. Athletes connect on mobile.",
-    "forCoaches": "For Coaches",
-    "forCoachesAndAthletes": "For Coaches and Athletes",
-    "launchWebApp": "Launch Web App",
+    "tag": "Download",
+    "headline": "Join the future of coaching.",
+    "forCoaches": "For coaches",
+    "coachesNote": "augo works on both mobile and web. Create an account on either.",
+    "signUp": "Sign up",
+    "forAthletes": "For athletes",
+    "athletesNote": "augo works on mobile for athletes. Download the app to work with your coach.",
+    "getTheApp": "Get the app",
     "downloadOnAppStore": "Download on the App Store",
     "getItOnGooglePlay": "Get it on Google Play",
-    "scanToDownload": "Scan to download"
+    "scanToDownload": "Scan to download the mobile app"
   },
   "join": {
     "headline": "Join the community of coaches & athletes who are looking for a new standard",
@@ -416,7 +420,6 @@
   },
   "emailCapture": {
     "title": "You're almost in",
-    "subtitle": "Drop your first name and email and we'll send you early access tips.",
     "namePlaceholder": "First name",
     "placeholder": "your@email.com",
     "typeLabel": "I am a…",
