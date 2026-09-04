@@ -115,17 +115,17 @@ const pageMeta: Record<string, Record<SupportedLanguage, PageMeta>> = {
     en: {
       title: 'IRONMAN 70.3 Worlds Nice 2026: Bike Course Guide — augo',
       description:
-        'Nice has one of the hardest bike courses in the IM circuit. 5 things to know about the 2026 IRONMAN 70.3 Worlds bike course, from riders who have raced it.',
+        'Nice has one of the hardest bike courses in the IM circuit. 5 things to know about the 2026 IRONMAN 70.3 Worlds bike course, from athletes who have raced it.',
     },
     de: {
       title: 'IRONMAN 70.3 Worlds Nice 2026: Bike Course Guide — augo',
       description:
-        'Nice has one of the hardest bike courses in the IM circuit. 5 things to know about the 2026 IRONMAN 70.3 Worlds bike course, from riders who have raced it.',
+        'Nice has one of the hardest bike courses in the IM circuit. 5 things to know about the 2026 IRONMAN 70.3 Worlds bike course, from athletes who have raced it.',
     },
     pt: {
       title: 'IRONMAN 70.3 Worlds Nice 2026: Bike Course Guide — augo',
       description:
-        'Nice has one of the hardest bike courses in the IM circuit. 5 things to know about the 2026 IRONMAN 70.3 Worlds bike course, from riders who have raced it.',
+        'Nice has one of the hardest bike courses in the IM circuit. 5 things to know about the 2026 IRONMAN 70.3 Worlds bike course, from athletes who have raced it.',
     },
   },
 }
