@@ -3,7 +3,7 @@ import { useLocation, useParams } from 'react-router-dom'
 import FloatingButton from '../components/FloatingButton'
 import VideoModal from '../components/VideoModal'
 import { useFilmGate } from '../hooks/useFilmGate'
-import { trackVideoOpened, trackVideoClosed } from '../utils/analytics'
+import { trackVideoOpened, trackVideoClosed, normalizePage } from '../utils/analytics'
 import { FilmContext, type FilmContextValue } from './FilmContext'
 
 interface FilmProviderProps {
@@ -24,9 +24,9 @@ export function FilmProvider({ children }: FilmProviderProps) {
     const [videoOpenedAt, setVideoOpenedAt] = useState<number | null>(null)
     const [pastHero, setPastHero] = useState(false)
 
-    // The site serves trailing-slash URLs (/en/nice-athletes/), so strip the
-    // slash before comparing — otherwise every page check below misses.
-    const page = location.pathname.replace(`/${lang}`, '').replace(/\/$/, '') || '/'
+    // Language prefix and trailing slash stripped, so /en/nice-athletes/ and
+    // /en/nice-athletes both compare (and report) as '/nice-athletes'.
+    const page = normalizePage(location.pathname, lang)
     const isHome = page === '/'
     // Below lg the navbar carries its own "Book a Demo" button, so on the demo
     // page that would put the film CTA on screen beside two demo CTAs. The demo
@@ -85,6 +85,7 @@ export function FilmProvider({ children }: FilmProviderProps) {
             {children}
             {!isNiceAthletes && (
                 <FloatingButton
+                    page={page}
                     visible={isHome ? pastHero : true}
                     entranceDelayMs={isHome ? 200 : 2000}
                     className={isBookDemo ? 'max-lg:hidden' : ''}

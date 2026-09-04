@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
-import { trackEmailCaptureSubmitted } from '../utils/analytics'
+import { trackEmailCaptureSubmitted, identifyEmailCapture, normalizePage } from '../utils/analytics'
 import { subscribeToMailerLite } from '../utils/mailerlite'
 
 interface EmailCaptureModalProps {
@@ -95,7 +95,9 @@ export default function EmailCaptureModal({
             fields: { ...fields, visitor_type: visitorType },
             ctaText,
         })
-        void trackEmailCaptureSubmitted({ email, cta_text: ctaText, visitor_type: visitorType })
+        const page = normalizePage(window.location.pathname)
+        void identifyEmailCapture({ email, first_name: name, source: ctaText, page })
+        void trackEmailCaptureSubmitted({ email, cta_text: ctaText, visitor_type: visitorType, page })
 
         if (onSuccess) {
             onClose()

@@ -1,7 +1,13 @@
 import { useState } from 'react'
 import { subscribeToMailerLite } from '../../utils/mailerlite'
-import { trackEmailCaptureSubmitted } from '../../utils/analytics'
-import { COPY, NICE_ATHLETES_CTA_TEXT, NICE_ATHLETES_GROUP_ID } from './constants'
+import {
+    trackEmailCaptureSubmitted,
+    trackEmailCaptureError,
+    trackEmailCaptureUnlocked,
+    trackCoachingStatusSelected,
+    identifyEmailCapture,
+} from '../../utils/analytics'
+import { COPY, NICE_ATHLETES_CTA_TEXT, NICE_ATHLETES_GROUP_ID, NICE_ATHLETES_PATH } from './constants'
 
 interface NiceAthletesEmailFormProps {
     /** Called once the signup has actually been accepted. Unlocks the logo. */
@@ -59,6 +65,7 @@ export default function NiceAthletesEmailForm({
     function fail(key: keyof typeof ERRORS) {
         setErrorKey(key)
         setStatus('error')
+        void trackEmailCaptureError({ page: NICE_ATHLETES_PATH, cta_text: NICE_ATHLETES_CTA_TEXT, error: key })
     }
 
     async function handleSubmit(e: React.FormEvent) {
@@ -82,11 +89,21 @@ export default function NiceAthletesEmailForm({
 
         if (!accepted) return fail('submitError')
 
+        void identifyEmailCapture({
+            email,
+            first_name: name,
+            coaching_status: coachingStatus,
+            source: NICE_ATHLETES_CTA_TEXT,
+            page: NICE_ATHLETES_PATH,
+        })
         void trackEmailCaptureSubmitted({
             email,
             cta_text: NICE_ATHLETES_CTA_TEXT,
             visitor_type: 'athlete',
+            page: NICE_ATHLETES_PATH,
+            coaching_status: coachingStatus,
         })
+        void trackEmailCaptureUnlocked({ page: NICE_ATHLETES_PATH, cta_text: NICE_ATHLETES_CTA_TEXT })
         setStatus('idle')
         onCaptured()
     }
@@ -121,6 +138,10 @@ export default function NiceAthletesEmailForm({
                             onClick={() => {
                                 setCoachingStatus(option.value)
                                 setStatus('idle')
+                                void trackCoachingStatusSelected({
+                                    page: NICE_ATHLETES_PATH,
+                                    coaching_status: option.value,
+                                })
                             }}
                             disabled={status === 'loading'}
                             className={`${PILL_CLASS} ${selected ? PILL_SELECTED : PILL_IDLE}`}
