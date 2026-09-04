@@ -258,7 +258,7 @@
     "heroBody": "augo bündelt deine Gespräche mit Athlet:innen, deren Trainingsdaten und qualitatives Session-Feedback zu klaren, umsetzbaren Erkenntnissen — damit du immer weißt, wer Aufmerksamkeit braucht, was zu tun ist und warum.",
     "pricingHeadline": "Einfache Preise. Gebaut, um mit deinem Qualitätscoaching zu wachsen.",
     "trustLine1": "Starte mit einer 14-tägigen kostenlosen Testphase. Keine Kreditkarte nötig.",
-    "trustLine2": "Keine langen Verträge. Keine versteckten Gebühren. Jederzeit kündbar.",
+    "trustLine2": "Keine versteckten Gebühren. Jederzeit kündbar.",
     "trustQuote": "Deine Daten gehören immer dir; geh jederzeit und nimm alle deine Daten mit.",
     "monthly": "Monatlich",
     "annual": "Jährlich",
@@ -278,10 +278,6 @@
         "answer": "Nein – augo ist für Coaches gemacht. Athlet:innen folgen einfach deiner Anleitung."
       },
       {
-        "question": "Muss ich meine Trainingsplattform kündigen?",
-        "answer": "Nein – augo ergänzt deine bestehenden Tools und hilft dir, Daten zu strukturieren und den Überblick über alle Athlet:innen zu behalten."
-      },
-      {
         "question": "Gibt es versteckte Kosten oder Zusatzpakete?",
         "answer": "Pro enthält alles, was du zum Coachen brauchst. Elite ist ein optionales Add-on für Coaches, die persönliche Betreuung möchten, und kann jährlich im Voraus bezahlt werden – zwei Monate gratis. Keine versteckten Gebühren."
       },
@@ -295,7 +291,7 @@
       },
       {
         "question": "Was sehen und nutzen meine Athlet:innen?",
-        "answer": "Sie können ihre Trainingsdaten einsehen, mit dir chatten, qualitatives Feedback teilen und Hinweise zu Trainingsplänen erhalten."
+        "answer": "Athleten sehen ihre Workout-Daten, chatten mit dir, teilen qualitatives Feedback und sehen die vorgegebenen Workouts."
       },
       {
         "question": "Wie funktioniert die Abrechnung pro Athlet?",
@@ -324,8 +320,7 @@
         {
           "title": "Daten",
           "items": [
-            "Zwei-Wege-Sync mit Garmin, Coros, Polar, Wahoo, Zwift; Import von Strava",
-            "3 Monate Trainingshistorie importiert"
+            "Zwei-Wege-Sync mit Garmin, Coros, Polar, Wahoo, Zwift; Import von Strava"
           ]
         },
         {

@@ -48,7 +48,8 @@ describe('pricing amounts', () => {
         expect(getPricingTier(sample[bucket])).toMatchObject({ bucket, ...EXPECTED[bucket] })
     })
 
-    it.each(BUCKETS)('%s promo price is below the struck-through list price', (bucket) => {
+    // The strikethrough is no longer rendered, but the relation still guards the pricing model.
+    it.each(BUCKETS)('%s promo price is below the list price', (bucket) => {
         const tier = getPricingTier(sample[bucket])
         expect(tier.proPrice).toBeLessThan(tier.listPrice)
     })

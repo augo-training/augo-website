@@ -272,11 +272,6 @@ export default function PricingSection() {
                                             </p>
                                         </div>
                                         <div className="flex flex-col gap-2 min-h-[88px] justify-center">
-                                            {/* <s> rather than a line-through span: screen readers and
-                                                crawlers get "former price" semantics for free. */}
-                                            <s className="font-mono text-[14px] leading-none text-[#595959]">
-                                                {pricingTier.symbol}{formatPrice(pricingTier.listPrice)}{t('pricing.pro.priceSuffix')}
-                                            </s>
                                             <div>
                                                 <span className="font-mono font-bold text-[40px] sm:text-[48px] leading-none text-white">
                                                     {pricingTier.symbol}{formatPrice(pricingTier.proPrice)}
@@ -298,15 +293,16 @@ export default function PricingSection() {
                                                     <span className="block font-mono text-[11px] tracking-[1.5px] uppercase text-[#969EA7] mb-1">
                                                         {group.title}
                                                     </span>
-                                                    {/* Items flow as prose to save vertical space.
-                                                        Inline <li> drops the list role in Safari, so
-                                                        role="list" restores it; the separators are
-                                                        decorative and stay unannounced. */}
-                                                    <ul role="list" className="font-satoshi font-medium text-[14px] sm:text-[15px] leading-[160%] text-[#FFFFFF]">
+                                                    {/* One item per line so distinct features read as
+                                                        distinct. A middot marker costs ~14px against a
+                                                        check circle's 32px, which matters on a ~294px
+                                                        mobile card. display:flex drops the li's
+                                                        list-item role, so role="list" restores it. */}
+                                                    <ul role="list" className="flex flex-col gap-1.5">
                                                         {group.items.map((f, i) => (
-                                                            <li key={i} className="inline">
-                                                                {i > 0 && <span aria-hidden="true" className="text-[#595959]"> · </span>}
-                                                                {f}
+                                                            <li key={i} className="flex items-start gap-2 font-satoshi font-medium text-[14px] sm:text-[15px] leading-[160%] text-[#FFFFFF]">
+                                                                <span aria-hidden="true" className="text-[#595959]">·</span>
+                                                                <span>{f}</span>
                                                             </li>
                                                         ))}
                                                     </ul>

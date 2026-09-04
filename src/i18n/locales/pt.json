@@ -258,7 +258,7 @@
     "heroBody": "A augo reúne suas conversas, dados de treino e feedbacks dos atletas em um só lugar — transformando tudo em insights claros para que você saiba exatamente quem precisa de atenção, o que fazer e por quê.",
     "pricingHeadline": "Preço simples. Feito para um coaching de alto nível.",
     "trustLine1": "Comece com 14 dias grátis. Sem precisar de cartão de crédito.",
-    "trustLine2": "Sem contratos longos. Sem taxas ocultas. Cancele quando quiser.",
+    "trustLine2": "Sem taxas ocultas. Cancele quando quiser.",
     "trustQuote": "Seus dados são sempre seus; saia quando quiser e leve todos os seus dados com você.",
     "monthly": "Mensal",
     "annual": "Anual",
@@ -278,10 +278,6 @@
         "answer": "Não — o augo é feito para coaches. Seus atletas simplesmente seguem as suas orientações."
       },
       {
-        "question": "Preciso cancelar minha plataforma de treino atual?",
-        "answer": "Não — o augo funciona junto com as ferramentas que você já usa, ajudando a organizar dados e ter clareza sobre todos os seus atletas."
-      },
-      {
         "question": "Existem custos adicionais ou complementos?",
         "answer": "O Pro inclui tudo o que você precisa para treinar. O Elite é um complemento opcional para coaches que querem suporte dedicado, e pode ser pago anualmente com dois meses grátis. Sem taxas ocultas."
       },
@@ -295,7 +291,7 @@
       },
       {
         "question": "O que meus atletas veem e usam?",
-        "answer": "Eles podem ver seus dados de treino, conversar com você, compartilhar feedback qualitativo e receber orientações sobre planos de treino."
+        "answer": "Os atletas podem ver seus dados de treino, conversar com você, compartilhar feedback qualitativo e ver os treinos prescritos."
       },
       {
         "question": "Como funciona o preço por atleta?",
@@ -324,8 +320,7 @@
         {
           "title": "Dados",
           "items": [
-            "Sincronização bidirecional com Garmin, Coros, Polar, Wahoo, Zwift; importação do Strava",
-            "3 meses de histórico de treinos importados"
+            "Sincronização bidirecional com Garmin, Coros, Polar, Wahoo, Zwift; importação do Strava"
           ]
         },
         {

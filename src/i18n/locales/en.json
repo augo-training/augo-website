@@ -258,7 +258,7 @@
     "heroBody": "augo organizes your conversations with your athletes, your athletes's workout data, and qualitative session feedback into clear, actionable insights — so you always know who needs attention, what to do, and why.",
     "pricingHeadline": "Simple pricing. Built to scale your quality coaching.",
     "trustLine1": "Start with a 14-day free trial. No credit card required.",
-    "trustLine2": "No long contracts. No hidden fees. Cancel anytime.",
+    "trustLine2": "No hidden fees. Cancel anytime.",
     "trustQuote": "Your data is always yours; leave anytime you want and take all your data with you.",
     "monthly": "Monthly",
     "annual": "Yearly",
@@ -278,10 +278,6 @@
         "answer": "No - augo is built for coaches. Athletes simply follow your guidance."
       },
       {
-        "question": "Do I need to cancel my training platform?",
-        "answer": "No - augo works on top of your current tools, helping you organize data and gain clarity across all athletes."
-      },
-      {
         "question": "Are there any additional costs or add-ons?",
         "answer": "Pro includes everything you need to coach. Elite is an optional add-on for coaches who want dedicated support, and can be prepaid yearly for two months free. No hidden fees."
       },
@@ -295,7 +291,7 @@
       },
       {
         "question": "What do my athletes see and use?",
-        "answer": "They are able to see their workout data, chat with you, share qualitative feedback, and receive guidance over training plans."
+        "answer": "Athletes are able to see their workout data, chat with you, share qualitative feedback, and see prescribed workouts."
       },
       {
         "question": "How does per-athlete pricing work?",
@@ -324,8 +320,7 @@
         {
           "title": "Data",
           "items": [
-            "Two-way sync with Garmin, Coros, Polar, Wahoo, Zwift; import from Strava",
-            "3 months of training history imported"
+            "Two-way sync with Garmin, Coros, Polar, Wahoo, Zwift; import from Strava"
           ]
         },
         {
