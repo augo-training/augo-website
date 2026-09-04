@@ -16,16 +16,19 @@ describe('routes and sitemap', () => {
     const coachSlugs = await discoverCoachSlugs()
 
     // localized static + localized coach profiles + english-only blog posts
-    // + 1 for the /en/blog index route + 1 for the /en/nice-athletes landing page.
+    // + 1 for the /en/blog index route + 2 for the /en/nice-athletes and
+    // /en/nice-coaches landing pages.
     expect(routes).toHaveLength(
       LANGS.length * STATIC_PATHS.length +
         LANGS.length * coachSlugs.length +
         slugs.length +
-        2,
+        3,
     )
 
     expect(routes).toContain('/en/nice-athletes')
     expect(routes.filter((route) => route.endsWith('/nice-athletes'))).toHaveLength(1)
+    expect(routes).toContain('/en/nice-coaches')
+    expect(routes.filter((route) => route.endsWith('/nice-coaches'))).toHaveLength(1)
 
     for (const lang of LANGS) {
       for (const path of STATIC_PATHS) {
@@ -56,5 +59,19 @@ describe('routes and sitemap', () => {
     expect(staticEntry?.alternates).toHaveLength(LANGS.length)
     expect(xml).toMatch(/hreflang="x-default"/)
     expect(xml).toMatch(/https:\/\/augotraining\.com\/en\/blog\//)
+  })
+
+  // The Nice landing pages are unlinked from the site but deliberately indexable,
+  // and English-only — so they must be in the sitemap, and must not carry
+  // hreflang alternates pointing at /de or /pt URLs that are never prerendered.
+  it('lists both Nice landing pages as english-only sitemap entries', async () => {
+    const entries = await getSitemapEntries()
+
+    for (const path of ['/en/nice-athletes/', '/en/nice-coaches/']) {
+      const entry = entries.find((e) => e.url === `https://augotraining.com${path}`)
+      expect(entry).toBeTruthy()
+      expect(entry?.alternates).toBeNull()
+      expect(entry?.priority).toBe(0.9)
+    }
   })
 })
