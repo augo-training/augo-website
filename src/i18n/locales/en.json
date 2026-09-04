@@ -227,7 +227,8 @@
       "faq": "FAQ",
       "findAMatch": "Find a match",
       "humanEdge": "Human Edge",
-      "blog": "Blog"
+      "blog": "Blog",
+      "mcp": "MCP setup"
     },
     "copyright": "© 2026 augo. All rights reserved."
   },
@@ -594,6 +595,231 @@
       "title": "Join the waitlist",
       "subtitle": "Drop your email and we'll let you know first when the next Human Edge program opens.",
       "cta": "Submit"
+    }
+  },
+  "mcp": {
+    "hero": {
+      "eyebrow": "Setup guide",
+      "title": "Connect augo to Claude and ChatGPT",
+      "lead": "augo runs an MCP server. Add it as a connector and you can ask Claude or ChatGPT about your athletes — their workouts, how they're feeling, and what you've talked about. You can also ask them to create workouts, build reports and process sessions. The sky is the limit.",
+      "urlLabel": "augo MCP server URL",
+      "lastVerified": "Last checked against Claude and ChatGPT on 4 September 2026."
+    },
+    "atAGlance": {
+      "title": "At a glance",
+      "items": [
+        {
+          "label": "Who it's for",
+          "statement": "Coaches with an augo account."
+        },
+        {
+          "label": "What you need",
+          "statement": "Claude or ChatGPT, and your augo email and password."
+        },
+        {
+          "label": "Setup time",
+          "statement": "About two minutes per app."
+        },
+        {
+          "label": "Cost",
+          "statement": "Included in augo Pro. Coaches also have access during the free trial."
+        }
+      ]
+    },
+    "jumpList": {
+      "title": "On this page",
+      "items": [
+        {
+          "id": "claude",
+          "label": "Connect to Claude"
+        },
+        {
+          "id": "chatgpt",
+          "label": "Connect to ChatGPT"
+        },
+        {
+          "id": "prompts",
+          "label": "What you can ask"
+        },
+        {
+          "id": "access",
+          "label": "What augo can see and do"
+        },
+        {
+          "id": "troubleshooting",
+          "label": "Troubleshooting"
+        }
+      ]
+    },
+    "claude": {
+      "eyebrow": "Claude",
+      "title": "Connect augo to Claude",
+      "lead": "Three steps.",
+      "steps": [
+        {
+          "title": "Open your settings",
+          "body": "In Claude, click your profile, then Settings."
+        },
+        {
+          "title": "Add a custom connector",
+          "body": "Go to Connectors and click Add custom connector.",
+          "note": "On some plans this sits under Customize rather than Settings. On a Team or Enterprise workspace an owner has to add the connector once under Organization settings, after which it appears here for everyone to connect."
+        },
+        {
+          "title": "Point it at augo and sign in",
+          "body": "Name the connector augo, paste the augo MCP server URL below, and click Add. Claude then asks you to sign in — use your augo coach email and password.",
+          "note": "Leave the sign-in window open until it closes on its own. Closing it early leaves the connector half-added."
+        }
+      ]
+    },
+    "chatgpt": {
+      "eyebrow": "ChatGPT",
+      "title": "Connect augo to ChatGPT",
+      "lead": "Four steps. Developer mode has to be on first.",
+      "calloutLabel": "Browser only",
+      "callout": "A custom connector can only be added from ChatGPT in a desktop browser. Once it is added you can use augo from the ChatGPT mobile app as normal.",
+      "steps": [
+        {
+          "title": "Open your settings",
+          "body": "In ChatGPT in a desktop browser, click your profile, then Settings."
+        },
+        {
+          "title": "Turn on developer mode",
+          "body": "Open Connectors, then Advanced. Find Developer mode and switch it on.",
+          "note": "ChatGPT flags this as an elevated-risk setting. That warning covers every custom connector, not augo in particular — it is there because a connector can read your data and act on it."
+        },
+        {
+          "title": "Create a new connector",
+          "body": "Go back to Settings, then Connectors, and click the plus button to create one."
+        },
+        {
+          "title": "Name it and sign in",
+          "body": "Name it augo, paste the augo MCP server URL below, and click Create. Then sign in with your augo coach email and password."
+        }
+      ]
+    },
+    "prompts": {
+      "title": "What you can ask once you're connected",
+      "lead": "Ask in your own words. These are starting points, not commands — nothing has to be phrased a particular way.",
+      "groups": [
+        {
+          "label": "Who needs attention",
+          "items": [
+            "Which of my athletes needs attention today?",
+            "Show me anyone whose feedback has trended down over the last two weeks.",
+            "Summarise my coaching priorities for this morning."
+          ]
+        },
+        {
+          "label": "Training load and sessions",
+          "items": [
+            "What was Anna's training load last week compared with the four weeks before?",
+            "Which sessions did Marco miss this month, and what did he say about them?",
+            "Pull up the details of Sofia's long run yesterday."
+          ]
+        },
+        {
+          "label": "Feedback and wellbeing",
+          "items": [
+            "How have Lena's energy and sleep scores moved since her last race block?",
+            "Which athletes have flagged pain in the last ten days?"
+          ]
+        },
+        {
+          "label": "Messages",
+          "items": [
+            "What did Tom message me about this week that I haven't answered?",
+            "Draft a reply to Julia about moving her Thursday session to Friday."
+          ]
+        },
+        {
+          "label": "Calendar and races",
+          "items": [
+            "Which of my athletes are racing in the next eight weeks?",
+            "Add a note to next Tuesday: the group session moves to the track."
+          ]
+        },
+        {
+          "label": "Zones, anchors and templates",
+          "items": [
+            "What are Peter's current run zones, and when were they last updated?",
+            "Record a new threshold anchor for Anna from Saturday's test.",
+            "Assign my Aerobic 90 template to Marco for Sunday."
+          ]
+        }
+      ]
+    },
+    "access": {
+      "title": "What augo can see, and what it can do",
+      "lead": "Worth reading before you connect.",
+      "items": [
+        {
+          "label": "Your athletes only",
+          "statement": "The connector signs in as you. It sees exactly what you see in augo — your athletes, your messages, your notes. Nothing else, and nothing belonging to another coach."
+        },
+        {
+          "label": "It can act, not just read",
+          "statement": "As well as reading, it can send messages to your athletes, assign and edit workouts, and write notes, race events and performance anchors. Claude and ChatGPT ask you to confirm before an action of that kind."
+        },
+        {
+          "label": "Data leaves augo",
+          "statement": "Whatever the assistant reads is sent to Anthropic or OpenAI to answer your question, under their terms and their data retention. If that is not acceptable for your athletes' data, do not connect."
+        },
+        {
+          "label": "Disconnect any time",
+          "statement": "Remove the augo connector in Claude or ChatGPT settings. Access stops immediately and nothing changes in your augo account."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Troubleshooting",
+      "items": [
+        {
+          "question": "I can't find “Add custom connector” in Claude.",
+          "answer": "It sits under Settings or Customize, depending on your plan. If it is missing entirely you are either on a plan that does not allow custom connectors, or you are in a Team or Enterprise workspace where an owner has to add it once for everyone first."
+        },
+        {
+          "question": "Can I set this up on my phone?",
+          "answer": "Not for ChatGPT — the connector has to be added from a desktop browser. Once it is added you can use it from the mobile app. Claude can be set up on desktop or web."
+        },
+        {
+          "question": "Do I need a paid Claude or ChatGPT plan?",
+          "answer": "Claude allows custom connectors on its free plan with a limit on how many you can have; paid plans lift that. ChatGPT requires developer mode, which is not available on the free plan. Check the current terms with Anthropic or OpenAI — both change these often."
+        },
+        {
+          "question": "The sign-in window closed and nothing happened.",
+          "answer": "Remove the connector and add it again, and this time let the sign-in window close by itself. If it still fails, sign in to augo in the same browser first, then retry."
+        },
+        {
+          "question": "Claude or ChatGPT says it can't find any augo tools.",
+          "answer": "The connector was added but not authorised. Open it in your connector settings and check it shows as connected; if it does not, disconnect and sign in again."
+        },
+        {
+          "question": "Can my athletes connect augo to Claude or ChatGPT?",
+          "answer": "No. The connector is for coach accounts."
+        },
+        {
+          "question": "How do I disconnect augo?",
+          "answer": "Remove the augo connector in Claude or ChatGPT settings. Access stops straight away. Your augo account, athletes and data are unaffected."
+        },
+        {
+          "question": "I already have a connector called augo.",
+          "answer": "Names have to be unique, so remove the old one before adding a new one, or give the new one a different name. The name is only a label — what matters is the server URL."
+        }
+      ],
+      "contactLead": "Still stuck?",
+      "contactCta": "Contact us"
+    },
+    "cta": {
+      "title": "Not on augo yet?",
+      "lead": "The connector is for coaches with an augo account. Start there.",
+      "primary": "See pricing",
+      "secondary": "Book a demo"
+    },
+    "copy": {
+      "label": "Copy",
+      "copied": "Copied",
+      "announce": "Copied to clipboard"
     }
   }
 }

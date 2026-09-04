@@ -19,6 +19,7 @@ import { join, dirname } from "path";
 const TARGETS = {
   home: { path: "/en", out: "og-image.jpg" },
   nice: { path: "/en/nice-athletes", out: "nice-athletes-og.jpg" },
+  mcp: { path: "/en/mcp", out: "mcp-og.jpg" },
 } as const;
 
 type TargetName = keyof typeof TARGETS;

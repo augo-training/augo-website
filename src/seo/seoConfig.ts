@@ -128,6 +128,23 @@ const pageMeta: Record<string, Record<SupportedLanguage, PageMeta>> = {
         'Nice has one of the hardest bike courses in the IM circuit. 5 things to know about the 2026 IRONMAN 70.3 Worlds bike course, from athletes who have raced it.',
     },
   },
+  mcp: {
+    en: {
+      title: 'Connect augo to Claude & ChatGPT | augo MCP Setup',
+      description:
+        "Step-by-step setup for coaches: add augo's MCP server to Claude or ChatGPT and ask about your athletes, training load and feedback in plain language. Two minutes, no code.",
+    },
+    de: {
+      title: 'augo mit Claude & ChatGPT verbinden | augo MCP-Setup',
+      description:
+        'Schritt-für-Schritt-Anleitung für Coaches: augos MCP-Server in Claude oder ChatGPT einrichten und Fragen zu Athleten, Trainingsbelastung und Feedback in normaler Sprache stellen. Zwei Minuten, kein Code.',
+    },
+    pt: {
+      title: 'Conecte a augo ao Claude e ao ChatGPT | Configuração MCP',
+      description:
+        'Guia passo a passo para treinadores: conecte o servidor MCP da augo ao Claude ou ao ChatGPT e pergunte sobre seus atletas, carga de treino e feedback em linguagem natural. Dois minutos, sem código.',
+    },
+  },
 }
 
 export function getPageMeta(page: string, lang: SupportedLanguage): PageMeta {
