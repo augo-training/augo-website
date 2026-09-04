@@ -45,8 +45,18 @@ augo was founded in late 2024 by Fabi and Bruna — endurance coaches who also w
 
 - **Beta launch:** November 2025 (select users, App Store and Google Play)
 - **General availability:** March 26th 2026
-- **Access model:** Released in waves; waitlist members receive priority access and introductory pricing
+- **Access model:** Self-serve. Every new coach starts with a 14-day free trial
 - **Languages supported:** English, German, Portuguese
+
+---
+
+## Pricing
+
+- **Pro:** USD 9 per athlete per month, a promotional price against a USD 19 list price. Billed monthly, no contract. Includes the full platform, athlete matching, the coach community, MCP connections to other AI tools, Claude Sonnet as the default model, full migration support with 3 months of training history imported, and a 45-minute onboarding call.
+- **Free trial:** 14 days of full access for every new coach. There is no free tier; the trial replaces it.
+- **Enterprise:** custom pricing for coaching businesses and multi-coach teams — adds multi-coach support, white label, and platform personalization.
+- **Elite add-on (optional):** USD 100 per month, or USD 1,000 for a year paid up front (two months free). Adds a dedicated account executive, AI consulting and training, and a choice of AI model (Claude Sonnet, Claude Opus, Gemini or ChatGPT).
+- **Currency:** prices are localized by country — CHF in Switzerland, EUR across Europe and the UK, BRL in Brazil, USD elsewhere. The amounts above are USD.
 
 ---
 

@@ -52,6 +52,15 @@ async function prerenderRouteOnce(
     page.setDefaultTimeout(PAGE_TIMEOUT_MS)
     await page.setViewport({ width: 1280, height: 800 })
 
+    // Tell the app it is being prerendered. Without this the geo lookup in
+    // useGeoCountry resolves against the BUILD MACHINE's IP (networkidle0 waits
+    // for it), baking that country's currency into every shipped HTML file.
+    // With the flag set, geo stays unresolved and the UI falls back to the
+    // global USD tier — the same tier JsonLd already pins for determinism.
+    await page.evaluateOnNewDocument(() => {
+      ;(globalThis as unknown as { __PRERENDER__?: boolean }).__PRERENDER__ = true
+    })
+
     const targetUrl = `${baseUrl.replace(/\/$/, '')}${route}`
     await page.goto(targetUrl, { waitUntil: 'networkidle0' })
 
