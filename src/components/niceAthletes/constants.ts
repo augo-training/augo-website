@@ -28,6 +28,9 @@ export const NICE_ATHLETES_GROUP_ID =
 /** Identifies the signup source in MailerLite and in Mixpanel. */
 export const NICE_ATHLETES_CTA_TEXT = 'Nice Athletes'
 
+/** localStorage key behind useCaptureUnlock. Changing it locks subscribers back out. */
+export const NICE_ATHLETES_UNLOCK_KEY = 'augo_nice_athletes_capture_done'
+
 export const COPY = {
     eyebrow: '2026 IRONMAN 70.3 WORLDS NICE',
     title: '5 things to know about the bike course before race day, so nothing catches you by surprise.',

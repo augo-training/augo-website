@@ -109,8 +109,8 @@ const pageMeta: Record<string, Record<SupportedLanguage, PageMeta>> = {
         'Applications are now closed. The Human Edge Initiative pairs one experienced marathoner with elite coach Brian Boisvert for a year of free, personalized coaching — join the waitlist for the next program.',
     },
   },
-  // Ironman Nice landing page is English-only; the de/pt entries exist to
-  // satisfy the type and are never served (SEOHead runs with noAlternates).
+  // The Ironman Nice landing pages are English-only; their de/pt entries exist
+  // to satisfy the type and are never served (SEOHead runs with noAlternates).
   niceAthletes: {
     en: {
       title: 'IRONMAN 70.3 Worlds Nice 2026: Bike Course Guide — augo',
@@ -126,6 +126,23 @@ const pageMeta: Record<string, Record<SupportedLanguage, PageMeta>> = {
       title: 'IRONMAN 70.3 Worlds Nice 2026: Bike Course Guide — augo',
       description:
         'Nice has one of the hardest bike courses in the IM circuit. 5 things to know about the 2026 IRONMAN 70.3 Worlds bike course, from athletes who have raced it.',
+    },
+  },
+  niceCoaches: {
+    en: {
+      title: "IRONMAN 70.3 Worlds Nice 2026: Coach's Race Checklist — augo",
+      description:
+        "The elite coach's checklist for IRONMAN 70.3 Worlds Nice 2026. 10 things to lock in before your athlete's gun goes off, so nothing slips through on race day.",
+    },
+    de: {
+      title: "IRONMAN 70.3 Worlds Nice 2026: Coach's Race Checklist — augo",
+      description:
+        "The elite coach's checklist for IRONMAN 70.3 Worlds Nice 2026. 10 things to lock in before your athlete's gun goes off, so nothing slips through on race day.",
+    },
+    pt: {
+      title: "IRONMAN 70.3 Worlds Nice 2026: Coach's Race Checklist — augo",
+      description:
+        "The elite coach's checklist for IRONMAN 70.3 Worlds Nice 2026. 10 things to lock in before your athlete's gun goes off, so nothing slips through on race day.",
     },
   },
 }
