@@ -518,6 +518,33 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://augotraining.com/en/coaches/gabriele-orazi/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://augotraining.com/en/coaches/gabriele-orazi/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://augotraining.com/de/coaches/gabriele-orazi/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://augotraining.com/pt/coaches/gabriele-orazi/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://augotraining.com/en/coaches/gabriele-orazi/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://augotraining.com/de/coaches/gabriele-orazi/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://augotraining.com/en/coaches/gabriele-orazi/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://augotraining.com/de/coaches/gabriele-orazi/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://augotraining.com/pt/coaches/gabriele-orazi/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://augotraining.com/en/coaches/gabriele-orazi/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://augotraining.com/pt/coaches/gabriele-orazi/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://augotraining.com/en/coaches/gabriele-orazi/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://augotraining.com/de/coaches/gabriele-orazi/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://augotraining.com/pt/coaches/gabriele-orazi/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://augotraining.com/en/coaches/gabriele-orazi/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://augotraining.com/en/coaches/gordon-crawford/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://augotraining.com/en/coaches/gordon-crawford/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://augotraining.com/de/coaches/gordon-crawford/" />
