@@ -41,7 +41,12 @@ export default function NiceAthletes() {
 
     return (
         <>
-            <SEOHead page="niceAthletes" path={NICE_ATHLETES_PATH} noAlternates />
+            <SEOHead
+                page="niceAthletes"
+                path={NICE_ATHLETES_PATH}
+                ogImagePath="/nice-athletes-og.jpg"
+                noAlternates
+            />
             <div
                 className="relative min-h-[100dvh] overflow-hidden flex flex-col bg-dark px-5 sm:px-8 py-3 sm:py-8"
                 style={{ paddingBottom: cookieBannerHeight ? cookieBannerHeight + 20 : undefined }}
