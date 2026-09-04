@@ -152,10 +152,13 @@ function currentPage(): string {
  * are returned: spreading explicit nulls into event properties would overwrite
  * the campaign super-properties the Mixpanel SDK registers on its own.
  */
-export function getUtmParams(): Partial<Record<'utm_source' | 'utm_medium' | 'utm_campaign', string>> {
+export type UtmKey = 'utm_source' | 'utm_medium' | 'utm_campaign' | 'utm_content' | 'utm_term'
+export type UtmParams = Partial<Record<UtmKey, string>>
+
+export function getUtmParams(): UtmParams {
     const params = new URLSearchParams(window.location.search)
-    const out: Partial<Record<'utm_source' | 'utm_medium' | 'utm_campaign', string>> = {}
-    for (const key of ['utm_source', 'utm_medium', 'utm_campaign'] as const) {
+    const out: UtmParams = {}
+    for (const key of ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'] as const) {
         const value = params.get(key)
         if (value) out[key] = value
     }
