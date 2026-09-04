@@ -30,10 +30,9 @@ export const NICE_ATHLETES_CTA_TEXT = 'Nice Athletes'
 
 export const COPY = {
     eyebrow: '2026 IRONMAN 70.3 WORLDS NICE',
-    title: 'Nice has one of the hardest bike courses in the IM circuit.',
-    subtitle:
-        '5 things to know about the bike course before race day, so nothing catches you by surprise.',
-    note: 'From riders who have raced it.',
+    title: '5 things to know about the bike course before race day, so nothing catches you by surprise.',
+    subtitle: 'Nice has one of the hardest bike courses in the IM circuit.',
+    note: 'From athletes who have raced it.',
     /** Required choice. The value is stored on the MailerLite subscriber as the
      *  `coaching_status` custom field, which is what the two segments filter on. */
     coaching: {

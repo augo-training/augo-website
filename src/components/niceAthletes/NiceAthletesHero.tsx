@@ -11,7 +11,7 @@ export default function NiceAthletesHero() {
             <span className="font-mono text-[11px] sm:text-[12px] tracking-[3px] uppercase text-white/55">
                 {COPY.eyebrow}
             </span>
-            <h1 className="font-satoshi font-bold text-[32px] sm:text-[48px] md:text-[60px] leading-[105%] tracking-[-0.03em] text-white max-w-[15ch] sm:max-w-[18ch]">
+            <h1 className="font-satoshi font-bold text-[32px] sm:text-[48px] md:text-[60px] leading-[105%] tracking-[-0.03em] text-white max-w-[20ch] sm:max-w-[22ch]">
                 {COPY.title}
             </h1>
             <p className="font-satoshi font-medium text-[17px] sm:text-[21px] md:text-[23px] leading-[140%] tracking-[-0.005em] text-white/85 max-w-[600px]">
