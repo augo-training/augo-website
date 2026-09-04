@@ -1647,4 +1647,44 @@ export const coaches: Coach[] = [
         media: { portrait: placeholderPortrait },
         socials: { website: 'https://www.movimentor.ch' },
     },
+    {
+        slug: 'gabriele-orazi',
+        name: 'Gabriele Orazi',
+        firstName: 'Gabriele',
+        gender: 'male',
+        tagline:
+            'Trail and ultratrail coach looking for the smallest dose of stress that stimulates the biggest adaptation.',
+        isFoundingCoach: false,
+        status: 'accepting',
+        disciplines: ['running'],
+        specialties: [
+            'trail running',
+            'ultratrail',
+            'ultra',
+            'RPE-based training',
+            'strength training',
+        ],
+        location: { city: 'Padova', country: 'Italy', countryCode: 'IT', timezone: 'Europe/Rome' },
+        coachesRemote: true,
+        languages: [EN, IT],
+        credentials: ['UESCA Certified Ultrarunning Coach'],
+        athleteLevels: ['Intermediate'],
+        communication: 'always-on',
+        offersStrength: true,
+        idealAthlete:
+            'Intermediate runners who love the numbers but trust their feelings before the watch, and question the coach whenever something is not clear',
+        bio: {
+            short:
+                'A good listener who adapts to each athlete, looking for the smallest amount of stress that stimulates the biggest adaptations.',
+            long: [
+                'Gabriele is a UESCA Certified Ultrarunning Coach based in Padova. He started running in high school for the feeling alone — no watch, no app — and found trail running after a handful of half marathons. It has been his sport ever since.',
+                'He describes himself as a good listener, able to adapt the relationship to what each athlete needs. His coaching philosophy is to find the smallest amount of stress with workouts capable of stimulating the biggest adaptations.',
+                'He prescribes by RPE rather than watch data, so his athletes learn to read their own effort, and treats strength training as essential for staying healthy and performing over ultra distance. He coaches mostly ultratrail but trail running at every distance, in English and Italian, and is available to his athletes 24/7.',
+            ],
+            philosophy:
+                'The smallest amount of stress that stimulates the biggest adaptation — and an athlete who trusts their own feelings before they look at the sportwatch.',
+        },
+        media: { portrait: placeholderPortrait },
+        socials: { website: 'https://goemon07.github.io/coach/' },
+    },
 ]
