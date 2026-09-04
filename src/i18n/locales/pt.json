@@ -231,7 +231,8 @@
       "faq": "FAQ",
       "findAMatch": "Encontrar um match",
       "humanEdge": "Human Edge",
-      "blog": "Blog"
+      "blog": "Blog",
+      "mcp": "Configuração MCP"
     },
     "copyright": "© 2026 augo. Todos os direitos reservados."
   },
@@ -594,6 +595,231 @@
       "title": "Join the waitlist",
       "subtitle": "Drop your email and we'll let you know first when the next Human Edge program opens.",
       "cta": "Submit"
+    }
+  },
+  "mcp": {
+    "hero": {
+      "eyebrow": "Guia de configuração",
+      "title": "Conecte a augo ao Claude e ao ChatGPT",
+      "lead": "A augo tem um servidor MCP. Adicione-o como conector e você pode perguntar ao Claude ou ao ChatGPT sobre seus atletas — os treinos deles, como estão se sentindo e o que vocês conversaram. Você também pode pedir que criem treinos, montem relatórios e analisem sessões. O limite é a sua imaginação.",
+      "urlLabel": "URL do servidor MCP da augo",
+      "lastVerified": "Verificado no Claude e no ChatGPT em 4 de setembro de 2026."
+    },
+    "atAGlance": {
+      "title": "Em resumo",
+      "items": [
+        {
+          "label": "Para quem",
+          "statement": "Treinadores com conta na augo."
+        },
+        {
+          "label": "O que precisa",
+          "statement": "Claude ou ChatGPT, e o seu e-mail e senha da augo."
+        },
+        {
+          "label": "Tempo de configuração",
+          "statement": "Cerca de dois minutos por aplicativo."
+        },
+        {
+          "label": "Custo",
+          "statement": "Incluído no augo Pro. Treinadores também têm acesso durante o teste gratuito."
+        }
+      ]
+    },
+    "jumpList": {
+      "title": "Nesta página",
+      "items": [
+        {
+          "id": "claude",
+          "label": "Conectar ao Claude"
+        },
+        {
+          "id": "chatgpt",
+          "label": "Conectar ao ChatGPT"
+        },
+        {
+          "id": "prompts",
+          "label": "O que você pode perguntar"
+        },
+        {
+          "id": "access",
+          "label": "O que a augo acessa"
+        },
+        {
+          "id": "troubleshooting",
+          "label": "Resolução de problemas"
+        }
+      ]
+    },
+    "claude": {
+      "eyebrow": "Claude",
+      "title": "Conecte a augo ao Claude",
+      "lead": "Três passos. Os nomes dos menus aparecem aqui em inglês, como o Claude normalmente os exibe.",
+      "steps": [
+        {
+          "title": "Abra as configurações",
+          "body": "No Claude, clique no seu perfil e depois em Settings."
+        },
+        {
+          "title": "Adicione um conector personalizado",
+          "body": "Vá em Connectors e clique em Add custom connector.",
+          "note": "Em alguns planos isso fica em Customize, e não em Settings. Em um espaço de trabalho Team ou Enterprise, um proprietário precisa cadastrar o conector uma vez em Organization settings; depois disso ele aparece aqui para todos conectarem."
+        },
+        {
+          "title": "Aponte para a augo e entre",
+          "body": "Dê o nome augo ao conector, cole a URL do servidor MCP da augo abaixo e clique em Add. O Claude então pede que você entre — use o e-mail e a senha da sua conta de treinador na augo.",
+          "note": "Deixe a janela de login aberta até que ela feche sozinha. Fechá-la antes deixa o conector pela metade."
+        }
+      ]
+    },
+    "chatgpt": {
+      "eyebrow": "ChatGPT",
+      "title": "Conecte a augo ao ChatGPT",
+      "lead": "Quatro passos. O modo desenvolvedor precisa estar ligado primeiro. Os nomes dos menus aparecem aqui em inglês, como o ChatGPT normalmente os exibe.",
+      "calloutLabel": "Só no navegador",
+      "callout": "Um conector personalizado só pode ser adicionado no ChatGPT em um navegador de computador. Depois de adicionado, você pode usar a augo normalmente pelo aplicativo do ChatGPT.",
+      "steps": [
+        {
+          "title": "Abra as configurações",
+          "body": "No ChatGPT, em um navegador de computador, clique no seu perfil e depois em Settings."
+        },
+        {
+          "title": "Ative o modo desenvolvedor",
+          "body": "Abra Connectors e depois Advanced. Encontre Developer mode e ligue.",
+          "note": "O ChatGPT avisa que essa é uma configuração de risco elevado. O aviso vale para qualquer conector personalizado, não para a augo em particular — ele existe porque um conector pode ler seus dados e agir sobre eles."
+        },
+        {
+          "title": "Crie um novo conector",
+          "body": "Volte a Settings, depois Connectors, e clique no botão de mais para criar um."
+        },
+        {
+          "title": "Dê um nome e entre",
+          "body": "Dê o nome augo, cole a URL do servidor MCP da augo abaixo e clique em Create. Depois entre com o e-mail e a senha da sua conta de treinador na augo."
+        }
+      ]
+    },
+    "prompts": {
+      "title": "O que você pode perguntar depois de conectar",
+      "lead": "Pergunte com suas próprias palavras. Estes são pontos de partida, não comandos — nada precisa ser escrito de um jeito específico.",
+      "groups": [
+        {
+          "label": "Quem precisa de atenção",
+          "items": [
+            "Quais dos meus atletas precisam de atenção hoje?",
+            "Mostre quem teve piora no feedback nas últimas duas semanas.",
+            "Resuma minhas prioridades de treinador para esta manhã."
+          ]
+        },
+        {
+          "label": "Carga de treino e sessões",
+          "items": [
+            "Como foi a carga de treino da Anna na semana passada comparada às quatro anteriores?",
+            "Quais sessões o Marco perdeu neste mês, e o que ele disse sobre elas?",
+            "Abra os detalhes do longão da Sofia ontem."
+          ]
+        },
+        {
+          "label": "Feedback e bem-estar",
+          "items": [
+            "Como evoluíram os índices de energia e sono da Lena desde o último bloco de competição?",
+            "Quais atletas relataram dor nos últimos dez dias?"
+          ]
+        },
+        {
+          "label": "Mensagens",
+          "items": [
+            "Sobre o que o Tom me escreveu esta semana e eu ainda não respondi?",
+            "Escreva uma resposta para a Julia sobre mudar a sessão de quinta para sexta."
+          ]
+        },
+        {
+          "label": "Calendário e provas",
+          "items": [
+            "Quais dos meus atletas competem nas próximas oito semanas?",
+            "Adicione uma nota na próxima terça: a sessão em grupo passa para a pista."
+          ]
+        },
+        {
+          "label": "Zonas, âncoras e modelos",
+          "items": [
+            "Quais são as zonas de corrida atuais do Peter, e quando foram atualizadas pela última vez?",
+            "Registre uma nova âncora de limiar para a Anna a partir do teste de sábado.",
+            "Atribua meu modelo Aerobic 90 ao Marco para domingo."
+          ]
+        }
+      ]
+    },
+    "access": {
+      "title": "O que a augo enxerga, e o que ela pode fazer",
+      "lead": "Vale ler antes de conectar.",
+      "items": [
+        {
+          "label": "Só os seus atletas",
+          "statement": "O conector entra como você. Ele enxerga exatamente o que você enxerga na augo — seus atletas, suas mensagens, suas notas. Nada além disso, e nada que pertença a outro treinador."
+        },
+        {
+          "label": "Ele age, não só lê",
+          "statement": "Além de ler, ele pode enviar mensagens aos seus atletas, atribuir e editar treinos e registrar notas, provas e âncoras de desempenho. O Claude e o ChatGPT pedem sua confirmação antes de uma ação desse tipo."
+        },
+        {
+          "label": "Os dados saem da augo",
+          "statement": "Tudo o que o assistente lê é enviado à Anthropic ou à OpenAI para responder à sua pergunta, sob os termos e as políticas de retenção delas. Se isso não for aceitável para os dados dos seus atletas, não conecte."
+        },
+        {
+          "label": "Desconecte quando quiser",
+          "statement": "Remova o conector da augo nas configurações do Claude ou do ChatGPT. O acesso termina na hora e nada muda na sua conta da augo."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Resolução de problemas",
+      "items": [
+        {
+          "question": "Não encontro “Add custom connector” no Claude.",
+          "answer": "Dependendo do plano, isso fica em Settings ou em Customize. Se não estiver em lugar nenhum, ou você está em um plano sem conectores personalizados, ou está em um espaço Team ou Enterprise em que um proprietário precisa cadastrá-lo uma vez para todos."
+        },
+        {
+          "question": "Posso configurar pelo celular?",
+          "answer": "No ChatGPT não — o conector precisa ser adicionado por um navegador de computador. Depois de adicionado, você pode usá-lo pelo aplicativo. O Claude pode ser configurado pelo navegador ou pelo aplicativo de desktop."
+        },
+        {
+          "question": "Preciso de um plano pago do Claude ou do ChatGPT?",
+          "answer": "O Claude permite conectores personalizados no plano gratuito, com um limite de quantidade; planos pagos aumentam esse limite. O ChatGPT exige o modo desenvolvedor, que não existe no plano gratuito. Confirme as condições atuais com a Anthropic ou a OpenAI — as duas mudam isso com frequência."
+        },
+        {
+          "question": "A janela de login fechou e nada aconteceu.",
+          "answer": "Remova o conector e adicione de novo, e desta vez deixe a janela de login fechar sozinha. Se ainda assim falhar, entre na augo no mesmo navegador antes e tente novamente."
+        },
+        {
+          "question": "O Claude ou o ChatGPT diz que não encontra nenhuma ferramenta da augo.",
+          "answer": "O conector foi adicionado mas não autorizado. Abra-o nas configurações de conectores e veja se aparece como conectado; se não, desconecte e entre de novo."
+        },
+        {
+          "question": "Meus atletas podem conectar a augo ao Claude ou ao ChatGPT?",
+          "answer": "Não. O conector é para contas de treinador."
+        },
+        {
+          "question": "Como desconecto a augo?",
+          "answer": "Remova o conector da augo nas configurações do Claude ou do ChatGPT. O acesso termina imediatamente. Sua conta, seus atletas e seus dados na augo não mudam."
+        },
+        {
+          "question": "Já tenho um conector chamado augo.",
+          "answer": "Os nomes precisam ser únicos, então remova o antigo antes de criar um novo, ou dê outro nome ao novo. O nome é só um rótulo — o que importa é a URL do servidor."
+        }
+      ],
+      "contactLead": "Ainda travado?",
+      "contactCta": "Fale com a gente"
+    },
+    "cta": {
+      "title": "Ainda não usa a augo?",
+      "lead": "O conector é para treinadores com conta na augo. Comece por aí.",
+      "primary": "Ver preços",
+      "secondary": "Agendar uma demo"
+    },
+    "copy": {
+      "label": "Copiar",
+      "copied": "Copiado",
+      "announce": "Copiado para a área de transferência"
     }
   }
 }

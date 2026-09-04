@@ -5,6 +5,8 @@ import type { Coach } from '../data/coaches/types'
 import { GENDER_LABEL } from '../data/coaches/types'
 import { BASE_URL } from './seoConstants'
 import { getPricingTier } from '../config/pricingConfig'
+import { buildMcpHowTo, type McpSchemaStep } from './mcpSchema'
+import { MCP_URL } from '../components/mcp/constants'
 
 export function OrganizationJsonLd() {
   const schema = {
@@ -354,6 +356,49 @@ export function CoachProfileBreadcrumbJsonLd({ coach }: { coach: Coach }) {
       { '@type': 'ListItem', position: 1, name: 'augo', item: `${BASE_URL}/${lang}` },
       { '@type': 'ListItem', position: 2, name: 'Find a Coach', item: `${BASE_URL}/${lang}/find` },
       { '@type': 'ListItem', position: 3, name: coach.name, item: coachUrl(coach, lang) },
+    ],
+  }
+  return (
+    <Helmet>
+      <script type="application/ld+json">{JSON.stringify(schema)}</script>
+    </Helmet>
+  )
+}
+
+/**
+ * One HowTo per connection flow. Google retired HowTo rich results in 2023, so
+ * this is for answer engines and general machine readability, not a SERP badge.
+ */
+export function McpHowToJsonLd({ platform }: { platform: 'claude' | 'chatgpt' }) {
+  const { t, i18n } = useTranslation()
+  const lang = i18n.language || 'en'
+  const steps = t(`mcp.${platform}.steps`, { returnObjects: true }) as McpSchemaStep[]
+  const schema = buildMcpHowTo({
+    platform,
+    toolName: platform === 'claude' ? 'Claude' : 'ChatGPT',
+    lang,
+    name: t(`mcp.${platform}.title`),
+    description: t(`mcp.${platform}.lead`),
+    steps,
+    baseUrl: BASE_URL,
+    mcpUrl: MCP_URL,
+  })
+  return (
+    <Helmet>
+      <script type="application/ld+json">{JSON.stringify(schema)}</script>
+    </Helmet>
+  )
+}
+
+export function McpBreadcrumbJsonLd() {
+  const { i18n } = useTranslation()
+  const lang = i18n.language || 'en'
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'augo', item: `${BASE_URL}/${lang}` },
+      { '@type': 'ListItem', position: 2, name: 'MCP setup', item: `${BASE_URL}/${lang}/mcp` },
     ],
   }
   return (

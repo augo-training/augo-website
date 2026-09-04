@@ -231,7 +231,8 @@
       "faq": "FAQ",
       "findAMatch": "Match finden",
       "humanEdge": "Human Edge",
-      "blog": "Blog"
+      "blog": "Blog",
+      "mcp": "MCP-Setup"
     },
     "copyright": "© 2026 augo. Alle Rechte vorbehalten."
   },
@@ -594,6 +595,231 @@
       "title": "Join the waitlist",
       "subtitle": "Drop your email and we'll let you know first when the next Human Edge program opens.",
       "cta": "Submit"
+    }
+  },
+  "mcp": {
+    "hero": {
+      "eyebrow": "Einrichtung",
+      "title": "augo mit Claude und ChatGPT verbinden",
+      "lead": "augo betreibt einen MCP-Server. Richte ihn als Connector ein, und du kannst Claude oder ChatGPT alles über deine Athleten fragen — ihre Einheiten, wie sie sich fühlen und worüber ihr gesprochen habt. Du kannst sie außerdem Einheiten erstellen, Berichte aufbereiten und Sessions auswerten lassen. Die Möglichkeiten sind offen.",
+      "urlLabel": "augo MCP-Server-URL",
+      "lastVerified": "Zuletzt geprüft mit Claude und ChatGPT am 4. September 2026."
+    },
+    "atAGlance": {
+      "title": "Auf einen Blick",
+      "items": [
+        {
+          "label": "Für wen",
+          "statement": "Coaches mit einem augo-Konto."
+        },
+        {
+          "label": "Was du brauchst",
+          "statement": "Claude oder ChatGPT sowie deine augo-E-Mail und dein Passwort."
+        },
+        {
+          "label": "Einrichtungsdauer",
+          "statement": "Etwa zwei Minuten pro App."
+        },
+        {
+          "label": "Kosten",
+          "statement": "In augo Pro enthalten. Während der kostenlosen Testphase haben Coaches ebenfalls Zugriff."
+        }
+      ]
+    },
+    "jumpList": {
+      "title": "Auf dieser Seite",
+      "items": [
+        {
+          "id": "claude",
+          "label": "Mit Claude verbinden"
+        },
+        {
+          "id": "chatgpt",
+          "label": "Mit ChatGPT verbinden"
+        },
+        {
+          "id": "prompts",
+          "label": "Was du fragen kannst"
+        },
+        {
+          "id": "access",
+          "label": "Worauf augo zugreift"
+        },
+        {
+          "id": "troubleshooting",
+          "label": "Fehlerbehebung"
+        }
+      ]
+    },
+    "claude": {
+      "eyebrow": "Claude",
+      "title": "augo mit Claude verbinden",
+      "lead": "Drei Schritte. Die Bezeichnungen der Menüpunkte stehen hier auf Englisch, so wie Claude sie üblicherweise anzeigt.",
+      "steps": [
+        {
+          "title": "Einstellungen öffnen",
+          "body": "Klicke in Claude auf dein Profil und dann auf Settings."
+        },
+        {
+          "title": "Eigenen Connector hinzufügen",
+          "body": "Gehe zu Connectors und klicke auf Add custom connector.",
+          "note": "In manchen Tarifen findest du das unter Customize statt unter Settings. In einem Team- oder Enterprise-Workspace muss eine Inhaberin oder ein Inhaber den Connector einmalig unter Organization settings anlegen; danach erscheint er hier für alle zum Verbinden."
+        },
+        {
+          "title": "Auf augo richten und anmelden",
+          "body": "Nenne den Connector augo, füge die untenstehende augo MCP-Server-URL ein und klicke auf Add. Claude fragt dich dann nach deiner Anmeldung — nutze deine augo-Coach-E-Mail und dein Passwort.",
+          "note": "Lass das Anmeldefenster offen, bis es sich von selbst schließt. Schließt du es zu früh, bleibt der Connector halb eingerichtet."
+        }
+      ]
+    },
+    "chatgpt": {
+      "eyebrow": "ChatGPT",
+      "title": "augo mit ChatGPT verbinden",
+      "lead": "Vier Schritte. Der Entwicklermodus muss zuerst aktiviert sein. Die Bezeichnungen der Menüpunkte stehen hier auf Englisch, so wie ChatGPT sie üblicherweise anzeigt.",
+      "calloutLabel": "Nur im Browser",
+      "callout": "Ein eigener Connector lässt sich nur in ChatGPT in einem Desktop-Browser hinzufügen. Ist er einmal eingerichtet, kannst du augo wie gewohnt auch in der ChatGPT-App nutzen.",
+      "steps": [
+        {
+          "title": "Einstellungen öffnen",
+          "body": "Klicke in ChatGPT in einem Desktop-Browser auf dein Profil und dann auf Settings."
+        },
+        {
+          "title": "Entwicklermodus aktivieren",
+          "body": "Öffne Connectors und dann Advanced. Suche Developer mode und schalte ihn ein.",
+          "note": "ChatGPT weist darauf hin, dass diese Einstellung mit erhöhtem Risiko verbunden ist. Der Hinweis gilt für jeden eigenen Connector, nicht speziell für augo — er steht dort, weil ein Connector deine Daten lesen und Aktionen ausführen kann."
+        },
+        {
+          "title": "Neuen Connector anlegen",
+          "body": "Gehe zurück zu Settings, dann zu Connectors, und klicke auf das Plus-Symbol."
+        },
+        {
+          "title": "Benennen und anmelden",
+          "body": "Nenne ihn augo, füge die untenstehende augo MCP-Server-URL ein und klicke auf Create. Melde dich anschließend mit deiner augo-Coach-E-Mail und deinem Passwort an."
+        }
+      ]
+    },
+    "prompts": {
+      "title": "Was du fragen kannst, sobald du verbunden bist",
+      "lead": "Frag in deinen eigenen Worten. Das hier sind Startpunkte, keine Befehle — nichts muss auf eine bestimmte Art formuliert werden.",
+      "groups": [
+        {
+          "label": "Wer braucht Aufmerksamkeit",
+          "items": [
+            "Welche meiner Athleten brauchen heute meine Aufmerksamkeit?",
+            "Zeig mir alle, deren Feedback in den letzten zwei Wochen schlechter geworden ist.",
+            "Fasse meine Coaching-Prioritäten für heute Morgen zusammen."
+          ]
+        },
+        {
+          "label": "Trainingsbelastung und Einheiten",
+          "items": [
+            "Wie war Annas Trainingsbelastung letzte Woche im Vergleich zu den vier Wochen davor?",
+            "Welche Einheiten hat Marco diesen Monat ausgelassen, und was hat er dazu gesagt?",
+            "Zeig mir die Details von Sofias langem Lauf gestern."
+          ]
+        },
+        {
+          "label": "Feedback und Wohlbefinden",
+          "items": [
+            "Wie haben sich Lenas Energie- und Schlafwerte seit ihrem letzten Wettkampfblock entwickelt?",
+            "Welche Athleten haben in den letzten zehn Tagen Schmerzen gemeldet?"
+          ]
+        },
+        {
+          "label": "Nachrichten",
+          "items": [
+            "Worauf hat Tom mir diese Woche geschrieben, ohne dass ich geantwortet habe?",
+            "Entwirf eine Antwort an Julia, um ihre Donnerstagseinheit auf Freitag zu verschieben."
+          ]
+        },
+        {
+          "label": "Kalender und Wettkämpfe",
+          "items": [
+            "Welche meiner Athleten haben in den nächsten acht Wochen einen Wettkampf?",
+            "Füge nächsten Dienstag eine Notiz hinzu: Die Gruppeneinheit findet auf der Bahn statt."
+          ]
+        },
+        {
+          "label": "Zonen, Ankerwerte und Vorlagen",
+          "items": [
+            "Was sind Peters aktuelle Laufzonen, und wann wurden sie zuletzt aktualisiert?",
+            "Erfasse für Anna einen neuen Schwellenwert aus dem Test vom Samstag.",
+            "Weise Marco meine Vorlage Aerobic 90 für Sonntag zu."
+          ]
+        }
+      ]
+    },
+    "access": {
+      "title": "Worauf augo zugreift — und was es tun kann",
+      "lead": "Lies das, bevor du dich verbindest.",
+      "items": [
+        {
+          "label": "Nur deine Athleten",
+          "statement": "Der Connector meldet sich als du an. Er sieht genau das, was du in augo siehst — deine Athleten, deine Nachrichten, deine Notizen. Sonst nichts, und nichts, was einem anderen Coach gehört."
+        },
+        {
+          "label": "Es liest nicht nur",
+          "statement": "Der Connector kann außerdem Nachrichten an deine Athleten senden, Einheiten zuweisen und bearbeiten sowie Notizen, Wettkämpfe und Leistungsanker schreiben. Claude und ChatGPT fragen vor solchen Aktionen nach deiner Bestätigung."
+        },
+        {
+          "label": "Daten verlassen augo",
+          "statement": "Alles, was der Assistent liest, wird zur Beantwortung deiner Frage an Anthropic oder OpenAI übertragen — zu deren Bedingungen und deren Speicherfristen. Wenn das für die Daten deiner Athleten nicht vertretbar ist, richte den Connector nicht ein."
+        },
+        {
+          "label": "Jederzeit trennen",
+          "statement": "Entferne den augo-Connector in den Einstellungen von Claude oder ChatGPT. Der Zugriff endet sofort, und an deinem augo-Konto ändert sich nichts."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Fehlerbehebung",
+      "items": [
+        {
+          "question": "Ich finde „Add custom connector“ in Claude nicht.",
+          "answer": "Der Punkt liegt je nach Tarif unter Settings oder unter Customize. Fehlt er ganz, bist du entweder in einem Tarif ohne eigene Connectors, oder du bist in einem Team- oder Enterprise-Workspace, in dem eine Inhaberin oder ein Inhaber den Connector zuerst einmalig für alle anlegen muss."
+        },
+        {
+          "question": "Kann ich das auf dem Handy einrichten?",
+          "answer": "Für ChatGPT nicht — der Connector muss in einem Desktop-Browser hinzugefügt werden. Danach kannst du ihn in der App nutzen. Claude lässt sich im Browser oder in der Desktop-App einrichten."
+        },
+        {
+          "question": "Brauche ich einen kostenpflichtigen Claude- oder ChatGPT-Tarif?",
+          "answer": "Claude erlaubt eigene Connectors auch im kostenlosen Tarif, allerdings begrenzt auf eine kleine Anzahl; kostenpflichtige Tarife heben das an. ChatGPT setzt den Entwicklermodus voraus, den es im kostenlosen Tarif nicht gibt. Prüfe die aktuellen Bedingungen bei Anthropic oder OpenAI — beide ändern das häufig."
+        },
+        {
+          "question": "Das Anmeldefenster hat sich geschlossen und nichts ist passiert.",
+          "answer": "Entferne den Connector und richte ihn erneut ein, und lass das Anmeldefenster diesmal von selbst schließen. Klappt es weiterhin nicht, melde dich zuerst im selben Browser bei augo an und versuche es dann noch einmal."
+        },
+        {
+          "question": "Claude oder ChatGPT findet keine augo-Funktionen.",
+          "answer": "Der Connector wurde hinzugefügt, aber nicht autorisiert. Öffne ihn in den Connector-Einstellungen und prüfe, ob er als verbunden angezeigt wird; falls nicht, trenne ihn und melde dich erneut an."
+        },
+        {
+          "question": "Können meine Athleten augo mit Claude oder ChatGPT verbinden?",
+          "answer": "Nein. Der Connector ist für Coach-Konten gedacht."
+        },
+        {
+          "question": "Wie trenne ich augo wieder?",
+          "answer": "Entferne den augo-Connector in den Einstellungen von Claude oder ChatGPT. Der Zugriff endet sofort. Dein augo-Konto, deine Athleten und deine Daten bleiben unverändert."
+        },
+        {
+          "question": "Ich habe bereits einen Connector namens augo.",
+          "answer": "Namen müssen eindeutig sein. Entferne also den alten, bevor du einen neuen anlegst, oder gib dem neuen einen anderen Namen. Der Name ist nur eine Bezeichnung — entscheidend ist die Server-URL."
+        }
+      ],
+      "contactLead": "Kommst du nicht weiter?",
+      "contactCta": "Schreib uns"
+    },
+    "cta": {
+      "title": "Noch nicht bei augo?",
+      "lead": "Der Connector ist für Coaches mit einem augo-Konto. Fang dort an.",
+      "primary": "Preise ansehen",
+      "secondary": "Demo buchen"
+    },
+    "copy": {
+      "label": "Kopieren",
+      "copied": "Kopiert",
+      "announce": "In die Zwischenablage kopiert"
     }
   }
 }

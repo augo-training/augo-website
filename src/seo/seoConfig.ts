@@ -162,6 +162,23 @@ const pageMeta: Record<string, Record<SupportedLanguage, PageMeta>> = {
         "The elite coach's checklist for IRONMAN 70.3 Worlds Nice 2026. 10 things to lock in before your athlete's gun goes off, so nothing slips through on race day.",
     },
   },
+  mcp: {
+    en: {
+      title: 'Connect augo to Claude & ChatGPT | augo MCP Setup',
+      description:
+        "Step-by-step setup for coaches: add augo's MCP server to Claude or ChatGPT and ask about your athletes, training load and feedback in plain language. Two minutes, no code.",
+    },
+    de: {
+      title: 'augo mit Claude & ChatGPT verbinden | augo MCP-Setup',
+      description:
+        'Schritt-für-Schritt-Anleitung für Coaches: augos MCP-Server in Claude oder ChatGPT einrichten und Fragen zu Athleten, Trainingsbelastung und Feedback in normaler Sprache stellen. Zwei Minuten, kein Code.',
+    },
+    pt: {
+      title: 'Conecte a augo ao Claude e ao ChatGPT | Configuração MCP',
+      description:
+        'Guia passo a passo para treinadores: conecte o servidor MCP da augo ao Claude ou ao ChatGPT e pergunte sobre seus atletas, carga de treino e feedback em linguagem natural. Dois minutos, sem código.',
+    },
+  },
 }
 
 export function getPageMeta(page: string, lang: SupportedLanguage): PageMeta {

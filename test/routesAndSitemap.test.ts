@@ -30,6 +30,11 @@ describe('routes and sitemap', () => {
     expect(routes).toContain('/en/nice-coaches')
     expect(routes.filter((route) => route.endsWith('/nice-coaches'))).toHaveLength(1)
 
+    // /mcp is a localized static path, so the counts above already cover it.
+    // These two assertions stop a refactor from silently dropping the page or
+    // demoting it to English-only.
+    for (const lang of LANGS) expect(routes).toContain(`/${lang}/mcp`)
+
     for (const lang of LANGS) {
       for (const path of STATIC_PATHS) {
         expect(routes).toContain(`/${lang}${path}`)

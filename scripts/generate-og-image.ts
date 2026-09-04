@@ -20,6 +20,7 @@ const TARGETS = {
   home: { path: "/en", out: "og-image.jpg" },
   nice: { path: "/en/nice-athletes", out: "nice-athletes-og.jpg" },
   "nice-coaches": { path: "/en/nice-coaches", out: "nice-coaches-og.jpg" },
+  mcp: { path: "/en/mcp", out: "mcp-og.jpg" },
 } as const;
 
 type TargetName = keyof typeof TARGETS;
