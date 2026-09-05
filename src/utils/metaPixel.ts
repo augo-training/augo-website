@@ -1,21 +1,27 @@
 import { getConsentStatus } from '../components/cookieUtils'
+import { isTrackingEnabled } from './trackingEnv'
 
 /**
  * Meta Pixel for the website.
  *
- * Consent: the pixel script is not requested at all until the visitor accepts
- * the cookie banner — not even with `fbq('consent', 'revoke')`, which is what
- * Meta documents but which still hands Meta an IP and user agent on every page
- * load. Events fired before the banner is answered (the landing PageView in
- * particular) are held in a small in-memory queue and replayed on accept; a
- * decline empties it. Same shape as the Mixpanel wrapper in `analytics.ts`.
+ * Consent: an unanswered cookie banner counts as permission to track, an
+ * explicit Decline stops it. The ad landing pages are single-screen dead ends
+ * where the banner only appears 800ms in, so most ad visitors never answer it;
+ * treating that silence as "no" meant Meta saw almost nothing. This is the old
+ * implied-consent model, chosen knowingly — see the banner copy, which says
+ * the cookies are already on and that Decline turns them off.
+ *
+ * A Decline stops further sending, ours and Meta's own: `metaTrack` returns
+ * early, and `fbq('consent', 'revoke')` covers the already-loaded fbevents.js
+ * in case Automatic Events is ever switched on in Events Manager. It does not
+ * try to undo tracking that already happened — `_fbp` and `_fbc` are left in
+ * place, and no profile is deleted.
  *
  * Deliberately NOT in `index.html`: the build prerenders every route through
- * Puppeteer (`scripts/prerender.ts`), and CI builds on every PR, so a base
- * snippet in the shared <head> would fire a few hundred PageViews from the
- * build machine each time. Loading it from here means the consent gate keeps
- * the prerenderer out — Puppeteer starts with empty localStorage, so consent
- * reads as 'pending' and nothing is ever appended to the document.
+ * Puppeteer, so a base snippet in the shared <head> would fire a few hundred
+ * PageViews from the build machine each time. The prerenderer is kept out by
+ * the hostname guard in `./trackingEnv` — it used to be kept out by the consent
+ * gate, which stopped being true when silence started counting as yes.
  *
  * The pixel id is public by design (it ships in the page source of every site
  * that uses one), so it lives here rather than in an env var, like the
@@ -23,7 +29,6 @@ import { getConsentStatus } from '../components/cookieUtils'
  */
 
 const PIXEL_ID = '1875178980121622'
-const MAX_QUEUE = 20
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Fbq = (...args: any[]) => void
@@ -36,23 +41,10 @@ declare global {
 }
 
 type Props = Record<string, string | number>
+type Kind = 'track' | 'trackCustom'
 
-interface QueuedEvent {
-    kind: 'track' | 'trackCustom'
-    event: string
-    props?: Props
-}
-
-const queue: QueuedEvent[] = []
 let loaded = false
-
-function isEnabled(): boolean {
-    if (typeof window === 'undefined') return false
-    // In `vite dev` nothing is sent unless VITE_META_PIXEL_DEBUG=1, so local
-    // work does not pollute the ad account.
-    if (import.meta.env.DEV && import.meta.env.VITE_META_PIXEL_DEBUG !== '1') return false
-    return true
-}
+let revoked = false
 
 /** Meta's base snippet, transcribed. The stub queues calls made before
  *  fbevents.js finishes loading and replays them once it does. */
@@ -73,7 +65,7 @@ function installStub(): void {
 
 function loadPixel(): boolean {
     if (loaded) return true
-    if (!isEnabled() || getConsentStatus() !== 'accepted') return false
+    if (!isTrackingEnabled() || getConsentStatus() === 'declined') return false
     try {
         installStub()
         const script = document.createElement('script')
@@ -89,54 +81,46 @@ function loadPixel(): boolean {
     }
 }
 
-function send(item: QueuedEvent): void {
+function metaTrack(kind: Kind, event: string, props?: Props): void {
+    if (!isTrackingEnabled()) return
+    if (getConsentStatus() === 'declined') return
+    if (!loadPixel()) return
     try {
         // Two args when there are no properties, the way Meta's own snippet
         // calls it — fbq treats a trailing undefined as an empty parameter bag.
-        if (item.props) window.fbq?.(item.kind, item.event, item.props)
-        else window.fbq?.(item.kind, item.event)
+        if (props) window.fbq?.(kind, event, props)
+        else window.fbq?.(kind, event)
     } catch {
         // Silently ignore if blocked
     }
 }
 
-function metaTrack(kind: QueuedEvent['kind'], event: string, props?: Props): void {
-    if (!isEnabled()) return
-    const consent = getConsentStatus()
-    if (consent === 'declined') return
-    if (consent === 'pending') {
-        queue.push({ kind, event, props })
-        if (queue.length > MAX_QUEUE) queue.shift()
-        return
+/** Only meaningful once fbevents.js is on the page; before that there is
+ *  nothing loaded to tell anything to. */
+function setConsent(state: 'revoke' | 'grant'): void {
+    if (!loaded) return
+    if ((state === 'revoke') === revoked) return
+    revoked = state === 'revoke'
+    try {
+        window.fbq?.('consent', state)
+    } catch {
+        // Silently ignore if blocked
     }
-    if (!loadPixel()) return
-    send({ kind, event, props })
-}
-
-/** Sends whatever was held while the banner was unanswered. */
-function flush(): void {
-    if (!loadPixel()) return
-    for (const item of queue.splice(0)) send(item)
-}
-
-function discardQueue(): void {
-    queue.length = 0
 }
 
 export function setupMetaPixelConsentListener(): () => void {
-    flush()
-    // Consent changes in the current tab (custom event from CookieConsent)
-    const consentHandler = () => {
-        const consent = getConsentStatus()
-        if (consent === 'accepted') flush()
-        else if (consent === 'declined') discardQueue()
+    const apply = (consent = getConsentStatus()) => {
+        if (consent === 'declined') setConsent('revoke')
+        else if (consent === 'accepted') setConsent('grant')
     }
+    // Consent changes in the current tab (custom event from CookieConsent)
+    const consentHandler = () => apply()
     window.addEventListener('cookie-consent-changed', consentHandler)
     // Consent changes from other tabs (storage event)
     const storageHandler = (e: StorageEvent) => {
         if (e.key !== 'augo_cookie_consent') return
-        if (e.newValue === 'accepted') flush()
-        else if (e.newValue === 'declined') discardQueue()
+        if (e.newValue === 'declined') setConsent('revoke')
+        else if (e.newValue === 'accepted') setConsent('grant')
     }
     window.addEventListener('storage', storageHandler)
     return () => {

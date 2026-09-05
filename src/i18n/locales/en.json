@@ -247,7 +247,7 @@
     "daysLeft_other": "{{count}} days left"
   },
   "cookies": {
-    "message": "We use third-party cookies to improve your experience.",
+    "message": "We use third-party cookies to improve your experience. Decline to turn them off.",
     "decline": "Decline",
     "accept": "Accept"
   },
