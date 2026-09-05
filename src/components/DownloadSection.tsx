@@ -1,7 +1,6 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
-import { QRCodeSVG } from 'qrcode.react'
 import bgImage from '../assets/images/bg_section_1.webp'
 import { trackDownloadPageViewed, trackAppStoreClicked } from '../utils/analytics'
 
@@ -37,16 +36,17 @@ const PLAY_BASIS = 'basis-[51%]'
 const CARD_BORDER = 'linear-gradient(135deg, rgba(80,80,80,0.3), rgba(60,60,60,0.2), rgba(40,40,40,0.15))'
 
 /**
- * Store badges plus the desktop QR handoff. Both cards carry their own copy so each
- * audience can act without reading across to the other column.
+ * The app store badges. Both cards carry their own copy so each audience can act
+ * without reading across to the other column.
  */
-function AppLinks({ qrValue }: { qrValue: string }) {
+function AppLinks() {
     const { t } = useTranslation()
 
     return (
         // mt-auto pins this to the card's bottom edge: the coaches card has a button
         // the athletes card lacks, and without it the two groups sit at different heights.
-        <div className="mt-auto flex flex-col gap-3">
+        // Hidden on tablets on purpose: augo is a phone-and-web product, not a tablet app.
+        <div className="mt-auto tablet:hidden flex flex-col gap-3">
             <span className="font-mono text-[12px] tracking-[2px] uppercase text-[#969EA7]">
                 {t('download.getTheApp')}
             </span>
@@ -83,22 +83,12 @@ function AppLinks({ qrValue }: { qrValue: string }) {
                     />
                 </a>
             </div>
-            {/* Desktop only: a QR has no job on the phone you would scan it with. */}
-            <div className="hidden md:flex items-center gap-3">
-                <div className="p-2 bg-white rounded-lg flex-shrink-0">
-                    <QRCodeSVG value={qrValue} size={120} />
-                </div>
-                <p className="font-satoshi text-[13px] leading-[150%] text-[#969EA7]">
-                    {t('download.scanToDownload')}
-                </p>
-            </div>
         </div>
     )
 }
 
 export default function DownloadSection() {
     const { t } = useTranslation()
-    const [currentUrl] = useState(() => window.location.href)
     const eyebrowRef = useRef<HTMLDivElement>(null)
     const headlineRef = useRef<HTMLHeadingElement>(null)
     const cardsRef = useRef<HTMLDivElement>(null)
@@ -174,15 +164,17 @@ export default function DownloadSection() {
                                     {t('download.coachesNote')}
                                 </p>
                             </div>
+                            {/* The coach web app is not usable on a phone; there the store buttons
+                                below are the way in. Tablets keep this — web is exactly where we want them. */}
                             <a
                                 href={WEBAPP_URL}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="btn-gradient font-mono text-[12px] sm:text-[13px] font-extrabold tracking-[2px] uppercase text-white rounded-lg h-12 px-6 flex items-center justify-center hover:brightness-110 transition-all duration-200"
+                                className="btn-gradient phone:hidden font-mono text-[12px] sm:text-[13px] font-extrabold tracking-[2px] uppercase text-white rounded-lg h-12 px-6 flex items-center justify-center hover:brightness-110 transition-all duration-200"
                             >
                                 {t('download.signUp')}
                             </a>
-                            <AppLinks qrValue={currentUrl} />
+                            <AppLinks />
                         </div>
                     </div>
 
@@ -200,7 +192,12 @@ export default function DownloadSection() {
                                     {t('download.athletesNote')}
                                 </p>
                             </div>
-                            <AppLinks qrValue={currentUrl} />
+                            <AppLinks />
+                            {/* Tablet: the athlete app is phone-only, so point them at their phone
+                                rather than leaving the card with no next step. */}
+                            <p className="hidden tablet:block mt-auto font-satoshi text-[13px] leading-[150%] text-[#969EA7]">
+                                {t('download.tabletAthletesNote')}
+                            </p>
                         </div>
                     </div>
                 </div>

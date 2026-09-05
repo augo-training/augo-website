@@ -20,6 +20,12 @@
   --color-yellow: #FFCA1E;
 }
 
+/* Device classes by input capability first — a narrow desktop window is not a phone.
+   The min-height on tablet is what keeps a landscape phone (852x393) from matching:
+   width alone would misread it as a tablet and strip its store buttons. */
+@custom-variant phone (@media (hover: none) and (pointer: coarse) and ((max-width: 767px) or (max-height: 599px)));
+@custom-variant tablet (@media (hover: none) and (pointer: coarse) and (min-width: 768px) and (min-height: 600px));
+
 /* Base Styles */
 html {
   scroll-behavior: auto;
