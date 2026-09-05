@@ -1,5 +1,11 @@
 import { getConsentStatus } from '../components/cookieUtils'
 import { normalizePage } from './page'
+import {
+    trackMetaPageView,
+    trackMetaLead,
+    trackMetaViewContent,
+    trackMetaAppStoreClick,
+} from './metaPixel'
 
 /**
  * Mixpanel wrapper for the website.
@@ -12,6 +18,11 @@ import { normalizePage } from './page'
  *
  * Environment: in `vite dev` nothing is sent unless VITE_MIXPANEL_DEBUG=1, so
  * local work stops polluting the production project.
+ *
+ * Meta Pixel: a few of the wrappers below also fan out to `./metaPixel`, which
+ * keeps its own consent gate and queue. Only those four events go to Meta —
+ * the fan-out is deliberately in the named wrappers rather than in `track()`,
+ * so adding a Mixpanel event never silently starts sending it to Meta too.
  */
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -168,6 +179,7 @@ export function getUtmParams(): UtmParams {
 // ── Page view tracking ──
 
 export async function trackPageViewed(props: { page: string; referrer: string; language: string }): Promise<void> {
+    trackMetaPageView()
     return track('page_viewed', { ...props, ...getUtmParams() })
 }
 
@@ -238,6 +250,8 @@ interface EmailCaptureSubmittedProps {
 /** Event name kept for continuity with existing reports; it covers every email
  *  capture on the site, not only pricing. */
 export async function trackEmailCaptureSubmitted(props: EmailCaptureSubmittedProps): Promise<void> {
+    // Meta gets the CTA label only — never the email address.
+    trackMetaLead({ content_name: props.cta_text })
     return track('pricing_email_capture_submitted', { ...props, ...getUtmParams() })
 }
 
@@ -325,10 +339,12 @@ export async function trackFindPageViewed(): Promise<void> {
 // ── Download page tracking ──
 
 export async function trackDownloadPageViewed(): Promise<void> {
+    trackMetaViewContent({ content_name: 'download' })
     return track('download_page_viewed', { ...getUtmParams() })
 }
 
 export async function trackAppStoreClicked(props: { store: 'app_store' | 'google_play' }): Promise<void> {
+    trackMetaAppStoreClick({ store: props.store })
     return track('app_store_clicked', props)
 }
 
