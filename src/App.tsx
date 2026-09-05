@@ -19,7 +19,7 @@ import BlogPost from './pages/BlogPost'
 import BlogIndex from './pages/BlogIndex'
 import NiceAthletes from './pages/NiceAthletes'
 import NiceCoaches from './pages/NiceCoaches'
-import { setupMixpanelConsentListener } from './utils/analytics'
+import { setupMetaPixelConsentListener } from './utils/metaPixel'
 
 // March 26, 2026 at 20:00 Zurich time
 // DST starts March 29, 2026, so March 26 is still CET (UTC+1)
@@ -37,9 +37,10 @@ function CoachesIndexToFind() {
 }
 
 function App() {
-  // App-level so Mixpanel also initialises after consent on routes outside
-  // LanguageLayout (the top-level 404 and legacy redirects).
-  useEffect(() => setupMixpanelConsentListener(), [])
+  // App-level so a decline is honoured on routes outside LanguageLayout too
+  // (the top-level 404 and legacy redirects). Mixpanel needs no listener: it
+  // re-reads consent on every track() and sends nothing on its own.
+  useEffect(() => setupMetaPixelConsentListener(), [])
 
   return (
     <BrowserRouter>

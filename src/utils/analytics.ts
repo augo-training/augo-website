@@ -1,48 +1,52 @@
 import { getConsentStatus } from '../components/cookieUtils'
 import { normalizePage } from './page'
+import { isLocalHost, isTrackingEnabled } from './trackingEnv'
+import {
+    trackMetaPageView,
+    trackMetaLead,
+    trackMetaViewContent,
+    trackMetaAppStoreClick,
+} from './metaPixel'
 
 /**
  * Mixpanel wrapper for the website.
  *
- * Consent: nothing is sent until the visitor accepts the cookie banner. Events
- * fired before the banner is answered (the landing page_viewed in particular)
- * are held in a small in-memory queue and flushed the moment consent is given,
- * so a first-time visitor's landing and UTM parameters are not lost. A decline
- * empties the queue.
+ * Consent: an unanswered cookie banner counts as permission to track, an
+ * explicit Decline stops it. Most visitors never answer a banner, and treating
+ * that silence as "no" was losing the landing event and its UTMs for the bulk
+ * of paid-ad traffic. A decline stops further sending; it does not delete what
+ * was already collected.
  *
- * Environment: in `vite dev` nothing is sent unless VITE_MIXPANEL_DEBUG=1, so
- * local work stops polluting the production project.
+ * Environment: `./trackingEnv` allows tracking only from a non-local hostname,
+ * which is what keeps `vite dev`, `vite preview`, CI and the 177-route
+ * prerender pass out of the production project. Set VITE_TRACKING_DEBUG=1 to
+ * track from localhost while testing.
+ *
+ * Meta Pixel: a few of the wrappers below also fan out to `./metaPixel`, which
+ * keeps its own consent gate. Only those four events go to Meta —
+ * the fan-out is deliberately in the named wrappers rather than in `track()`,
+ * so adding a Mixpanel event never silently starts sending it to Meta too.
  */
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Props = Record<string, any>
 
-interface QueuedEvent {
-    event: string
-    props?: Props
-    queuedAt: number
-}
-
-interface PendingIdentity {
+interface Identity {
     distinctId: string
     set: Props
     setOnce: Props
 }
 
-const MAX_QUEUE = 20
-const queue: QueuedEvent[] = []
-let pendingIdentity: PendingIdentity | null = null
 let initialized = false
 
 function isEnabled(): boolean {
     if (!import.meta.env.VITE_MIXPANEL_TOKEN) return false
-    if (import.meta.env.DEV && import.meta.env.VITE_MIXPANEL_DEBUG !== '1') return false
-    return true
+    return isTrackingEnabled()
 }
 
 async function tryInit(): Promise<boolean> {
     if (initialized) return true
-    if (!isEnabled() || getConsentStatus() !== 'accepted') return false
+    if (!isEnabled() || getConsentStatus() === 'declined') return false
     try {
         const { default: mixpanel } = await import('mixpanel-browser')
         mixpanel.init(import.meta.env.VITE_MIXPANEL_TOKEN, {
@@ -51,7 +55,7 @@ async function tryInit(): Promise<boolean> {
         })
         mixpanel.register({
             platform: 'website',
-            environment: import.meta.env.DEV ? 'development' : 'production',
+            environment: isLocalHost() ? 'development' : 'production',
         })
         initialized = true
         return true
@@ -61,81 +65,22 @@ async function tryInit(): Promise<boolean> {
     }
 }
 
-async function applyIdentity(identity: PendingIdentity): Promise<void> {
+async function applyIdentity(identity: Identity): Promise<void> {
     const { default: mixpanel } = await import('mixpanel-browser')
     mixpanel.identify(identity.distinctId)
     mixpanel.people.set(identity.set)
     mixpanel.people.set_once(identity.setOnce)
 }
 
-/** Sends whatever was held while the banner was unanswered. Identity first, so
- *  the queued events land on the profile. */
-async function flush(): Promise<void> {
-    if (!(await tryInit())) return
-    try {
-        if (pendingIdentity) {
-            const identity = pendingIdentity
-            pendingIdentity = null
-            await applyIdentity(identity)
-        }
-        const items = queue.splice(0)
-        if (items.length === 0) return
-        const { default: mixpanel } = await import('mixpanel-browser')
-        const now = Date.now()
-        for (const item of items) {
-            mixpanel.track(item.event, {
-                ...item.props,
-                queued_for_consent: true,
-                consent_delay_ms: now - item.queuedAt,
-            })
-        }
-    } catch {
-        // Silently ignore if blocked
-    }
-}
-
-function discardQueue(): void {
-    queue.length = 0
-    pendingIdentity = null
-}
-
 async function track(event: string, props?: Props): Promise<void> {
     if (!isEnabled()) return
-    const consent = getConsentStatus()
-    if (consent === 'declined') return
-    if (consent === 'pending') {
-        queue.push({ event, props, queuedAt: Date.now() })
-        if (queue.length > MAX_QUEUE) queue.shift()
-        return
-    }
+    if (getConsentStatus() === 'declined') return
     if (!(await tryInit())) return
     try {
         const { default: mixpanel } = await import('mixpanel-browser')
         mixpanel.track(event, props)
     } catch {
         // Silently ignore if blocked
-    }
-}
-
-export function setupMixpanelConsentListener(): () => void {
-    void flush()
-    // Consent changes in the current tab (custom event from CookieConsent)
-    const consentHandler = () => {
-        const consent = getConsentStatus()
-        if (consent === 'accepted') void flush()
-        else if (consent === 'declined') discardQueue()
-    }
-    window.addEventListener('cookie-consent-changed', consentHandler)
-    // Consent changes from other tabs (storage event)
-    const storageHandler = (e: StorageEvent) => {
-        if (e.key !== 'augo_cookie_consent') return
-        if (e.newValue === 'accepted') void flush()
-        else if (e.newValue === 'declined') discardQueue()
-    }
-    window.addEventListener('storage', storageHandler)
-    return () => {
-        window.removeEventListener('cookie-consent-changed', consentHandler)
-        window.removeEventListener('storage', storageHandler)
     }
 }
 
@@ -168,6 +113,7 @@ export function getUtmParams(): UtmParams {
 // ── Page view tracking ──
 
 export async function trackPageViewed(props: { page: string; referrer: string; language: string }): Promise<void> {
+    trackMetaPageView()
     return track('page_viewed', { ...props, ...getUtmParams() })
 }
 
@@ -238,6 +184,8 @@ interface EmailCaptureSubmittedProps {
 /** Event name kept for continuity with existing reports; it covers every email
  *  capture on the site, not only pricing. */
 export async function trackEmailCaptureSubmitted(props: EmailCaptureSubmittedProps): Promise<void> {
+    // Meta gets the CTA label only — never the email address.
+    trackMetaLead({ content_name: props.cta_text })
     return track('pricing_email_capture_submitted', { ...props, ...getUtmParams() })
 }
 
@@ -271,12 +219,12 @@ interface IdentifyEmailCaptureProps {
 /**
  * Ties the anonymous visitor to a Mixpanel profile keyed by email, so the
  * events before signup, later visits, and the MailerLite subscriber can be
- * joined. Held until consent if the banner is still unanswered.
+ * joined.
  */
 export async function identifyEmailCapture(props: IdentifyEmailCaptureProps): Promise<void> {
     if (!isEnabled()) return
     const distinctId = props.email.trim().toLowerCase()
-    const identity: PendingIdentity = {
+    const identity: Identity = {
         distinctId,
         set: {
             $email: distinctId,
@@ -292,12 +240,7 @@ export async function identifyEmailCapture(props: IdentifyEmailCaptureProps): Pr
             first_signup_page: props.page,
         },
     }
-    const consent = getConsentStatus()
-    if (consent === 'declined') return
-    if (consent === 'pending') {
-        pendingIdentity = identity
-        return
-    }
+    if (getConsentStatus() === 'declined') return
     if (!(await tryInit())) return
     try {
         await applyIdentity(identity)
@@ -325,10 +268,12 @@ export async function trackFindPageViewed(): Promise<void> {
 // ── Download page tracking ──
 
 export async function trackDownloadPageViewed(): Promise<void> {
+    trackMetaViewContent({ content_name: 'download' })
     return track('download_page_viewed', { ...getUtmParams() })
 }
 
 export async function trackAppStoreClicked(props: { store: 'app_store' | 'google_play' }): Promise<void> {
+    trackMetaAppStoreClick({ store: props.store })
     return track('app_store_clicked', props)
 }
 
@@ -346,8 +291,10 @@ export async function trackContactFormOpened(): Promise<void> {
 
 // ── Cookie consent tracking ──
 
-/** Declines cannot be tracked: Mixpanel never initialises without consent. The
- *  accept carries the page and UTMs so the landing is attributable on its own. */
+/** Declines are deliberately not recorded — sending an event about someone at
+ *  the moment they opt out is the wrong instinct, and the decline rate is still
+ *  derivable from page_viewed against cookie_consent_accepted. The accept
+ *  carries the page and UTMs so the landing is attributable on its own. */
 export async function trackCookieConsentResponse(props: { response: 'accepted' | 'declined' }): Promise<void> {
     if (props.response !== 'accepted') return
     return track('cookie_consent_accepted', {

@@ -1,10 +1,13 @@
 {
   "compilerOptions": {
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.test.tsbuildinfo",
     "target": "ES2023",
-    "lib": ["ES2023"],
+    /* Tests exercise browser modules, so they need the DOM lib and the Vite
+       env types. Kept apart from tsconfig.node.json so scripts/ still has no
+       DOM globals to reach for. */
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
     "module": "ESNext",
-    "types": ["node", "vitest/globals"],
+    "types": ["node", "vitest/globals", "vite/client"],
     "skipLibCheck": true,
 
     /* Bundler mode */
@@ -22,5 +25,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["vite.config.ts", "vitest.config.ts", "scripts/**/*.ts"]
+  "include": ["test/**/*.ts", "test/**/*.d.ts"]
 }
