@@ -124,7 +124,7 @@
     "acceptCookies": "Accept Cookies"
   },
   "download": {
-    "tag": "Download",
+    "tag": "Sign-up",
     "headline": "Join the future of coaching.",
     "forCoaches": "For coaches",
     "coachesNote": "augo works on both mobile and web. Create an account on either.",
@@ -133,8 +133,7 @@
     "athletesNote": "augo works on mobile for athletes. Download the app to work with your coach.",
     "getTheApp": "Get the app",
     "downloadOnAppStore": "Download on the App Store",
-    "getItOnGooglePlay": "Get it on Google Play",
-    "scanToDownload": "Scan to download the mobile app"
+    "getItOnGooglePlay": "Get it on Google Play"
   },
   "join": {
     "headline": "Join the community of coaches & athletes who are looking for a new standard",

@@ -124,7 +124,7 @@
     "acceptCookies": "Aceitar Cookies"
   },
   "download": {
-    "tag": "Download",
+    "tag": "Criar conta",
     "headline": "Faça parte do futuro do coaching.",
     "forCoaches": "Para coaches",
     "coachesNote": "A augo funciona no mobile e na web. Crie sua conta onde preferir.",
@@ -133,8 +133,7 @@
     "athletesNote": "Para atletas, a augo funciona no mobile. Baixe o app para treinar com seu coach.",
     "getTheApp": "Baixar o app",
     "downloadOnAppStore": "Baixar na App Store",
-    "getItOnGooglePlay": "Disponível no Google Play",
-    "scanToDownload": "Escaneie para baixar o app"
+    "getItOnGooglePlay": "Disponível no Google Play"
   },
   "join": {
     "headline": "Junte-se à comunidade de coaches e atletas que buscam um novo padrão",
