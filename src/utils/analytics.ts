@@ -161,6 +161,8 @@ export async function trackPricingPageViewed(props: PricingPageViewedProps): Pro
 interface PricingCtaClickedProps {
     cta_text: string
     billing_period: 'monthly' | 'yearly'
+    /** Stable id for the button, since cta_text is localized: 'free' | 'unlimited' | 'closing_band'. */
+    plan: string
 }
 
 export async function trackPricingCtaClicked(props: PricingCtaClickedProps): Promise<void> {
@@ -272,7 +274,12 @@ export async function trackDownloadPageViewed(): Promise<void> {
     return track('download_page_viewed', { ...getUtmParams() })
 }
 
-export async function trackAppStoreClicked(props: { store: 'app_store' | 'google_play' }): Promise<void> {
+/** `visitor_type` says which of the two /download cards the badge was clicked in;
+ *  it reuses the values the email capture already sends. */
+export async function trackAppStoreClicked(props: {
+    store: 'app_store' | 'google_play'
+    visitor_type: 'coach' | 'athlete'
+}): Promise<void> {
     trackMetaAppStoreClick({ store: props.store })
     return track('app_store_clicked', props)
 }

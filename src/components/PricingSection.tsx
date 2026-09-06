@@ -323,7 +323,7 @@ export default function PricingSection() {
                                     className="font-mono text-[12px] sm:text-[13px] font-extrabold tracking-[2px] uppercase rounded-lg text-center h-12 flex items-center justify-center px-6 transition-all duration-200 text-[#EEE] hover:text-[#FFF] cursor-pointer"
                                     style={{ background: '#1E1E1E', border: '1px solid #333' }}
                                     onClick={() => {
-                                        void trackPricingCtaClicked({ cta_text: t('pricing.free.cta'), billing_period: billingPeriod })
+                                        void trackPricingCtaClicked({ cta_text: t('pricing.free.cta'), billing_period: billingPeriod, plan: 'free' })
                                         openModal(t('pricing.free.cta'))
                                     }}
                                 >
@@ -403,7 +403,7 @@ export default function PricingSection() {
                                             className="btn-gradient font-mono text-[12px] sm:text-[13px] font-extrabold tracking-[2px] uppercase text-white rounded-lg text-center h-12 flex items-center justify-center px-6 hover:brightness-110 transition-all duration-200 cursor-pointer"
                                             onClick={() => {
                                                 const label = t('pricing.flat.cta')
-                                                void trackPricingCtaClicked({ cta_text: label, billing_period: billingPeriod })
+                                                void trackPricingCtaClicked({ cta_text: label, billing_period: billingPeriod, plan: 'unlimited' })
                                                 openModal(label)
                                             }}
                                         >
@@ -554,7 +554,7 @@ export default function PricingSection() {
                         data-cta="pricing"
                         style={{ width: '220px', height: '48px' }}
                         onClick={() => {
-                            void trackPricingCtaClicked({ cta_text: t('pricing.closingCta'), billing_period: billingPeriod })
+                            void trackPricingCtaClicked({ cta_text: t('pricing.closingCta'), billing_period: billingPeriod, plan: 'closing_band' })
                             openModal(t('pricing.closingCta'))
                         }}
                     >
