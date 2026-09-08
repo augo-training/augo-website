@@ -794,7 +794,7 @@
         {
           "label": "Feedback und Wohlbefinden",
           "items": [
-            "Wie haben sich Lenas Energie- und Schlafwerte seit ihrem letzten Wettkampfblock entwickelt?",
+            "Wie fühlt sich Lena seit ihrem letzten Wettkampfblock?",
             "Welche Athleten haben in den letzten zehn Tagen Schmerzen gemeldet?"
           ]
         },
@@ -813,11 +813,10 @@
           ]
         },
         {
-          "label": "Zonen, Ankerwerte und Vorlagen",
+          "label": "Zonen und Ankerwerte",
           "items": [
             "Was sind Peters aktuelle Laufzonen, und wann wurden sie zuletzt aktualisiert?",
-            "Erfasse für Anna einen neuen Schwellenwert aus dem Test vom Samstag.",
-            "Weise Marco meine Vorlage Aerobic 90 für Sonntag zu."
+            "Erfasse für Anna einen neuen Schwellenwert aus dem Test vom Samstag."
           ]
         }
       ]
@@ -857,7 +856,7 @@
       "items": [
         {
           "question": "Ich finde „Add custom connector“ in Claude nicht.",
-          "answer": "Der Punkt liegt je nach Tarif unter Settings oder unter Customize. Fehlt er ganz, bist du entweder in einem Tarif ohne eigene Connectors, oder du bist in einem Team- oder Enterprise-Workspace, in dem eine Inhaberin oder ein Inhaber den Connector zuerst einmalig für alle anlegen muss."
+          "answer": "Der Punkt liegt je nach Tarif unter Settings oder unter Customize. Fehlt er ganz, bist du höchstwahrscheinlich in einem Team- oder Enterprise-Workspace, in dem eine Inhaberin oder ein Inhaber den Connector zuerst einmalig für alle anlegen muss."
         },
         {
           "question": "Kann ich das auf dem Handy einrichten?",
@@ -865,7 +864,7 @@
         },
         {
           "question": "Brauche ich einen kostenpflichtigen Claude- oder ChatGPT-Tarif?",
-          "answer": "Claude erlaubt eigene Connectors auch im kostenlosen Tarif, allerdings begrenzt auf eine kleine Anzahl; kostenpflichtige Tarife heben das an. ChatGPT setzt den Entwicklermodus voraus, den es im kostenlosen Tarif nicht gibt. Prüfe die aktuellen Bedingungen bei Anthropic oder OpenAI — beide ändern das häufig."
+          "answer": "Nein — Stand September 2026 kannst du den Connector auch in den kostenlosen Tarifen von Claude und ChatGPT einrichten. Anthropic und OpenAI ändern häufig, was die einzelnen Tarife erlauben; wenn es also nicht klappt, prüfe deren aktuelle Bedingungen."
         },
         {
           "question": "Das Anmeldefenster hat sich geschlossen und nichts ist passiert.",

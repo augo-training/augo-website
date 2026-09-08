@@ -794,7 +794,7 @@
         {
           "label": "Feedback e bem-estar",
           "items": [
-            "Como evoluíram os índices de energia e sono da Lena desde o último bloco de competição?",
+            "Como a Lena tem se sentido desde o último bloco de competição?",
             "Quais atletas relataram dor nos últimos dez dias?"
           ]
         },
@@ -813,11 +813,10 @@
           ]
         },
         {
-          "label": "Zonas, âncoras e modelos",
+          "label": "Zonas e âncoras",
           "items": [
             "Quais são as zonas de corrida atuais do Peter, e quando foram atualizadas pela última vez?",
-            "Registre uma nova âncora de limiar para a Anna a partir do teste de sábado.",
-            "Atribua meu modelo Aerobic 90 ao Marco para domingo."
+            "Registre uma nova âncora de limiar para a Anna a partir do teste de sábado."
           ]
         }
       ]
@@ -857,7 +856,7 @@
       "items": [
         {
           "question": "Não encontro “Add custom connector” no Claude.",
-          "answer": "Dependendo do plano, isso fica em Settings ou em Customize. Se não estiver em lugar nenhum, ou você está em um plano sem conectores personalizados, ou está em um espaço Team ou Enterprise em que um proprietário precisa cadastrá-lo uma vez para todos."
+          "answer": "Dependendo do plano, isso fica em Settings ou em Customize. Se não estiver em lugar nenhum, muito provavelmente você está em um espaço Team ou Enterprise, em que um proprietário precisa cadastrar o conector uma vez para todos antes de os membros o verem."
         },
         {
           "question": "Posso configurar pelo celular?",
@@ -865,7 +864,7 @@
         },
         {
           "question": "Preciso de um plano pago do Claude ou do ChatGPT?",
-          "answer": "O Claude permite conectores personalizados no plano gratuito, com um limite de quantidade; planos pagos aumentam esse limite. O ChatGPT exige o modo desenvolvedor, que não existe no plano gratuito. Confirme as condições atuais com a Anthropic ou a OpenAI — as duas mudam isso com frequência."
+          "answer": "Não — em setembro de 2026 dá para adicionar o conector nos planos gratuitos do Claude e do ChatGPT. A Anthropic e a OpenAI mudam com frequência o que cada plano permite, então, se você esbarrar em algum limite, confira os termos atuais."
         },
         {
           "question": "A janela de login fechou e nada aconteceu.",

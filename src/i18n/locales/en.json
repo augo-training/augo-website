@@ -797,7 +797,7 @@
         {
           "label": "Feedback and wellbeing",
           "items": [
-            "How have Lena's energy and sleep scores moved since her last race block?",
+            "How has Lena been feeling since her last race block?",
             "Which athletes have flagged pain in the last ten days?"
           ]
         },
@@ -816,11 +816,10 @@
           ]
         },
         {
-          "label": "Zones, anchors and templates",
+          "label": "Zones and anchors",
           "items": [
             "What are Peter's current run zones, and when were they last updated?",
-            "Record a new threshold anchor for Anna from Saturday's test.",
-            "Assign my Aerobic 90 template to Marco for Sunday."
+            "Record a new threshold anchor for Anna from Saturday's test."
           ]
         }
       ]
@@ -860,7 +859,7 @@
       "items": [
         {
           "question": "I can't find “Add custom connector” in Claude.",
-          "answer": "It sits under Settings or Customize, depending on your plan. If it is missing entirely you are either on a plan that does not allow custom connectors, or you are in a Team or Enterprise workspace where an owner has to add it once for everyone first."
+          "answer": "It sits under Settings or Customize, depending on your plan. If it is missing entirely, you are most likely in a Team or Enterprise workspace, where an owner has to add the connector once for everyone before members can see it."
         },
         {
           "question": "Can I set this up on my phone?",
@@ -868,7 +867,7 @@
         },
         {
           "question": "Do I need a paid Claude or ChatGPT plan?",
-          "answer": "Claude allows custom connectors on its free plan with a limit on how many you can have; paid plans lift that. ChatGPT requires developer mode, which is not available on the free plan. Check the current terms with Anthropic or OpenAI — both change these often."
+          "answer": "No — as of September 2026 you can add the connector on the free plans of both Claude and ChatGPT. Anthropic and OpenAI change what each tier allows fairly often, so if you hit a wall, check their current terms."
         },
         {
           "question": "The sign-in window closed and nothing happened.",
