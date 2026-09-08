@@ -48,10 +48,11 @@ const GLOBAL_TIER: PricingTier = {
     bucket: 'global',
     currency: 'USD',
     symbol: '$',
-    listPrice: 19,
-    proPrice: 9,
-    eliteMonthly: 100,
-    eliteAnnual: 1000,
+    // USD carries no promotional discount, so list and price are the same.
+    listPrice: 12,
+    proPrice: 12,
+    eliteMonthly: 130,
+    eliteAnnual: 1300,
 }
 
 const EU_COUNTRIES: readonly string[] = [

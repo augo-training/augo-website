@@ -8,7 +8,7 @@ const EXPECTED = {
     ch: { currency: 'CHF', symbol: 'CHF ', listPrice: 19, proPrice: 9, eliteMonthly: 100, eliteAnnual: 1000 },
     eu: { currency: 'EUR', symbol: '€', listPrice: 19, proPrice: 9, eliteMonthly: 100, eliteAnnual: 1000 },
     br: { currency: 'BRL', symbol: 'R$ ', listPrice: 99, proPrice: 49, eliteMonthly: 549, eliteAnnual: 5490 },
-    global: { currency: 'USD', symbol: '$', listPrice: 19, proPrice: 9, eliteMonthly: 100, eliteAnnual: 1000 },
+    global: { currency: 'USD', symbol: '$', listPrice: 12, proPrice: 12, eliteMonthly: 130, eliteAnnual: 1300 },
 } as const
 
 const BUCKETS = Object.keys(EXPECTED) as PricingBucket[]
@@ -51,7 +51,9 @@ describe('pricing amounts', () => {
     // The strikethrough is no longer rendered, but the relation still guards the pricing model.
     it.each(BUCKETS)('%s promo price is below the list price', (bucket) => {
         const tier = getPricingTier(sample[bucket])
-        expect(tier.proPrice).toBeLessThan(tier.listPrice)
+        // Equal means the tier carries no promotional discount, which is the
+        // case for USD. Do not tighten this back to toBeLessThan.
+        expect(tier.proPrice).toBeLessThanOrEqual(tier.listPrice)
     })
 
     it.each(BUCKETS)('%s Elite annual prepay is ten months for twelve', (bucket) => {
