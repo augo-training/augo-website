@@ -9,19 +9,19 @@ interface PageMeta {
 const pageMeta: Record<string, Record<SupportedLanguage, PageMeta>> = {
   home: {
     en: {
-      title: 'augo — The Intelligent Coaching Assistant for Endurance Sports',
+      title: 'augo — The Intelligent Coaching Platform for Endurance Sports',
       description:
-        'augo combines coach-athlete communication, workout data and session feedback into one platform. The AI-powered assistant that empowers endurance coaches.',
+        'augo combines coach-athlete communication, workout data and session feedback into one place. The AI-powered platform that empowers endurance coaches.',
     },
     de: {
-      title: 'augo — Der intelligente Coaching-Assistent für Ausdauersport',
+      title: 'augo — Die intelligente Coaching-Plattform für Ausdauersport',
       description:
-        'augo kombiniert Coach-Athleten-Kommunikation, Trainingsdaten und Session-Feedback in einer Plattform. Der KI-gestützte Assistent, der Ausdauer-Coaches stärkt.',
+        'augo vereint Coach-Athleten-Kommunikation, Trainingsdaten und Session-Feedback an einem Ort. Die KI-gestützte Plattform, die Ausdauer-Coaches stärkt.',
     },
     pt: {
-      title: 'augo — O Assistente Inteligente de Coaching para Esportes de Endurance',
+      title: 'augo — A Plataforma Inteligente de Coaching para Esportes de Endurance',
       description:
-        'augo combina comunicação coach-atleta, dados de treino e feedback de sessão em uma plataforma. O assistente com IA que fortalece coaches de endurance.',
+        'augo combina comunicação coach-atleta, dados de treino e feedback de sessão em um só lugar. A plataforma com IA que fortalece coaches de endurance.',
     },
   },
   download: {
@@ -45,17 +45,17 @@ const pageMeta: Record<string, Record<SupportedLanguage, PageMeta>> = {
     en: {
       title: 'Join the Waitlist — augo',
       description:
-        'Join the augo waitlist for priority access and special pricing. Be first to experience the intelligent coaching assistant for endurance sports.',
+        'Join the augo waitlist for priority access and special pricing. Be first to experience the intelligent coaching platform for endurance sports.',
     },
     de: {
       title: 'Warteliste beitreten — augo',
       description:
-        'Tritt der augo-Warteliste bei für Prioritätszugang und Sonderpreise. Erlebe als Erste/r den intelligenten Coaching-Assistenten für Ausdauersport.',
+        'Tritt der augo-Warteliste bei für Prioritätszugang und Sonderpreise. Erlebe als Erste/r die intelligente Coaching-Plattform für Ausdauersport.',
     },
     pt: {
       title: 'Entre na Lista de Espera — augo',
       description:
-        'Entre na lista de espera da augo para acesso prioritário e preços especiais. Seja o primeiro a experimentar o assistente inteligente de coaching para esportes de endurance.',
+        'Entre na lista de espera da augo para acesso prioritário e preços especiais. Seja o primeiro a experimentar a plataforma inteligente de coaching para esportes de endurance.',
     },
   },
   find: {
@@ -79,17 +79,17 @@ const pageMeta: Record<string, Record<SupportedLanguage, PageMeta>> = {
     en: {
       title: 'Pricing | augo — Know What Matters. Coach Better.',
       description:
-        'Simple, transparent pricing for endurance coaches. Pay per athlete, start with a 14-day free trial, and get full access to augo\'s intelligent coaching assistant.',
+        'Simple, transparent pricing for endurance coaches. Pay per athlete, start with a 14-day free trial, and get full access to augo\'s intelligent coaching platform.',
     },
     de: {
       title: 'Preise | augo — Wissen, was zählt. Besser coachen.',
       description:
-        'Einfache, transparente Preise für Ausdauer-Coaches. Zahle pro Athlet, starte mit einer 14-tägigen kostenlosen Testphase und erhalte vollen Zugang zu augos intelligentem Coaching-Assistenten.',
+        'Einfache, transparente Preise für Ausdauer-Coaches. Zahle pro Athlet, starte mit einer 14-tägigen kostenlosen Testphase und erhalte vollen Zugang zu augos intelligenter Coaching-Plattform.',
     },
     pt: {
       title: 'Preços | augo — Saiba o que importa. Treine melhor.',
       description:
-        'Preços simples e transparentes para coaches de endurance. Pague por atleta, comece com 14 dias de teste grátis e tenha acesso completo ao assistente inteligente augo.',
+        'Preços simples e transparentes para coaches de endurance. Pague por atleta, comece com 14 dias de teste grátis e tenha acesso completo à plataforma inteligente augo.',
     },
   },
   bookDemo: {

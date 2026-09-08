@@ -21,7 +21,7 @@ export function OrganizationJsonLd() {
       'https://substack.com/@augotraining',
     ],
     description:
-      'The intelligent coaching assistant for endurance sports. Combines coach-athlete communication, workout data and session feedback into one platform.',
+      'The intelligent coaching platform for endurance sports. Combines coach-athlete communication, workout data and session feedback into one place.',
   }
 
   return (
@@ -41,7 +41,7 @@ export function SoftwareApplicationJsonLd() {
     applicationCategory: 'SportsApplication',
     operatingSystem: 'iOS, Android, Web',
     description:
-      'AI-powered coaching assistant for endurance sports that combines communication, workout data, and session feedback.',
+      'AI-powered coaching platform for endurance sports that combines communication, workout data, and session feedback.',
     offers: {
       '@type': 'Offer',
       availability: 'https://schema.org/InStock',
