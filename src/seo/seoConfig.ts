@@ -162,6 +162,23 @@ const pageMeta: Record<string, Record<SupportedLanguage, PageMeta>> = {
         "The elite coach's checklist for IRONMAN 70.3 Worlds Nice 2026. 10 things to lock in before your athlete's gun goes off, so nothing slips through on race day.",
     },
   },
+  contact: {
+    en: {
+      title: 'Contact augo | Questions, feedback, ideas',
+      description:
+        'Get in touch with the augo team. Questions about the platform, feedback, or just want to connect — send us a message and we will come back to you.',
+    },
+    de: {
+      title: 'augo kontaktieren | Fragen, Feedback, Ideen',
+      description:
+        'Nimm Kontakt zum augo-Team auf. Fragen zur Plattform, Feedback oder einfach nur Hallo sagen — schreib uns und wir melden uns zurück.',
+    },
+    pt: {
+      title: 'Fale com a augo | Dúvidas, feedback, ideias',
+      description:
+        'Entre em contato com o time da augo. Dúvidas sobre a plataforma, feedback ou só para trocar uma ideia — mande uma mensagem que a gente responde.',
+    },
+  },
   mcp: {
     en: {
       title: 'Connect augo to Claude & ChatGPT | augo MCP Setup',

@@ -79,6 +79,8 @@ Removing the connector ends access immediately.
 
 Setup guide: https://augotraining.com/en/mcp/
 
+Contact augo: https://augotraining.com/en/contact/
+
 ## Key concepts and terminology
 
 - **Session feedback:** Post-workout logs athletes submit covering subjective data (energy, pain, fueling, mood) in addition to objective watch data

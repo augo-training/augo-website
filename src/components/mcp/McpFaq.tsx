@@ -20,9 +20,7 @@ export default function McpFaq() {
     const { t } = useTranslation()
     const { lang } = useParams<{ lang: string }>()
     const items = t('mcp.faq.items', { returnObjects: true }) as FaqItem[]
-    // The site's only contact channel is the Typeform in ContactSection on the
-    // home page; Home scrolls to location.hash on mount. Same link PricingSection uses.
-    const contactHref = `/${lang ?? 'en'}#contact`
+    const contactHref = `/${lang ?? 'en'}/contact`
 
     return (
         <section

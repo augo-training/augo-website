@@ -503,7 +503,7 @@ export default function PricingSection() {
                                 components={{
                                     1: (
                                         <a
-                                            href={`/${currentLang}#contact`}
+                                            href={`/${currentLang}/contact`}
                                             className="underline hover:text-white transition-colors duration-150"
                                         />
                                     ),

@@ -37,6 +37,7 @@ export default function Footer() {
             links: [
                 { label: t('footer.links.about'), href: '#about' },
                 { label: t('footer.links.faq'), href: '#faq' },
+                { label: t('nav.contact'), href: `/${currentLang}/contact` },
             ],
         },
         {

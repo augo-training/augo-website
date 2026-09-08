@@ -20,6 +20,7 @@ import BlogIndex from './pages/BlogIndex'
 import NiceAthletes from './pages/NiceAthletes'
 import NiceCoaches from './pages/NiceCoaches'
 import Mcp from './pages/Mcp'
+import Contact from './pages/Contact'
 import { setupMixpanelConsentListener } from './utils/analytics'
 
 // March 26, 2026 at 20:00 Zurich time
@@ -57,6 +58,7 @@ function App() {
         <Route path="/book-a-demo" element={<LegacyRedirect to="/en/book-a-demo" />} />
         <Route path="/coaches" element={<LegacyRedirect to="/en/find" />} />
         <Route path="/mcp" element={<LegacyRedirect to="/en/mcp" />} />
+        <Route path="/contact" element={<LegacyRedirect to="/en/contact" />} />
         <Route path="/coaches/:slug" element={<CoachSlugLegacyRedirect />} />
 
         {/* Language-prefixed routes */}
@@ -69,6 +71,7 @@ function App() {
           <Route path="book-a-demo" element={<BookDemo />} />
           <Route path="humanedge" element={<HumanEdge />} />
           <Route path="mcp" element={<Mcp />} />
+          <Route path="contact" element={<Contact />} />
           {/* Standalone ad landing pages — nothing on the site links to them. */}
           <Route path="nice-athletes" element={<NiceAthletes />} />
           <Route path="nice-coaches" element={<NiceCoaches />} />
