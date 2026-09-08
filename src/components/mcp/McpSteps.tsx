@@ -35,7 +35,7 @@ export default function McpSteps({
                 <li
                     key={i}
                     id={`${idPrefix}-step-${i + 1}`}
-                    className="grid grid-cols-[2rem_1fr] sm:grid-cols-[2.5rem_1fr] gap-x-4 sm:gap-x-6 py-6 sm:py-7 border-t border-white/[0.08] last:border-b last:border-white/[0.08] scroll-mt-24"
+                    className="grid grid-cols-[2rem_1fr] sm:grid-cols-[2.5rem_1fr] gap-x-4 sm:gap-x-6 py-6 sm:py-7 border-t border-white/[0.08] last:border-b last:border-white/[0.08] scroll-mt-[calc(6rem+var(--banner-h))]"
                 >
                     <span
                         aria-hidden="true"

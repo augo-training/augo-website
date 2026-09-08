@@ -908,5 +908,9 @@
       "copied": "Copied",
       "announce": "Copied to clipboard"
     }
+  },
+  "announcement": {
+    "desktop": "Switching from TrainingPeaks? We migrate your full workout library and set you up on an onboarding call.",
+    "mobile": "Switching from TrainingPeaks? We'll migrate your library."
   }
 }

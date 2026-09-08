@@ -11,6 +11,7 @@ import BookDemo from './pages/BookDemo'
 import NotFound from './pages/NotFound'
 import CookieConsent from './components/CookieConsent'
 import CountdownBanner from './components/CountdownBanner'
+import AnnouncementBanner from './components/AnnouncementBanner'
 import ScrollToTop from './components/ScrollToTop'
 import Download from "./pages/Download.tsx";
 import HumanEdge from './pages/HumanEdge'
@@ -48,6 +49,7 @@ function App() {
     <BrowserRouter>
       <ScrollToTop />
       <CountdownBanner targetDate={LAUNCH_DATE} />
+      <AnnouncementBanner />
       <Routes>
         {/* Root: redirect to detected language */}
         <Route path="/" element={<LanguageRedirect />} />

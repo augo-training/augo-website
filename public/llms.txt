@@ -23,7 +23,7 @@ Coaches today manage athletes across fragmented tools — messages in WhatsApp, 
 - Share holistic post-session data: energy levels, pain, fueling choices, how they're feeling — not just watch metrics
 - Trends visible to both athlete and coach for early warning and injury prevention
 
-**Integration model:** augo does not replace existing tools. Coaches keep TrainingPeaks for planning; athletes keep their Garmin or Coros devices for tracking. augo connects the ecosystem, centralizes communication, and adds intelligence on top.
+**Integration model:** augo covers the full coaching workflow — workout prescription, communication, session feedback and analysis — so it replaces TrainingPeaks for most coaches. Coaches switching over get their workout library migrated and a 45-minute onboarding call. Athletes keep their own devices: two-way sync with Garmin, Coros, Polar, Wahoo and Zwift, and import from Strava. augo is device-neutral and has no hardware business. It does not offer CTL/ATL/TSB or a plan marketplace, by choice.
 
 ---
 

@@ -905,5 +905,9 @@
       "copied": "Copiado",
       "announce": "Copiado para a área de transferência"
     }
+  },
+  "announcement": {
+    "desktop": "Migrando do TrainingPeaks? A gente traz sua biblioteca de treinos inteira e te configura em uma call de onboarding.",
+    "mobile": "Migrando do TrainingPeaks? A gente traz sua biblioteca."
   }
 }

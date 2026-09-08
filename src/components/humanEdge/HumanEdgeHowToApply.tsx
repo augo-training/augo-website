@@ -8,7 +8,7 @@ const HumanEdgeHowToApply = forwardRef<HTMLDivElement>(function HumanEdgeHowToAp
         <section
             ref={ref}
             id="how-to-apply"
-            className="w-full py-20 sm:py-24 px-5 sm:px-8 bg-dark scroll-mt-24 border-t border-white/[0.06] texture-grain"
+            className="w-full py-20 sm:py-24 px-5 sm:px-8 bg-dark scroll-mt-[calc(6rem+var(--banner-h))] border-t border-white/[0.06] texture-grain"
         >
             <div className="max-w-[1100px] mx-auto">
                 <h2 className="font-mono font-bold text-[28px] sm:text-[36px] lg:text-[44px] leading-[120%] text-white">

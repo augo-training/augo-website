@@ -23,6 +23,23 @@
 /* Base Styles */
 html {
   scroll-behavior: auto;
+
+  /* Height of the announcement bar. Zero unless AnnouncementBanner is mounted,
+     so pages without it (the ad landing pages) keep their exact layout.
+     Deliberately a fixed number per breakpoint rather than measured: the home
+     page pins three sections with GSAP at `top top`, and a height that settled
+     after mount would move every pin start. */
+  --banner-h: 0px;
+}
+
+html.has-announcement {
+  --banner-h: 44px;
+}
+
+@media (min-width: 640px) {
+  html.has-announcement {
+    --banner-h: 40px;
+  }
 }
 
 a {
@@ -31,6 +48,9 @@ a {
 
 body {
   margin: 0;
+  /* Shifts the whole document below the bar, which is what lets every
+     hard-coded hero `pt-*` keep working untouched. */
+  padding-top: var(--banner-h);
   font-family: var(--font-sans);
   background-color: var(--color-dark);
   color: var(--color-text);
@@ -651,6 +671,12 @@ body {
 /* ─── Cookie Consent Banner ─── */
 .cookie-banner {
   background-color: #090909;
+}
+
+/* ─── Announcement Banner ─── */
+.announcement-banner {
+  background-color: #090909;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 /* ─── Countdown Banner ─── */

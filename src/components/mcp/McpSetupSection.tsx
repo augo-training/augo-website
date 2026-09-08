@@ -70,7 +70,7 @@ export default function McpSetupSection({
         <section
             id={id}
             aria-labelledby={titleId}
-            className={`w-full py-20 sm:py-24 px-5 sm:px-8 ${bg} border-t border-white/[0.06] texture-grain scroll-mt-24`}
+            className={`w-full py-20 sm:py-24 px-5 sm:px-8 ${bg} border-t border-white/[0.06] texture-grain scroll-mt-[calc(6rem+var(--banner-h))]`}
         >
             <div className="max-w-[960px] mx-auto">
                 <div className="inline-flex mb-5">
