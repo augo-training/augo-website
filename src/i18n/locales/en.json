@@ -253,7 +253,9 @@
       "findAMatch": "Find a match",
       "humanEdge": "Human Edge",
       "blog": "Blog",
-      "mcp": "MCP setup"
+      "mcp": "MCP setup",
+      "privacyPolicy": "Privacy Policy",
+      "terms": "Terms & Conditions"
     },
     "copyright": "© 2026 augo. All rights reserved."
   },
