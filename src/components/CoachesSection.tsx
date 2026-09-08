@@ -10,6 +10,7 @@ import coachesImg1_5 from '../assets/images/img_section_coaches_1_5.png'
 import coachesImg1_6 from '../assets/images/img_section_coaches_1_6.png'
 import coachesImg1_7 from '../assets/images/img_section_coaches_1_7.png'
 import carouselImgBg from '../assets/images/carousel_img_bg.webp'
+import coachesWorkouts from '../assets/images/img_section_coaches_workouts.png?w=1080&format=webp'
 import coachesImg2 from '../assets/images/img_section_coaches_2.png?w=786&format=webp'
 import coachesImg3 from '../assets/images/img_section_coaches_3.png?w=652&format=webp'
 import coachesImg4 from '../assets/images/img_section_coaches_4.png?w=786&format=webp'
@@ -33,6 +34,13 @@ const panelImages: PanelImage[][] = [
         { src: coachesImg1_7, className: 'absolute top-[63%] right-[10%] w-[5%] z-10' },
         { src: coachesImg1_6, className: 'absolute top-[73%] left-[12%] w-[52%] z-10' },
         { src: coachesImg1_4, className: 'absolute top-[84%] left-[5%] w-[4.5%] z-10' },
+    ],
+    [
+        { src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' },
+        // Landscape, unlike the portrait phone mockups either side of it, so this
+        // one is sized by width and top-anchored at every breakpoint — height-driven
+        // classes would push a 1.41 aspect well past the column.
+        { src: coachesWorkouts, className: 'absolute inset-x-0 top-[12%] mx-auto w-[92%] md:w-[86%] lg:w-[80%] z-10' },
     ],
     [
         { src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' },

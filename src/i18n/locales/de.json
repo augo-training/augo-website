@@ -37,6 +37,11 @@
         "tagline": "Kein Durchsuchen vergrabener Kalendernotizen oder Scrollen durch Nachrichtenverläufe mehr, um sich zu erinnern, wann dein Athlet das Knieproblem erwähnt hat."
       },
       {
+        "headline": "Einheiten erstellen.\nIn Sekunden.",
+        "body": "Baue eine Einheit selbst im Workout-Builder im Web, beschreibe sie dem Assistenten im Web oder in der App, oder erstelle sie direkt in Claude oder ChatGPT über den augo-Connector.",
+        "tagline": "Wie auch immer du arbeitest — die Einheit landet im Kalender deines Athleten."
+      },
+      {
         "headline": "Spüre sofort, wer\ndich heute braucht",
         "body": "augo zeigt dir die Athleten, die jetzt Aufmerksamkeit brauchen: Frühwarnsignale aus Trainingsdaten und Session-Feedback, Terminänderungswünsche, zur Überprüfung markierte Sessions, Schlüsselmomente, in denen dein Input am wichtigsten ist.",
         "tagline": "Starte jeden Tag mit Klarheit und Fokus."

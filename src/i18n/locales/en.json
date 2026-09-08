@@ -37,6 +37,11 @@
         "tagline": "No more searching through buried calendar notes or scrolling through messages histories to remember when your athlete mentioned that knee discomfort."
       },
       {
+        "headline": "Create workouts.\nIn seconds.",
+        "body": "Build a session yourself in the workout builder on web, describe it to the in-app assistant on web or mobile, or create it straight from Claude or ChatGPT with the augo connector.",
+        "tagline": "However you like to work, the session lands on your athlete's calendar."
+      },
+      {
         "headline": "Know exactly who\nneeds you today",
         "body": "augo surfaces the athletes who need attention right now: early warning signs from training data & session feedback, schedule changes requests, sessions flagged for review, key moments where your input matters most.",
         "tagline": "Start each day with clarity & focus."
