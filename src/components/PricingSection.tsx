@@ -370,7 +370,8 @@ export default function PricingSection() {
                                         onClick={() => {
                                             const label = t('pricing.enterprise.cta')
                                             void trackPricingCtaClicked({ cta_text: label, plan: 'enterprise' })
-                                            openModal(label)
+                                            // Enterprise is a conversation, not a sign-up.
+                                            openModal(label, { destinationUrl: `/${currentLang}/contact` })
                                         }}
                                     >
                                         {t('pricing.enterprise.cta')}
@@ -449,19 +450,6 @@ export default function PricingSection() {
                                         </span>
                                     )}
                                 </div>
-                                {/* Quiet secondary: Elite is the smallest of the three commitments,
-                                    so it should not match Pro's gradient or Enterprise's white. */}
-                                <button
-                                    className="w-full sm:w-auto font-mono text-[12px] font-extrabold tracking-[2px] uppercase rounded-lg text-center h-11 flex items-center justify-center px-6 transition-all duration-200 text-[#EEE] hover:text-[#FFF] cursor-pointer"
-                                    style={{ background: '#1E1E1E', border: '1px solid #333' }}
-                                    onClick={() => {
-                                        const label = t('pricing.elite.cta')
-                                        void trackPricingCtaClicked({ cta_text: label, plan: 'elite' })
-                                        openModal(label)
-                                    }}
-                                >
-                                    {t('pricing.elite.cta')}
-                                </button>
                             </div>
                         </div>
                         </div>
