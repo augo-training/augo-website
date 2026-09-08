@@ -183,7 +183,7 @@ export default function Footer() {
                             href={link.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="font-satoshi font-medium text-[12px] sm:text-[14px] lg:text-[16px] leading-[130%] text-[#323439] hover:text-white transition-colors duration-200"
+                            className="font-satoshi font-medium text-[12px] sm:text-[14px] lg:text-[20px] leading-[130%] text-[#323439] hover:text-white transition-colors duration-200"
                         >
                             {t(`footer.links.${link.key}`)}
                         </a>
