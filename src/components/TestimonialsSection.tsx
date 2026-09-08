@@ -2,7 +2,6 @@ import { useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import mikaelPhoto from '../assets/images/Mikael.png?w=128&h=128&format=webp'
 import marcoPhoto from '../assets/images/Marco.webp?w=128&h=128&format=webp'
 import brianPhoto from '../assets/images/Brian.png?w=128&h=128&format=webp'
 import meganPhoto from '../assets/images/Megan.png?w=128&h=128&format=webp'
@@ -43,13 +42,6 @@ const testimonials: Testimonial[] = [
         name: 'Marco Altini',
         role: 'Running Coach & Founder of HRV4Training',
         photo: marcoPhoto,
-    },
-    {
-        quote:
-            'As a coach, augo is a game-changer in my communication with my athletes, making sure I never miss anything and always understand the full context of each message or comment.',
-        name: 'Mikael Eriksson',
-        role: 'Triathlon Coach & Founder of Scientific Triathlon',
-        photo: mikaelPhoto,
     },
     {
         quote:
