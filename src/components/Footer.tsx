@@ -15,11 +15,11 @@ const socialLinks = [
     { icon: unknownIcon, alt: 'Substack', href: 'https://substack.com/@augotraining' },
 ]
 
-// Hosted by the webapp (app.augotraining.com), not this site — the legal
+// Hosted by the webapp (webapp.augotraining.com), not this site — the legal
 // pages live there so the same copy backs both the app and this footer.
 const legalLinks = [
-    { key: 'privacyPolicy', href: 'https://app.augotraining.com/privacy' },
-    { key: 'terms', href: 'https://app.augotraining.com/terms' },
+    { key: 'privacyPolicy', href: 'https://webapp.augotraining.com/privacy' },
+    { key: 'terms', href: 'https://webapp.augotraining.com/terms' },
 ]
 
 export default function Footer() {
