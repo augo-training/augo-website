@@ -20,7 +20,7 @@ export default function McpPrompts() {
         <section
             id={SECTION_IDS.prompts}
             aria-labelledby="mcp-prompts-title"
-            className="w-full py-20 sm:py-24 px-5 sm:px-8 bg-dark-800 border-t border-white/[0.06] texture-grain scroll-mt-24"
+            className="w-full py-20 sm:py-24 px-5 sm:px-8 bg-dark border-t border-white/[0.06] texture-grain scroll-mt-24"
         >
             <div className="max-w-[960px] mx-auto">
                 <h2

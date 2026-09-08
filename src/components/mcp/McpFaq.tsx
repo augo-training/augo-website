@@ -26,7 +26,7 @@ export default function McpFaq() {
 
     return (
         <section
-            id={SECTION_IDS.troubleshooting}
+            id={SECTION_IDS.faqs}
             aria-labelledby="mcp-faq-title"
             className="w-full py-20 sm:py-24 px-5 sm:px-8 bg-dark-800 border-t border-white/[0.06] texture-grain scroll-mt-24"
         >

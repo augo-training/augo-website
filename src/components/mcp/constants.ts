@@ -6,12 +6,13 @@
 export const MCP_URL = 'https://api.augotraining.com/mcp'
 
 /** Section ids. The jump list is asserted against these in test/mcpContent.test.ts. */
+/** Declared in the order they appear on the page — the menu seeds itself from the first. */
 export const SECTION_IDS = {
+    whatYouCanDo: 'what-you-can-do',
     claude: 'claude',
     chatgpt: 'chatgpt',
     prompts: 'prompts',
-    access: 'access',
-    troubleshooting: 'troubleshooting',
+    faqs: 'faqs',
 } as const
 
 export type SectionId = (typeof SECTION_IDS)[keyof typeof SECTION_IDS]

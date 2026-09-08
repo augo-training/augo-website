@@ -45,23 +45,27 @@ export default function Mcp() {
             <McpTableOfContents />
             <main>
                 <McpHero />
+                <McpSpecSection
+                    id={SECTION_IDS.whatYouCanDo}
+                    i18nKey="mcp.access"
+                    bg="bg-dark-800"
+                />
                 <McpSetupSection
                     id={SECTION_IDS.claude}
                     i18nKey="mcp.claude"
-                    bg="bg-dark-800"
+                    bg="bg-dark"
                     variant="claude"
                     dialogAtIndex={2}
                 />
                 <McpSetupSection
                     id={SECTION_IDS.chatgpt}
                     i18nKey="mcp.chatgpt"
-                    bg="bg-dark"
+                    bg="bg-dark-800"
                     variant="chatgpt"
                     dialogAtIndex={3}
                     hasCallout
                 />
                 <McpPrompts />
-                <McpSpecSection id={SECTION_IDS.access} i18nKey="mcp.access" bg="bg-dark" />
                 <McpFaq />
                 <McpCta />
             </main>

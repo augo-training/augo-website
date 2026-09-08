@@ -691,6 +691,10 @@
       "title": "Auf dieser Seite",
       "items": [
         {
+          "id": "what-you-can-do",
+          "label": "Was du machen kannst"
+        },
+        {
           "id": "claude",
           "label": "Mit Claude verbinden"
         },
@@ -703,12 +707,8 @@
           "label": "Was du fragen kannst"
         },
         {
-          "id": "access",
-          "label": "Worauf augo zugreift"
-        },
-        {
-          "id": "troubleshooting",
-          "label": "Fehlerbehebung"
+          "id": "faqs",
+          "label": "FAQ"
         }
       ]
     },
@@ -823,9 +823,25 @@
       ]
     },
     "access": {
-      "title": "Worauf augo zugreift — und was es tun kann",
+      "title": "Was du mit dem augo-Connector machen kannst",
       "lead": "Lies das, bevor du dich verbindest.",
       "items": [
+        {
+          "label": "Frag zu jedem Athleten",
+          "statement": "Einheiten, Trainingsbelastung, Feedback und worüber ihr gesprochen habt — beantwortet in einer Frage, ohne augo zu öffnen."
+        },
+        {
+          "label": "Sieh, wer Aufmerksamkeit braucht",
+          "statement": "Frag, bei wem es kippt: Feedback wird schlechter, Einheiten fallen aus, die Belastung steigt schneller als sie sollte."
+        },
+        {
+          "label": "Einheiten erstellen und zuweisen",
+          "statement": "Erstelle eine Einheit oder eine Vorlage und setze sie einem Athleten für einen bestimmten Tag in den Kalender."
+        },
+        {
+          "label": "Nachrichten, Notizen und Berichte entwerfen",
+          "statement": "Schreibe eine Antwort an einen Athleten, halte eine private Notiz fest oder fasse einen Trainingsblock oder eine Woche schriftlich zusammen."
+        },
         {
           "label": "Nur deine Athleten",
           "statement": "Der Connector meldet sich als du an. Er sieht genau das, was du in augo siehst — deine Athleten, deine Nachrichten, deine Notizen. Sonst nichts, und nichts, was einem anderen Coach gehört."
@@ -833,19 +849,11 @@
         {
           "label": "Es liest nicht nur",
           "statement": "Der Connector kann außerdem Nachrichten an deine Athleten senden, Einheiten zuweisen und bearbeiten sowie Notizen, Wettkämpfe und Leistungsanker schreiben. Claude und ChatGPT fragen vor solchen Aktionen nach deiner Bestätigung."
-        },
-        {
-          "label": "Daten verlassen augo",
-          "statement": "Alles, was der Assistent liest, wird zur Beantwortung deiner Frage an Anthropic oder OpenAI übertragen — zu deren Bedingungen und deren Speicherfristen. Wenn das für die Daten deiner Athleten nicht vertretbar ist, richte den Connector nicht ein."
-        },
-        {
-          "label": "Jederzeit trennen",
-          "statement": "Entferne den augo-Connector in den Einstellungen von Claude oder ChatGPT. Der Zugriff endet sofort, und an deinem augo-Konto ändert sich nichts."
         }
       ]
     },
     "faq": {
-      "title": "Fehlerbehebung",
+      "title": "FAQ",
       "items": [
         {
           "question": "Ich finde „Add custom connector“ in Claude nicht.",
@@ -870,6 +878,10 @@
         {
           "question": "Können meine Athleten augo mit Claude oder ChatGPT verbinden?",
           "answer": "Nein. Der Connector ist für Coach-Konten gedacht."
+        },
+        {
+          "question": "Verlassen die Daten meiner Athleten augo?",
+          "answer": "Alles, was der Assistent liest, wird zur Beantwortung deiner Frage an Anthropic oder OpenAI übertragen — zu deren Bedingungen und deren Speicherfristen. Wenn das für die Daten deiner Athleten nicht vertretbar ist, richte den Connector nicht ein."
         },
         {
           "question": "Wie trenne ich augo wieder?",

@@ -694,6 +694,10 @@
       "title": "On this page",
       "items": [
         {
+          "id": "what-you-can-do",
+          "label": "What you can do"
+        },
+        {
           "id": "claude",
           "label": "Connect to Claude"
         },
@@ -706,12 +710,8 @@
           "label": "What you can ask"
         },
         {
-          "id": "access",
-          "label": "What augo can see and do"
-        },
-        {
-          "id": "troubleshooting",
-          "label": "Troubleshooting"
+          "id": "faqs",
+          "label": "FAQs"
         }
       ]
     },
@@ -826,9 +826,25 @@
       ]
     },
     "access": {
-      "title": "What augo can see, and what it can do",
+      "title": "What you can do with the augo connector",
       "lead": "Worth reading before you connect.",
       "items": [
+        {
+          "label": "Ask about any athlete",
+          "statement": "Their sessions, training load, feedback and what the two of you have discussed — answered in one question, without opening augo."
+        },
+        {
+          "label": "Spot who needs attention",
+          "statement": "Ask which athletes are drifting: feedback trending down, sessions missed, load climbing faster than it should."
+        },
+        {
+          "label": "Create and assign workouts",
+          "statement": "Build a session or a template and put it on an athlete's calendar for a given day."
+        },
+        {
+          "label": "Draft messages, notes and reports",
+          "statement": "Write a reply to an athlete, record a private note, or pull a training block or a week into a written summary."
+        },
         {
           "label": "Your athletes only",
           "statement": "The connector signs in as you. It sees exactly what you see in augo — your athletes, your messages, your notes. Nothing else, and nothing belonging to another coach."
@@ -836,19 +852,11 @@
         {
           "label": "It can act, not just read",
           "statement": "As well as reading, it can send messages to your athletes, assign and edit workouts, and write notes, race events and performance anchors. Claude and ChatGPT ask you to confirm before an action of that kind."
-        },
-        {
-          "label": "Data leaves augo",
-          "statement": "Whatever the assistant reads is sent to Anthropic or OpenAI to answer your question, under their terms and their data retention. If that is not acceptable for your athletes' data, do not connect."
-        },
-        {
-          "label": "Disconnect any time",
-          "statement": "Remove the augo connector in Claude or ChatGPT settings. Access stops immediately and nothing changes in your augo account."
         }
       ]
     },
     "faq": {
-      "title": "Troubleshooting",
+      "title": "FAQs",
       "items": [
         {
           "question": "I can't find “Add custom connector” in Claude.",
@@ -873,6 +881,10 @@
         {
           "question": "Can my athletes connect augo to Claude or ChatGPT?",
           "answer": "No. The connector is for coach accounts."
+        },
+        {
+          "question": "Does my athletes' data leave augo?",
+          "answer": "Whatever the assistant reads is sent to Anthropic or OpenAI to answer your question, under their terms and their data retention. If that is not acceptable for your athletes' data, do not connect."
         },
         {
           "question": "How do I disconnect augo?",

@@ -20,28 +20,57 @@ interface JumpItem {
 export default function McpTableOfContents() {
     const { t } = useTranslation()
     const items = t('mcp.jumpList.items', { returnObjects: true }) as JumpItem[]
-    const [activeId, setActiveId] = useState<string>(SECTION_IDS.claude)
+    const [activeId, setActiveId] = useState<string>(Object.values(SECTION_IDS)[0])
 
     useEffect(() => {
+        // Sorted by document position, not by the order of the SECTION_IDS
+        // object: "the last section you have scrolled past" is only meaningful
+        // against the real order on the page.
         const sections = Object.values(SECTION_IDS)
             .map((id) => document.getElementById(id))
             .filter((el): el is HTMLElement => el !== null)
+            .sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top)
         if (sections.length === 0) return
 
-        // A band across the upper-middle of the viewport: the section crossing
-        // it is the one being read. Bottom-heavy so the last section can still
-        // win once the page runs out of scroll.
-        const observer = new IntersectionObserver(
-            (entries) => {
-                const visible = entries
-                    .filter((entry) => entry.isIntersecting)
-                    .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)
-                if (visible[0]) setActiveId(visible[0].target.id)
-            },
-            { rootMargin: '-20% 0px -70% 0px', threshold: 0 },
-        )
+        // The observer is only the trigger — it fires as sections cross a band
+        // across the upper-middle of the viewport. What gets highlighted is then
+        // recomputed from every section, not just the ones that fired: reading
+        // the entries alone leaves the menu stuck on whatever was last seen once
+        // you scroll above the first section or below the last.
+        const band = () => window.innerHeight * 0.3
+
+        const recompute = () => {
+            const passed = sections.filter((section) => section.getBoundingClientRect().top <= band())
+            setActiveId((passed[passed.length - 1] ?? sections[0]).id)
+        }
+
+        const observer = new IntersectionObserver(recompute, {
+            rootMargin: '-20% 0px -70% 0px',
+            threshold: 0,
+        })
         sections.forEach((section) => observer.observe(section))
-        return () => observer.disconnect()
+
+        // A jump — Home, a hash link, a restored scroll position — can land
+        // with no section crossing the band at either end, so the observer
+        // never fires and the menu keeps the row it had. Coalesced into a
+        // frame so this stays cheap over five elements.
+        let frame = 0
+        const onScroll = () => {
+            if (frame) return
+            frame = requestAnimationFrame(() => {
+                frame = 0
+                recompute()
+            })
+        }
+        window.addEventListener('scroll', onScroll, { passive: true })
+
+        recompute()
+
+        return () => {
+            observer.disconnect()
+            window.removeEventListener('scroll', onScroll)
+            if (frame) cancelAnimationFrame(frame)
+        }
     }, [])
 
     return (

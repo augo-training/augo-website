@@ -691,6 +691,10 @@
       "title": "Nesta página",
       "items": [
         {
+          "id": "what-you-can-do",
+          "label": "O que você pode fazer"
+        },
+        {
           "id": "claude",
           "label": "Conectar ao Claude"
         },
@@ -703,12 +707,8 @@
           "label": "O que você pode perguntar"
         },
         {
-          "id": "access",
-          "label": "O que a augo acessa"
-        },
-        {
-          "id": "troubleshooting",
-          "label": "Resolução de problemas"
+          "id": "faqs",
+          "label": "Perguntas frequentes"
         }
       ]
     },
@@ -823,9 +823,25 @@
       ]
     },
     "access": {
-      "title": "O que a augo enxerga, e o que ela pode fazer",
+      "title": "O que você pode fazer com o conector da augo",
       "lead": "Vale ler antes de conectar.",
       "items": [
+        {
+          "label": "Pergunte sobre qualquer atleta",
+          "statement": "As sessões, a carga de treino, o feedback e o que vocês conversaram — respondido em uma pergunta, sem abrir a augo."
+        },
+        {
+          "label": "Veja quem precisa de atenção",
+          "statement": "Pergunte quem está desandando: feedback piorando, sessões perdidas, carga subindo mais rápido do que deveria."
+        },
+        {
+          "label": "Crie e atribua treinos",
+          "statement": "Monte uma sessão ou um modelo e coloque no calendário do atleta para um dia específico."
+        },
+        {
+          "label": "Escreva mensagens, notas e relatórios",
+          "statement": "Escreva uma resposta para um atleta, registre uma nota privada ou transforme um bloco de treino ou uma semana em um resumo escrito."
+        },
         {
           "label": "Só os seus atletas",
           "statement": "O conector entra como você. Ele enxerga exatamente o que você enxerga na augo — seus atletas, suas mensagens, suas notas. Nada além disso, e nada que pertença a outro treinador."
@@ -833,19 +849,11 @@
         {
           "label": "Ele age, não só lê",
           "statement": "Além de ler, ele pode enviar mensagens aos seus atletas, atribuir e editar treinos e registrar notas, provas e âncoras de desempenho. O Claude e o ChatGPT pedem sua confirmação antes de uma ação desse tipo."
-        },
-        {
-          "label": "Os dados saem da augo",
-          "statement": "Tudo o que o assistente lê é enviado à Anthropic ou à OpenAI para responder à sua pergunta, sob os termos e as políticas de retenção delas. Se isso não for aceitável para os dados dos seus atletas, não conecte."
-        },
-        {
-          "label": "Desconecte quando quiser",
-          "statement": "Remova o conector da augo nas configurações do Claude ou do ChatGPT. O acesso termina na hora e nada muda na sua conta da augo."
         }
       ]
     },
     "faq": {
-      "title": "Resolução de problemas",
+      "title": "Perguntas frequentes",
       "items": [
         {
           "question": "Não encontro “Add custom connector” no Claude.",
@@ -870,6 +878,10 @@
         {
           "question": "Meus atletas podem conectar a augo ao Claude ou ao ChatGPT?",
           "answer": "Não. O conector é para contas de treinador."
+        },
+        {
+          "question": "Os dados dos meus atletas saem da augo?",
+          "answer": "Tudo o que o assistente lê é enviado à Anthropic ou à OpenAI para responder à sua pergunta, sob os termos e as políticas de retenção delas. Se isso não for aceitável para os dados dos seus atletas, não conecte."
         },
         {
           "question": "Como desconecto a augo?",
