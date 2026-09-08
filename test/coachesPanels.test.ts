@@ -30,6 +30,12 @@ describe('coaches carousel panels', () => {
         }
     })
 
+    it('has one panelLinks entry per panel', () => {
+        const source = readFileSync(new URL('../src/components/CoachesSection.tsx', import.meta.url), 'utf8')
+        const line = source.match(/const panelLinks: \(string \| null\)\[\] = \[(.*?)\]/s)?.[1] ?? ''
+        expect(line.split(',').filter((s) => s.trim())).toHaveLength(expected)
+    })
+
     it('has one panelImages entry per panel', () => {
         const source = readFileSync(new URL('../src/components/CoachesSection.tsx', import.meta.url), 'utf8')
         const block = source.slice(

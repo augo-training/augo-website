@@ -42,6 +42,12 @@
         "tagline": "However you like to work, the session lands on your athlete's calendar."
       },
       {
+        "headline": "Connect augo to\nClaude and ChatGPT.",
+        "body": "Add augo as a connector and ask Claude or ChatGPT about any athlete: their sessions, how they're feeling, what you've discussed. It can create workouts, draft messages and pull together reports too.",
+        "tagline": "It signs in as you and sees only your athletes.",
+        "linkLabel": "Set it up in two minutes"
+      },
+      {
         "headline": "Know exactly who\nneeds you today",
         "body": "augo surfaces the athletes who need attention right now: early warning signs from training data & session feedback, schedule changes requests, sessions flagged for review, key moments where your input matters most.",
         "tagline": "Start each day with clarity & focus."

@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useParams } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import coachesImg1_1 from '../assets/images/img_section_coaches_1_1.png'
@@ -11,6 +12,8 @@ import coachesImg1_6 from '../assets/images/img_section_coaches_1_6.png'
 import coachesImg1_7 from '../assets/images/img_section_coaches_1_7.png'
 import carouselImgBg from '../assets/images/carousel_img_bg.webp'
 import coachesWorkouts from '../assets/images/img_section_coaches_workouts.png?w=606&format=webp'
+// PLACEHOLDER at 440px native — swap for the larger export before merging.
+import coachesConnector from '../assets/images/img_section_coaches_connector.png?w=440&format=webp'
 import coachesImg2 from '../assets/images/img_section_coaches_2.png?w=786&format=webp'
 import coachesImg3 from '../assets/images/img_section_coaches_3.png?w=652&format=webp'
 import coachesImg4 from '../assets/images/img_section_coaches_4.png?w=786&format=webp'
@@ -21,6 +24,9 @@ interface PanelImage {
     src: string
     className?: string
 }
+
+/** Optional per-panel link path, index-aligned with panelImages. */
+const panelLinks: (string | null)[] = [null, null, '/mcp', null, null, null]
 
 const panelImages: PanelImage[][] = [
     [
@@ -43,6 +49,12 @@ const panelImages: PanelImage[][] = [
     ],
     [
         { src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' },
+        // A UI fragment rather than a device shot, and opaque rather than cut out,
+        // so it reads as a card floating on the backdrop.
+        { src: coachesConnector, className: 'absolute inset-0 m-auto w-[80%] md:w-[70%] h-auto rounded-xl z-10' },
+    ],
+    [
+        { src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' },
         // below md the phone is top-anchored and sized by width, so the container
         // crops off its lower third — keeps the screenshot legible on small viewports
         { src: coachesImg2, className: 'absolute inset-x-0 top-0 mx-auto w-[75%] md:inset-y-0 md:my-auto md:w-auto md:h-[90%] z-10' },
@@ -60,11 +72,14 @@ const panelImages: PanelImage[][] = [
 ]
 
 export default function CoachesSection() {
-    const { t } = useTranslation()
+    const { t, i18n } = useTranslation()
+    const { lang } = useParams<{ lang: string }>()
+    const currentLang = lang || i18n.language || 'en'
     const panels = t('coaches.panels', { returnObjects: true }) as Array<{
         headline: string
         body: string
         tagline: string
+        linkLabel?: string
     }>
 
     const sectionRef = useRef<HTMLDivElement>(null)
@@ -266,6 +281,14 @@ export default function CoachesSection() {
                                         <p className="font-satoshi font-medium italic text-[15px] sm:text-[16px] md:text-[17px] lg:text-[18px] leading-[130%] text-[#969EA7]">
                                             {panel.tagline}
                                         </p>
+                                        {panel.linkLabel && panelLinks[i] && (
+                                            <a
+                                                href={`/${currentLang}${panelLinks[i]}`}
+                                                className="footer-link self-start font-mono text-[12px] sm:text-[13px] font-extrabold tracking-[2px] uppercase text-white/70 hover:text-white transition-colors duration-200"
+                                            >
+                                                {panel.linkLabel}
+                                            </a>
+                                        )}
                                     </div>
                                 </div>
                             </div>
