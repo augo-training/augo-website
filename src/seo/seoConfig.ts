@@ -149,17 +149,17 @@ const pageMeta: Record<string, Record<SupportedLanguage, PageMeta>> = {
     en: {
       title: "IRONMAN 70.3 Worlds Nice 2026: Coach's Race Checklist — augo",
       description:
-        "The elite coach's checklist for IRONMAN 70.3 Worlds Nice 2026. 10 things to lock in before your athlete's gun goes off, so nothing slips through on race day.",
+        "The elite coach's checklist for IRONMAN 70.3 Worlds Nice 2026. 10 things to check before the race, so nothing surprises your athletes on race day.",
     },
     de: {
       title: "IRONMAN 70.3 Worlds Nice 2026: Coach's Race Checklist — augo",
       description:
-        "The elite coach's checklist for IRONMAN 70.3 Worlds Nice 2026. 10 things to lock in before your athlete's gun goes off, so nothing slips through on race day.",
+        "The elite coach's checklist for IRONMAN 70.3 Worlds Nice 2026. 10 things to check before the race, so nothing surprises your athletes on race day.",
     },
     pt: {
       title: "IRONMAN 70.3 Worlds Nice 2026: Coach's Race Checklist — augo",
       description:
-        "The elite coach's checklist for IRONMAN 70.3 Worlds Nice 2026. 10 things to lock in before your athlete's gun goes off, so nothing slips through on race day.",
+        "The elite coach's checklist for IRONMAN 70.3 Worlds Nice 2026. 10 things to check before the race, so nothing surprises your athletes on race day.",
     },
   },
   contact: {

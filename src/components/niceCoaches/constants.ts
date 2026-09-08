@@ -7,7 +7,7 @@
  *
  * The whole page has to fit one screen on a phone, so keep the copy tight —
  * a long line here is what pushes the button below the fold. This title already
- * runs to six lines on a 375px screen, which is why there is no `note` line
+ * wraps to several lines on a 375px screen, which is why there is no `note` line
  * under the subtitle: with one, an iPhone SE overflows by 37px once the cookie
  * banner is up. Measure before adding anything back.
  *
@@ -40,7 +40,7 @@ export const NICE_COACHES_UNLOCK_KEY = 'augo_nice_coaches_capture_done'
 
 export const COPY = {
     eyebrow: '2026 IRONMAN 70.3 WORLDS NICE',
-    title: '10 things to lock in before your athlete’s gun goes off in Nice, so nothing you could have caught slips through on race day',
+    title: '10 things to check before 70.3 Worlds Nice, so nothing surprises your athletes on race day',
     subtitle: 'The elite coach’s checklist for Ironman 70.3 Worlds Nice',
     /** Unsplash asks for credit as a courtesy. Plain text, never a link — the
      *  page is a dead end until the email is captured. Same photo, and so the
