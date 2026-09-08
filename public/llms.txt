@@ -69,8 +69,8 @@ augo uses industry-standard encryption. Personal data is never sold, and is not 
 ## Integrations: Claude and ChatGPT (MCP)
 
 augo runs an MCP (Model Context Protocol) server at https://api.augotraining.com/mcp. A coach can add it as a
-custom connector in Claude or ChatGPT and then query their own athlete data in natural language — training load,
-session feedback, messages, race calendar, training zones, workout templates.
+custom connector in Claude or ChatGPT and then query their own athlete data in natural language — training
+volume, frequency and intensity, session feedback, messages, race calendar, training zones, workout templates.
 
 The connector signs in as the coach and sees only what that coach sees in augo. As well as reading, it can send
 messages to athletes, assign and edit workouts, and write notes, race events and performance anchors; the assistant

@@ -675,7 +675,7 @@
         },
         {
           "label": "Was du brauchst",
-          "statement": "Claude oder ChatGPT und deine augo-E-Mail-Adresse. augo meldet dich per Magic Link an, ein Passwort gibt es nicht."
+          "statement": "Claude oder ChatGPT und deine augo-E-Mail-Adresse."
         },
         {
           "label": "Einrichtungsdauer",
@@ -784,9 +784,9 @@
           ]
         },
         {
-          "label": "Trainingsbelastung und Einheiten",
+          "label": "Umfang, Intensität und Einheiten",
           "items": [
-            "Wie war Annas Trainingsbelastung letzte Woche im Vergleich zu den vier Wochen davor?",
+            "Wie waren Annas Umfang und Intensität letzte Woche im Vergleich zu den vier Wochen davor?",
             "Welche Einheiten hat Marco diesen Monat ausgelassen, und was hat er dazu gesagt?",
             "Zeig mir die Details von Sofias langem Lauf gestern."
           ]
@@ -828,15 +828,15 @@
       "items": [
         {
           "label": "Frag zu jedem Athleten",
-          "statement": "Einheiten, Trainingsbelastung, Feedback und worüber ihr gesprochen habt — beantwortet in einer Frage, ohne augo zu öffnen."
+          "statement": "Einheiten, Umfang, Häufigkeit und Intensität, Feedback und worüber ihr gesprochen habt — beantwortet in einer Frage, ohne augo zu öffnen."
         },
         {
           "label": "Sieh, wer Aufmerksamkeit braucht",
-          "statement": "Frag, bei wem es kippt: Feedback wird schlechter, Einheiten fallen aus, die Belastung steigt schneller als sie sollte."
+          "statement": "Frag, bei wem es kippt: Feedback wird schlechter, Einheiten fallen aus, Einheiten werden zu schnell länger oder härter."
         },
         {
           "label": "Einheiten erstellen und zuweisen",
-          "statement": "Erstelle eine Einheit oder eine Vorlage und setze sie einem Athleten für einen bestimmten Tag in den Kalender."
+          "statement": "Erstelle eine einzelne Einheit oder gleich einen ganzen Block davon und setze sie einem Athleten für die gewünschten Tage in den Kalender."
         },
         {
           "label": "Nachrichten, Notizen und Berichte entwerfen",

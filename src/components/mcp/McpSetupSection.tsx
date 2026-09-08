@@ -56,6 +56,12 @@ export default function McpSetupSection({
                     { label: 'Server URL', copyValue: MCP_URL },
                     { label: 'Authentication', value: 'OAuth' },
                 ]}
+                checkbox={{
+                    warning: 'Custom MCP servers introduce risk.',
+                    label: 'I understand and want to continue',
+                    description:
+                        "OpenAI hasn't reviewed this MCP server. Attackers may attempt to steal your data or trick the model into taking unintended actions, including destroying data.",
+                }}
                 note={t('mcp.chatgpt.dialogNote')}
             />
         )

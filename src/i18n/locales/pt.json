@@ -675,7 +675,7 @@
         },
         {
           "label": "O que precisa",
-          "statement": "Claude ou ChatGPT e o e-mail que você usa na augo. A augo entra com um link mágico, então não há senha."
+          "statement": "Claude ou ChatGPT e o e-mail que você usa na augo."
         },
         {
           "label": "Tempo de configuração",
@@ -784,9 +784,9 @@
           ]
         },
         {
-          "label": "Carga de treino e sessões",
+          "label": "Volume, intensidade e sessões",
           "items": [
-            "Como foi a carga de treino da Anna na semana passada comparada às quatro anteriores?",
+            "Como foram o volume e a intensidade da Anna na semana passada comparados às quatro anteriores?",
             "Quais sessões o Marco perdeu neste mês, e o que ele disse sobre elas?",
             "Abra os detalhes do longão da Sofia ontem."
           ]
@@ -828,15 +828,15 @@
       "items": [
         {
           "label": "Pergunte sobre qualquer atleta",
-          "statement": "As sessões, a carga de treino, o feedback e o que vocês conversaram — respondido em uma pergunta, sem abrir a augo."
+          "statement": "As sessões, o volume, a frequência e a intensidade, o feedback e o que vocês conversaram — respondido em uma pergunta, sem abrir a augo."
         },
         {
           "label": "Veja quem precisa de atenção",
-          "statement": "Pergunte quem está desandando: feedback piorando, sessões perdidas, carga subindo mais rápido do que deveria."
+          "statement": "Pergunte quem está desandando: feedback piorando, sessões perdidas, sessões ficando mais longas ou mais duras rápido demais."
         },
         {
           "label": "Crie e atribua treinos",
-          "statement": "Monte uma sessão ou um modelo e coloque no calendário do atleta para um dia específico."
+          "statement": "Monte uma sessão única, ou um bloco inteiro de uma vez, e coloque no calendário do atleta nos dias que você escolher."
         },
         {
           "label": "Escreva mensagens, notas e relatórios",

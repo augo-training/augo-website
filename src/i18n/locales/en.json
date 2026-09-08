@@ -678,7 +678,7 @@
         },
         {
           "label": "What you need",
-          "statement": "Claude or ChatGPT, and your augo email. augo signs you in with a magic link, so there is no password."
+          "statement": "Claude or ChatGPT, and your augo email."
         },
         {
           "label": "Setup time",
@@ -787,9 +787,9 @@
           ]
         },
         {
-          "label": "Training load and sessions",
+          "label": "Volume, intensity and sessions",
           "items": [
-            "What was Anna's training load last week compared with the four weeks before?",
+            "What was Anna's volume and intensity last week compared with the four weeks before?",
             "Which sessions did Marco miss this month, and what did he say about them?",
             "Pull up the details of Sofia's long run yesterday."
           ]
@@ -831,15 +831,15 @@
       "items": [
         {
           "label": "Ask about any athlete",
-          "statement": "Their sessions, training load, feedback and what the two of you have discussed — answered in one question, without opening augo."
+          "statement": "Their sessions, their volume, frequency and intensity, their feedback and what the two of you have discussed — answered in one question, without opening augo."
         },
         {
           "label": "Spot who needs attention",
-          "statement": "Ask which athletes are drifting: feedback trending down, sessions missed, load climbing faster than it should."
+          "statement": "Ask which athletes are drifting: feedback trending down, sessions missed, sessions getting longer or harder too quickly."
         },
         {
           "label": "Create and assign workouts",
-          "statement": "Build a session or a template and put it on an athlete's calendar for a given day."
+          "statement": "Build a single session, or a whole block of them at once, and put them on an athlete's calendar for the days you choose."
         },
         {
           "label": "Draft messages, notes and reports",
