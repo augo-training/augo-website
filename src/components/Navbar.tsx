@@ -84,6 +84,7 @@ export default function Navbar() {
         { label: t('nav.pricing'), href: `/${currentLang}/pricing` },
         { label: t('nav.bookDemo'), href: `/${currentLang}/book-a-demo` },
         { label: t('nav.findAMatch'), href: `/${currentLang}/find` },
+        { label: t('nav.contact'), href: `/${currentLang}/contact` },
         { label: t('nav.signUp'), href: `/${currentLang}/download` },
     ]
 
@@ -104,7 +105,7 @@ export default function Navbar() {
             const items = menuItemRefs.current.filter(Boolean) as HTMLElement[]
             const joinBtn = menuJoinRef.current
             if (overlay) {
-                gsap.set(overlay, { display: 'flex', height: '100vh' })
+                gsap.set(overlay, { display: 'flex', height: 'calc(100vh - var(--banner-h))' })
                 gsap.set(items, { opacity: 1, y: 0 })
                 if (joinBtn) gsap.set(joinBtn, { opacity: 1, y: 0 })
             }
@@ -146,7 +147,7 @@ export default function Navbar() {
 
         // Panel expands from top to bottom
         tl.to(overlay, {
-            height: '100vh',
+            height: 'calc(100vh - var(--banner-h))',
             duration: 0.4,
             ease: 'cubic-bezier(0.16, 1, 0.3, 1)',
         })
@@ -260,7 +261,7 @@ export default function Navbar() {
 
     return (
         <>
-            <nav className="navbar-sticky fixed top-0 left-0 right-0 z-[60] flex items-center justify-between px-5 sm:px-6 md:px-8 lg:px-12 pt-6 pb-2">
+            <nav className="navbar-sticky fixed top-[var(--banner-h)] left-0 right-0 z-[60] flex items-center justify-between px-5 sm:px-6 md:px-8 lg:px-12 pt-6 pb-2">
                 {/* Left Side: Logo + Nav Links */}
                 <div className="flex items-center gap-12 2xl:gap-[100px]">
                     {/* Logo */}
@@ -340,7 +341,7 @@ export default function Navbar() {
             {/* ─── Mobile Menu Overlay ─── */}
             <div
                 ref={overlayRef}
-                className="fixed top-0 left-0 right-0 z-[55] flex-col items-center justify-between overflow-hidden"
+                className="fixed top-[var(--banner-h)] left-0 right-0 z-[55] flex-col items-center justify-between overflow-hidden"
                 style={{
                     display: 'none',
                     height: 0,

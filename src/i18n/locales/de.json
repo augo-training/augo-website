@@ -7,15 +7,22 @@
     "bookDemo": "Demo buchen",
     "humanEdge": "Human Edge",
     "joinAugo": "augo beitreten",
+    "contact": "Kontakt",
     "signUp": "Registrieren",
     "coachLogin": "Coach Login"
   },
   "hero": {
-    "line1": "Ein neuer Standard",
-    "line2prefix": "für",
-    "line3": "Coaching",
-    "rotatingWords": ["Lauf-", "Schwimm-", "Rad–", "Triathlon-", "Ausdauer-"],
-    "subheadline": "Der intelligente Assistent kombiniert Kommunikation, Trainingsdaten sowie Feedback und verwandelt Erkenntnisse in Taten – damit du mehr Zeit für das Wesentliche hast."
+    "line1": "Die Zukunft",
+    "line2prefix": "des",
+    "line3": "Coachings",
+    "rotatingWords": [
+      "Lauf-",
+      "Schwimm-",
+      "Rad–",
+      "Triathlon-",
+      "Ausdauer-"
+    ],
+    "subheadline": "Die intelligente Plattform, die Kommunikation zwischen Coach und Athlet, das Befinden der Athleten, Trainingsdaten und Trainingsplanung an einem einzigen Ort vereint."
   },
   "connects": {
     "headline": "Verbindet sich nahtlos mit deinen Apps und Geräten"
@@ -36,6 +43,17 @@
         "tagline": "Kein Durchsuchen vergrabener Kalendernotizen oder Scrollen durch Nachrichtenverläufe mehr, um sich zu erinnern, wann dein Athlet das Knieproblem erwähnt hat."
       },
       {
+        "headline": "Einheiten erstellen.\nIn Sekunden.",
+        "body": "Baue eine Einheit selbst im Workout-Builder im Web, beschreibe sie dem Assistenten im Web oder in der App, oder erstelle sie direkt in Claude oder ChatGPT über den augo-Connector.",
+        "tagline": "Wie auch immer du arbeitest — die Einheit landet im Kalender deines Athleten."
+      },
+      {
+        "headline": "Verbinde augo mit\nClaude und ChatGPT.",
+        "body": "Richte augo als Connector ein und frag Claude oder ChatGPT alles zu deinen Athleten: ihre Einheiten, wie sie sich fühlen, worüber ihr gesprochen habt. Einheiten erstellen, Nachrichten entwerfen und Berichte zusammenstellen geht ebenso.",
+        "tagline": "Der Connector meldet sich als du an und sieht nur deine Athleten.",
+        "linkLabel": "In zwei Minuten eingerichtet"
+      },
+      {
         "headline": "Spüre sofort, wer\ndich heute braucht",
         "body": "augo zeigt dir die Athleten, die jetzt Aufmerksamkeit brauchen: Frühwarnsignale aus Trainingsdaten und Session-Feedback, Terminänderungswünsche, zur Überprüfung markierte Sessions, Schlüsselmomente, in denen dein Input am wichtigsten ist.",
         "tagline": "Starte jeden Tag mit Klarheit und Fokus."
@@ -46,8 +64,8 @@
         "tagline": "Erkenne Ermüdung, Motivationstiefs oder frühe Verletzungsanzeichen, solange noch Zeit zum Handeln bleibt."
       },
       {
-        "headline": "Einmal schreiben.\naugo merkt es sich für immer.",
-        "body": "Ein Ort für alles, was du über jeden einzelnen Athleten weißt. Privat für dich, zugänglich nur für deinen intelligenten Assistenten. Das unterscheidet es von jedem Notizbuch, das du bisher genutzt hast: augo kann es lesen und hilft dir, konsequent und mühelos den Überblick zu behalten.",
+        "headline": "Ein Ort für jede Notiz\nzu jedem Athleten.",
+        "body": "Privat für dich, zugänglich nur für deinen intelligenten Assistenten. Das unterscheidet es von jedem Notizbuch, das du bisher genutzt hast: augo kann es lesen und hilft dir, konsequent und mühelos den Überblick zu behalten.",
         "tagline": "Deine Notizen sind nicht länger etwas, das du schreibst und vergisst."
       }
     ]
@@ -59,6 +77,10 @@
       {
         "headline": "Dein persönlicher\nRaum für den Kontakt\nmit deinem Coach",
         "body": "Alle Nachrichten, Session-Feedbacks und Trainingsdaten an einem Ort – damit du dich immer unterstützt fühlst, egal wo du bist."
+      },
+      {
+        "headline": "Dein Coach plant sie.\nDeine Uhr hat sie.",
+        "body": "Dein Coach baut die Einheit, und sie erscheint Schritt für Schritt in deiner App: Aufwärmen, Intervalle, Auslaufen. Sie wird auch mit deiner Uhr synchronisiert — du folgst einfach mit."
       },
       {
         "headline": "Teile, wie du dich\nfühlst, nicht nur\nwie du performst",
@@ -91,12 +113,12 @@
     "ctaHeadline1": "Ein neuer Standard",
     "ctaHeadline2": "für Ausdauer-",
     "ctaHeadline3": "Coaching",
-    "ctaBody": "Der intelligente Assistent, der Daten mit menschlichem Kontext kombiniert, Erkenntnisse in Handlungen verwandelt und dir Zeit für das gibt, was wirklich zählt.",
+    "ctaBody": "Die intelligente Plattform, die Daten mit menschlichem Kontext kombiniert, Erkenntnisse in Handlungen verwandelt und dir Zeit für das gibt, was wirklich zählt.",
     "title": "FAQ",
     "items": [
       {
         "question": "Was kostet augo?",
-        "answer": "Bis zum 8. September 2026 kostet augo {{price}} pro Monat für unbegrenzt viele Athleten – das ist unser Early-Bird-Preis."
+        "answer": "augo kostet {{price}} pro Monat und Athlet, und jeder Coach startet mit einer 14-tägigen kostenlosen Testphase."
       },
       {
         "question": "Wird augo Coaches ersetzen?",
@@ -137,7 +159,7 @@
   },
   "join": {
     "headline": "Werde Teil der Community aus Coaches und Athleten, die neue Maßstäbe setzen.",
-    "body": "Tritt der Warteliste bei und erlebe als Erste/r den intelligenten Assistenten, der dir hilft, den besten Service für deine Athleten zu bieten.",
+    "body": "Tritt der Warteliste bei und erlebe als Erste/r die intelligente Plattform, die dir hilft, den besten Service für deine Athleten zu bieten.",
     "cookiesRequired": "Cookies erforderlich",
     "cookiesMessage": "Dieses Formular verwendet Cookies von Typeform. Bitte akzeptiere Cookies, um das Formular zu laden.",
     "acceptCookies": "Cookies akzeptieren"
@@ -230,7 +252,8 @@
       "faq": "FAQ",
       "findAMatch": "Match finden",
       "humanEdge": "Human Edge",
-      "blog": "Blog"
+      "blog": "Blog",
+      "mcp": "MCP-Setup"
     },
     "copyright": "© 2026 augo. Alle Rechte vorbehalten."
   },
@@ -239,11 +262,6 @@
     "hrs": "Std",
     "mins": "Min",
     "secs": "Sek"
-  },
-  "launchOffer": {
-    "text": "<1>{{price}}/Monat</1> unbegrenzt Athleten",
-    "daysLeft_one": "noch {{count}} Tag",
-    "daysLeft_other": "noch {{count}} Tage"
   },
   "cookies": {
     "message": "Wir verwenden Drittanbieter-Cookies, um dein Erlebnis zu verbessern. Zum Abschalten auf „Ablehnen“ klicken.",
@@ -264,108 +282,13 @@
     "tag": "PREISE",
     "heroHeadline": "Die richtigen Signale. Zur richtigen Zeit.",
     "heroBody": "augo bündelt deine Gespräche mit Athlet:innen, deren Trainingsdaten und qualitatives Session-Feedback zu klaren, umsetzbaren Erkenntnissen — damit du immer weißt, wer Aufmerksamkeit braucht, was zu tun ist und warum.",
-    "featuresLabel": "augo liefert",
-    "featureColumns": [
-      {
-        "title": "Kommunikation",
-        "items": ["Kommuniziere mit deinen Athleten nahtlos von überall: Mobil oder im Web"]
-      },
-      {
-        "title": "Athleten-Feedback",
-        "items": ["Erfasse konsistentes Athleten-Feedback zu Regeneration, Beschwerden und Ernährung"]
-      },
-      {
-        "title": "KI-Assistent",
-        "items": ["Chatte mit einem intelligenten Assistenten, der Zugriff auf alle deine Chats, Athleten-Feedback und Trainingsdaten hat"]
-      },
-      {
-        "title": "Tägliche Prioritäten",
-        "items": ["Starte den Tag mit Klarheit: augos Assistent erstellt eine Prioritätenliste, damit du genau weißt, womit du beginnen sollst"]
-      },
-      {
-        "title": "Trainingsanalyse",
-        "items": ["Überarbeite Workouts unterwegs, von überall. augo ist für Mobilgeräte entwickelt"]
-      }
-    ],
     "pricingHeadline": "Einfache Preise. Gebaut, um mit deinem Qualitätscoaching zu wachsen.",
-    "trustLine1": "Kostenlos starten. Nur upgraden, wenn du mehr brauchst.",
-    "trustLine2": "Keine langen Verträge. Keine versteckten Gebühren. Jederzeit kündbar.",
+    "trustLine1": "Starte mit einer 14-tägigen kostenlosen Testphase. Keine Kreditkarte nötig.",
+    "trustLine2": "Keine versteckten Gebühren. Jederzeit kündbar.",
     "trustQuote": "Deine Daten gehören immer dir; geh jederzeit und nimm alle deine Daten mit.",
-    "trust": {
-      "startFree": "Kostenlos starten",
-      "noContracts": "Keine Verträge",
-      "yourData": "Ihre Daten, immer"
-    },
     "monthly": "Monatlich",
     "annual": "Jährlich",
-    "annualBadge": "Spare 15%",
-    "freeTierTagline": "Bis zu 2 Athleten",
-    "earlyBirdDaysLeft_one": "noch {{count}} Tag zu diesem Preis",
-    "earlyBirdDaysLeft_other": "noch {{count}} Tage zu diesem Preis",
-    "alwaysFreeNote": "0-2 Athleten: immer kostenlos.",
-    "earlyAccessBanner": "Bis zum 27. April 2026 kostenlos für alle Coaches — teste augo mit unbegrenzt vielen Athleten, ohne Kreditkarte.",
-    "earlyAccessRibbon": "Startangebot: Kostenlos bis 26. April 2026",
-    "earlyAccessRibbonSub": "Keine Kreditkarte erforderlich",
-    "flat": {
-      "tagline": "Ab 3 Athleten",
-      "cta": "Jetzt starten",
-      "period": "/ Monat",
-      "periodAnnual": "/ Monat, jährlich abgerechnet"
-    },
     "locationNote": "Preise für {{countryName}}. Nicht dein Standort? <1>Kontaktiere uns</1>.",
-    "free": {
-      "label": "Free",
-      "tagline": "Perfekt für den Einstieg",
-      "price": "$0",
-      "period": "/ Monat",
-      "features": [
-        "Bis zu 2 Athleten anschreiben",
-        "Eingeschränkter Zugang zum augo-Assistenten",
-        "Tägliche Prioritätsliste von augos Assistenten",
-        "Trainingsdaten deiner Athleten empfangen",
-        "Session-Feedback von Athleten sammeln"
-      ],
-      "cta": "Kostenlos starten"
-    },
-    "unlimited": {
-      "label": "Unlimited",
-      "tagline": "Für Coaches, die wachsen wollen",
-      "priceMonthly": "$19,90",
-      "priceAnnual": "$191",
-      "periodMonthly": "/ Monat",
-      "periodAnnual": "/ Jahr",
-      "everythingIn": "Alles aus Free +",
-      "features": [
-        "Unbegrenzte Athleten",
-        "Unbegrenzter Zugang zu augos intelligentem Assistenten",
-        "Zugang zu augos Matching-Plattform",
-        "Zugang zu Discord & augos Coach-Netzwerk",
-        "Prioritätssupport"
-      ],
-      "cta": "Auf Unlimited upgraden",
-      "ctaOriginal": "Unlimited Plan starten",
-      "ctaPromo": "Free until April 27, 2026 · Launch promo"
-    },
-    "bubbleText": "Für Coaches entwickelt, denen hochwertige Betreuung ihrer Athleten wirklich am Herzen liegt.",
-    "whyHeadline": "Warum Coaches augo wählen",
-    "whyCards": [
-      {
-        "title": "Klarheit statt Chaos",
-        "body": "Alle deine Athleten, Daten und Entscheidungen — an einem Ort."
-      },
-      {
-        "title": "Erfahre, wie deine Athleten sich wirklich fühlen",
-        "body": "Sammle konsistentes Session-Feedback, um subtile Veränderungen zu erkennen, die auf Herausforderungen hinweisen."
-      },
-      {
-        "title": "Routinearbeit automatisieren",
-        "body": "Weniger Zeit für Verwaltung, mehr Zeit fürs Coachen."
-      },
-      {
-        "title": "Mit Zuversicht coachen",
-        "body": "Bessere Entscheidungen durch klare, umsetzbare Erkenntnisse."
-      }
-    ],
     "faqTitle": "Häufig gestellte Fragen",
     "faqItems": [
       {
@@ -374,19 +297,15 @@
       },
       {
         "question": "Gibt es eine kostenlose Testphase?",
-        "answer": "Du kannst mit unserem kostenlosen Plan starten und upgraden, wenn du bereit bist."
+        "answer": "Ja — jeder Coach startet mit einer 14-tägigen kostenlosen Testphase. Keine Kreditkarte nötig."
       },
       {
         "question": "Müssen meine Athlet:innen bezahlen?",
         "answer": "Nein – augo ist für Coaches gemacht. Athlet:innen folgen einfach deiner Anleitung."
       },
       {
-        "question": "Muss ich meine Trainingsplattform kündigen?",
-        "answer": "Nein – augo ergänzt deine bestehenden Tools und hilft dir, Daten zu strukturieren und den Überblick über alle Athlet:innen zu behalten."
-      },
-      {
         "question": "Gibt es versteckte Kosten oder Zusatzpakete?",
-        "answer": "Nein. Es gibt keine versteckten Gebühren."
+        "answer": "Pro enthält alles, was du zum Coachen brauchst. Elite ist ein optionales Add-on für Coaches, die persönliche Betreuung möchten, und kann jährlich im Voraus bezahlt werden – zwei Monate gratis. Keine versteckten Gebühren."
       },
       {
         "question": "Mit welchen Plattformen ist augo kompatibel?",
@@ -398,16 +317,77 @@
       },
       {
         "question": "Was sehen und nutzen meine Athlet:innen?",
-        "answer": "Sie können ihre Trainingsdaten einsehen, mit dir chatten, qualitatives Feedback teilen und Hinweise zu Trainingsplänen erhalten."
+        "answer": "Athleten sehen ihre Workout-Daten, chatten mit dir, teilen qualitatives Feedback und sehen die vorgegebenen Workouts."
       },
       {
-        "question": "Bekomme ich einen Rabatt auf den Jahresplan?",
-        "answer": "Ja, du sparst 15 %, wenn du dich für einen Jahresplan entscheidest."
+        "question": "Wie funktioniert die Abrechnung pro Athlet?",
+        "answer": "Du zahlst für jeden Athleten, den du aktiv coachst. Füge jederzeit Athleten hinzu oder entferne sie – deine Rechnung passt sich an."
       }
     ],
-    "closingHeadline": "Coaching sollte sich nicht chaotisch anfühlen.",
-    "closingBody": "augo gibt dir die Klarheit, mit Zuversicht zu coachen. Starte heute kostenlos und entdecke, was es bedeutet, wirklich zu wissen, was zählt.",
-    "closingCta": "Heute kostenlos starten"
+    "pro": {
+      "label": "Pro",
+      "tagline": "Die komplette Plattform für hochwertiges Coaching.",
+      "priceSuffix": "/Monat pro Athlet",
+      "cta": "14 Tage kostenlos testen",
+      "featureGroups": [
+        {
+          "title": "Coaching",
+          "items": [
+            "Athleten-Chat, subjektives Feedback, private Coach-Notizen, Trainingsplan-Erstellung und Workout-Analyse"
+          ]
+        },
+        {
+          "title": "KI",
+          "items": [
+            "In-App-Assistent powered by Claude Sonnet",
+            "Konnektoren für Claude und ChatGPT"
+          ]
+        },
+        {
+          "title": "Daten",
+          "items": [
+            "Zwei-Wege-Sync mit Garmin, Coros, Polar, Wahoo, Zwift; Import von Strava"
+          ]
+        },
+        {
+          "title": "Migration",
+          "items": [
+            "Vollständige Unterstützung beim Plattformwechsel",
+            "45-minütiges Onboarding-Gespräch"
+          ]
+        },
+        {
+          "title": "Wachstum",
+          "items": [
+            "Athleten-Matching",
+            "Coach-Community"
+          ]
+        }
+      ]
+    },
+    "enterprise": {
+      "label": "Enterprise",
+      "tagline": "Für Coaching-Unternehmen und Teams mit mehreren Coaches.",
+      "planLabel": "Individueller Plan",
+      "price": "Individuell",
+      "everythingIn": "Alles aus Pro, plus:",
+      "features": [
+        "Mehrere Coaches",
+        "White Label",
+        "Individuelle Plattform-Anpassung"
+      ],
+      "cta": "Kontaktiere uns"
+    },
+    "addOnsTitle": "Add-ons",
+    "elite": {
+      "label": "Elite",
+      "tagline": "Persönliche Betreuung, während dein Coaching-Business wächst.",
+      "description": "Inklusive persönlichem Account Executive, KI-Beratung und -Schulung sowie deiner Wahl des KI-Modells: Claude Sonnet, Claude Opus, Gemini oder ChatGPT.",
+      "priceSuffix": "/Monat",
+      "annualSuffix": "/Jahr",
+      "annualNote": "Zwei Monate gratis"
+    },
+    "perAthleteNote": "Zahle nur für die Athleten, die du aktiv coachst."
   },
   "bookDemo": {
     "hero": {
@@ -427,7 +407,6 @@
     "typeOther": "Andere",
     "cta": "Weiter zum App Store",
     "skip": "Überspringen, direkt weiter",
-    "typeError": "Bitte wähle eine Option.",
     "nameError": "Bitte gib deinen Vornamen ein.",
     "error": "Etwas ist schiefgelaufen. Bitte versuche es erneut."
   },
@@ -463,30 +442,75 @@
       "lead": "This isn't for first-timers. It's for one runner who wants to chase their limits and reach breakthrough performance.",
       "subtitle": "Selection criteria",
       "items": [
-        { "label": "Experience", "statement": "3+ marathons completed" },
-        { "label": "Ambition", "statement": "Chasing a real PB, not another finisher's medal" },
-        { "label": "Timeline", "statement": "Spring 2027 PB attempt" },
-        { "label": "History", "statement": "Self-coached, on standard plans, or relying on AI" },
-        { "label": "Coaching", "statement": "Have never worked with a human coach" },
-        { "label": "Signal", "statement": "Can feel the ceiling but can't break it" },
-        { "label": "Mindset", "statement": "Ready to document the journey, wins and messy parts" }
+        {
+          "label": "Experience",
+          "statement": "3+ marathons completed"
+        },
+        {
+          "label": "Ambition",
+          "statement": "Chasing a real PB, not another finisher's medal"
+        },
+        {
+          "label": "Timeline",
+          "statement": "Spring 2027 PB attempt"
+        },
+        {
+          "label": "History",
+          "statement": "Self-coached, on standard plans, or relying on AI"
+        },
+        {
+          "label": "Coaching",
+          "statement": "Have never worked with a human coach"
+        },
+        {
+          "label": "Signal",
+          "statement": "Can feel the ceiling but can't break it"
+        },
+        {
+          "label": "Mindset",
+          "statement": "Ready to document the journey, wins and messy parts"
+        }
       ]
     },
     "why": {
       "title": "Why This Exists",
       "context": [
-        { "label": "Problem", "text": "Most runners hit a ceiling not because they aren't training hard, but because the hardest calls (when to push, when to back off, when to rebuild) are impossible to make alone." },
-        { "label": "Blindspot", "text": "We underestimate when fatigued, overestimate when fresh, and second-guess in the moments that matter most." },
-        { "label": "Limit", "text": "AI optimizes patterns. Plans give structure. Neither replaces what a great coach sees from the outside." }
+        {
+          "label": "Problem",
+          "text": "Most runners hit a ceiling not because they aren't training hard, but because the hardest calls (when to push, when to back off, when to rebuild) are impossible to make alone."
+        },
+        {
+          "label": "Blindspot",
+          "text": "We underestimate when fatigued, overestimate when fresh, and second-guess in the moments that matter most."
+        },
+        {
+          "label": "Limit",
+          "text": "AI optimizes patterns. Plans give structure. Neither replaces what a great coach sees from the outside."
+        }
       ],
       "pullQuote": "Performance at the limit is interpreted, not calculated.",
       "subtitle": "What a human coach does",
       "items": [
-        { "label": "Instinct", "statement": "Feels when something is off, even when the data looks fine" },
-        { "label": "Judgment", "statement": "Pushes back when your ideas are wrong, backs you when they're right" },
-        { "label": "Pressure", "statement": "Reads pressure, doubt, and instinct" },
-        { "label": "Uncertainty", "statement": "Makes the call when the data won't" },
-        { "label": "Unseen", "statement": "Sees what's not in the data" }
+        {
+          "label": "Instinct",
+          "statement": "Feels when something is off, even when the data looks fine"
+        },
+        {
+          "label": "Judgment",
+          "statement": "Pushes back when your ideas are wrong, backs you when they're right"
+        },
+        {
+          "label": "Pressure",
+          "statement": "Reads pressure, doubt, and instinct"
+        },
+        {
+          "label": "Uncertainty",
+          "statement": "Makes the call when the data won't"
+        },
+        {
+          "label": "Unseen",
+          "statement": "Sees what's not in the data"
+        }
       ],
       "closing": "That's the human edge."
     },
@@ -498,18 +522,42 @@
         "name": "Brian Boisvert",
         "url": "https://greatdayforrunners.com/",
         "stats": [
-          { "value": "2:44", "label": "Marathon PB" },
-          { "value": "18×", "label": "Marathoner" },
-          { "value": "Level II", "label": "RRCA Certified" },
-          { "value": "2×", "label": "50-mile Ultra" }
+          {
+            "value": "2:44",
+            "label": "Marathon PB"
+          },
+          {
+            "value": "18×",
+            "label": "Marathoner"
+          },
+          {
+            "value": "Level II",
+            "label": "RRCA Certified"
+          },
+          {
+            "value": "2×",
+            "label": "50-mile Ultra"
+          }
         ]
       },
       "programLabel": "What's included",
       "program": [
-        { "label": "Duration", "value": "12 months of coaching" },
-        { "label": "Format", "value": "1:1, personalized to your training" },
-        { "label": "Cadence", "value": "Direct, ongoing access to Brian" },
-        { "label": "Story", "value": "Year-long documentary of your progression" }
+        {
+          "label": "Duration",
+          "value": "12 months of coaching"
+        },
+        {
+          "label": "Format",
+          "value": "1:1, personalized to your training"
+        },
+        {
+          "label": "Cadence",
+          "value": "Direct, ongoing access to Brian"
+        },
+        {
+          "label": "Story",
+          "value": "Year-long documentary of your progression"
+        }
       ],
       "valueLabel": "Program Value",
       "valueOriginal": "$2,400 USD",
@@ -575,18 +623,54 @@
     "faq": {
       "title": "FAQ",
       "items": [
-        { "question": "What is The Human Edge?", "answer": "A one-year experiment pairing one serious runner with a world-class human coach." },
-        { "question": "Who is this for?", "answer": "Experienced marathoners chasing a real personal best." },
-        { "question": "Who is this not for?", "answer": "Beginners or anyone training just to finish." },
-        { "question": "What do I get if selected?", "answer": "One year of free, fully personalized coaching." },
-        { "question": "Is a PB guaranteed?", "answer": "No, only a higher probability of achieving one." },
-        { "question": "Why human coaching?", "answer": "Because performance isn't just data. It's judgment." },
-        { "question": "Will my journey be public?", "answer": "Yes, the full process will be documented." },
-        { "question": "How much time does it take?", "answer": "A serious, consistent training commitment." },
-        { "question": "How do I apply?", "answer": "Applications for this round are now closed. Join the waitlist on this page and we'll notify you first when the next Human Edge program opens." },
-        { "question": "How is the athlete selected?", "answer": "Based on experience, plateau, and readiness to be coached." },
-        { "question": "What if I'm not selected?", "answer": "You'll be in the loop for future Human Edge programs." },
-        { "question": "What's the goal of this initiative?", "answer": "To prove what human coaching changes at the edge of performance." }
+        {
+          "question": "What is The Human Edge?",
+          "answer": "A one-year experiment pairing one serious runner with a world-class human coach."
+        },
+        {
+          "question": "Who is this for?",
+          "answer": "Experienced marathoners chasing a real personal best."
+        },
+        {
+          "question": "Who is this not for?",
+          "answer": "Beginners or anyone training just to finish."
+        },
+        {
+          "question": "What do I get if selected?",
+          "answer": "One year of free, fully personalized coaching."
+        },
+        {
+          "question": "Is a PB guaranteed?",
+          "answer": "No, only a higher probability of achieving one."
+        },
+        {
+          "question": "Why human coaching?",
+          "answer": "Because performance isn't just data. It's judgment."
+        },
+        {
+          "question": "Will my journey be public?",
+          "answer": "Yes, the full process will be documented."
+        },
+        {
+          "question": "How much time does it take?",
+          "answer": "A serious, consistent training commitment."
+        },
+        {
+          "question": "How do I apply?",
+          "answer": "Applications for this round are now closed. Join the waitlist on this page and we'll notify you first when the next Human Edge program opens."
+        },
+        {
+          "question": "How is the athlete selected?",
+          "answer": "Based on experience, plateau, and readiness to be coached."
+        },
+        {
+          "question": "What if I'm not selected?",
+          "answer": "You'll be in the loop for future Human Edge programs."
+        },
+        {
+          "question": "What's the goal of this initiative?",
+          "answer": "To prove what human coaching changes at the edge of performance."
+        }
       ]
     },
     "modal": {
@@ -594,5 +678,256 @@
       "subtitle": "Drop your email and we'll let you know first when the next Human Edge program opens.",
       "cta": "Submit"
     }
+  },
+  "mcp": {
+    "hero": {
+      "eyebrow": "Einrichtung",
+      "title": "augo mit Claude und ChatGPT verbinden",
+      "lead": "augo betreibt einen MCP-Server. Richte ihn als Connector ein, und du kannst Claude oder ChatGPT alles über deine Athleten fragen — ihre Einheiten, wie sie sich fühlen und worüber ihr gesprochen habt. Du kannst sie außerdem Einheiten erstellen, Berichte aufbereiten und Sessions auswerten lassen. Die Möglichkeiten sind offen.",
+      "urlLabel": "augo MCP-Server-URL"
+    },
+    "atAGlance": {
+      "title": "Auf einen Blick",
+      "items": [
+        {
+          "label": "Für wen",
+          "statement": "Coaches mit einem augo-Konto."
+        },
+        {
+          "label": "Was du brauchst",
+          "statement": "Claude oder ChatGPT und deine augo-E-Mail-Adresse."
+        },
+        {
+          "label": "Einrichtungsdauer",
+          "statement": "Etwa zwei Minuten pro App."
+        },
+        {
+          "label": "Kosten",
+          "statement": "In augo Pro enthalten. Während der 14-tägigen kostenlosen Testphase haben Coaches ebenfalls Zugriff."
+        }
+      ]
+    },
+    "jumpList": {
+      "title": "Auf dieser Seite",
+      "items": [
+        {
+          "id": "what-you-can-do",
+          "label": "Was du machen kannst"
+        },
+        {
+          "id": "claude",
+          "label": "Mit Claude verbinden"
+        },
+        {
+          "id": "chatgpt",
+          "label": "Mit ChatGPT verbinden"
+        },
+        {
+          "id": "prompts",
+          "label": "Was du fragen kannst"
+        },
+        {
+          "id": "faqs",
+          "label": "FAQ"
+        }
+      ]
+    },
+    "claude": {
+      "eyebrow": "Claude",
+      "title": "augo mit Claude verbinden",
+      "lead": "Vier Schritte. Die Bezeichnungen der Menüpunkte stehen hier auf Englisch, so wie Claude sie üblicherweise anzeigt.",
+      "steps": [
+        {
+          "title": "Einstellungen öffnen",
+          "body": "Klicke in Claude auf dein Profil und dann auf Settings."
+        },
+        {
+          "title": "Eigenen Connector hinzufügen",
+          "body": "Gehe zu Connectors und klicke auf Add custom connector.",
+          "note": "In manchen Tarifen findest du das unter Customize statt unter Settings. In einem Team- oder Enterprise-Workspace muss eine Inhaberin oder ein Inhaber den Connector einmalig unter Organization settings anlegen; danach erscheint er hier für alle zum Verbinden."
+        },
+        {
+          "title": "Name und URL eintragen",
+          "body": "Nenne den Connector augo und füge die augo MCP-Server-URL ein. In Advanced settings kommt nichts hinein — augo nutzt weder OAuth-Client-ID noch Secret. Klicke dann auf Add."
+        },
+        {
+          "title": "Mit deiner augo-E-Mail anmelden",
+          "body": "Ein Anmeldefenster öffnet sich. Gib die E-Mail-Adresse ein, die du für augo nutzt; augo schickt dir daraufhin einen Link. Öffne dein Postfach, klicke den Link an, und der Connector ist verbunden.",
+          "note": "Ein Passwort musst du nicht eingeben. Kommt der Link nicht innerhalb einer Minute an, sieh im Spam-Ordner nach."
+        }
+      ],
+      "dialogAdvancedHint": "Lass beide OAuth-Felder leer. augo braucht weder eine Client-ID noch ein Secret.",
+      "dialogNote": "Fülle diese beiden Felder aus, lass Advanced settings unberührt und klicke auf Add."
+    },
+    "chatgpt": {
+      "eyebrow": "ChatGPT",
+      "title": "augo mit ChatGPT verbinden",
+      "lead": "Fünf Schritte. Der Entwicklermodus muss zuerst aktiviert sein. Die Bezeichnungen der Menüpunkte stehen hier auf Englisch, so wie ChatGPT sie üblicherweise anzeigt.",
+      "calloutLabel": "Nur im Browser",
+      "callout": "Ein eigener Connector lässt sich nur in ChatGPT in einem Desktop-Browser hinzufügen. Ist er einmal eingerichtet, kannst du augo wie gewohnt auch in der ChatGPT-App nutzen.",
+      "steps": [
+        {
+          "title": "Einstellungen öffnen",
+          "body": "Klicke in ChatGPT in einem Desktop-Browser auf dein Profil und dann auf Settings."
+        },
+        {
+          "title": "Plugins öffnen",
+          "body": "Gehe im Einstellungsmenü zu Plugins. Dort liegen in ChatGPT die eigenen Verbindungen."
+        },
+        {
+          "title": "Entwicklermodus aktivieren",
+          "body": "Öffne unter Plugins den Bereich Advanced, suche Developer mode und schalte ihn ein.",
+          "note": "ChatGPT weist darauf hin, dass diese Einstellung mit erhöhtem Risiko verbunden ist. Der Hinweis gilt für jedes eigene Plugin, nicht speziell für augo — er steht dort, weil ein Plugin deine Daten lesen und Aktionen ausführen kann."
+        },
+        {
+          "title": "Plugin anlegen",
+          "body": "Gehe zurück zu Plugins und klicke auf das Plus-Symbol. Nenne es augo, lass Connection auf Server URL, füge die augo MCP-Server-URL ein und lass Authentication auf OAuth."
+        },
+        {
+          "title": "Mit deiner augo-E-Mail anmelden",
+          "body": "Ein Anmeldefenster öffnet sich. Gib die E-Mail-Adresse ein, die du für augo nutzt; augo schickt dir daraufhin einen Link. Öffne dein Postfach, klicke den Link an, und das Plugin ist verbunden.",
+          "note": "Ein Passwort musst du nicht eingeben. Kommt der Link nicht innerhalb einer Minute an, sieh im Spam-Ordner nach."
+        }
+      ],
+      "dialogNote": "Setze das Häkchen bei „I understand and want to continue“ unter dem Risikohinweis und klicke dann auf Create."
+    },
+    "prompts": {
+      "title": "Was du fragen kannst, sobald du verbunden bist",
+      "lead": "Frag in deinen eigenen Worten. Das hier sind Startpunkte, keine Befehle — nichts muss auf eine bestimmte Art formuliert werden.",
+      "groups": [
+        {
+          "label": "Wer braucht Aufmerksamkeit",
+          "items": [
+            "Welche meiner Athleten brauchen heute meine Aufmerksamkeit?",
+            "Zeig mir alle, deren Feedback in den letzten zwei Wochen schlechter geworden ist.",
+            "Fasse meine Coaching-Prioritäten für heute Morgen zusammen."
+          ]
+        },
+        {
+          "label": "Umfang, Intensität und Einheiten",
+          "items": [
+            "Wie waren Annas Umfang und Intensität letzte Woche im Vergleich zu den vier Wochen davor?",
+            "Welche Einheiten hat Marco diesen Monat ausgelassen, und was hat er dazu gesagt?",
+            "Zeig mir die Details von Sofias langem Lauf gestern."
+          ]
+        },
+        {
+          "label": "Feedback und Wohlbefinden",
+          "items": [
+            "Wie fühlt sich Lena seit ihrem letzten Wettkampfblock?",
+            "Welche Athleten haben in den letzten zehn Tagen Schmerzen gemeldet?"
+          ]
+        },
+        {
+          "label": "Nachrichten",
+          "items": [
+            "Worauf hat Tom mir diese Woche geschrieben, ohne dass ich geantwortet habe?",
+            "Entwirf eine Antwort an Julia, um ihre Donnerstagseinheit auf Freitag zu verschieben."
+          ]
+        },
+        {
+          "label": "Kalender und Wettkämpfe",
+          "items": [
+            "Welche meiner Athleten haben in den nächsten acht Wochen einen Wettkampf?",
+            "Füge nächsten Dienstag eine Notiz hinzu: Die Gruppeneinheit findet auf der Bahn statt."
+          ]
+        },
+        {
+          "label": "Zonen und Ankerwerte",
+          "items": [
+            "Was sind Peters aktuelle Laufzonen, und wann wurden sie zuletzt aktualisiert?",
+            "Erfasse für Anna einen neuen Schwellenwert aus dem Test vom Samstag."
+          ]
+        }
+      ]
+    },
+    "access": {
+      "title": "Was du mit dem augo-Connector machen kannst",
+      "lead": "Lies das, bevor du dich verbindest.",
+      "items": [
+        {
+          "label": "Frag zu jedem Athleten",
+          "statement": "Einheiten, Umfang, Häufigkeit und Intensität, Feedback und worüber ihr gesprochen habt — beantwortet in einer Frage, ohne augo zu öffnen."
+        },
+        {
+          "label": "Sieh, wer Aufmerksamkeit braucht",
+          "statement": "Frag, bei wem es kippt: Feedback wird schlechter, Einheiten fallen aus, Einheiten werden zu schnell länger oder härter."
+        },
+        {
+          "label": "Einheiten erstellen und zuweisen",
+          "statement": "Erstelle eine einzelne Einheit oder gleich einen ganzen Block davon und setze sie einem Athleten für die gewünschten Tage in den Kalender."
+        },
+        {
+          "label": "Nachrichten, Notizen und Berichte entwerfen",
+          "statement": "Schreibe eine Antwort an einen Athleten, halte eine private Notiz fest oder fasse einen Trainingsblock oder eine Woche schriftlich zusammen."
+        },
+        {
+          "label": "Nur deine Athleten",
+          "statement": "Der Connector meldet sich als du an. Er sieht genau das, was du in augo siehst — deine Athleten, deine Nachrichten, deine Notizen. Sonst nichts, und nichts, was einem anderen Coach gehört."
+        },
+        {
+          "label": "Es liest nicht nur",
+          "statement": "Der Connector kann außerdem Nachrichten an deine Athleten senden, Einheiten zuweisen und bearbeiten sowie Notizen, Wettkämpfe und Leistungsanker schreiben. Claude und ChatGPT fragen vor solchen Aktionen nach deiner Bestätigung."
+        }
+      ]
+    },
+    "faq": {
+      "title": "FAQ",
+      "items": [
+        {
+          "question": "Ich finde „Add custom connector“ in Claude nicht.",
+          "answer": "Der Punkt liegt je nach Tarif unter Settings oder unter Customize. Fehlt er ganz, bist du höchstwahrscheinlich in einem Team- oder Enterprise-Workspace, in dem eine Inhaberin oder ein Inhaber den Connector zuerst einmalig für alle anlegen muss."
+        },
+        {
+          "question": "Kann ich das auf dem Handy einrichten?",
+          "answer": "Für ChatGPT nicht — der Connector muss in einem Desktop-Browser hinzugefügt werden. Danach kannst du ihn in der App nutzen. Claude lässt sich im Browser oder in der Desktop-App einrichten."
+        },
+        {
+          "question": "Brauche ich einen kostenpflichtigen Claude- oder ChatGPT-Tarif?",
+          "answer": "Nein — Stand September 2026 kannst du den Connector auch in den kostenlosen Tarifen von Claude und ChatGPT einrichten. Anthropic und OpenAI ändern häufig, was die einzelnen Tarife erlauben; wenn es also nicht klappt, prüfe deren aktuelle Bedingungen."
+        },
+        {
+          "question": "Das Anmeldefenster hat sich geschlossen und nichts ist passiert.",
+          "answer": "Starte die Verbindung erneut und achte diesmal auf die E-Mail von augo — das Fenster wartet darauf, dass du den Link in deinem Postfach anklickst. Kommt innerhalb einer Minute keine E-Mail an, sieh im Spam-Ordner nach und prüfe, ob du die Adresse eingegeben hast, die du für augo nutzt."
+        },
+        {
+          "question": "Claude oder ChatGPT findet keine augo-Funktionen.",
+          "answer": "Der Connector wurde hinzugefügt, aber nicht autorisiert. Öffne ihn in den Connector-Einstellungen und prüfe, ob er als verbunden angezeigt wird; falls nicht, trenne ihn und melde dich erneut an."
+        },
+        {
+          "question": "Können meine Athleten augo mit Claude oder ChatGPT verbinden?",
+          "answer": "Nein. Der Connector ist für Coach-Konten gedacht."
+        },
+        {
+          "question": "Verlassen die Daten meiner Athleten augo?",
+          "answer": "Alles, was der Assistent liest, wird zur Beantwortung deiner Frage an Anthropic oder OpenAI übertragen — zu deren Bedingungen und deren Speicherfristen. Wenn das für die Daten deiner Athleten nicht vertretbar ist, richte den Connector nicht ein."
+        },
+        {
+          "question": "Wie trenne ich augo wieder?",
+          "answer": "Entferne den augo-Connector in den Einstellungen von Claude oder ChatGPT. Der Zugriff endet sofort. Dein augo-Konto, deine Athleten und deine Daten bleiben unverändert."
+        },
+        {
+          "question": "Ich habe bereits einen Connector namens augo.",
+          "answer": "Namen müssen eindeutig sein. Entferne also den alten, bevor du einen neuen anlegst, oder gib dem neuen einen anderen Namen. Der Name ist nur eine Bezeichnung — entscheidend ist die Server-URL."
+        }
+      ],
+      "contactLead": "Kommst du nicht weiter?",
+      "contactCta": "Schreib uns"
+    },
+    "cta": {
+      "title": "Noch nicht bei augo?",
+      "lead": "Der Connector ist für Coaches mit einem augo-Konto. Fang dort an.",
+      "primary": "Preise ansehen",
+      "secondary": "Demo buchen"
+    },
+    "copy": {
+      "label": "Kopieren",
+      "copied": "Kopiert",
+      "announce": "In die Zwischenablage kopiert"
+    }
+  },
+  "announcement": {
+    "desktop": "Wechselst du von TrainingPeaks? Wir übernehmen deine komplette Trainingsbibliothek und richten dich in einem Onboarding-Call ein.",
+    "mobile": "Wechsel von TrainingPeaks? Wir übernehmen deine Bibliothek."
   }
 }

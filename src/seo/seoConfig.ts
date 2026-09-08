@@ -9,19 +9,19 @@ interface PageMeta {
 const pageMeta: Record<string, Record<SupportedLanguage, PageMeta>> = {
   home: {
     en: {
-      title: 'augo — The Intelligent Coaching Assistant for Endurance Sports',
+      title: 'augo — The Intelligent Coaching Platform for Endurance Sports',
       description:
-        'augo combines coach-athlete communication, workout data and session feedback into one platform. The AI-powered assistant that empowers endurance coaches.',
+        'augo combines coach-athlete communication, workout data and session feedback into one place. The AI-powered platform that empowers endurance coaches.',
     },
     de: {
-      title: 'augo — Der intelligente Coaching-Assistent für Ausdauersport',
+      title: 'augo — Die intelligente Coaching-Plattform für Ausdauersport',
       description:
-        'augo kombiniert Coach-Athleten-Kommunikation, Trainingsdaten und Session-Feedback in einer Plattform. Der KI-gestützte Assistent, der Ausdauer-Coaches stärkt.',
+        'augo vereint Coach-Athleten-Kommunikation, Trainingsdaten und Session-Feedback an einem Ort. Die KI-gestützte Plattform, die Ausdauer-Coaches stärkt.',
     },
     pt: {
-      title: 'augo — O Assistente Inteligente de Coaching para Esportes de Endurance',
+      title: 'augo — A Plataforma Inteligente de Coaching para Esportes de Endurance',
       description:
-        'augo combina comunicação coach-atleta, dados de treino e feedback de sessão em uma plataforma. O assistente com IA que fortalece coaches de endurance.',
+        'augo combina comunicação coach-atleta, dados de treino e feedback de sessão em um só lugar. A plataforma com IA que fortalece coaches de endurance.',
     },
   },
   download: {
@@ -45,17 +45,17 @@ const pageMeta: Record<string, Record<SupportedLanguage, PageMeta>> = {
     en: {
       title: 'Join the Waitlist — augo',
       description:
-        'Join the augo waitlist for priority access and special pricing. Be first to experience the intelligent coaching assistant for endurance sports.',
+        'Join the augo waitlist for priority access and special pricing. Be first to experience the intelligent coaching platform for endurance sports.',
     },
     de: {
       title: 'Warteliste beitreten — augo',
       description:
-        'Tritt der augo-Warteliste bei für Prioritätszugang und Sonderpreise. Erlebe als Erste/r den intelligenten Coaching-Assistenten für Ausdauersport.',
+        'Tritt der augo-Warteliste bei für Prioritätszugang und Sonderpreise. Erlebe als Erste/r die intelligente Coaching-Plattform für Ausdauersport.',
     },
     pt: {
       title: 'Entre na Lista de Espera — augo',
       description:
-        'Entre na lista de espera da augo para acesso prioritário e preços especiais. Seja o primeiro a experimentar o assistente inteligente de coaching para esportes de endurance.',
+        'Entre na lista de espera da augo para acesso prioritário e preços especiais. Seja o primeiro a experimentar a plataforma inteligente de coaching para esportes de endurance.',
     },
   },
   find: {
@@ -79,17 +79,17 @@ const pageMeta: Record<string, Record<SupportedLanguage, PageMeta>> = {
     en: {
       title: 'Pricing | augo — Know What Matters. Coach Better.',
       description:
-        'Simple, transparent pricing for endurance coaches. Start free with 2 athletes or upgrade to Unlimited for full access to augo\'s intelligent coaching assistant.',
+        'Simple, transparent pricing for endurance coaches. Pay per athlete, start with a 14-day free trial, and get full access to augo\'s intelligent coaching platform.',
     },
     de: {
       title: 'Preise | augo — Wissen, was zählt. Besser coachen.',
       description:
-        'Einfache, transparente Preise für Ausdauer-Coaches. Kostenlos mit 2 Athleten starten oder auf Unlimited upgraden für vollen Zugang zu augos intelligentem Coaching-Assistenten.',
+        'Einfache, transparente Preise für Ausdauer-Coaches. Zahle pro Athlet, starte mit einer 14-tägigen kostenlosen Testphase und erhalte vollen Zugang zu augos intelligenter Coaching-Plattform.',
     },
     pt: {
       title: 'Preços | augo — Saiba o que importa. Treine melhor.',
       description:
-        'Preços simples e transparentes para coaches de endurance. Comece grátis com 2 atletas ou faça upgrade para Ilimitado para acesso completo ao assistente inteligente augo.',
+        'Preços simples e transparentes para coaches de endurance. Pague por atleta, comece com 14 dias de teste grátis e tenha acesso completo à plataforma inteligente augo.',
     },
   },
   bookDemo: {
@@ -160,6 +160,40 @@ const pageMeta: Record<string, Record<SupportedLanguage, PageMeta>> = {
       title: "IRONMAN 70.3 Worlds Nice 2026: Coach's Race Checklist — augo",
       description:
         "The elite coach's checklist for IRONMAN 70.3 Worlds Nice 2026. 10 things to check before the race, so nothing surprises your athletes on race day.",
+    },
+  },
+  contact: {
+    en: {
+      title: 'Contact augo | Questions, feedback, ideas',
+      description:
+        'Get in touch with the augo team. Questions about the platform, feedback, or just want to connect — send us a message and we will come back to you.',
+    },
+    de: {
+      title: 'augo kontaktieren | Fragen, Feedback, Ideen',
+      description:
+        'Nimm Kontakt zum augo-Team auf. Fragen zur Plattform, Feedback oder einfach nur Hallo sagen — schreib uns und wir melden uns zurück.',
+    },
+    pt: {
+      title: 'Fale com a augo | Dúvidas, feedback, ideias',
+      description:
+        'Entre em contato com o time da augo. Dúvidas sobre a plataforma, feedback ou só para trocar uma ideia — mande uma mensagem que a gente responde.',
+    },
+  },
+  mcp: {
+    en: {
+      title: 'Connect augo to Claude & ChatGPT | augo MCP Setup',
+      description:
+        "Step-by-step setup: add augo's MCP server to Claude or ChatGPT and ask about your athletes' volume, intensity and feedback in plain language.",
+    },
+    de: {
+      title: 'augo mit Claude & ChatGPT verbinden | augo MCP-Setup',
+      description:
+        'Schritt für Schritt: augos MCP-Server in Claude oder ChatGPT einrichten und Fragen zu Umfang, Intensität und Feedback deiner Athleten stellen.',
+    },
+    pt: {
+      title: 'Conecte a augo ao Claude e ao ChatGPT | Configuração MCP',
+      description:
+        'Guia passo a passo: conecte o servidor MCP da augo ao Claude ou ao ChatGPT e pergunte sobre volume, intensidade e feedback dos seus atletas.',
     },
   },
 }
