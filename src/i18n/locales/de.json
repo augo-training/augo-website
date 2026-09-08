@@ -12,11 +12,17 @@
     "coachLogin": "Coach Login"
   },
   "hero": {
-    "line1": "Ein neuer Standard",
-    "line2prefix": "für",
-    "line3": "Coaching",
-    "rotatingWords": ["Lauf-", "Schwimm-", "Rad–", "Triathlon-", "Ausdauer-"],
-    "subheadline": "Der intelligente Assistent kombiniert Kommunikation, Trainingsdaten sowie Feedback und verwandelt Erkenntnisse in Taten – damit du mehr Zeit für das Wesentliche hast."
+    "line1": "Die Zukunft",
+    "line2prefix": "des",
+    "line3": "Coachings",
+    "rotatingWords": [
+      "Lauf-",
+      "Schwimm-",
+      "Rad–",
+      "Triathlon-",
+      "Ausdauer-"
+    ],
+    "subheadline": "Die intelligente Plattform, die Kommunikation zwischen Coach und Athlet, das Befinden der Athleten, Trainingsdaten und Trainingsplanung vereint — sie verwandelt Erkenntnisse in Taten und gibt dir Zeit für das Wichtigste: die menschliche Verbindung."
   },
   "connects": {
     "headline": "Verbindet sich nahtlos mit deinen Apps und Geräten"

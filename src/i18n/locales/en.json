@@ -12,11 +12,17 @@
     "coachLogin": "Coach Login"
   },
   "hero": {
-    "line1": "A new standard",
-    "line2prefix": "for",
+    "line1": "The future",
+    "line2prefix": "of",
     "line3": "coaching",
-    "rotatingWords": ["running", "swimming", "biking", "triathlon", "endurance"],
-    "subheadline": "The intelligent assistant that combines coach-athlete communication, workout data and session feedback, turning insights into action and giving you time for what matters most."
+    "rotatingWords": [
+      "running",
+      "swimming",
+      "biking",
+      "triathlon",
+      "endurance"
+    ],
+    "subheadline": "The intelligent platform that combines coach-athlete communication, how athletes are feeling, workout data and training plan creation, turning insights into action and giving you time for what matters most: human connection."
   },
   "connects": {
     "headline": "Connects seamlessly with your apps and devices"

@@ -12,11 +12,17 @@
     "coachLogin": "Coach Login"
   },
   "hero": {
-    "line1": "Um novo padrão",
-    "line2prefix": "para coaching de",
+    "line1": "O futuro do",
+    "line2prefix": "coaching de",
     "line3": "",
-    "rotatingWords": ["corrida", "natação", "ciclismo", "triathlon", "endurance"],
-    "subheadline": "O assistente inteligente que combina comunicação coach-atleta, dados de treino e feedback de sessão, transformando insights em ação e dando a você tempo para o que mais importa."
+    "rotatingWords": [
+      "corrida",
+      "natação",
+      "ciclismo",
+      "triathlon",
+      "endurance"
+    ],
+    "subheadline": "A plataforma inteligente que combina comunicação coach-atleta, como os atletas estão se sentindo, dados de treino e criação de planos de treino, transformando insights em ação e dando a você tempo para o que mais importa: a conexão humana."
   },
   "connects": {
     "headline": "Conecta-se perfeitamente com seus apps e dispositivos"
