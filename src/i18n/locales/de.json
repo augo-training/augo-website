@@ -664,8 +664,7 @@
       "eyebrow": "Einrichtung",
       "title": "augo mit Claude und ChatGPT verbinden",
       "lead": "augo betreibt einen MCP-Server. Richte ihn als Connector ein, und du kannst Claude oder ChatGPT alles über deine Athleten fragen — ihre Einheiten, wie sie sich fühlen und worüber ihr gesprochen habt. Du kannst sie außerdem Einheiten erstellen, Berichte aufbereiten und Sessions auswerten lassen. Die Möglichkeiten sind offen.",
-      "urlLabel": "augo MCP-Server-URL",
-      "lastVerified": "Zuletzt geprüft mit Claude und ChatGPT am 4. September 2026."
+      "urlLabel": "augo MCP-Server-URL"
     },
     "atAGlance": {
       "title": "Auf einen Blick",
@@ -676,7 +675,7 @@
         },
         {
           "label": "Was du brauchst",
-          "statement": "Claude oder ChatGPT sowie deine augo-E-Mail und dein Passwort."
+          "statement": "Claude oder ChatGPT und deine augo-E-Mail-Adresse. augo meldet dich per Magic Link an, ein Passwort gibt es nicht."
         },
         {
           "label": "Einrichtungsdauer",
@@ -716,7 +715,7 @@
     "claude": {
       "eyebrow": "Claude",
       "title": "augo mit Claude verbinden",
-      "lead": "Drei Schritte. Die Bezeichnungen der Menüpunkte stehen hier auf Englisch, so wie Claude sie üblicherweise anzeigt.",
+      "lead": "Vier Schritte. Die Bezeichnungen der Menüpunkte stehen hier auf Englisch, so wie Claude sie üblicherweise anzeigt.",
       "steps": [
         {
           "title": "Einstellungen öffnen",
@@ -728,16 +727,22 @@
           "note": "In manchen Tarifen findest du das unter Customize statt unter Settings. In einem Team- oder Enterprise-Workspace muss eine Inhaberin oder ein Inhaber den Connector einmalig unter Organization settings anlegen; danach erscheint er hier für alle zum Verbinden."
         },
         {
-          "title": "Auf augo richten und anmelden",
-          "body": "Nenne den Connector augo, füge die untenstehende augo MCP-Server-URL ein und klicke auf Add. Claude fragt dich dann nach deiner Anmeldung — nutze deine augo-Coach-E-Mail und dein Passwort.",
-          "note": "Lass das Anmeldefenster offen, bis es sich von selbst schließt. Schließt du es zu früh, bleibt der Connector halb eingerichtet."
+          "title": "Name und URL eintragen",
+          "body": "Nenne den Connector augo und füge die augo MCP-Server-URL ein. In Advanced settings kommt nichts hinein — augo nutzt weder OAuth-Client-ID noch Secret. Klicke dann auf Add."
+        },
+        {
+          "title": "Mit deiner augo-E-Mail anmelden",
+          "body": "Ein Anmeldefenster öffnet sich. Gib die E-Mail-Adresse ein, die du für augo nutzt; augo schickt dir daraufhin einen Link. Öffne dein Postfach, klicke den Link an, und der Connector ist verbunden.",
+          "note": "Ein Passwort musst du nicht eingeben. Kommt der Link nicht innerhalb einer Minute an, sieh im Spam-Ordner nach."
         }
-      ]
+      ],
+      "dialogAdvancedHint": "Lass beide OAuth-Felder leer. augo braucht weder eine Client-ID noch ein Secret.",
+      "dialogNote": "Fülle diese beiden Felder aus, lass Advanced settings unberührt und klicke auf Add."
     },
     "chatgpt": {
       "eyebrow": "ChatGPT",
       "title": "augo mit ChatGPT verbinden",
-      "lead": "Vier Schritte. Der Entwicklermodus muss zuerst aktiviert sein. Die Bezeichnungen der Menüpunkte stehen hier auf Englisch, so wie ChatGPT sie üblicherweise anzeigt.",
+      "lead": "Fünf Schritte. Der Entwicklermodus muss zuerst aktiviert sein. Die Bezeichnungen der Menüpunkte stehen hier auf Englisch, so wie ChatGPT sie üblicherweise anzeigt.",
       "calloutLabel": "Nur im Browser",
       "callout": "Ein eigener Connector lässt sich nur in ChatGPT in einem Desktop-Browser hinzufügen. Ist er einmal eingerichtet, kannst du augo wie gewohnt auch in der ChatGPT-App nutzen.",
       "steps": [
@@ -746,19 +751,25 @@
           "body": "Klicke in ChatGPT in einem Desktop-Browser auf dein Profil und dann auf Settings."
         },
         {
+          "title": "Plugins öffnen",
+          "body": "Gehe im Einstellungsmenü zu Plugins. Dort liegen in ChatGPT die eigenen Verbindungen."
+        },
+        {
           "title": "Entwicklermodus aktivieren",
-          "body": "Öffne Connectors und dann Advanced. Suche Developer mode und schalte ihn ein.",
-          "note": "ChatGPT weist darauf hin, dass diese Einstellung mit erhöhtem Risiko verbunden ist. Der Hinweis gilt für jeden eigenen Connector, nicht speziell für augo — er steht dort, weil ein Connector deine Daten lesen und Aktionen ausführen kann."
+          "body": "Öffne unter Plugins den Bereich Advanced, suche Developer mode und schalte ihn ein.",
+          "note": "ChatGPT weist darauf hin, dass diese Einstellung mit erhöhtem Risiko verbunden ist. Der Hinweis gilt für jedes eigene Plugin, nicht speziell für augo — er steht dort, weil ein Plugin deine Daten lesen und Aktionen ausführen kann."
         },
         {
-          "title": "Neuen Connector anlegen",
-          "body": "Gehe zurück zu Settings, dann zu Connectors, und klicke auf das Plus-Symbol."
+          "title": "Plugin anlegen",
+          "body": "Gehe zurück zu Plugins und klicke auf das Plus-Symbol. Nenne es augo, lass Connection auf Server URL, füge die augo MCP-Server-URL ein und lass Authentication auf OAuth."
         },
         {
-          "title": "Benennen und anmelden",
-          "body": "Nenne ihn augo, füge die untenstehende augo MCP-Server-URL ein und klicke auf Create. Melde dich anschließend mit deiner augo-Coach-E-Mail und deinem Passwort an."
+          "title": "Mit deiner augo-E-Mail anmelden",
+          "body": "Ein Anmeldefenster öffnet sich. Gib die E-Mail-Adresse ein, die du für augo nutzt; augo schickt dir daraufhin einen Link. Öffne dein Postfach, klicke den Link an, und das Plugin ist verbunden.",
+          "note": "Ein Passwort musst du nicht eingeben. Kommt der Link nicht innerhalb einer Minute an, sieh im Spam-Ordner nach."
         }
-      ]
+      ],
+      "dialogNote": "Setze das Häkchen bei „I understand and want to continue“ unter dem Risikohinweis und klicke dann auf Create."
     },
     "prompts": {
       "title": "Was du fragen kannst, sobald du verbunden bist",
@@ -850,7 +861,7 @@
         },
         {
           "question": "Das Anmeldefenster hat sich geschlossen und nichts ist passiert.",
-          "answer": "Entferne den Connector und richte ihn erneut ein, und lass das Anmeldefenster diesmal von selbst schließen. Klappt es weiterhin nicht, melde dich zuerst im selben Browser bei augo an und versuche es dann noch einmal."
+          "answer": "Starte die Verbindung erneut und achte diesmal auf die E-Mail von augo — das Fenster wartet darauf, dass du den Link in deinem Postfach anklickst. Kommt innerhalb einer Minute keine E-Mail an, sieh im Spam-Ordner nach und prüfe, ob du die Adresse eingegeben hast, die du für augo nutzt."
         },
         {
           "question": "Claude oder ChatGPT findet keine augo-Funktionen.",

@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import McpSteps, { type McpStep } from './McpSteps'
 import McpCallout from './McpCallout'
+import McpDialogMock from './McpDialogMock'
 import { MCP_URL } from './constants'
 
 interface McpSetupSectionProps {
@@ -8,8 +9,9 @@ interface McpSetupSectionProps {
     /** i18n root, e.g. 'mcp.claude'. Reads .eyebrow, .title, .lead, .steps. */
     i18nKey: string
     bg: 'bg-dark' | 'bg-dark-800'
-    /** Index of the step that shows the server URL. */
-    copyAtIndex: number
+    /** Which provider's dialog to draw, and at which step. */
+    variant: 'claude' | 'chatgpt'
+    dialogAtIndex: number
     /** Reads `${i18nKey}.callout` and `.calloutLabel` when true. */
     hasCallout?: boolean
 }
@@ -22,12 +24,41 @@ export default function McpSetupSection({
     id,
     i18nKey,
     bg,
-    copyAtIndex,
+    variant,
+    dialogAtIndex,
     hasCallout = false,
 }: McpSetupSectionProps) {
     const { t } = useTranslation()
     const steps = t(`${i18nKey}.steps`, { returnObjects: true }) as McpStep[]
     const titleId = `${id}-title`
+
+    // Field labels are the provider's own, so they stay in English in every
+    // locale — that is what the coach is looking at. Only the hints translate.
+    const dialog =
+        variant === 'claude' ? (
+            <McpDialogMock
+                title="Add custom connector"
+                trackingLocation="claude_dialog"
+                rows={[
+                    { label: 'Name', value: 'augo' },
+                    { label: 'Remote MCP server URL', copyValue: MCP_URL },
+                    { label: 'Advanced settings', hint: t('mcp.claude.dialogAdvancedHint') },
+                ]}
+                note={t('mcp.claude.dialogNote')}
+            />
+        ) : (
+            <McpDialogMock
+                title="New App"
+                trackingLocation="chatgpt_dialog"
+                rows={[
+                    { label: 'Name', value: 'augo' },
+                    { label: 'Connection', value: 'Server URL' },
+                    { label: 'Server URL', copyValue: MCP_URL },
+                    { label: 'Authentication', value: 'OAuth' },
+                ]}
+                note={t('mcp.chatgpt.dialogNote')}
+            />
+        )
 
     return (
         <section
@@ -59,13 +90,7 @@ export default function McpSetupSection({
                     </div>
                 )}
 
-                <McpSteps
-                    steps={steps}
-                    idPrefix={id}
-                    copyValue={MCP_URL}
-                    copyLabel={t('mcp.hero.urlLabel')}
-                    copyAtIndex={copyAtIndex}
-                />
+                <McpSteps steps={steps} idPrefix={id} dialog={dialog} dialogAtIndex={dialogAtIndex} />
             </div>
         </section>
     )

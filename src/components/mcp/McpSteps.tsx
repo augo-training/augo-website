@@ -1,4 +1,4 @@
-import CopyableValue from './CopyableValue'
+import type { ReactNode } from 'react'
 
 export interface McpStep {
     /** Short imperative title. Becomes HowToStep.name. */
@@ -13,10 +13,9 @@ interface McpStepsProps {
     steps: McpStep[]
     /** Prefix for per-step anchors, e.g. 'claude' gives #claude-step-2. */
     idPrefix: string
-    /** Rendered inside the step whose index this matches. */
-    copyValue?: string
-    copyLabel?: string
-    copyAtIndex?: number
+    /** Rendered inside the step whose index this matches — the dialog mock. */
+    dialog?: ReactNode
+    dialogAtIndex?: number
 }
 
 /**
@@ -27,9 +26,8 @@ interface McpStepsProps {
 export default function McpSteps({
     steps,
     idPrefix,
-    copyValue,
-    copyLabel,
-    copyAtIndex,
+    dialog,
+    dialogAtIndex,
 }: McpStepsProps) {
     return (
         <ol className="flex flex-col list-none p-0 mt-8 sm:mt-10">
@@ -52,13 +50,7 @@ export default function McpSteps({
                         <p className="mt-2 font-satoshi text-[15px] sm:text-[17px] leading-[160%] text-white/75 max-w-[680px]">
                             {step.body}
                         </p>
-                        {copyValue && copyAtIndex === i && (
-                            <CopyableValue
-                                value={copyValue}
-                                label={copyLabel}
-                                trackingLocation={idPrefix}
-                            />
-                        )}
+                        {dialog && dialogAtIndex === i && dialog}
                         {step.note && (
                             <p className="mt-3 font-satoshi text-[14px] sm:text-[15px] leading-[160%] text-white/50 max-w-[680px]">
                                 {step.note}

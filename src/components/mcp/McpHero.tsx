@@ -41,10 +41,6 @@ export default function McpHero() {
                     />
                 </div>
 
-                <p className="mt-4 font-mono text-[11px] sm:text-[12px] tracking-[1.5px] text-white/35">
-                    {t('mcp.hero.lastVerified')}
-                </p>
-
                 <McpSpecList rows={glance} size="compact" />
                 <McpJumpList />
             </div>

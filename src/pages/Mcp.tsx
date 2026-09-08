@@ -49,13 +49,15 @@ export default function Mcp() {
                     id={SECTION_IDS.claude}
                     i18nKey="mcp.claude"
                     bg="bg-dark-800"
-                    copyAtIndex={2}
+                    variant="claude"
+                    dialogAtIndex={2}
                 />
                 <McpSetupSection
                     id={SECTION_IDS.chatgpt}
                     i18nKey="mcp.chatgpt"
                     bg="bg-dark"
-                    copyAtIndex={3}
+                    variant="chatgpt"
+                    dialogAtIndex={3}
                     hasCallout
                 />
                 <McpPrompts />

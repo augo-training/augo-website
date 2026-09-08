@@ -667,8 +667,7 @@
       "eyebrow": "Setup guide",
       "title": "Connect augo to Claude and ChatGPT",
       "lead": "augo runs an MCP server. Add it as a connector and you can ask Claude or ChatGPT about your athletes — their workouts, how they're feeling, and what you've talked about. You can also ask them to create workouts, build reports and process sessions. The sky is the limit.",
-      "urlLabel": "augo MCP server URL",
-      "lastVerified": "Last checked against Claude and ChatGPT on 4 September 2026."
+      "urlLabel": "augo MCP server URL"
     },
     "atAGlance": {
       "title": "At a glance",
@@ -679,7 +678,7 @@
         },
         {
           "label": "What you need",
-          "statement": "Claude or ChatGPT, and your augo email and password."
+          "statement": "Claude or ChatGPT, and your augo email. augo signs you in with a magic link, so there is no password."
         },
         {
           "label": "Setup time",
@@ -719,7 +718,7 @@
     "claude": {
       "eyebrow": "Claude",
       "title": "Connect augo to Claude",
-      "lead": "Three steps.",
+      "lead": "Four steps. The menu labels below are in English, as Claude usually shows them.",
       "steps": [
         {
           "title": "Open your settings",
@@ -731,16 +730,22 @@
           "note": "On some plans this sits under Customize rather than Settings. On a Team or Enterprise workspace an owner has to add the connector once under Organization settings, after which it appears here for everyone to connect."
         },
         {
-          "title": "Point it at augo and sign in",
-          "body": "Name the connector augo, paste the augo MCP server URL below, and click Add. Claude then asks you to sign in — use your augo coach email and password.",
-          "note": "Leave the sign-in window open until it closes on its own. Closing it early leaves the connector half-added."
+          "title": "Fill in the name and the URL",
+          "body": "Name the connector augo and paste the augo MCP server URL. Nothing goes in Advanced settings — augo does not use an OAuth client ID or secret. Then click Add."
+        },
+        {
+          "title": "Sign in with your augo email",
+          "body": "A sign-in window opens. Enter the email you use for augo and augo sends you a link. Open your inbox, click the link, and the connector is connected.",
+          "note": "There is no password to type. If the link does not arrive within a minute, check your spam folder."
         }
-      ]
+      ],
+      "dialogAdvancedHint": "Leave both OAuth fields empty. augo needs neither a client ID nor a secret.",
+      "dialogNote": "Fill in these two fields, leave Advanced settings alone, and click Add."
     },
     "chatgpt": {
       "eyebrow": "ChatGPT",
       "title": "Connect augo to ChatGPT",
-      "lead": "Four steps. Developer mode has to be on first.",
+      "lead": "Five steps. Developer mode has to be on first. The menu labels below are in English, as ChatGPT usually shows them.",
       "calloutLabel": "Browser only",
       "callout": "A custom connector can only be added from ChatGPT in a desktop browser. Once it is added you can use augo from the ChatGPT mobile app as normal.",
       "steps": [
@@ -749,19 +754,25 @@
           "body": "In ChatGPT in a desktop browser, click your profile, then Settings."
         },
         {
+          "title": "Open Plugins",
+          "body": "In the settings menu, go to Plugins. This is where custom connections live in ChatGPT."
+        },
+        {
           "title": "Turn on developer mode",
-          "body": "Open Connectors, then Advanced. Find Developer mode and switch it on.",
-          "note": "ChatGPT flags this as an elevated-risk setting. That warning covers every custom connector, not augo in particular — it is there because a connector can read your data and act on it."
+          "body": "Under Plugins, open Advanced, find Developer mode and switch it on.",
+          "note": "ChatGPT flags this as an elevated-risk setting. That warning covers every custom plugin, not augo in particular — it is there because a plugin can read your data and act on it."
         },
         {
-          "title": "Create a new connector",
-          "body": "Go back to Settings, then Connectors, and click the plus button to create one."
+          "title": "Create the plugin",
+          "body": "Go back to Plugins and click the plus button. Name it augo, leave Connection on Server URL, paste the augo MCP server URL, and leave Authentication on OAuth."
         },
         {
-          "title": "Name it and sign in",
-          "body": "Name it augo, paste the augo MCP server URL below, and click Create. Then sign in with your augo coach email and password."
+          "title": "Sign in with your augo email",
+          "body": "A sign-in window opens. Enter the email you use for augo and augo sends you a link. Open your inbox, click the link, and the plugin is connected.",
+          "note": "There is no password to type. If the link does not arrive within a minute, check your spam folder."
         }
-      ]
+      ],
+      "dialogNote": "Tick “I understand and want to continue” under the risk warning, then click Create."
     },
     "prompts": {
       "title": "What you can ask once you're connected",
@@ -853,7 +864,7 @@
         },
         {
           "question": "The sign-in window closed and nothing happened.",
-          "answer": "Remove the connector and add it again, and this time let the sign-in window close by itself. If it still fails, sign in to augo in the same browser first, then retry."
+          "answer": "Start the connection again and this time watch for the augo email — the window is waiting on you clicking the link in your inbox. If no email arrives within a minute, check your spam folder and confirm you entered the address you use for augo."
         },
         {
           "question": "Claude or ChatGPT says it can't find any augo tools.",

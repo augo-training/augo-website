@@ -664,8 +664,7 @@
       "eyebrow": "Guia de configuração",
       "title": "Conecte a augo ao Claude e ao ChatGPT",
       "lead": "A augo tem um servidor MCP. Adicione-o como conector e você pode perguntar ao Claude ou ao ChatGPT sobre seus atletas — os treinos deles, como estão se sentindo e o que vocês conversaram. Você também pode pedir que criem treinos, montem relatórios e analisem sessões. O limite é a sua imaginação.",
-      "urlLabel": "URL do servidor MCP da augo",
-      "lastVerified": "Verificado no Claude e no ChatGPT em 4 de setembro de 2026."
+      "urlLabel": "URL do servidor MCP da augo"
     },
     "atAGlance": {
       "title": "Em resumo",
@@ -676,7 +675,7 @@
         },
         {
           "label": "O que precisa",
-          "statement": "Claude ou ChatGPT, e o seu e-mail e senha da augo."
+          "statement": "Claude ou ChatGPT e o e-mail que você usa na augo. A augo entra com um link mágico, então não há senha."
         },
         {
           "label": "Tempo de configuração",
@@ -716,7 +715,7 @@
     "claude": {
       "eyebrow": "Claude",
       "title": "Conecte a augo ao Claude",
-      "lead": "Três passos. Os nomes dos menus aparecem aqui em inglês, como o Claude normalmente os exibe.",
+      "lead": "Quatro passos. Os nomes dos menus aparecem aqui em inglês, como o Claude normalmente os exibe.",
       "steps": [
         {
           "title": "Abra as configurações",
@@ -728,16 +727,22 @@
           "note": "Em alguns planos isso fica em Customize, e não em Settings. Em um espaço de trabalho Team ou Enterprise, um proprietário precisa cadastrar o conector uma vez em Organization settings; depois disso ele aparece aqui para todos conectarem."
         },
         {
-          "title": "Aponte para a augo e entre",
-          "body": "Dê o nome augo ao conector, cole a URL do servidor MCP da augo abaixo e clique em Add. O Claude então pede que você entre — use o e-mail e a senha da sua conta de treinador na augo.",
-          "note": "Deixe a janela de login aberta até que ela feche sozinha. Fechá-la antes deixa o conector pela metade."
+          "title": "Preencha o nome e a URL",
+          "body": "Dê o nome augo ao conector e cole a URL do servidor MCP da augo. Nada vai em Advanced settings — a augo não usa client ID nem secret de OAuth. Depois clique em Add."
+        },
+        {
+          "title": "Entre com o seu e-mail da augo",
+          "body": "Abre uma janela de login. Informe o e-mail que você usa na augo e a augo envia um link. Abra sua caixa de entrada, clique no link, e o conector fica conectado.",
+          "note": "Não há senha para digitar. Se o link não chegar em um minuto, veja na caixa de spam."
         }
-      ]
+      ],
+      "dialogAdvancedHint": "Deixe os dois campos de OAuth vazios. A augo não precisa de client ID nem de secret.",
+      "dialogNote": "Preencha estes dois campos, não mexa em Advanced settings e clique em Add."
     },
     "chatgpt": {
       "eyebrow": "ChatGPT",
       "title": "Conecte a augo ao ChatGPT",
-      "lead": "Quatro passos. O modo desenvolvedor precisa estar ligado primeiro. Os nomes dos menus aparecem aqui em inglês, como o ChatGPT normalmente os exibe.",
+      "lead": "Cinco passos. O modo desenvolvedor precisa estar ligado primeiro. Os nomes dos menus aparecem aqui em inglês, como o ChatGPT normalmente os exibe.",
       "calloutLabel": "Só no navegador",
       "callout": "Um conector personalizado só pode ser adicionado no ChatGPT em um navegador de computador. Depois de adicionado, você pode usar a augo normalmente pelo aplicativo do ChatGPT.",
       "steps": [
@@ -746,19 +751,25 @@
           "body": "No ChatGPT, em um navegador de computador, clique no seu perfil e depois em Settings."
         },
         {
+          "title": "Abra Plugins",
+          "body": "No menu de configurações, vá em Plugins. É onde ficam as conexões personalizadas no ChatGPT."
+        },
+        {
           "title": "Ative o modo desenvolvedor",
-          "body": "Abra Connectors e depois Advanced. Encontre Developer mode e ligue.",
-          "note": "O ChatGPT avisa que essa é uma configuração de risco elevado. O aviso vale para qualquer conector personalizado, não para a augo em particular — ele existe porque um conector pode ler seus dados e agir sobre eles."
+          "body": "Em Plugins, abra Advanced, encontre Developer mode e ligue.",
+          "note": "O ChatGPT avisa que essa é uma configuração de risco elevado. O aviso vale para qualquer plugin personalizado, não para a augo em particular — ele existe porque um plugin pode ler seus dados e agir sobre eles."
         },
         {
-          "title": "Crie um novo conector",
-          "body": "Volte a Settings, depois Connectors, e clique no botão de mais para criar um."
+          "title": "Crie o plugin",
+          "body": "Volte a Plugins e clique no botão de mais. Dê o nome augo, deixe Connection em Server URL, cole a URL do servidor MCP da augo e deixe Authentication em OAuth."
         },
         {
-          "title": "Dê um nome e entre",
-          "body": "Dê o nome augo, cole a URL do servidor MCP da augo abaixo e clique em Create. Depois entre com o e-mail e a senha da sua conta de treinador na augo."
+          "title": "Entre com o seu e-mail da augo",
+          "body": "Abre uma janela de login. Informe o e-mail que você usa na augo e a augo envia um link. Abra sua caixa de entrada, clique no link, e o plugin fica conectado.",
+          "note": "Não há senha para digitar. Se o link não chegar em um minuto, veja na caixa de spam."
         }
-      ]
+      ],
+      "dialogNote": "Marque “I understand and want to continue” abaixo do aviso de risco e clique em Create."
     },
     "prompts": {
       "title": "O que você pode perguntar depois de conectar",
@@ -850,7 +861,7 @@
         },
         {
           "question": "A janela de login fechou e nada aconteceu.",
-          "answer": "Remova o conector e adicione de novo, e desta vez deixe a janela de login fechar sozinha. Se ainda assim falhar, entre na augo no mesmo navegador antes e tente novamente."
+          "answer": "Comece a conexão de novo e desta vez fique de olho no e-mail da augo — a janela está esperando você clicar no link da sua caixa de entrada. Se nenhum e-mail chegar em um minuto, veja no spam e confirme que digitou o endereço que você usa na augo."
         },
         {
           "question": "O Claude ou o ChatGPT diz que não encontra nenhuma ferramenta da augo.",
