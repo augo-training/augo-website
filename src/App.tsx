@@ -11,6 +11,7 @@ import BookDemo from './pages/BookDemo'
 import NotFound from './pages/NotFound'
 import CookieConsent from './components/CookieConsent'
 import CountdownBanner from './components/CountdownBanner'
+import AnnouncementBanner from './components/AnnouncementBanner'
 import ScrollToTop from './components/ScrollToTop'
 import Download from "./pages/Download.tsx";
 import HumanEdge from './pages/HumanEdge'
@@ -19,6 +20,8 @@ import BlogPost from './pages/BlogPost'
 import BlogIndex from './pages/BlogIndex'
 import NiceAthletes from './pages/NiceAthletes'
 import NiceCoaches from './pages/NiceCoaches'
+import Mcp from './pages/Mcp'
+import Contact from './pages/Contact'
 import { setupMetaPixelConsentListener } from './utils/metaPixel'
 
 // March 26, 2026 at 20:00 Zurich time
@@ -46,6 +49,7 @@ function App() {
     <BrowserRouter>
       <ScrollToTop />
       <CountdownBanner targetDate={LAUNCH_DATE} />
+      <AnnouncementBanner />
       <Routes>
         {/* Root: redirect to detected language */}
         <Route path="/" element={<LanguageRedirect />} />
@@ -56,6 +60,8 @@ function App() {
         <Route path="/humanedge" element={<LegacyRedirect to="/en/humanedge" />} />
         <Route path="/book-a-demo" element={<LegacyRedirect to="/en/book-a-demo" />} />
         <Route path="/coaches" element={<LegacyRedirect to="/en/find" />} />
+        <Route path="/mcp" element={<LegacyRedirect to="/en/mcp" />} />
+        <Route path="/contact" element={<LegacyRedirect to="/en/contact" />} />
         <Route path="/coaches/:slug" element={<CoachSlugLegacyRedirect />} />
 
         {/* Language-prefixed routes */}
@@ -67,6 +73,8 @@ function App() {
           <Route path="pricing" element={<Pricing />} />
           <Route path="book-a-demo" element={<BookDemo />} />
           <Route path="humanedge" element={<HumanEdge />} />
+          <Route path="mcp" element={<Mcp />} />
+          <Route path="contact" element={<Contact />} />
           {/* Standalone ad landing pages — nothing on the site links to them. */}
           <Route path="nice-athletes" element={<NiceAthletes />} />
           <Route path="nice-coaches" element={<NiceCoaches />} />

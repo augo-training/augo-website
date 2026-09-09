@@ -44,6 +44,7 @@ export default function Footer() {
             links: [
                 { label: t('footer.links.about'), href: '#about' },
                 { label: t('footer.links.faq'), href: '#faq' },
+                { label: t('nav.contact'), href: `/${currentLang}/contact` },
             ],
         },
         {
@@ -52,6 +53,7 @@ export default function Footer() {
                 { label: t('footer.links.blog'), href: `/${currentLang}/blog` },
                 { label: t('footer.links.findAMatch'), href: `/${currentLang}/find` },
                 { label: t('footer.links.humanEdge'), href: `/${currentLang}/humanedge` },
+                { label: t('footer.links.mcp'), href: `/${currentLang}/mcp` },
             ],
         },
     ]

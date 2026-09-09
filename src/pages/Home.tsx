@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
 import ConnectsSection from '../components/ConnectsSection'
@@ -10,15 +10,17 @@ import TestimonialsSection from '../components/TestimonialsSection'
 import AthleteTestimonialsSection from '../components/AthleteTestimonialsSection'
 import AboutSection from '../components/AboutSection'
 import FaqSection from '../components/FaqSection'
-import ContactSection from '../components/ContactSection'
 import Footer from '../components/Footer'
 import SEOHead from '../seo/SEOHead'
+import useHashScroll from '../hooks/useHashScroll'
 import { OrganizationJsonLd, SoftwareApplicationJsonLd, FAQJsonLd } from '../seo/JsonLd'
 import { useTrackSectionView } from '../hooks/useTrackSectionView'
 import { useFilm } from '../contexts/FilmContext'
 
 function Home() {
     const location = useLocation()
+    const navigate = useNavigate()
+    const { lang } = useParams<{ lang: string }>()
     const { requestFilm } = useFilm()
 
     const heroRef = useTrackSectionView('hero', 'home')
@@ -28,17 +30,18 @@ function Home() {
     const athleteTestimonialsRef = useTrackSectionView('athlete-testimonials', 'home')
     const aboutRef = useTrackSectionView('about', 'home')
     const faqRef = useTrackSectionView('faq', 'home')
-    const contactRef = useTrackSectionView('contact', 'home')
+
+    // Contact used to be a section here and is now its own page. Links to
+    // /en#contact are already out in emails and DMs, so send them on rather
+    // than dropping people on the hero with no idea what went wrong.
+    useEffect(() => {
+        if (location.hash === '#contact') {
+            navigate(`/${lang ?? 'en'}/contact`, { replace: true })
+        }
+    }, [location.hash, lang, navigate])
 
     // Scroll to hash section when navigating from another page (e.g. /#coaches)
-    useEffect(() => {
-        if (location.hash) {
-            requestAnimationFrame(() => {
-                const el = document.querySelector(location.hash)
-                if (el) el.scrollIntoView({ behavior: 'smooth' })
-            })
-        }
-    }, [location.hash])
+    useHashScroll()
 
     return (
         <>
@@ -56,7 +59,6 @@ function Home() {
             <div ref={athleteTestimonialsRef}><AthleteTestimonialsSection /></div>
             <div ref={aboutRef}><AboutSection /></div>
             <div ref={faqRef}><FaqSection /></div>
-            <div ref={contactRef}><ContactSection /></div>
             <Footer />
         </>
     )

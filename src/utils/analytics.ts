@@ -141,7 +141,10 @@ interface PricingPageViewedProps {
     country: string
     pricing_bucket: string
     pricing_currency: string
+    /** The promotional Pro price, per athlete per month. */
     pricing_amount: number
+    /** The full list price the promo is discounted from. */
+    pricing_list_amount: number
     utm_source?: string | null
     utm_medium?: string | null
     utm_campaign?: string | null
@@ -160,8 +163,9 @@ export async function trackPricingPageViewed(props: PricingPageViewedProps): Pro
 
 interface PricingCtaClickedProps {
     cta_text: string
-    billing_period: 'monthly' | 'yearly'
-    /** Stable id for the button, since cta_text is localized: 'free' | 'unlimited' | 'closing_band'. */
+    /** Only set for CTAs under a billing toggle; the plan CTAs are monthly-only. */
+    billing_period?: 'monthly' | 'yearly'
+    /** Stable id for the button, since cta_text is localized: 'pro' | 'enterprise' | 'elite'. */
     plan: string
 }
 
@@ -319,7 +323,7 @@ export async function trackLanguageSwitched(props: { from_language: string; to_l
 
 // ── Billing toggle tracking ──
 
-export async function trackBillingToggle(props: { billing_period: 'monthly' | 'yearly' }): Promise<void> {
+export async function trackBillingToggle(props: { billing_period: 'monthly' | 'yearly'; plan?: 'elite' }): Promise<void> {
     return track('billing_toggle_switched', props)
 }
 

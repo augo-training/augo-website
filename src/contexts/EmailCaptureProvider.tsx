@@ -37,7 +37,9 @@ export function EmailCaptureProvider({ lang, children }: EmailCaptureProviderPro
             <EmailCaptureModal
                 isOpen={isOpen}
                 onClose={closeModal}
-                destinationUrl={options?.onSuccess ? undefined : `/${lang}/download`}
+                destinationUrl={
+                    options?.destinationUrl ?? (options?.onSuccess ? undefined : `/${lang}/download`)
+                }
                 ctaText={ctaText}
                 onSuccess={options?.onSuccess}
                 subtitle={options?.subtitle}
