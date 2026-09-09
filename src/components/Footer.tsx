@@ -15,6 +15,13 @@ const socialLinks = [
     { icon: unknownIcon, alt: 'Substack', href: 'https://substack.com/@augotraining' },
 ]
 
+// Hosted by the webapp (webapp.augotraining.com), not this site — the legal
+// pages live there so the same copy backs both the app and this footer.
+const legalLinks = [
+    { key: 'privacyPolicy', href: 'https://webapp.augotraining.com/privacy' },
+    { key: 'terms', href: 'https://webapp.augotraining.com/terms' },
+]
+
 export default function Footer() {
     const { t, i18n } = useTranslation()
     const location = useLocation()
@@ -167,9 +174,24 @@ export default function Footer() {
                 </div>
             </div>
 
-            <p className="font-satoshi font-medium text-[12px] sm:text-[14px] lg:text-[20px] leading-[130%] text-center text-[#323439] mt-4 lg:mt-0">
-                {t('footer.copyright')}
-            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 mt-4 lg:mt-0">
+                <p className="font-satoshi font-medium text-[12px] sm:text-[14px] lg:text-[20px] leading-[130%] text-center text-[#323439]">
+                    {t('footer.copyright')}
+                </p>
+                <div className="flex items-center gap-4">
+                    {legalLinks.map((link) => (
+                        <a
+                            key={link.key}
+                            href={link.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-satoshi font-medium text-[12px] sm:text-[14px] lg:text-[20px] leading-[130%] text-[#323439] hover:text-white transition-colors duration-200"
+                        >
+                            {t(`footer.links.${link.key}`)}
+                        </a>
+                    ))}
+                </div>
+            </div>
         </footer>
     )
 }
