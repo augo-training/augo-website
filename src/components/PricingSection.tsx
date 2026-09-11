@@ -371,7 +371,10 @@ export default function PricingSection() {
                                             const label = t('pricing.enterprise.cta')
                                             void trackPricingCtaClicked({ cta_text: label, plan: 'enterprise' })
                                             // Enterprise is a conversation, not a sign-up.
-                                            openModal(label, { destinationUrl: `/${currentLang}/contact` })
+                                            openModal(label, {
+                                                destinationUrl: `/${currentLang}/contact`,
+                                                submitLabel: t('emailCapture.ctaContact'),
+                                            })
                                         }}
                                     >
                                         {t('pricing.enterprise.cta')}
