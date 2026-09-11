@@ -406,6 +406,7 @@
     "typeAthlete": "Athlete",
     "typeOther": "Other",
     "cta": "Continue to App Store",
+    "ctaContact": "Continue to contact us",
     "skip": "Skip, take me straight there",
     "nameError": "Please enter your first name.",
     "error": "Something went wrong. Please try again."
