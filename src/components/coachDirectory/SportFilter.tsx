@@ -13,6 +13,8 @@ const OPTIONS: { value: SportFilterValue; label: string }[] = [
     { value: 'running', label: 'Running' },
     { value: 'cycling', label: 'Cycling' },
     { value: 'triathlon', label: 'Triathlon' },
+    { value: 'rowing', label: 'Rowing' },
+    { value: 'mental-coaching', label: 'Mental coaching' },
 ]
 
 export default function SportFilter({ value, onChange, counts }: Props) {

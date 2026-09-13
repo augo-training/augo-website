@@ -243,6 +243,16 @@ export function HumanEdgeBreadcrumbJsonLd() {
 
 // ── Coach Directory structured data ─────────────────────────────────────────
 
+// Human-readable discipline nouns for the Service schema; keys are Discipline
+// values, which are not all safe to capitalise mechanically ('mental-coaching').
+const SERVICE_LABEL: Record<string, string> = {
+  running: 'Running',
+  cycling: 'Cycling',
+  triathlon: 'Triathlon',
+  rowing: 'Rowing',
+  'mental-coaching': 'Mental',
+}
+
 function coachUrl(coach: Coach, lang: string = 'en'): string {
   return `${BASE_URL}/${lang}/coaches/${coach.slug}`
 }
@@ -251,7 +261,7 @@ function coachUrl(coach: Coach, lang: string = 'en'): string {
 // the directory's CollectionPage graph. Standalone callers add @context.
 function coachPersonSchema(coach: Coach, lang: string = 'en') {
   const disciplineLabel = coach.disciplines
-    .map((d) => d.charAt(0).toUpperCase() + d.slice(1))
+    .map((d) => SERVICE_LABEL[d] ?? d.charAt(0).toUpperCase() + d.slice(1))
     .join(' & ')
 
   // Advertise the coaching service so answer engines can field "online

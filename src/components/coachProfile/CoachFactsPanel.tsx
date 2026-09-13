@@ -1,4 +1,5 @@
 import type { Coach } from '../../data/coaches/types'
+import { formatLocation } from '../../data/coaches'
 
 interface Props {
     coach: Coach
@@ -12,7 +13,7 @@ interface Props {
  */
 export default function CoachFactsPanel({ coach }: Props) {
     const facts: { label: string; value: string }[] = [
-        { label: 'Based in', value: `${coach.location.city}, ${coach.location.country}` },
+        { label: 'Based in', value: formatLocation(coach.location) },
     ]
 
     if (coach.yearsCoaching) {

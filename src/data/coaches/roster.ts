@@ -20,6 +20,7 @@ import gordonPortrait from '../../assets/images/Gordon.png'
 import maxPortrait from '../../assets/images/Max.png'
 import sanderPortrait from '../../assets/images/Sander.png'
 import amandaPortrait from '../../assets/images/Amanda.png'
+import brunaPortrait from '../../assets/images/bruna-track.webp'
 // Generic placeholder for coaches without dedicated photography yet.
 import placeholderPortrait from '../../assets/images/brian-profile.webp'
 
@@ -36,6 +37,7 @@ const SV: CoachLanguage = { code: 'sv', flag: '🇸🇪', label: 'Swedish' }
 const GSW: CoachLanguage = { code: 'gsw', flag: '🇨🇭', label: 'Swiss German' }
 const MT: CoachLanguage = { code: 'mt', flag: '🇲🇹', label: 'Maltese' }
 const AF: CoachLanguage = { code: 'af', flag: '🇿🇦', label: 'Afrikaans' }
+const HE: CoachLanguage = { code: 'he', flag: '🇮🇱', label: 'Hebrew' }
 
 export const coaches: Coach[] = [
     {
@@ -48,7 +50,7 @@ export const coaches: Coach[] = [
         isFoundingCoach: true,
         status: 'accepting',
         disciplines: ['running'],
-        specialties: ['marathon', 'ultra', '50km', '100km', '100mi', 'HRV-guided training'],
+        specialties: ['half marathon', 'marathon', 'trail running', 'ultra', '50km', '100km', '100mi', 'HRV-guided training'],
         location: { city: 'Brisighella', country: 'Italy', countryCode: 'IT', timezone: 'Europe/Rome' },
         coachesRemote: true,
         languages: [EN, IT],
@@ -93,7 +95,7 @@ export const coaches: Coach[] = [
         isFoundingCoach: true,
         status: 'accepting',
         disciplines: ['running'],
-        specialties: ['5K', '10K', 'half marathon', 'marathon'],
+        specialties: ['5K', '10K', 'half marathon', 'marathon', 'trail running'],
         location: { city: 'New York', country: 'United States', countryCode: 'US', timezone: 'America/New_York' },
         coachesRemote: true,
         languages: [EN],
@@ -181,7 +183,7 @@ export const coaches: Coach[] = [
             philosophy: 'Focused, interested athletes go furthest. Show up, stay curious.',
         },
         media: { portrait: manuelPortrait },
-        socials: { website: 'https://www.manuelwyss.ch/' },
+        socials: { website: 'https://team-wyss.ch' },
     },
     {
         slug: 'thierry-bessede',
@@ -192,7 +194,7 @@ export const coaches: Coach[] = [
         isFoundingCoach: false,
         status: 'accepting',
         disciplines: ['cycling', 'triathlon', 'running'],
-        specialties: ['cycling', 'long-course triathlon', 'half marathon', 'marathon', '5K', '10K'],
+        specialties: ['cycling', 'long-course triathlon', 'trail running', 'half marathon', 'marathon', '5K', '10K'],
         location: { city: 'Founex', country: 'Switzerland', countryCode: 'CH', timezone: 'Europe/Zurich' },
         coachesRemote: true,
         languages: [EN, FR],
@@ -263,7 +265,10 @@ export const coaches: Coach[] = [
             '10K',
             'half marathon',
             'marathon',
-            'ultra',
+            '50km',
+            '100km',
+            '100mi',
+            'trail running',
             'cycling',
         ],
         location: { city: 'Mafra', country: 'Portugal', countryCode: 'PT', timezone: 'Europe/Lisbon' },
@@ -304,8 +309,12 @@ export const coaches: Coach[] = [
             '10K',
             'half marathon',
             'marathon',
-            'ultra',
-            'gravel',
+            '50km',
+            '100km',
+            '100mi',
+            'trail running',
+            'swimming',
+            'Nordic skiing',
         ],
         location: { city: 'Rosenheim', country: 'Germany', countryCode: 'DE', timezone: 'Europe/Berlin' },
         coachesRemote: true,
@@ -444,7 +453,7 @@ export const coaches: Coach[] = [
         isFoundingCoach: false,
         status: 'accepting',
         disciplines: ['running', 'cycling'],
-        specialties: ['trail running', 'ultra', '50km', '100km', '100mi', '200km+', 'marathon'],
+        specialties: ['trail running', 'road running', 'ultra', '50km', '100km', '100mi', '200km+', 'marathon', 'cycling'],
         location: { city: 'Nelson', country: 'Canada', countryCode: 'CA', timezone: 'America/Vancouver' },
         coachesRemote: true,
         languages: [EN],
@@ -576,7 +585,7 @@ export const coaches: Coach[] = [
             'Endurance + bike-fit specialist with 20 years on the road, for advanced and elite athletes.',
         isFoundingCoach: false,
         status: 'accepting',
-        disciplines: ['cycling', 'running'],
+        disciplines: ['cycling', 'running', 'triathlon'],
         specialties: ['cycling', 'bike fitting', 'marathon', 'ultra', '50km', '100km', '100mi', 'long-course triathlon'],
         location: { city: 'Belo Horizonte', country: 'Brazil', countryCode: 'BR', timezone: 'America/Sao_Paulo' },
         coachesRemote: true,
@@ -618,6 +627,9 @@ export const coaches: Coach[] = [
             '100km',
             '100mi',
             '200km+',
+            'trail running',
+            'cycling',
+            'swimming',
         ],
         location: { city: 'Phoenix', country: 'United States', countryCode: 'US', timezone: 'America/Phoenix' },
         coachesRemote: true,
@@ -671,6 +683,7 @@ export const coaches: Coach[] = [
             philosophy: 'Pleasure and performance are not a tradeoff. Build for both.',
         },
         media: { portrait: placeholderPortrait },
+        socials: { website: 'https://www.linkedin.com/in/michiel-baetens/' },
     },
     {
         slug: 'anderson-de-oliveira-silva',
@@ -682,7 +695,7 @@ export const coaches: Coach[] = [
         isFoundingCoach: true,
         status: 'accepting',
         disciplines: ['triathlon', 'running', 'cycling'],
-        specialties: ['long-course triathlon', 'marathon', 'half marathon', '10K', '5K'],
+        specialties: ['long-course triathlon', 'marathon', 'half marathon', '10K', '5K', 'cycling', 'swimming'],
         location: { city: 'Cascais', country: 'Portugal', countryCode: 'PT', timezone: 'Europe/Lisbon' },
         coachesRemote: true,
         languages: [EN, PT],
@@ -753,7 +766,7 @@ export const coaches: Coach[] = [
         status: 'accepting',
         disciplines: ['triathlon', 'running'],
         specialties: ['triathlon (short + long)', 'marathon', 'half marathon', '10K', '5K', 'aerobic base'],
-        location: { city: 'Lucerne', country: 'Switzerland', countryCode: 'CH', timezone: 'Europe/Zurich' },
+        location: { city: 'Switzerland', country: 'Switzerland', countryCode: 'CH', timezone: 'Europe/Zurich' },
         coachesRemote: true,
         languages: [EN, GSW, DE],
         credentials: ['Certified triathlon coach', 'Strength training certified'],
@@ -780,7 +793,7 @@ export const coaches: Coach[] = [
         firstName: 'Freddie',
         gender: 'male',
         tagline:
-            'Open, honest, grounded — and 26 years deep into coaching across every endurance event.',
+            'Open, honest, grounded — coaching every endurance event, short course to long.',
         isFoundingCoach: false,
         status: 'accepting',
         disciplines: ['triathlon', 'running', 'cycling'],
@@ -802,9 +815,9 @@ export const coaches: Coach[] = [
         idealAthlete: 'Athletes willing to learn, fitting training around the life they already have',
         bio: {
             short:
-                'Twenty-six years of endurance coaching. Open, honest, grounded — and ready to learn alongside you.',
+                'Open, honest, grounded — and ready to learn alongside you across every endurance event.',
             long: [
-                'Freddie has been coaching triathlon, running, cycling and swimming for over two decades.',
+                'Freddie has coached triathlon, running, cycling and swimming since 2020, across short- and long-course events.',
                 'He looks for advanced athletes willing to learn and develop, who treat competitions as benchmarks rather than rigid targets, and who fit training around life rather than the other way around.',
             ],
             philosophy: 'Every challenge is an opportunity to grow. Competition is a benchmark, not a verdict.',
@@ -818,11 +831,11 @@ export const coaches: Coach[] = [
         firstName: 'David',
         gender: 'male',
         tagline:
-            'Straight-talking, evidence-led triathlon and cycling coach with decades of pro and amateur results.',
+            'Straight-talking, evidence-led triathlon coach with decades of pro and amateur results.',
         isFoundingCoach: false,
         status: 'accepting',
-        disciplines: ['triathlon', 'cycling'],
-        specialties: ['triathlon (Olympic to Ironman)', 'ultra-triathlon', 'road cycling', 'duathlon', 'mountain biking'],
+        disciplines: ['triathlon'],
+        specialties: ['triathlon (Olympic to Ironman)', 'ultra-triathlon'],
         location: { city: 'Helsinki', country: 'Finland', countryCode: 'FI', timezone: 'Europe/Helsinki' },
         coachesRemote: true,
         languages: [EN],
@@ -835,7 +848,7 @@ export const coaches: Coach[] = [
         bio: {
             short: 'Straight-talking, evidence-led, decades of success.',
             long: [
-                'David has been coaching for nearly three decades across triathlon, road cycling, duathlon and mountain biking.',
+                'David has been coaching triathlon for nearly three decades — Olympic distance up to Ironman and beyond to ultras.',
                 'He works with highly professionally-minded athletes — pro or amateur — who treat their goals with the same seriousness he brings to the data.',
             ],
             philosophy: 'Evidence first. Sentiment second. Results follow.',
@@ -849,7 +862,7 @@ export const coaches: Coach[] = [
         firstName: 'Marc',
         gender: 'male',
         tagline:
-            '38 years coaching triathlon, running and cycling — direct, helpful, and ready to go the extra mile.',
+            'A decade coaching triathlon, running and cycling — direct, helpful, and ready to go the extra mile.',
         isFoundingCoach: false,
         status: 'accepting',
         disciplines: ['triathlon', 'running', 'cycling'],
@@ -875,7 +888,7 @@ export const coaches: Coach[] = [
             short:
                 'Helpful, open, honest, direct — and willing to put in the extra steps when the athlete will too.',
             long: [
-                'Marc has coached across triathlon, road and trail running and cycling for nearly four decades.',
+                'Marc has coached across triathlon, road and trail running and cycling since 2016.',
                 'He works with advanced athletes who value clear dialogue, embrace feedback, and meet his commitment with their own.',
             ],
             philosophy: 'Communication is non-negotiable. Show up willing — I will too.',
@@ -913,7 +926,7 @@ export const coaches: Coach[] = [
             philosophy: 'You bring motivation. I bring the plan that fits your week.',
         },
         media: { portrait: stefPortrait },
-        socials: { website: 'https://forwardcoaching.be' },
+        socials: { website: 'https://fortytwo.club/' },
     },
     {
         slug: 'david-cagle',
@@ -982,7 +995,7 @@ export const coaches: Coach[] = [
         idealAthlete: 'Athletes open to change, new solutions and real commitment',
         bio: {
             short:
-                "Specialist in 'little effort, big impact'. Twenty years of efficient training, technique and mindset.",
+                "Specialist in 'little effort, big impact'. Twenty-six years of efficient training, technique and mindset.",
             long: [
                 'Markus is built around a low-volume approach — efficient training, sharp technique, the right mindset, minimum waste.',
                 'He looks for athletes open to change, open to new solutions, and committed enough to actually try them.',
@@ -1067,7 +1080,7 @@ export const coaches: Coach[] = [
         isFoundingCoach: true,
         status: 'accepting',
         disciplines: ['triathlon'],
-        specialties: ['Olympic-distance triathlon', '70.3', 'Ironman', 'race strategy', 'swim coaching'],
+        specialties: ['Olympic-distance triathlon', '70.3', 'Ironman', '5K', '10K', 'half marathon', 'marathon', 'race strategy', 'swim coaching'],
         location: { city: 'Baden', country: 'Switzerland', countryCode: 'CH', timezone: 'Europe/Zurich' },
         coachesRemote: true,
         languages: [EN, DE, GSW, FR],
@@ -1113,7 +1126,7 @@ export const coaches: Coach[] = [
         yearsCoaching: 4,
         athleteLevels: ['Advanced'],
         communication: 'always-on',
-        offersStrength: false,
+        offersStrength: true,
         idealAthlete: 'Committed, coachable athletes who communicate honestly and trust the process',
         bio: {
             short:
@@ -1133,7 +1146,7 @@ export const coaches: Coach[] = [
         firstName: 'Bevan',
         gender: 'male',
         tagline:
-            'Twenty years of multi-sport coaching — calm, analytical, empathetic. A coach for the long road.',
+            'Twenty-five years of multi-sport coaching — calm, analytical, empathetic. A coach for the long road.',
         isFoundingCoach: true,
         status: 'accepting',
         disciplines: ['triathlon', 'running', 'cycling'],
@@ -1162,7 +1175,7 @@ export const coaches: Coach[] = [
             short:
                 'Calm, analytical, empathetic — a strong listener combining objective data with athlete feedback.',
             long: [
-                'Bevan has coached across triathlon, road and trail running, cycling and swimming for two decades.',
+                'Bevan has coached across triathlon, road and trail running, cycling and swimming for twenty-five years.',
                 'He looks for curious athletes eager to understand the training process, communicate honestly, and prioritise sustainable, long-term adaptation.',
             ],
             philosophy: 'Listen first. Use the data. Build for the long arc.',
@@ -1176,7 +1189,7 @@ export const coaches: Coach[] = [
         firstName: 'Jonathan',
         gender: 'male',
         tagline:
-            'Human-first then scientific. 28 years of endurance coaching plus a PhD in marathon running.',
+            'Human-first then scientific. Athlete, coach and researcher, with a PhD in marathon running underway.',
         isFoundingCoach: false,
         status: 'accepting',
         disciplines: ['triathlon', 'running', 'cycling'],
@@ -1207,7 +1220,7 @@ export const coaches: Coach[] = [
             short:
                 'Athlete, coach and researcher. Human-first then scientific — never the other way around.',
             long: [
-                'Jonathan has coached for nearly three decades across triathlon, running and cycling, and is a PhD candidate researching marathon running.',
+                'Jonathan has coached across triathlon, running and cycling since 2020, and is a PhD candidate researching marathon running.',
                 'He looks for advanced athletes who understand endurance training takes time, who are not chasing instant results, and bring the right mindset.',
             ],
             philosophy: 'Human first, scientific second. The other order causes burnout and injury.',
@@ -1262,7 +1275,7 @@ export const coaches: Coach[] = [
         firstName: 'Gordon',
         gender: 'male',
         tagline:
-            'Engage, enable, educate, empower — six decades of coaching elite athletes to be their best in sport and life.',
+            'Engage, enable, educate, empower — 35 years of coaching elite athletes to be their best in sport and life.',
         isFoundingCoach: true,
         status: 'accepting',
         disciplines: ['triathlon', 'running'],
@@ -1280,7 +1293,7 @@ export const coaches: Coach[] = [
         coachesRemote: true,
         languages: [EN],
         credentials: ['Certified coach', 'Strength training certified'],
-        yearsCoaching: 38,
+        yearsCoaching: 35,
         athleteLevels: ['Elite/Pro'],
         communication: 'always-on',
         offersStrength: true,
@@ -1289,7 +1302,7 @@ export const coaches: Coach[] = [
             short:
                 'Inspires everyone he coaches to be the best they can be in sport and life — through engaging, enabling, educating and empowering.',
             long: [
-                'Gordon has been coaching for over six decades, with one focus: inspiring everyone he coaches to be the best they can be in sport and life.',
+                'Gordon has been coaching for 35 years, with one focus: inspiring everyone he coaches to be the best they can be in sport and life.',
                 'His coaching rests on four key principles — engage, enable, educate and empower — helping people realise their potential as athletes and as people.',
                 'Available 24/7 to his athletes, he works with elite and professional athletes across triathlon, road and trail running, track, cross country and swimming — from Olympic-distance racing to 70.3, T100 and Ironman.',
             ],
@@ -1354,7 +1367,7 @@ export const coaches: Coach[] = [
             'Sports-science-led triathlon and open-water swimming coach — kind, encouraging, and big on trusting the process.',
         isFoundingCoach: false,
         status: 'accepting',
-        disciplines: ['triathlon', 'running'],
+        disciplines: ['triathlon'],
         specialties: [
             'triathlon (sprint to Ironman)',
             'open-water swimming',
@@ -1539,7 +1552,7 @@ export const coaches: Coach[] = [
             'Fitness Instructor with Swiss Federal Certificate (eidg. Fachausweis)',
         ],
         yearsCoaching: 7,
-        athleteLevels: ['Beginner', 'Intermediate'],
+        athleteLevels: ['Intermediate'],
         communication: 'always-on',
         offersStrength: true,
         idealAthlete: 'Beginners through to performance-oriented athletes chasing a competitive goal',
@@ -1628,7 +1641,8 @@ export const coaches: Coach[] = [
             'Numerous ultramarathons',
             '250 km desert stage races around the world',
         ],
-        athleteLevels: ['Beginner', 'Intermediate'],
+        yearsCoaching: 9,
+        athleteLevels: ['Beginner'],
         communication: 'weekly',
         offersStrength: false,
         idealAthlete:
@@ -1686,5 +1700,105 @@ export const coaches: Coach[] = [
         },
         media: { portrait: placeholderPortrait },
         socials: { website: 'https://goemon07.github.io/coach/' },
+    },
+    {
+        slug: 'frederique-rol',
+        name: 'Frédérique Rol',
+        firstName: 'Frédérique',
+        gender: 'female',
+        tagline:
+            'Olympian rower and mental coach for athletes who chase their goals with heart.',
+        isFoundingCoach: false,
+        status: 'accepting',
+        disciplines: ['rowing', 'mental-coaching'],
+        specialties: ['rowing', 'mental coaching', 'athlete and sports-project mentoring'],
+        location: { city: 'Lausanne', country: 'Switzerland', countryCode: 'CH', timezone: 'Europe/Zurich' },
+        coachesRemote: true,
+        languages: [EN, DE, GSW, FR],
+        credentials: ['Olympian rower'],
+        notableResults: ['Olympic rower'],
+        yearsCoaching: 4,
+        athleteLevels: ['Beginner', 'Intermediate', 'Advanced', 'Elite/Pro'],
+        communication: 'always-on',
+        offersStrength: true,
+        idealAthlete: 'Athletes who dream and chase their goals with heart, passion and the desire to grow',
+        bio: {
+            short:
+                'Olympian rower turned rowing and mental coach — inspired by nature, movement and growth.',
+            long: [
+                'Frédérique is an Olympian rower who now coaches rowing and works as a mental coach, mentoring athletes and sports projects from beginner through to elite.',
+                'She is inspired by nature, movement and growth, and is available to her athletes 24/7.',
+                'She looks for athletes who dream and chase their goals with heart — bringing passion, commitment and the desire to grow, whatever their current level.',
+            ],
+            philosophy: 'Chase your goals with heart. Passion, commitment and the desire to grow do the rest.',
+        },
+        media: { portrait: placeholderPortrait },
+        socials: { website: 'https://www.meromind.com/' },
+    },
+    {
+        slug: 'bruna-maia',
+        name: 'Bruna Maia',
+        firstName: 'Bruna',
+        gender: 'female',
+        tagline:
+            'Positive running coach pairing data with feel — for dedicated runners training for performance.',
+        isFoundingCoach: false,
+        status: 'accepting',
+        disciplines: ['running'],
+        specialties: ['5K', '10K', 'half marathon', 'marathon', 'trail running', 'fueling', 'mindset'],
+        location: { city: 'Zurich', country: 'Switzerland', countryCode: 'CH', timezone: 'Europe/Zurich' },
+        coachesRemote: true,
+        languages: [EN, PT],
+        credentials: ['UESCA Running coach'],
+        notableResults: ['8 road marathons finished'],
+        yearsCoaching: 5,
+        athleteLevels: ['Intermediate'],
+        communication: 'always-on',
+        offersStrength: true,
+        idealAthlete: 'Dedicated, performance-minded runners — motivated beginners or those getting serious about the sport',
+        bio: {
+            short:
+                'Positive, experienced running coach who combines the data with how you actually feel.',
+            long: [
+                'Bruna coaches road and trail running from 5K to the marathon, combining training data with subjective feel rather than trusting one over the other.',
+                'She has completed eight road marathons and has come back from RED-S herself, which shapes how she guides athletes on fueling and mindset alongside the training.',
+                'She works best with dedicated, performance-minded runners — very motivated beginners or athletes just starting to take the sport seriously — who value consistency in their training. She is available to her athletes 24/7.',
+            ],
+            philosophy: 'Data and feel belong together. Consistency, fueling and mindset carry the training.',
+        },
+        media: { portrait: brunaPortrait },
+        socials: { website: 'https://www.jornadaendurance.com' },
+    },
+    {
+        slug: 'yuval-ben-moshe',
+        name: 'Yuval Ben Moshe',
+        firstName: 'Yuval',
+        gender: 'male',
+        tagline:
+            'Competitive, curious cycling coach who keeps training practical, simple and driven by your power data.',
+        isFoundingCoach: false,
+        status: 'accepting',
+        disciplines: ['cycling'],
+        specialties: ['cycling', 'all cycling events', 'power-based training', 'structured training'],
+        location: { city: 'Tel Aviv', country: 'Israel', countryCode: 'IL', timezone: 'Asia/Jerusalem' },
+        coachesRemote: true,
+        languages: [EN, HE],
+        credentials: ['Certified Cycling Coach, Wingate Institute (Israel)'],
+        yearsCoaching: 4,
+        athleteLevels: ['Advanced'],
+        communication: 'as-needed',
+        offersStrength: false,
+        idealAthlete: 'Motivated cyclists committed to structured, data-driven training and a long-term coaching relationship',
+        bio: {
+            short:
+                'Competitive, curious and goal-oriented. Yuval keeps cycling training practical and simple.',
+            long: [
+                'Yuval is a Wingate Institute certified cycling coach based in Tel Aviv, coaching every type of cycling event with a practical, no-frills approach.',
+                'He works best with motivated, advanced cyclists who want to improve, commit to a structured and individualised training process, and are open to training with data such as a power meter.',
+                'He is available whenever his athletes need him, with limits during family time, and looks for athletes who want a long-term coaching relationship.',
+            ],
+            philosophy: 'Keep it practical, keep it simple, and let the power data guide the work.',
+        },
+        media: { portrait: placeholderPortrait },
     },
 ]

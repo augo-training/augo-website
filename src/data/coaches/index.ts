@@ -42,6 +42,12 @@ export const coaches: Coach[] = [
         .sort((a, b) => a.name.localeCompare(b.name)),
 ]
 
+// "City, Country" for display — collapses to just the country when a coach only
+// told us the country (city is then stored as the country name).
+export function formatLocation(loc: Coach['location']): string {
+    return loc.city === loc.country ? loc.country : `${loc.city}, ${loc.country}`
+}
+
 export function getCoachBySlug(slug: string): Coach | undefined {
     return coaches.find((c) => c.slug === slug)
 }

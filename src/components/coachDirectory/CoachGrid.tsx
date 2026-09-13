@@ -16,7 +16,13 @@ interface Props {
 }
 
 function isDiscipline(v: string | null): v is Discipline {
-    return v === 'running' || v === 'cycling' || v === 'triathlon'
+    return (
+        v === 'running' ||
+        v === 'cycling' ||
+        v === 'triathlon' ||
+        v === 'rowing' ||
+        v === 'mental-coaching'
+    )
 }
 
 export default function CoachGrid({ coaches, searchResults, excludeFounding = false, searchSlot }: Props) {
@@ -42,7 +48,14 @@ export default function CoachGrid({ coaches, searchResults, excludeFounding = fa
     }, [coaches, searchResults, excludeFounding])
 
     const counts = useMemo<Record<SportFilterValue, number>>(() => {
-        const base = { all: visibleCoaches.length, running: 0, cycling: 0, triathlon: 0 }
+        const base = {
+            all: visibleCoaches.length,
+            running: 0,
+            cycling: 0,
+            triathlon: 0,
+            rowing: 0,
+            'mental-coaching': 0,
+        }
         for (const c of visibleCoaches) {
             for (const d of c.disciplines) base[d] += 1
         }
