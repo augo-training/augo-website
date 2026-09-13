@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
 import { ArrowUpRight } from 'lucide-react'
 import type { Coach } from '../../data/coaches/types'
+import { formatLocation } from '../../data/coaches'
 import { GENDER_LABEL } from '../../data/coaches/types'
 import DisciplineIcons from './DisciplineIcons'
 
@@ -36,7 +37,7 @@ export default function CoachCompactCard({ coach, matchReason }: Props) {
                     {coach.name}
                 </h4>
                 <span className="font-mono text-[10px] sm:text-[11px] tracking-[1.5px] uppercase text-white/50">
-                    {coach.location.city}, {coach.location.country}
+                    {formatLocation(coach.location)}
                     {coach.gender && ` · ${GENDER_LABEL[coach.gender]}`}
                 </span>
             </div>

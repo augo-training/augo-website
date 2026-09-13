@@ -61,8 +61,10 @@ function buildReason(coach: Coach, tokens: string[]): string {
     for (const d of coach.disciplines) {
         if (tokenSet.has(d) || (d === 'running' && tokenSet.has('run')) ||
             (d === 'cycling' && (tokenSet.has('bike') || tokenSet.has('cyclist'))) ||
-            (d === 'triathlon' && (tokenSet.has('tri') || tokenSet.has('ironman')))) {
-            fired.push(d.charAt(0).toUpperCase() + d.slice(1))
+            (d === 'triathlon' && (tokenSet.has('tri') || tokenSet.has('ironman'))) ||
+            (d === 'rowing' && (tokenSet.has('row') || tokenSet.has('rower'))) ||
+            (d === 'mental-coaching' && (tokenSet.has('mental') || tokenSet.has('mindset')))) {
+            fired.push(d === 'mental-coaching' ? 'Mental coaching' : d.charAt(0).toUpperCase() + d.slice(1))
         }
     }
 

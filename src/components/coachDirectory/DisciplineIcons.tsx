@@ -10,6 +10,8 @@ const LABEL: Record<Discipline, string> = {
     running: 'Run',
     cycling: 'Bike',
     triathlon: 'Tri',
+    rowing: 'Row',
+    'mental-coaching': 'Mind',
 }
 
 function Icon({ d, size }: { d: Discipline; size: number }) {
@@ -34,11 +36,32 @@ function Icon({ d, size }: { d: Discipline; size: number }) {
             </svg>
         )
     }
+    if (d === 'rowing') {
+        return (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={s} aria-hidden="true">
+                <path d="M3 16h18l-3 4H6z" />
+                <path d="M12 16V7" />
+                <path d="M12 7l7-3" />
+                <circle cx="7" cy="6" r="1.3" />
+            </svg>
+        )
+    }
+    if (d === 'mental-coaching') {
+        return (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={s} aria-hidden="true">
+                <path d="M9 21v-3H6l-1-3 2-1V9a6 6 0 0 1 12 0v2l1 3-2 1v3h-3v3" />
+                <path d="M11 9a2 2 0 1 1 3 1.7V13" />
+            </svg>
+        )
+    }
+    // Triathlon: swim wave over a bike wheel and a running stride.
     return (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={s} aria-hidden="true">
-            <path d="M3 9c2-1 3-1 5 0s3 1 5 0 3-1 5 0 3 1 4 0" />
-            <path d="M3 14c2-1 3-1 5 0s3 1 5 0 3-1 5 0 3 1 4 0" />
-            <path d="M3 19c2-1 3-1 5 0s3 1 5 0 3-1 5 0 3 1 4 0" />
+            <path d="M3 5c1.5-1.2 3-1.2 4.5 0s3 1.2 4.5 0 3-1.2 4.5 0 3 1.2 4.5 0" />
+            <circle cx="7" cy="17" r="4" />
+            <circle cx="16.3" cy="9.3" r="1.3" />
+            <path d="M14 21l3-5 4 1" />
+            <path d="M17 16l-1-4 3 1" />
         </svg>
     )
 }

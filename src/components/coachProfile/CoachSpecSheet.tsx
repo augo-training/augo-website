@@ -1,5 +1,6 @@
 import { ArrowUpRight } from 'lucide-react'
 import type { Coach } from '../../data/coaches/types'
+import { formatLocation } from '../../data/coaches'
 import { COMMUNICATION_LABEL, GENDER_LABEL } from '../../data/coaches/types'
 import { DISCIPLINE_LABEL } from '../coachDirectory/DisciplineIcons'
 
@@ -14,7 +15,7 @@ export default function CoachSpecSheet({ coach }: Props) {
             value: coach.disciplines.map((d) => DISCIPLINE_LABEL[d]).join(' · '),
         },
         { label: 'Specialties', value: coach.specialties.join(' · ') },
-        { label: 'Based in', value: `${coach.location.city}, ${coach.location.country}` },
+        { label: 'Based in', value: formatLocation(coach.location) },
         { label: 'Languages', value: coach.languages.map((l) => l.label).join(' · ') },
     ]
 
