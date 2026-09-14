@@ -1,10 +1,12 @@
 import { useEffect, useRef } from 'react'
-import { Outlet, useParams, useLocation, Navigate } from 'react-router-dom'
+import { Outlet, useParams, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { supportedLanguages } from '../i18n'
 import type { SupportedLanguage } from '../i18n'
-import { setupMixpanelConsentListener, trackPageViewed } from '../utils/analytics'
+import { trackPageViewed, normalizePage } from '../utils/analytics'
+import LegacyRedirect from './LegacyRedirect'
 import { EmailCaptureProvider } from '../contexts/EmailCaptureProvider'
+import { FilmProvider } from '../contexts/FilmProvider'
 
 export default function LanguageLayout() {
   const { lang } = useParams<{ lang: string }>()
@@ -21,16 +23,12 @@ export default function LanguageLayout() {
   }
 
   useEffect(() => {
-    return setupMixpanelConsentListener()
-  }, [])
-
-  useEffect(() => {
     if (!isValid) return
     const currentPath = location.pathname
     if (prevPathRef.current === currentPath) return
     prevPathRef.current = currentPath
 
-    const pageName = currentPath.replace(`/${lang}`, '') || '/'
+    const pageName = normalizePage(currentPath, lang)
     trackPageViewed({
       page: pageName,
       referrer: document.referrer,
@@ -39,12 +37,15 @@ export default function LanguageLayout() {
   }, [location.pathname, lang, isValid])
 
   if (!isValid) {
-    return <Navigate to="/en" replace />
+    // Also catches single-segment unknown paths like /nope, which match /:lang.
+    return <LegacyRedirect to="/en" reason="unknown_language_prefix" />
   }
 
   return (
     <EmailCaptureProvider lang={lang!}>
-      <Outlet />
+      <FilmProvider>
+        <Outlet />
+      </FilmProvider>
     </EmailCaptureProvider>
   )
 }

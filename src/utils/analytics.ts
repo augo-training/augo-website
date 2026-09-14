@@ -1,24 +1,81 @@
 import { getConsentStatus } from '../components/cookieUtils'
+import { normalizePage } from './page'
+import { isLocalHost, isTrackingEnabled } from './trackingEnv'
+import {
+    trackMetaPageView,
+    trackMetaLead,
+    trackMetaViewContent,
+    trackMetaAppStoreClick,
+} from './metaPixel'
+
+/**
+ * Mixpanel wrapper for the website.
+ *
+ * Consent: an unanswered cookie banner counts as permission to track, an
+ * explicit Decline stops it. Most visitors never answer a banner, and treating
+ * that silence as "no" was losing the landing event and its UTMs for the bulk
+ * of paid-ad traffic. A decline stops further sending; it does not delete what
+ * was already collected.
+ *
+ * Environment: `./trackingEnv` allows tracking only from a non-local hostname,
+ * which is what keeps `vite dev`, `vite preview`, CI and the 177-route
+ * prerender pass out of the production project. Set VITE_TRACKING_DEBUG=1 to
+ * track from localhost while testing.
+ *
+ * Meta Pixel: a few of the wrappers below also fan out to `./metaPixel`, which
+ * keeps its own consent gate. Only those four events go to Meta —
+ * the fan-out is deliberately in the named wrappers rather than in `track()`,
+ * so adding a Mixpanel event never silently starts sending it to Meta too.
+ */
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type Props = Record<string, any>
+
+interface Identity {
+    distinctId: string
+    set: Props
+    setOnce: Props
+}
 
 let initialized = false
 
-async function tryInit(): Promise<void> {
-    const token = import.meta.env.VITE_MIXPANEL_TOKEN
-    if (!token || initialized || getConsentStatus() !== 'accepted') return
+function isEnabled(): boolean {
+    if (!import.meta.env.VITE_MIXPANEL_TOKEN) return false
+    return isTrackingEnabled()
+}
+
+async function tryInit(): Promise<boolean> {
+    if (initialized) return true
+    if (!isEnabled() || getConsentStatus() === 'declined') return false
     try {
         const { default: mixpanel } = await import('mixpanel-browser')
-        mixpanel.init(token, { persistence: 'localStorage', api_host: 'https://api-eu.mixpanel.com' })
-        mixpanel.register({ platform: 'website' })
+        mixpanel.init(import.meta.env.VITE_MIXPANEL_TOKEN, {
+            persistence: 'localStorage',
+            api_host: 'https://api-eu.mixpanel.com',
+        })
+        mixpanel.register({
+            platform: 'website',
+            environment: isLocalHost() ? 'development' : 'production',
+        })
         initialized = true
+        return true
     } catch {
         // Ad blocker or network failure — silently ignore
+        return false
     }
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-async function track(event: string, props?: Record<string, any>): Promise<void> {
-    await tryInit()
-    if (!initialized) return
+async function applyIdentity(identity: Identity): Promise<void> {
+    const { default: mixpanel } = await import('mixpanel-browser')
+    mixpanel.identify(identity.distinctId)
+    mixpanel.people.set(identity.set)
+    mixpanel.people.set_once(identity.setOnce)
+}
+
+async function track(event: string, props?: Props): Promise<void> {
+    if (!isEnabled()) return
+    if (getConsentStatus() === 'declined') return
+    if (!(await tryInit())) return
     try {
         const { default: mixpanel } = await import('mixpanel-browser')
         mixpanel.track(event, props)
@@ -27,42 +84,36 @@ async function track(event: string, props?: Record<string, any>): Promise<void> 
     }
 }
 
-export function setupMixpanelConsentListener(): () => void {
-    tryInit()
-    // Listen for consent changes in the current tab (custom event from CookieConsent)
-    const consentHandler = () => {
-        if (getConsentStatus() === 'accepted') tryInit()
-    }
-    window.addEventListener('cookie-consent-changed', consentHandler)
-    // Listen for consent changes from other tabs (storage event)
-    const storageHandler = (e: StorageEvent) => {
-        if (e.key === 'augo_cookie_consent' && e.newValue === 'accepted') {
-            tryInit()
-        }
-    }
-    window.addEventListener('storage', storageHandler)
-    return () => {
-        window.removeEventListener('cookie-consent-changed', consentHandler)
-        window.removeEventListener('storage', storageHandler)
-    }
+// ── Shared helpers ──
+
+export { normalizePage }
+
+function currentPage(): string {
+    return normalizePage(window.location.pathname)
 }
 
-export function getUtmParams(): {
-    utm_source: string | null
-    utm_medium: string | null
-    utm_campaign: string | null
-} {
+/**
+ * UTM parameters present on the current URL. Only keys that are actually set
+ * are returned: spreading explicit nulls into event properties would overwrite
+ * the campaign super-properties the Mixpanel SDK registers on its own.
+ */
+export type UtmKey = 'utm_source' | 'utm_medium' | 'utm_campaign' | 'utm_content' | 'utm_term'
+export type UtmParams = Partial<Record<UtmKey, string>>
+
+export function getUtmParams(): UtmParams {
     const params = new URLSearchParams(window.location.search)
-    return {
-        utm_source: params.get('utm_source'),
-        utm_medium: params.get('utm_medium'),
-        utm_campaign: params.get('utm_campaign'),
+    const out: UtmParams = {}
+    for (const key of ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'] as const) {
+        const value = params.get(key)
+        if (value) out[key] = value
     }
+    return out
 }
 
 // ── Page view tracking ──
 
 export async function trackPageViewed(props: { page: string; referrer: string; language: string }): Promise<void> {
+    trackMetaPageView()
     return track('page_viewed', { ...props, ...getUtmParams() })
 }
 
@@ -90,15 +141,17 @@ interface PricingPageViewedProps {
     country: string
     pricing_bucket: string
     pricing_currency: string
+    /** The promotional Pro price, per athlete per month. */
     pricing_amount: number
-    utm_source: string | null
-    utm_medium: string | null
-    utm_campaign: string | null
+    /** The full list price the promo is discounted from. */
+    pricing_list_amount: number
+    utm_source?: string | null
+    utm_medium?: string | null
+    utm_campaign?: string | null
 }
 
 export async function trackPricingPageViewed(props: PricingPageViewedProps): Promise<void> {
-    await tryInit()
-    if (!initialized) return
+    if (!(await tryInit())) return
     try {
         const { default: mixpanel } = await import('mixpanel-browser')
         mixpanel.register(props)
@@ -110,7 +163,10 @@ export async function trackPricingPageViewed(props: PricingPageViewedProps): Pro
 
 interface PricingCtaClickedProps {
     cta_text: string
-    billing_period: 'monthly' | 'yearly'
+    /** Only set for CTAs under a billing toggle; the plan CTAs are monthly-only. */
+    billing_period?: 'monthly' | 'yearly'
+    /** Stable id for the button, since cta_text is localized: 'pro' | 'enterprise' | 'elite'. */
+    plan: string
 }
 
 export async function trackPricingCtaClicked(props: PricingCtaClickedProps): Promise<void> {
@@ -121,12 +177,82 @@ export async function trackFloatingButtonClicked(props: { page: string }): Promi
     return track('floating_button_clicked', props)
 }
 
-export async function trackEmailCaptureSubmitted(props: { email: string; cta_text: string }): Promise<void> {
-    return track('pricing_email_capture_submitted', props)
+// ── Email capture tracking ──
+
+interface EmailCaptureSubmittedProps {
+    email: string
+    cta_text: string
+    visitor_type?: string
+    page?: string
+    coaching_status?: string
+}
+
+/** Event name kept for continuity with existing reports; it covers every email
+ *  capture on the site, not only pricing. */
+export async function trackEmailCaptureSubmitted(props: EmailCaptureSubmittedProps): Promise<void> {
+    // Meta gets the CTA label only — never the email address.
+    trackMetaLead({ content_name: props.cta_text })
+    return track('pricing_email_capture_submitted', { ...props, ...getUtmParams() })
 }
 
 export async function trackEmailCaptureFailed(props: { cta_text: string; status: number | 'network_error'; error?: string }): Promise<void> {
     return track('email_capture_failed', props)
+}
+
+/** A validation or submit error shown to the visitor on an email capture form. */
+export async function trackEmailCaptureError(props: { page: string; cta_text: string; error: string }): Promise<void> {
+    return track('email_capture_error', props)
+}
+
+/** The capture was accepted and the page unlocked (Nice landing page). */
+export async function trackEmailCaptureUnlocked(props: { page: string; cta_text: string }): Promise<void> {
+    return track('email_capture_unlocked', props)
+}
+
+export async function trackCoachingStatusSelected(props: { page: string; coaching_status: string }): Promise<void> {
+    return track('coaching_status_selected', props)
+}
+
+interface IdentifyEmailCaptureProps {
+    email: string
+    first_name?: string
+    coaching_status?: string
+    /** Where the capture happened, e.g. the cta_text. */
+    source: string
+    page: string
+}
+
+/**
+ * Ties the anonymous visitor to a Mixpanel profile keyed by email, so the
+ * events before signup, later visits, and the MailerLite subscriber can be
+ * joined.
+ */
+export async function identifyEmailCapture(props: IdentifyEmailCaptureProps): Promise<void> {
+    if (!isEnabled()) return
+    const distinctId = props.email.trim().toLowerCase()
+    const identity: Identity = {
+        distinctId,
+        set: {
+            $email: distinctId,
+            ...(props.first_name ? { $first_name: props.first_name } : {}),
+            ...(props.coaching_status ? { coaching_status: props.coaching_status } : {}),
+            last_signup_source: props.source,
+            last_signup_page: props.page,
+            ...getUtmParams(),
+        },
+        setOnce: {
+            first_signup_at: new Date().toISOString(),
+            first_signup_source: props.source,
+            first_signup_page: props.page,
+        },
+    }
+    if (getConsentStatus() === 'declined') return
+    if (!(await tryInit())) return
+    try {
+        await applyIdentity(identity)
+    } catch {
+        // Silently ignore if blocked
+    }
 }
 
 // ── Video tracking ──
@@ -148,10 +274,17 @@ export async function trackFindPageViewed(): Promise<void> {
 // ── Download page tracking ──
 
 export async function trackDownloadPageViewed(): Promise<void> {
+    trackMetaViewContent({ content_name: 'download' })
     return track('download_page_viewed', { ...getUtmParams() })
 }
 
-export async function trackAppStoreClicked(props: { store: 'app_store' | 'google_play' }): Promise<void> {
+/** `visitor_type` says which of the two /download cards the badge was clicked in;
+ *  it reuses the values the email capture already sends. */
+export async function trackAppStoreClicked(props: {
+    store: 'app_store' | 'google_play'
+    visitor_type: 'coach' | 'athlete'
+}): Promise<void> {
+    trackMetaAppStoreClick({ store: props.store })
     return track('app_store_clicked', props)
 }
 
@@ -169,9 +302,17 @@ export async function trackContactFormOpened(): Promise<void> {
 
 // ── Cookie consent tracking ──
 
+/** Declines are deliberately not recorded — sending an event about someone at
+ *  the moment they opt out is the wrong instinct, and the decline rate is still
+ *  derivable from page_viewed against cookie_consent_accepted. The accept
+ *  carries the page and UTMs so the landing is attributable on its own. */
 export async function trackCookieConsentResponse(props: { response: 'accepted' | 'declined' }): Promise<void> {
-    if (props.response !== 'accepted') return // can't track declined since Mixpanel won't init
-    return track('cookie_consent_accepted')
+    if (props.response !== 'accepted') return
+    return track('cookie_consent_accepted', {
+        page: currentPage(),
+        referrer: document.referrer,
+        ...getUtmParams(),
+    })
 }
 
 // ── Language switch tracking ──
@@ -182,40 +323,18 @@ export async function trackLanguageSwitched(props: { from_language: string; to_l
 
 // ── Billing toggle tracking ──
 
-export async function trackBillingToggle(props: { billing_period: 'monthly' | 'yearly' }): Promise<void> {
+export async function trackBillingToggle(props: { billing_period: 'monthly' | 'yearly'; plan?: 'elite' }): Promise<void> {
     return track('billing_toggle_switched', props)
 }
 
-// ── Coach matcher chat tracking ──
+// ── 404 and redirect tracking ──
 
-export async function trackCoachMatchChatOpened(props: { entry_point: string }): Promise<void> {
-    return track('coach_match_chat_opened', props)
+export async function trackPageNotFound(props: { path: string; referrer: string }): Promise<void> {
+    return track('page_not_found', { ...props, ...getUtmParams() })
 }
 
-export async function trackCoachMatchChatQuestionAnswered(props: {
-    step: string
-    skipped: boolean
-}): Promise<void> {
-    return track('coach_match_chat_question_answered', props)
-}
-
-export async function trackCoachMatchChatCompleted(props: {
-    questions_answered: number
-}): Promise<void> {
-    return track('coach_match_chat_completed', props)
-}
-
-export async function trackCoachMatchChatEmailSubmitted(props: {
-    matches: string[]
-}): Promise<void> {
-    return track('coach_match_chat_email_submitted', props)
-}
-
-export async function trackCoachMatchChatAbandoned(props: {
-    questions_answered: number
-    phase: string
-}): Promise<void> {
-    return track('coach_match_chat_abandoned', props)
+export async function trackLegacyRedirect(props: { from: string; to: string; reason?: string }): Promise<void> {
+    return track('legacy_redirect', { ...props, referrer: document.referrer })
 }
 
 export async function trackSupportArticleViewed(props: {

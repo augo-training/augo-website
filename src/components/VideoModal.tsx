@@ -41,6 +41,24 @@ export default function VideoModal({ isOpen, onClose }: VideoModalProps) {
         }
     }, [isOpen])
 
+    // External close: parent flipped isOpen to false (e.g. route change)
+    useEffect(() => {
+        if (isOpen || !visible) return
+        const raf = requestAnimationFrame(() => {
+            setAnimating(false)
+            videoRef.current?.pause()
+        })
+        const timeout = setTimeout(() => {
+            setVisible(false)
+            setShowControls(true)
+            document.body.style.overflow = ''
+        }, 300)
+        return () => {
+            cancelAnimationFrame(raf)
+            clearTimeout(timeout)
+        }
+    }, [isOpen, visible])
+
     // Close handler with exit animation
     const handleClose = useCallback(() => {
         setAnimating(false)

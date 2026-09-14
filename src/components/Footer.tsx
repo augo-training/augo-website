@@ -28,8 +28,8 @@ export default function Footer() {
             links: [
                 { label: t('footer.links.forCoaches'), href: '#coaches' },
                 { label: t('footer.links.forAthletes'), href: '#athletes' },
-                { label: t('footer.links.howItWorks'), href: '#how-it-works' },
                 { label: t('footer.links.pricing'), href: `/${currentLang}/pricing` },
+                { label: t('footer.links.bookDemo'), href: `/${currentLang}/book-a-demo` },
             ],
         },
         {
@@ -37,6 +37,7 @@ export default function Footer() {
             links: [
                 { label: t('footer.links.about'), href: '#about' },
                 { label: t('footer.links.faq'), href: '#faq' },
+                { label: t('nav.contact'), href: `/${currentLang}/contact` },
             ],
         },
         {
@@ -49,6 +50,7 @@ export default function Footer() {
                 { label: t('footer.links.support'), href: `/${currentLang}/support` },
                 { label: t('footer.links.findAMatch'), href: `/${currentLang}/find` },
                 { label: t('footer.links.humanEdge'), href: `/${currentLang}/humanedge` },
+                { label: t('footer.links.mcp'), href: `/${currentLang}/mcp` },
             ],
         },
     ]

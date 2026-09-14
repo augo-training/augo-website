@@ -1,11 +1,20 @@
+import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import SEOHead from '../seo/SEOHead'
+import { trackPageNotFound } from '../utils/analytics'
 
 export default function NotFound() {
   const { t, i18n } = useTranslation()
   const lang = i18n.language
+  const { pathname, search } = useLocation()
+
+  // Mounted both inside /:lang and as the top-level catch-all, so this covers
+  // every unknown URL. Record the attempted path so broken links are visible.
+  useEffect(() => {
+    void trackPageNotFound({ path: pathname + search, referrer: document.referrer })
+  }, [pathname, search])
 
   return (
     <>

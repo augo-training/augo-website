@@ -8,6 +8,7 @@ import athletesImg1_3 from '../assets/images/img_for_athletes_1_3.png'
 import athletesImg1_4 from '../assets/images/img_for_athletes_1_4.png'
 import athletesImg1_5 from '../assets/images/img_for_athletes_1_5.png'
 import athletesImg1_6 from '../assets/images/img_for_athletes_1_6.png'
+import athletesWorkout from '../assets/images/img_for_athletes_workout.png?w=488&format=webp'
 import athletesImg2_1 from '../assets/images/img_for_athletes_2_1.png'
 import athletesImg2_2 from '../assets/images/img_for_athletes_2_2.png'
 import athletesImg2_3 from '../assets/images/img_for_athletes_2_3.png'
@@ -31,6 +32,12 @@ const panelImages: PanelImage[][] = [
         { src: athletesImg1_3, className: 'absolute top-[32%] left-[5%] w-[5%] z-10' },
         { src: athletesImg1_6, className: 'absolute top-[62%] left-[12%] w-[52%] z-10' },
         { src: athletesImg1_1, className: 'grayscale absolute top-[56%] right-[10%] w-[5%] z-10' },
+    ],
+    [
+        // The only full device shot in this section, and the wells here are short
+        // (28vh on mobile), so it is top-anchored and the container crops the
+        // bottom rather than shrinking the phone to nothing.
+        { src: athletesWorkout, className: 'absolute inset-x-0 top-0 mx-auto w-[70%] sm:w-[52%] md:inset-y-0 md:my-auto md:w-auto md:h-[95%] z-10' },
     ],
     [
         { src: athletesImg2_1, className: 'absolute top-[7%] lg:top-[7%] md:top-[10%] left-[10%] w-[45%] z-10' },

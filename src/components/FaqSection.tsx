@@ -15,7 +15,7 @@ export default function FaqSection() {
     // Fall back to the global tier while geo resolves — the FAQ always has to render text
     const { countryCode } = useGeoCountry()
     const tier = getPricingTier(countryCode || 'US')
-    const price = `${tier.symbol}${tier.price}`
+    const price = `${tier.symbol}${tier.proPrice}`
 
     const faqItems = t('faq.items', { returnObjects: true }) as Array<{
         question: string

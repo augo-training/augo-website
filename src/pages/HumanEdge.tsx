@@ -49,14 +49,14 @@ export default function HumanEdge() {
             <HumanEdgeBreadcrumbJsonLd />
             <Navbar />
             <article>
-                <HumanEdgeHero onApply={() => openApplyModal('hero')} />
+                <HumanEdgeHero onApply={() => openApplyModal('human_edge_hero')} />
                 <HumanEdgeWhat />
                 <HumanEdgeWhoFor />
                 <HumanEdgeWhy />
                 <HumanEdgeWhatYouGet />
                 <HumanEdgeDocumenting />
                 <HumanEdgeHowToApply ref={howToApplyRef} />
-                <HumanEdgeFinalCta onApply={() => openApplyModal('final_cta')} />
+                <HumanEdgeFinalCta onApply={() => openApplyModal('human_edge_final_cta')} />
                 <HumanEdgeFaq />
             </article>
             <Footer />

@@ -2,6 +2,8 @@ import { trackEmailCaptureFailed } from './analytics'
 
 interface SubscribeArgs {
     email: string
+    /** Subscriber first name, stored in MailerLite's `name` field. */
+    name?: string
     groupId?: string
     fields?: Record<string, string | number | null>
     /** Used only for analytics if the call fails. */
@@ -19,13 +21,14 @@ interface SubscribeArgs {
  * list anyone — so it is safe to expose in client code.
  *
  * Payload contract (see the "Website signup → MailerLite" Make scenario):
- *   { email: string, groupId?: string, fields?: Record<string, ...> }
+ *   { email: string, name?: string, groupId?: string, fields?: Record<string, ...> }
  *
  * Returns true if the webhook accepted the request (2xx), false otherwise. The
  * caller usually doesn't need the result — analytics + console capture failures.
  */
 export async function subscribeToMailerLite({
     email,
+    name,
     groupId,
     fields,
     ctaText = 'unknown',
@@ -35,6 +38,7 @@ export async function subscribeToMailerLite({
     if (!webhookUrl) return false
 
     const body: Record<string, unknown> = { email }
+    if (name) body.name = name
     if (effectiveGroupId) body.groupId = effectiveGroupId
     if (fields && Object.keys(fields).length > 0) body.fields = fields
 

@@ -1,13 +1,17 @@
-import { BrowserRouter, Routes, Route, Navigate, useParams } from 'react-router-dom'
+import { useEffect } from 'react'
+import { BrowserRouter, Routes, Route, useParams } from 'react-router-dom'
 import LanguageLayout from './components/LanguageLayout'
 import LanguageRedirect from './components/LanguageRedirect'
+import LegacyRedirect from './components/LegacyRedirect'
 import Home from './pages/Home'
 import Join from './pages/Join'
 import Find from './pages/Find'
 import Pricing from './pages/Pricing'
+import BookDemo from './pages/BookDemo'
 import NotFound from './pages/NotFound'
 import CookieConsent from './components/CookieConsent'
 import CountdownBanner from './components/CountdownBanner'
+import AnnouncementBanner from './components/AnnouncementBanner'
 import ScrollToTop from './components/ScrollToTop'
 import Download from "./pages/Download.tsx";
 import HumanEdge from './pages/HumanEdge'
@@ -16,6 +20,11 @@ import BlogPost from './pages/BlogPost'
 import BlogIndex from './pages/BlogIndex'
 import SupportHub from './pages/SupportHub'
 import SupportArticle from './pages/SupportArticle'
+import NiceAthletes from './pages/NiceAthletes'
+import NiceCoaches from './pages/NiceCoaches'
+import Mcp from './pages/Mcp'
+import Contact from './pages/Contact'
+import { setupMetaPixelConsentListener } from './utils/metaPixel'
 
 // March 26, 2026 at 20:00 Zurich time
 // DST starts March 29, 2026, so March 26 is still CET (UTC+1)
@@ -24,28 +33,37 @@ const LAUNCH_DATE = new Date('2026-03-26T19:00:00Z')
 
 function CoachSlugLegacyRedirect() {
   const { slug } = useParams<{ slug: string }>()
-  return <Navigate to={`/en/coaches/${slug ?? ''}`} replace />
+  return <LegacyRedirect to={`/en/coaches/${slug ?? ''}`} />
 }
 
 function CoachesIndexToFind() {
   const { lang } = useParams<{ lang: string }>()
-  return <Navigate to={`/${lang ?? 'en'}/find`} replace />
+  return <LegacyRedirect to={`/${lang ?? 'en'}/find`} />
 }
 
 function App() {
+  // App-level so a decline is honoured on routes outside LanguageLayout too
+  // (the top-level 404 and legacy redirects). Mixpanel needs no listener: it
+  // re-reads consent on every track() and sends nothing on its own.
+  useEffect(() => setupMetaPixelConsentListener(), [])
+
   return (
     <BrowserRouter>
       <ScrollToTop />
       <CountdownBanner targetDate={LAUNCH_DATE} />
+      <AnnouncementBanner />
       <Routes>
         {/* Root: redirect to detected language */}
         <Route path="/" element={<LanguageRedirect />} />
 
         {/* Legacy routes: redirect to language-prefixed versions */}
-        <Route path="/join" element={<Navigate to="/en/download" replace />} />
-        <Route path="/find" element={<Navigate to="/en/find" replace />} />
-        <Route path="/humanedge" element={<Navigate to="/en/humanedge" replace />} />
-        <Route path="/coaches" element={<Navigate to="/en/find" replace />} />
+        <Route path="/join" element={<LegacyRedirect to="/en/download" />} />
+        <Route path="/find" element={<LegacyRedirect to="/en/find" />} />
+        <Route path="/humanedge" element={<LegacyRedirect to="/en/humanedge" />} />
+        <Route path="/book-a-demo" element={<LegacyRedirect to="/en/book-a-demo" />} />
+        <Route path="/coaches" element={<LegacyRedirect to="/en/find" />} />
+        <Route path="/mcp" element={<LegacyRedirect to="/en/mcp" />} />
+        <Route path="/contact" element={<LegacyRedirect to="/en/contact" />} />
         <Route path="/coaches/:slug" element={<CoachSlugLegacyRedirect />} />
         {/* /help is the URL people type and paste, even though the section is /support. */}
         <Route path="/support" element={<Navigate to="/en/support" replace />} />
@@ -58,7 +76,13 @@ function App() {
           <Route path="join" element={<Join />} />
           <Route path="find" element={<Find />} />
           <Route path="pricing" element={<Pricing />} />
+          <Route path="book-a-demo" element={<BookDemo />} />
           <Route path="humanedge" element={<HumanEdge />} />
+          <Route path="mcp" element={<Mcp />} />
+          <Route path="contact" element={<Contact />} />
+          {/* Standalone ad landing pages — nothing on the site links to them. */}
+          <Route path="nice-athletes" element={<NiceAthletes />} />
+          <Route path="nice-coaches" element={<NiceCoaches />} />
           <Route path="coaches" element={<CoachesIndexToFind />} />
           <Route path="coaches/:slug" element={<CoachProfile />} />
           <Route path="blog" element={<BlogIndex />} />

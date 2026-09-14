@@ -1,6 +1,5 @@
 import type { Coach } from '../data/coaches/types'
 import { GENDER_LABEL } from '../data/coaches/types'
-import type { AthleteProfile } from '../components/find/chatScript'
 
 // Gender is matched by exact token equality (not substring) so a search for
 // "male" doesn't match "female". Tokenizer keeps hyphens, so "non-binary" is one token.
@@ -102,26 +101,6 @@ function buildReason(coach: Coach, tokens: string[]): string {
     const unique = Array.from(new Set(fired))
     if (unique.length === 0) return 'Closest fit from the roster'
     return `Matched on: ${unique.slice(0, 4).join(' · ')}`
-}
-
-/**
- * Flatten a structured AthleteProfile into the free-text query the prototype
- * scorer understands. When we wire a real LLM controller, this helper becomes
- * the place to swap in structured scoring instead.
- */
-export function profileToQuery(profile: AthleteProfile): string {
-    const parts: string[] = []
-    if (profile.sport && profile.sport !== 'mixed') parts.push(profile.sport)
-    if (profile.sport === 'mixed') parts.push('running cycling triathlon')
-    if (profile.event && profile.event.length > 0) parts.push(profile.event.join(' '))
-    if (profile.experience) parts.push(profile.experience)
-    if (profile.lifeContext) parts.push(profile.lifeContext)
-    if (profile.location) parts.push(profile.location)
-    if (profile.coachingStyle && profile.coachingStyle.length > 0) {
-        parts.push(profile.coachingStyle.join(' '))
-    }
-    if (profile.notes) parts.push(profile.notes)
-    return parts.join(' ').trim()
 }
 
 /**
