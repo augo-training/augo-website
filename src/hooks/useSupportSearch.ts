@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { supportSearch } from '../utils/supportSearch'
 import type { SupportSearchResponse } from '../utils/supportSearch'
@@ -31,7 +31,23 @@ export function useSupportSearch(): UseSupportSearch {
   // useMemo. Deriving from the URL instead would put a round-trip between the
   // keystroke and the result, which reads as lag.
   const [query, setQueryState] = useState(() => searchParams.get('q') ?? '')
-  const lastWrittenRef = useRef(query)
+  // The last value we wrote to the URL ourselves, so an echo of our own
+  // debounced write can be told apart from a real URL change.
+  const [lastWritten, setLastWritten] = useState(query)
+
+  // URL -> input, but only for changes we did not make ourselves (back/forward,
+  // or a shared ?q= link). Done during render (React's "adjust state when a
+  // prop changes" pattern) rather than in an effect, so the input never shows a
+  // stale value for a frame and the no-setState-in-effect rule stays happy.
+  const fromUrl = searchParams.get('q') ?? ''
+  const [prevFromUrl, setPrevFromUrl] = useState(fromUrl)
+  if (fromUrl !== prevFromUrl) {
+    setPrevFromUrl(fromUrl)
+    if (fromUrl !== lastWritten) {
+      setLastWritten(fromUrl)
+      setQueryState(fromUrl)
+    }
+  }
 
   const response = useMemo(() => {
     if (!query.trim()) return null
@@ -50,22 +66,11 @@ export function useSupportSearch(): UseSupportSearch {
       // A query and a category filter together produce baffling empty states,
       // so searching drops the category.
       if (query) next.delete('category')
-      lastWrittenRef.current = query
+      setLastWritten(query)
       setSearchParams(next, { replace: true })
     }, URL_DEBOUNCE_MS)
     return () => clearTimeout(id)
   }, [query, searchParams, setSearchParams])
-
-  // URL -> input, but only for changes we did not make ourselves (back/forward,
-  // or a shared ?q= link). Without the ref guard our own debounced write echoes
-  // back and clobbers whatever the user has typed in the meantime.
-  useEffect(() => {
-    const fromUrl = searchParams.get('q') ?? ''
-    if (fromUrl !== lastWrittenRef.current) {
-      lastWrittenRef.current = fromUrl
-      setQueryState(fromUrl)
-    }
-  }, [searchParams])
 
   useEffect(() => {
     if (!response || !query.trim()) return
