@@ -66,8 +66,8 @@ function App() {
         <Route path="/contact" element={<LegacyRedirect to="/en/contact" />} />
         <Route path="/coaches/:slug" element={<CoachSlugLegacyRedirect />} />
         {/* /help is the URL people type and paste, even though the section is /support. */}
-        <Route path="/support" element={<Navigate to="/en/support" replace />} />
-        <Route path="/help" element={<Navigate to="/en/support" replace />} />
+        <Route path="/support" element={<LegacyRedirect to="/en/support" />} />
+        <Route path="/help" element={<LegacyRedirect to="/en/support" />} />
 
         {/* Language-prefixed routes */}
         <Route path="/:lang" element={<LanguageLayout />}>
