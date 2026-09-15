@@ -101,6 +101,23 @@ export function lightStem(token: string): string {
   return token
 }
 
+/**
+ * Words that ask rather than tell. They stay in the query (phrase aliases such
+ * as "how did it feel" need them) but never count as discriminating on their
+ * own. IDF can't do this job in a small single-topic corpus: with three
+ * articles about devices, "how" and "garmin" have the same document frequency,
+ * and only one of them means the visitor has said something.
+ *
+ * Stored as stems because the gate compares stems.
+ */
+export const QUESTION_WORD_STEMS: ReadonlySet<string> = new Set(
+  [
+    'how', 'what', 'which', 'why', 'when', 'where', 'who', 'whats', 'whos',
+    'can', 'cant', 'could', 'should', 'i', 'you', 'we', 'they', 'not', 'dont',
+    'get', 'see', 'use', 'need', 'want', 'work', 'works',
+  ].map((w) => lightStem(w)),
+)
+
 /** running -> runn -> run. Only for the doubled-consonant case. */
 function collapseDouble(stem: string): string {
   if (stem.length >= 3 && /([bdfglmnprt])\1$/.test(stem)) return stem.slice(0, -1)

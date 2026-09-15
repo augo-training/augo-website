@@ -76,14 +76,7 @@ export default function SupportArticle() {
             {category && (
               <>
                 <li aria-hidden>/</li>
-                <li>
-                  <Link
-                    to={`/en/support?category=${article.category}`}
-                    className="hover:text-white underline-offset-4 hover:underline"
-                  >
-                    {t(category.labelKey)}
-                  </Link>
-                </li>
+                <li aria-current="page">{t(category.labelKey)}</li>
               </>
             )}
           </ol>

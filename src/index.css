@@ -362,6 +362,95 @@ body {
 }
 
 /* The authored one-line answer, above the body. */
+/* Tables in support articles: same comparison-table system as the blog,
+   duplicated on purpose (see the note above .support-prose). The device
+   compatibility matrix is the first user. */
+.support-prose .table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--color-dark-600);
+  border-radius: 12px;
+}
+.support-prose table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.support-prose th,
+.support-prose td {
+  padding: 12px 16px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--color-dark-600);
+}
+.support-prose thead th {
+  font-family: var(--font-satoshi);
+  font-weight: 700;
+  background: var(--color-dark-700);
+  white-space: nowrap;
+}
+.support-prose tbody th {
+  font-weight: 600;
+  color: var(--color-text);
+}
+.support-prose tbody tr:last-child th,
+.support-prose tbody tr:last-child td {
+  border-bottom: none;
+}
+/* On phones a 3-column comparison table can only be read by scrolling
+   sideways, which hides a whole column behind an invisible affordance. Restack
+   each row as a card instead. ARIA roles in the markup preserve the table
+   semantics that display:block would otherwise drop. */
+@media (max-width: 640px) {
+  .support-prose .table-wrap {
+    overflow-x: visible;
+    border: none;
+    border-radius: 0;
+  }
+  .support-prose table {
+    display: block;
+    min-width: 0;
+    font-size: 15px;
+  }
+  .support-prose thead {
+    display: none;
+  }
+  .support-prose tbody,
+  .support-prose tbody tr,
+  .support-prose tbody th,
+  .support-prose tbody td {
+    display: block;
+    width: auto;
+  }
+  .support-prose tbody tr {
+    border: 1px solid var(--color-dark-600);
+    border-radius: 12px;
+    padding: 14px 16px;
+  }
+  .support-prose tbody tr + tr {
+    margin-top: 12px;
+  }
+  .support-prose tbody th,
+  .support-prose tbody td {
+    padding: 0;
+    border-bottom: none;
+  }
+  .support-prose tbody th {
+    font-size: 17px;
+    margin-bottom: 8px;
+  }
+  .support-prose tbody td {
+    color: var(--color-text-muted);
+    margin-top: 4px;
+  }
+  .support-prose tbody td::before {
+    content: attr(data-col) ' — ';
+    color: var(--color-text);
+    font-weight: 600;
+  }
+}
 .support-callout {
   border-left: 3px solid var(--color-orange);
   padding-left: 1em;

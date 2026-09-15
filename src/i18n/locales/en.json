@@ -688,13 +688,11 @@
     "hub": {
       "eyebrow": "Support",
       "h1": "augo support",
-      "subhead": "Answers for coaches and athletes using augo — how the platform works, how to set it up, and what to do when something looks wrong.",
-      "seoTitle": "augo support — help for coaches and athletes",
-      "seoDescription": "Help articles for coaches and athletes using augo: getting started, connecting devices, session feedback, training zones, billing and troubleshooting.",
+      "subhead": "How augo connects to your watch, bike computer and training apps — what syncs, what gets delivered to your device, and how far back we can go.",
+      "seoTitle": "augo support — devices and integrations",
+      "seoDescription": "Help for coaches and athletes using augo with Garmin, Coros, Wahoo, Suunto, Polar, Zwift and Strava: what syncs, which workouts reach your device, and how historical backfill works.",
       "breadcrumb": "Support",
-      "popularTitle": "Start here",
-      "browseTitle": "Browse by topic",
-      "clearCategory": "Show all topics"
+      "articlesTitle": "Devices & integrations"
     },
     "search": {
       "inputLabel": "Search augo support — ask in your own words",

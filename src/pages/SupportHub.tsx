@@ -1,48 +1,26 @@
-import { Navigate, useParams, useSearchParams } from 'react-router-dom'
+import { Navigate, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import SEOHead from '../seo/SEOHead'
 import { OrganizationJsonLd } from '../seo/JsonLd'
 import { supportUrl } from '../seo/seoConstants'
-import SupportCategoryGrid from '../components/support/SupportCategoryGrid'
 import SupportArticleCard from '../components/support/SupportArticleCard'
 import SupportSearchBar from '../components/support/SupportSearchBar'
 import SupportSearchResults from '../components/support/SupportSearchResults'
 import SupportContactCard from '../components/support/SupportContactCard'
 import { useSupportSearch } from '../hooks/useSupportSearch'
-import { SUPPORT_CATEGORY_IDS } from '../utils/supportTypes'
-import type { SupportCategoryId } from '../utils/supportTypes'
-import { categoryById } from '../utils/supportTaxonomy'
-import { allArticles, articlesByCategory } from '../utils/supportArticles'
-
-function isCategoryId(value: string | null): value is SupportCategoryId {
-  return value !== null && (SUPPORT_CATEGORY_IDS as readonly string[]).includes(value)
-}
+import { allArticles } from '../utils/supportArticles'
 
 export default function SupportHub() {
   const { lang } = useParams<{ lang: string }>()
   const { t } = useTranslation()
-  const [searchParams, setSearchParams] = useSearchParams()
   const { query, setQuery, clear, response, articles: resultArticles } = useSupportSearch()
 
   // English-only at launch, mirroring the blog.
   if (lang && lang !== 'en') {
     return <Navigate to="/en/support" replace />
   }
-
-  const categoryParam = searchParams.get('category')
-  const activeCategory = isCategoryId(categoryParam) ? categoryParam : null
-
-  const setCategory = (id: SupportCategoryId | null) => {
-    const next = new URLSearchParams(searchParams)
-    if (id) next.set('category', id)
-    else next.delete('category')
-    setSearchParams(next, { replace: true })
-  }
-
-  const listed = activeCategory ? articlesByCategory[activeCategory] : allArticles
-  const activeCategoryMeta = activeCategory ? categoryById(activeCategory) : null
 
   return (
     <>
@@ -74,9 +52,9 @@ export default function SupportHub() {
           />
         </header>
 
-        {/* A live query replaces the browse sections entirely. The thrash gate
-            keeps the browse view in place while the query is still all
-            low-signal words, so the page doesn't churn mid-sentence. */}
+        {/* A live query replaces the article list entirely. The thrash gate
+            keeps the list in place while the query is still all low-signal
+            words, so the page doesn't churn mid-sentence. */}
         {response && response.hasDiscriminatingTerm ? (
           <SupportSearchResults
             query={query}
@@ -84,55 +62,22 @@ export default function SupportHub() {
             articles={resultArticles}
             onSuggestion={setQuery}
           />
-        ) : activeCategory && activeCategoryMeta ? (
-          <section aria-labelledby="support-category-title">
-            <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
-              <h2
-                id="support-category-title"
-                className="font-satoshi font-bold text-[24px] text-white"
-              >
-                {t(activeCategoryMeta.labelKey)}
-              </h2>
-              <button
-                type="button"
-                onClick={() => setCategory(null)}
-                className="font-satoshi text-[14px] text-text-muted hover:text-white underline underline-offset-4"
-              >
-                {t('support.hub.clearCategory')}
-              </button>
-            </div>
-            <div className="grid grid-cols-1 gap-4">
-              {listed.map((article) => (
-                <SupportArticleCard key={article.slug} article={article} />
-              ))}
-            </div>
-          </section>
         ) : (
           <>
-            {allArticles.length > 0 && (
-              <section aria-labelledby="support-popular-title" className="mb-16">
-                <h2
-                  id="support-popular-title"
-                  className="font-satoshi font-bold text-[24px] text-white mb-6"
-                >
-                  {t('support.hub.popularTitle')}
-                </h2>
-                <div className="grid grid-cols-1 gap-4">
-                  {allArticles.slice(0, 6).map((article) => (
-                    <SupportArticleCard key={article.slug} article={article} />
-                  ))}
-                </div>
-              </section>
-            )}
-
-            <section aria-labelledby="support-browse-title">
+            {/* One topic at launch, so the whole corpus is listed here rather
+                than split into a "start here" pick and a category grid. */}
+            <section aria-labelledby="support-articles-title">
               <h2
-                id="support-browse-title"
+                id="support-articles-title"
                 className="font-satoshi font-bold text-[24px] text-white mb-6"
               >
-                {t('support.hub.browseTitle')}
+                {t('support.hub.articlesTitle')}
               </h2>
-              <SupportCategoryGrid audience="all" onSelect={setCategory} />
+              <div className="grid grid-cols-1 gap-4">
+                {allArticles.map((article) => (
+                  <SupportArticleCard key={article.slug} article={article} />
+                ))}
+              </div>
             </section>
             <SupportContactCard />
           </>

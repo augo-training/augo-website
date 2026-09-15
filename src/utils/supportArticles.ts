@@ -10,7 +10,6 @@ import { buildSupportSearchIndex } from './supportSearchIndex'
 import type { SupportSearchIndex } from './supportSearchIndex'
 import type {
   SupportArticleData,
-  SupportAudienceFilter,
   SupportCategoryId,
 } from './supportTypes'
 
@@ -51,41 +50,6 @@ export const articlesByCategory: Record<SupportCategoryId, SupportArticleData[]>
     {} as Record<SupportCategoryId, SupportArticleData[]>,
   )
 
-/** Articles visible for an audience view. 'both' articles always show. */
-export function articlesForAudience(
-  audience: SupportAudienceFilter,
-  articles: SupportArticleData[] = allArticles,
-): SupportArticleData[] {
-  if (audience === 'all') return articles
-  return articles.filter((a) => a.audience === audience || a.audience === 'both')
-}
-
-export function countsByCategory(
-  audience: SupportAudienceFilter,
-): Record<SupportCategoryId | 'all', number> {
-  const visible = articlesForAudience(audience)
-  const counts = { all: visible.length } as Record<SupportCategoryId | 'all', number>
-  for (const id of SUPPORT_CATEGORY_IDS) {
-    counts[id] = visible.filter((a) => a.category === id).length
-  }
-  return counts
-}
-
-export function countsByAudience(
-  category: SupportCategoryId | 'all',
-): Record<SupportAudienceFilter, number> {
-  const scoped =
-    category === 'all'
-      ? allArticles
-      : allArticles.filter((a) => a.category === category)
-  return {
-    all: scoped.length,
-    coach: articlesForAudience('coach', scoped).length,
-    athlete: articlesForAudience('athlete', scoped).length,
-    both: scoped.filter((a) => a.audience === 'both').length,
-  }
-}
-
 /**
  * Explicit `related` slugs first, then same-category articles to fill the gap, so
  * an article is never a dead end. Unresolvable slugs are dropped rather than
@@ -117,10 +81,6 @@ export function getRelated(slug: string, limit = 3): SupportArticleData[] {
   }
 
   return picked
-}
-
-export function getArticlesBySlugs(slugs: string[]): SupportArticleData[] {
-  return slugs.map((s) => articlesBySlug[s]).filter((a): a is SupportArticleData => !!a)
 }
 
 /**

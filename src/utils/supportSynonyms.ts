@@ -55,6 +55,10 @@ export const SYNONYM_GROUPS: readonly (readonly string[])[] = [
   // Sessions
   ['workout', 'session', 'activity', 'training'],
   ['device', 'wearable', 'tracker', 'watch'],
+  // History brought in from before the connection
+  ['backfill', 'history', 'historical', 'past', 'previous', 'older', 'old', 'archive'],
+  // Planned workouts reaching the device
+  ['deliver', 'delivered', 'push', 'send', 'sent', 'planned', 'structured', 'calendar'],
 ]
 
 /**
@@ -98,6 +102,9 @@ export const PHRASE_ALIASES: readonly { phrase: string; expandsTo: readonly stri
   { phrase: 'apple health', expandsTo: ['device', 'sync'] },
   { phrase: 'daily list', expandsTo: ['priority', 'signal'] },
   { phrase: 'priority list', expandsTo: ['priority', 'signal'] },
+  { phrase: 'head unit', expandsTo: ['device'] },
+  { phrase: 'bike computer', expandsTo: ['device', 'wahoo'] },
+  { phrase: '30 days', expandsTo: ['backfill'] },
 ]
 
 function buildLookup(): Map<string, string[]> {

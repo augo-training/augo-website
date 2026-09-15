@@ -8,7 +8,7 @@
 // Returns SLUGS, not article objects, so this module never needs to import
 // supportArticles.ts and its import.meta.glob.
 
-import { normalizeTerms } from './textNormalize'
+import { QUESTION_WORD_STEMS, normalizeTerms } from './textNormalize'
 import { HYPERNYM_LOOKUP, PHRASE_ALIAS_STEMS, SYNONYM_LOOKUP } from './supportSynonyms'
 import { SUPPORT_FIELDS, idf } from './supportSearchIndex'
 import type { IndexedDoc, SupportField, SupportSearchIndex } from './supportSearchIndex'
@@ -366,9 +366,19 @@ export function supportSearch(
 
   // A group is only discriminating if it actually matches something — an unknown
   // term carries max IDF but zero evidence.
+  //
+  // The absolute threshold was tuned on a 14-article corpus, where df <= 4
+  // clears it. A corpus of three can't reach it for any term (df = 1 gives
+  // 0.98), so when even the rarest possible term falls short, every matched
+  // term counts and the question-word list does the gating instead.
+  const rarestIdf = Math.log(1 + (index.n - 1 + 0.5) / 1.5)
+  const threshold = rarestIdf >= T.discriminatingIdf ? T.discriminatingIdf : 0
   const hasDiscriminatingTerm = groups.some((g) =>
     g.terms.some(
-      (t) => (index.df.get(t.stem) ?? 0) > 0 && idf(index, t.stem) >= T.discriminatingIdf,
+      (t) =>
+        (index.df.get(t.stem) ?? 0) > 0 &&
+        !QUESTION_WORD_STEMS.has(t.stem) &&
+        idf(index, t.stem) >= threshold,
     ),
   )
 

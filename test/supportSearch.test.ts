@@ -31,29 +31,24 @@ const index = buildSupportSearchIndex(articles)
  * negation, a synonym group, or a single high-IDF term.
  */
 const EVAL: { query: string; expect: string; why: string }[] = [
+  // connect-devices-and-apps
   { query: "my watch won't sync", expect: 'connect-devices-and-apps', why: 'contraction -> not; watch -> device hypernym' },
-  { query: "my garmin ride didn't show up in augo", expect: 'workout-not-showing-up', why: 'must beat devices despite shared garmin/sync' },
-  { query: 'how do i stop paying', expect: 'whats-free-and-when-do-i-pay', why: 'phrase alias, no literal overlap' },
-  { query: 'is augo free', expect: 'whats-free-and-when-do-i-pay', why: 'augo near-zero idf must not decide it' },
-  { query: 'can i coach myself with augo', expect: 'can-i-use-augo-if-i-coach-myself', why: 'phrase alias; must beat getting-started' },
-  { query: 'how do i invite an athlete', expect: 'add-an-athlete', why: 'invite <-> add synonym group' },
-  { query: 'new athlete has no workouts', expect: 'workout-not-showing-up', why: 'no survives stoplisting; must beat add-an-athlete' },
-  { query: 'what is rpe', expect: 'session-feedback-explained', why: 'rare keyword, max idf' },
-  { query: 'how did it feel question', expect: 'session-feedback-explained', why: 'multi-word keyword as a phrase' },
-  { query: 'which questions do my athletes get asked', expect: 'choose-feedback-questions', why: 'must beat session-feedback-explained' },
-  { query: 'do i need to leave trainingpeaks', expect: 'do-i-have-to-stop-using-trainingpeaks', why: 'leave <-> cancel group' },
-  { query: "set my athlete's threshold pace", expect: 'training-zones-and-zone-models', why: "possessive 's; threshold/pace group" },
-  { query: 'whats an ftp anchor', expect: 'performance-anchors', why: 'ftp is in both vocabularies; anchor decides' },
-  { query: 'reuse the same workout every week', expect: 'workout-templates', why: 'synonym only, zero literal title overlap' },
-  { query: 'who needs my attention today', expect: 'daily-priority-list', why: 'phrase alias, zero literal title overlap' },
+  { query: 'does augo work with garmin', expect: 'connect-devices-and-apps', why: 'declared question form' },
   { query: 'apple health', expect: 'connect-devices-and-apps', why: 'unsupported integration — "no" is the right answer' },
-  { query: 'trainigpeeks', expect: 'do-i-have-to-stop-using-trainingpeaks', why: '2-edit typo, prefix guard' },
-  { query: 'how much does augo cost', expect: 'whats-free-and-when-do-i-pay', why: 'cost/price group' },
-  { query: 'where do i download the app', expect: 'getting-started-as-an-athlete', why: 'athlete onboarding' },
-  { query: 'my priority list is empty', expect: 'daily-priority-list', why: 'empty -> missing group must not pull troubleshooting' },
-  { query: 'where do i find my invite link', expect: 'add-an-athlete', why: 'invite-flow vocabulary' },
-  { query: 'what is my coach code', expect: 'add-an-athlete', why: 'coach code is only in the invite article' },
-  { query: 'my athlete tapped the link and nothing happened', expect: 'add-an-athlete', why: 'troubleshooting phrasing must not pull workout-not-showing-up' },
+  { query: 'does augo support suunto', expect: 'connect-devices-and-apps', why: 'suunto survives stemming; brand-only query' },
+  { query: 'strava duplicates', expect: 'connect-devices-and-apps', why: 'duplicate is only in the devices article' },
+  { query: 'can my coach connect my garmin for me', expect: 'connect-devices-and-apps', why: 'who-connects section; must beat history despite garmin' },
+  // workouts-on-your-device
+  { query: 'will my workout show up on my watch', expect: 'workouts-on-your-device', why: 'declared question form; must beat devices despite watch' },
+  { query: 'does augo send workouts to garmin', expect: 'workouts-on-your-device', why: 'send -> deliver group; garmin is in every article' },
+  { query: 'can i see the intervals on my bike computer', expect: 'workouts-on-your-device', why: 'bike computer phrase alias' },
+  { query: 'planned workouts on my coros', expect: 'workouts-on-your-device', why: 'planned is delivery vocabulary' },
+  // historical-activities
+  { query: 'why cant i see my old workouts', expect: 'historical-activities', why: 'old -> backfill group; must not pull the missing-workout section' },
+  { query: 'how far back does augo import my activities', expect: 'historical-activities', why: 'declared question form; import is also a connect synonym' },
+  { query: 'five years of data', expect: 'historical-activities', why: 'five years is only in the history article' },
+  { query: 'my last 30 days havent shown up', expect: 'historical-activities', why: '30 days phrase alias; must beat the devices article' },
+  { query: 'backfil', expect: 'historical-activities', why: '1-edit typo on a rare term' },
 ]
 
 describe('support search — eval set', () => {
@@ -84,7 +79,9 @@ describe('confidence tiers', () => {
   it('is confident about a declared question form', () => {
     const res = supportSearch("my watch won't sync", index)
     expect(res.tier).toBe('confident')
-    expect(res.confidence).toBeGreaterThan(0.6)
+    // Every article in a single-topic corpus mentions watches and syncing, so
+    // the margin over the runner-up is thin; the whole-form hit carries it.
+    expect(res.confidence).toBeGreaterThan(0.55)
   })
 
   it('reports unknown terms — this is the content roadmap', () => {
@@ -113,8 +110,8 @@ describe('thrash gate', () => {
 
 describe('ranking invariants', () => {
   it('keeps every idf strictly positive', () => {
-    // Textbook BM25 idf goes negative at df > N/2 — at N=14 that is df >= 8,
-    // i.e. augo/athlete/workout/coach. A negative idf ranks a doc containing
+    // Textbook BM25 idf goes negative at df > N/2 — with a three-article corpus
+    // that is every term shared by two articles, i.e. most of them. A negative idf ranks a doc containing
     // the term BELOW one that doesn't.
     for (const stem of index.df.keys()) {
       expect(idf(index, stem)).toBeGreaterThan(0)
@@ -123,7 +120,8 @@ describe('ranking invariants', () => {
 
   it('prices a corpus-wide term far below a rare one', () => {
     const common = idf(index, 'augo')
-    const rare = idf(index, 'rpe')
+    // 'whoop' appears in exactly one article; 'augo' in all of them.
+    const rare = idf(index, 'whoop')
     expect(common).toBeLessThan(0.5)
     expect(rare).toBeGreaterThan(common * 3)
   })
