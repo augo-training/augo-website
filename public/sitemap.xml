@@ -1566,6 +1566,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://augotraining.com/en/support/connect-augo-with-claude-and-chatgpt/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://augotraining.com/en/support/connect-devices-and-apps/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

@@ -70,6 +70,10 @@ const EVAL: { query: string; expect: string; why: string }[] = [
   // what-can-i-do-with-the-connector
   { query: 'what can claude do with augo', expect: 'what-can-i-do-with-the-connector', why: 'claude appears in several articles; connector owns the question form' },
   { query: 'does augo work with chatgpt', expect: 'what-can-i-do-with-the-connector', why: 'must beat connect-devices despite "work with"' },
+  // connect-augo-with-claude-and-chatgpt
+  { query: 'how do i connect augo to claude', expect: 'connect-augo-with-claude-and-chatgpt', why: 'setup owns "connect"; the use-case article must not win on claude alone' },
+  { query: 'add custom connector', expect: 'connect-augo-with-claude-and-chatgpt', why: 'Claude menu label, only in the setup steps' },
+  { query: 'developer mode', expect: 'connect-augo-with-claude-and-chatgpt', why: 'ChatGPT setting, only in the setup steps' },
   // get-found-by-athletes
   { query: 'how do i get listed', expect: 'get-found-by-athletes', why: 'listed -> directory group' },
   { query: 'how do i get more athletes', expect: 'get-found-by-athletes', why: 'must beat add-an-athlete' },

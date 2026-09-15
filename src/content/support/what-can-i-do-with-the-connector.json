@@ -21,7 +21,7 @@
     "prompts",
     "automation"
   ],
-  "weight": 3,
+  "weight": 2,
   "body": [
     {
       "type": "html",
@@ -33,7 +33,7 @@
     },
     {
       "type": "html",
-      "html": "<h2 id=\"how-to-connect\">How to connect</h2><p>The <a href=\"/en/mcp/\">setup guide</a> walks through adding augo as a connector in Claude or ChatGPT. It takes a few minutes and needs a coach account on augo.</p>"
+      "html": "<h2 id=\"how-to-connect\">How to connect</h2><p><a href=\"/en/support/connect-augo-with-claude-and-chatgpt/\">How do I connect augo with Claude and ChatGPT?</a> walks through adding augo as a connector, step by step. It takes a few minutes and needs a coach account on augo.</p>"
     },
     {
       "type": "html",
@@ -63,15 +63,14 @@
     }
   ],
   "related": [
+    "connect-augo-with-claude-and-chatgpt",
     "create-workouts",
-    "coach-private-notes",
-    "connect-devices-and-apps"
+    "coach-private-notes"
   ],
   "questionForms": [
     "what can i do with the augo connector",
     "what can claude do with augo",
     "does augo work with chatgpt",
-    "how do i connect augo to claude",
     "what is the augo mcp",
     "can chatgpt create workouts in augo",
     "can claude send messages to my athletes",
