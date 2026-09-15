@@ -1,0 +1,96 @@
+{
+  "slug": "getting-started-as-a-coach",
+  "title": "How do I get started with augo as a coach?",
+  "seoTitle": "Getting Started With augo as a Coach | augo support",
+  "description": "Five steps to set up augo as a coach: invite your first athlete, encourage session feedback, move your athlete chat into augo, put the assistant to work, and connect Claude or ChatGPT.",
+  "summary": "augo gives you one place for your athletes: messages, training data, session feedback and workout creation, plus an assistant that can see all of it. Start by inviting your first athlete, ask them to share session feedback, move your athlete conversations into augo, then put the assistant to work. Connecting Claude or ChatGPT comes last.",
+  "category": "getting-started",
+  "keywords": [
+    "new coach",
+    "setup",
+    "onboarding",
+    "first steps",
+    "get started",
+    "welcome",
+    "trial",
+    "invite",
+    "feedback",
+    "assistant",
+    "featurebase",
+    "support"
+  ],
+  "weight": 3,
+  "body": [
+    {
+      "type": "html",
+      "html": "<p>augo gives you one place to manage your athletes: communication, training data, session feedback and workout creation, all under one roof. No more juggling WhatsApp, email and a training app.</p><p>augo also gives you an intelligent assistant with access to everything that matters: workout data, conversations and session feedback. It can help you remember what was said, analyse data and create workouts for your athletes.</p><p>Here is how to get set up, in the order that makes augo useful fastest.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"invite-your-first-athlete\">1. Invite your first athlete</h2><p>Everything in augo starts with your athletes. Once they are in, they can log workouts, share session feedback and message you, all in one place.</p><p>You copy one invite message and send it however you already talk to them. The steps are in <a href=\"/en/support/add-an-athlete/\">how do I add an athlete to augo?</a></p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"encourage-session-feedback\">2. Encourage session feedback</h2><p>Once athletes are on board, ask them to fill in their post-session feedback consistently. This is what turns augo from a messaging tool into a real coaching advantage: the more your athletes share, the more you and your assistant can learn.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"centralise-your-communications\">3. Centralise your communications on augo</h2><p>The last thing you need is another channel to manage, which is exactly why we suggest moving all athlete communication into augo. One place, with everything that matters in view, instead of messages spread across email, WhatsApp and a training app.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"use-the-assistant\">4. Use the assistant for insights and actions</h2><p>Once your athletes are in, the assistant has access to their messages, workouts and session feedback. You can try it before anyone joins by asking about the Demo Athlete.</p><p>A few prompts to start with:</p><ul><li>\"Prepare me for a call with my athlete\"</li><li>\"Summarise this week for me\"</li><li>\"What needs my attention today?\"</li><li>\"Create a 1h easy run for Demo tomorrow\"</li></ul><p>More ideas, with the full prompts, in <a href=\"/en/support/what-can-i-ask-the-assistant/\">what can I ask the augo assistant?</a></p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"connect-claude-or-chatgpt\">5. Connect augo with Claude or ChatGPT</h2><p>Besides the in-app assistant, augo connects to Claude and ChatGPT. That lets you use the language model of your choice and build whatever you like on top of your augo data. See <a href=\"/en/support/what-can-i-do-with-the-connector/\">what can I do with the augo connector?</a> and the <a href=\"/en/mcp/\">setup guide</a>.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"need-help\">Need help?</h2><p>Tap the Feedback button on your home screen in the app. It opens Featurebase, where you can see what other coaches are saying, vote on ideas and track what we are building next. We read everything.</p>"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What should I do first as a new coach on augo?",
+      "answer": "Invite your first athlete. Everything else in augo keys off your athletes: their workouts, feedback and messages. Then ask them to fill in session feedback after each workout, so you and your assistant have something to work with."
+    },
+    {
+      "question": "Can I try the assistant before my athletes have joined?",
+      "answer": "Yes. Ask it about the Demo Athlete. Prompts like \"Summarise this week for me\" or \"Create a 1h easy run for Demo tomorrow\" work straight away."
+    },
+    {
+      "question": "Do I have to move my athlete chat into augo?",
+      "answer": "No, but we recommend it. When messages, workouts and feedback all live in augo, you and the assistant see the full picture instead of half of it."
+    },
+    {
+      "question": "Where do I get help inside the app?",
+      "answer": "Tap the Feedback button on your home screen. It opens Featurebase, where you can ask questions, see what other coaches are saying, vote on ideas and follow what we are building."
+    }
+  ],
+  "related": [
+    "add-an-athlete",
+    "athlete-signals",
+    "create-workouts"
+  ],
+  "questionForms": [
+    "how do i start using augo",
+    "im a new coach where do i begin",
+    "i just signed up what now",
+    "how do i set up my coaching account",
+    "whats the first thing i should do",
+    "getting set up as a coach",
+    "what do i do after signing up",
+    "how do i get help in the app",
+    "where is the feedback button",
+    "what is the demo athlete",
+    "how does augo work for coaches"
+  ],
+  "audience": "coach",
+  "platforms": [
+    "ios",
+    "android",
+    "web"
+  ],
+  "datePublished": "2026-09-15"
+}

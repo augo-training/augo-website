@@ -1,0 +1,97 @@
+{
+  "slug": "what-can-i-ask-the-assistant",
+  "title": "What can I ask the augo assistant?",
+  "seoTitle": "What to Ask the augo Assistant: Prompts That Work | augo support",
+  "description": "The augo assistant has read every workout, session feedback, conversation and private note. Here are the prompts coaches use most: call prep, multi-session analysis, plan versus reality, and fuelling.",
+  "summary": "The assistant can see everything that matters: workouts, subjective feedback, conversations and your private notes. Treat it as a sharp assistant coach who has read everything and forgotten nothing, and ask it the kind of question you would normally dig through chats and calendars to answer.",
+  "category": "assistant",
+  "keywords": [
+    "assistant",
+    "prompt",
+    "prompts",
+    "ask",
+    "question",
+    "analyse",
+    "analysis",
+    "summary",
+    "summarise",
+    "compare",
+    "prepare",
+    "call",
+    "check-in",
+    "fuelling",
+    "fueling",
+    "nutrition",
+    "demo athlete",
+    "insights"
+  ],
+  "weight": 3,
+  "body": [
+    {
+      "type": "html",
+      "html": "<p>The augo assistant can see everything that matters: workouts, subjective feedback, conversations and your private notes. So you can ask it the kind of question you would normally dig through chats and calendars to answer. Treat it as a sharp assistant coach who has read everything and forgotten nothing. Here is what that looks like.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"prepping-for-a-conversation\">Prepping for a conversation</h2><p>Before a call or a check-in, get the full picture in one question:</p><blockquote><p>\"Prepare me for my call with Dennis\"</p></blockquote><p>Recent sessions, how they have been feeling and what came up in your messages, pulled together so you walk in informed instead of scrambling to remember where you left off.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"analysing-many-workouts-at-once\">Analysing many workouts at once</h2><p>You do not have to go session by session. Ask it to pull a whole set together:</p><blockquote><p>\"Analyse all of Alex's long runs over the last six weeks. Build a table that brings together the objective data and Alex's subjective feedback for each one, and tell me what stands out\"</p></blockquote><p>You get objective numbers and how the athlete actually felt, side by side, so trends you would never catch clicking through a calendar show up in one view.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"checking-plan-against-reality\">Checking plan against reality</h2><p>This is where your notes earn their place. If you have saved an athlete's high-level season plan as a <a href=\"/en/support/coach-private-notes/\">private note</a>, the assistant can hold their actual training up against what you designed:</p><blockquote><p>\"Analyse Thomas's last four weeks of training and compare it to the high-level plan in their notes. Then look ahead to what the plan calls for next, and tell me whether anything needs adjusting, if they've missed workouts, trained too much, or gone too hard\"</p></blockquote><p>Without the plan in a note, the assistant is guessing. With it, it can tell you whether an athlete is on track, where reality is pulling away from what you designed, and what to change before it becomes a problem.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"fuelling-insights\">Fuelling insights for specific sessions</h2><p>If you ask your athletes to track their fuelling before or during training, try this:</p><blockquote><p>\"Analyse Thomas's fuelling before and during high-intensity sessions over the last six weeks. What patterns do you see, and is anything lining up with how they felt or performed?\"</p></blockquote><p>Because the assistant reads both the training data and the athlete's own feedback, it can connect what they did to what they reported, the kind of link that usually only surfaces when something has already gone wrong.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"quick-prompts\">Quick prompts to start with</h2><ul><li>\"Summarise this week for me\"</li><li>\"Compare session X and session Y side by side\"</li><li>\"Analyse all tempo sessions done in the last 3 months\"</li><li>\"What needs my attention today?\"</li><li>\"Based on my athlete interactions this week, give me ideas for content for social media\"</li><li>\"Create a 1h easy run for Demo tomorrow\"</li></ul><p>You can try all of these before your athletes have joined by asking about the Demo Athlete. Our imagination is the limit here. If you find a prompt that works well, tell us through the Feedback button in the app.</p>"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What can the augo assistant see?",
+      "answer": "Every athlete's workouts, session feedback and messages with you, plus your private notes. It uses all of it as context when it answers."
+    },
+    {
+      "question": "Can the assistant compare an athlete's training to their plan?",
+      "answer": "Yes, if the plan is written down. Save the athlete's high-level season plan as a private note, then ask the assistant to compare recent weeks against it and to look ahead to what comes next."
+    },
+    {
+      "question": "Can the assistant create workouts?",
+      "answer": "Yes. Ask it to build a session and it will, using the athlete's recent training, feedback and your conversations as context. See how do I create workouts in augo?"
+    },
+    {
+      "question": "Can I try the assistant without any athletes?",
+      "answer": "Yes. Ask about the Demo Athlete. Every prompt on this page works with it."
+    }
+  ],
+  "related": [
+    "coach-private-notes",
+    "athlete-signals",
+    "create-workouts"
+  ],
+  "questionForms": [
+    "what can i ask the assistant",
+    "how do i use the augo assistant",
+    "prepare me for a call with my athlete",
+    "can the assistant summarise the week",
+    "can the assistant compare two sessions",
+    "can the assistant analyse fuelling",
+    "is my athlete on track with the plan",
+    "good prompts for the assistant",
+    "can the assistant analyse all long runs",
+    "what does the assistant have access to"
+  ],
+  "audience": "coach",
+  "platforms": [
+    "ios",
+    "android",
+    "web"
+  ],
+  "datePublished": "2026-09-15"
+}

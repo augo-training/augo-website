@@ -1,0 +1,89 @@
+{
+  "slug": "athlete-signals",
+  "title": "What are Athlete Signals?",
+  "seoTitle": "Athlete Signals: Who Needs You Today | augo support",
+  "description": "Athlete Signals refresh every morning and tell you which athletes need you today: who is struggling, who wants a schedule change, and who just set a PB.",
+  "summary": "Most coaching platforms expect you to go find the problem, athlete by athlete. Athlete Signals flip that around. Every morning augo looks back over the last rolling 7 days of messages, session feedback and training data from every one of your athletes and gives you a short list of who needs you today: the hard moments and the good ones.",
+  "category": "assistant",
+  "keywords": [
+    "athlete signals",
+    "signals",
+    "who needs attention",
+    "flag",
+    "highlight",
+    "morning",
+    "daily",
+    "struggling",
+    "injured",
+    "sick",
+    "stressed",
+    "pb",
+    "personal best",
+    "schedule change",
+    "priority"
+  ],
+  "weight": 3,
+  "body": [
+    {
+      "type": "html",
+      "html": "<p>Most coaching platforms expect you to go find the problem. You click into one athlete, then the next, then the next, hoping you catch the important signals. augo flips that around: Athlete Signals tell you who needs you right now, so you start your day already knowing where to look.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"what-gets-highlighted\">What gets highlighted</h2><ul><li><strong>Athletes who are struggling:</strong> feeling bad, sick, stressed or injured.</li><li><strong>Requests to change a training schedule.</strong></li><li><strong>Achievement highlights:</strong> the PBs and standout performances worth celebrating.</li></ul><p>Instead of checking one athlete calendar and one WhatsApp chat at a time, you get a short list of who actually needs you today.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"how-it-works\">How it works</h2><p>Athlete Signals refresh every morning. augo looks back across the last rolling 7 days of messages, session feedback and training data from every one of your athletes, and surfaces what you should not miss.</p><p>Signals need something to read. An athlete with no connected device and no session feedback will rarely surface, so the more your athletes share, the better the list gets.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"start-your-day-here\">Make it the start of your day</h2><p>Open augo and check your signals before you do anything else. Clear those, and you have handled what matters most before most coaches have finished scrolling their WhatsApp.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"go-deeper-with-the-assistant\">Go deeper with the assistant</h2><p>A signal is a one-line flag. Before you act on it, chat with the assistant about what it surfaced: ask for more context on a flagged athlete, dig into the details behind the bullet point and understand what is really going on. Then decide what to say, who to reach out to, and how. See <a href=\"/en/support/what-can-i-ask-the-assistant/\">what can I ask the augo assistant?</a></p>"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "How often do Athlete Signals update?",
+      "answer": "Every morning. Each refresh looks back over the last rolling 7 days of messages, session feedback and training data for all of your athletes."
+    },
+    {
+      "question": "What kinds of things do Athlete Signals flag?",
+      "answer": "Athletes who are struggling, feeling bad, sick, stressed or injured; requests to change a training schedule; and achievement highlights such as PBs and standout performances."
+    },
+    {
+      "question": "Why is one of my athletes never in the signals?",
+      "answer": "Signals are built from messages, session feedback and training data. An athlete who has not connected a device and does not fill in session feedback gives augo little to read, so they rarely surface."
+    },
+    {
+      "question": "What should I do when an athlete is flagged?",
+      "answer": "Ask the assistant for more context on that athlete before you reach out. It can pull together their recent sessions, how they have been feeling and what came up in your messages, so you act on the full picture rather than a one-line flag."
+    }
+  ],
+  "related": [
+    "what-can-i-ask-the-assistant",
+    "coach-private-notes"
+  ],
+  "questionForms": [
+    "what are athlete signals",
+    "who needs my attention today",
+    "how does augo decide who needs attention",
+    "how often do signals update",
+    "why is this athlete flagged",
+    "what data do athlete signals use",
+    "my signals are empty",
+    "does augo tell me when an athlete is injured",
+    "does augo flag personal bests",
+    "where do i see who is struggling"
+  ],
+  "audience": "coach",
+  "platforms": [
+    "ios",
+    "android",
+    "web"
+  ],
+  "datePublished": "2026-09-15"
+}

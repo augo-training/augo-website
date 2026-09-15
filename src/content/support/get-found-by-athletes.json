@@ -1,0 +1,77 @@
+{
+  "slug": "get-found-by-athletes",
+  "title": "How do I get listed in the augo coach directory?",
+  "seoTitle": "Get Listed in the augo Coach Directory | augo support",
+  "description": "Apply to be featured in the augo coach directory and get matched with athletes searching for a coach like you. Athletes browse by sport, location, language and specialism.",
+  "summary": "The augo coach directory is where athletes looking for a coach find one. Apply to be featured and you can be matched with athletes through the matching tool, or found by athletes browsing by sport, location, language and specialism. The page is built for search engines and AI answers, so it brings inbound athletes to you.",
+  "category": "athletes",
+  "keywords": [
+    "coach directory",
+    "directory",
+    "listing",
+    "get listed",
+    "get found",
+    "matching",
+    "match",
+    "inbound",
+    "athletes looking for a coach",
+    "grow",
+    "marketing",
+    "find a coach",
+    "seo"
+  ],
+  "weight": 1,
+  "body": [
+    {
+      "type": "html",
+      "html": "<p>augo gives you the tools to coach with high quality at any scale. But growing your practice is not only about serving the athletes you have, it is about reaching the ones looking for a coach like you. So we made a place for that.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"what-the-directory-is\">What the directory is</h2><p>The <a href=\"/en/find/\">augo coach directory</a> lists featured coaches for athletes who are searching for one. We have put real work into the search-engine and AI-answer optimisation behind the page, so it is built to bring inbound athletes to you, not just sit there looking nice.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"how-athletes-find-you\">How athletes find you</h2><p>Two ways. Athletes can use the intelligent matching tool, which asks about their goals, schedule and how they like to communicate and points them to the coaches who fit. Or they browse the directory themselves by sport, location, language and specialism.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"how-to-apply\">How to apply</h2><p>Open the <a href=\"/en/find/\">directory page</a>, scroll to the For coaches section and click <strong>Apply to be listed</strong>. Tell us about your coaching and we will take it from there.</p><p>Reply to any of our emails, or use the Feedback button in the app, to tell us what would make the directory more useful for you.</p>"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Is the coach directory free to join?",
+      "answer": "Applying is free. Open the directory page, scroll to the For coaches section and click Apply to be listed."
+    },
+    {
+      "question": "How do athletes find coaches in the directory?",
+      "answer": "Through the matching tool, which points them to coaches who fit their goals, schedule and communication style, or by browsing by sport, location, language and specialism."
+    },
+    {
+      "question": "Do I need to be an augo coach to be listed?",
+      "answer": "The directory is for coaches who coach on augo. Athletes who find you there join you in the app, so your workouts, feedback and messages are in one place from day one."
+    }
+  ],
+  "related": [
+    "getting-started-as-a-coach",
+    "add-an-athlete"
+  ],
+  "questionForms": [
+    "how do i get listed in the directory",
+    "how do i get found by athletes",
+    "how do athletes find me on augo",
+    "how do i apply to the coach directory",
+    "can augo send me new athletes",
+    "how does coach matching work",
+    "where is the coach directory",
+    "how do i get more athletes"
+  ],
+  "audience": "coach",
+  "platforms": [
+    "ios",
+    "android",
+    "web"
+  ],
+  "datePublished": "2026-09-15"
+}

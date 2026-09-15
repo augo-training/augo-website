@@ -1,0 +1,85 @@
+{
+  "slug": "coach-private-notes",
+  "title": "What are coach private notes?",
+  "seoTitle": "Coach Private Notes: Give Your Assistant a Memory | augo support",
+  "description": "A private note is linked to one athlete, is never visible to them, and is read by your assistant as context. Put the intake call, injury history and season plan there.",
+  "summary": "Your assistant is only as good as what it knows. It sees every athlete's workouts, feedback and messages, but not the intake call, the injury history or the season plan living in your head. Private notes are where that goes. A note is linked to one athlete, your athletes never see it, and the only other reader is your assistant.",
+  "category": "assistant",
+  "keywords": [
+    "private notes",
+    "notes",
+    "note",
+    "memory",
+    "context",
+    "intake",
+    "injury history",
+    "constraints",
+    "season plan",
+    "training plan",
+    "briefing",
+    "confidential"
+  ],
+  "weight": 2,
+  "body": [
+    {
+      "type": "html",
+      "html": "<p>Your assistant is only as good as what it knows. It can see every athlete's workouts, feedback and messages, which is really powerful, but there is a whole layer it cannot see unless you give it: the intake call, the injury history, the \"don't schedule hard sessions on Thursdays\", the season plan living in your head.</p><p>Private notes are where that goes.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"who-can-see-a-note\">Who can see a note</h2><p>A note is always linked to one athlete, and it is yours. Your athletes never see it, not now, not ever. The only other reader is your assistant, which uses whatever you record as context when it answers you.</p><p>So a note does two jobs at once: it is your private memory on an athlete, and it is the briefing that makes your assistant sharper about that athlete specifically.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"what-to-put-in-a-note\">What is worth putting in a note</h2><p>The things that shape your coaching but never show up in a workout file:</p><ul><li><strong>Intake details:</strong> injury history, availability, goals, preferences, anything from that first conversation.</li><li><strong>Constraints you keep forgetting to account for:</strong> the bad knee, the shift work, the race they are really pointing at.</li><li><strong>Their high-level training plan,</strong> so the assistant knows what they are meant to be executing, not just what they did.</li></ul>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"a-hack-worth-stealing\">A hack worth stealing</h2><p>Take your high-level season plan for an athlete and drop it into ChatGPT or Claude with a prompt to turn it into text. Then ask it to save that as a note in augo. For that you need to have <a href=\"/en/mcp/\">connected augo with Claude or ChatGPT</a> first.</p><p>Now your assistant knows the high-level plan and the execution. Ask it whether an athlete is on track, whether the plan needs adjusting, whether last week fits the block they are supposed to be in, and it can answer, because it can compare what they are doing against what you designed. See <a href=\"/en/support/what-can-i-ask-the-assistant/#checking-plan-against-reality\">checking plan against reality</a>.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"how-to-write-a-note\">How to write a note</h2><p>Open the athlete in the mobile app or on the web and add a note from their profile. Start with your most complex athletes, the ones with the most context you are holding in your head, and get that context down.</p>"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Can my athletes see my private notes?",
+      "answer": "No. Notes are private to you. The only other reader is your assistant, which uses them as context when answering your questions."
+    },
+    {
+      "question": "What should I write in a private note?",
+      "answer": "Anything that shapes your coaching but is not in a workout file: intake details, injury history, availability, goals, constraints like shift work or a bad knee, and the athlete's high-level training plan."
+    },
+    {
+      "question": "Can I add notes from my phone?",
+      "answer": "Yes. Notes can be added from the mobile app or on the web."
+    },
+    {
+      "question": "Can Claude or ChatGPT write a note for me?",
+      "answer": "Yes, once augo is connected to Claude or ChatGPT. A common use is turning a season plan into text and asking it to save that as a note on the athlete."
+    }
+  ],
+  "related": [
+    "what-can-i-ask-the-assistant",
+    "what-can-i-do-with-the-connector"
+  ],
+  "questionForms": [
+    "what are private notes",
+    "can athletes see my notes",
+    "where do i write notes about an athlete",
+    "how do i add a note to an athlete",
+    "does the assistant read my notes",
+    "where do i put the injury history",
+    "how do i give the assistant context",
+    "how do i save a season plan in augo",
+    "can i write notes on my phone"
+  ],
+  "audience": "coach",
+  "platforms": [
+    "ios",
+    "android",
+    "web"
+  ],
+  "datePublished": "2026-09-15"
+}

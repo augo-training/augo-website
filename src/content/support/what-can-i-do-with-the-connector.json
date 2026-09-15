@@ -1,0 +1,88 @@
+{
+  "slug": "what-can-i-do-with-the-connector",
+  "title": "What can I do with the augo connector for Claude and ChatGPT?",
+  "seoTitle": "The augo Connector for Claude and ChatGPT: What It Can Do | augo support",
+  "description": "Connect augo to Claude or ChatGPT and use your language model of choice on your athletes' data. It can read and act: analyse, create workouts, send messages, write notes.",
+  "summary": "Besides the in-app assistant, augo connects to Claude and ChatGPT. You use the language model of your choice on your augo data, and it can act, not just read: ask about any athlete, spot who needs attention, create and assign workouts, draft messages, notes and reports. Our advisor Marco Altini shares what he does with it.",
+  "category": "integrations",
+  "keywords": [
+    "connector",
+    "mcp",
+    "claude",
+    "chatgpt",
+    "openai",
+    "anthropic",
+    "ai",
+    "llm",
+    "integration",
+    "use cases",
+    "marco altini",
+    "hrv4training",
+    "prompts",
+    "automation"
+  ],
+  "weight": 2,
+  "body": [
+    {
+      "type": "html",
+      "html": "<p>Besides the in-app assistant, augo connects to Claude and ChatGPT. This way you can use your language model of choice and build anything you would like with it using the data in augo.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"what-it-can-do\">What the connector can do</h2><ul><li><strong>Ask about any athlete:</strong> their sessions, volume, frequency and intensity, their feedback, and what the two of you have discussed.</li><li><strong>Spot who needs attention:</strong> which athletes are drifting, missing sessions or ramping too quickly.</li><li><strong>Create and assign workouts:</strong> a single session, or a whole block at once, placed on the days you choose.</li><li><strong>Draft messages, notes and reports:</strong> reply to an athlete, record a private note, or turn a week or a block into a written summary.</li></ul><p>It can act, not just read. It can send messages, assign and edit workouts, and write notes, race events and performance anchors.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"how-to-connect\">How to connect</h2><p>The <a href=\"/en/mcp/\">setup guide</a> walks through adding augo as a connector in Claude or ChatGPT. It takes a few minutes and needs a coach account on augo.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"what-marco-does-with-it\">What Marco Altini does with it</h2><p>Marco Altini is our advisor, a scientist and a running coach: founder of HRV4Training, with a PhD in data science and a master's in high-performance coaching. His verdict on the connector: \"I can be more efficient at many tasks that eventually allow me to be a better coach.\"</p><p>What he uses it for:</p><ul><li>Logs and analyses a session with one line, \"process latest workout for Matthew\", instead of reading through lap tables by hand.</li><li>Pulls a volume overview for a whole training block, without exporting a single .fit file.</li><li>Runs sentiment analysis across an athlete's chats, workout comments and notes, now that they all sit in one place.</li><li>Estimates race times using critical speed for road and normalised pace for trail.</li><li>Breaks down a race afterwards: pacing, intensity distribution, heart rate zones quarter by quarter.</li><li>Pushes metabolic test results straight into an athlete's zones.</li></ul><p>He shares the actual prompts and workflows in <a href=\"https://substack.com/home/post/p-211163397\" rel=\"noopener\" target=\"_blank\">his post on the augo connector</a>.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"a-good-first-project\">A good first project</h2><p>Turn an athlete's season plan into text and ask Claude or ChatGPT to save it as a private note on that athlete. From then on the in-app assistant can compare what they are doing against what you designed. See <a href=\"/en/support/coach-private-notes/\">what are coach private notes?</a></p>"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Does the connector work with both Claude and ChatGPT?",
+      "answer": "Yes. augo runs an MCP server that you add as a connector in either. The setup guide at augotraining.com/en/mcp covers both."
+    },
+    {
+      "question": "Can Claude or ChatGPT change things in augo, or only read?",
+      "answer": "Both. Through the connector they can send messages, assign and edit workouts, and write notes, race events and performance anchors, as well as read sessions, feedback and conversations."
+    },
+    {
+      "question": "Do I still need the in-app assistant if I use the connector?",
+      "answer": "They complement each other. The in-app assistant is always there on your phone with the athlete's full context. The connector lets you use your preferred model and build longer workflows, like processing a race or drafting a block."
+    },
+    {
+      "question": "Where can I see real examples?",
+      "answer": "Marco Altini, our advisor and a running coach, published his prompts and workflows for the connector. The link is in this article."
+    }
+  ],
+  "related": [
+    "create-workouts",
+    "coach-private-notes",
+    "connect-devices-and-apps"
+  ],
+  "questionForms": [
+    "what can i do with the augo connector",
+    "what can claude do with augo",
+    "does augo work with chatgpt",
+    "how do i connect augo to claude",
+    "what is the augo mcp",
+    "can chatgpt create workouts in augo",
+    "can claude send messages to my athletes",
+    "examples of using augo with claude",
+    "what is the connector for"
+  ],
+  "audience": "coach",
+  "platforms": [
+    "ios",
+    "android",
+    "web"
+  ],
+  "datePublished": "2026-09-15"
+}
