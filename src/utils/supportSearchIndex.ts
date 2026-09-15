@@ -5,7 +5,7 @@
 // import.meta.glob (which does not typecheck under tsconfig.node.json).
 
 import { extractSections, stripHtml } from './htmlText'
-import { lightStem, normalizeTokens, rawTokens } from './textNormalize'
+import { lightStem, normalizeTerms, normalizeTokens, rawTokens } from './textNormalize'
 import type {
   SupportArticleData,
   SupportAudience,
@@ -162,7 +162,11 @@ function indexDoc(article: SupportArticleData): IndexedDoc {
         field === 'keywords' ||
         field === 'faqQuestions'
       ) {
-        const joined = stems.join(' ')
+        // Keyed the way the query side keys it — stopwords stripped — or a
+        // form like "does augo work with chatgpt" can never match itself.
+        const joined = normalizeTerms(entry)
+          .map((t) => t.stem)
+          .join(' ')
         if (!wholeForms.has(joined)) wholeForms.set(joined, field)
       }
     }
