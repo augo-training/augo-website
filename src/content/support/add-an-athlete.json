@@ -2,8 +2,8 @@
   "slug": "add-an-athlete",
   "title": "How do I add an athlete to augo?",
   "seoTitle": "Adding an Athlete to augo: Invite Link and Code | augo support",
-  "description": "Copy your invite from the Athletes panel and share it. Athletes join by tapping the link or entering your coach code in the app.",
-  "summary": "In the web app, open Athletes, click ADD, then Copy invite. Share the message it gives you. Your athlete downloads the augo app, creates an account, and either taps your invite link or enters your coach code manually to connect with you.",
+  "description": "Copy your invite from the Athletes panel, in the mobile app or on the web, and share it. Athletes join by tapping the link or entering your coach code in the app.",
+  "summary": "In the augo app or on the web, open Athletes, tap ADD, then Copy invite. Share the message it gives you. Your athlete downloads the augo app, creates an account, and either taps your invite link or enters your coach code manually to connect with you.",
   "audience": "coach",
   "category": "getting-started",
   "keywords": [
@@ -46,15 +46,15 @@
   "body": [
     {
       "type": "html",
-      "html": "<p>Athletes join your roster through an invite you generate and share. There is nothing to fill in on your side — no email address, no account setup on their behalf. You copy one message and send it however you already talk to them.</p>"
+      "html": "<p>Athletes join your roster through an invite you generate and share. There is nothing to fill in on your side — no email address, no account setup on their behalf. You copy one message and send it however you already talk to them.</p><p>You can do this from the mobile app or from the web app; the steps are the same in both. The screenshots below show the web app.</p>"
     },
     {
       "type": "steps",
       "heading": "Sending the invite",
       "steps": [
         {
-          "title": "Open Athletes and click ADD",
-          "html": "<p>In the web app, open the <strong>Athletes</strong> panel and click <strong>ADD</strong> in the top right.</p>",
+          "title": "Open Athletes and tap ADD",
+          "html": "<p>In the mobile app or the web app, open the <strong>Athletes</strong> panel and tap <strong>ADD</strong> in the top right.</p>",
           "media": {
             "type": "image",
             "src": "/support/add-an-athlete/coach-add-button.png",
@@ -96,7 +96,7 @@
   "faqs": [
     {
       "question": "Where do I find my invite link?",
-      "answer": "In the web app, open the Athletes panel, click ADD, then Copy invite. That copies the full message including your link and your coach code."
+      "answer": "In the mobile app or on the web, open the Athletes panel, tap ADD, then Copy invite. That copies the full message including your link and your coach code."
     },
     {
       "question": "Can I use the same invite for more than one athlete?",
@@ -108,7 +108,7 @@
     },
     {
       "question": "Why is my new athlete’s training feed empty?",
-      "answer": "Almost always because they have joined but not yet connected a data source. The athlete has to link Garmin, Polar, Strava, Coros, Wahoo or Zwift from their own account — a coach cannot do it for them."
+      "answer": "Almost always because they have joined but not yet connected a data source. The athlete has to link Garmin, Coros, Wahoo, Suunto, Polar, Zwift or Strava from their own account — a coach cannot do it for them."
     }
   ],
   "related": [
