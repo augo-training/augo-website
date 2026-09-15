@@ -175,7 +175,7 @@
     "acceptCookies": "Aceitar Cookies",
     "directory": {
       "h1": "Encontre o coach perfeito para você.",
-      "subhead": "Treinadores de corrida, ciclismo e triatlon alinhados aos seus objetivos, à sua rotina e ao jeito como você gosta de se comunicar.",
+      "subhead": "Treinadores de corrida, ciclismo e triatlo que entregam coaching de elite & priorizam uma relação forte entre treinador e atleta",
       "ctaAthlete": "Encontre seu treinador",
       "ctaCoach": "Sou treinador"
     },
@@ -254,7 +254,9 @@
       "humanEdge": "Human Edge",
       "blog": "Blog",
       "support": "Ajuda",
-      "mcp": "Configuração MCP"
+      "mcp": "Configuração MCP",
+      "privacyPolicy": "Política de Privacidade",
+      "terms": "Termos e Condições"
     },
     "copyright": "© 2026 augo. Todos os direitos reservados."
   },

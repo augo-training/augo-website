@@ -1,4 +1,4 @@
-export type Discipline = 'running' | 'cycling' | 'triathlon'
+export type Discipline = 'running' | 'cycling' | 'triathlon' | 'rowing' | 'mental-coaching'
 export type CoachStatus = 'accepting' | 'waitlist' | 'full'
 export type CoachGender = 'female' | 'male' | 'non-binary'
 export type AthleteLevel = 'Beginner' | 'Intermediate' | 'Advanced' | 'Elite/Pro'
