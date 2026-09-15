@@ -1,0 +1,118 @@
+{
+  "slug": "add-an-athlete",
+  "title": "How do I add an athlete to augo?",
+  "seoTitle": "Adding an Athlete to augo: Invite Link and Code | augo support",
+  "description": "Copy your invite from the Athletes panel, in the mobile app or on the web, and share it. Athletes join by tapping the link or entering your coach code in the app.",
+  "summary": "In the augo app or on the web, open Athletes, tap ADD, then Copy invite. Share the message it gives you. Your athlete downloads the augo app, creates an account, and either taps your invite link or enters your coach code manually to connect with you.",
+  "audience": "coach",
+  "category": "getting-started",
+  "keywords": [
+    "invite",
+    "add athlete",
+    "invite link",
+    "copy invite",
+    "coach code",
+    "join code",
+    "new athlete",
+    "roster",
+    "onboard athlete",
+    "client",
+    "connect with coach",
+    "join-coach",
+    "grow athlete base",
+    "share invite"
+  ],
+  "questionForms": [
+    "how do i invite an athlete",
+    "how do i add someone to my roster",
+    "where do i find my invite link",
+    "what is my coach code",
+    "my athlete cant find the invite",
+    "how does my athlete join augo",
+    "add a new client",
+    "how do i copy my invite",
+    "my athlete lost the invite link",
+    "can i invite more than one athlete at once",
+    "how do athletes connect with me",
+    "my athlete entered the code but nothing happened"
+  ],
+  "weight": 3,
+  "platforms": [
+    "ios",
+    "android",
+    "web"
+  ],
+  "datePublished": "2026-09-15",
+  "body": [
+    {
+      "type": "html",
+      "html": "<p>Athletes join your roster through an invite you generate and share. There is nothing to fill in on your side — no email address, no account setup on their behalf. You copy one message and send it however you already talk to them.</p><p>You can do this from the mobile app or from the web app; the steps are the same in both. The screenshots below show the web app.</p>"
+    },
+    {
+      "type": "steps",
+      "heading": "Sending the invite",
+      "steps": [
+        {
+          "title": "Open Athletes and tap ADD",
+          "html": "<p>In the mobile app or the web app, open the <strong>Athletes</strong> panel and tap <strong>ADD</strong> in the top right.</p>",
+          "media": {
+            "type": "image",
+            "src": "/support/add-an-athlete/coach-add-button.png",
+            "alt": "The augo web app with the Athletes panel open and the ADD button highlighted in the top right of the panel",
+            "caption": "Athletes → ADD.",
+            "frame": "wide",
+            "width": 2000,
+            "height": 1525
+          }
+        },
+        {
+          "title": "Copy your invite",
+          "html": "<p>The <strong>Grow your athlete base</strong> window opens. Click <strong>Copy invite</strong> to put the whole invitation message on your clipboard.</p>",
+          "media": {
+            "type": "image",
+            "src": "/support/add-an-athlete/copy-invite-modal.png",
+            "alt": "The Grow your athlete base window with a Copy invite button",
+            "caption": "One button copies the full message, link and code together.",
+            "frame": "phone",
+            "width": 802,
+            "height": 874
+          }
+        },
+        {
+          "title": "Send it to your athlete",
+          "html": "<p>Paste it wherever you already talk to them — WhatsApp, email, a DM. The copied message looks like this, with your own code filled in:</p><pre><code>Hey! I’m inviting you to join me on augo.\n\nStep 1 — Download the app:\nhttps://augotraining.com/en/download\n\nStep 2 — Tap this link to connect with me:\nhttps://app.augotraining.com/join-coach?code=YOURCODE\n\nAlternatively, open the app and enter this code manually:\nYOURCODE</code></pre><p>The same invite works for every athlete you send it to, so you can reuse it rather than generating a new one each time.</p>"
+        }
+      ]
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"what-your-athlete-does\">What your athlete does</h2><p>Two routes, and both end in the same place. If they already have the app, they can skip straight to the second.</p><ul><li><strong>Tap the link.</strong> It opens <code>app.augotraining.com/join-coach</code> with your code already attached and connects them to you.</li><li><strong>Enter the code manually.</strong> If the link doesn’t open properly — an in-app browser, a stripped link, a forwarded message — they can open augo and type the code in by hand. Same result.</li></ul><p>If they don’t have augo yet, step 1 of the message points them at the <a href=\"/en/download\">download page</a> to install it and create an account first.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"after-they-join\">After they join</h2><p>They appear on your roster straight away, but their training feed stays empty until they connect a data source. That step is theirs to do from their own account — you can’t do it for them. See <a href=\"/en/support/connect-devices-and-apps/\">which devices and apps augo syncs with</a>.</p>"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Where do I find my invite link?",
+      "answer": "In the mobile app or on the web, open the Athletes panel, tap ADD, then Copy invite. That copies the full message including your link and your coach code."
+    },
+    {
+      "question": "Can I use the same invite for more than one athlete?",
+      "answer": "Yes. The invite is yours rather than per-athlete, so you can send the same message to everyone you want to add."
+    },
+    {
+      "question": "My athlete tapped the link and nothing happened. What now?",
+      "answer": "Ask them to open the augo app and enter the coach code manually instead. The invite message includes the code for exactly this case — links can get stripped or opened in an in-app browser that cannot hand off to the app."
+    },
+    {
+      "question": "Why is my new athlete’s training feed empty?",
+      "answer": "Almost always because they have joined but not yet connected a data source. The athlete has to link Garmin, Coros, Wahoo, Suunto, Polar, Zwift or Strava from their own account — a coach cannot do it for them."
+    }
+  ],
+  "related": [
+    "getting-started-as-a-coach",
+    "connect-devices-and-apps"
+  ]
+}

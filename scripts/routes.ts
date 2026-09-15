@@ -84,6 +84,50 @@ export async function discoverBlogSlugs(): Promise<string[]> {
 }
 
 /**
+ * Support article slugs, English-only like the blog.
+ *
+ * Stricter than discoverBlogSlugs() because support content is authored by
+ * non-engineers: files are parsed so `draft: true` articles stay out of the
+ * sitemap and prerender, and `_`-prefixed files are ignored so scratch or
+ * taxonomy files can sit in the directory without becoming advertised URLs.
+ * Anything listed here but not routable in src/App.tsx prerenders as NotFound
+ * and gets published as a soft 404, so the filters have to match the ones in
+ * src/utils/supportArticles.ts.
+ */
+export async function discoverSupportSlugs(): Promise<string[]> {
+  const supportDir = join(ROOT, 'src/content/support')
+  let entries: string[]
+  try {
+    entries = await readdir(supportDir)
+  } catch (err: unknown) {
+    if (
+      typeof err === 'object' &&
+      err !== null &&
+      'code' in err &&
+      err.code === 'ENOENT'
+    ) {
+      return []
+    }
+    throw err
+  }
+
+  const slugs: string[] = []
+  for (const file of entries) {
+    if (!file.endsWith('.json') || file.startsWith('_')) continue
+    const raw = await readFile(join(supportDir, file), 'utf8')
+    let parsed: { draft?: boolean }
+    try {
+      parsed = JSON.parse(raw) as { draft?: boolean }
+    } catch (err: unknown) {
+      throw new Error(`Invalid JSON in src/content/support/${file}: ${String(err)}`)
+    }
+    if (parsed.draft === true) continue
+    slugs.push(file.replace(/\.json$/, ''))
+  }
+  return slugs.sort()
+}
+
+/**
  * Returns the list of routes to prerender, e.g.
  *   ['/en', '/de', '/pt', '/en/download', ..., '/en/blog/<slug>']
  */
@@ -110,6 +154,14 @@ export async function getAllPrerenderRoutes(): Promise<string[]> {
   const slugs = await discoverBlogSlugs()
   for (const slug of slugs) {
     routes.push(`/${DEFAULT_LANG}/blog/${slug}`)
+  }
+  // Support articles — English-only, same reasoning as the blog. Deliberately not
+  // in STATIC_PATHS: that would prerender /de/support and /pt/support and emit
+  // three-way hreflang for content that only exists in English.
+  routes.push(`/${DEFAULT_LANG}/support`)
+  const supportSlugs = await discoverSupportSlugs()
+  for (const slug of supportSlugs) {
+    routes.push(`/${DEFAULT_LANG}/support/${slug}`)
   }
   return routes
 }
@@ -187,6 +239,26 @@ export async function getSitemapEntries(): Promise<SitemapEntry[]> {
       url,
       priority: 0.6,
       // English-only blog posts: no hreflang alternates.
+      alternates: null,
+      xDefault: url,
+      changefreq: 'monthly',
+    })
+  }
+  const supportIndexUrl = langUrl(DEFAULT_LANG, '/support')
+  entries.push({
+    url: supportIndexUrl,
+    priority: 0.8,
+    alternates: null,
+    xDefault: supportIndexUrl,
+    changefreq: 'weekly',
+  })
+  const supportSlugs = await discoverSupportSlugs()
+  for (const slug of supportSlugs) {
+    const url = langUrl(DEFAULT_LANG, `/support/${slug}`)
+    entries.push({
+      url,
+      priority: 0.6,
+      // English-only support articles: no hreflang alternates.
       alternates: null,
       xDefault: url,
       changefreq: 'monthly',

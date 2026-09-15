@@ -1,3 +1,5 @@
+import { decodeHtmlEntities } from './htmlText'
+
 export interface BlogPostData {
   slug: string
   title: string
@@ -25,30 +27,8 @@ const postModules = import.meta.glob<{ default: BlogPostData }>(
   { eager: true }
 )
 
-// Substack-imported posts sometimes carry HTML numeric entities (e.g. &#8211;)
-// in the description field. The body is sanitized + parsed as HTML so it
-// decodes naturally, but the description is rendered as plain text in cards
-// and meta tags — decode it here so it doesn't leak through.
-const NAMED_ENTITIES: Record<string, string> = {
-  amp: '&',
-  lt: '<',
-  gt: '>',
-  quot: '"',
-  apos: "'",
-  nbsp: ' ',
-}
-
-function decodeHtmlEntities(input: string): string {
-  return input.replace(/&(#x?[\da-fA-F]+|[a-zA-Z]+);/g, (match, body) => {
-    if (body[0] === '#') {
-      const isHex = body[1] === 'x' || body[1] === 'X'
-      const code = parseInt(body.slice(isHex ? 2 : 1), isHex ? 16 : 10)
-      if (Number.isFinite(code)) return String.fromCodePoint(code)
-      return match
-    }
-    return NAMED_ENTITIES[body] ?? match
-  })
-}
+// decodeHtmlEntities is shared with the support content pipeline.
+// See src/utils/htmlText.ts for why descriptions need decoding but bodies do not.
 
 export const postsBySlug: Record<string, BlogPostData> = Object.fromEntries(
   Object.entries(postModules).map(([path, mod]) => {

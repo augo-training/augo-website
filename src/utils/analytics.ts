@@ -336,3 +336,38 @@ export async function trackPageNotFound(props: { path: string; referrer: string 
 export async function trackLegacyRedirect(props: { from: string; to: string; reason?: string }): Promise<void> {
     return track('legacy_redirect', { ...props, referrer: document.referrer })
 }
+
+export async function trackSupportArticleViewed(props: {
+    slug: string
+    category: string
+    audience: string
+}): Promise<void> {
+    return track('support_article_viewed', props)
+}
+
+export async function trackSupportVideoPlayed(props: {
+    slug: string
+    provider: string
+    id: string
+}): Promise<void> {
+    return track('support_video_played', props)
+}
+
+export async function trackSupportSearch(props: {
+    query: string
+    result_count: number
+    confidence: number
+    tier: string
+    top_slug: string
+}): Promise<void> {
+    return track('support_search', props)
+}
+
+// The queries we can't answer are the content roadmap: unknown_terms is
+// literally the list of words the corpus has never seen.
+export async function trackSupportSearchNoResults(props: {
+    query: string
+    unknown_terms: string
+}): Promise<void> {
+    return track('support_search_no_results', props)
+}

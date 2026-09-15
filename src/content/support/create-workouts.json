@@ -1,0 +1,89 @@
+{
+  "slug": "create-workouts",
+  "title": "How do I create workouts in augo?",
+  "seoTitle": "Creating Workouts in augo: Builder, Assistant, Connector | augo support",
+  "description": "Three ways to create workouts in augo: the workout builder on web, the in-app assistant, or Claude and ChatGPT through the augo connector. Mix them however you like.",
+  "summary": "There are three ways to create workouts in augo, and you can mix them however you like: shape a session yourself in the workout builder on web, ask the in-app assistant to build it, or have Claude or ChatGPT create a whole block through the augo connector. Whatever you build lands in the athlete's augo calendar, and on Coros, Wahoo and Suunto it is delivered to the device too.",
+  "category": "training",
+  "keywords": [
+    "create workout",
+    "build workout",
+    "workout builder",
+    "plan workout",
+    "session",
+    "calendar",
+    "assign",
+    "prescribe",
+    "block",
+    "week",
+    "progression",
+    "assistant",
+    "claude",
+    "chatgpt",
+    "connector"
+  ],
+  "weight": 3,
+  "body": [
+    {
+      "type": "html",
+      "html": "<p>There are three ways to create workouts in augo, and you can mix them however you like.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"the-workout-builder-on-web\">1. The workout builder on web</h2><p>Click any day on an athlete's calendar and you will see the option to create a workout. That opens the manual builder, where you shape the session yourself and assign it to the day you want.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"the-assistant-in-augo\">2. The assistant in augo</h2><p>Ask the assistant to build a session and it will. It already knows the athlete's recent training, their feedback and your conversations, so you can say:</p><blockquote><p>\"Build Tuesday's threshold session for Robin, a bit shorter than last week\"</p></blockquote><p>and it has the context to get it right.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"claude-or-chatgpt\">3. Claude or ChatGPT, through the augo connector</h2><p>Once you have <a href=\"/en/mcp/\">connected augo with Claude or ChatGPT</a>, you can create workouts from there as well. Not just a single workout, but a whole block at once. Ask something like:</p><blockquote><p>\"Create the next week of training for Bruna as a progression of last week. Ask me clarifying questions so I can make the decisions\"</p></blockquote><p>and it will follow. The AI does the manual work, but you are in the driver's seat. As it should be.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"where-workouts-land\">Where workouts land</h2><p>Whatever device your athlete uses, every workout you build shows up in their augo calendar on mobile.</p><p>If the athlete has connected a Coros, Wahoo or Suunto account, the workout is also delivered to the device, so they can follow it step by step. Garmin comes next. The full breakdown is in <a href=\"/en/support/workouts-on-your-device/\">which workouts are delivered to my device?</a></p>"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Where is the workout builder?",
+      "answer": "On the web app. Open an athlete's calendar, click any day, and choose to create a workout. The builder opens and the session is assigned to that day."
+    },
+    {
+      "question": "Can the assistant build a workout for me?",
+      "answer": "Yes. Ask it in plain language, for example \"Build Tuesday's threshold session for Robin, a bit shorter than last week\". It uses the athlete's recent training, feedback and your conversations as context."
+    },
+    {
+      "question": "Can I create a whole week or block at once?",
+      "answer": "Yes, through Claude or ChatGPT once augo is connected. Ask for the next week as a progression of the last one, and ask it to check with you before making decisions."
+    },
+    {
+      "question": "Will the workout reach my athlete's watch?",
+      "answer": "It always appears in their augo app. On Coros, Wahoo and Suunto it is also delivered to the device. Garmin is next on our list."
+    }
+  ],
+  "related": [
+    "workouts-on-your-device",
+    "what-can-i-ask-the-assistant",
+    "what-can-i-do-with-the-connector"
+  ],
+  "questionForms": [
+    "how do i create a workout",
+    "how do i build a workout for an athlete",
+    "where is the workout builder",
+    "can the assistant create workouts",
+    "how do i plan a whole week of training",
+    "can claude create workouts in augo",
+    "how do i assign a workout to a day",
+    "how do i add a session to the calendar",
+    "can i create a training block at once"
+  ],
+  "audience": "coach",
+  "platforms": [
+    "ios",
+    "android",
+    "web"
+  ],
+  "datePublished": "2026-09-15"
+}

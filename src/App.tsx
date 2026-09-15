@@ -18,6 +18,8 @@ import HumanEdge from './pages/HumanEdge'
 import CoachProfile from './pages/CoachProfile'
 import BlogPost from './pages/BlogPost'
 import BlogIndex from './pages/BlogIndex'
+import SupportHub from './pages/SupportHub'
+import SupportArticle from './pages/SupportArticle'
 import NiceAthletes from './pages/NiceAthletes'
 import NiceCoaches from './pages/NiceCoaches'
 import Mcp from './pages/Mcp'
@@ -63,6 +65,9 @@ function App() {
         <Route path="/mcp" element={<LegacyRedirect to="/en/mcp" />} />
         <Route path="/contact" element={<LegacyRedirect to="/en/contact" />} />
         <Route path="/coaches/:slug" element={<CoachSlugLegacyRedirect />} />
+        {/* /help is the URL people type and paste, even though the section is /support. */}
+        <Route path="/support" element={<LegacyRedirect to="/en/support" />} />
+        <Route path="/help" element={<LegacyRedirect to="/en/support" />} />
 
         {/* Language-prefixed routes */}
         <Route path="/:lang" element={<LanguageLayout />}>
@@ -82,6 +87,8 @@ function App() {
           <Route path="coaches/:slug" element={<CoachProfile />} />
           <Route path="blog" element={<BlogIndex />} />
           <Route path="blog/:slug" element={<BlogPost />} />
+          <Route path="support" element={<SupportHub />} />
+          <Route path="support/:slug" element={<SupportArticle />} />
           <Route path="*" element={<NotFound />} />
         </Route>
 

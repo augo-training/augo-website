@@ -44,6 +44,10 @@ export default function Footer() {
             links: [
                 { label: t('footer.links.about'), href: '#about' },
                 { label: t('footer.links.faq'), href: '#faq' },
+                // Support is English-only, like the blog. The lang-prefixed href is
+                // deliberate: /de/support client-redirects to /en/support, matching
+                // how the blog link already behaves from a non-English page.
+                { label: t('footer.links.support'), href: `/${currentLang}/support` },
                 { label: t('nav.contact'), href: `/${currentLang}/contact` },
             ],
         },

@@ -253,6 +253,7 @@
       "findAMatch": "Find a match",
       "humanEdge": "Human Edge",
       "blog": "Blog",
+      "support": "Support",
       "mcp": "MCP setup",
       "privacyPolicy": "Privacy Policy",
       "terms": "Terms & Conditions"
@@ -683,6 +684,59 @@
       "title": "Join the waitlist",
       "subtitle": "Drop your email and we'll let you know first when the next Human Edge program opens.",
       "cta": "Submit"
+    }
+  },
+  "support": {
+    "hub": {
+      "eyebrow": "Support",
+      "h1": "Answers to your questions",
+      "subhead": "Answers for coaches and athletes using augo — getting set up, adding athletes, the assistant, creating workouts, and connecting your devices.",
+      "seoTitle": "Answers to your questions | augo support",
+      "seoDescription": "Help articles for coaches and athletes using augo: getting started, inviting athletes, Athlete Signals, the assistant, creating workouts, private notes, and connecting Garmin, Coros, Wahoo, Suunto, Polar, Zwift and Strava.",
+      "breadcrumb": "Support"
+    },
+    "search": {
+      "inputLabel": "Search augo support — ask in your own words",
+      "clear": "Clear search",
+      "resultCount_one": "{{count}} result",
+      "resultCount_other": "{{count}} results",
+      "resultsTitle_one": "{{count}} result",
+      "resultsTitle_other": "{{count}} results",
+      "closestTitle": "Closest matches for '{{query}}'",
+      "closestBody": "We're not certain this is what you meant — these are the nearest articles we have.",
+      "unsureTitle": "We don't have an answer for that yet",
+      "unsureBody": "Nothing in the help centre matches closely enough for us to be useful here. Ask us directly and we'll get back to you — and write the article.",
+      "mostAsked": "Most asked",
+      "didYouMean": "Did you mean",
+      "jumpTo": "Jump to: {{heading}}"
+    },
+    "contact": {
+      "quiet": "Still stuck?",
+      "quietLink": "Talk to a human",
+      "title": "Ask us directly",
+      "body": "Tell us what you were trying to do and we'll come back to you. Questions we can't answer here are what we write next.",
+      "cta": "Contact augo"
+    },
+    "audience": {
+      "all": "Everyone",
+      "coach": "Coaches",
+      "athlete": "Athletes",
+      "both": "Coaches & athletes"
+    },
+    "article": {
+      "updatedOn": "Updated",
+      "faqTitle": "Related questions",
+      "relatedTitle": "Keep reading"
+    },
+    "categories": {
+      "getting-started": { "label": "Getting started", "description": "First steps for new coaches and athletes." },
+      "training": { "label": "Creating workouts with augo", "description": "The workout builder, the assistant, and what reaches your athletes' devices." },
+      "feedback": { "label": "Session feedback", "description": "How athletes report on sessions, and what you see." },
+      "assistant": { "label": "Assistant & priorities", "description": "The daily priority list and what the assistant can do." },
+      "integrations": { "label": "Devices & integrations", "description": "Connecting watches, apps and the tools you already use." },
+      "grow": { "label": "Grow your business with augo", "description": "Getting found by athletes looking for a coach." },
+      "account": { "label": "Account & billing", "description": "Plans, pricing, and managing your account." },
+      "troubleshooting": { "label": "Troubleshooting", "description": "When something is missing or not working as expected." }
     }
   },
   "mcp": {
