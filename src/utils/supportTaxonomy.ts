@@ -22,12 +22,6 @@ export const SUPPORT_CATEGORIES: SupportCategory[] = [
     order: 1,
   },
   {
-    id: 'athletes',
-    labelKey: 'support.categories.athletes.label',
-    descriptionKey: 'support.categories.athletes.description',
-    order: 2,
-  },
-  {
     id: 'training',
     labelKey: 'support.categories.training.label',
     descriptionKey: 'support.categories.training.description',
@@ -52,16 +46,22 @@ export const SUPPORT_CATEGORIES: SupportCategory[] = [
     order: 6,
   },
   {
+    id: 'grow',
+    labelKey: 'support.categories.grow.label',
+    descriptionKey: 'support.categories.grow.description',
+    order: 7,
+  },
+  {
     id: 'account',
     labelKey: 'support.categories.account.label',
     descriptionKey: 'support.categories.account.description',
-    order: 7,
+    order: 8,
   },
   {
     id: 'troubleshooting',
     labelKey: 'support.categories.troubleshooting.label',
     descriptionKey: 'support.categories.troubleshooting.description',
-    order: 8,
+    order: 9,
   },
 ]
 

@@ -17,7 +17,7 @@ export type SupportAudienceFilter = SupportAudience | 'all'
 
 export const SUPPORT_CATEGORY_IDS = [
   'getting-started',
-  'athletes',
+  'grow',
   'training',
   'feedback',
   'assistant',

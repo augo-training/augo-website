@@ -728,11 +728,11 @@
     },
     "categories": {
       "getting-started": { "label": "Getting started", "description": "First steps for new coaches and athletes." },
-      "athletes": { "label": "Athletes", "description": "Adding athletes and managing your roster." },
-      "training": { "label": "Training setup", "description": "Zones, performance anchors and workout templates." },
+      "training": { "label": "Creating workouts with augo", "description": "The workout builder, the assistant, and what reaches your athletes' devices." },
       "feedback": { "label": "Session feedback", "description": "How athletes report on sessions, and what you see." },
       "assistant": { "label": "Assistant & priorities", "description": "The daily priority list and what the assistant can do." },
       "integrations": { "label": "Devices & integrations", "description": "Connecting watches, apps and the tools you already use." },
+      "grow": { "label": "Grow your business with augo", "description": "Getting found by athletes looking for a coach." },
       "account": { "label": "Account & billing", "description": "Plans, pricing, and managing your account." },
       "troubleshooting": { "label": "Troubleshooting", "description": "When something is missing or not working as expected." }
     }

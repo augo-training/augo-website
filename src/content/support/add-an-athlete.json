@@ -5,7 +5,7 @@
   "description": "Copy your invite from the Athletes panel and share it. Athletes join by tapping the link or entering your coach code in the app.",
   "summary": "In the web app, open Athletes, click ADD, then Copy invite. Share the message it gives you. Your athlete downloads the augo app, creates an account, and either taps your invite link or enters your coach code manually to connect with you.",
   "audience": "coach",
-  "category": "athletes",
+  "category": "getting-started",
   "keywords": [
     "invite",
     "add athlete",
