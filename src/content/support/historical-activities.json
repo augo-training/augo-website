@@ -36,7 +36,7 @@
     },
     {
       "type": "html",
-      "html": "<h2 id=\"garmin\">Garmin is the exception</h2><p>Garmin only shares activities completed after you connect. Nothing from before the connection date comes across, and we can't backfill it on request either.</p><p>If your Garmin already pushes to Strava, you can connect Strava instead to get the 30-day history — but connect only one of the two, or you'll see <a href=\"/en/support/connect-devices-and-apps/#one-connection\">duplicate activities</a>.</p>"
+      "html": "<h2 id=\"garmin\">Garmin is the exception</h2><p>Garmin only shares activities completed after you connect. Nothing from before the connection date comes across, and we can't backfill it on request either.</p><p>If your Garmin already pushes to Strava, connect Strava as well: that brings in the last 30 days from Strava, and your new Garmin activities still arrive as usual. augo recognises the same activity from both sources, so you won't see it twice.</p>"
     },
     {
       "type": "html",
@@ -62,7 +62,7 @@
     },
     {
       "question": "Why are there no old activities from my Garmin?",
-      "answer": "Garmin only shares activities completed after you connect, and this can't be extended. If your Garmin pushes to Strava, connecting Strava instead brings in the last 30 days — but don't connect both, or you'll get duplicates."
+      "answer": "Garmin only shares activities completed after you connect, and this can't be extended. If your Garmin pushes to Strava, connect Strava as well to bring in the last 30 days. Having both connected is fine and won't create duplicates."
     }
   ],
   "related": [

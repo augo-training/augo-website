@@ -36,7 +36,7 @@ const EVAL: { query: string; expect: string; why: string }[] = [
   { query: 'does augo work with garmin', expect: 'connect-devices-and-apps', why: 'declared question form' },
   { query: 'apple health', expect: 'connect-devices-and-apps', why: 'unsupported integration — "no" is the right answer' },
   { query: 'does augo support suunto', expect: 'connect-devices-and-apps', why: 'suunto survives stemming; brand-only query' },
-  { query: 'strava duplicates', expect: 'connect-devices-and-apps', why: 'duplicate is only in the devices article' },
+  { query: 'will i get duplicate workouts', expect: 'connect-devices-and-apps', why: 'declared question form; both is a common word' },
   { query: 'can my coach connect my garmin for me', expect: 'connect-devices-and-apps', why: 'who-connects section; must beat history despite garmin' },
   // workouts-on-your-device
   { query: 'will my workout show up on my watch', expect: 'workouts-on-your-device', why: 'declared question form; must beat devices despite watch' },

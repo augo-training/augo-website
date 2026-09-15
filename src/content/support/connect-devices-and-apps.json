@@ -25,8 +25,9 @@
     "apple health",
     "whoop",
     "oura",
-    "duplicate",
-    "compatibility"
+    "compatibility",
+    "both",
+    "more than one"
   ],
   "weight": 3,
   "platforms": [
@@ -46,7 +47,7 @@
     },
     {
       "type": "html",
-      "html": "<h2 id=\"one-connection\">One connection is enough</h2><p>If your watch already pushes to Strava, connect either the watch or Strava — not both. Connecting two sources that carry the same workouts gives you duplicate activities in augo.</p><p>If you want planned workouts on your device or your history brought in, connect the device itself rather than Strava. The table above shows what each one can do.</p>"
+      "html": "<h2 id=\"one-connection\">One connection is enough</h2><p>You only need to connect one source, as long as it carries every workout you do. If your watch already pushes everything to Strava, connecting Strava alone is enough. If some sessions only live on the watch — say indoor rides that never reach Strava — connect the watch too. Connecting more than one source is fine: augo recognises the same activity coming from two places and won't show it twice.</p><p>If you want planned workouts on your device or your history brought in, connect the device itself, not just Strava. The table above shows what each one can do.</p>"
     },
     {
       "type": "html",
@@ -71,8 +72,8 @@
       "answer": "Not yet. If your athletes depend on one of these, let us know through the feedback button in the app. Coach demand drives what gets added."
     },
     {
-      "question": "Should I connect both my watch and Strava?",
-      "answer": "No. Connect one or the other. If both carry the same workouts you get duplicate activities in augo. Connect the watch itself if you want planned workouts on the device or your history brought in."
+      "question": "Do I need to connect both my watch and Strava?",
+      "answer": "Only if some workouts exist in one place but not the other. One source is enough when it carries everything you do. Connecting both is fine and won't duplicate activities. Connect the watch itself if you want planned workouts on the device or your history brought in."
     },
     {
       "question": "Can a coach connect an athlete's device for them?",
@@ -96,6 +97,7 @@
     "how do i pair my coros",
     "which apps does augo integrate with",
     "should i connect strava and my watch",
-    "why do i have duplicate workouts"
+    "can i connect more than one device",
+    "will i get duplicate workouts"
   ]
 }

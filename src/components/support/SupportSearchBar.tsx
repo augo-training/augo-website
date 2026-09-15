@@ -27,7 +27,7 @@ const PLACEHOLDERS = [
   'should i connect strava and my watch',
 ]
 
-const EXAMPLE_CHIPS = ['connect garmin', 'planned workouts on my watch', 'older activities', 'strava duplicates']
+const EXAMPLE_CHIPS = ['connect garmin', 'planned workouts on my watch', 'older activities', 'connect strava and my watch']
 
 const ROTATE_MS = 3200
 
