@@ -10,7 +10,8 @@ import SupportSearchBar from '../components/support/SupportSearchBar'
 import SupportSearchResults from '../components/support/SupportSearchResults'
 import SupportContactCard from '../components/support/SupportContactCard'
 import { useSupportSearch } from '../hooks/useSupportSearch'
-import { allArticles } from '../utils/supportArticles'
+import { articlesByCategory } from '../utils/supportArticles'
+import { SUPPORT_CATEGORIES } from '../utils/supportTaxonomy'
 
 export default function SupportHub() {
   const { lang } = useParams<{ lang: string }>()
@@ -64,21 +65,24 @@ export default function SupportHub() {
           />
         ) : (
           <>
-            {/* One topic at launch, so the whole corpus is listed here rather
-                than split into a "start here" pick and a category grid. */}
-            <section aria-labelledby="support-articles-title">
-              <h2
-                id="support-articles-title"
-                className="font-satoshi font-bold text-[24px] text-white mb-6"
-              >
-                {t('support.hub.articlesTitle')}
-              </h2>
-              <div className="grid grid-cols-1 gap-4">
-                {allArticles.map((article) => (
-                  <SupportArticleCard key={article.slug} article={article} />
-                ))}
-              </div>
-            </section>
+            {/* The whole corpus, grouped under category headings in taxonomy
+                order. Small enough to scan; no filter view needed yet. Empty
+                categories are skipped so unwritten topics leave no gap. */}
+            {SUPPORT_CATEGORIES.filter((c) => articlesByCategory[c.id].length > 0).map((c) => (
+              <section key={c.id} aria-labelledby={`support-cat-${c.id}`} className="mb-14">
+                <h2
+                  id={`support-cat-${c.id}`}
+                  className="font-satoshi font-bold text-[24px] text-white mb-6"
+                >
+                  {t(c.labelKey)}
+                </h2>
+                <div className="grid grid-cols-1 gap-4">
+                  {articlesByCategory[c.id].map((article) => (
+                    <SupportArticleCard key={article.slug} article={article} />
+                  ))}
+                </div>
+              </section>
+            ))}
             <SupportContactCard />
           </>
         )}

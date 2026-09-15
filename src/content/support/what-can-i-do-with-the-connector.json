@@ -21,7 +21,7 @@
     "prompts",
     "automation"
   ],
-  "weight": 2,
+  "weight": 3,
   "body": [
     {
       "type": "html",

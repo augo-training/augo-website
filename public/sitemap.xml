@@ -1551,12 +1551,52 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://augotraining.com/en/support/add-an-athlete/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://augotraining.com/en/support/athlete-signals/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://augotraining.com/en/support/coach-private-notes/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://augotraining.com/en/support/connect-devices-and-apps/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://augotraining.com/en/support/create-workouts/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://augotraining.com/en/support/get-found-by-athletes/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://augotraining.com/en/support/getting-started-as-a-coach/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://augotraining.com/en/support/historical-activities/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://augotraining.com/en/support/what-can-i-ask-the-assistant/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://augotraining.com/en/support/what-can-i-do-with-the-connector/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

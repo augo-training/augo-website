@@ -59,6 +59,14 @@ export const SYNONYM_GROUPS: readonly (readonly string[])[] = [
   ['backfill', 'history', 'historical', 'past', 'previous', 'older', 'old', 'archive'],
   // Planned workouts reaching the device
   ['deliver', 'delivered', 'push', 'send', 'sent', 'planned', 'structured', 'calendar'],
+  // Private notes as assistant memory
+  ['note', 'notes', 'memory', 'context', 'briefing'],
+  // The Claude / ChatGPT connector
+  ['connector', 'mcp', 'claude', 'chatgpt', 'llm'],
+  // The coach directory
+  ['directory', 'listing', 'listed', 'inbound'],
+  // Making workouts
+  ['create', 'build', 'builder', 'design', 'write'],
 ]
 
 /**
@@ -105,6 +113,10 @@ export const PHRASE_ALIASES: readonly { phrase: string; expandsTo: readonly stri
   { phrase: 'head unit', expandsTo: ['device'] },
   { phrase: 'bike computer', expandsTo: ['device', 'wahoo'] },
   { phrase: '30 days', expandsTo: ['backfill'] },
+  { phrase: 'athlete signals', expandsTo: ['signal', 'priority'] },
+  { phrase: 'private note', expandsTo: ['note'] },
+  { phrase: 'get found', expandsTo: ['directory'] },
+  { phrase: 'season plan', expandsTo: ['note'] },
 ]
 
 function buildLookup(): Map<string, string[]> {

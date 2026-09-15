@@ -20,14 +20,14 @@ interface Props {
  */
 const PLACEHOLDERS = [
   'my watch won’t sync',
-  'will my workout show up on my watch',
-  'why can’t i see my old workouts',
-  'does augo work with garmin',
+  'how do i invite an athlete',
+  'what are athlete signals',
+  'prepare me for a call with my athlete',
+  'can athletes see my notes',
   'how far back does augo import',
-  'should i connect strava and my watch',
 ]
 
-const EXAMPLE_CHIPS = ['connect garmin', 'planned workouts on my watch', 'older activities', 'connect strava and my watch']
+const EXAMPLE_CHIPS = ['connect garmin', 'invite an athlete', 'athlete signals', 'create a workout']
 
 const ROTATE_MS = 3200
 

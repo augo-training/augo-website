@@ -49,6 +49,30 @@ const EVAL: { query: string; expect: string; why: string }[] = [
   { query: 'five years of data', expect: 'historical-activities', why: 'five years is only in the history article' },
   { query: 'my last 30 days havent shown up', expect: 'historical-activities', why: '30 days phrase alias; must beat the devices article' },
   { query: 'backfil', expect: 'historical-activities', why: '1-edit typo on a rare term' },
+  // add-an-athlete
+  { query: 'how do i invite an athlete', expect: 'add-an-athlete', why: 'invite <-> add synonym group' },
+  { query: 'what is my coach code', expect: 'add-an-athlete', why: 'coach code is only in the invite article' },
+  // getting-started-as-a-coach
+  { query: 'im a new coach where do i begin', expect: 'getting-started-as-a-coach', why: 'declared question form' },
+  { query: 'where is the feedback button', expect: 'getting-started-as-a-coach', why: 'feedback is a feedback-group word; button decides' },
+  // athlete-signals
+  { query: 'what are athlete signals', expect: 'athlete-signals', why: 'phrase alias + title' },
+  { query: 'who needs my attention today', expect: 'athlete-signals', why: 'attention -> priority group; must beat the assistant article' },
+  // what-can-i-ask-the-assistant
+  { query: 'prepare me for a call', expect: 'what-can-i-ask-the-assistant', why: 'call prep prompt lives here, not in signals' },
+  { query: 'can the assistant analyse fuelling', expect: 'what-can-i-ask-the-assistant', why: 'fuelling is only here' },
+  // coach-private-notes
+  { query: 'can athletes see my notes', expect: 'coach-private-notes', why: 'note group; must beat the assistant article' },
+  { query: 'how do i save a season plan in augo', expect: 'coach-private-notes', why: 'season plan phrase alias' },
+  // create-workouts
+  { query: 'how do i build a workout', expect: 'create-workouts', why: 'build <-> create group; must beat delivery article' },
+  { query: 'where is the workout builder', expect: 'create-workouts', why: 'builder is only here' },
+  // what-can-i-do-with-the-connector
+  { query: 'what can claude do with augo', expect: 'what-can-i-do-with-the-connector', why: 'claude appears in several articles; connector owns the question form' },
+  { query: 'does augo work with chatgpt', expect: 'what-can-i-do-with-the-connector', why: 'must beat connect-devices despite "work with"' },
+  // get-found-by-athletes
+  { query: 'how do i get listed', expect: 'get-found-by-athletes', why: 'listed -> directory group' },
+  { query: 'how do i get more athletes', expect: 'get-found-by-athletes', why: 'must beat add-an-athlete' },
 ]
 
 describe('support search — eval set', () => {
