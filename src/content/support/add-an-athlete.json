@@ -90,7 +90,7 @@
     },
     {
       "type": "html",
-      "html": "<h2 id=\"after-they-join\">After they join</h2><p>They appear on your roster straight away, but their training feed stays empty until they connect a data source. That step is theirs to do from their own account — you can’t do it for them. See <a href=\"/en/support/connect-devices-and-apps/\">which devices and apps augo syncs with</a>.</p><p>This is the single most common reason a newly added athlete looks broken. They’ve joined; they just haven’t linked their watch.</p>"
+      "html": "<h2 id=\"after-they-join\">After they join</h2><p>They appear on your roster straight away, but their training feed stays empty until they connect a data source. That step is theirs to do from their own account — you can’t do it for them. See <a href=\"/en/support/connect-devices-and-apps/\">which devices and apps augo syncs with</a>.</p>"
     }
   ],
   "faqs": [
