@@ -1,14 +1,39 @@
 {
   "slug": "workouts-on-your-device",
   "title": "Which workouts are delivered to my device?",
-  "seoTitle": "Planned Workouts on Your Watch: Coros, Wahoo, Suunto | augo support",
+  "seoTitle": "Planned Workouts on Your Device | augo support",
   "description": "Every workout your coach plans in augo appears in your augo app. On Coros, Wahoo and Suunto it is also sent to the device so you can follow it step by step.",
   "summary": "Every workout your coach plans in augo shows up in your augo app, whatever device you use. If you use Coros, Wahoo or Suunto, the workout is also sent to the device itself, so you can follow it step by step on the watch or bike computer. Garmin, Polar, Zwift and Strava don't receive planned workouts yet — open the workout in the app instead.",
   "audience": "both",
   "category": "integrations",
-  "keywords": ["planned workout", "structured workout", "push", "send", "deliver", "delivery", "calendar", "watch", "bike computer", "head unit", "follow", "steps", "intervals", "coros", "wahoo", "suunto", "garmin", "polar", "zwift", "strava"],
+  "keywords": [
+    "planned workout",
+    "structured workout",
+    "push",
+    "send",
+    "deliver",
+    "delivery",
+    "calendar",
+    "watch",
+    "bike computer",
+    "head unit",
+    "follow",
+    "steps",
+    "intervals",
+    "coros",
+    "wahoo",
+    "suunto",
+    "garmin",
+    "polar",
+    "zwift",
+    "strava"
+  ],
   "weight": 2,
-  "platforms": ["ios", "android", "web"],
+  "platforms": [
+    "ios",
+    "android",
+    "web"
+  ],
   "datePublished": "2026-09-15",
   "body": [
     {
@@ -42,7 +67,10 @@
       "answer": "No. Planned workouts appear in your augo app as soon as your coach creates them. Connecting a device adds automatic syncing of completed activities, and on Coros, Wahoo and Suunto also delivers the plan to the device."
     }
   ],
-  "related": ["connect-devices-and-apps", "historical-activities"],
+  "related": [
+    "connect-devices-and-apps",
+    "historical-activities"
+  ],
   "questionForms": [
     "will my workout show up on my watch",
     "does augo send workouts to garmin",

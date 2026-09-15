@@ -1,14 +1,39 @@
 {
   "slug": "connect-devices-and-apps",
   "title": "Which devices and apps does augo integrate with?",
-  "seoTitle": "Devices augo Integrates With: Garmin, Coros, Wahoo, Suunto, Polar, Zwift, Strava | augo support",
+  "seoTitle": "Devices and Apps augo Integrates With | augo support",
   "description": "augo connects to Garmin, Coros, Wahoo, Suunto, Polar, Zwift and Strava. See which ones receive planned workouts, sync completed activities and bring in your history.",
   "summary": "augo connects to Garmin, Coros, Wahoo, Suunto, Polar, Zwift and Strava. The athlete connects once from the augo app, and from then on completed workouts arrive automatically. What else each integration can do — sending planned workouts to the device and pulling in past activities — is in the table below.",
   "audience": "both",
   "category": "integrations",
-  "keywords": ["garmin", "coros", "wahoo", "suunto", "polar", "zwift", "strava", "connect", "sync", "pair", "link account", "watch", "device", "wearable", "integration", "apple health", "whoop", "oura", "duplicate", "compatibility"],
+  "keywords": [
+    "garmin",
+    "coros",
+    "wahoo",
+    "suunto",
+    "polar",
+    "zwift",
+    "strava",
+    "connect",
+    "sync",
+    "pair",
+    "link account",
+    "watch",
+    "device",
+    "wearable",
+    "integration",
+    "apple health",
+    "whoop",
+    "oura",
+    "duplicate",
+    "compatibility"
+  ],
   "weight": 3,
-  "platforms": ["ios", "android", "web"],
+  "platforms": [
+    "ios",
+    "android",
+    "web"
+  ],
   "datePublished": "2026-09-15",
   "body": [
     {
@@ -54,7 +79,10 @@
       "answer": "No. The athlete connects their own device or app from their own augo account, because the authorisation belongs to the account that owns the data. An empty training feed for a new athlete usually means this step hasn't happened yet."
     }
   ],
-  "related": ["workouts-on-your-device", "historical-activities"],
+  "related": [
+    "workouts-on-your-device",
+    "historical-activities"
+  ],
   "questionForms": [
     "does augo work with garmin",
     "what devices work with augo",
