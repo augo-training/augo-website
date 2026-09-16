@@ -371,3 +371,23 @@ export async function trackSupportSearchNoResults(props: {
 }): Promise<void> {
     return track('support_search_no_results', props)
 }
+
+// ── Worlds postcard page (/merci) ──
+//
+// The page is two screens, so the funnel is per code: gate_opened says who
+// scanned, offer_redeemed who signed up, and the gap between them is the
+// drop-off at the form. None of these go to Meta.
+
+/** An invalid code was submitted at the door. `code` is as typed, before normalising. */
+export async function trackMerciCodeFailed(props: { code: string }): Promise<void> {
+    return track('merci_code_failed', props)
+}
+
+/** A valid code opened the door, typed or from a `?c=` email link. */
+export async function trackMerciGateOpened(props: { code: string; src: 'postcard' | 'email' }): Promise<void> {
+    return track('merci_gate_opened', props)
+}
+
+export async function trackMerciOfferRedeemed(props: { code: string; email: string }): Promise<void> {
+    return track('merci_offer_redeemed', props)
+}

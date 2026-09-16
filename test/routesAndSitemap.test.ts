@@ -20,7 +20,7 @@ describe('routes and sitemap', () => {
     // localized static + localized coach profiles + english-only blog posts
     // + 1 for the /en/blog index route + 2 for the /en/nice-athletes and
     // /en/nice-coaches landing pages + english-only support articles
-    // + 1 for the /en/support hub route.
+    // + 1 for the /en/support hub route + 1 for the unprefixed /merci page.
     expect(routes).toHaveLength(
       LANGS.length * STATIC_PATHS.length +
         LANGS.length * coachSlugs.length +
@@ -28,8 +28,14 @@ describe('routes and sitemap', () => {
         1 +
         2 +
         supportSlugs.length +
+        1 +
         1,
     )
+
+    // /merci sits outside /:lang (the postcard QR points at augotraining.com/merci)
+    // and exists once, with no language copies.
+    expect(routes).toContain('/merci')
+    expect(routes.filter((route) => route.endsWith('/merci'))).toHaveLength(1)
 
     expect(routes).toContain('/en/nice-athletes')
     expect(routes.filter((route) => route.endsWith('/nice-athletes'))).toHaveLength(1)
@@ -148,5 +154,15 @@ describe('routes and sitemap', () => {
       expect(entry?.alternates).toBeNull()
       expect(entry?.priority).toBe(0.9)
     }
+  })
+
+  // The postcard page is prerendered (so GitHub Pages serves it with a 200) but
+  // must never be advertised: it is for the coaches holding a card, nobody else.
+  it('keeps /merci out of the sitemap', async () => {
+    const entries = await getSitemapEntries()
+    const xml = renderSitemapXml(entries)
+
+    expect(entries.some((e) => e.url.includes('merci'))).toBe(false)
+    expect(xml).not.toContain('merci')
   })
 })

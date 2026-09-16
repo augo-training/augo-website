@@ -94,3 +94,24 @@ describe('cta_clicked', () => {
         })
     })
 })
+
+// The /merci funnel is read per code: who scanned, and who then signed up.
+describe('merci funnel', () => {
+    it('keeps the code exactly as typed on a failed attempt', async () => {
+        const { trackMerciCodeFailed } = await loadModule()
+        await trackMerciCodeFailed({ code: 'nice 42' })
+        expect(propsFor('merci_code_failed')).toEqual({ code: 'nice 42' })
+    })
+
+    it('says whether the gate was opened from a postcard or an email link', async () => {
+        const { trackMerciGateOpened } = await loadModule()
+        await trackMerciGateOpened({ code: 'NICE-042', src: 'email' })
+        expect(propsFor('merci_gate_opened')).toEqual({ code: 'NICE-042', src: 'email' })
+    })
+
+    it('ties the signup to the code and the email', async () => {
+        const { trackMerciOfferRedeemed } = await loadModule()
+        await trackMerciOfferRedeemed({ code: 'NICE-042', email: 'coach@example.com' })
+        expect(propsFor('merci_offer_redeemed')).toEqual({ code: 'NICE-042', email: 'coach@example.com' })
+    })
+})
