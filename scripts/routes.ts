@@ -149,6 +149,11 @@ export async function getAllPrerenderRoutes(): Promise<string[]> {
   // (which is looped over every language) and are listed once here.
   routes.push(`/${DEFAULT_LANG}/nice-athletes`)
   routes.push(`/${DEFAULT_LANG}/nice-coaches`)
+  // The Worlds postcard page. Unprefixed, since the QR on the card points at
+  // augotraining.com/merci, and deliberately absent from getSitemapEntries():
+  // it is for the coaches holding a card. Prerendered anyway so GitHub Pages
+  // answers a scan with a 200 rather than the 404.html SPA shell.
+  routes.push('/merci')
   // Blog posts are English-only at launch (Substack posts are in English).
   routes.push(`/${DEFAULT_LANG}/blog`)
   const slugs = await discoverBlogSlugs()

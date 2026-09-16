@@ -24,6 +24,7 @@ import NiceAthletes from './pages/NiceAthletes'
 import NiceCoaches from './pages/NiceCoaches'
 import Mcp from './pages/Mcp'
 import Contact from './pages/Contact'
+import Merci from './pages/Merci'
 import { setupMetaPixelConsentListener } from './utils/metaPixel'
 
 // March 26, 2026 at 20:00 Zurich time
@@ -68,6 +69,11 @@ function App() {
         {/* /help is the URL people type and paste, even though the section is /support. */}
         <Route path="/support" element={<LegacyRedirect to="/en/support" />} />
         <Route path="/help" element={<LegacyRedirect to="/en/support" />} />
+
+        {/* Worlds postcard page. Unprefixed because the printed QR points at
+            /merci, and nothing on the site links to it. A static path outranks
+            /:lang, so it is never mistaken for a language prefix. */}
+        <Route path="/merci" element={<Merci />} />
 
         {/* Language-prefixed routes */}
         <Route path="/:lang" element={<LanguageLayout />}>
