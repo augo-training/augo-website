@@ -81,6 +81,13 @@ export const COPY = {
         invalid: 'That code is not on our list. It sits next to the QR, like NICE-042.',
         empty: 'Type the code from your card.',
         error: 'Something went wrong on our side. Try again in a moment.',
+        /**
+         * A way out for someone who was forwarded the link or found a card,
+         * not a way in: it leaves for the main site rather than opening the
+         * door. There is still no "continue without a code" path.
+         */
+        noCode: 'No invitation code?',
+        noCodeHref: '/en',
     },
     offer: {
         codeLabel: 'YOUR INVITATION CODE',

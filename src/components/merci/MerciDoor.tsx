@@ -156,6 +156,14 @@ export default function MerciDoor({ initialCode, autoSubmit, reduced, onOpen }: 
                     >
                         {feedback?.text}
                     </p>
+                    {/* Inside the form so it inherits `inert` and cannot be
+                        clicked while the intro is still playing it in. */}
+                    <a
+                        href={DOOR.noCodeHref}
+                        className="merci-focus mt-1 inline-block font-satoshi text-[14px] text-text-muted underline decoration-dark-400 underline-offset-2 transition-colors duration-150 hover:text-white hover:decoration-white"
+                    >
+                        {DOOR.noCode}
+                    </a>
                 </form>
             </Rise>
         </Beat>
