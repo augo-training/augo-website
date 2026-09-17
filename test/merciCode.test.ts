@@ -2,19 +2,18 @@ import { describe, expect, it } from 'vitest'
 import { isWellFormed, normalizeCode, parseSrc } from '../src/components/merci/code'
 
 /**
- * The code is handwritten on a postcard and typed on a phone, so the field has
- * to forgive case, stray spaces and a missing hyphen, and still reject
- * anything that is not NICE plus exactly three digits.
+ * The code is three letters printed on a postcard and typed on a phone, so the
+ * field has to forgive case and stray spaces, and still reject anything that is
+ * not exactly three letters.
  */
 
 describe('normalizeCode', () => {
     it.each([
-        ['NICE-042', 'NICE-042'],
-        ['nice-042', 'NICE-042'],
-        [' nice 042 ', 'NICE-042'],
-        ['NICE042', 'NICE-042'],
-        ['nice 0 4 2', 'NICE-042'],
-        ['\tNICE-042\n', 'NICE-042'],
+        ['NVE', 'NVE'],
+        ['nve', 'NVE'],
+        [' nve ', 'NVE'],
+        ['n v e', 'NVE'],
+        ['\tGuz\n', 'GUZ'],
     ])('%j becomes %s', (raw, expected) => {
         expect(normalizeCode(raw)).toBe(expected)
     })
@@ -25,11 +24,11 @@ describe('normalizeCode', () => {
 })
 
 describe('isWellFormed', () => {
-    it.each(['NICE-001', 'NICE-042', 'NICE-150', 'NICE-999'])('accepts %s', (code) => {
+    it.each(['NVE', 'MLI', 'GUZ', 'ZZZ', 'AAA'])('accepts %s', (code) => {
         expect(isWellFormed(code)).toBe(true)
     })
 
-    it.each(['nice-42', 'NICE-0042', 'NICE-04A', 'NIC-042', 'NICE--042', '042', 'NICE', ''])(
+    it.each(['AB', 'ABCD', 'A1C', '123', 'NICE-042', 'AB-', '', 'ÀBC'])(
         'rejects %j once normalised',
         (raw) => {
             expect(isWellFormed(normalizeCode(raw))).toBe(false)

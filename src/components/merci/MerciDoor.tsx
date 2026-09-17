@@ -137,7 +137,7 @@ export default function MerciDoor({ initialCode, autoSubmit, reduced, onOpen }: 
                             autoCapitalize="characters"
                             autoCorrect="off"
                             spellCheck={false}
-                            maxLength={16}
+                            maxLength={8}
                             aria-invalid={feedback?.tone === 'error'}
                             aria-describedby="merci-code-feedback"
                             readOnly={busy}

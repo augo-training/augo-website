@@ -36,7 +36,23 @@ jobs:
       - name: Check required build secrets
         env:
           VITE_MIXPANEL_TOKEN: ${{ secrets.MIXPANEL }}
+          VITE_MERCI_CODE_WEBHOOK_URL: ${{ secrets.VITE_MERCI_CODE_WEBHOOK_URL }}
+          VITE_MERCI_REDEEM_WEBHOOK_URL: ${{ secrets.VITE_MERCI_REDEEM_WEBHOOK_URL }}
         run: |
+          # /merci is invitation-only: with no webhook to ask, the door rejects
+          # every code on the printed cards and the coach sees an error. Better
+          # to fail the build than to ship that.
+          for name in VITE_MERCI_CODE_WEBHOOK_URL VITE_MERCI_REDEEM_WEBHOOK_URL; do
+            eval "value=\${$name}"
+            if [ -z "$value" ]; then
+              echo "::error::$name repo secret is not set; /merci would reject every invitation code."
+              exit 1
+            fi
+            if ! printf '%s' "$value" | grep -Eq '^https://hook\.[a-z0-9-]+\.make\.com/[a-z0-9]{32}$'; then
+              echo "::error::$name is not a Make webhook URL (https://hook.<zone>.make.com/<32 chars>)."
+              exit 1
+            fi
+          done
           if [ -z "$VITE_MIXPANEL_TOKEN" ]; then
             echo "::error::MIXPANEL repo secret is not set; the build would ship without analytics."
             exit 1
@@ -57,6 +73,11 @@ jobs:
           # The repo secret is named MIXPANEL (not VITE_MIXPANEL_TOKEN). Vite only
           # exposes VITE_-prefixed vars, so it is mapped here.
           VITE_MIXPANEL_TOKEN: ${{ secrets.MIXPANEL }}
+          # The two Make webhooks behind /merci. Unset, the page has no endpoints
+          # to call and rejects every invitation code, so the guard step above
+          # fails the build rather than shipping a door nobody can open.
+          VITE_MERCI_CODE_WEBHOOK_URL: ${{ secrets.VITE_MERCI_CODE_WEBHOOK_URL }}
+          VITE_MERCI_REDEEM_WEBHOOK_URL: ${{ secrets.VITE_MERCI_REDEEM_WEBHOOK_URL }}
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact

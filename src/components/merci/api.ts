@@ -28,14 +28,14 @@ interface RedeemArgs {
  * webhook responses must send Access-Control-Allow-Origin for augotraining.com.
  * Without it the fetch succeeds in Make and fails here.
  *
- * Stub: with a URL unset, and only on localhost, codes NICE-001 to NICE-150 are
- * on the list and NICE-150 counts as already redeemed. Anywhere else an unset
- * URL is an error, never a pass: a door that opened for anyone would give the
- * offer away.
+ * Stub: with a URL unset, and only on localhost, a handful of real codes from
+ * the sheet are on the list and ZZZ counts as already redeemed. Anywhere else
+ * an unset URL is an error, never a pass: a door that opened for anyone would
+ * give the offer away.
  */
 
-const STUB_LAST_CODE = 150
-const stubRedeemed = new Set(['NICE-150'])
+const STUB_CODES = new Set(['NVE', 'MLI', 'GUZ', 'UJB', 'QNK', 'ZZZ'])
+const stubRedeemed = new Set(['ZZZ'])
 
 function stubbed(url: string | undefined): boolean {
     return !url && isLocalHost()
@@ -69,8 +69,7 @@ export async function checkCode(code: string): Promise<CodeStatus | 'error'> {
 
     if (stubbed(MERCI_CODE_WEBHOOK_URL)) {
         await pause(400)
-        const n = Number(code.slice(-3))
-        return { valid: n >= 1 && n <= STUB_LAST_CODE, redeemed: stubRedeemed.has(code) }
+        return { valid: STUB_CODES.has(code), redeemed: stubRedeemed.has(code) }
     }
     if (!MERCI_CODE_WEBHOOK_URL) return 'error'
 
