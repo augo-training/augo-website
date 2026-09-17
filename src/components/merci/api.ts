@@ -28,14 +28,22 @@ interface RedeemArgs {
  * webhook responses must send Access-Control-Allow-Origin for augotraining.com.
  * Without it the fetch succeeds in Make and fails here.
  *
- * Stub: with a URL unset, and only on localhost, a handful of real codes from
- * the sheet are on the list and ZZZ counts as already redeemed. Anywhere else
- * an unset URL is an error, never a pass: a door that opened for anyone would
- * give the offer away.
+ * Stub: with a URL unset, and only on localhost, the door opens for any three
+ * letters, so the screens can be walked without keeping a list of real codes to
+ * hand. Two are reserved so the unhappy paths stay reachable:
+ *
+ *   XXX  not on the list
+ *   ZZZ  already signed up
+ *
+ * Anywhere else an unset URL is an error, never a pass: a door that opened for
+ * anyone would give the offer away. To try the real sheet locally instead, put
+ * the two VITE_MERCI_*_WEBHOOK_URL values in .env, but note that redeeming then
+ * marks a real coach's row as used.
  */
 
-const STUB_CODES = new Set(['NVE', 'MLI', 'GUZ', 'UJB', 'QNK', 'ZZZ'])
-const stubRedeemed = new Set(['ZZZ'])
+const STUB_UNKNOWN = 'XXX'
+const STUB_REDEEMED = 'ZZZ'
+const stubRedeemed = new Set([STUB_REDEEMED])
 
 function stubbed(url: string | undefined): boolean {
     return !url && isLocalHost()
@@ -69,7 +77,7 @@ export async function checkCode(code: string): Promise<CodeStatus | 'error'> {
 
     if (stubbed(MERCI_CODE_WEBHOOK_URL)) {
         await pause(400)
-        return { valid: STUB_CODES.has(code), redeemed: stubRedeemed.has(code) }
+        return { valid: code !== STUB_UNKNOWN, redeemed: stubRedeemed.has(code) }
     }
     if (!MERCI_CODE_WEBHOOK_URL) return 'error'
 

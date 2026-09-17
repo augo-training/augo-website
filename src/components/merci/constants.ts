@@ -6,15 +6,16 @@
  * the sitemap, and the page carries noindex. The only ways in are the QR code
  * on the card and the email links (`/merci?c=NICE-042&src=email`).
  *
- * Two screens, and no navigation between them: the door, then the signup card.
- * What is on offer is a five part email course, not a trial. The free month and
- * the Elite months are made at the end of the course, so the page asks for an
- * email and nothing else, and nothing stands between the scan and the form.
+ * A code gate, then five beats a coach taps through: the memory, the Assistant,
+ * the reassurance, a quote from a coach they may know, and the ticket. What is
+ * on offer is a five part email course, not a trial. The free month and the
+ * Elite months are made at the end of the course, so the page asks for an email
+ * and nothing else.
  *
  * Copy rules: no em dashes, plain words, sentence case except the mono
  * eyebrows. And, as everywhere on the site, text is white or grey only. The
- * yellow accent is for shapes (the button, the cursor, the mark under "only."),
- * never for letters.
+ * brand colours are for shapes (the button, the cursor, the mark under
+ * "only.", the progress bar), never for letters.
  */
 
 export const MERCI_PATH = '/merci'
@@ -44,14 +45,30 @@ export const TIMING = {
     lineStaggerMs: 400,
     welcomeHoldMs: 450,
     doorFadeMs: 450,
+    questionCharMs: 32,
+    answerPauseMs: 450,
+    answerCharMs: 9,
+    answerHoldMs: 4200,
 } as const
 
 export interface HeadlineLine {
     text: string
     /** De-emphasised line (#595959). Decorative only, never the line that carries the point. */
     dim?: boolean
-    /** Underlined with a yellow bar. */
+    /** Underlined with a bar of the brand gradient. */
     mark?: boolean
+}
+
+export interface TerminalPair {
+    question: string
+    answer: string
+    /**
+     * The answer is a column-aligned table and must keep its spacing, so it is
+     * set in mono. Everything else is prose and wraps normally, even when it
+     * has line breaks in it: a numbered list is not a table, and setting one in
+     * non-wrapping mono ran it off the edge of the bubble.
+     */
+    table?: boolean
 }
 
 const DOOR_HEADLINE: HeadlineLine[] = [
@@ -59,6 +76,23 @@ const DOOR_HEADLINE: HeadlineLine[] = [
     { text: 'Championship' },
     { text: 'level coaches' },
     { text: 'only.', mark: true },
+]
+
+const MEMORY_HEADLINE: HeadlineLine[] = [
+    { text: 'Every message your athlete ever sent you.' },
+    { text: 'Every workout.', dim: true },
+    { text: 'Every session feedback.', dim: true },
+]
+
+const PROMPT_HEADLINE: HeadlineLine[] = [{ text: 'One prompt' }, { text: 'away.' }]
+
+// The spec had the last two lines in yellow. Text is never coloured, so the
+// emphasis flips instead: the setup is dim and the payoff is white.
+const DECIDE_HEADLINE: HeadlineLine[] = [
+    { text: 'You still decide', dim: true },
+    { text: 'everything.', dim: true },
+    { text: 'You just stop' },
+    { text: 'searching.' },
 ]
 
 const DONE_TAIL: HeadlineLine[] = [
@@ -69,6 +103,7 @@ const DONE_TAIL: HeadlineLine[] = [
 export const COPY = {
     pageTitle: 'Merci, coach. | augo',
     pageDescription: 'For World Championship level coaches only.',
+    hint: 'TAP TO CONTINUE',
     door: {
         eyebrow: '/////// BY INVITATION ONLY',
         eyebrowSpoken: 'By invitation only',
@@ -89,28 +124,71 @@ export const COPY = {
         noCode: 'No invitation code?',
         noCodeHref: '/en',
     },
+    memory: {
+        headline: MEMORY_HEADLINE,
+        // Two lines on purpose: the break falls after the comma, so "and being
+        // able to analyse it." always reads as one piece.
+        subline: ['Now imagine remembering all of it,', 'and being able to analyse it.'],
+    },
+    prompt: {
+        headline: PROMPT_HEADLINE,
+        footer: 'AUGO ASSISTANT · EXAMPLE ANSWERS',
+        /**
+         * The Assistant mock carries no chrome: no title, no menu, no window
+         * buttons, no athlete chip. Just the composer, so the exchange reads as
+         * a conversation rather than as floating text. Deliberately no model
+         * name anywhere: nothing here should imply a choice of AI model.
+         */
+        assistant: {
+            placeholder: 'Ask anything...',
+        },
+    },
+    decide: {
+        headline: DECIDE_HEADLINE,
+        subline: 'Higher quality coaching, in less time.',
+    },
+    /**
+     * Marco Altini's words, trimmed. His full quote runs on past this into
+     * "Thanks to augo, I can be more efficient at many tasks that eventually
+     * allow me to be a better coach for my athletes, which should be the whole
+     * point." That sentence is cut only for length on a screen read in seconds.
+     *
+     * Trimming a real person's published words needs his agreement: he has to
+     * approve this shortened version before it ships.
+     *
+     * The role is the site's own wording for him, the same line the home page
+     * testimonials use, rather than a title invented here.
+     */
+    quote: {
+        text: "augo enables me to do literally everything I always wanted to do with athletes' data but either could not do or would take me forever to do because we are stuck using coaching platforms designed decades ago.",
+        signoff: 'Hurra.',
+        name: 'Marco Altini',
+        role: 'Running Coach & Founder of HRV4Training',
+    },
     offer: {
         codeLabel: 'YOUR INVITATION CODE',
         /**
-         * The card title, and the only heading on this screen. The course
-         * material still calls this "The Irreplaceable Endurance Coach's
-         * System"; the two names have to be made the same before launch.
+         * The only heading on this screen. Deliberately the promise rather than
+         * the course's name: after five screens of story, naming the product
+         * here read as a spec sheet.
+         *
+         * It also closes the loop the door opens, which used to carry the line
+         * "Be the first to know the future."
+         *
+         * Note this leaves the course unnamed anywhere on the page, so the
+         * welcome email has to introduce it rather than assume it.
          */
-        courseTitle: "The Elite Coach's Success System",
-        // The promise is growth without dilution, not AI. AI is how some of the
-        // third line happens, which the emails explain; leading with it here
-        // sold the tool instead of the outcome. The five mistakes stay in the
-        // emails too: this card is what the coach gains, not what they risk.
-        //
-        // One flowing block, not two: the three levers read as how the promise
-        // before them gets kept, and a paragraph break made that a non sequitur.
-        blurb: "Take on as many athletes as you want and coach each one of them at the high standard you're known for. Learn how to coach deeper, prioritise better, and do all the manual work in less time.",
-        button: 'START THE COURSE',
+        heading: 'Be one of the first to see the future of coaching.',
+        // The theme, not the mechanics. With both this and the heading kept
+        // open-ended, the note under the button is now the only place that says
+        // five emails are coming, so that note is load bearing: do not cut it.
+        blurb: 'How coaching is changing, and what the best coaches are already doing to stay ahead.',
+        button: 'SHOW ME THE FUTURE',
         note: '5 emails. Free. Opt out at any time.',
         // The names are read into this line: "Written in collaboration with
-        // coaches to World & Olympic Champions: X, Y and Z."
+        // coaches to world champions and olympians: X, Y and Z."
         company: {
-            before: 'Written in collaboration with coaches to World & Olympic Champions: ',
+            before: 'Written in collaboration with coaches to world champions and olympians: ',
             after: '.',
         },
         form: {
@@ -153,4 +231,53 @@ export const ADVISORS = [
     { name: 'Marco Altini', href: 'https://marcoaltini.substack.com/' },
     { name: 'Reto Brändli', href: 'https://www.instagram.com/reto_braendli/' },
     { name: 'Gordon Crawford', href: 'https://www.linkedin.com/in/gordon-crawford-6149a868/' },
+]
+
+/**
+ * Beat 2's example exchanges, shown as if typed into the assistant.
+ *
+ * Illustrative, and not yet checked: before launch, confirm the assistant can
+ * actually answer each of these today from the data augo holds (messages,
+ * workouts, session feedback). augo has no sleep data, which is why no prompt
+ * mentions sleep.
+ *
+ * The third answer is a mono table and its whitespace is rendered as-is, so do
+ * not reflow or re-indent it.
+ */
+export const TERMINAL_PAIRS: TerminalPair[] = [
+    {
+        question: "When did Sarah's calf niggle first show up?",
+        answer: '22 July, after the 90 min ride into run. She rated it 3 out of 10 in the session feedback and said it was gone after two days. Mentioned once more on 4 Aug, then never again. You dropped the second plyo session that week.',
+    },
+    {
+        question: 'Prepare me for my post-race call with Sarah.',
+        answer: [
+            'Three things to bring up.',
+            '1. Her bike pacing matched what she told you she wanted in the Sanremo build.',
+            '2. She flagged stomach trouble in two long runs in August. Worth asking about race-day fuelling.',
+            '3. She wrote "I don\'t want to lose this fitness" twice this month. Ask what she wants next before you propose it.',
+        ].join('\n'),
+    },
+    {
+        question: "Analyse Sarah's race pace and effort over the last 12 weeks.",
+        answer: [
+            'Race-pace run sessions, 12 weeks:',
+            '',
+            'Wk   Pace   RPE  Feedback',
+            '01   4:52   7    "legs heavy"',
+            '03   4:48   7    "ok"',
+            '05   4:45   8    "hot, faded late"',
+            '07   4:44   6    "best one yet"',
+            '09   4:46   8    "work week"',
+            '11   4:41   6    "easy, held back"',
+            '',
+            'Pace improved 11 s/km. RPE at that pace dropped from 7 to 6. The two hardest-rated weeks were the two she called stressful in chat.',
+        ].join('\n'),
+        table: true,
+    },
+    {
+        question:
+            'How has Sarah fuelled her high intensity sessions over the last 6 months? Any patterns?',
+        answer: 'She logged fuelling on 38 of 41 hard sessions. Pattern: 60 to 70 g carbs per hour on the bike, but under 30 g on hard runs longer than 75 min. The four runs she rated "empty at the end" were all in that group. Gels on the bike, mostly nothing on the run. Worth a conversation before the next build.',
+    },
 ]

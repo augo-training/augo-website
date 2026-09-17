@@ -374,9 +374,10 @@ export async function trackSupportSearchNoResults(props: {
 
 // ── Worlds postcard page (/merci) ──
 //
-// The page is two screens, so the funnel is per code: gate_opened says who
-// scanned, offer_redeemed who signed up, and the gap between them is the
-// drop-off at the form. None of these go to Meta.
+// Read per code: gate_opened says who scanned, beat_viewed how far they got
+// through the sequence, offer_redeemed who signed up. beat_viewed on the last
+// beat minus offer_redeemed is the drop-off at the form itself, as opposed to
+// people leaving part way through the story. None of these go to Meta.
 
 /** An invalid code was submitted at the door. `code` is as typed, before normalising. */
 export async function trackMerciCodeFailed(props: { code: string }): Promise<void> {
@@ -386,6 +387,11 @@ export async function trackMerciCodeFailed(props: { code: string }): Promise<voi
 /** A valid code opened the door, typed or from a `?c=` email link. */
 export async function trackMerciGateOpened(props: { code: string; src: 'postcard' | 'email' }): Promise<void> {
     return track('merci_gate_opened', props)
+}
+
+/** A beat became visible, including on the way back. */
+export async function trackMerciBeatViewed(props: { code: string; beat: number }): Promise<void> {
+    return track('merci_beat_viewed', props)
 }
 
 export async function trackMerciOfferRedeemed(props: { code: string; email: string }): Promise<void> {

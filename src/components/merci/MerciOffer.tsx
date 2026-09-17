@@ -105,11 +105,11 @@ export default function MerciOffer({ code, src, alreadyRedeemed, onRedeemed }: M
                             beat is labelled by. */}
                         <h1
                             id="merci-offer-title"
-                            className="m-0 font-sans text-[20px] font-extrabold leading-[1.2] tracking-[-0.02em] text-white"
+                            className="m-0 font-sans text-[26px] font-extrabold leading-[1.12] tracking-[-0.03em] text-white"
                         >
-                            {OFFER.courseTitle}
+                            {OFFER.heading}
                         </h1>
-                        <p className="merci-blurb mt-1.5 font-satoshi text-[13px] leading-[1.45] text-white">
+                        <p className="merci-blurb-offer mt-1.5 font-satoshi text-[13px] leading-[1.45] text-white">
                             {OFFER.blurb}
                         </p>
 
@@ -118,7 +118,7 @@ export default function MerciOffer({ code, src, alreadyRedeemed, onRedeemed }: M
                                 {OFFER.redeemed.before}
                                 <a
                                     href={OFFER.redeemed.href}
-                                    className="merci-focus text-white underline decoration-yellow decoration-2 underline-offset-4"
+                                    className="merci-focus text-white underline decoration-orange decoration-2 underline-offset-4"
                                 >
                                     {OFFER.redeemed.link}
                                 </a>
@@ -184,7 +184,7 @@ export default function MerciOffer({ code, src, alreadyRedeemed, onRedeemed }: M
             </Rise>
 
             <Rise delayMs={cardAt + 200} className="mt-5">
-                <p className="font-satoshi text-[14px] leading-[1.45] text-text-muted">
+                <p className="merci-company font-satoshi text-[14px] leading-[1.45] text-text-muted">
                     {OFFER.company.before}
                     {ADVISORS.map((advisor, i) => (
                         <span key={advisor.name}>
