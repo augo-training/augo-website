@@ -74,11 +74,11 @@ export const COPY = {
         eyebrowSpoken: 'By invitation only',
         headline: DOOR_HEADLINE,
         fieldLabel: "Enter your invitation code. It's either on your postcard or sent via email.",
-        placeholder: 'NICE-000',
+        placeholder: 'ABC',
         button: 'OPEN',
         checking: 'CHECKING',
         welcome: 'Welcome.',
-        invalid: 'That code is not on our list. It sits next to the QR, like NICE-042.',
+        invalid: 'That code is not on our list. Check the three letters on your card.',
         empty: 'Type the code from your card.',
         error: 'Something went wrong on our side. Try again in a moment.',
         /**
