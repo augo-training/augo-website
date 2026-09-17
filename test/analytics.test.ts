@@ -109,6 +109,12 @@ describe('merci funnel', () => {
         expect(propsFor('merci_gate_opened')).toEqual({ code: 'NICE-042', src: 'email' })
     })
 
+    it('carries the beat number with the code', async () => {
+        const { trackMerciBeatViewed } = await loadModule()
+        await trackMerciBeatViewed({ code: 'NVE', beat: 4 })
+        expect(propsFor('merci_beat_viewed')).toEqual({ code: 'NVE', beat: 4 })
+    })
+
     it('ties the signup to the code and the email', async () => {
         const { trackMerciOfferRedeemed } = await loadModule()
         await trackMerciOfferRedeemed({ code: 'NICE-042', email: 'coach@example.com' })

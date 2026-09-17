@@ -762,12 +762,58 @@ body {
   font-size: clamp(40px, 11vw, 120px);
 }
 
+/* Beat 1, whose first line is a whole sentence and would run to seven lines
+   at the xl size. */
+.merci-headline-lg {
+  font-size: clamp(34px, 7.2vw, 76px);
+  line-height: 0.98;
+}
+
+/* Beat 1 is the one headline whose lines are three separate sentences rather
+   than one phrase broken by hand, so they need air between them. The margin
+   sits between the sentences only; the leading inside a sentence that wraps
+   stays tight. */
+.merci-headline-lg .merci-line+.merci-line {
+  margin-top: 0.2em;
+}
+
 .merci-sub {
   font-family: var(--font-satoshi);
   font-weight: 500;
   font-size: clamp(19px, 3vw, 26px);
   line-height: 1.3;
   max-width: 30ch;
+}
+
+/* A subline set in hand-broken lines: the lines decide the width, not 30ch. */
+.merci-sub-wide {
+  max-width: none;
+}
+
+/* Beat 4's quote. A step under the sublines, because it is 200 characters that
+   have to sit under a portrait on a phone, and it wraps to its own measure
+   rather than the sublines' 30ch. */
+.merci-quote-text {
+  font-family: var(--font-satoshi);
+  font-size: clamp(16px, 4.2vw, 22px);
+  line-height: 1.4;
+}
+
+.merci-quote-photo {
+  width: 80px;
+  height: 80px;
+}
+
+@media (max-height: 700px) {
+  .merci-quote-text {
+    font-size: 15px;
+    line-height: 1.36;
+  }
+
+  .merci-quote-photo {
+    width: 60px;
+    height: 60px;
+  }
 }
 
 .merci-label {
@@ -798,7 +844,9 @@ body {
   right: 0.14em;
   bottom: -0.1em;
   height: 0.075em;
-  background: var(--color-yellow);
+  /* The brand ramp rather than flat red: this bar is only ~3px tall, and
+     #C50017 on near-black all but disappears at that size. */
+  background: linear-gradient(83.9deg, #C50017 0%, #FF5514 60%, #FFCA1E 100%);
   transform-origin: left center;
   animation: merci-mark-in 600ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
   animation-delay: var(--mark-delay, 0ms);
@@ -821,8 +869,8 @@ body {
 }
 
 .merci-field:focus {
-  border-color: var(--color-yellow);
-  box-shadow: 0 0 0 1px var(--color-yellow);
+  border-color: var(--color-orange);
+  box-shadow: 0 0 0 1px var(--color-orange);
 }
 
 .merci-btn {
@@ -832,8 +880,12 @@ body {
   padding: 16px 26px;
   border: 0;
   border-radius: 12px;
-  background: var(--color-yellow);
-  color: var(--color-dark);
+  /* The site's standard CTA fill, so /merci stops having a button style found
+     nowhere else. White on the gradient, because black on augo red is unreadable. */
+  background: linear-gradient(83.9deg, #151515 -4%, #C50017 38.22%, #FF5514 69.06%, #FFCA1E 99.9%);
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease-in-out infinite;
+  color: #fff;
   font-family: var(--font-mono);
   font-weight: 700;
   font-size: 13px;
@@ -880,8 +932,30 @@ body {
 
 .merci-btn:focus-visible,
 .merci-focus:focus-visible {
-  outline: 2px solid var(--color-yellow);
+  outline: 2px solid var(--color-orange);
   outline-offset: 3px;
+}
+
+/* The tap zones cover half the screen each, so the ring sits inside them
+   rather than tracing the whole edge. */
+.merci-zone:focus-visible {
+  outline: 2px solid var(--color-orange);
+  outline-offset: -8px;
+}
+
+.merci-progress {
+  padding-top: calc(env(safe-area-inset-top, 0px) + 18px);
+  padding-bottom: 22px;
+  background: linear-gradient(to bottom, var(--color-dark) 65%, transparent);
+}
+
+.merci-hint {
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 24px + var(--merci-banner, 0px));
+}
+
+.merci-nudge {
+  display: inline-block;
+  animation: merci-nudge 1.6s ease-in-out infinite;
 }
 
 .merci-cursor {
@@ -890,9 +964,78 @@ body {
   height: 1.1em;
   margin-left: 2px;
   vertical-align: -0.18em;
-  background: var(--color-yellow);
+  background: var(--color-red);
   animation: merci-blink 1s steps(1, end) infinite;
 }
+
+/* The Assistant mock (beat 2).
+   The message window is a fixed height anchored to its bottom, so a long answer
+   scrolls up as it types the way a real chat does. Without a fixed height the
+   panel would grow by 200px mid-sentence on the pace-table answer.
+
+   The height is not a number: the log is flex-1 inside a panel that fills
+   whatever the beat has left, so the conversation is always as tall as the
+   screen allows and shrinks on its own when the cookie bar is up. The floor
+   stops it collapsing to nothing on a very short viewport. */
+/* Sized against the viewport rather than stretched to fill.
+   Stretching pinned the headline to the top of the screen and left dead space
+   under the panel, because `.merci-line` sets display:block on the wrapper, so
+   the panel never actually grew into the height its flex-1 had claimed. With a
+   height of its own, the headline and the panel centre together as one group. */
+.merci-chat-log {
+  height: clamp(150px, 28vh, 270px);
+}
+
+/* The page glow behind the story beats, taken from the app: deep red across the
+   top, warming to orange on the right, gone by about 45% down. It sits on the
+   page rather than inside the chat panel so the colour belongs to the screen.
+   Fades with the same 450ms as a beat transition, so it does not pop in after
+   the door or out before the ticket. */
+.merci-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 450ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  background:
+    radial-gradient(120% 52% at 24% -8%, rgba(197, 0, 23, 0.58) 0%, rgba(197, 0, 23, 0.3) 38%, transparent 72%),
+    radial-gradient(90% 44% at 92% -6%, rgba(255, 85, 20, 0.34) 0%, rgba(255, 85, 20, 0.14) 45%, transparent 78%),
+    radial-gradient(70% 30% at 50% 0%, rgba(255, 202, 30, 0.12) 0%, transparent 70%);
+}
+
+.merci-glow-on {
+  opacity: 1;
+}
+
+/* The topo texture under the glow, the same asset and treatment the hero,
+   pricing and download sections use. */
+.merci-glow-topo {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background-size: cover;
+  background-position: center top;
+  transition: opacity 450ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 30%, transparent 62%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 30%, transparent 62%);
+}
+
+.merci-glow-on.merci-glow-topo {
+  opacity: 0.5;
+}
+
+/* A thin caret inside a bubble, rather than the terminal's solid block. */
+.merci-caret {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 1px;
+  vertical-align: -0.15em;
+  background: currentColor;
+  animation: merci-blink 1s steps(1, end) infinite;
+}
+
 
 @keyframes merci-beat-in {
   from {
@@ -945,34 +1088,63 @@ body {
   }
 }
 
+@keyframes merci-nudge {
+
+  0%,
+  100% {
+    transform: none;
+  }
+
+  50% {
+    transform: translateX(4px);
+  }
+}
+
 /* Short phones (640px-class): trim the offer so it still fits one screen. */
 @media (max-height: 700px) {
   .merci-field {
-    height: 46px;
+    height: 42px;
   }
 
   .merci-btn {
-    padding-top: 13px;
-    padding-bottom: 13px;
+    padding-top: 11px;
+    padding-bottom: 11px;
   }
 
   /* Close the gaps between the offer's blocks rather than shrinking the type. */
   .merci-offer>.merci-line {
-    margin-top: 10px;
+    margin-top: 6px;
   }
 
   /* The pass's top and bottom blocks only: the middle child is the tear line,
      which has no padding of its own and would gain 24px of height. */
   .merci-pass>div:first-child,
   .merci-pass>div:last-child {
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+  }
+
+  /* The ticket is the tallest thing on the page, and on a first visit it shares
+     the screen with the 138px cookie bar. Shrink the card's own type rather
+     than let the button slide under the bar. */
+  .merci-pass h1 {
+    font-size: 22px;
+  }
+
+  .merci-blurb-offer {
+    font-size: 11.5px;
+    line-height: 1.38;
+  }
+
+  .merci-company {
+    font-size: 12.5px;
+    line-height: 1.35;
   }
 }
 
 /* The oldest small phones (568px-class). The card still scrolls if it has to,
    but at this size it does not need to. */
-@media (max-height: 600px) {
+@media (max-height: 660px) {
   .merci-root {
     --merci-top: calc(env(safe-area-inset-top, 0px) + 18px);
   }
@@ -1000,15 +1172,22 @@ body {
     padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 10px + var(--merci-banner, 0px));
   }
 
+
   /* The card's own type, which Tailwind sizes inline, so these need the
      specificity of a class selector to win. */
   .merci-pass h1 {
-    font-size: 17px;
+    font-size: 20px;
   }
 
-  .merci-blurb {
+  .merci-blurb-offer {
     margin-top: 4px;
+    font-size: 11.5px;
+    line-height: 1.38;
+  }
+
+  .merci-company {
     font-size: 12px;
+    line-height: 1.32;
   }
 }
 
@@ -1018,13 +1197,25 @@ body {
   .merci-beat,
   .merci-line,
   .merci-mark::after,
-  .merci-cursor {
+  .merci-cursor,
+  .merci-nudge {
     animation: none;
   }
 
   .merci-beat.merci-beat-out {
     animation: none;
     opacity: 0;
+  }
+
+  /* The glow appears and goes without a cross-fade. */
+  .merci-glow,
+  .merci-glow-topo {
+    transition: none;
+  }
+
+  /* The CTA's brand gradient drifts on a 4s loop everywhere else on the site. */
+  .merci-btn {
+    animation: none;
   }
 }
 

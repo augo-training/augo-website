@@ -63,18 +63,20 @@ export function Beat({
 interface HeadlineProps {
     id?: string
     lines: HeadlineLine[]
+    /** 'lg' for beat 1, whose first line is a whole sentence. */
+    size?: 'xl' | 'lg'
     /** When the first line starts rising, from the moment the beat mounts. */
     startMs?: number
 }
 
 /**
- * The big type on the door and the done state. Lines rise in one after another,
- * TIMING.lineStaggerMs apart. The card has no headline of its own: its title is
- * the heading there.
+ * The big type on the door, the story beats and the done state. Lines rise in
+ * one after another, TIMING.lineStaggerMs apart. The card has no headline of
+ * its own: its title is the heading there.
  */
-export function Headline({ id, lines, startMs = 0 }: HeadlineProps) {
+export function Headline({ id, lines, size = 'xl', startMs = 0 }: HeadlineProps) {
     return (
-        <h1 id={id} className="merci-headline merci-headline-xl">
+        <h1 id={id} className={`merci-headline merci-headline-${size}`}>
             {lines.map((line, i) => {
                 const delay = startMs + i * TIMING.lineStaggerMs
                 return (
