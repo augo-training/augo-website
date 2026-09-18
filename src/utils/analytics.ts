@@ -72,13 +72,18 @@ async function applyIdentity(identity: Identity): Promise<void> {
     mixpanel.people.set_once(identity.setOnce)
 }
 
-async function track(event: string, props?: Props): Promise<void> {
+/**
+ * `beacon` is for a click that leaves the page in the same tab: the SDK's
+ * normal batched XHR would be cancelled by the navigation, a beacon is not.
+ */
+async function track(event: string, props?: Props, options?: { beacon?: boolean }): Promise<void> {
     if (!isEnabled()) return
     if (getConsentStatus() === 'declined') return
     if (!(await tryInit())) return
     try {
         const { default: mixpanel } = await import('mixpanel-browser')
-        mixpanel.track(event, props)
+        if (options?.beacon) mixpanel.track(event, props, { transport: 'sendBeacon' })
+        else mixpanel.track(event, props)
     } catch {
         // Silently ignore if blocked
     }
@@ -220,6 +225,8 @@ interface IdentifyEmailCaptureProps {
     /** Where the capture happened, e.g. the cta_text. */
     source: string
     page: string
+    /** The /merci invitation code the signup came in on. */
+    merci_code?: string
 }
 
 /**
@@ -236,6 +243,7 @@ export async function identifyEmailCapture(props: IdentifyEmailCaptureProps): Pr
             $email: distinctId,
             ...(props.first_name ? { $first_name: props.first_name } : {}),
             ...(props.coaching_status ? { coaching_status: props.coaching_status } : {}),
+            ...(props.merci_code ? { merci_code: props.merci_code } : {}),
             last_signup_source: props.source,
             last_signup_page: props.page,
             ...getUtmParams(),
@@ -374,26 +382,104 @@ export async function trackSupportSearchNoResults(props: {
 
 // ── Worlds postcard page (/merci) ──
 //
-// Read per code: gate_opened says who scanned, beat_viewed how far they got
-// through the sequence, offer_redeemed who signed up. beat_viewed on the last
-// beat minus offer_redeemed is the drop-off at the form itself, as opposed to
-// people leaving part way through the story. None of these go to Meta.
+// Read per code, as a funnel: door_viewed is everyone who landed, gate_opened
+// who got in, beat_viewed how far they got through the sequence,
+// offer_form_started who touched the form and offer_redeemed who signed up.
+// code_failed, code_check_error and no_code_clicked explain losses at the
+// door; offer_error explains losses at the form. None of these go to Meta.
+//
+// The merci events call the property `code`. Once the door opens the same
+// value is also registered as the super property `merci_code`, so whatever
+// that browser does on the rest of the site afterwards carries it too.
+
+type MerciSrc = 'postcard' | 'email'
+/** How the code reached the field: a `?c=` link, the code saved on this device, or typed. */
+export type MerciCodeMethod = 'link' | 'saved' | 'typed'
+
+/**
+ * The door became visible. `code` is only what the URL or this device
+ * suggested, not yet checked, so it is absent for a cold postcard scan.
+ */
+export async function trackMerciDoorViewed(props: {
+    src: MerciSrc
+    entry: 'link' | 'saved' | 'blank'
+    code?: string
+}): Promise<void> {
+    return track('merci_door_viewed', { ...props, ...getUtmParams() })
+}
 
 /** An invalid code was submitted at the door. `code` is as typed, before normalising. */
-export async function trackMerciCodeFailed(props: { code: string }): Promise<void> {
+export async function trackMerciCodeFailed(props: {
+    code: string
+    /** 'malformed' never reached the server; 'unknown' was not on the list. */
+    reason: 'malformed' | 'unknown'
+    method: MerciCodeMethod
+}): Promise<void> {
     return track('merci_code_failed', props)
 }
 
-/** A valid code opened the door, typed or from a `?c=` email link. */
-export async function trackMerciGateOpened(props: { code: string; src: 'postcard' | 'email' }): Promise<void> {
-    return track('merci_gate_opened', props)
+/** The code check itself failed (webhook down or unreachable), so a real coach may be stuck. */
+export async function trackMerciCodeCheckError(props: { code: string; method: MerciCodeMethod }): Promise<void> {
+    return track('merci_code_check_error', props)
 }
 
-/** A beat became visible, including on the way back. */
-export async function trackMerciBeatViewed(props: { code: string; beat: number }): Promise<void> {
+/** "No invitation code?" leaves for the Typeform in the same tab, hence the beacon. */
+export async function trackMerciNoCodeClicked(props: { code?: string }): Promise<void> {
+    return track('merci_no_code_clicked', props, { beacon: true })
+}
+
+/** A valid code opened the door, typed or from a `?c=` email link. */
+export async function trackMerciGateOpened(props: {
+    code: string
+    src: MerciSrc
+    method: MerciCodeMethod
+    already_redeemed: boolean
+}): Promise<void> {
+    if (!isEnabled() || getConsentStatus() === 'declined') return
+    if (!(await tryInit())) return
+    try {
+        const { default: mixpanel } = await import('mixpanel-browser')
+        mixpanel.register({ merci_code: props.code, merci_src: props.src })
+        mixpanel.track('merci_gate_opened', props)
+    } catch {
+        // Silently ignore if blocked
+    }
+}
+
+/**
+ * A beat became visible, including on the way back: `first_view` separates
+ * the two. `seconds_on_previous` is how long the beat before it was up.
+ */
+export async function trackMerciBeatViewed(props: {
+    code: string
+    src: MerciSrc
+    beat: number
+    beat_name: string
+    first_view: boolean
+    seconds_on_previous?: number
+}): Promise<void> {
     return track('merci_beat_viewed', props)
 }
 
-export async function trackMerciOfferRedeemed(props: { code: string; email: string }): Promise<void> {
+/** First focus of either field on the offer form. */
+export async function trackMerciOfferFormStarted(props: { code: string; src: MerciSrc }): Promise<void> {
+    return track('merci_offer_form_started', props)
+}
+
+/** An error shown on the offer; 'already_redeemed' is the note that replaces the form. */
+export async function trackMerciOfferError(props: {
+    code: string
+    error: 'name' | 'email' | 'submit' | 'already_redeemed'
+}): Promise<void> {
+    return track('merci_offer_error', props)
+}
+
+export async function trackMerciOfferRedeemed(props: { code: string; email: string; src: MerciSrc }): Promise<void> {
     return track('merci_offer_redeemed', props)
+}
+
+/** An advisor's name under the card, or 'redeemed_contact' in the already-redeemed note. */
+export async function trackMerciLinkClicked(props: { code: string; link: string }): Promise<void> {
+    // The contact link leaves in the same tab; a beacon costs the others nothing.
+    return track('merci_link_clicked', props, { beacon: true })
 }

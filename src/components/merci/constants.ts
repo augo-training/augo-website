@@ -40,6 +40,15 @@ export const MERCI_CODE_STORAGE_KEY = 'augo_merci_code'
 /** Signup source on the Mixpanel profile. */
 export const MERCI_SOURCE = 'Merci Worlds 2026'
 
+/** Beat names as Mixpanel sees them, so a report reads "quote" rather than "4". */
+export const BEAT_NAMES: Record<number, string> = {
+    1: 'memory',
+    2: 'prompt',
+    3: 'decide',
+    4: 'quote',
+    5: 'offer',
+}
+
 export const TIMING = {
     eyebrowCharMs: 38,
     lineStaggerMs: 400,

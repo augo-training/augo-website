@@ -1,9 +1,15 @@
-import { useState, type FormEvent } from 'react'
+import { useEffect, useRef, useState, type FormEvent } from 'react'
 import { Headline, Rise } from './MerciBeat'
 import { ADVISORS, COPY, MERCI_PATH, MERCI_SOURCE, TIMING } from './constants'
 import { redeemOffer } from './api'
 import type { MerciSrc } from './code'
-import { identifyEmailCapture, trackMerciOfferRedeemed } from '../../utils/analytics'
+import {
+    identifyEmailCapture,
+    trackMerciLinkClicked,
+    trackMerciOfferError,
+    trackMerciOfferFormStarted,
+    trackMerciOfferRedeemed,
+} from '../../utils/analytics'
 
 const OFFER = COPY.offer
 const FORM = OFFER.form
@@ -49,6 +55,24 @@ export default function MerciOffer({ code, src, alreadyRedeemed, onRedeemed }: M
     const [sending, setSending] = useState(false)
     const [error, setError] = useState<FormError | null>(null)
     const [redeemed, setRedeemed] = useState(alreadyRedeemed)
+    const formStarted = useRef(false)
+
+    // The note that replaces the form, whether the door already knew or the
+    // redeem call has just answered 409.
+    useEffect(() => {
+        if (redeemed) void trackMerciOfferError({ code, error: 'already_redeemed' })
+    }, [redeemed, code])
+
+    function fail(kind: FormError) {
+        setError(kind)
+        void trackMerciOfferError({ code, error: kind })
+    }
+
+    function handleFormFocus() {
+        if (formStarted.current) return
+        formStarted.current = true
+        void trackMerciOfferFormStarted({ code, src })
+    }
 
     // No headline above the card any more, so it leads rather than waits.
     const cardAt = 0
@@ -58,8 +82,8 @@ export default function MerciOffer({ code, src, alreadyRedeemed, onRedeemed }: M
         if (sending) return
         const name = firstName.trim()
         const address = email.trim()
-        if (!name) return setError('name')
-        if (!EMAIL_PATTERN.test(address)) return setError('email')
+        if (!name) return fail('name')
+        if (!EMAIL_PATTERN.test(address)) return fail('email')
 
         setError(null)
         setSending(true)
@@ -67,15 +91,16 @@ export default function MerciOffer({ code, src, alreadyRedeemed, onRedeemed }: M
         setSending(false)
 
         if (result === 'redeemed') return setRedeemed(true)
-        if (result === 'error') return setError('submit')
+        if (result === 'error') return fail('submit')
 
         void identifyEmailCapture({
             email: address,
             first_name: name,
             source: MERCI_SOURCE,
             page: MERCI_PATH,
+            merci_code: code,
         })
-        void trackMerciOfferRedeemed({ code, email: address })
+        void trackMerciOfferRedeemed({ code, email: address, src })
         onRedeemed(name)
     }
 
@@ -118,6 +143,7 @@ export default function MerciOffer({ code, src, alreadyRedeemed, onRedeemed }: M
                                 {OFFER.redeemed.before}
                                 <a
                                     href={OFFER.redeemed.href}
+                                    onClick={() => void trackMerciLinkClicked({ code, link: 'redeemed_contact' })}
                                     className="merci-focus text-white underline decoration-orange decoration-2 underline-offset-4"
                                 >
                                     {OFFER.redeemed.link}
@@ -126,7 +152,12 @@ export default function MerciOffer({ code, src, alreadyRedeemed, onRedeemed }: M
                             </p>
                         ) : (
                             <>
-                                <form onSubmit={handleSubmit} noValidate className="mt-4 flex flex-col gap-2">
+                                <form
+                                    onSubmit={handleSubmit}
+                                    onFocus={handleFormFocus}
+                                    noValidate
+                                    className="mt-4 flex flex-col gap-2"
+                                >
                                     <input
                                         id="merci-first-name"
                                         type="text"
@@ -193,6 +224,7 @@ export default function MerciOffer({ code, src, alreadyRedeemed, onRedeemed }: M
                                 href={advisor.href}
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                onClick={() => void trackMerciLinkClicked({ code, link: advisor.name })}
                                 className="merci-focus text-white underline decoration-dark-400 underline-offset-2 transition-colors duration-150 hover:decoration-white"
                             >
                                 {advisor.name}
