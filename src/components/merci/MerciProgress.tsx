@@ -7,8 +7,8 @@ const BEATS = [1, 2, 3, 4, 5] as const
  * dark. White rather than a brand colour, because these sit over the red glow
  * and knowing where you are is the bar's whole job.
  *
- * They sit on a dark fade so the offer's text, scrolling underneath, never
- * reads as underlined by them.
+ * No background of their own: the offer's scroll area fades its text out
+ * before it reaches them (.merci-beat-scroll).
  */
 export function MerciProgress({ beat }: { beat: number }) {
     return (

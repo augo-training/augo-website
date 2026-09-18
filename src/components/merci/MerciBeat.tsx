@@ -41,7 +41,7 @@ export function Beat({
         'merci-beat',
         align === 'top' ? 'justify-start' : 'justify-center',
         interactive ? 'pointer-events-auto' : 'pointer-events-none',
-        scroll ? 'overflow-y-auto overscroll-contain' : '',
+        scroll ? 'merci-beat-scroll overflow-y-auto overscroll-contain' : '',
         tight ? 'merci-beat-tight' : '',
         leaving ? 'merci-beat-out' : '',
     ].join(' ')

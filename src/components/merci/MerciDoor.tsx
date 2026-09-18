@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react'
-import augoLogo from '../../assets/images/augo_footer_1.svg'
 import { Beat, Headline, Rise } from './MerciBeat'
 import { COPY, TIMING } from './constants'
 import { isWellFormed, normalizeCode } from './code'
@@ -107,14 +106,6 @@ export default function MerciDoor({ initialCode, autoSubmit, reduced, onOpen }: 
 
     return (
         <Beat role="dialog" labelledBy="merci-door-title" interactive leaving={phase === 'leaving'}>
-            {/* Shown straight away, not animated in: someone who has just
-                scanned a code off a postcard should know whose page this is
-                before the sequence starts. Plain image, like the Nice landing
-                pages while locked, since "No invitation code?" under the field
-                is the deliberate way out. It lives on the door only, because
-                beats 1 to 4 have the progress bars along the top. */}
-            <img src={augoLogo} alt="augo" className="mb-8 h-6 w-auto self-start sm:mb-10 sm:h-7" />
-
             <p className="merci-label min-h-[1.5em] text-text-muted">
                 <span className="sr-only">{DOOR.eyebrowSpoken}</span>
                 <span aria-hidden="true">

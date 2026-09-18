@@ -727,7 +727,7 @@ body {
    not utilities. */
 .merci-root {
   color-scheme: dark;
-  --merci-top: calc(env(safe-area-inset-top, 0px) + 52px);
+  --merci-top: calc(env(safe-area-inset-top, 0px) + 76px);
   --merci-bottom: calc(env(safe-area-inset-bottom, 0px) + 64px + var(--merci-banner, 0px));
 }
 
@@ -742,6 +742,14 @@ body {
 
 .merci-beat.merci-beat-out {
   animation: merci-beat-out 450ms ease-in both;
+}
+
+/* The offer scrolls under the progress bars and the logo. Its text fades out
+   before reaching them, so it never collides with them, without painting a
+   dark band over the red glow. */
+.merci-beat-scroll {
+  -webkit-mask-image: linear-gradient(to bottom, transparent calc(var(--merci-top) - 16px), #000 var(--merci-top));
+  mask-image: linear-gradient(to bottom, transparent calc(var(--merci-top) - 16px), #000 var(--merci-top));
 }
 
 /* The offer has no tap hint to leave room for. */
@@ -945,8 +953,10 @@ body {
 
 .merci-progress {
   padding-top: calc(env(safe-area-inset-top, 0px) + 18px);
-  padding-bottom: 22px;
-  background: linear-gradient(to bottom, var(--color-dark) 65%, transparent);
+}
+
+.merci-logo {
+  top: calc(env(safe-area-inset-top, 0px) + 37px);
 }
 
 .merci-hint {
@@ -1146,7 +1156,7 @@ body {
    but at this size it does not need to. */
 @media (max-height: 660px) {
   .merci-root {
-    --merci-top: calc(env(safe-area-inset-top, 0px) + 18px);
+    --merci-top: calc(env(safe-area-inset-top, 0px) + 72px);
   }
 
   .merci-offer>.merci-line {
