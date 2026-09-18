@@ -17,6 +17,7 @@ import MerciOffer, { MerciDone } from '../components/merci/MerciOffer'
 import { MerciHint, MerciProgress } from '../components/merci/MerciProgress'
 import { Beat, Headline, Rise } from '../components/merci/MerciBeat'
 import {
+    BEAT_NAMES,
     COPY,
     MERCI_CANONICAL,
     MERCI_CODE_STORAGE_KEY,
@@ -28,8 +29,10 @@ import { useReducedMotion } from '../components/merci/motion'
 import { useCookieBannerHeight } from '../hooks/useCookieBannerHeight'
 import {
     trackMerciBeatViewed,
+    trackMerciDoorViewed,
     trackMerciGateOpened,
     trackPageViewed,
+    type MerciCodeMethod,
 } from '../utils/analytics'
 
 /** 0 is the door; 1 to 5 are the beats. The done state replaces beat 5. */
@@ -96,6 +99,8 @@ export default function Merci() {
     const [doneName, setDoneName] = useState<string | null>(null)
     const pageTracked = useRef(false)
     const lastBeatTracked = useRef<number | null>(null)
+    const beatsSeen = useRef(new Set<number>())
+    const beatShownAt = useRef<number | null>(null)
 
     const navigable = beat > 0 && doneName === null
     /**
@@ -109,21 +114,44 @@ export default function Merci() {
         if (pageTracked.current) return
         pageTracked.current = true
         void trackPageViewed({ page: MERCI_PATH, referrer: document.referrer, language: 'en' })
+        void trackMerciDoorViewed({
+            src,
+            entry: urlCode ? 'link' : initialCode ? 'saved' : 'blank',
+            ...(initialCode ? { code: initialCode } : {}),
+        })
+        // eslint-disable-next-line react-hooks/exhaustive-deps -- once, with the values the page loaded with
     }, [])
 
     // Every time a beat becomes visible, including on the way back.
     useEffect(() => {
         if (!navigable || lastBeatTracked.current === beat) return
         lastBeatTracked.current = beat
-        void trackMerciBeatViewed({ code, beat })
-    }, [navigable, beat, code])
+        const now = Date.now()
+        const shownAt = beatShownAt.current
+        beatShownAt.current = now
+        const firstView = !beatsSeen.current.has(beat)
+        beatsSeen.current.add(beat)
+        void trackMerciBeatViewed({
+            code,
+            src,
+            beat,
+            beat_name: BEAT_NAMES[beat],
+            first_view: firstView,
+            ...(shownAt === null ? {} : { seconds_on_previous: Math.round((now - shownAt) / 1000) }),
+        })
+    }, [navigable, beat, code, src])
 
     const handleOpen = useCallback(
-        (openedCode: string, wasRedeemed: boolean) => {
+        (openedCode: string, wasRedeemed: boolean, method: MerciCodeMethod) => {
             setCode(openedCode)
             setRedeemed(wasRedeemed)
             saveCode(openedCode)
-            void trackMerciGateOpened({ code: openedCode, src })
+            void trackMerciGateOpened({
+                code: openedCode,
+                src,
+                method,
+                already_redeemed: wasRedeemed,
+            })
             setBeat(1)
         },
         [src],

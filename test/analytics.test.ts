@@ -9,13 +9,15 @@ import { beforeEach, describe, expect, it, vi } from 'vitest'
  */
 
 const track = vi.fn()
+const register = vi.fn()
+const peopleSet = vi.fn()
 
 vi.mock('mixpanel-browser', () => ({
     default: {
         init: vi.fn(),
-        register: vi.fn(),
+        register,
         identify: vi.fn(),
-        people: { set: vi.fn(), set_once: vi.fn() },
+        people: { set: peopleSet, set_once: vi.fn() },
         track,
     },
 }))
@@ -48,6 +50,8 @@ async function loadModule() {
 
 beforeEach(() => {
     track.mockClear()
+    register.mockClear()
+    peopleSet.mockClear()
     vi.stubEnv('VITE_MIXPANEL_TOKEN', 'a'.repeat(32))
 })
 
@@ -95,29 +99,95 @@ describe('cta_clicked', () => {
     })
 })
 
-// The /merci funnel is read per code: who scanned, and who then signed up.
+// The /merci funnel is read per code: who landed, who got in, how far they
+// read, and who then signed up.
 describe('merci funnel', () => {
-    it('keeps the code exactly as typed on a failed attempt', async () => {
+    it('counts a landing before any code is checked', async () => {
+        vi.stubGlobal('window', { location: { search: '?utm_source=postcard' } })
+        const { trackMerciDoorViewed } = await loadModule()
+        await trackMerciDoorViewed({ src: 'email', entry: 'link', code: 'NVE' })
+        expect(propsFor('merci_door_viewed')).toEqual({
+            src: 'email',
+            entry: 'link',
+            code: 'NVE',
+            utm_source: 'postcard',
+        })
+        vi.unstubAllGlobals()
+    })
+
+    it('keeps the code exactly as typed on a failed attempt, and why it failed', async () => {
         const { trackMerciCodeFailed } = await loadModule()
-        await trackMerciCodeFailed({ code: 'nice 42' })
-        expect(propsFor('merci_code_failed')).toEqual({ code: 'nice 42' })
+        await trackMerciCodeFailed({ code: 'nice 42', reason: 'malformed', method: 'typed' })
+        expect(propsFor('merci_code_failed')).toEqual({ code: 'nice 42', reason: 'malformed', method: 'typed' })
     })
 
-    it('says whether the gate was opened from a postcard or an email link', async () => {
+    it('records a code check that could not be made', async () => {
+        const { trackMerciCodeCheckError } = await loadModule()
+        await trackMerciCodeCheckError({ code: 'NVE', method: 'link' })
+        expect(propsFor('merci_code_check_error')).toEqual({ code: 'NVE', method: 'link' })
+    })
+
+    it('sends the no-code exit as a beacon, since the click leaves the page', async () => {
+        const { trackMerciNoCodeClicked } = await loadModule()
+        await trackMerciNoCodeClicked({})
+        const call = track.mock.calls.find(([name]) => name === 'merci_no_code_clicked')
+        expect(call?.[2]).toEqual({ transport: 'sendBeacon' })
+    })
+
+    it('says how the gate was opened, and registers the code for the rest of the site', async () => {
         const { trackMerciGateOpened } = await loadModule()
-        await trackMerciGateOpened({ code: 'NICE-042', src: 'email' })
-        expect(propsFor('merci_gate_opened')).toEqual({ code: 'NICE-042', src: 'email' })
+        await trackMerciGateOpened({ code: 'NVE', src: 'email', method: 'link', already_redeemed: false })
+        expect(propsFor('merci_gate_opened')).toEqual({
+            code: 'NVE',
+            src: 'email',
+            method: 'link',
+            already_redeemed: false,
+        })
+        expect(register).toHaveBeenCalledWith({ merci_code: 'NVE', merci_src: 'email' })
     })
 
-    it('carries the beat number with the code', async () => {
+    it('carries the beat, its name and whether it is a first view', async () => {
         const { trackMerciBeatViewed } = await loadModule()
-        await trackMerciBeatViewed({ code: 'NVE', beat: 4 })
-        expect(propsFor('merci_beat_viewed')).toEqual({ code: 'NVE', beat: 4 })
+        const props = {
+            code: 'NVE',
+            src: 'postcard' as const,
+            beat: 4,
+            beat_name: 'quote',
+            first_view: true,
+            seconds_on_previous: 12,
+        }
+        await trackMerciBeatViewed(props)
+        expect(propsFor('merci_beat_viewed')).toEqual(props)
+    })
+
+    it('marks the form being started and the errors shown on it', async () => {
+        const { trackMerciOfferFormStarted, trackMerciOfferError } = await loadModule()
+        await trackMerciOfferFormStarted({ code: 'NVE', src: 'postcard' })
+        await trackMerciOfferError({ code: 'NVE', error: 'email' })
+        expect(propsFor('merci_offer_form_started')).toEqual({ code: 'NVE', src: 'postcard' })
+        expect(propsFor('merci_offer_error')).toEqual({ code: 'NVE', error: 'email' })
     })
 
     it('ties the signup to the code and the email', async () => {
         const { trackMerciOfferRedeemed } = await loadModule()
-        await trackMerciOfferRedeemed({ code: 'NICE-042', email: 'coach@example.com' })
-        expect(propsFor('merci_offer_redeemed')).toEqual({ code: 'NICE-042', email: 'coach@example.com' })
+        await trackMerciOfferRedeemed({ code: 'NVE', email: 'coach@example.com', src: 'postcard' })
+        expect(propsFor('merci_offer_redeemed')).toEqual({
+            code: 'NVE',
+            email: 'coach@example.com',
+            src: 'postcard',
+        })
+    })
+
+    it('puts the code on the profile of the coach who signed up', async () => {
+        vi.stubGlobal('window', { location: { search: '' } })
+        const { identifyEmailCapture } = await loadModule()
+        await identifyEmailCapture({
+            email: 'Coach@Example.com',
+            source: 'Merci Worlds 2026',
+            page: '/merci',
+            merci_code: 'NVE',
+        })
+        expect(peopleSet).toHaveBeenCalledWith(expect.objectContaining({ merci_code: 'NVE' }))
+        vi.unstubAllGlobals()
     })
 })

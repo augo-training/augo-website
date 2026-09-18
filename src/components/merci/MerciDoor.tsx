@@ -4,7 +4,12 @@ import { COPY, TIMING } from './constants'
 import { isWellFormed, normalizeCode } from './code'
 import { checkCode } from './api'
 import { useTypewriter, wait } from './motion'
-import { trackMerciCodeFailed } from '../../utils/analytics'
+import {
+    trackMerciCodeCheckError,
+    trackMerciCodeFailed,
+    trackMerciNoCodeClicked,
+    type MerciCodeMethod,
+} from '../../utils/analytics'
 
 interface MerciDoorProps {
     /** Prefill: the `?c=` code, else the last code that opened the door on this device. */
@@ -12,7 +17,7 @@ interface MerciDoorProps {
     /** The code came in on the URL: check it as soon as the intro has played. */
     autoSubmit: boolean
     reduced: boolean
-    onOpen: (code: string, redeemed: boolean) => void
+    onOpen: (code: string, redeemed: boolean, method: MerciCodeMethod) => void
 }
 
 type Phase = 'idle' | 'checking' | 'welcome' | 'leaving'
@@ -53,13 +58,13 @@ export default function MerciDoor({ initialCode, autoSubmit, reduced, onOpen }: 
         if (formReady) inputRef.current?.focus({ preventScroll: true })
     }, [formReady])
 
-    function reject(typed: string) {
+    function reject(typed: string, reason: 'malformed' | 'unknown', method: MerciCodeMethod) {
         setPhase('idle')
         setFeedback({ tone: 'error', text: DOOR.invalid })
-        void trackMerciCodeFailed({ code: typed })
+        void trackMerciCodeFailed({ code: typed, reason, method })
     }
 
-    async function submit(raw: string) {
+    async function submit(raw: string, fromLink = false) {
         if (phase !== 'idle') return
         const typed = raw.trim()
         const code = normalizeCode(raw)
@@ -68,7 +73,12 @@ export default function MerciDoor({ initialCode, autoSubmit, reduced, onOpen }: 
             return
         }
         setValue(code)
-        if (!isWellFormed(code)) return reject(typed)
+        const method: MerciCodeMethod = fromLink
+            ? 'link'
+            : code === normalizeCode(initialCode)
+              ? 'saved'
+              : 'typed'
+        if (!isWellFormed(code)) return reject(typed, 'malformed', method)
 
         setPhase('checking')
         setFeedback(null)
@@ -76,23 +86,24 @@ export default function MerciDoor({ initialCode, autoSubmit, reduced, onOpen }: 
         if (status === 'error') {
             setPhase('idle')
             setFeedback({ tone: 'error', text: DOOR.error })
+            void trackMerciCodeCheckError({ code, method })
             return
         }
-        if (!status.valid) return reject(typed)
+        if (!status.valid) return reject(typed, 'unknown', method)
 
         setPhase('welcome')
         setFeedback({ tone: 'ok', text: DOOR.welcome })
         await wait(reduced ? 0 : TIMING.welcomeHoldMs)
         setPhase('leaving')
         await wait(reduced ? 0 : TIMING.doorFadeMs)
-        onOpen(code, status.redeemed)
+        onOpen(code, status.redeemed, method)
     }
 
     // Email links (?c=) open on their own once the intro has played.
     useEffect(() => {
         if (!autoSubmit || !formReady || autoSubmitted.current) return
         autoSubmitted.current = true
-        const timer = window.setTimeout(() => void submit(initialCode), 0)
+        const timer = window.setTimeout(() => void submit(initialCode, true), 0)
         return () => window.clearTimeout(timer)
         // eslint-disable-next-line react-hooks/exhaustive-deps -- runs once, when the form is ready
     }, [autoSubmit, formReady])
@@ -160,6 +171,10 @@ export default function MerciDoor({ initialCode, autoSubmit, reduced, onOpen }: 
                         clicked while the intro is still playing it in. */}
                     <a
                         href={DOOR.noCodeHref}
+                        onClick={() => {
+                            const typed = value.trim()
+                            void trackMerciNoCodeClicked(typed ? { code: typed } : {})
+                        }}
                         className="merci-focus mt-1 inline-block font-satoshi text-[14px] text-text-muted underline decoration-dark-400 underline-offset-2 transition-colors duration-150 hover:text-white hover:decoration-white"
                     >
                         {DOOR.noCode}
