@@ -117,7 +117,12 @@ export const COPY = {
         eyebrow: '/////// BY INVITATION ONLY',
         eyebrowSpoken: 'By invitation only',
         headline: DOOR_HEADLINE,
-        fieldLabel: "Enter your invitation code. It's either on your postcard or sent via email.",
+        // "three letter" is load bearing: it tells a coach how much to type
+        // before they start, which the placeholder can only confirm afterwards.
+        fieldLabel:
+            "Enter your three letter invitation code. It's either on your postcard or sent via email.",
+        // Shown in the field itself, so the shape of the code is visible without
+        // adding another line of copy under it.
         placeholder: 'ABC',
         button: 'OPEN',
         checking: 'CHECKING',
