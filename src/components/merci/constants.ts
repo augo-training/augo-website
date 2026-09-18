@@ -118,11 +118,11 @@ export const COPY = {
         error: 'Something went wrong on our side. Try again in a moment.',
         /**
          * A way out for someone who was forwarded the link or found a card,
-         * not a way in: it leaves for the main site rather than opening the
+         * not a way in: it leaves for a Typeform rather than opening the
          * door. There is still no "continue without a code" path.
          */
         noCode: 'No invitation code?',
-        noCodeHref: '/en',
+        noCodeHref: 'https://augo.typeform.com/to/CIGaXR1y',
     },
     memory: {
         headline: MEMORY_HEADLINE,
@@ -182,7 +182,7 @@ export const COPY = {
         // The theme, not the mechanics. With both this and the heading kept
         // open-ended, the note under the button is now the only place that says
         // five emails are coming, so that note is load bearing: do not cut it.
-        blurb: 'How coaching is changing, and what the best coaches are already doing to stay ahead.',
+        blurb: 'Learn how to leverage AI in your coaching to remain ahead in the industry.',
         button: 'SHOW ME THE FUTURE',
         note: '5 emails. Free. Opt out at any time.',
         // The names are read into this line: "Written in collaboration with

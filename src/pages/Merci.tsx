@@ -9,6 +9,7 @@ import {
 import { useSearchParams } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import topoBg from '../assets/images/bg_section_1.webp'
+import augoLogo from '../assets/images/augo_footer_1.svg'
 import MerciDoor from '../components/merci/MerciDoor'
 import MerciTerminal from '../components/merci/MerciTerminal'
 import MerciQuote from '../components/merci/MerciQuote'
@@ -302,6 +303,11 @@ export default function Merci() {
 
             <main className="pointer-events-none relative z-20 mx-auto h-full w-full max-w-[900px]">
                 {navigable && <MerciProgress beat={beat} />}
+                {/* Pinned rather than part of each beat, so it holds still while
+                    the beats change around it. On every screen, the door
+                    included: someone who has just scanned a code off a postcard
+                    should know whose page this is. */}
+                <img src={augoLogo} alt="augo" className="merci-logo absolute left-6 z-30 h-5 w-auto" />
                 {renderBeat()}
                 {navigable && beat < 5 && <MerciHint key={`hint-${beat}`} />}
             </main>
