@@ -168,6 +168,14 @@ describe('merci funnel', () => {
         expect(propsFor('merci_offer_error')).toEqual({ code: 'NVE', error: 'email' })
     })
 
+    it('beacons an outbound link click, since the tab may be left behind', async () => {
+        const { trackMerciLinkClicked } = await loadModule()
+        await trackMerciLinkClicked({ code: 'NVE', link: 'instagram' })
+        expect(propsFor('merci_link_clicked')).toEqual({ code: 'NVE', link: 'instagram' })
+        const call = track.mock.calls.find(([name]) => name === 'merci_link_clicked')
+        expect(call?.[2]).toEqual({ transport: 'sendBeacon' })
+    })
+
     it('ties the signup to the code and the email', async () => {
         const { trackMerciOfferRedeemed } = await loadModule()
         await trackMerciOfferRedeemed({ code: 'NVE', email: 'coach@example.com', src: 'postcard' })

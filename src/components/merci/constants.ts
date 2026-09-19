@@ -236,6 +236,18 @@ export const COPY = {
     done: {
         tail: DONE_TAIL,
         subline: 'Check your inbox. Enjoy the card. You earned it.',
+        /**
+         * The only thing to do once the email is in. Deliberately quieter than
+         * the ticket's button: checking the inbox is what matters here, and the
+         * follow is the optional extra. Uppercase to match every other button on
+         * the page, which is also how the footer line below it sets the name.
+         *
+         * Not the URL as pasted from a browser, which carries `?hl=en`. That is
+         * a language override Instagram appends while you browse, and it would
+         * force English on a coach reading in French or German.
+         */
+        instagram: 'FOLLOW AUGO',
+        instagramHref: 'https://www.instagram.com/augo.training/',
         footer: 'AUGO · AUGOTRAINING.COM',
     },
 }

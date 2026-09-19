@@ -478,7 +478,10 @@ export async function trackMerciOfferRedeemed(props: { code: string; email: stri
     return track('merci_offer_redeemed', props)
 }
 
-/** An advisor's name under the card, or 'redeemed_contact' in the already-redeemed note. */
+/**
+ * An advisor's name under the card, 'redeemed_contact' in the already-redeemed
+ * note, or 'instagram' for the follow link on the done screen.
+ */
 export async function trackMerciLinkClicked(props: { code: string; link: string }): Promise<void> {
     // The contact link leaves in the same tab; a beacon costs the others nothing.
     return track('merci_link_clicked', props, { beacon: true })
