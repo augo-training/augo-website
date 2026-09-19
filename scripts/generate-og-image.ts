@@ -28,7 +28,13 @@ type TargetName = keyof typeof TARGETS;
 const args = process.argv.slice(2);
 const baseFlag = args.indexOf("--base");
 const base = baseFlag === -1 ? "https://augotraining.com" : args[baseFlag + 1];
-const name = (args.find((arg, i) => !arg.startsWith("--") && i !== baseFlag + 1) ?? "home") as TargetName;
+// The skipped index is the value belonging to --base. With no --base in the
+// args, indexOf returns -1 and `baseFlag + 1` is 0, which used to skip the first
+// argument: `npm run og-image:nice` silently fell through to "home" and wrote the
+// home page over public/og-image.jpg. Only skip when --base is actually present.
+const name = (args.find(
+  (arg, i) => !arg.startsWith("--") && !(baseFlag !== -1 && i === baseFlag + 1),
+) ?? "home") as TargetName;
 
 const target = TARGETS[name];
 if (!target) {
