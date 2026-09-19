@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>merci share card</title>
+    <!--
+      The /merci social share card, captured by scripts/generate-og-image.ts
+      into public/merci-og.jpg.
+
+      Every other card in public/ is a screenshot of the page it belongs to, but
+      /merci is a gated tap-through sequence: a screenshot of it would be beat 1,
+      not the postcard. So this template stands in for the page, and the postcard
+      artwork beside it is the subject.
+
+      The frame is 1200x630 because that is what the og:image:width/height tags
+      on the page claim. Change one and the other starts lying.
+
+      The card is 1.41:1 and the frame is 1.91:1, so the card cannot fill it. It
+      is inset rather than cropped: a centre crop would cut the NICE eyebrow off
+      the top and the augo footer off the bottom. Square corners and no shadow,
+      because the printed card has square corners and white on near-black already
+      separates cleanly.
+    -->
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+      body {
+        width: 1200px;
+        height: 630px;
+        /* --color-dark, the site's background. */
+        background: #0a0a0a;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      img {
+        /* 570 of 630 leaves a 30px band top and bottom. The postcard is
+           1748x1240, so this comes out 803px wide and the dark frame keeps
+           about 198px each side. */
+        height: 570px;
+        width: auto;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="merci-postcard.png" alt="Merci, coach. postcard" />
+  </body>
+</html>

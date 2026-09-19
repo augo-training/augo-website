@@ -15,12 +15,18 @@ import { join, dirname } from "path";
  * Pass --base to capture from somewhere other than production, which is what you
  * want whenever the copy has changed but has not shipped yet:
  *   node --experimental-strip-types scripts/generate-og-image.ts nice --base http://localhost:5173
+ *
+ * A target names either a `path` on the site or a local `file` under scripts/.
+ * The file form exists for pages that cannot be photographed as they are: /merci
+ * is a gated tap-through sequence, so a screenshot of it would be beat 1 rather
+ * than the postcard the card is supposed to show. --base does not apply to those.
  */
 const TARGETS = {
   home: { path: "/en", out: "og-image.jpg" },
   nice: { path: "/en/nice-athletes", out: "nice-athletes-og.jpg" },
   "nice-coaches": { path: "/en/nice-coaches", out: "nice-coaches-og.jpg" },
   mcp: { path: "/en/mcp", out: "mcp-og.jpg" },
+  merci: { file: "og/merci-card.html", out: "merci-og.jpg" },
 } as const;
 
 type TargetName = keyof typeof TARGETS;
@@ -28,7 +34,13 @@ type TargetName = keyof typeof TARGETS;
 const args = process.argv.slice(2);
 const baseFlag = args.indexOf("--base");
 const base = baseFlag === -1 ? "https://augotraining.com" : args[baseFlag + 1];
-const name = (args.find((arg, i) => !arg.startsWith("--") && i !== baseFlag + 1) ?? "home") as TargetName;
+// The skipped index is the value belonging to --base. With no --base in the
+// args, indexOf returns -1 and `baseFlag + 1` is 0, which used to skip the first
+// argument: `npm run og-image:nice` silently fell through to "home" and wrote the
+// home page over public/og-image.jpg. Only skip when --base is actually present.
+const name = (args.find(
+  (arg, i) => !arg.startsWith("--") && !(baseFlag !== -1 && i === baseFlag + 1),
+) ?? "home") as TargetName;
 
 const target = TARGETS[name];
 if (!target) {
@@ -40,16 +52,23 @@ if (!base) {
   process.exit(1);
 }
 
-const OUT = join(dirname(fileURLToPath(import.meta.url)), "../public", target.out);
-const URL = `${base}${target.path}`;
+const HERE = dirname(fileURLToPath(import.meta.url));
+const OUT = join(HERE, "../public", target.out);
+const URL = "file" in target ? `file://${join(HERE, target.file)}` : `${base}${target.path}`;
 
 const browser = await puppeteer.launch();
 const page = await browser.newPage();
 await page.setViewport({ width: 1200, height: 630 });
 
-// Pre-set consent so the cookie banner never renders
+// Pre-set consent so the cookie banner never renders. A file:// target has an
+// opaque origin where touching localStorage throws, and there is no banner there
+// to suppress anyway, so a failure here is not worth aborting the capture for.
 await page.evaluateOnNewDocument(() => {
-  localStorage.setItem("augo_cookie_consent", "accepted");
+  try {
+    localStorage.setItem("augo_cookie_consent", "accepted");
+  } catch {
+    // file:// origin: nothing to suppress.
+  }
 });
 
 await page.goto(URL, { waitUntil: "networkidle2" });

@@ -22,6 +22,19 @@ export const MERCI_PATH = '/merci'
 export const MERCI_CANONICAL = 'https://augotraining.com/merci/'
 
 /**
+ * The share card, lives at public/merci-og.jpg and is regenerated with
+ * `npm run og-image:merci`. The postcard itself, not the site-wide card: the
+ * link is sent to coaches one at a time, so the preview should be the thing
+ * that is coming in the post rather than a screenshot of the home page.
+ *
+ * Absolute, and on the same host as MERCI_CANONICAL. Social crawlers do not
+ * resolve relative URLs and several do not follow redirects for images.
+ */
+export const MERCI_OG_IMAGE = 'https://augotraining.com/merci-og.jpg'
+export const MERCI_OG_IMAGE_ALT =
+    'A postcard reading "Merci, coach.", from the 2026 IRONMAN 70.3 World Championship in Nice.'
+
+/**
  * The two Make webhooks behind the page (see api.ts for the contract). Like the
  * signup webhook these are write-mostly endpoints, not credentials: one says
  * whether a code is on the list, the other records a signup. Left unset on

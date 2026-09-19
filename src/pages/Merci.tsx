@@ -21,6 +21,8 @@ import {
     COPY,
     MERCI_CANONICAL,
     MERCI_CODE_STORAGE_KEY,
+    MERCI_OG_IMAGE,
+    MERCI_OG_IMAGE_ALT,
     MERCI_PATH,
     TIMING,
 } from '../components/merci/constants'
@@ -297,10 +299,31 @@ export default function Merci() {
                     On a noindex page it is otherwise inert. */}
                 <link rel="canonical" href={MERCI_CANONICAL} />
                 <meta name="theme-color" content="#0A0A0A" />
+
+                {/* Hand-rolled rather than seo/SEOHead, which derives html lang,
+                    og:locale, canonical and hreflang from the language tree.
+                    This page sits outside /:lang on purpose, so through SEOHead
+                    a coach on a German browser would get lang="de" on English
+                    copy. The cost is that these tags have to be kept complete
+                    here. og:image:width/height are what the card actually is,
+                    and WhatsApp reads them to choose the large preview over the
+                    small thumbnail. */}
+                <meta property="og:type" content="website" />
+                <meta property="og:site_name" content="augo" />
                 <meta property="og:title" content="Merci, coach." />
                 <meta property="og:description" content={COPY.pageDescription} />
                 <meta property="og:url" content={MERCI_CANONICAL} />
-                <meta property="og:image" content="https://augotraining.com/og-image.jpg" />
+                <meta property="og:image" content={MERCI_OG_IMAGE} />
+                <meta property="og:image:width" content="1200" />
+                <meta property="og:image:height" content="630" />
+                <meta property="og:image:alt" content={MERCI_OG_IMAGE_ALT} />
+
+                {/* Without twitter:card there is no large card on X at all. */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Merci, coach." />
+                <meta name="twitter:description" content={COPY.pageDescription} />
+                <meta name="twitter:image" content={MERCI_OG_IMAGE} />
+                <meta name="twitter:image:alt" content={MERCI_OG_IMAGE_ALT} />
             </Helmet>
 
             <div
