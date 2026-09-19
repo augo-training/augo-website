@@ -18,6 +18,7 @@
     "og-image:nice": "node --experimental-strip-types scripts/generate-og-image.ts nice",
     "og-image:nice-coaches": "node --experimental-strip-types scripts/generate-og-image.ts nice-coaches",
     "og-image:mcp": "node --experimental-strip-types scripts/generate-og-image.ts mcp",
+    "og-image:merci": "node --experimental-strip-types scripts/generate-og-image.ts merci",
     "preview": "vite preview"
   },
   "dependencies": {
