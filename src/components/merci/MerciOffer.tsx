@@ -238,11 +238,16 @@ export default function MerciOffer({ code, src, alreadyRedeemed, onRedeemed }: M
     )
 }
 
-/** Replaces the offer once the signup is accepted. No further navigation. */
-export function MerciDone({ firstName }: { firstName: string }) {
+/**
+ * Replaces the offer once the signup is accepted. The only way off the page is
+ * the follow link, which opens in a new tab: there is no navigation back into
+ * the sequence, so the done screen should survive the coach going to look.
+ */
+export function MerciDone({ firstName, code }: { firstName: string; code: string }) {
     const name = firstName.length > 30 ? `${firstName.slice(0, 30)}…` : firstName
     const lines = [{ text: `Done, ${name}.` }, ...COPY.done.tail]
     const after = lines.length * TIMING.lineStaggerMs
+    const step = TIMING.lineStaggerMs
 
     return (
         <>
@@ -250,7 +255,21 @@ export function MerciDone({ firstName }: { firstName: string }) {
             <Rise delayMs={after} className="merci-sub mt-6 text-white/75 sm:mt-8">
                 {COPY.done.subline}
             </Rise>
-            <Rise delayMs={after + TIMING.lineStaggerMs} className="merci-label mt-12 text-text-muted">
+            {/* After the subline, not before it: checking the inbox is what
+                matters here and the follow is the optional extra. */}
+            <Rise delayMs={after + step} className="mt-8">
+                <a
+                    href={COPY.done.instagramHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => void trackMerciLinkClicked({ code, link: 'instagram' })}
+                    className="merci-btn-ghost"
+                >
+                    {COPY.done.instagram}
+                    <span aria-hidden="true">↗</span>
+                </a>
+            </Rise>
+            <Rise delayMs={after + 2 * step} className="merci-label mt-10 text-text-muted">
                 {COPY.done.footer}
             </Rise>
         </>

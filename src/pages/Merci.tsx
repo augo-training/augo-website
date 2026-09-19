@@ -204,7 +204,7 @@ export default function Merci() {
         if (doneName !== null) {
             return (
                 <Beat key="done" labelledBy="merci-done-title" interactive>
-                    <MerciDone firstName={doneName} />
+                    <MerciDone firstName={doneName} code={code} />
                 </Beat>
             )
         }
