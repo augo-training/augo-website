@@ -2,8 +2,8 @@
   "slug": "workouts-on-your-device",
   "title": "Which workouts are delivered to my device?",
   "seoTitle": "Planned Workouts on Your Device | augo support",
-  "description": "Every workout your coach plans in augo appears in your augo app. On Coros, Wahoo and Suunto it is also sent to the device so you can follow it step by step.",
-  "summary": "Every workout your coach plans in augo shows up in your augo app, whatever device you use. If you use Coros, Wahoo or Suunto, the workout is also sent to the device itself, so you can follow it step by step on the watch or bike computer. Garmin, Polar, Zwift and Strava don't receive planned workouts yet — open the workout in the app instead.",
+  "description": "Every workout your coach plans in augo appears in your augo app. On Garmin, Coros, Wahoo and Suunto it is also sent to the device so you can follow it step by step.",
+  "summary": "Every workout your coach plans in augo shows up in your augo app, whatever device you use. If you use Garmin, Coros, Wahoo or Suunto, the workout is also sent to the device itself, so you can follow it step by step. Polar, Zwift and Strava don't receive planned workouts. If your Garmin was connected a while ago, reconnect it so it can receive them.",
   "audience": "both",
   "category": "integrations",
   "keywords": [
@@ -35,6 +35,7 @@
     "web"
   ],
   "datePublished": "2026-09-15",
+  "dateUpdated": "2026-09-21",
   "body": [
     {
       "type": "html",
@@ -42,29 +43,29 @@
     },
     {
       "type": "html",
-      "html": "<h2 id=\"sent-to-device\">Sent to the device: Coros, Wahoo, Suunto</h2><p>If you have connected a Coros, Wahoo or Suunto account, planned workouts are also delivered straight to the device. The workout shows up in the device's own workout list, and you can start it and follow each step — warm-up, intervals, recoveries, cool-down — from the watch or bike computer during the session.</p><p>When you finish, the completed activity syncs back to augo like any other workout, so your coach sees what you actually did next to what was planned.</p>"
+      "html": "<h2 id=\"sent-to-device\">Sent to the device: Garmin, Coros, Wahoo, Suunto</h2><p>If you have connected a Garmin, Coros, Wahoo or Suunto account, planned workouts are also delivered straight to the device. The workout shows up in the device's own workout list, and you can start it and follow each step — warm-up, intervals, recoveries, cool-down — from the watch or bike computer during the session.</p><p>When you finish, the completed activity syncs back to augo like any other workout, so your coach sees what you actually did next to what was planned.</p><p>One thing to check if you're on Garmin: a connection made before augo added workout delivery doesn't carry the permission it needs. If planned workouts aren't reaching your watch, connect Garmin again from the augo app and approve what it asks for. See <a href=\"/en/support/connect-devices-and-apps/#reconnect-garmin\">which devices and apps does augo integrate with?</a></p>"
     },
     {
       "type": "html",
-      "html": "<h2 id=\"follow-in-app\">Garmin, Polar, Zwift, Strava: follow it in the app</h2><p>Planned workouts are not sent to Garmin, Polar or Zwift devices yet, and Strava is an app rather than a device. If you use one of these, open the workout in the augo app before you head out and follow the steps from there.</p><p>Your completed activity still syncs back to augo automatically. Only the delivery of the plan to the device is missing — nothing about your results.</p>"
+      "html": "<h2 id=\"follow-in-app\">Polar, Zwift, Strava: follow it in the app</h2><p>Planned workouts are not sent to Polar or Zwift devices, and Strava is an app rather than a device. If you use one of these, open the workout in the augo app before you head out and follow the steps from there.</p><p>Your completed activity still syncs back to augo automatically. Only the delivery of the plan to the device is missing — nothing about your results.</p>"
     },
     {
       "type": "html",
-      "html": "<h2 id=\"for-coaches\">For coaches</h2><p>There's nothing extra to do. Plan workouts in augo as usual; delivery follows whatever device each athlete has connected. An athlete on Coros gets the workout on their watch, an athlete on Garmin follows it in the app, and both show up as completed activities in your view.</p><p>The full breakdown by device is in <a href=\"/en/support/connect-devices-and-apps/#compatibility\">which devices and apps does augo integrate with?</a></p>"
+      "html": "<h2 id=\"for-coaches\">For coaches</h2><p>There's nothing extra to do. Plan workouts in augo as usual; delivery follows whatever device each athlete has connected. An athlete on Coros gets the workout on their watch, an athlete on Polar follows it in the app, and both show up as completed activities in your view.</p><p>The full breakdown by device is in <a href=\"/en/support/connect-devices-and-apps/#compatibility\">which devices and apps does augo integrate with?</a></p>"
     }
   ],
   "faqs": [
     {
       "question": "Will my planned workout show up on my watch?",
-      "answer": "On Coros, Wahoo and Suunto, yes — the workout is sent to the device and you can follow it step by step. On Garmin, Polar and Zwift it isn't yet, so open the workout in the augo app instead. It always appears in the app regardless of device."
+      "answer": "On Garmin, Coros, Wahoo and Suunto, yes — the workout is sent to the device and you can follow it step by step. On Polar and Zwift it isn't, so open the workout in the augo app instead. It always appears in the app regardless of device."
     },
     {
       "question": "Does augo send workouts to Garmin?",
-      "answer": "Not yet. Garmin syncs your completed activities into augo, but planned workouts aren't delivered to the watch. Follow the workout from the augo app."
+      "answer": "Yes. Planned workouts are delivered to your Garmin device, so you can start the session from the watch and follow each step. If you connected Garmin a while ago and workouts aren't arriving, connect it again from the augo app to grant the permission it needs."
     },
     {
       "question": "Do I need to connect a device to see my planned workouts?",
-      "answer": "No. Planned workouts appear in your augo app as soon as your coach creates them. Connecting a device adds automatic syncing of completed activities, and on Coros, Wahoo and Suunto also delivers the plan to the device."
+      "answer": "No. Planned workouts appear in your augo app as soon as your coach creates them. Connecting a device adds automatic syncing of completed activities, and on Garmin, Coros, Wahoo and Suunto also delivers the plan to the device."
     }
   ],
   "related": [

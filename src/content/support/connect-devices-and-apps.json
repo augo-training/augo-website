@@ -2,8 +2,8 @@
   "slug": "connect-devices-and-apps",
   "title": "Which devices and apps does augo integrate with?",
   "seoTitle": "Devices and Apps augo Integrates With | augo support",
-  "description": "augo connects to Garmin, Coros, Wahoo, Suunto, Polar, Zwift and Strava. See which ones receive planned workouts, sync completed activities and bring in your history.",
-  "summary": "augo connects to Garmin, Coros, Wahoo, Suunto, Polar, Zwift and Strava. The athlete connects once from the augo app, and from then on completed workouts arrive automatically. What else each integration can do — sending planned workouts to the device and pulling in past activities — is in the table below.",
+  "description": "augo connects to Garmin, Coros, Wahoo, Suunto, Polar, Zwift and Strava. All seven sync activities and bring in your history. Four also receive planned workouts.",
+  "summary": "augo connects to Garmin, Coros, Wahoo, Suunto, Polar, Zwift and Strava. The athlete connects once from the augo app, and from then on completed activities arrive automatically and the last 30 days are brought in. Garmin, Coros, Wahoo and Suunto also receive planned workouts on the device. If you connected Garmin before this changed, reconnect it.",
   "audience": "both",
   "category": "integrations",
   "keywords": [
@@ -27,7 +27,10 @@
     "oura",
     "compatibility",
     "both",
-    "more than one"
+    "more than one",
+    "reconnect",
+    "reauthorise",
+    "permissions"
   ],
   "weight": 3,
   "platforms": [
@@ -36,18 +39,23 @@
     "web"
   ],
   "datePublished": "2026-09-15",
+  "dateUpdated": "2026-09-21",
   "body": [
     {
       "type": "html",
-      "html": "<h2 id=\"what-each-integration-can-do\">What each integration can do</h2><p>Every integration does at least one of three things:</p><ul><li><strong>Planned workouts.</strong> The workouts your coach plans in augo always show up in your augo app. Some devices also receive them directly, so you can follow the session on the watch or bike computer. See <a href=\"/en/support/workouts-on-your-device/\">which workouts are delivered to my device?</a></li><li><strong>Completed activities.</strong> Every workout you finish after connecting arrives in augo automatically, usually within minutes.</li><li><strong>Historical activities.</strong> Most integrations also bring in your last 30 days of activities from before you connected. See <a href=\"/en/support/historical-activities/\">how does historical backfill work?</a></li></ul>"
+      "html": "<h2 id=\"what-each-integration-can-do\">What each integration can do</h2><p>Every integration does at least one of three things:</p><ul><li><strong>Planned workouts.</strong> The workouts your coach plans in augo always show up in your augo app. Garmin, Coros, Wahoo and Suunto also receive them directly, so you can follow the session on the watch or bike computer. See <a href=\"/en/support/workouts-on-your-device/\">which workouts are delivered to my device?</a></li><li><strong>Completed activities.</strong> Every workout you finish after connecting arrives in augo automatically, usually within minutes.</li><li><strong>Historical activities.</strong> Every integration also brings in your last 30 days of activities from before you connected, and we can go back up to five years on request. See <a href=\"/en/support/historical-activities/\">how does historical backfill work?</a></li></ul>"
     },
     {
       "type": "html",
-      "html": "<h2 id=\"compatibility\">Compatibility at a glance</h2><div class=\"table-wrap\"><table><thead><tr><th scope=\"col\">Device or app</th><th scope=\"col\">Planned workouts to device</th><th scope=\"col\">Completed activities</th><th scope=\"col\">Historical activities</th></tr></thead><tbody><tr><th scope=\"row\">Coros</th><td data-col=\"Planned workouts to device\">✓</td><td data-col=\"Completed activities\">✓</td><td data-col=\"Historical activities\">✓</td></tr><tr><th scope=\"row\">Wahoo</th><td data-col=\"Planned workouts to device\">✓</td><td data-col=\"Completed activities\">✓</td><td data-col=\"Historical activities\">✓</td></tr><tr><th scope=\"row\">Suunto</th><td data-col=\"Planned workouts to device\">✓</td><td data-col=\"Completed activities\">✓</td><td data-col=\"Historical activities\">✓</td></tr><tr><th scope=\"row\">Polar</th><td data-col=\"Planned workouts to device\">—</td><td data-col=\"Completed activities\">✓</td><td data-col=\"Historical activities\">✓</td></tr><tr><th scope=\"row\">Zwift</th><td data-col=\"Planned workouts to device\">—</td><td data-col=\"Completed activities\">✓</td><td data-col=\"Historical activities\">✓</td></tr><tr><th scope=\"row\">Strava</th><td data-col=\"Planned workouts to device\">—</td><td data-col=\"Completed activities\">✓</td><td data-col=\"Historical activities\">✓</td></tr><tr><th scope=\"row\">Garmin</th><td data-col=\"Planned workouts to device\">—</td><td data-col=\"Completed activities\">✓</td><td data-col=\"Historical activities\">—</td></tr></tbody></table></div><p>Garmin shares activities from the moment you connect. The other six also bring in your recent history.</p>"
+      "html": "<h2 id=\"compatibility\">Compatibility at a glance</h2><div class=\"table-wrap\"><table><thead><tr><th scope=\"col\">Device or app</th><th scope=\"col\">Planned workouts to device</th><th scope=\"col\">Completed activities</th><th scope=\"col\">Historical activities</th></tr></thead><tbody><tr><th scope=\"row\">Garmin</th><td data-col=\"Planned workouts to device\">✓</td><td data-col=\"Completed activities\">✓</td><td data-col=\"Historical activities\">✓</td></tr><tr><th scope=\"row\">Coros</th><td data-col=\"Planned workouts to device\">✓</td><td data-col=\"Completed activities\">✓</td><td data-col=\"Historical activities\">✓</td></tr><tr><th scope=\"row\">Wahoo</th><td data-col=\"Planned workouts to device\">✓</td><td data-col=\"Completed activities\">✓</td><td data-col=\"Historical activities\">✓</td></tr><tr><th scope=\"row\">Suunto</th><td data-col=\"Planned workouts to device\">✓</td><td data-col=\"Completed activities\">✓</td><td data-col=\"Historical activities\">✓</td></tr><tr><th scope=\"row\">Polar</th><td data-col=\"Planned workouts to device\">—</td><td data-col=\"Completed activities\">✓</td><td data-col=\"Historical activities\">✓</td></tr><tr><th scope=\"row\">Zwift</th><td data-col=\"Planned workouts to device\">—</td><td data-col=\"Completed activities\">✓</td><td data-col=\"Historical activities\">✓</td></tr><tr><th scope=\"row\">Strava</th><td data-col=\"Planned workouts to device\">—</td><td data-col=\"Completed activities\">✓</td><td data-col=\"Historical activities\">✓</td></tr></tbody></table></div><p>All seven bring in your last 30 days when you connect them. Garmin, Coros, Wahoo and Suunto also take the planned workout onto the device itself.</p>"
     },
     {
       "type": "html",
-      "html": "<h2 id=\"one-connection\">One connection is enough</h2><p>You only need to connect one source, as long as it carries every workout you do. If your watch already pushes everything to Strava, connecting Strava alone is enough. If some sessions only live on the watch — say indoor rides that never reach Strava — connect the watch too. Connecting more than one source is fine: augo recognises the same activity coming from two places and won't show it twice.</p><p>If you want planned workouts on your device or your history brought in, connect the device itself, not just Strava. The table above shows what each one can do.</p>"
+      "html": "<h2 id=\"reconnect-garmin\">If you connected Garmin before this changed</h2><p>Garmin history and planned workouts to the device are new. A Garmin connection made before they existed was authorised without the permissions they need, so nothing from before the connection comes in and planned workouts stay in the app.</p><p>The fix is to connect Garmin again from the augo app and approve the permissions Garmin asks for. Nothing you already have in augo is removed. Once it's done, your last 30 days come in and planned workouts start reaching the device.</p><p>If you are connecting Garmin for the first time, there is nothing to do — the new permissions are part of the normal connection.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"one-connection\">One connection is enough</h2><p>You only need to connect one source, as long as it carries every workout you do. If your watch already pushes everything to Strava, connecting Strava alone is enough. If some sessions only live on the watch — say indoor rides that never reach Strava — connect the watch too. Connecting more than one source is fine: augo recognises the same activity coming from two places and won't show it twice.</p><p>If you want planned workouts on your device, connect the device itself: Strava is an app, and it can't put a workout on your watch. The table above shows what each one can do.</p>"
     },
     {
       "type": "html",
@@ -65,7 +73,11 @@
   "faqs": [
     {
       "question": "Which devices does augo integrate with?",
-      "answer": "augo connects to Garmin, Coros, Wahoo, Suunto, Polar, Zwift and Strava. All seven sync completed activities. Coros, Wahoo and Suunto also receive planned workouts, and every source except Garmin brings in your last 30 days of history."
+      "answer": "augo connects to Garmin, Coros, Wahoo, Suunto, Polar, Zwift and Strava. All seven sync completed activities and bring in your last 30 days of history. Garmin, Coros, Wahoo and Suunto also receive planned workouts on the device."
+    },
+    {
+      "question": "Do I need to reconnect my Garmin?",
+      "answer": "Only if you connected it before augo added Garmin history and planned workouts. That connection doesn't carry the permissions those need, so connect Garmin again from the augo app and approve what it asks for. New connections already include them."
     },
     {
       "question": "Does augo work with Apple Health, Whoop or Oura?",
@@ -73,7 +85,7 @@
     },
     {
       "question": "Do I need to connect both my watch and Strava?",
-      "answer": "Only if some workouts exist in one place but not the other. One source is enough when it carries everything you do. Connecting both is fine and won't duplicate activities. Connect the watch itself if you want planned workouts on the device or your history brought in."
+      "answer": "Only if some workouts exist in one place but not the other. One source is enough when it carries everything you do. Connecting both is fine and won't duplicate activities. Connect the watch itself if you want planned workouts on the device."
     },
     {
       "question": "Can a coach connect an athlete's device for them?",
@@ -98,6 +110,8 @@
     "which apps does augo integrate with",
     "should i connect strava and my watch",
     "can i connect more than one device",
-    "will i get duplicate workouts"
+    "will i get duplicate workouts",
+    "do i need to reconnect my garmin",
+    "why do i have to reauthorise garmin"
   ]
 }
