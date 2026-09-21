@@ -36,11 +36,16 @@ const EVAL: { query: string; expect: string; why: string }[] = [
   { query: 'does augo work with garmin', expect: 'connect-devices-and-apps', why: 'declared question form' },
   { query: 'apple health', expect: 'connect-devices-and-apps', why: 'unsupported integration — "no" is the right answer' },
   { query: 'does augo support suunto', expect: 'connect-devices-and-apps', why: 'suunto survives stemming; brand-only query' },
+  {
+    query: 'do i need to reconnect my garmin',
+    expect: 'connect-devices-and-apps',
+    why: 'reconnect is new vocabulary; authorisation lives in the connect article',
+  },
   { query: 'will i get duplicate workouts', expect: 'connect-devices-and-apps', why: 'declared question form; both is a common word' },
-  { query: 'can my coach connect my garmin for me', expect: 'connect-devices-and-apps', why: 'who-connects section; must beat history despite garmin' },
+  { query: 'can my coach connect my garmin for me', expect: 'connect-devices-and-apps', why: 'who-connects section; authorisation, not history' },
   // workouts-on-your-device
   { query: 'will my workout show up on my watch', expect: 'workouts-on-your-device', why: 'declared question form; must beat devices despite watch' },
-  { query: 'does augo send workouts to garmin', expect: 'workouts-on-your-device', why: 'send -> deliver group; garmin is in every article' },
+  { query: 'does augo send workouts to garmin', expect: 'workouts-on-your-device', why: 'send -> deliver group; delivery article owns garmin push' },
   { query: 'can i see the intervals on my bike computer', expect: 'workouts-on-your-device', why: 'bike computer phrase alias' },
   { query: 'planned workouts on my coros', expect: 'workouts-on-your-device', why: 'planned is delivery vocabulary' },
   // historical-activities

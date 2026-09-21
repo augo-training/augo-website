@@ -2,8 +2,8 @@
   "slug": "historical-activities",
   "title": "How does historical backfill work?",
   "seoTitle": "Historical Activities and Backfill | augo support",
-  "description": "When you connect Coros, Wahoo, Suunto, Polar, Zwift or Strava, augo pulls in your last 30 days of activities. Garmin starts from the day you connect. Up to five years is available on request.",
-  "summary": "When you connect Coros, Wahoo, Suunto, Polar, Zwift or Strava, augo also pulls in your last 30 days of activities, usually within an hour. Garmin only shares activities from the moment you connect. Need more than 30 days? We can go back up to five years — just ask through the feedback button in the app.",
+  "description": "When you connect Garmin, Coros, Wahoo, Suunto, Polar, Zwift or Strava, augo pulls in your last 30 days of activities. Up to five years is available on request.",
+  "summary": "When you connect Garmin, Coros, Wahoo, Suunto, Polar, Zwift or Strava, augo also pulls in your last 30 days of activities, usually within an hour. You don't have to do anything. Need more than 30 days? We can go back up to five years for any connected source — just ask through the feedback button in the app.",
   "audience": "both",
   "category": "integrations",
   "keywords": [
@@ -29,28 +29,25 @@
     "web"
   ],
   "datePublished": "2026-09-15",
+  "dateUpdated": "2026-09-21",
   "body": [
     {
       "type": "html",
-      "html": "<h2 id=\"by-default\">What you get by default</h2><p>The moment you connect Coros, Wahoo, Suunto, Polar, Zwift or Strava, augo starts pulling in the activities you did in the 30 days before connecting. You don't need to do anything — they arrive on their own, usually within an hour.</p><p>This gives your coach a recent picture of your training from day one, rather than starting from an empty calendar.</p>"
+      "html": "<h2 id=\"by-default\">What you get by default</h2><p>The moment you connect Garmin, Coros, Wahoo, Suunto, Polar, Zwift or Strava, augo starts pulling in the activities you did in the 30 days before connecting. You don't need to do anything — they arrive on their own, usually within an hour.</p><p>This gives your coach a recent picture of your training from day one, rather than starting from an empty calendar.</p><p>Every source works the same way. There is no device that starts from an empty history.</p>"
     },
     {
       "type": "html",
-      "html": "<h2 id=\"garmin\">Garmin is the exception</h2><p>Garmin only shares activities completed after you connect. Nothing from before the connection date comes across, and we can't backfill it on request either.</p><p>If your Garmin already pushes to Strava, connect Strava as well: that brings in the last 30 days from Strava, and your new Garmin activities still arrive as usual. augo recognises the same activity from both sources, so you won't see it twice.</p>"
+      "html": "<h2 id=\"up-to-five-years\">Going back further: up to five years</h2><p>If 30 days isn't enough — say you're starting with a new coach who wants to see a full season — we can pull in up to five years of history from any source you have connected, Garmin included.</p><p>Either the athlete or the coach can ask. Use the feedback button in the augo app and tell us which athlete, which device or app, and how far back you'd like to go. We trigger the import on our side and let you know when it's done.</p>"
     },
     {
       "type": "html",
-      "html": "<h2 id=\"up-to-five-years\">Going back further: up to five years</h2><p>If 30 days isn't enough — say you're starting with a new coach who wants to see a full season — we can pull in up to five years of history for any source except Garmin.</p><p>Either the athlete or the coach can ask. Use the feedback button in the augo app and tell us which athlete, which device or app, and how far back you'd like to go. We trigger the import on our side and let you know when it's done.</p>"
-    },
-    {
-      "type": "html",
-      "html": "<h2 id=\"not-appeared\">If the last 30 days haven't appeared</h2><p>Give it an hour after connecting. If your recent activities still aren't showing, use the feedback button in the augo app and tell us which device or app you connected and roughly when. We'll check the connection and re-run the import.</p>"
+      "html": "<h2 id=\"not-appeared\">If the last 30 days haven't appeared</h2><p>Give it an hour after connecting. If your recent activities still aren't showing, use the feedback button in the augo app and tell us which device or app you connected and roughly when. We'll check the connection and re-run the import.</p><p>If your Garmin has been connected for a while and no history came in, the connection needs renewing. It was authorised before augo could ask Garmin for your past activities, so it doesn't carry that permission. Connect Garmin again from the augo app, approve what Garmin asks for, and your last 30 days arrive as usual. There is more on this in <a href=\"/en/support/connect-devices-and-apps/#reconnect-garmin\">which devices and apps does augo integrate with?</a></p>"
     }
   ],
   "faqs": [
     {
       "question": "How far back does augo import my activities?",
-      "answer": "30 days by default, for Coros, Wahoo, Suunto, Polar, Zwift and Strava. Up to five years is available on request through the feedback button in the app. Garmin only shares activities from the day you connect."
+      "answer": "30 days by default, for every source augo connects to — Garmin, Coros, Wahoo, Suunto, Polar, Zwift and Strava. Up to five years is available on request through the feedback button in the app."
     },
     {
       "question": "How long does the backfill take?",
@@ -62,7 +59,7 @@
     },
     {
       "question": "Why are there no old activities from my Garmin?",
-      "answer": "Garmin only shares activities completed after you connect, and this can't be extended. If your Garmin pushes to Strava, connect Strava as well to bring in the last 30 days. Having both connected is fine and won't create duplicates."
+      "answer": "Almost always because the connection predates augo's Garmin history import, so it was authorised without permission to read your past activities. Connect Garmin again from the augo app and your last 30 days will come in. If you need more than 30 days, ask through the feedback button."
     }
   ],
   "related": [
@@ -79,6 +76,7 @@
     "can augo import five years of data",
     "how long does the backfill take",
     "how do i import my strava history",
-    "can my coach request my training history"
+    "can my coach request my training history",
+    "why didnt my garmin history come in"
   ]
 }
