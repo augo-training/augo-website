@@ -2,8 +2,8 @@
   "slug": "connect-devices-and-apps",
   "title": "Which devices and apps does augo integrate with?",
   "seoTitle": "Devices and Apps augo Integrates With | augo support",
-  "description": "augo connects to Garmin, Coros, Wahoo, Suunto, Polar, Zwift and Strava. All seven sync activities and bring in your history. Four also receive planned workouts.",
-  "summary": "augo connects to Garmin, Coros, Wahoo, Suunto, Polar, Zwift and Strava. The athlete connects once from the augo app, and from then on completed activities arrive automatically and the last 30 days are brought in. Garmin, Coros, Wahoo and Suunto also receive planned workouts on the device. If you connected Garmin before this changed, reconnect it.",
+  "description": "augo connects to Garmin, Coros, Wahoo, Suunto, Polar, Zwift, Strava, Rouvy and Hammerhead. All nine sync activities and bring in your history. Four also receive planned workouts.",
+  "summary": "augo connects to Garmin, Coros, Wahoo, Suunto, Polar, Zwift, Strava, Rouvy and Hammerhead. The athlete connects once from the augo app, and from then on completed activities arrive automatically and the last 30 days are brought in. Garmin, Coros, Wahoo and Suunto also receive planned workouts on the device. If you connected Garmin before this changed, reconnect it.",
   "audience": "both",
   "category": "integrations",
   "keywords": [
@@ -30,7 +30,10 @@
     "more than one",
     "reconnect",
     "reauthorise",
-    "permissions"
+    "permissions",
+    "rouvy",
+    "hammerhead",
+    "karoo"
   ],
   "weight": 3,
   "platforms": [
@@ -47,7 +50,7 @@
     },
     {
       "type": "html",
-      "html": "<h2 id=\"compatibility\">Compatibility at a glance</h2><div class=\"table-wrap\"><table><thead><tr><th scope=\"col\">Device or app</th><th scope=\"col\">Planned workouts to device</th><th scope=\"col\">Completed activities</th><th scope=\"col\">Historical activities</th></tr></thead><tbody><tr><th scope=\"row\">Garmin</th><td data-col=\"Planned workouts to device\">✓</td><td data-col=\"Completed activities\">✓</td><td data-col=\"Historical activities\">✓</td></tr><tr><th scope=\"row\">Coros</th><td data-col=\"Planned workouts to device\">✓</td><td data-col=\"Completed activities\">✓</td><td data-col=\"Historical activities\">✓</td></tr><tr><th scope=\"row\">Wahoo</th><td data-col=\"Planned workouts to device\">✓</td><td data-col=\"Completed activities\">✓</td><td data-col=\"Historical activities\">✓</td></tr><tr><th scope=\"row\">Suunto</th><td data-col=\"Planned workouts to device\">✓</td><td data-col=\"Completed activities\">✓</td><td data-col=\"Historical activities\">✓</td></tr><tr><th scope=\"row\">Polar</th><td data-col=\"Planned workouts to device\">—</td><td data-col=\"Completed activities\">✓</td><td data-col=\"Historical activities\">✓</td></tr><tr><th scope=\"row\">Zwift</th><td data-col=\"Planned workouts to device\">—</td><td data-col=\"Completed activities\">✓</td><td data-col=\"Historical activities\">✓</td></tr><tr><th scope=\"row\">Strava</th><td data-col=\"Planned workouts to device\">—</td><td data-col=\"Completed activities\">✓</td><td data-col=\"Historical activities\">✓</td></tr></tbody></table></div><p>All seven bring in your last 30 days when you connect them. Garmin, Coros, Wahoo and Suunto also take the planned workout onto the device itself.</p>"
+      "html": "<h2 id=\"compatibility\">Compatibility at a glance</h2><div class=\"table-wrap\"><table><thead><tr><th scope=\"col\">Device or app</th><th scope=\"col\">Planned workouts to device</th><th scope=\"col\">Completed activities</th><th scope=\"col\">Historical activities</th></tr></thead><tbody><tr><th scope=\"row\">Garmin</th><td data-col=\"Planned workouts to device\">✓</td><td data-col=\"Completed activities\">✓</td><td data-col=\"Historical activities\">✓</td></tr><tr><th scope=\"row\">Coros</th><td data-col=\"Planned workouts to device\">✓</td><td data-col=\"Completed activities\">✓</td><td data-col=\"Historical activities\">✓</td></tr><tr><th scope=\"row\">Wahoo</th><td data-col=\"Planned workouts to device\">✓</td><td data-col=\"Completed activities\">✓</td><td data-col=\"Historical activities\">✓</td></tr><tr><th scope=\"row\">Suunto</th><td data-col=\"Planned workouts to device\">✓</td><td data-col=\"Completed activities\">✓</td><td data-col=\"Historical activities\">✓</td></tr><tr><th scope=\"row\">Polar</th><td data-col=\"Planned workouts to device\">—</td><td data-col=\"Completed activities\">✓</td><td data-col=\"Historical activities\">✓</td></tr><tr><th scope=\"row\">Zwift</th><td data-col=\"Planned workouts to device\">—</td><td data-col=\"Completed activities\">✓</td><td data-col=\"Historical activities\">✓</td></tr><tr><th scope=\"row\">Strava</th><td data-col=\"Planned workouts to device\">—</td><td data-col=\"Completed activities\">✓</td><td data-col=\"Historical activities\">✓</td></tr><tr><th scope=\"row\">Rouvy</th><td data-col=\"Planned workouts to device\">—</td><td data-col=\"Completed activities\">✓</td><td data-col=\"Historical activities\">✓</td></tr><tr><th scope=\"row\">Hammerhead</th><td data-col=\"Planned workouts to device\">—</td><td data-col=\"Completed activities\">✓</td><td data-col=\"Historical activities\">✓</td></tr></tbody></table></div><p>All nine bring in your last 30 days when you connect them. Garmin, Coros, Wahoo and Suunto also take the planned workout onto the device itself.</p>"
     },
     {
       "type": "html",
@@ -55,7 +58,7 @@
     },
     {
       "type": "html",
-      "html": "<h2 id=\"one-connection\">One connection is enough</h2><p>You only need to connect one source, as long as it carries every workout you do. If your watch already pushes everything to Strava, connecting Strava alone is enough. If some sessions only live on the watch — say indoor rides that never reach Strava — connect the watch too. Connecting more than one source is fine: augo recognises the same activity coming from two places and won't show it twice.</p><p>If you want planned workouts on your device, connect the device itself: Strava is an app, and it can't put a workout on your watch. The table above shows what each one can do.</p>"
+      "html": "<h2 id=\"one-connection\">One connection is enough</h2><p>You only need to connect one source, as long as it carries every workout you do. If your watch already pushes everything to Strava, connecting Strava alone is enough. If some sessions only live on the watch — say Zwift or Rouvy rides that never reach Strava — connect the watch too. Connecting more than one source is fine: augo recognises the same activity coming from two places and won't show it twice.</p><p>If you want planned workouts on your device, connect a Garmin, Coros, Wahoo or Suunto. An app like Strava, Zwift or Rouvy can't put a workout on your watch, and neither can a device augo only reads from — a Hammerhead Karoo sends your rides to augo but can't be sent a session back. The table above shows what each one can do.</p>"
     },
     {
       "type": "html",
@@ -73,7 +76,7 @@
   "faqs": [
     {
       "question": "Which devices does augo integrate with?",
-      "answer": "augo connects to Garmin, Coros, Wahoo, Suunto, Polar, Zwift and Strava. All seven sync completed activities and bring in your last 30 days of history. Garmin, Coros, Wahoo and Suunto also receive planned workouts on the device."
+      "answer": "augo connects to Garmin, Coros, Wahoo, Suunto, Polar, Zwift, Strava, Rouvy and Hammerhead. All nine sync completed activities and bring in your last 30 days of history. Garmin, Coros, Wahoo and Suunto also receive planned workouts on the device."
     },
     {
       "question": "Do I need to reconnect my Garmin?",
@@ -112,6 +115,9 @@
     "can i connect more than one device",
     "will i get duplicate workouts",
     "do i need to reconnect my garmin",
-    "why do i have to reauthorise garmin"
+    "why do i have to reauthorise garmin",
+    "does augo work with rouvy",
+    "does augo support hammerhead",
+    "how do i connect my karoo"
   ]
 }

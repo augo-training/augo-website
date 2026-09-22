@@ -3,7 +3,7 @@
   "title": "Which workouts are delivered to my device?",
   "seoTitle": "Planned Workouts on Your Device | augo support",
   "description": "Every workout your coach plans in augo appears in your augo app. On Garmin, Coros, Wahoo and Suunto it is also sent to the device so you can follow it step by step.",
-  "summary": "Every workout your coach plans in augo shows up in your augo app, whatever device you use. If you use Garmin, Coros, Wahoo or Suunto, the workout is also sent to the device itself, so you can follow it step by step. Polar, Zwift and Strava don't receive planned workouts. If your Garmin was connected a while ago, reconnect it so it can receive them.",
+  "summary": "Every workout your coach plans in augo shows up in your augo app, whatever device you use. If you use Garmin, Coros, Wahoo or Suunto, the workout is also sent to the device itself, so you can follow it step by step. Polar, Zwift, Strava, Rouvy and Hammerhead don't receive planned workouts. If your Garmin was connected a while ago, reconnect it.",
   "audience": "both",
   "category": "integrations",
   "keywords": [
@@ -26,7 +26,9 @@
     "garmin",
     "polar",
     "zwift",
-    "strava"
+    "strava",
+    "rouvy",
+    "hammerhead"
   ],
   "weight": 2,
   "platforms": [
@@ -47,7 +49,7 @@
     },
     {
       "type": "html",
-      "html": "<h2 id=\"follow-in-app\">Polar, Zwift, Strava: follow it in the app</h2><p>Planned workouts are not sent to Polar or Zwift devices, and Strava is an app rather than a device. If you use one of these, open the workout in the augo app before you head out and follow the steps from there.</p><p>Your completed activity still syncs back to augo automatically. Only the delivery of the plan to the device is missing — nothing about your results.</p>"
+      "html": "<h2 id=\"follow-in-app\">Everything else: follow it in the app</h2><p>Planned workouts are not sent to Polar, Zwift, Strava, Rouvy or Hammerhead. Polar and Hammerhead are devices augo can read from but not yet write to; Zwift, Strava and Rouvy are apps rather than devices. If you use one of these, open the workout in the augo app before you head out and follow the steps from there.</p><p>Hammerhead is worth calling out. The Karoo is a bike computer mounted in front of you, so it looks like it should work the way a Wahoo does. It doesn't yet: augo reads your rides off the Karoo, but can't write a session onto it. Open the workout on your phone before you start.</p><p>Your completed activity still syncs back to augo automatically. Only the delivery of the plan to the device is missing — nothing about your results.</p>"
     },
     {
       "type": "html",
@@ -57,7 +59,7 @@
   "faqs": [
     {
       "question": "Will my planned workout show up on my watch?",
-      "answer": "On Garmin, Coros, Wahoo and Suunto, yes — the workout is sent to the device and you can follow it step by step. On Polar and Zwift it isn't, so open the workout in the augo app instead. It always appears in the app regardless of device."
+      "answer": "On Garmin, Coros, Wahoo and Suunto, yes — the workout is sent to the device and you can follow it step by step. On Polar, Zwift, Strava, Rouvy and Hammerhead it isn't, so open the workout in the augo app instead. It always appears in the app regardless of device."
     },
     {
       "question": "Does augo send workouts to Garmin?",
@@ -82,6 +84,8 @@
     "where do i see my planned workouts",
     "do athletes get workouts on their suunto",
     "does zwift get my planned workouts",
-    "can i see the intervals on my bike computer"
+    "can i see the intervals on my bike computer",
+    "can i follow the workout on my karoo",
+    "does augo send workouts to rouvy"
   ]
 }
