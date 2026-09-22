@@ -36,6 +36,9 @@ const EVAL: { query: string; expect: string; why: string }[] = [
   { query: 'does augo work with garmin', expect: 'connect-devices-and-apps', why: 'declared question form' },
   { query: 'apple health', expect: 'connect-devices-and-apps', why: 'unsupported integration — "no" is the right answer' },
   { query: 'does augo support suunto', expect: 'connect-devices-and-apps', why: 'suunto survives stemming; brand-only query' },
+  { query: 'does augo work with rouvy', expect: 'connect-devices-and-apps', why: 'declared question form; new brand' },
+  { query: 'does augo support hammerhead', expect: 'connect-devices-and-apps', why: 'declared question form; new brand' },
+  { query: 'karoo', expect: 'connect-devices-and-apps', why: 'model name reaches the brand by hypernym; the compatibility table owns it' },
   {
     query: 'do i need to reconnect my garmin',
     expect: 'connect-devices-and-apps',
@@ -48,10 +51,13 @@ const EVAL: { query: string; expect: string; why: string }[] = [
   { query: 'does augo send workouts to garmin', expect: 'workouts-on-your-device', why: 'send -> deliver group; delivery article owns garmin push' },
   { query: 'can i see the intervals on my bike computer', expect: 'workouts-on-your-device', why: 'bike computer phrase alias' },
   { query: 'planned workouts on my coros', expect: 'workouts-on-your-device', why: 'planned is delivery vocabulary' },
+  { query: 'can i follow the workout on my karoo', expect: 'workouts-on-your-device', why: 'a bike computer that is not a push target — delivery article owns the no' },
+  { query: 'does augo send workouts to rouvy', expect: 'workouts-on-your-device', why: 'send -> deliver group; a negative answer still belongs to the delivery article' },
   // historical-activities
   { query: 'why cant i see my old workouts', expect: 'historical-activities', why: 'old -> backfill group; must not pull the missing-workout section' },
   { query: 'how far back does augo import my activities', expect: 'historical-activities', why: 'declared question form; import is also a connect synonym' },
   { query: 'five years of data', expect: 'historical-activities', why: 'five years is only in the history article' },
+  { query: 'will augo import my rouvy history', expect: 'historical-activities', why: 'history beats connect despite rouvy being a connect-article brand' },
   { query: 'my last 30 days havent shown up', expect: 'historical-activities', why: '30 days phrase alias; must beat the devices article' },
   { query: 'backfil', expect: 'historical-activities', why: '1-edit typo on a rare term' },
   // add-an-athlete
@@ -192,7 +198,7 @@ describe('ranking invariants', () => {
 })
 
 describe('typo tolerance bounds', () => {
-  it.each(['garmn', 'garmni'])('corrects %s', (typo) => {
+  it.each(['garmn', 'garmni', 'rouvey', 'rouvi', 'hammerhed'])('corrects %s', (typo) => {
     expect(supportSearch(typo, index).results[0]?.slug).toBe('connect-devices-and-apps')
   })
 

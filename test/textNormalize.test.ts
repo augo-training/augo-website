@@ -95,7 +95,7 @@ describe('lightStem', () => {
     expect(lightStem(input)).toBe(expected)
   })
 
-  it.each(['ios', 'analysis', 'status', 'address', 'data', 'garmin', 'strava'])(
+  it.each(['ios', 'analysis', 'status', 'address', 'data', 'garmin', 'strava', 'rouvy', 'hammerhead', 'karoo'])(
     'leaves %s alone',
     (word) => {
       expect(lightStem(word)).toBe(word)

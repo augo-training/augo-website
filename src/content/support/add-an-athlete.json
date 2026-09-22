@@ -108,7 +108,7 @@
     },
     {
       "question": "Why is my new athlete’s training feed empty?",
-      "answer": "Almost always because they have joined but not yet connected a data source. The athlete has to link Garmin, Coros, Wahoo, Suunto, Polar, Zwift or Strava from their own account — a coach cannot do it for them."
+      "answer": "Almost always because they have joined but not yet connected a data source. The athlete has to link Garmin, Coros, Wahoo, Suunto, Polar, Zwift, Strava, Rouvy or Hammerhead from their own account — a coach cannot do it for them."
     }
   ],
   "related": [

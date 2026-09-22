@@ -2,8 +2,8 @@
   "slug": "historical-activities",
   "title": "How does historical backfill work?",
   "seoTitle": "Historical Activities and Backfill | augo support",
-  "description": "When you connect Garmin, Coros, Wahoo, Suunto, Polar, Zwift or Strava, augo pulls in your last 30 days of activities. Up to five years is available on request.",
-  "summary": "When you connect Garmin, Coros, Wahoo, Suunto, Polar, Zwift or Strava, augo also pulls in your last 30 days of activities, usually within an hour. You don't have to do anything. Need more than 30 days? We can go back up to five years for any connected source — just ask through the feedback button in the app.",
+  "description": "When you connect Garmin, Coros, Wahoo, Suunto, Polar, Zwift, Strava, Rouvy or Hammerhead, augo pulls in your last 30 days of activities. Up to five years is available on request.",
+  "summary": "When you connect Garmin, Coros, Wahoo, Suunto, Polar, Zwift, Strava, Rouvy or Hammerhead, augo also pulls in your last 30 days of activities, usually within an hour. You don't have to do anything. Need more than 30 days? We can go back up to five years for any connected source — just ask through the feedback button in the app.",
   "audience": "both",
   "category": "integrations",
   "keywords": [
@@ -33,7 +33,7 @@
   "body": [
     {
       "type": "html",
-      "html": "<h2 id=\"by-default\">What you get by default</h2><p>The moment you connect Garmin, Coros, Wahoo, Suunto, Polar, Zwift or Strava, augo starts pulling in the activities you did in the 30 days before connecting. You don't need to do anything — they arrive on their own, usually within an hour.</p><p>This gives your coach a recent picture of your training from day one, rather than starting from an empty calendar.</p><p>Every source works the same way. There is no device that starts from an empty history.</p>"
+      "html": "<h2 id=\"by-default\">What you get by default</h2><p>The moment you connect a device or app, augo starts pulling in the activities you did in the 30 days before connecting. You don't need to do anything — they arrive on their own, usually within an hour.</p><p>This gives your coach a recent picture of your training from day one, rather than starting from an empty calendar.</p><p>Every source works the same way. There is no device that starts from an empty history.</p>"
     },
     {
       "type": "html",
@@ -47,7 +47,7 @@
   "faqs": [
     {
       "question": "How far back does augo import my activities?",
-      "answer": "30 days by default, for every source augo connects to — Garmin, Coros, Wahoo, Suunto, Polar, Zwift and Strava. Up to five years is available on request through the feedback button in the app."
+      "answer": "30 days by default, for every source augo connects to — Garmin, Coros, Wahoo, Suunto, Polar, Zwift, Strava, Rouvy and Hammerhead. Up to five years is available on request through the feedback button in the app."
     },
     {
       "question": "How long does the backfill take?",
@@ -77,6 +77,7 @@
     "how long does the backfill take",
     "how do i import my strava history",
     "can my coach request my training history",
-    "why didnt my garmin history come in"
+    "why didnt my garmin history come in",
+    "will augo import my rouvy history"
   ]
 }

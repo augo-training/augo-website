@@ -35,6 +35,7 @@ const STEM_EXCEPTIONS: ReadonlySet<string> = new Set([
   'ios', 'analysis', 'data', 'settings', 'status', 'address', 'this', 'has',
   'was', 'as', 'is', 'gps', 'rpe', 'ftp', 'lthr', 'css', 'less', 'series',
   'strava', 'coros', 'polar', 'wahoo', 'zwift', 'garmin', 'suunto', 'oura',
+  'rouvy', 'hammerhead', 'karoo',
 ])
 
 export function foldDiacritics(input: string): string {

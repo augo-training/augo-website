@@ -312,7 +312,7 @@
       },
       {
         "question": "Which platforms does augo integrate with?",
-        "answer": "We currently support wearable data from Garmin, Polar, Strava, Coros, Wahoo, and Zwift."
+        "answer": "We currently support data from Garmin, Coros, Wahoo, Suunto, Polar, Zwift, Strava, Rouvy and Hammerhead."
       },
       {
         "question": "Can I use augo with multiple sports or coaching styles?",
@@ -349,7 +349,7 @@
         {
           "title": "Data",
           "items": [
-            "Two-way sync with Garmin, Coros, Polar, Wahoo, Zwift; import from Strava"
+            "Two-way sync with Garmin, Coros, Wahoo and Suunto; activity import from Polar, Zwift, Strava, Rouvy and Hammerhead"
           ]
         },
         {
@@ -692,7 +692,7 @@
       "h1": "Answers to your questions",
       "subhead": "Answers for coaches and athletes using augo — getting set up, adding athletes, the assistant, creating workouts, and connecting your devices.",
       "seoTitle": "Answers to your questions | augo support",
-      "seoDescription": "Help articles for coaches and athletes using augo: getting started, inviting athletes, Athlete Signals, the assistant, creating workouts, private notes, and connecting Garmin, Coros, Wahoo, Suunto, Polar, Zwift and Strava.",
+      "seoDescription": "Help articles for coaches and athletes using augo: getting started, inviting athletes, Athlete Signals, the assistant, creating workouts, private notes, and connecting your devices and apps.",
       "breadcrumb": "Support"
     },
     "search": {

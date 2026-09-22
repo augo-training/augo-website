@@ -312,7 +312,7 @@
       },
       {
         "question": "Mit welchen Plattformen ist augo kompatibel?",
-        "answer": "Wir unterstützen derzeit Wearable-Daten von Garmin, Polar, Strava, Coros, Wahoo und Zwift."
+        "answer": "Wir unterstützen derzeit Daten von Garmin, Coros, Wahoo, Suunto, Polar, Zwift, Strava, Rouvy und Hammerhead."
       },
       {
         "question": "Kann ich augo für mehrere Sportarten oder Coaching-Stile nutzen?",
@@ -349,7 +349,7 @@
         {
           "title": "Daten",
           "items": [
-            "Zwei-Wege-Sync mit Garmin, Coros, Polar, Wahoo, Zwift; Import von Strava"
+            "Zwei-Wege-Sync mit Garmin, Coros, Wahoo und Suunto; Aktivitätsimport von Polar, Zwift, Strava, Rouvy und Hammerhead"
           ]
         },
         {
