@@ -126,17 +126,14 @@ export default function MerciOffer({ code, src, email, alreadyRedeemed, onRedeem
             <Rise delayMs={step * 2} className="mt-10">
                 <Section title={OFFER.peek.title}>
                     <p className="merci-body mt-3">{OFFER.peek.intro}</p>
-                    <ol className="m-0 mt-5 list-none space-y-5 p-0">
+                    <ol className="m-0 mt-4 list-none space-y-3 p-0">
                         {[...OFFER.peek.days, { label: OFFER.peek.bonus.label, fix: OFFER.peek.bonus.text }].map(
                             (day) => (
-                                <li key={day.label} className="flex gap-3">
+                                <li key={day.label} className="merci-body flex gap-3">
                                     <Tick />
-                                    <div>
-                                        <h3 className="m-0 font-sans text-[18px] font-extrabold leading-[1.2] tracking-[-0.02em] text-white">
-                                            {day.label}
-                                        </h3>
-                                        <p className="merci-body mt-1.5">{day.fix}</p>
-                                    </div>
+                                    <span>
+                                        <strong className="text-white">{day.label}.</strong> {day.fix}
+                                    </span>
                                 </li>
                             ),
                         )}
