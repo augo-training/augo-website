@@ -230,7 +230,7 @@ export const COPY = {
         // on the first screen: more athletes, same standard, still personal.
         // Digits, not words, to match "SEND ME DAY 1".
         intro: [
-            'A free 5-day email course with 5 AI workflows that let you coach more athletes at the same high standard, without losing the personal touch.',
+            'A free 5-day email course with 5 AI workflows that let you coach more athletes at the same high standard you are known for, without losing the personal touch.',
         ],
         button: 'SEND ME DAY 1',
         get: {
