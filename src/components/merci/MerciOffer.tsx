@@ -3,7 +3,12 @@ import { Headline, Rise } from './MerciBeat'
 import { ADVISORS, COPY, TIMING } from './constants'
 import { redeemOffer } from './api'
 import type { MerciSrc } from './code'
-import { trackMerciLinkClicked, trackMerciOfferError, trackMerciOfferRedeemed } from '../../utils/analytics'
+import {
+    trackMerciLinkClicked,
+    trackMerciOfferClicked,
+    trackMerciOfferError,
+    trackMerciOfferRedeemed,
+} from '../../utils/analytics'
 
 const OFFER = COPY.offer
 const FORM = OFFER.form
@@ -54,6 +59,7 @@ export default function MerciOffer({ code, src, email, alreadyRedeemed, onRedeem
         e.preventDefault()
         if (sending) return
 
+        void trackMerciOfferClicked({ code, src })
         setError(false)
         setSending(true)
         const result = await redeemOffer({ code, email, src })
