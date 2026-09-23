@@ -114,9 +114,7 @@ export default function MerciOffer({ code, src, email, alreadyRedeemed, onRedeem
                     <ul className="m-0 mt-4 list-none space-y-3 p-0">
                         {OFFER.get.items.map((item) => (
                             <li key={item.text} className={`merci-body flex gap-3 ${item.bold ? 'font-bold text-white' : ''}`}>
-                                <span aria-hidden="true" className="shrink-0 font-mono text-white">
-                                    ✓
-                                </span>
+                                <Tick />
                                 <span>{item.text}</span>
                             </li>
                         ))}
@@ -131,11 +129,14 @@ export default function MerciOffer({ code, src, email, alreadyRedeemed, onRedeem
                     <ol className="m-0 mt-5 list-none space-y-5 p-0">
                         {[...OFFER.peek.days, { label: OFFER.peek.bonus.label, fix: OFFER.peek.bonus.text }].map(
                             (day) => (
-                                <li key={day.label}>
-                                    <h3 className="m-0 font-sans text-[18px] font-extrabold leading-[1.2] tracking-[-0.02em] text-white">
-                                        {day.label}
-                                    </h3>
-                                    <p className="merci-body mt-1.5">{day.fix}</p>
+                                <li key={day.label} className="flex gap-3">
+                                    <Tick />
+                                    <div>
+                                        <h3 className="m-0 font-sans text-[18px] font-extrabold leading-[1.2] tracking-[-0.02em] text-white">
+                                            {day.label}
+                                        </h3>
+                                        <p className="merci-body mt-1.5">{day.fix}</p>
+                                    </div>
                                 </li>
                             ),
                         )}
@@ -149,9 +150,7 @@ export default function MerciOffer({ code, src, email, alreadyRedeemed, onRedeem
                     <ul className="m-0 mt-4 list-none space-y-2.5 p-0">
                         {OFFER.fit.items.map((item) => (
                             <li key={item} className="merci-body flex gap-3">
-                                <span aria-hidden="true" className="shrink-0 text-text-muted">
-                                    –
-                                </span>
+                                <Tick />
                                 <span>{item}</span>
                             </li>
                         ))}
@@ -181,6 +180,15 @@ export default function MerciOffer({ code, src, email, alreadyRedeemed, onRedeem
                 <Repeat state={state} placement="team" />
             </Rise>
         </div>
+    )
+}
+
+/** The one list marker on the page, so every list reads as the same list. */
+function Tick() {
+    return (
+        <span aria-hidden="true" className="shrink-0 font-mono text-white">
+            ✓
+        </span>
     )
 }
 
