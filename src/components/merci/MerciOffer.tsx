@@ -42,9 +42,9 @@ interface OptInState {
  * their own code across the top, a tear line, the course and the one button
  * below. The page then makes the case for the course (what you get, who wrote
  * it with Marco's words, a day-by-day peek, who it is for) and asks again
- * after each section, once as a quiet strip and finally as a second pass.
- * The pass is the one place the brand gradient appears, as a hairline border
- * (never as text).
+ * after each section with a bare button. The pass is the only framed thing on
+ * the page and the one place the brand gradient appears, as a hairline border
+ * (never as text): a page of boxed cards read as busy.
  *
  * The email was given at the door, so there is nothing to type here: every
  * button is the same one-tap yes. `placement` on the click event says which
@@ -92,7 +92,7 @@ export default function MerciOffer({ code, src, email, alreadyRedeemed, onRedeem
     return (
         <div className="merci-offer mx-auto w-full max-w-[560px] pb-4">
             <Rise delayMs={0}>
-                <Pass code={code} state={state} placement="hero">
+                <Pass code={code} state={state}>
                     <p className="merci-label merci-label-sm text-text-muted">{OFFER.eyebrow}</p>
                     {/* The only h1 on this screen, so it is what the beat is labelled by. */}
                     <h1
@@ -122,7 +122,7 @@ export default function MerciOffer({ code, src, email, alreadyRedeemed, onRedeem
                         ))}
                     </ul>
                 </Section>
-                <Strip state={state} placement="get" />
+                <Repeat state={state} placement="get" />
             </Rise>
 
             <Rise delayMs={step * 1.5} className="mt-10">
@@ -131,7 +131,7 @@ export default function MerciOffer({ code, src, email, alreadyRedeemed, onRedeem
                     <MerciQuote />
                     <p className="merci-body mt-4 font-bold text-white">{OFFER.team.after}</p>
                 </Section>
-                <Strip state={state} placement="team" />
+                <Repeat state={state} placement="team" />
             </Rise>
 
             <Rise delayMs={step * 2} className="mt-10">
@@ -151,7 +151,7 @@ export default function MerciOffer({ code, src, email, alreadyRedeemed, onRedeem
                         </li>
                     </ol>
                 </Section>
-                <Strip state={state} placement="peek" />
+                <Repeat state={state} placement="peek" />
             </Rise>
 
             <Rise delayMs={step * 2.5} className="mt-10">
@@ -174,12 +174,11 @@ export default function MerciOffer({ code, src, email, alreadyRedeemed, onRedeem
                 </Section>
             </Rise>
 
-            <Rise delayMs={step * 3} className="mt-6">
-                <Pass code={code} state={state} placement="closing">
-                    <h2 className="m-0 font-sans text-[24px] font-extrabold leading-[1.12] tracking-[-0.03em] text-white">
-                        {OFFER.closing.heading}
-                    </h2>
-                </Pass>
+            <Rise delayMs={step * 3} className="mt-8">
+                <h2 className="m-0 font-sans text-[24px] font-extrabold leading-[1.12] tracking-[-0.03em] text-white">
+                    {OFFER.closing.heading}
+                </h2>
+                <Repeat state={state} placement="closing" />
             </Rise>
         </div>
     )
@@ -197,20 +196,10 @@ function Section({ title, children }: { title: string; children: ReactNode }) {
 }
 
 /**
- * The invitation pass: the code strip, the tear line, then whatever the
- * caller puts above the button. Used twice, at the top and at the end.
+ * The invitation pass at the top of the page: the code strip, the tear line,
+ * then the hero copy above the first button. The one framed thing on the page.
  */
-function Pass({
-    code,
-    state,
-    placement,
-    children,
-}: {
-    code: string
-    state: OptInState
-    placement: MerciOfferPlacement
-    children: ReactNode
-}) {
+function Pass({ code, state, children }: { code: string; state: OptInState; children: ReactNode }) {
     return (
         <div className="merci-pass rounded-[24px]">
             <div className="px-5 pt-4 pb-3.5">
@@ -229,18 +218,21 @@ function Pass({
             <div className="px-5 pt-4 pb-4">
                 {children}
                 <div className="mt-4">
-                    <OptIn state={state} placement={placement} />
+                    <OptIn state={state} placement="hero" note />
                 </div>
             </div>
         </div>
     )
 }
 
-/** A quiet opt-in between sections. Gone once the coach is on the list. */
-function Strip({ state, placement }: { state: OptInState; placement: MerciOfferPlacement }) {
+/**
+ * The button again, bare, after a section. No frame and no note: the pass at
+ * the top already said what happens next. Gone once the coach is on the list.
+ */
+function Repeat({ state, placement }: { state: OptInState; placement: MerciOfferPlacement }) {
     if (state.redeemed) return null
     return (
-        <div className="merci-strip mt-6 rounded-[20px] px-4 py-4">
+        <div className="mt-6">
             <OptIn state={state} placement={placement} />
         </div>
     )
@@ -251,7 +243,16 @@ function Strip({ state, placement }: { state: OptInState; placement: MerciOfferP
  * form with nothing in it but the button: Enter submits and the button reads
  * as a submit to assistive tech.
  */
-function OptIn({ state, placement }: { state: OptInState; placement: MerciOfferPlacement }) {
+function OptIn({
+    state,
+    placement,
+    note = false,
+}: {
+    state: OptInState
+    placement: MerciOfferPlacement
+    /** The "keep your postcard code" line under the button, said once, in the pass. */
+    note?: boolean
+}) {
     const { code, sending, errorAt, redeemed, submit } = state
     const errorId = `merci-offer-error-${placement}`
 
@@ -293,7 +294,9 @@ function OptIn({ state, placement }: { state: OptInState; placement: MerciOfferP
             >
                 {sending ? FORM.sending : OFFER.button}
             </button>
-            <p className="text-center font-satoshi text-[12.5px] leading-[1.4] text-text-muted">{OFFER.note}</p>
+            {note && (
+                <p className="text-center font-satoshi text-[12.5px] leading-[1.4] text-text-muted">{OFFER.note}</p>
+            )}
         </form>
     )
 }

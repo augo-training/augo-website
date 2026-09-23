@@ -912,10 +912,8 @@ body {
   color: rgba(255, 255, 255, 0.82);
 }
 
-/* The ticket page's quieter blocks: the opt-in strips between sections and
-   Marco's quote. A hairline like the fields', never the gradient, so the two
-   passes stay the loudest things on the page. */
-.merci-strip,
+/* Marco's quote on the ticket page. A hairline like the fields', never the
+   gradient, so the pass stays the loudest thing on the page. */
 .merci-quote {
   border: 1px solid rgba(150, 158, 167, 0.3);
   background: rgba(255, 255, 255, 0.025);
