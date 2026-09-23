@@ -121,6 +121,12 @@ describe('merci funnel', () => {
         expect(propsFor('merci_code_failed')).toEqual({ code: 'nice 42', reason: 'malformed', method: 'typed' })
     })
 
+    it('marks the first keystroke at the door, with how the door was reached', async () => {
+        const { trackMerciDoorStarted } = await loadModule()
+        await trackMerciDoorStarted({ src: 'postcard', entry: 'blank' })
+        expect(propsFor('merci_door_started')).toEqual({ src: 'postcard', entry: 'blank' })
+    })
+
     it('counts a door refused for its email, which never reaches the server', async () => {
         const { trackMerciCodeFailed } = await loadModule()
         await trackMerciCodeFailed({ code: 'NVE', reason: 'email', method: 'link' })
@@ -178,6 +184,12 @@ describe('merci funnel', () => {
         expect(propsFor('merci_link_clicked')).toEqual({ code: 'NVE', link: 'instagram' })
         const call = track.mock.calls.find(([name]) => name === 'merci_link_clicked')
         expect(call?.[2]).toEqual({ transport: 'sendBeacon' })
+    })
+
+    it('records the tap on the ticket before the redeem call answers', async () => {
+        const { trackMerciOfferClicked } = await loadModule()
+        await trackMerciOfferClicked({ code: 'NVE', src: 'email' })
+        expect(propsFor('merci_offer_clicked')).toEqual({ code: 'NVE', src: 'email' })
     })
 
     it('ties the signup to the code and the email', async () => {
