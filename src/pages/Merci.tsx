@@ -12,13 +12,13 @@ import topoBg from '../assets/images/bg_section_1.webp'
 import augoLogo from '../assets/images/augo_footer_1.svg'
 import MerciDoor from '../components/merci/MerciDoor'
 import MerciTerminal from '../components/merci/MerciTerminal'
-import MerciQuote from '../components/merci/MerciQuote'
 import MerciOffer, { MerciDone } from '../components/merci/MerciOffer'
 import { MerciHint, MerciProgress } from '../components/merci/MerciProgress'
 import { Beat, Headline, Rise } from '../components/merci/MerciBeat'
 import {
     BEAT_NAMES,
     COPY,
+    LAST_BEAT,
     MERCI_CANONICAL,
     MERCI_CODE_STORAGE_KEY,
     MERCI_EMAIL_STORAGE_KEY,
@@ -41,8 +41,8 @@ import {
     type MerciDoorEntry,
 } from '../utils/analytics'
 
-/** 0 is the door; 1 to 5 are the beats. The done state replaces beat 5. */
-type BeatNumber = 0 | 1 | 2 | 3 | 4 | 5
+/** 0 is the door; 1 to LAST_BEAT are the beats. The done state replaces the last one. */
+type BeatNumber = 0 | 1 | 2 | 3 | 4
 
 const STEP = TIMING.lineStaggerMs
 
@@ -70,20 +70,21 @@ function isTypingTarget(target: EventTarget | null): boolean {
 /**
  * The page behind the QR code on the "Merci, coach." postcards (see
  * components/merci/constants.ts for the why). A code-gated, full-screen
- * tap-through of five beats ending in one tap:
+ * tap-through of four beats ending in one tap:
  *
  *   0 the door    the code gate, and the email. Nothing else is reachable
  *                 without a valid code, and the email is stored as it opens.
  *   1 the memory  everything the athlete ever told you
  *   2 one prompt  the typing terminal
  *   3 you decide  the reassurance
- *   4 the quote   a coach they may know vouching for augo
- *   5 the ticket  the offer and its one button
+ *   4 the ticket  the course's opt-in page, with Marco's quote in it and the
+ *                 one button repeated down the page
  *   done          replaces the ticket on success; no further navigation
  *
  * The right half of the screen is Next and the left half Back, as real buttons
  * sitting under the beat content so taps on a field never advance. Arrow keys
- * and Space do the same. Nothing advances on its own.
+ * and Space do the same. Nothing advances on its own. The ticket is a reading
+ * page, so taps on it never go back; only the arrow key does.
  *
  * `?c=` fills the code in, which is what the email arm's links use, and opens
  * the door by itself on a device that has already given its email;
@@ -119,7 +120,7 @@ export default function Merci() {
      * The door stays plain so the code field is the only thing on it, and the
      * ticket stays plain so the ticket is the only colour on that screen.
      */
-    const glowing = navigable && beat < 5
+    const glowing = navigable && beat < LAST_BEAT
 
     useEffect(() => {
         if (pageTracked.current) return
@@ -181,7 +182,7 @@ export default function Merci() {
 
     const go = useCallback((step: 1 | -1) => {
         setBeat((current) =>
-            current === 0 ? current : (Math.min(5, Math.max(1, current + step)) as BeatNumber),
+            current === 0 ? current : (Math.min(LAST_BEAT, Math.max(1, current + step)) as BeatNumber),
         )
     }, [])
 
@@ -191,7 +192,7 @@ export default function Merci() {
             if (e.metaKey || e.ctrlKey || e.altKey || isTypingTarget(e.target)) return
             // Space on a focused button already clicks it; on the offer it scrolls.
             const spaceAdvances =
-                e.key === ' ' && beat < 5 && !(e.target instanceof HTMLButtonElement)
+                e.key === ' ' && beat < LAST_BEAT && !(e.target instanceof HTMLButtonElement)
             if (e.key === 'ArrowRight' || spaceAdvances) {
                 e.preventDefault()
                 go(1)
@@ -210,14 +211,6 @@ export default function Merci() {
     function handleZone(e: MouseEvent<HTMLButtonElement>, step: 1 | -1) {
         if (e.detail > 0) e.currentTarget.blur()
         go(step)
-    }
-
-    // The offer scrolls, so it catches its own taps: anything not on a control,
-    // in its left third, goes back.
-    function handleOfferClick(e: MouseEvent<HTMLElement>) {
-        if ((e.target as HTMLElement).closest('a, button, input, label, form')) return
-        const { left, width } = e.currentTarget.getBoundingClientRect()
-        if (e.clientX < left + width / 3) go(-1)
     }
 
     function renderBeat() {
@@ -282,21 +275,7 @@ export default function Merci() {
                 )
             case 4:
                 return (
-                    <Beat key="quote" labelledBy="merci-beat-title">
-                        <MerciQuote />
-                    </Beat>
-                )
-            case 5:
-                return (
-                    <Beat
-                        key="offer"
-                        labelledBy="merci-offer-title"
-                        align="top"
-                        interactive
-                        scroll
-                        tight
-                        onClick={handleOfferClick}
-                    >
+                    <Beat key="offer" labelledBy="merci-offer-title" align="top" interactive scroll tight>
                         <MerciOffer
                             code={code}
                             src={src}
@@ -370,7 +349,7 @@ export default function Merci() {
                         type="button"
                         aria-label="Next"
                         onClick={(e) => handleZone(e, 1)}
-                        disabled={beat === 5}
+                        disabled={beat === LAST_BEAT}
                         className="merci-zone absolute inset-y-0 right-0 z-10 w-1/2 bg-transparent"
                     />
                 </>
@@ -384,7 +363,7 @@ export default function Merci() {
                     should know whose page this is. */}
                 <img src={augoLogo} alt="augo" className="merci-logo absolute left-6 z-30 h-5 w-auto" />
                 {renderBeat()}
-                {navigable && beat < 5 && <MerciHint key={`hint-${beat}`} />}
+                {navigable && beat < LAST_BEAT && <MerciHint key={`hint-${beat}`} />}
             </main>
         </div>
     )

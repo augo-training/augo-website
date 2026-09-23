@@ -481,8 +481,15 @@ export async function trackMerciOfferError(props: {
     return track('merci_offer_error', props)
 }
 
+/** Where on the ticket page the button was: the pass at the top, one of the strips after a section, or the pass at the end. */
+export type MerciOfferPlacement = 'hero' | 'get' | 'team' | 'peek' | 'closing'
+
 /** The tap on the ticket's button, before the redeem call answers. */
-export async function trackMerciOfferClicked(props: { code: string; src: MerciSrc }): Promise<void> {
+export async function trackMerciOfferClicked(props: {
+    code: string
+    src: MerciSrc
+    placement: MerciOfferPlacement
+}): Promise<void> {
     return track('merci_offer_clicked', props)
 }
 

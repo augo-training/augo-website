@@ -903,6 +903,22 @@ body {
   transition: filter 150ms, opacity 150ms;
 }
 
+/* The ticket page's running text. No margin here: this rule is unlayered and
+   would beat the mt-* utilities the page uses to space its paragraphs. */
+.merci-body {
+  font-family: var(--font-satoshi);
+  font-size: 15px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+/* Marco's quote on the ticket page. A hairline like the fields', never the
+   gradient, so the pass stays the loudest thing on the page. */
+.merci-quote {
+  border: 1px solid rgba(150, 158, 167, 0.3);
+  background: rgba(255, 255, 255, 0.025);
+}
+
 /* The invitation pass: a hairline of the brand gradient as its border
    (gradient on borders, never on text), and two notches cut at the tear line. */
 .merci-pass {
@@ -1177,10 +1193,6 @@ body {
     line-height: 1.38;
   }
 
-  .merci-company {
-    font-size: 12.5px;
-    line-height: 1.35;
-  }
 }
 
 /* The oldest small phones (568px-class). The card still scrolls if it has to,
