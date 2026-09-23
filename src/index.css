@@ -903,9 +903,9 @@ body {
   transition: filter 150ms, opacity 150ms;
 }
 
-/* The ticket page's running text. */
+/* The ticket page's running text. No margin here: this rule is unlayered and
+   would beat the mt-* utilities the page uses to space its paragraphs. */
 .merci-body {
-  margin: 0;
   font-family: var(--font-satoshi);
   font-size: 15px;
   line-height: 1.5;
