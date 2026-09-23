@@ -2056,4 +2056,36 @@ export const coaches: Coach[] = [
             instagram: 'https://www.instagram.com/jackanstey',
         },
     },
+    {
+        slug: 'patrick-rosslee',
+        name: 'Patrick Rosslee',
+        firstName: 'Patrick',
+        gender: 'male',
+        tagline:
+            'Ultra running coach for older athletes and newer runners going beyond the marathon, on trail and road.',
+        isFoundingCoach: false,
+        status: 'accepting',
+        disciplines: ['running'],
+        specialties: ['marathon', 'ultra', 'trail running', 'road running'],
+        location: { city: 'Johannesburg', country: 'South Africa', countryCode: 'ZA', timezone: 'Africa/Johannesburg' },
+        coachesRemote: true,
+        languages: [EN],
+        credentials: ['UESCA Ultrarunning Coach'],
+        athleteLevels: ['Beginner', 'Intermediate'],
+        communication: 'weekly',
+        offersStrength: true,
+        idealAthlete: 'Older athletes and beginners to intermediates targeting distances beyond the marathon, mostly on trail but also on the road',
+        bio: {
+            short:
+                'Analytical, endlessly curious ultra coach who helps older and newer runners go further than the marathon.',
+            long: [
+                'Patrick coaches runners from the marathon distance upwards, mostly on trail but also on the road. He works best with older athletes and with beginners up to intermediate level who are setting their sights on distances longer than a marathon.',
+                'He describes himself as friendly, quiet, analytical and endlessly curious, with a good sense of humour. He reads the context behind the numbers: a missed session after a bad night of sleep or a stressful week means something different from one skipped for no reason.',
+                'He is a UESCA-certified ultrarunning coach, includes strength training in his coaching, and speaks with his athletes on a weekly basis.',
+            ],
+            philosophy: 'Context over data.',
+        },
+        media: { portrait: placeholderPortrait },
+        socials: { website: 'https://runningfar.coach' },
+    },
 ]
