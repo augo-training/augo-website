@@ -220,11 +220,12 @@ export const COPY = {
      */
     offer: {
         codeLabel: 'YOUR INVITATION CODE',
-        // The course name only: the sentence under the headline says it is a
-        // free five-day email course, and saying so twice in three lines reads
-        // as padding.
-        eyebrow: 'THE AI-AUGMENTED COACH',
+        // No eyebrow above the headline: the pass already opens with the code
+        // strip, and a second mono line made the top of the card busy.
         headline: 'Become an AI-augmented coach in five days.',
+        // The aside under the headline, for the coach who is already using AI
+        // and would otherwise scroll past: the course is for them too.
+        qualifier: '(Even if you think you already have AI figured out)',
         // One sentence between the headline and the button, so the first tap is
         // on the first screen. The three promises are the course's own, from
         // "What you'll get" just below.
@@ -232,9 +233,6 @@ export const COPY = {
             'A free five-day email course with five AI workflows: find any athlete detail in ten seconds, know each morning who needs you first, and keep your coaching personal as your roster grows.',
         ],
         button: 'SEND ME DAY 1',
-        // Under every button. The code is asked at the door, so this is a
-        // promise about Day 6 rather than an instruction for now.
-        note: "Keep your postcard code. You'll need it on Day 6.",
         get: {
             title: "What you'll get",
             items: [

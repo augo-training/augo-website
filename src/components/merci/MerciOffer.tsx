@@ -40,9 +40,9 @@ interface OptInState {
  *
  * It opens with the invitation pass, echoing the postcard the coach is holding:
  * their own code across the top, a tear line, the course and the one button
- * below. The page then makes the case for the course (what you get, who wrote
- * it with Marco's words, a day-by-day peek, who it is for) and asks again
- * after each section with a bare button. The pass is the only framed thing on
+ * below. The page then makes the case for the course (what you get, a
+ * day-by-day peek, who it is for) and asks again after each section with a
+ * bare button, and ends on who wrote it, with Marco's words. The pass is the only framed thing on
  * the page and the one place the brand gradient appears, as a hairline border
  * (never as text): a page of boxed cards read as busy.
  *
@@ -93,16 +93,16 @@ export default function MerciOffer({ code, src, email, alreadyRedeemed, onRedeem
         <div className="merci-offer mx-auto w-full max-w-[560px] pb-4">
             <Rise delayMs={0}>
                 <Pass code={code} state={state}>
-                    <p className="merci-label merci-label-sm text-text-muted">{OFFER.eyebrow}</p>
                     {/* The only h1 on this screen, so it is what the beat is labelled by. */}
                     <h1
                         id="merci-offer-title"
-                        className="m-0 mt-2 font-sans text-[27px] font-extrabold leading-[1.1] tracking-[-0.03em] text-white sm:text-[30px]"
+                        className="m-0 font-sans text-[27px] font-extrabold leading-[1.1] tracking-[-0.03em] text-white sm:text-[30px]"
                     >
                         {OFFER.headline}
                     </h1>
+                    <p className="merci-body mt-4 font-bold italic text-white">{OFFER.qualifier}</p>
                     {OFFER.intro.map((para) => (
-                        <p key={para} className="merci-body mt-3">
+                        <p key={para} className="merci-body mt-5">
                             {para}
                         </p>
                     ))}
@@ -123,15 +123,6 @@ export default function MerciOffer({ code, src, email, alreadyRedeemed, onRedeem
                     </ul>
                 </Section>
                 <Repeat state={state} placement="get" />
-            </Rise>
-
-            <Rise delayMs={step * 1.5} className="mt-10">
-                <Section title={OFFER.team.title}>
-                    <p className="merci-body mt-3">{OFFER.team.body}</p>
-                    <MerciQuote />
-                    <p className="merci-body mt-4 font-bold text-white">{OFFER.team.after}</p>
-                </Section>
-                <Repeat state={state} placement="team" />
             </Rise>
 
             <Rise delayMs={step * 2} className="mt-10">
@@ -180,6 +171,16 @@ export default function MerciOffer({ code, src, email, alreadyRedeemed, onRedeem
                 </h2>
                 <Repeat state={state} placement="closing" />
             </Rise>
+
+            {/* Last on purpose: the ask has been made; this is who is behind it. */}
+            <Rise delayMs={step * 3.5} className="mt-12">
+                <Section title={OFFER.team.title}>
+                    <p className="merci-body mt-3">{OFFER.team.body}</p>
+                    <MerciQuote />
+                    <p className="merci-body mt-4 font-bold text-white">{OFFER.team.after}</p>
+                </Section>
+                <Repeat state={state} placement="team" />
+            </Rise>
         </div>
     )
 }
@@ -215,10 +216,10 @@ function Pass({ code, state, children }: { code: string; state: OptInState; chil
                 <span className="merci-notch merci-notch-right" />
             </div>
 
-            <div className="px-5 pt-4 pb-4">
+            <div className="px-5 pt-5 pb-4">
                 {children}
-                <div className="mt-4">
-                    <OptIn state={state} placement="hero" note />
+                <div className="mt-5">
+                    <OptIn state={state} placement="hero" />
                 </div>
             </div>
         </div>
@@ -226,8 +227,8 @@ function Pass({ code, state, children }: { code: string; state: OptInState; chil
 }
 
 /**
- * The button again, bare, after a section. No frame and no note: the pass at
- * the top already said what happens next. Gone once the coach is on the list.
+ * The button again, bare, after a section. No frame around it. Gone once the
+ * coach is on the list.
  */
 function Repeat({ state, placement }: { state: OptInState; placement: MerciOfferPlacement }) {
     if (state.redeemed) return null
@@ -243,16 +244,7 @@ function Repeat({ state, placement }: { state: OptInState; placement: MerciOffer
  * form with nothing in it but the button: Enter submits and the button reads
  * as a submit to assistive tech.
  */
-function OptIn({
-    state,
-    placement,
-    note = false,
-}: {
-    state: OptInState
-    placement: MerciOfferPlacement
-    /** The "keep your postcard code" line under the button, said once, in the pass. */
-    note?: boolean
-}) {
+function OptIn({ state, placement }: { state: OptInState; placement: MerciOfferPlacement }) {
     const { code, sending, errorAt, redeemed, submit } = state
     const errorId = `merci-offer-error-${placement}`
 
@@ -294,9 +286,6 @@ function OptIn({
             >
                 {sending ? FORM.sending : OFFER.button}
             </button>
-            {note && (
-                <p className="text-center font-satoshi text-[12.5px] leading-[1.4] text-text-muted">{OFFER.note}</p>
-            )}
         </form>
     )
 }
