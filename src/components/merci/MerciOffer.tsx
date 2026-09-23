@@ -1,61 +1,45 @@
-import { useEffect, useRef, useState, type FormEvent } from 'react'
+import { useEffect, useState, type FormEvent } from 'react'
 import { Headline, Rise } from './MerciBeat'
-import { ADVISORS, COPY, MERCI_PATH, MERCI_SOURCE, TIMING } from './constants'
+import { ADVISORS, COPY, TIMING } from './constants'
 import { redeemOffer } from './api'
 import type { MerciSrc } from './code'
-import {
-    identifyEmailCapture,
-    trackMerciLinkClicked,
-    trackMerciOfferError,
-    trackMerciOfferFormStarted,
-    trackMerciOfferRedeemed,
-} from '../../utils/analytics'
+import { trackMerciLinkClicked, trackMerciOfferError, trackMerciOfferRedeemed } from '../../utils/analytics'
 
 const OFFER = COPY.offer
 const FORM = OFFER.form
-const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-
-const ERROR_TEXT = {
-    name: FORM.nameError,
-    email: FORM.emailError,
-    submit: FORM.submitError,
-} as const
-
-type FormError = keyof typeof ERROR_TEXT
 
 interface MerciOfferProps {
     code: string
     src: MerciSrc
+    /** The email given at the door; it is what the course goes to. */
+    email: string
     /** The code check already said this code was redeemed. */
     alreadyRedeemed: boolean
-    onRedeemed: (firstName: string) => void
+    onRedeemed: () => void
 }
 
 /**
- * Beat 4: the offer and the one form on the page.
+ * Beat 5: the offer and the one button on the page.
  *
  * The offer is an invitation pass, echoing the postcard the coach is holding:
- * their own code across the top, a tear line, the course and the form below. It
- * is the one place the brand gradient appears, as a hairline border (never as
- * text). Everything fits a 360px phone without scrolling, which is why the
- * fields use placeholders as their labels and the advisors are one sentence.
+ * their own code across the top, a tear line, the course and the button below.
+ * It is the one place the brand gradient appears, as a hairline border (never
+ * as text). Everything fits a 360px phone without scrolling, which is why the
+ * advisors are one sentence.
  *
  * What is on offer is the email course, not a trial: the free month and the
- * Elite months are made at the end of the course instead, so this page asks for
- * an email and nothing else.
+ * Elite months are made at the end of the course instead. The email was given
+ * at the door, so there is nothing left to type here: one tap says yes.
  *
  * A code that was already redeemed still opens the page (the coach may come
- * back to reread it), but the form gives way to a note. The same note appears
+ * back to reread it), but the button gives way to a note. The same note appears
  * if the redeem webhook answers 409, e.g. the code was redeemed on another
  * device after this one opened the door.
  */
-export default function MerciOffer({ code, src, alreadyRedeemed, onRedeemed }: MerciOfferProps) {
-    const [firstName, setFirstName] = useState('')
-    const [email, setEmail] = useState('')
+export default function MerciOffer({ code, src, email, alreadyRedeemed, onRedeemed }: MerciOfferProps) {
     const [sending, setSending] = useState(false)
-    const [error, setError] = useState<FormError | null>(null)
+    const [error, setError] = useState(false)
     const [redeemed, setRedeemed] = useState(alreadyRedeemed)
-    const formStarted = useRef(false)
 
     // The note that replaces the form, whether the door already knew or the
     // redeem call has just answered 409.
@@ -63,49 +47,27 @@ export default function MerciOffer({ code, src, alreadyRedeemed, onRedeemed }: M
         if (redeemed) void trackMerciOfferError({ code, error: 'already_redeemed' })
     }, [redeemed, code])
 
-    function fail(kind: FormError) {
-        setError(kind)
-        void trackMerciOfferError({ code, error: kind })
-    }
-
-    function handleFormFocus() {
-        if (formStarted.current) return
-        formStarted.current = true
-        void trackMerciOfferFormStarted({ code, src })
-    }
-
     // No headline above the card any more, so it leads rather than waits.
     const cardAt = 0
 
     async function handleSubmit(e: FormEvent) {
         e.preventDefault()
         if (sending) return
-        const name = firstName.trim()
-        const address = email.trim()
-        if (!name) return fail('name')
-        if (!EMAIL_PATTERN.test(address)) return fail('email')
 
-        setError(null)
+        setError(false)
         setSending(true)
-        const result = await redeemOffer({ code, firstName: name, email: address, src })
+        const result = await redeemOffer({ code, email, src })
         setSending(false)
 
         if (result === 'redeemed') return setRedeemed(true)
-        if (result === 'error') return fail('submit')
+        if (result === 'error') {
+            setError(true)
+            void trackMerciOfferError({ code, error: 'submit' })
+            return
+        }
 
-        void identifyEmailCapture({
-            email: address,
-            first_name: name,
-            source: MERCI_SOURCE,
-            page: MERCI_PATH,
-            merci_code: code,
-        })
-        void trackMerciOfferRedeemed({ code, email: address, src })
-        onRedeemed(name)
-    }
-
-    function clearError() {
-        if (error) setError(null)
+        void trackMerciOfferRedeemed({ code, email, src })
+        onRedeemed()
     }
 
     return (
@@ -152,56 +114,25 @@ export default function MerciOffer({ code, src, alreadyRedeemed, onRedeemed }: M
                             </p>
                         ) : (
                             <>
-                                <form
-                                    onSubmit={handleSubmit}
-                                    onFocus={handleFormFocus}
-                                    noValidate
-                                    className="mt-4 flex flex-col gap-2"
-                                >
-                                    <input
-                                        id="merci-first-name"
-                                        type="text"
-                                        autoComplete="given-name"
-                                        required
-                                        placeholder={FORM.firstName}
-                                        aria-label={FORM.firstName}
-                                        value={firstName}
-                                        onChange={(e) => {
-                                            setFirstName(e.target.value)
-                                            clearError()
-                                        }}
-                                        aria-invalid={error === 'name'}
-                                        aria-describedby={error ? 'merci-offer-error' : undefined}
-                                        readOnly={sending}
-                                        className="merci-field w-full font-satoshi text-[16px]"
-                                    />
-                                    <input
-                                        id="merci-email"
-                                        type="email"
-                                        autoComplete="email"
-                                        required
-                                        placeholder={FORM.email}
-                                        aria-label={FORM.email}
-                                        value={email}
-                                        onChange={(e) => {
-                                            setEmail(e.target.value)
-                                            clearError()
-                                        }}
-                                        aria-invalid={error === 'email'}
-                                        aria-describedby={error ? 'merci-offer-error' : undefined}
-                                        readOnly={sending}
-                                        className="merci-field w-full font-satoshi text-[16px]"
-                                    />
+                                {/* Still a form, with nothing in it but the
+                                    button: Enter submits and the button reads
+                                    as a submit to assistive tech. */}
+                                <form onSubmit={handleSubmit} noValidate className="mt-4 flex flex-col gap-2">
                                     {error && (
                                         <p
                                             id="merci-offer-error"
                                             role="alert"
                                             className="font-satoshi text-[14px] leading-[1.4] text-white/80"
                                         >
-                                            {ERROR_TEXT[error]}
+                                            {FORM.submitError}
                                         </p>
                                     )}
-                                    <button type="submit" disabled={sending} className="merci-btn mt-1 w-full">
+                                    <button
+                                        type="submit"
+                                        disabled={sending}
+                                        aria-describedby={error ? 'merci-offer-error' : undefined}
+                                        className="merci-btn mt-1 w-full"
+                                    >
                                         {sending ? FORM.sending : OFFER.button}
                                     </button>
                                 </form>
@@ -243,9 +174,8 @@ export default function MerciOffer({ code, src, alreadyRedeemed, onRedeemed }: M
  * the follow link, which opens in a new tab: there is no navigation back into
  * the sequence, so the done screen should survive the coach going to look.
  */
-export function MerciDone({ firstName, code }: { firstName: string; code: string }) {
-    const name = firstName.length > 30 ? `${firstName.slice(0, 30)}…` : firstName
-    const lines = [{ text: `Done, ${name}.` }, ...COPY.done.tail]
+export function MerciDone({ code }: { code: string }) {
+    const lines = [{ text: COPY.done.title }, ...COPY.done.tail]
     const after = lines.length * TIMING.lineStaggerMs
     const step = TIMING.lineStaggerMs
 
