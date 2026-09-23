@@ -919,14 +919,6 @@ body {
   background: rgba(255, 255, 255, 0.025);
 }
 
-/* The workflow that fixes each day's limit, set apart by a rule in the brand
-   ramp rather than an arrow character. */
-.merci-fix {
-  padding-left: 14px;
-  border-left: 2px solid transparent;
-  border-image: linear-gradient(180deg, #C50017 0%, #FF5514 60%, #FFCA1E 100%) 1;
-}
-
 /* The invitation pass: a hairline of the brand gradient as its border
    (gradient on borders, never on text), and two notches cut at the tear line. */
 .merci-pass {

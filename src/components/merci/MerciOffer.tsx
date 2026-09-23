@@ -113,11 +113,11 @@ export default function MerciOffer({ code, src, email, alreadyRedeemed, onRedeem
                 <Section title={OFFER.get.title}>
                     <ul className="m-0 mt-4 list-none space-y-3 p-0">
                         {OFFER.get.items.map((item) => (
-                            <li key={item} className="merci-body flex gap-3">
+                            <li key={item.text} className={`merci-body flex gap-3 ${item.bold ? 'font-bold text-white' : ''}`}>
                                 <span aria-hidden="true" className="shrink-0 font-mono text-white">
                                     ✓
                                 </span>
-                                <span>{item}</span>
+                                <span>{item.text}</span>
                             </li>
                         ))}
                     </ul>
@@ -129,17 +129,16 @@ export default function MerciOffer({ code, src, email, alreadyRedeemed, onRedeem
                 <Section title={OFFER.peek.title}>
                     <p className="merci-body mt-3">{OFFER.peek.intro}</p>
                     <ol className="m-0 mt-5 list-none space-y-5 p-0">
-                        {OFFER.peek.days.map((day) => (
-                            <li key={day.label}>
-                                <p className="merci-label merci-label-sm text-text-muted">{day.label}</p>
-                                <p className="merci-body mt-1.5">{day.problem}</p>
-                                <p className="merci-fix merci-body mt-2 font-bold text-white">{day.fix}</p>
-                            </li>
-                        ))}
-                        <li>
-                            <p className="merci-label merci-label-sm text-text-muted">{OFFER.peek.bonus.label}</p>
-                            <p className="merci-body mt-1.5 font-bold text-white">{OFFER.peek.bonus.text}</p>
-                        </li>
+                        {[...OFFER.peek.days, { label: OFFER.peek.bonus.label, fix: OFFER.peek.bonus.text }].map(
+                            (day) => (
+                                <li key={day.label}>
+                                    <h3 className="m-0 font-sans text-[18px] font-extrabold leading-[1.2] tracking-[-0.02em] text-white">
+                                        {day.label}
+                                    </h3>
+                                    <p className="merci-body mt-1.5">{day.fix}</p>
+                                </li>
+                            ),
+                        )}
                     </ol>
                 </Section>
                 <Repeat state={state} placement="peek" />

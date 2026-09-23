@@ -235,13 +235,15 @@ export const COPY = {
         button: 'SEND ME DAY 1',
         get: {
             title: "What you'll get",
+            // `bold` lifts the one line that answers "what do I have to set up":
+            // nothing.
             items: [
-                'How to stop losing athlete details across WhatsApp, email, your training platform and your own memory, and find any of them in ten seconds',
-                'A morning prompt that ranks your roster by who needs you most, so the athlete with new pain hears from you Monday, not Thursday',
-                "The post-session questions that get athletes to tell you what the watch can't see",
-                'A one-page race brief built from the whole season, ready before race week starts',
-                'A monthly progress note, drafted in minutes, that shows athletes what your coaching did for them',
-                'Prompts you can copy into Claude or ChatGPT today. Nothing to install.',
+                { text: 'How to stop losing athlete details across WhatsApp, email, your training platform and your own memory, and find any of them in ten seconds' },
+                { text: 'A morning prompt that ranks your roster by who needs you most, so the athlete with new pain hears from you Monday, not Thursday' },
+                { text: "The post-session questions that get athletes to tell you what the watch can't see" },
+                { text: 'A one-page race brief built from the whole season, ready before race week starts' },
+                { text: 'A monthly progress report, drafted in minutes, that shows athletes what your coaching did for them' },
+                { text: 'Prompts you can copy into Claude or ChatGPT today. Nothing to install.', bold: true },
             ],
         },
         team: {
@@ -251,34 +253,29 @@ export const COPY = {
         },
         peek: {
             title: "A sneak peek of what's inside",
-            intro: 'These are five things that limit how many athletes a coach can coach well, and the AI workflow that fixes each one.',
-            // `problem` is the limit, `fix` the workflow. The fix is set apart
-            // by a rule rather than an arrow character.
+            intro: 'Five AI workflows, one a day.',
+            // One line per day: the workflow itself. The limit it fixes used to
+            // sit above it and read as clutter.
             days: [
                 {
                     label: 'Day 1',
-                    problem: "Your athlete's story is spread across five places, so they end up repeating themselves.",
                     fix: 'Never make an athlete repeat themselves again. Ask AI when the calf niggle started and get the date, the session and the score.',
                 },
                 {
                     label: 'Day 2',
-                    problem: 'You go through your roster in order, so the athlete who needs a change today gets it on Thursday.',
                     fix: 'Let AI rank your roster every morning by who needs you most, before you open a single calendar.',
                 },
                 {
                     label: 'Day 3',
-                    problem: '"How did it go?" "Good." Silence reads as fine until the niggle is an injury.',
                     fix: "Feed your AI what the watch can't see: effort, pain, fueling and life outside training, so you can catch the niggle while it's still a niggle.",
                 },
                 {
                     label: 'Day 4',
-                    problem: 'You make the race-week call on the last ten days and whatever you remember.',
                     fix: 'Use AI to write a one-page race brief from the whole season: tapers, fueling, niggles and what came before their best race.',
                 },
                 {
                     label: 'Day 5',
-                    problem: "Athletes see the result, not the year behind it, so they can't say what your part was.",
-                    fix: 'Turn four weekly insights into a monthly progress note with AI, drafted in minutes and edited into your voice.',
+                    fix: 'Turn four weekly insights into a monthly progress report with AI, drafted in minutes and edited into your voice.',
                 },
             ],
             bonus: {
