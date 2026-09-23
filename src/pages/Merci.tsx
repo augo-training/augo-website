@@ -38,6 +38,7 @@ import {
     trackMerciGateOpened,
     trackPageViewed,
     type MerciCodeMethod,
+    type MerciDoorEntry,
 } from '../utils/analytics'
 
 /** 0 is the door; 1 to 5 are the beats. The done state replaces beat 5. */
@@ -100,6 +101,7 @@ export default function Merci() {
     const bannerHeight = useCookieBannerHeight()
 
     const [initialCode] = useState(() => urlCode ?? readSaved(MERCI_CODE_STORAGE_KEY))
+    const entry: MerciDoorEntry = urlCode ? 'link' : initialCode ? 'saved' : 'blank'
     const [initialEmail] = useState(() => readSaved(MERCI_EMAIL_STORAGE_KEY))
     const [beat, setBeat] = useState<BeatNumber>(0)
     const [code, setCode] = useState('')
@@ -125,7 +127,7 @@ export default function Merci() {
         void trackPageViewed({ page: MERCI_PATH, referrer: document.referrer, language: 'en' })
         void trackMerciDoorViewed({
             src,
-            entry: urlCode ? 'link' : initialCode ? 'saved' : 'blank',
+            entry,
             ...(initialCode ? { code: initialCode } : {}),
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps -- once, with the values the page loaded with
@@ -234,6 +236,8 @@ export default function Merci() {
                         initialCode={initialCode}
                         initialEmail={initialEmail}
                         autoSubmit={Boolean(urlCode)}
+                        entry={entry}
+                        src={src}
                         reduced={reduced}
                         onOpen={handleOpen}
                     />

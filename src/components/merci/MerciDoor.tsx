@@ -5,11 +5,14 @@ import { isWellFormed, normalizeCode } from './code'
 import { checkCode } from './api'
 import { useTypewriter, wait } from './motion'
 import { isValidEmail } from '../../utils/email'
+import type { MerciSrc } from './code'
 import {
     trackMerciCodeCheckError,
     trackMerciCodeFailed,
+    trackMerciDoorStarted,
     trackMerciNoCodeClicked,
     type MerciCodeMethod,
+    type MerciDoorEntry,
 } from '../../utils/analytics'
 
 interface MerciDoorProps {
@@ -23,6 +26,9 @@ interface MerciDoorProps {
      * has to type one, so the door waits with the code filled in.
      */
     autoSubmit: boolean
+    /** For the door_started event: how the code field was filled, if at all. */
+    entry: MerciDoorEntry
+    src: MerciSrc
     reduced: boolean
     onOpen: (code: string, email: string, redeemed: boolean, method: MerciCodeMethod) => void
 }
@@ -49,6 +55,8 @@ export default function MerciDoor({
     initialCode,
     initialEmail,
     autoSubmit,
+    entry,
+    src,
     reduced,
     onOpen,
 }: MerciDoorProps) {
@@ -60,6 +68,7 @@ export default function MerciDoor({
     const codeRef = useRef<HTMLInputElement>(null)
     const emailRef = useRef<HTMLInputElement>(null)
     const autoSubmitted = useRef(false)
+    const started = useRef(false)
 
     const eyebrow = useTypewriter(DOOR.eyebrow, TIMING.eyebrowCharMs, !reduced)
     const headlineAt = reduced ? 0 : DOOR.eyebrow.length * TIMING.eyebrowCharMs
@@ -152,8 +161,12 @@ export default function MerciDoor({
         void submit(value)
     }
 
-    function clearError() {
+    // Once per door, on the first keystroke in either field.
+    function touched() {
         if (feedback?.tone === 'error') setFeedback(null)
+        if (started.current) return
+        started.current = true
+        void trackMerciDoorStarted({ src, entry })
     }
 
     const busy = phase !== 'idle'
@@ -184,7 +197,7 @@ export default function MerciDoor({
                         value={value}
                         onChange={(e) => {
                             setValue(e.target.value)
-                            clearError()
+                            touched()
                         }}
                         placeholder={DOOR.placeholder}
                         autoComplete="off"
@@ -208,7 +221,7 @@ export default function MerciDoor({
                             value={email}
                             onChange={(e) => {
                                 setEmail(e.target.value)
-                                clearError()
+                                touched()
                             }}
                             placeholder={DOOR.emailPlaceholder}
                             autoComplete="email"

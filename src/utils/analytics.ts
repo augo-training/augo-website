@@ -382,12 +382,13 @@ export async function trackSupportSearchNoResults(props: {
 
 // ── Worlds postcard page (/merci) ──
 //
-// Read per code, as a funnel: door_viewed is everyone who landed, gate_opened
-// who got in (and, since the door also takes the email, who is now reachable),
-// beat_viewed how far they got through the sequence and offer_redeemed who
-// tapped yes. code_failed, code_check_error and no_code_clicked explain losses
-// at the door; offer_error explains losses at the ticket. None of these go to
-// Meta.
+// Read per code, as a funnel: door_viewed is everyone who landed, door_started
+// who typed anything, gate_opened who got in (and, since the door also takes
+// the email, who is now reachable), beat_viewed how far they got through the
+// sequence, offer_clicked who tapped the button and offer_redeemed who was
+// accepted. code_failed, code_check_error and no_code_clicked explain losses
+// at the door; offer_error explains the gap between clicked and redeemed. None
+// of these go to Meta.
 //
 // The merci events call the property `code`. Once the door opens the same
 // value is also registered as the super property `merci_code`, so whatever
@@ -396,6 +397,8 @@ export async function trackSupportSearchNoResults(props: {
 type MerciSrc = 'postcard' | 'email'
 /** How the code reached the field: a `?c=` link, the code saved on this device, or typed. */
 export type MerciCodeMethod = 'link' | 'saved' | 'typed'
+/** What the door opened with: a `?c=` code, the code saved on this device, or nothing. */
+export type MerciDoorEntry = 'link' | 'saved' | 'blank'
 
 /**
  * The door became visible. `code` is only what the URL or this device
@@ -403,10 +406,15 @@ export type MerciCodeMethod = 'link' | 'saved' | 'typed'
  */
 export async function trackMerciDoorViewed(props: {
     src: MerciSrc
-    entry: 'link' | 'saved' | 'blank'
+    entry: MerciDoorEntry
     code?: string
 }): Promise<void> {
     return track('merci_door_viewed', { ...props, ...getUtmParams() })
+}
+
+/** First keystroke in either door field: separates "landed and left" from "tried". */
+export async function trackMerciDoorStarted(props: { src: MerciSrc; entry: MerciDoorEntry }): Promise<void> {
+    return track('merci_door_started', props)
 }
 
 /** The door refused a submission. `code` is as typed, before normalising. */
@@ -473,6 +481,12 @@ export async function trackMerciOfferError(props: {
     return track('merci_offer_error', props)
 }
 
+/** The tap on the ticket's button, before the redeem call answers. */
+export async function trackMerciOfferClicked(props: { code: string; src: MerciSrc }): Promise<void> {
+    return track('merci_offer_clicked', props)
+}
+
+/** The redeem call accepted the tap: the coach is on the list. */
 export async function trackMerciOfferRedeemed(props: { code: string; email: string; src: MerciSrc }): Promise<void> {
     return track('merci_offer_redeemed', props)
 }
