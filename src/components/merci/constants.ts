@@ -220,11 +220,16 @@ export const COPY = {
      */
     offer: {
         codeLabel: 'YOUR INVITATION CODE',
-        eyebrow: 'THE AI-AUGMENTED COACH · FREE 5-DAY EMAIL COURSE',
-        headline: 'You got an athlete to Worlds. Now do it for your whole roster.',
+        // The course name only: the sentence under the headline says it is a
+        // free five-day email course, and saying so twice in three lines reads
+        // as padding.
+        eyebrow: 'THE AI-AUGMENTED COACH',
+        headline: 'Become an AI-augmented coach in five days.',
+        // One sentence between the headline and the button, so the first tap is
+        // on the first screen. The three promises are the course's own, from
+        // "What you'll get" just below.
         intro: [
-            "One of your athletes sent you a postcard from the 70.3 World Championship in Nice. That doesn't happen by accident.",
-            'This free email course shows you five AI workflows that help you coach every athlete that well, even as your roster grows. You still make every call. AI just does the searching.',
+            'A free five-day email course with five AI workflows: find any athlete detail in ten seconds, know each morning who needs you first, and keep your coaching personal as your roster grows.',
         ],
         button: 'SEND ME DAY 1',
         // Under every button. The code is asked at the door, so this is a
