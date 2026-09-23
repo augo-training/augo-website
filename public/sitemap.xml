@@ -1409,6 +1409,33 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://augotraining.com/en/coaches/patrick-rosslee/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://augotraining.com/en/coaches/patrick-rosslee/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://augotraining.com/de/coaches/patrick-rosslee/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://augotraining.com/pt/coaches/patrick-rosslee/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://augotraining.com/en/coaches/patrick-rosslee/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://augotraining.com/de/coaches/patrick-rosslee/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://augotraining.com/en/coaches/patrick-rosslee/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://augotraining.com/de/coaches/patrick-rosslee/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://augotraining.com/pt/coaches/patrick-rosslee/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://augotraining.com/en/coaches/patrick-rosslee/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://augotraining.com/pt/coaches/patrick-rosslee/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://augotraining.com/en/coaches/patrick-rosslee/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://augotraining.com/de/coaches/patrick-rosslee/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://augotraining.com/pt/coaches/patrick-rosslee/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://augotraining.com/en/coaches/patrick-rosslee/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://augotraining.com/en/coaches/pete-wilby/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://augotraining.com/en/coaches/pete-wilby/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://augotraining.com/de/coaches/pete-wilby/" />
