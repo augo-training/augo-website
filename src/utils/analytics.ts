@@ -383,10 +383,11 @@ export async function trackSupportSearchNoResults(props: {
 // ── Worlds postcard page (/merci) ──
 //
 // Read per code, as a funnel: door_viewed is everyone who landed, gate_opened
-// who got in, beat_viewed how far they got through the sequence,
-// offer_form_started who touched the form and offer_redeemed who signed up.
-// code_failed, code_check_error and no_code_clicked explain losses at the
-// door; offer_error explains losses at the form. None of these go to Meta.
+// who got in (and, since the door also takes the email, who is now reachable),
+// beat_viewed how far they got through the sequence and offer_redeemed who
+// tapped yes. code_failed, code_check_error and no_code_clicked explain losses
+// at the door; offer_error explains losses at the ticket. None of these go to
+// Meta.
 //
 // The merci events call the property `code`. Once the door opens the same
 // value is also registered as the super property `merci_code`, so whatever
@@ -408,11 +409,14 @@ export async function trackMerciDoorViewed(props: {
     return track('merci_door_viewed', { ...props, ...getUtmParams() })
 }
 
-/** An invalid code was submitted at the door. `code` is as typed, before normalising. */
+/** The door refused a submission. `code` is as typed, before normalising. */
 export async function trackMerciCodeFailed(props: {
     code: string
-    /** 'malformed' never reached the server; 'unknown' was not on the list. */
-    reason: 'malformed' | 'unknown'
+    /**
+     * 'malformed' and 'email' never reached the server: the code was not three
+     * letters, or the email did not look like one. 'unknown' was not on the list.
+     */
+    reason: 'malformed' | 'unknown' | 'email'
     method: MerciCodeMethod
 }): Promise<void> {
     return track('merci_code_failed', props)
@@ -461,15 +465,10 @@ export async function trackMerciBeatViewed(props: {
     return track('merci_beat_viewed', props)
 }
 
-/** First focus of either field on the offer form. */
-export async function trackMerciOfferFormStarted(props: { code: string; src: MerciSrc }): Promise<void> {
-    return track('merci_offer_form_started', props)
-}
-
-/** An error shown on the offer; 'already_redeemed' is the note that replaces the form. */
+/** An error shown on the offer; 'already_redeemed' is the note that replaces the button. */
 export async function trackMerciOfferError(props: {
     code: string
-    error: 'name' | 'email' | 'submit' | 'already_redeemed'
+    error: 'submit' | 'already_redeemed'
 }): Promise<void> {
     return track('merci_offer_error', props)
 }

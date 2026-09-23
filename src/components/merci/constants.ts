@@ -10,7 +10,8 @@
  * the reassurance, a quote from a coach they may know, and the ticket. What is
  * on offer is a five part email course, not a trial. The free month and the
  * Elite months are made at the end of the course, so the page asks for an email
- * and nothing else.
+ * and nothing else. The email is asked at the door, with the code, so it is
+ * stored the moment a coach gets in; the ticket then asks for nothing but a tap.
  *
  * Copy rules: no em dashes, plain words, sentence case except the mono
  * eyebrows. And, as everywhere on the site, text is white or grey only. The
@@ -49,6 +50,8 @@ export const MERCI_REDEEM_WEBHOOK_URL = import.meta.env.VITE_MERCI_REDEEM_WEBHOO
 
 /** Last code that opened the door, so a coach coming back finds it prefilled. */
 export const MERCI_CODE_STORAGE_KEY = 'augo_merci_code'
+/** The email that went with it. With both saved, a `?c=` link opens by itself again. */
+export const MERCI_EMAIL_STORAGE_KEY = 'augo_merci_email'
 
 /** Signup source on the Mixpanel profile. */
 export const MERCI_SOURCE = 'Merci Worlds 2026'
@@ -137,11 +140,19 @@ export const COPY = {
         // Shown in the field itself, so the shape of the code is visible without
         // adding another line of copy under it.
         placeholder: 'ABC',
+        /**
+         * The email is asked here rather than on the ticket, so a coach who
+         * opens the door and stops reading has still left a way to reach them.
+         * The ticket then asks for nothing but a tap.
+         */
+        emailLabel: 'And the email we should write to.',
+        emailPlaceholder: 'Email',
         button: 'OPEN',
         checking: 'CHECKING',
         welcome: 'Welcome.',
         invalid: 'That code is not on our list. Check the three letters on your card.',
         empty: 'Type the code from your card.',
+        emailInvalid: 'That email does not look right.',
         error: 'Something went wrong on our side. Try again in a moment.',
         /**
          * A way out for someone who was forwarded the link or found a card,
@@ -218,12 +229,9 @@ export const COPY = {
             before: 'Written in collaboration with coaches to world champions and olympians: ',
             after: '.',
         },
+        // No fields: the email came in at the door, so the ticket is one tap.
         form: {
-            firstName: 'First name',
-            email: 'Email',
             sending: 'SENDING',
-            nameError: 'Your first name, so we know who to write to.',
-            emailError: 'That email does not look right.',
             submitError: 'Something went wrong on our side. Try again in a moment.',
         },
         redeemed: {
@@ -234,6 +242,9 @@ export const COPY = {
         },
     },
     done: {
+        // No first name is collected anywhere, so this answers the postcard's
+        // "Merci, coach." rather than greeting the coach by name.
+        title: 'Done, coach.',
         tail: DONE_TAIL,
         subline: 'Check your inbox. Enjoy the card. You earned it.',
         /**

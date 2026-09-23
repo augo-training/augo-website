@@ -11,7 +11,6 @@ export type RedeemResult = 'ok' | 'redeemed' | 'error'
 
 interface RedeemArgs {
     code: string
-    firstName: string
     email: string
     src: MerciSrc
 }
@@ -20,9 +19,15 @@ interface RedeemArgs {
  * The page's two server calls. The site is static on GitHub Pages, so both are
  * Make custom webhooks rather than /api routes.
  *
- *   code check:  POST { code }                         -> 200 { valid, redeemed }
- *   redeem:      POST { code, firstName, email, src }  -> 200 { ok: true }
- *                                                       | 409 { reason: 'redeemed' }
+ *   code check:  POST { code, email }       -> 200 { valid, redeemed }
+ *   redeem:      POST { code, email, src }  -> 200 { ok: true }
+ *                                            | 409 { reason: 'redeemed' }
+ *
+ * The email travels with the code check on purpose: on a valid code the
+ * scenario stores it on that code's row (columns door_email, door_at) before
+ * the coach has read a word, so someone who opens the door and leaves is still
+ * reachable. Only the redeem call subscribes them to the course. Neither call
+ * carries a first name: none is collected.
  *
  * Unlike the signup webhook, the page reads these responses, so both Make
  * webhook responses must send Access-Control-Allow-Origin for augotraining.com.
@@ -72,7 +77,7 @@ function post(url: string, body: Record<string, string>): Promise<Response> {
     })
 }
 
-export async function checkCode(code: string): Promise<CodeStatus | 'error'> {
+export async function checkCode(code: string, email: string): Promise<CodeStatus | 'error'> {
     if (!isWellFormed(code)) return { valid: false, redeemed: false }
 
     if (stubbed(MERCI_CODE_WEBHOOK_URL)) {
@@ -82,7 +87,7 @@ export async function checkCode(code: string): Promise<CodeStatus | 'error'> {
     if (!MERCI_CODE_WEBHOOK_URL) return 'error'
 
     try {
-        const response = await post(MERCI_CODE_WEBHOOK_URL, { code })
+        const response = await post(MERCI_CODE_WEBHOOK_URL, { code, email })
         if (!response.ok) return 'error'
         const data = (await response.json()) as Partial<CodeStatus>
         return { valid: data.valid === true, redeemed: data.redeemed === true }
@@ -103,7 +108,6 @@ export async function redeemOffer(args: RedeemArgs): Promise<RedeemResult> {
     try {
         const response = await post(MERCI_REDEEM_WEBHOOK_URL, {
             code: args.code,
-            firstName: args.firstName,
             email: args.email,
             src: args.src,
         })

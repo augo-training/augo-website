@@ -121,6 +121,12 @@ describe('merci funnel', () => {
         expect(propsFor('merci_code_failed')).toEqual({ code: 'nice 42', reason: 'malformed', method: 'typed' })
     })
 
+    it('counts a door refused for its email, which never reaches the server', async () => {
+        const { trackMerciCodeFailed } = await loadModule()
+        await trackMerciCodeFailed({ code: 'NVE', reason: 'email', method: 'link' })
+        expect(propsFor('merci_code_failed')).toEqual({ code: 'NVE', reason: 'email', method: 'link' })
+    })
+
     it('records a code check that could not be made', async () => {
         const { trackMerciCodeCheckError } = await loadModule()
         await trackMerciCodeCheckError({ code: 'NVE', method: 'link' })
@@ -160,12 +166,10 @@ describe('merci funnel', () => {
         expect(propsFor('merci_beat_viewed')).toEqual(props)
     })
 
-    it('marks the form being started and the errors shown on it', async () => {
-        const { trackMerciOfferFormStarted, trackMerciOfferError } = await loadModule()
-        await trackMerciOfferFormStarted({ code: 'NVE', src: 'postcard' })
-        await trackMerciOfferError({ code: 'NVE', error: 'email' })
-        expect(propsFor('merci_offer_form_started')).toEqual({ code: 'NVE', src: 'postcard' })
-        expect(propsFor('merci_offer_error')).toEqual({ code: 'NVE', error: 'email' })
+    it('marks the errors shown on the ticket', async () => {
+        const { trackMerciOfferError } = await loadModule()
+        await trackMerciOfferError({ code: 'NVE', error: 'submit' })
+        expect(propsFor('merci_offer_error')).toEqual({ code: 'NVE', error: 'submit' })
     })
 
     it('beacons an outbound link click, since the tab may be left behind', async () => {

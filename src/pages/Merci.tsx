@@ -21,15 +21,18 @@ import {
     COPY,
     MERCI_CANONICAL,
     MERCI_CODE_STORAGE_KEY,
+    MERCI_EMAIL_STORAGE_KEY,
     MERCI_OG_IMAGE,
     MERCI_OG_IMAGE_ALT,
     MERCI_PATH,
+    MERCI_SOURCE,
     TIMING,
 } from '../components/merci/constants'
 import { parseSrc } from '../components/merci/code'
 import { useReducedMotion } from '../components/merci/motion'
 import { useCookieBannerHeight } from '../hooks/useCookieBannerHeight'
 import {
+    identifyEmailCapture,
     trackMerciBeatViewed,
     trackMerciDoorViewed,
     trackMerciGateOpened,
@@ -42,17 +45,17 @@ type BeatNumber = 0 | 1 | 2 | 3 | 4 | 5
 
 const STEP = TIMING.lineStaggerMs
 
-function readSavedCode(): string {
+function readSaved(key: string): string {
     try {
-        return window.localStorage.getItem(MERCI_CODE_STORAGE_KEY) ?? ''
+        return window.localStorage.getItem(key) ?? ''
     } catch {
         return ''
     }
 }
 
-function saveCode(code: string) {
+function save(key: string, value: string) {
     try {
-        window.localStorage.setItem(MERCI_CODE_STORAGE_KEY, code)
+        window.localStorage.setItem(key, value)
     } catch {
         // Private mode or blocked storage: the prefill is a nicety, nothing more.
     }
@@ -66,21 +69,23 @@ function isTypingTarget(target: EventTarget | null): boolean {
 /**
  * The page behind the QR code on the "Merci, coach." postcards (see
  * components/merci/constants.ts for the why). A code-gated, full-screen
- * tap-through of five beats ending in one form:
+ * tap-through of five beats ending in one tap:
  *
- *   0 the door    the code gate. Nothing else is reachable without a valid code.
+ *   0 the door    the code gate, and the email. Nothing else is reachable
+ *                 without a valid code, and the email is stored as it opens.
  *   1 the memory  everything the athlete ever told you
  *   2 one prompt  the typing terminal
  *   3 you decide  the reassurance
  *   4 the quote   a coach they may know vouching for augo
- *   5 the ticket  the offer and the one form on the page
+ *   5 the ticket  the offer and its one button
  *   done          replaces the ticket on success; no further navigation
  *
  * The right half of the screen is Next and the left half Back, as real buttons
  * sitting under the beat content so taps on a field never advance. Arrow keys
  * and Space do the same. Nothing advances on its own.
  *
- * `?c=` opens the door by itself, which is what the email arm's links use;
+ * `?c=` fills the code in, which is what the email arm's links use, and opens
+ * the door by itself on a device that has already given its email;
  * `&src=email` marks where they came from.
  *
  * Lives outside /:lang because the card's QR points at augotraining.com/merci.
@@ -94,17 +99,19 @@ export default function Merci() {
     const reduced = useReducedMotion()
     const bannerHeight = useCookieBannerHeight()
 
-    const [initialCode] = useState(() => urlCode ?? readSavedCode())
+    const [initialCode] = useState(() => urlCode ?? readSaved(MERCI_CODE_STORAGE_KEY))
+    const [initialEmail] = useState(() => readSaved(MERCI_EMAIL_STORAGE_KEY))
     const [beat, setBeat] = useState<BeatNumber>(0)
     const [code, setCode] = useState('')
+    const [email, setEmail] = useState('')
     const [redeemed, setRedeemed] = useState(false)
-    const [doneName, setDoneName] = useState<string | null>(null)
+    const [done, setDone] = useState(false)
     const pageTracked = useRef(false)
     const lastBeatTracked = useRef<number | null>(null)
     const beatsSeen = useRef(new Set<number>())
     const beatShownAt = useRef<number | null>(null)
 
-    const navigable = beat > 0 && doneName === null
+    const navigable = beat > 0 && !done
     /**
      * The story beats carry the app's warm glow; the door and the ticket do not.
      * The door stays plain so the code field is the only thing on it, and the
@@ -144,15 +151,26 @@ export default function Merci() {
     }, [navigable, beat, code, src])
 
     const handleOpen = useCallback(
-        (openedCode: string, wasRedeemed: boolean, method: MerciCodeMethod) => {
+        (openedCode: string, openedEmail: string, wasRedeemed: boolean, method: MerciCodeMethod) => {
             setCode(openedCode)
+            setEmail(openedEmail)
             setRedeemed(wasRedeemed)
-            saveCode(openedCode)
+            save(MERCI_CODE_STORAGE_KEY, openedCode)
+            save(MERCI_EMAIL_STORAGE_KEY, openedEmail)
             void trackMerciGateOpened({
                 code: openedCode,
                 src,
                 method,
                 already_redeemed: wasRedeemed,
+            })
+            // The email is known from here on, so the profile is tied to it
+            // now rather than at the ticket: a coach who stops reading is still
+            // the same person next time they turn up.
+            void identifyEmailCapture({
+                email: openedEmail,
+                source: MERCI_SOURCE,
+                page: MERCI_PATH,
+                merci_code: openedCode,
             })
             setBeat(1)
         },
@@ -201,10 +219,10 @@ export default function Merci() {
     }
 
     function renderBeat() {
-        if (doneName !== null) {
+        if (done) {
             return (
                 <Beat key="done" labelledBy="merci-done-title" interactive>
-                    <MerciDone firstName={doneName} code={code} />
+                    <MerciDone code={code} />
                 </Beat>
             )
         }
@@ -214,6 +232,7 @@ export default function Merci() {
                     <MerciDoor
                         key="door"
                         initialCode={initialCode}
+                        initialEmail={initialEmail}
                         autoSubmit={Boolean(urlCode)}
                         reduced={reduced}
                         onOpen={handleOpen}
@@ -277,8 +296,9 @@ export default function Merci() {
                         <MerciOffer
                             code={code}
                             src={src}
+                            email={email}
                             alreadyRedeemed={redeemed}
-                            onRedeemed={setDoneName}
+                            onRedeemed={() => setDone(true)}
                         />
                     </Beat>
                 )
