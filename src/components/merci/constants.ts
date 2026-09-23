@@ -227,10 +227,10 @@ export const COPY = {
         // and would otherwise scroll past: the course is for them too.
         qualifier: '(Even if you think you already have AI figured out)',
         // One sentence between the headline and the button, so the first tap is
-        // on the first screen. The three promises are the course's own, from
-        // "What you'll get" just below.
+        // on the first screen: more athletes, same standard, still personal.
+        // Digits, not words, to match "SEND ME DAY 1".
         intro: [
-            'A free five-day email course with five AI workflows: find any athlete detail in ten seconds, know each morning who needs you first, and keep your coaching personal as your roster grows.',
+            'A free 5-day email course with 5 AI workflows that let you coach more athletes at the same high standard, without losing the personal touch.',
         ],
         button: 'SEND ME DAY 1',
         get: {
