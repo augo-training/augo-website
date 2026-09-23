@@ -6,12 +6,15 @@
  * the sitemap, and the page carries noindex. The only ways in are the QR code
  * on the card and the email links (`/merci?c=NICE-042&src=email`).
  *
- * A code gate, then five beats a coach taps through: the memory, the Assistant,
- * the reassurance, a quote from a coach they may know, and the ticket. What is
- * on offer is a five part email course, not a trial. The free month and the
- * Elite months are made at the end of the course, so the page asks for an email
- * and nothing else. The email is asked at the door, with the code, so it is
- * stored the moment a coach gets in; the ticket then asks for nothing but a tap.
+ * A code gate, then four beats a coach taps through: the memory, the Assistant,
+ * the reassurance, and the ticket. The ticket is a full opt-in page for the
+ * course, "The AI-Augmented Coach": what you get, who wrote it (with Marco
+ * Altini vouching for augo), a day-by-day peek, and who it is for, with the
+ * same one-tap opt-in repeated down the page. What is on offer is a five part
+ * email course, not a trial. The free month and the Elite months are made at
+ * the end of the course. The email is asked at the door, with the code, so it
+ * is stored the moment a coach gets in; the ticket then asks for nothing but a
+ * tap.
  *
  * Copy rules: no em dashes, plain words, sentence case except the mono
  * eyebrows. And, as everywhere on the site, text is white or grey only. The
@@ -61,9 +64,11 @@ export const BEAT_NAMES: Record<number, string> = {
     1: 'memory',
     2: 'prompt',
     3: 'decide',
-    4: 'quote',
-    5: 'offer',
+    4: 'offer',
 }
+
+/** The ticket. Everything after the door counts up to it. */
+export const LAST_BEAT = 4
 
 export const TIMING = {
     eyebrowCharMs: 38,
@@ -186,10 +191,11 @@ export const COPY = {
         subline: 'Higher quality coaching, in less time.',
     },
     /**
-     * Marco Altini's words, trimmed. His full quote runs on past this into
-     * "Thanks to augo, I can be more efficient at many tasks that eventually
-     * allow me to be a better coach for my athletes, which should be the whole
-     * point." That sentence is cut only for length on a screen read in seconds.
+     * Marco Altini's words, trimmed, shown on the ticket under "Written by the
+     * augo team". His full quote runs on past this into "Thanks to augo, I can
+     * be more efficient at many tasks that eventually allow me to be a better
+     * coach for my athletes, which should be the whole point." That sentence is
+     * cut only for length.
      *
      * Trimming a real person's published words needs his agreement: he has to
      * approve this shortened version before it ships.
@@ -203,33 +209,96 @@ export const COPY = {
         name: 'Marco Altini',
         role: 'Running Coach & Founder of HRV4Training',
     },
+    /**
+     * The ticket, now a full opt-in page for the course. The opt-in is one
+     * button, "Send me Day 1", repeated five times down the page: in the pass
+     * at the top, after each of the first three sections, and in a second pass
+     * at the end. The email came in at the door, so there is nothing to type.
+     *
+     * The copy is the course's own landing copy. The course is named here and
+     * nowhere else on the page, so the welcome email can assume it.
+     */
     offer: {
         codeLabel: 'YOUR INVITATION CODE',
-        /**
-         * The only heading on this screen. Deliberately the promise rather than
-         * the course's name: after five screens of story, naming the product
-         * here read as a spec sheet.
-         *
-         * It also closes the loop the door opens, which used to carry the line
-         * "Be the first to know the future."
-         *
-         * Note this leaves the course unnamed anywhere on the page, so the
-         * welcome email has to introduce it rather than assume it.
-         */
-        heading: 'Be one of the first to see the future of coaching.',
-        // The theme, not the mechanics. With both this and the heading kept
-        // open-ended, the note under the button is now the only place that says
-        // five emails are coming, so that note is load bearing: do not cut it.
-        blurb: 'Learn how to leverage AI in your coaching to remain ahead in the industry.',
-        button: 'SHOW ME THE FUTURE',
-        note: '5 emails. Free. Opt out at any time.',
-        // The names are read into this line: "Written in collaboration with
-        // coaches to world champions and olympians: X, Y and Z."
-        company: {
-            before: 'Written in collaboration with coaches to world champions and olympians: ',
-            after: '.',
+        eyebrow: 'THE AI-AUGMENTED COACH · FREE 5-DAY EMAIL COURSE',
+        headline: 'You got an athlete to Worlds. Now do it for your whole roster.',
+        intro: [
+            "One of your athletes sent you a postcard from the 70.3 World Championship in Nice. That doesn't happen by accident.",
+            'This free email course shows you five AI workflows that help you coach every athlete that well, even as your roster grows. You still make every call. AI just does the searching.',
+        ],
+        button: 'SEND ME DAY 1',
+        // Under every button. The code is asked at the door, so this is a
+        // promise about Day 6 rather than an instruction for now.
+        note: "Keep your postcard code. You'll need it on Day 6.",
+        get: {
+            title: "What you'll get",
+            items: [
+                'How to stop losing athlete details across WhatsApp, email, your training platform and your own memory, and find any of them in ten seconds',
+                'A morning prompt that ranks your roster by who needs you most, so the athlete with new pain hears from you Monday, not Thursday',
+                "The post-session questions that get athletes to tell you what the watch can't see",
+                'A one-page race brief built from the whole season, ready before race week starts',
+                'A monthly progress note, drafted in minutes, that shows athletes what your coaching did for them',
+                'Prompts you can copy into Claude or ChatGPT today. Nothing to install.',
+            ],
         },
-        // No fields: the email came in at the door, so the ticket is one tap.
+        team: {
+            title: 'Written by the augo team',
+            body: 'We build augo, the coaching platform Marco Altini moved his athletes to. Before we built it, we ran every workflow in this course by hand.',
+            after: 'Now you can learn all five workflows for free.',
+        },
+        peek: {
+            title: "A sneak peek of what's inside",
+            intro: 'These are five things that limit how many athletes a coach can coach well, and the AI workflow that fixes each one.',
+            // `problem` is the limit, `fix` the workflow. The fix is set apart
+            // by a rule rather than an arrow character.
+            days: [
+                {
+                    label: 'Day 1',
+                    problem: "Your athlete's story is spread across five places, so they end up repeating themselves.",
+                    fix: 'Never make an athlete repeat themselves again. Ask AI when the calf niggle started and get the date, the session and the score.',
+                },
+                {
+                    label: 'Day 2',
+                    problem: 'You go through your roster in order, so the athlete who needs a change today gets it on Thursday.',
+                    fix: 'Let AI rank your roster every morning by who needs you most, before you open a single calendar.',
+                },
+                {
+                    label: 'Day 3',
+                    problem: '"How did it go?" "Good." Silence reads as fine until the niggle is an injury.',
+                    fix: "Feed your AI what the watch can't see: effort, pain, fueling and life outside training, so you can catch the niggle while it's still a niggle.",
+                },
+                {
+                    label: 'Day 4',
+                    problem: 'You make the race-week call on the last ten days and whatever you remember.',
+                    fix: 'Use AI to write a one-page race brief from the whole season: tapers, fueling, niggles and what came before their best race.',
+                },
+                {
+                    label: 'Day 5',
+                    problem: "Athletes see the result, not the year behind it, so they can't say what your part was.",
+                    fix: 'Turn four weekly insights into a monthly progress note with AI, drafted in minutes and edited into your voice.',
+                },
+            ],
+            bonus: {
+                label: 'Bonus Day 6',
+                text: 'The final hack. How to run all five workflows without any manual work.',
+            },
+        },
+        fit: {
+            title: 'Is this for me?',
+            items: [
+                'You coached an athlete to a World Championship and want to do it for more of them',
+                "You can't keep every detail about every athlete in your head anymore",
+                'You check WhatsApp, email, calls and a training platform just to stay on top of one athlete',
+                'You want to grow your roster without your coaching starting to feel like templates',
+                "You're curious about AI, but you don't want it coaching your athletes",
+            ],
+            outro: { before: '...then join ', name: 'The AI-Augmented Coach', after: '.' },
+        },
+        // The second pass, at the end of the page. The line the "Is this for
+        // me?" list leads into, so the two read as one sentence.
+        closing: {
+            heading: "It's free, and Day 1 arrives tomorrow.",
+        },
         form: {
             sending: 'SENDING',
             submitError: 'Something went wrong on our side. Try again in a moment.',
@@ -262,26 +331,6 @@ export const COPY = {
         footer: 'AUGO · AUGOTRAINING.COM',
     },
 }
-
-/**
- * Read into COPY.offer.company as "Written in collaboration with coaches to
- * World & Olympic Champions: X, Y and Z."
- *
- * That is the strongest claim on the page and it covers all three names at
- * once, so before this ships: each of them has to agree to it, each has to have
- * actually contributed to the course, and each has to actually have coached a
- * World or Olympic champion. Marco Altini is a scientist and founder rather
- * than a coach, so the line as written does not fit him.
- *
- * Each name links to where that person publishes. They open in a new tab: the
- * page is a two-screen funnel with no way back, so navigating away in the same
- * tab would lose a coach who has not signed up yet.
- */
-export const ADVISORS = [
-    { name: 'Marco Altini', href: 'https://marcoaltini.substack.com/' },
-    { name: 'Reto Brändli', href: 'https://www.instagram.com/reto_braendli/' },
-    { name: 'Gordon Crawford', href: 'https://www.linkedin.com/in/gordon-crawford-6149a868/' },
-]
 
 /**
  * Beat 2's example exchanges, shown as if typed into the assistant.

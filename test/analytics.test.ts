@@ -164,7 +164,7 @@ describe('merci funnel', () => {
             code: 'NVE',
             src: 'postcard' as const,
             beat: 4,
-            beat_name: 'quote',
+            beat_name: 'offer',
             first_view: true,
             seconds_on_previous: 12,
         }
@@ -188,8 +188,8 @@ describe('merci funnel', () => {
 
     it('records the tap on the ticket before the redeem call answers', async () => {
         const { trackMerciOfferClicked } = await loadModule()
-        await trackMerciOfferClicked({ code: 'NVE', src: 'email' })
-        expect(propsFor('merci_offer_clicked')).toEqual({ code: 'NVE', src: 'email' })
+        await trackMerciOfferClicked({ code: 'NVE', src: 'email', placement: 'closing' })
+        expect(propsFor('merci_offer_clicked')).toEqual({ code: 'NVE', src: 'email', placement: 'closing' })
     })
 
     it('ties the signup to the code and the email', async () => {

@@ -1,6 +1,7 @@
-import { useEffect, useState, type FormEvent } from 'react'
+import { useEffect, useState, type ReactNode } from 'react'
 import { Headline, Rise } from './MerciBeat'
-import { ADVISORS, COPY, TIMING } from './constants'
+import MerciQuote from './MerciQuote'
+import { COPY, TIMING } from './constants'
 import { redeemOffer } from './api'
 import type { MerciSrc } from './code'
 import {
@@ -8,6 +9,7 @@ import {
     trackMerciOfferClicked,
     trackMerciOfferError,
     trackMerciOfferRedeemed,
+    type MerciOfferPlacement,
 } from '../../utils/analytics'
 
 const OFFER = COPY.offer
@@ -23,51 +25,59 @@ interface MerciOfferProps {
     onRedeemed: () => void
 }
 
+/** What every opt-in on the page shares: the one submit, and its state. */
+interface OptInState {
+    code: string
+    sending: boolean
+    /** Which button's tap failed, so the error shows under that one. */
+    errorAt: MerciOfferPlacement | null
+    redeemed: boolean
+    submit: (placement: MerciOfferPlacement) => void
+}
+
 /**
- * Beat 5: the offer and the one button on the page.
+ * Beat 4: the ticket, which is the course's opt-in page.
  *
- * The offer is an invitation pass, echoing the postcard the coach is holding:
- * their own code across the top, a tear line, the course and the button below.
- * It is the one place the brand gradient appears, as a hairline border (never
- * as text). Everything fits a 360px phone without scrolling, which is why the
- * advisors are one sentence.
+ * It opens with the invitation pass, echoing the postcard the coach is holding:
+ * their own code across the top, a tear line, the course and the one button
+ * below. The page then makes the case for the course (what you get, who wrote
+ * it with Marco's words, a day-by-day peek, who it is for) and asks again
+ * after each section, once as a quiet strip and finally as a second pass.
+ * The pass is the one place the brand gradient appears, as a hairline border
+ * (never as text).
  *
- * What is on offer is the email course, not a trial: the free month and the
- * Elite months are made at the end of the course instead. The email was given
- * at the door, so there is nothing left to type here: one tap says yes.
+ * The email was given at the door, so there is nothing to type here: every
+ * button is the same one-tap yes. `placement` on the click event says which
+ * one converted.
  *
  * A code that was already redeemed still opens the page (the coach may come
- * back to reread it), but the button gives way to a note. The same note appears
+ * back to reread it), but the buttons give way to a note. The same note appears
  * if the redeem webhook answers 409, e.g. the code was redeemed on another
  * device after this one opened the door.
  */
 export default function MerciOffer({ code, src, email, alreadyRedeemed, onRedeemed }: MerciOfferProps) {
     const [sending, setSending] = useState(false)
-    const [error, setError] = useState(false)
+    const [errorAt, setErrorAt] = useState<MerciOfferPlacement | null>(null)
     const [redeemed, setRedeemed] = useState(alreadyRedeemed)
 
-    // The note that replaces the form, whether the door already knew or the
-    // redeem call has just answered 409.
+    // The note that replaces the buttons, whether the door already knew or
+    // the redeem call has just answered 409.
     useEffect(() => {
         if (redeemed) void trackMerciOfferError({ code, error: 'already_redeemed' })
     }, [redeemed, code])
 
-    // No headline above the card any more, so it leads rather than waits.
-    const cardAt = 0
-
-    async function handleSubmit(e: FormEvent) {
-        e.preventDefault()
+    async function submit(placement: MerciOfferPlacement) {
         if (sending) return
 
-        void trackMerciOfferClicked({ code, src })
-        setError(false)
+        void trackMerciOfferClicked({ code, src, placement })
+        setErrorAt(null)
         setSending(true)
         const result = await redeemOffer({ code, email, src })
         setSending(false)
 
         if (result === 'redeemed') return setRedeemed(true)
         if (result === 'error') {
-            setError(true)
+            setErrorAt(placement)
             void trackMerciOfferError({ code, error: 'submit' })
             return
         }
@@ -76,102 +86,215 @@ export default function MerciOffer({ code, src, email, alreadyRedeemed, onRedeem
         onRedeemed()
     }
 
+    const state: OptInState = { code, sending, errorAt, redeemed, submit: (p) => void submit(p) }
+    const step = TIMING.lineStaggerMs
+
     return (
-        <div className="merci-offer my-auto w-full max-w-[520px]">
-            <Rise delayMs={cardAt}>
-                <div className="merci-pass rounded-[24px]">
-                    <div className="px-5 pt-4 pb-3.5">
-                        <p className="merci-label merci-label-sm text-text-muted">{OFFER.codeLabel}</p>
-                        <p className="mt-1.5 font-mono text-[22px] font-bold leading-none tracking-[0.06em] text-white">
-                            {code}
+        <div className="merci-offer mx-auto w-full max-w-[560px] pb-4">
+            <Rise delayMs={0}>
+                <Pass code={code} state={state} placement="hero">
+                    <p className="merci-label merci-label-sm text-text-muted">{OFFER.eyebrow}</p>
+                    {/* The only h1 on this screen, so it is what the beat is labelled by. */}
+                    <h1
+                        id="merci-offer-title"
+                        className="m-0 mt-2 font-sans text-[27px] font-extrabold leading-[1.1] tracking-[-0.03em] text-white sm:text-[30px]"
+                    >
+                        {OFFER.headline}
+                    </h1>
+                    {OFFER.intro.map((para) => (
+                        <p key={para} className="merci-body mt-3">
+                            {para}
                         </p>
-                    </div>
-
-                    {/* The tear line, with a notch punched out of each edge. */}
-                    <div aria-hidden="true" className="relative mx-5 border-t border-dashed border-dark-600">
-                        <span className="merci-notch merci-notch-left" />
-                        <span className="merci-notch merci-notch-right" />
-                    </div>
-
-                    <div className="px-5 pt-3.5 pb-4">
-                        {/* The only heading on this screen, so it is the h1 the
-                            beat is labelled by. */}
-                        <h1
-                            id="merci-offer-title"
-                            className="m-0 font-sans text-[26px] font-extrabold leading-[1.12] tracking-[-0.03em] text-white"
-                        >
-                            {OFFER.heading}
-                        </h1>
-                        <p className="merci-blurb-offer mt-1.5 font-satoshi text-[13px] leading-[1.45] text-white">
-                            {OFFER.blurb}
-                        </p>
-
-                        {redeemed ? (
-                            <p role="status" className="mt-4 font-satoshi text-[15px] leading-[1.5] text-white/85">
-                                {OFFER.redeemed.before}
-                                <a
-                                    href={OFFER.redeemed.href}
-                                    onClick={() => void trackMerciLinkClicked({ code, link: 'redeemed_contact' })}
-                                    className="merci-focus text-white underline decoration-orange decoration-2 underline-offset-4"
-                                >
-                                    {OFFER.redeemed.link}
-                                </a>
-                                {OFFER.redeemed.after}
-                            </p>
-                        ) : (
-                            <>
-                                {/* Still a form, with nothing in it but the
-                                    button: Enter submits and the button reads
-                                    as a submit to assistive tech. */}
-                                <form onSubmit={handleSubmit} noValidate className="mt-4 flex flex-col gap-2">
-                                    {error && (
-                                        <p
-                                            id="merci-offer-error"
-                                            role="alert"
-                                            className="font-satoshi text-[14px] leading-[1.4] text-white/80"
-                                        >
-                                            {FORM.submitError}
-                                        </p>
-                                    )}
-                                    <button
-                                        type="submit"
-                                        disabled={sending}
-                                        aria-describedby={error ? 'merci-offer-error' : undefined}
-                                        className="merci-btn mt-1 w-full"
-                                    >
-                                        {sending ? FORM.sending : OFFER.button}
-                                    </button>
-                                </form>
-                                <p className="mt-2.5 text-center font-satoshi text-[13px] text-text-muted">
-                                    {OFFER.note}
-                                </p>
-                            </>
-                        )}
-                    </div>
-                </div>
+                    ))}
+                </Pass>
             </Rise>
 
-            <Rise delayMs={cardAt + 200} className="mt-5">
-                <p className="merci-company font-satoshi text-[14px] leading-[1.45] text-text-muted">
-                    {OFFER.company.before}
-                    {ADVISORS.map((advisor, i) => (
-                        <span key={advisor.name}>
-                            {i > 0 && (i === ADVISORS.length - 1 ? ' and ' : ', ')}
-                            <a
-                                href={advisor.href}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                onClick={() => void trackMerciLinkClicked({ code, link: advisor.name })}
-                                className="merci-focus text-white underline decoration-dark-400 underline-offset-2 transition-colors duration-150 hover:decoration-white"
-                            >
-                                {advisor.name}
-                            </a>
-                        </span>
-                    ))}
-                    {OFFER.company.after}
-                </p>
+            <Rise delayMs={step} className="mt-10">
+                <Section title={OFFER.get.title}>
+                    <ul className="m-0 mt-4 list-none space-y-3 p-0">
+                        {OFFER.get.items.map((item) => (
+                            <li key={item} className="merci-body flex gap-3">
+                                <span aria-hidden="true" className="shrink-0 font-mono text-white">
+                                    ✓
+                                </span>
+                                <span>{item}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </Section>
+                <Strip state={state} placement="get" />
+            </Rise>
+
+            <Rise delayMs={step * 1.5} className="mt-10">
+                <Section title={OFFER.team.title}>
+                    <p className="merci-body mt-3">{OFFER.team.body}</p>
+                    <MerciQuote />
+                    <p className="merci-body mt-4 font-bold text-white">{OFFER.team.after}</p>
+                </Section>
+                <Strip state={state} placement="team" />
+            </Rise>
+
+            <Rise delayMs={step * 2} className="mt-10">
+                <Section title={OFFER.peek.title}>
+                    <p className="merci-body mt-3">{OFFER.peek.intro}</p>
+                    <ol className="m-0 mt-5 list-none space-y-5 p-0">
+                        {OFFER.peek.days.map((day) => (
+                            <li key={day.label}>
+                                <p className="merci-label merci-label-sm text-text-muted">{day.label}</p>
+                                <p className="merci-body mt-1.5">{day.problem}</p>
+                                <p className="merci-fix merci-body mt-2 font-bold text-white">{day.fix}</p>
+                            </li>
+                        ))}
+                        <li>
+                            <p className="merci-label merci-label-sm text-text-muted">{OFFER.peek.bonus.label}</p>
+                            <p className="merci-body mt-1.5 font-bold text-white">{OFFER.peek.bonus.text}</p>
+                        </li>
+                    </ol>
+                </Section>
+                <Strip state={state} placement="peek" />
+            </Rise>
+
+            <Rise delayMs={step * 2.5} className="mt-10">
+                <Section title={OFFER.fit.title}>
+                    <ul className="m-0 mt-4 list-none space-y-2.5 p-0">
+                        {OFFER.fit.items.map((item) => (
+                            <li key={item} className="merci-body flex gap-3">
+                                <span aria-hidden="true" className="shrink-0 text-text-muted">
+                                    –
+                                </span>
+                                <span>{item}</span>
+                            </li>
+                        ))}
+                    </ul>
+                    <p className="merci-body mt-5 text-white">
+                        {OFFER.fit.outro.before}
+                        <strong>{OFFER.fit.outro.name}</strong>
+                        {OFFER.fit.outro.after}
+                    </p>
+                </Section>
+            </Rise>
+
+            <Rise delayMs={step * 3} className="mt-6">
+                <Pass code={code} state={state} placement="closing">
+                    <h2 className="m-0 font-sans text-[24px] font-extrabold leading-[1.12] tracking-[-0.03em] text-white">
+                        {OFFER.closing.heading}
+                    </h2>
+                </Pass>
             </Rise>
         </div>
+    )
+}
+
+function Section({ title, children }: { title: string; children: ReactNode }) {
+    return (
+        <section>
+            <h2 className="m-0 font-sans text-[22px] font-extrabold leading-[1.15] tracking-[-0.03em] text-white">
+                {title}
+            </h2>
+            {children}
+        </section>
+    )
+}
+
+/**
+ * The invitation pass: the code strip, the tear line, then whatever the
+ * caller puts above the button. Used twice, at the top and at the end.
+ */
+function Pass({
+    code,
+    state,
+    placement,
+    children,
+}: {
+    code: string
+    state: OptInState
+    placement: MerciOfferPlacement
+    children: ReactNode
+}) {
+    return (
+        <div className="merci-pass rounded-[24px]">
+            <div className="px-5 pt-4 pb-3.5">
+                <p className="merci-label merci-label-sm text-text-muted">{OFFER.codeLabel}</p>
+                <p className="mt-1.5 font-mono text-[22px] font-bold leading-none tracking-[0.06em] text-white">
+                    {code}
+                </p>
+            </div>
+
+            {/* The tear line, with a notch punched out of each edge. */}
+            <div aria-hidden="true" className="relative mx-5 border-t border-dashed border-dark-600">
+                <span className="merci-notch merci-notch-left" />
+                <span className="merci-notch merci-notch-right" />
+            </div>
+
+            <div className="px-5 pt-4 pb-4">
+                {children}
+                <div className="mt-4">
+                    <OptIn state={state} placement={placement} />
+                </div>
+            </div>
+        </div>
+    )
+}
+
+/** A quiet opt-in between sections. Gone once the coach is on the list. */
+function Strip({ state, placement }: { state: OptInState; placement: MerciOfferPlacement }) {
+    if (state.redeemed) return null
+    return (
+        <div className="merci-strip mt-6 rounded-[20px] px-4 py-4">
+            <OptIn state={state} placement={placement} />
+        </div>
+    )
+}
+
+/**
+ * The one button, or the already-on-the-list note in its place. Still a
+ * form with nothing in it but the button: Enter submits and the button reads
+ * as a submit to assistive tech.
+ */
+function OptIn({ state, placement }: { state: OptInState; placement: MerciOfferPlacement }) {
+    const { code, sending, errorAt, redeemed, submit } = state
+    const errorId = `merci-offer-error-${placement}`
+
+    if (redeemed) {
+        return (
+            <p role="status" className="font-satoshi text-[15px] leading-[1.5] text-white/85">
+                {OFFER.redeemed.before}
+                <a
+                    href={OFFER.redeemed.href}
+                    onClick={() => void trackMerciLinkClicked({ code, link: 'redeemed_contact' })}
+                    className="merci-focus text-white underline decoration-orange decoration-2 underline-offset-4"
+                >
+                    {OFFER.redeemed.link}
+                </a>
+                {OFFER.redeemed.after}
+            </p>
+        )
+    }
+
+    return (
+        <form
+            onSubmit={(e) => {
+                e.preventDefault()
+                submit(placement)
+            }}
+            noValidate
+            className="flex flex-col gap-2"
+        >
+            {errorAt === placement && (
+                <p id={errorId} role="alert" className="font-satoshi text-[14px] leading-[1.4] text-white/80">
+                    {FORM.submitError}
+                </p>
+            )}
+            <button
+                type="submit"
+                disabled={sending}
+                aria-describedby={errorAt === placement ? errorId : undefined}
+                className="merci-btn w-full"
+            >
+                {sending ? FORM.sending : OFFER.button}
+            </button>
+            <p className="text-center font-satoshi text-[12.5px] leading-[1.4] text-text-muted">{OFFER.note}</p>
+        </form>
     )
 }
 

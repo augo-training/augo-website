@@ -1,9 +1,9 @@
-import { COPY } from './constants'
+import { COPY, LAST_BEAT } from './constants'
 
-const BEATS = [1, 2, 3, 4, 5] as const
+const BEATS = Array.from({ length: LAST_BEAT }, (_, i) => i + 1)
 
 /**
- * Five thin bars, one per beat: current white, passed white at 70%, upcoming
+ * One thin bar per beat: current white, passed white at 70%, upcoming
  * dark. White rather than a brand colour, because these sit over the red glow
  * and knowing where you are is the bar's whole job.
  *
