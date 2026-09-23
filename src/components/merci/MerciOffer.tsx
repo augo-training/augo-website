@@ -100,9 +100,9 @@ export default function MerciOffer({ code, src, email, alreadyRedeemed, onRedeem
                     >
                         {OFFER.headline}
                     </h1>
-                    <p className="merci-body mt-5 font-bold italic text-white">{OFFER.qualifier}</p>
+                    <p className="merci-body mt-7 font-bold italic text-white">{OFFER.qualifier}</p>
                     {OFFER.intro.map((para) => (
-                        <p key={para} className="merci-body mt-6">
+                        <p key={para} className="merci-body mt-7">
                             {para}
                         </p>
                     ))}
