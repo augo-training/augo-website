@@ -2,8 +2,8 @@
   "slug": "historical-activities",
   "title": "How does historical backfill work?",
   "seoTitle": "Historical Activities and Backfill | augo support",
-  "description": "When you connect Garmin, Coros, Wahoo, Suunto, Polar, Zwift, Strava, Rouvy or Hammerhead, augo pulls in your last 30 days of activities. Up to five years is available on request.",
-  "summary": "When you connect Garmin, Coros, Wahoo, Suunto, Polar, Zwift, Strava, Rouvy or Hammerhead, augo also pulls in your last 30 days of activities, usually within an hour. You don't have to do anything. Need more than 30 days? We can go back up to five years for any connected source — just ask through the feedback button in the app.",
+  "description": "When you connect Garmin, Coros, Wahoo, Suunto, Polar, Zwift, Strava, Rouvy or Hammerhead, augo pulls in your last 30 days of activities. Every source except Garmin can go back up to five years on request.",
+  "summary": "When you connect Garmin, Coros, Wahoo, Suunto, Polar, Zwift, Strava, Rouvy or Hammerhead, augo also pulls in your last 30 days of activities, usually within an hour. You don't have to do anything. Need more than 30 days? We can go back up to five years for every source except Garmin, which is limited to 30 days — just ask through the feedback button in the app.",
   "audience": "both",
   "category": "integrations",
   "keywords": [
@@ -29,7 +29,7 @@
     "web"
   ],
   "datePublished": "2026-09-15",
-  "dateUpdated": "2026-09-21",
+  "dateUpdated": "2026-09-24",
   "body": [
     {
       "type": "html",
@@ -37,7 +37,7 @@
     },
     {
       "type": "html",
-      "html": "<h2 id=\"up-to-five-years\">Going back further: up to five years</h2><p>If 30 days isn't enough — say you're starting with a new coach who wants to see a full season — we can pull in up to five years of history from any source you have connected, Garmin included.</p><p>Either the athlete or the coach can ask. Use the feedback button in the augo app and tell us which athlete, which device or app, and how far back you'd like to go. We trigger the import on our side and let you know when it's done.</p>"
+      "html": "<h2 id=\"up-to-five-years\">Going back further: up to five years</h2><p>If 30 days isn't enough — say you're starting with a new coach who wants to see a full season — we can pull in up to five years of history from Coros, Wahoo, Suunto, Polar, Zwift, Strava, Rouvy or Hammerhead.</p><p>Garmin is the exception. Garmin only lets augo import the last 30 days, so we can't go further back for it. If your older Garmin sessions also reached Strava or another connected source, we can pull them in from there instead.</p><p>Either the athlete or the coach can ask. Use the feedback button in the augo app and tell us which athlete, which device or app, and how far back you'd like to go. We trigger the import on our side and let you know when it's done.</p>"
     },
     {
       "type": "html",
@@ -47,7 +47,7 @@
   "faqs": [
     {
       "question": "How far back does augo import my activities?",
-      "answer": "30 days by default, for every source augo connects to — Garmin, Coros, Wahoo, Suunto, Polar, Zwift, Strava, Rouvy and Hammerhead. Up to five years is available on request through the feedback button in the app."
+      "answer": "30 days by default, for every source augo connects to — Garmin, Coros, Wahoo, Suunto, Polar, Zwift, Strava, Rouvy and Hammerhead. Every source except Garmin can go back up to five years on request through the feedback button in the app. Garmin is limited to 30 days."
     },
     {
       "question": "How long does the backfill take?",
@@ -55,11 +55,15 @@
     },
     {
       "question": "Can my coach request my history for me?",
-      "answer": "Yes. Either the coach or the athlete can ask through the feedback button in the augo app. Say which athlete, which source, and how far back — up to five years."
+      "answer": "Yes. Either the coach or the athlete can ask through the feedback button in the augo app. Say which athlete, which source, and how far back — up to five years for any source except Garmin."
     },
     {
       "question": "Why are there no old activities from my Garmin?",
-      "answer": "Almost always because the connection predates augo's Garmin history import, so it was authorised without permission to read your past activities. Connect Garmin again from the augo app and your last 30 days will come in. If you need more than 30 days, ask through the feedback button."
+      "answer": "Almost always because the connection predates augo's Garmin history import, so it was authorised without permission to read your past activities. Connect Garmin again from the augo app and your last 30 days will come in. Garmin history is limited to 30 days."
+    },
+    {
+      "question": "Can I get more than 30 days from Garmin?",
+      "answer": "No. Garmin limits history imports to 30 days. If your older sessions are also on Strava or another connected source, we can pull them in from there — ask through the feedback button in the app."
     }
   ],
   "related": [
@@ -78,6 +82,7 @@
     "how do i import my strava history",
     "can my coach request my training history",
     "why didnt my garmin history come in",
-    "will augo import my rouvy history"
+    "will augo import my rouvy history",
+    "can i get more than 30 days from garmin"
   ]
 }
