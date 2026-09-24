@@ -53,6 +53,13 @@ const EVAL: { query: string; expect: string; why: string }[] = [
   { query: 'planned workouts on my coros', expect: 'workouts-on-your-device', why: 'planned is delivery vocabulary' },
   { query: 'can i follow the workout on my karoo', expect: 'workouts-on-your-device', why: 'a bike computer that is not a push target — delivery article owns the no' },
   { query: 'does augo send workouts to rouvy', expect: 'workouts-on-your-device', why: 'send -> deliver group; a negative answer still belongs to the delivery article' },
+  // ride-augo-workouts-indoors
+  { query: 'how do i get my workout into zwift', expect: 'ride-augo-workouts-indoors', why: 'declared-form neighbour; must beat the delivery article' },
+  { query: 'zwo file', expect: 'ride-augo-workouts-indoors', why: 'zwo is only in the indoor article' },
+  { query: 'mywhoosh', expect: 'ride-augo-workouts-indoors', why: 'brand-only query; not a connected source' },
+  { query: 'import workout into rouvy', expect: 'ride-augo-workouts-indoors', why: 'import is a connect synonym; workout + rouvy decides' },
+  { query: 'can i ride my augo workout on a smart trainer', expect: 'ride-augo-workouts-indoors', why: 'smart trainer phrase alias' },
+  { query: 'export workout', expect: 'ride-augo-workouts-indoors', why: 'export group; must beat create-workouts' },
   // historical-activities
   { query: 'why cant i see my old workouts', expect: 'historical-activities', why: 'old -> backfill group; must not pull the missing-workout section' },
   { query: 'how far back does augo import my activities', expect: 'historical-activities', why: 'declared question form; import is also a connect synonym' },

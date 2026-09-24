@@ -67,6 +67,10 @@ export const SYNONYM_GROUPS: readonly (readonly string[])[] = [
   ['directory', 'listing', 'listed', 'inbound'],
   // Making workouts
   ['create', 'build', 'builder', 'design', 'write'],
+  // Taking a workout out of augo as a file
+  ['export', 'download', 'zwo'],
+  // Riding on a trainer
+  ['indoor', 'indoors', 'trainer', 'turbo', 'erg'],
 ]
 
 /**
@@ -90,6 +94,7 @@ export const HYPERNYMS: Readonly<Record<string, readonly string[]>> = {
   fenix: ['garmin', 'device', 'watch'],
   forerunner: ['garmin', 'device', 'watch'],
   rouvy: ['device', 'app'],
+  mywhoosh: ['app'],
   hammerhead: ['device'],
   karoo: ['hammerhead', 'device'],
   strava: ['app', 'sync'],
@@ -120,6 +125,9 @@ export const PHRASE_ALIASES: readonly { phrase: string; expandsTo: readonly stri
   { phrase: 'private note', expandsTo: ['note'] },
   { phrase: 'get found', expandsTo: ['directory'] },
   { phrase: 'season plan', expandsTo: ['note'] },
+  { phrase: 'smart trainer', expandsTo: ['indoor'] },
+  { phrase: 'my whoosh', expandsTo: ['mywhoosh'] },
+  { phrase: 'custom workout', expandsTo: ['zwo'] },
 ]
 
 function buildLookup(): Map<string, string[]> {

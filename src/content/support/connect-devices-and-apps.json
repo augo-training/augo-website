@@ -33,7 +33,8 @@
     "permissions",
     "rouvy",
     "hammerhead",
-    "karoo"
+    "karoo",
+    "mywhoosh"
   ],
   "weight": 3,
   "platforms": [
@@ -46,7 +47,7 @@
   "body": [
     {
       "type": "html",
-      "html": "<h2 id=\"what-each-integration-can-do\">What each integration can do</h2><p>Every integration does at least one of three things:</p><ul><li><strong>Planned workouts.</strong> The workouts your coach plans in augo always show up in your augo app. Garmin, Coros, Wahoo and Suunto also receive them directly, so you can follow the session on the watch or bike computer. See <a href=\"/en/support/workouts-on-your-device/\">which workouts are delivered to my device?</a></li><li><strong>Completed activities.</strong> Every workout you finish after connecting arrives in augo automatically, usually within minutes.</li><li><strong>Historical activities.</strong> Every integration also brings in your last 30 days of activities from before you connected, and every source except Garmin can go back up to five years on request. Garmin is limited to 30 days. See <a href=\"/en/support/historical-activities/\">how does historical backfill work?</a></li></ul>"
+      "html": "<h2 id=\"what-each-integration-can-do\">What each integration can do</h2><p>Every integration does at least one of three things:</p><ul><li><strong>Planned workouts.</strong> The workouts your coach plans in augo always show up in your augo app. Garmin, Coros, Wahoo and Suunto also receive them directly, so you can follow the session on the watch or bike computer. For Zwift, MyWhoosh and Rouvy, you can export the workout as a .zwo file and load it yourself. See <a href=\"/en/support/workouts-on-your-device/\">which workouts are delivered to my device?</a> and <a href=\"/en/support/ride-augo-workouts-indoors/\">how do I ride an augo workout in Zwift, MyWhoosh or Rouvy?</a></li><li><strong>Completed activities.</strong> Every workout you finish after connecting arrives in augo automatically, usually within minutes.</li><li><strong>Historical activities.</strong> Every integration also brings in your last 30 days of activities from before you connected, and every source except Garmin can go back up to five years on request. Garmin is limited to 30 days. See <a href=\"/en/support/historical-activities/\">how does historical backfill work?</a></li></ul>"
     },
     {
       "type": "html",
@@ -97,7 +98,8 @@
   ],
   "related": [
     "workouts-on-your-device",
-    "historical-activities"
+    "historical-activities",
+    "ride-augo-workouts-indoors"
   ],
   "questionForms": [
     "does augo work with garmin",

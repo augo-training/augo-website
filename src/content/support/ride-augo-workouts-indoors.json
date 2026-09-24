@@ -1,0 +1,172 @@
+{
+  "slug": "ride-augo-workouts-indoors",
+  "title": "How do I ride an augo workout in Zwift, MyWhoosh or Rouvy?",
+  "seoTitle": "Ride augo Workouts in Zwift, MyWhoosh and Rouvy | augo support",
+  "description": "Export a planned workout from the augo app as a .zwo file, then add it to Zwift, MyWhoosh or Rouvy and ride it on your smart trainer.",
+  "summary": "Open the planned workout in the augo mobile app and tap Export .zwo file. Then add the file to your indoor app: in Zwift, copy it into your Workouts folder; in MyWhoosh, upload it at workout.mywhoosh.com; in Rouvy, use Import from file. It takes a couple of minutes and is worth it for structured sessions you want the trainer to control.",
+  "audience": "both",
+  "category": "integrations",
+  "keywords": [
+    "zwo",
+    ".zwo",
+    "zwo file",
+    "export",
+    "download",
+    "file",
+    "indoor",
+    "indoors",
+    "trainer",
+    "smart trainer",
+    "turbo",
+    "erg",
+    "zwift",
+    "mywhoosh",
+    "my whoosh",
+    "rouvy",
+    "custom workout",
+    "import"
+  ],
+  "weight": 2,
+  "platforms": [
+    "ios",
+    "android"
+  ],
+  "datePublished": "2026-09-24",
+  "dateUpdated": "2026-09-24",
+  "body": [
+    {
+      "type": "html",
+      "html": "<h2 id=\"export\">Export the workout from augo</h2><p>Planned workouts aren't sent to Zwift, MyWhoosh or Rouvy automatically, but you can take them there yourself. In the augo mobile app, open the planned workout, open the menu and tap <strong>Export .zwo file</strong>. Save the file somewhere you can reach from the computer or app you ride on — your files, a cloud drive, or an email to yourself.</p><p>A .zwo file is the standard format for structured indoor workouts. It carries every step of the session, so the app can set your trainer's resistance for each interval.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"zwift\">Zwift</h2><p>Zwift has no upload button, so the file goes into a folder on your computer.</p>"
+    },
+    {
+      "type": "steps",
+      "steps": [
+        {
+          "title": "Open your Zwift Workouts folder",
+          "html": "<p>On your computer, open the Documents folder, then Zwift, then Workouts.</p>"
+        },
+        {
+          "title": "Open the folder named with a number",
+          "html": "<p>That number is your Zwift ID. If there are several, pick the one with the most files.</p>"
+        },
+        {
+          "title": "Copy the .zwo file into it",
+          "html": "<p>Drop the file you exported from augo into that folder.</p>"
+        },
+        {
+          "title": "Restart Zwift",
+          "html": "<p>The workout is under Training, then Custom Workouts.</p>"
+        }
+      ]
+    },
+    {
+      "type": "html",
+      "html": "<p>Riding on an iPad, phone or Apple TV? Do the steps above on a computer once. Zwift then syncs the workout to your other devices on the same account. More in Zwift's guide to <a href=\"https://support.zwift.com/en_us/custom-workouts-ryGOTVEPs\">custom workouts</a>.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"mywhoosh\">MyWhoosh</h2><p>MyWhoosh imports the file through its workout builder on the web.</p>"
+    },
+    {
+      "type": "steps",
+      "steps": [
+        {
+          "title": "Log in to the MyWhoosh workout builder",
+          "html": "<p>Go to workout.mywhoosh.com and log in with your MyWhoosh account.</p>"
+        },
+        {
+          "title": "Upload the .zwo file",
+          "html": "<p>Click Create New and upload the file you exported from augo.</p>"
+        },
+        {
+          "title": "Export it to MyWhoosh",
+          "html": "<p>Click Export to MyWhoosh.</p>"
+        },
+        {
+          "title": "Find it in the app",
+          "html": "<p>Open MyWhoosh. The workout is in My Workouts in your workout library.</p>"
+        }
+      ]
+    },
+    {
+      "type": "html",
+      "html": "<p>If the MyWhoosh app was open while you exported, restart it so the workout shows up. More in MyWhoosh's guide to <a href=\"https://mywhoosh.com/everything-you-need-to-know-about-the-new-mywhoosh-workout-builder/\">the workout builder</a>.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"rouvy\">Rouvy</h2><p>Rouvy imports the file directly, in the app or on rouvy.com.</p>"
+    },
+    {
+      "type": "steps",
+      "steps": [
+        {
+          "title": "Go to Workouts",
+          "html": "<p>Open Rouvy, in the app or at rouvy.com, and go to Workouts.</p>"
+        },
+        {
+          "title": "Click Import from file",
+          "html": "<p>In the app, scroll to the bottom. It's under Add your own workout.</p>"
+        },
+        {
+          "title": "Add the .zwo file",
+          "html": "<p>Drag in the file you exported from augo, or pick it from your computer.</p>"
+        },
+        {
+          "title": "Ride it",
+          "html": "<p>The workout is added to your Rouvy workouts, ready to ride.</p>"
+        }
+      ]
+    },
+    {
+      "type": "html",
+      "html": "<p>More in Rouvy's guide to <a href=\"https://support.rouvy.com/hc/en-us/articles/33398875835921-Workouts-in-ROUVY\">workouts in Rouvy</a>.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"after-the-ride\">After the ride</h2><p>Your completed ride comes back to augo the usual way. If Zwift or Rouvy is connected to augo, the activity arrives on its own. MyWhoosh isn't a connected source, so the ride reaches augo through whatever else records it — Strava, for example, if MyWhoosh uploads there. See <a href=\"/en/support/connect-devices-and-apps/\">which devices and apps does augo integrate with?</a></p>"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Can augo send workouts straight to Zwift?",
+      "answer": "Not automatically. Export the workout from the augo app as a .zwo file, copy it into your Zwift Workouts folder on your computer, and restart Zwift. It then appears under Training, then Custom Workouts."
+    },
+    {
+      "question": "Where do I find the .zwo export in augo?",
+      "answer": "In the augo mobile app, open the planned workout and open its menu. Export .zwo file sits alongside Send to device and Move to another day."
+    },
+    {
+      "question": "Why doesn't my workout show up in Zwift?",
+      "answer": "Check that the file went into the folder named with your Zwift ID — the one with the most files if there are several — and restart Zwift. The workout is under Training, then Custom Workouts."
+    },
+    {
+      "question": "Does this work with Zwift on an iPad or Apple TV?",
+      "answer": "Yes. Copy the file into the Workouts folder on a computer once, and Zwift syncs the workout to your other devices on the same account."
+    },
+    {
+      "question": "Can I use MyWhoosh with augo?",
+      "answer": "Yes, for planned workouts. Export the .zwo file from the augo app, upload it at workout.mywhoosh.com, and click Export to MyWhoosh. MyWhoosh isn't a connected source, so completed rides reach augo through another app that records them, such as Strava."
+    }
+  ],
+  "related": [
+    "workouts-on-your-device",
+    "connect-devices-and-apps"
+  ],
+  "questionForms": [
+    "how do i get my augo workout into zwift",
+    "how do i ride my workout on zwift",
+    "how do i import a workout into rouvy",
+    "can i use mywhoosh with augo",
+    "how do i get my workout into mywhoosh",
+    "where is the zwo file",
+    "how do i export a workout",
+    "can i ride my augo workout indoors",
+    "why doesnt my workout show up in zwift",
+    "can i ride my augo workout on my smart trainer",
+    "how do i download a workout as a zwo file"
+  ]
+}
