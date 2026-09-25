@@ -190,6 +190,8 @@ interface EmailCaptureSubmittedProps {
     visitor_type?: string
     page?: string
     coaching_status?: string
+    /** Which form on the page was used, when a page repeats its opt-in. */
+    placement?: string
 }
 
 /** Event name kept for continuity with existing reports; it covers every email
@@ -205,12 +207,12 @@ export async function trackEmailCaptureFailed(props: { cta_text: string; status:
 }
 
 /** A validation or submit error shown to the visitor on an email capture form. */
-export async function trackEmailCaptureError(props: { page: string; cta_text: string; error: string }): Promise<void> {
+export async function trackEmailCaptureError(props: { page: string; cta_text: string; error: string; placement?: string }): Promise<void> {
     return track('email_capture_error', props)
 }
 
 /** The capture was accepted and the page unlocked (Nice landing page). */
-export async function trackEmailCaptureUnlocked(props: { page: string; cta_text: string }): Promise<void> {
+export async function trackEmailCaptureUnlocked(props: { page: string; cta_text: string; placement?: string }): Promise<void> {
     return track('email_capture_unlocked', props)
 }
 

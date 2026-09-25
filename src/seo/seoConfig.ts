@@ -162,6 +162,23 @@ const pageMeta: Record<string, Record<SupportedLanguage, PageMeta>> = {
         "The elite coach's checklist for IRONMAN 70.3 Worlds Nice 2026. 10 things to check before the race, so nothing surprises your athletes on race day.",
     },
   },
+  coachCourse: {
+    en: {
+      title: "Become an Irreplaceable Endurance Coach in 5 Days (Free Course) — augo",
+      description:
+        "A free 5-day email course for endurance coaches: the 5 most common mistakes that cap how many athletes you can coach well, and how to fix each one.",
+    },
+    de: {
+      title: "Become an Irreplaceable Endurance Coach in 5 Days (Free Course) — augo",
+      description:
+        "A free 5-day email course for endurance coaches: the 5 most common mistakes that cap how many athletes you can coach well, and how to fix each one.",
+    },
+    pt: {
+      title: "Become an Irreplaceable Endurance Coach in 5 Days (Free Course) — augo",
+      description:
+        "A free 5-day email course for endurance coaches: the 5 most common mistakes that cap how many athletes you can coach well, and how to fix each one.",
+    },
+  },
   contact: {
     en: {
       title: 'Contact augo | Questions, feedback, ideas',

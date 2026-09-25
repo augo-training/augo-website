@@ -149,6 +149,8 @@ export async function getAllPrerenderRoutes(): Promise<string[]> {
   // (which is looped over every language) and are listed once here.
   routes.push(`/${DEFAULT_LANG}/nice-athletes`)
   routes.push(`/${DEFAULT_LANG}/nice-coaches`)
+  // The coach course opt-in page — English-only for the same reason.
+  routes.push(`/${DEFAULT_LANG}/irreplaceable-endurance-coach`)
   // The Worlds postcard page. Unprefixed, since the QR on the card points at
   // augotraining.com/merci, and deliberately absent from getSitemapEntries():
   // it is for the coaches holding a card. Prerendered anyway so GitHub Pages
@@ -228,6 +230,15 @@ export async function getSitemapEntries(): Promise<SitemapEntry[]> {
     alternates: null,
     xDefault: niceCoachesUrl,
     changefreq: 'weekly',
+  })
+  // The coach course opt-in page: linked from the footer, English-only.
+  const coachCourseUrl = langUrl(DEFAULT_LANG, '/irreplaceable-endurance-coach')
+  entries.push({
+    url: coachCourseUrl,
+    priority: 0.9,
+    alternates: null,
+    xDefault: coachCourseUrl,
+    changefreq: 'monthly',
   })
   const blogIndexUrl = langUrl(DEFAULT_LANG, '/blog')
   entries.push({

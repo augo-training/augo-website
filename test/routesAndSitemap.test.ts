@@ -18,15 +18,16 @@ describe('routes and sitemap', () => {
     const supportSlugs = await discoverSupportSlugs()
 
     // localized static + localized coach profiles + english-only blog posts
-    // + 1 for the /en/blog index route + 2 for the /en/nice-athletes and
-    // /en/nice-coaches landing pages + english-only support articles
+    // + 1 for the /en/blog index route + 3 for the /en/nice-athletes,
+    // /en/nice-coaches and /en/irreplaceable-endurance-coach landing pages
+    // + english-only support articles
     // + 1 for the /en/support hub route + 1 for the unprefixed /merci page.
     expect(routes).toHaveLength(
       LANGS.length * STATIC_PATHS.length +
         LANGS.length * coachSlugs.length +
         slugs.length +
         1 +
-        2 +
+        3 +
         supportSlugs.length +
         1 +
         1,
@@ -41,6 +42,8 @@ describe('routes and sitemap', () => {
     expect(routes.filter((route) => route.endsWith('/nice-athletes'))).toHaveLength(1)
     expect(routes).toContain('/en/nice-coaches')
     expect(routes.filter((route) => route.endsWith('/nice-coaches'))).toHaveLength(1)
+    expect(routes).toContain('/en/irreplaceable-endurance-coach')
+    expect(routes.filter((route) => route.endsWith('/irreplaceable-endurance-coach'))).toHaveLength(1)
 
     // /mcp is a localized static path, so the counts above already cover it.
     // These two assertions stop a refactor from silently dropping the page or
@@ -154,6 +157,17 @@ describe('routes and sitemap', () => {
       expect(entry?.alternates).toBeNull()
       expect(entry?.priority).toBe(0.9)
     }
+  })
+
+  // The course page is linked from the footer and meant to be found by search,
+  // but it is English-only, so no hreflang alternates.
+  it('lists the coach course page as an english-only sitemap entry', async () => {
+    const entries = await getSitemapEntries()
+    const entry = entries.find((e) => e.url === 'https://augotraining.com/en/irreplaceable-endurance-coach/')
+
+    expect(entry).toBeTruthy()
+    expect(entry?.alternates).toBeNull()
+    expect(entry?.priority).toBe(0.9)
   })
 
   // The postcard page is prerendered (so GitHub Pages serves it with a 200) but

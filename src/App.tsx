@@ -22,6 +22,7 @@ import SupportHub from './pages/SupportHub'
 import SupportArticle from './pages/SupportArticle'
 import NiceAthletes from './pages/NiceAthletes'
 import NiceCoaches from './pages/NiceCoaches'
+import CoachCourse from './pages/CoachCourse'
 import Mcp from './pages/Mcp'
 import Contact from './pages/Contact'
 import Merci from './pages/Merci'
@@ -89,6 +90,7 @@ function App() {
           {/* Standalone ad landing pages — nothing on the site links to them. */}
           <Route path="nice-athletes" element={<NiceAthletes />} />
           <Route path="nice-coaches" element={<NiceCoaches />} />
+          <Route path="irreplaceable-endurance-coach" element={<CoachCourse />} />
           <Route path="coaches" element={<CoachesIndexToFind />} />
           <Route path="coaches/:slug" element={<CoachProfile />} />
           <Route path="blog" element={<BlogIndex />} />
