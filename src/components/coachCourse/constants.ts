@@ -50,10 +50,17 @@ export const COPY = {
     titleParts: {
         before: 'Become an Irreplaceable',
         words: ['Endurance', 'Running', 'Cycling', 'Triathlon'],
-        after: 'Coach in 5 Days',
+        coach: 'Coach',
+        after: 'in 5 Days',
     },
-    subtitle:
-        'A free 5-day email course on the 5 most common mistakes among endurance coaches that cap how many athletes they can coach well (and how to fix each one, even using AI).',
+    /** Shown as two lines: the sentence, then the aside in bold italic on its
+     *  own line. `subtitle` joins them back up for the Course schema. */
+    subtitleLead:
+        'A free 5-day email course on the 5 most common mistakes among endurance coaches that cap how many athletes they can coach well',
+    subtitleAside: '(and how to fix each one, even using AI)',
+    get subtitle() {
+        return `${this.subtitleLead} ${this.subtitleAside}.`
+    },
     get: {
         title: "What You'll Get:",
         items: [

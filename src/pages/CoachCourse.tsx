@@ -62,14 +62,27 @@ export default function CoachCourse() {
                     <div className="course-card rounded-[24px] px-5 py-6 sm:px-8 sm:py-9">
                         <h1
                             aria-label={COPY.title}
-                            className="m-0 font-sans text-[32px] sm:text-[44px] font-extrabold leading-[1.05] tracking-[-0.03em] text-white"
+                            className="m-0 font-sans text-[clamp(26px,8.5vw,32px)] sm:text-[44px] font-extrabold leading-[1.05] tracking-[-0.03em] text-white"
                         >
                             <span aria-hidden="true">
-                                {COPY.titleParts.before} <RotatingSport /> {COPY.titleParts.after}
+                                {/* Three set lines, with the sport and "Coach" held
+                                    together on the middle one. Every word then
+                                    takes the same number of lines, so the headline
+                                    keeps one height as it rotates. The phone size
+                                    shrinks on very narrow screens so "Endurance
+                                    Coach", the longest, still fits one line. */}
+                                <span className="block">{COPY.titleParts.before}</span>{' '}
+                                <span className="block whitespace-nowrap">
+                                    <RotatingSport /> {COPY.titleParts.coach}
+                                </span>{' '}
+                                <span className="block">{COPY.titleParts.after}</span>
                             </span>
                         </h1>
-                        <p className="mt-5 font-satoshi text-[17px] sm:text-[19px] leading-[1.45] text-white/85">
-                            {COPY.subtitle}
+                        <p className="mt-3 font-satoshi text-[17px] sm:text-[19px] leading-[1.45] text-pretty text-white/85">
+                            {COPY.subtitleLead}
+                        </p>
+                        <p className="mt-2 font-satoshi text-[17px] sm:text-[19px] font-bold italic leading-[1.45] text-white">
+                            {COPY.subtitleAside}
                         </p>
                         {optIn('hero')}
                     </div>
