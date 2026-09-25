@@ -17,8 +17,8 @@
 export const COACH_COURSE_PATH = '/irreplaceable-endurance-coach'
 
 /**
- * MailerLite group "[Course] Irreplaceable Endurance Coach" (written server-side
- * by Make).
+ * MailerLite group "[Coaches] Lead Magnet EEC" (written server-side by Make).
+ * Joining it is what starts the course's email automation.
  *
  * Hardcoded with an env override, the same shape as NICE_COACHES_GROUP_ID. A
  * group id is not a credential, and relying on a build-time secret here fails
@@ -27,7 +27,7 @@ export const COACH_COURSE_PATH = '/irreplaceable-endurance-coach'
  */
 export const COACH_COURSE_GROUP_ID =
     (import.meta.env.VITE_MAILERLITE_COACH_COURSE_GROUP_ID as string | undefined) ??
-    'TODO_GROUP_ID'
+    '199588319068161489'
 
 /** Identifies the signup source in MailerLite and in Mixpanel. */
 export const COACH_COURSE_CTA_TEXT = 'Irreplaceable Coach Course'
