@@ -79,7 +79,9 @@ export default function CoachCourse() {
                             </span>
                         </h1>
                         <p className="mt-3 font-satoshi text-[17px] sm:text-[19px] leading-[1.45] text-pretty text-white/85">
-                            {COPY.subtitleLead}
+                            {COPY.subtitleLead.before}
+                            <strong className="font-bold text-white">{COPY.subtitleLead.strong}</strong>
+                            {COPY.subtitleLead.after}
                         </p>
                         <p className="mt-2 font-satoshi text-[17px] sm:text-[19px] font-bold italic leading-[1.45] text-white">
                             {COPY.subtitleAside}

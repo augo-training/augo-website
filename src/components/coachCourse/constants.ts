@@ -54,13 +54,18 @@ export const COPY = {
         after: 'in 5 Days',
     },
     /** Two paragraphs: the promise, then the reassurance in bold italic on
-     *  its own line. `subtitle` joins them for the Course schema. */
-    subtitleLead:
-        '5 biggest mistakes made while scaling your business that lead to chronic overwhelm, working more hours per athlete to compensate, and ultimately losing their trust to a competitor or an $18 AI plan — and how to solve them using AI.',
+     *  its own line. `subtitle` joins them for the Course schema. The promise
+     *  opens with "FREE" in bold, so it is split around that word. */
+    subtitleLead: {
+        before: 'A ',
+        strong: 'FREE',
+        after: ', 5-day email course breaking down the 5 biggest mistakes made while scaling your business that lead to chronic overwhelm, working more hours per athlete to compensate, and ultimately losing their trust to a competitor or an $18 AI plan — and how to solve them using AI.',
+    },
     subtitleAside:
-        'Even if you’re not a tech person and have been using the same training platform for the past ten years.',
+        '(Even if you’re not a tech person and have been using the same training platform for the past ten years)',
     get subtitle() {
-        return `${this.subtitleLead} ${this.subtitleAside}`
+        const lead = this.subtitleLead
+        return `${lead.before}${lead.strong}${lead.after} ${this.subtitleAside}`
     },
     get: {
         title: "What You'll Get:",
