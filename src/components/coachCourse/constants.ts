@@ -53,13 +53,14 @@ export const COPY = {
         coach: 'Coach',
         after: 'in 5 Days',
     },
-    /** Shown as two lines: the sentence, then the aside in bold italic on its
-     *  own line. `subtitle` joins them back up for the Course schema. */
+    /** Two paragraphs: the promise, then the reassurance in bold italic on
+     *  its own line. `subtitle` joins them for the Course schema. */
     subtitleLead:
-        'A free 5-day email course on the 5 most common mistakes among endurance coaches that cap how many athletes they can coach well',
-    subtitleAside: '(and how to fix each one, even using AI)',
+        '5 biggest mistakes made while scaling your business that lead to chronic overwhelm, working more hours per athlete to compensate, and ultimately losing their trust to a competitor or an $18 AI plan — and how to solve them using AI.',
+    subtitleAside:
+        'Even if you’re not a tech person and have been using the same training platform for the past ten years.',
     get subtitle() {
-        return `${this.subtitleLead} ${this.subtitleAside}.`
+        return `${this.subtitleLead} ${this.subtitleAside}`
     },
     get: {
         title: "What You'll Get:",
