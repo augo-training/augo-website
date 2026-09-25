@@ -7,6 +7,7 @@ import { BASE_URL } from './seoConstants'
 import { getPricingTier } from '../config/pricingConfig'
 import { buildMcpHowTo, type McpSchemaStep } from './mcpSchema'
 import { MCP_URL } from '../components/mcp/constants'
+import { COPY as COACH_COURSE_COPY, COACH_COURSE_PATH, COURSE_NAME } from '../components/coachCourse/constants'
 
 export function OrganizationJsonLd() {
   const schema = {
@@ -22,6 +23,55 @@ export function OrganizationJsonLd() {
     ],
     description:
       'The intelligent coaching platform for endurance sports. Combines coach-athlete communication, workout data and session feedback into one place.',
+  }
+
+  return (
+    <Helmet>
+      <script type="application/ld+json">{JSON.stringify(schema)}</script>
+    </Helmet>
+  )
+}
+
+// ── Irreplaceable Endurance Coach course ────────────────────────────────────
+// The free 5-day email course on /en/irreplaceable-endurance-coach. Built from
+// the page's own copy, so the schema and the page cannot drift apart. English
+// only, like the page.
+export function CoachCourseJsonLd() {
+  const url = `${BASE_URL}/en${COACH_COURSE_PATH}/`
+  const provider = { '@type': 'Organization', name: 'augo', url: BASE_URL }
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'Course',
+    name: COURSE_NAME,
+    headline: COACH_COURSE_COPY.title,
+    description: COACH_COURSE_COPY.subtitle,
+    url,
+    inLanguage: 'en',
+    isAccessibleForFree: true,
+    educationalLevel: 'Professional',
+    audience: { '@type': 'EducationalAudience', educationalRole: 'Endurance coach' },
+    provider,
+    author: provider,
+    teaches: COACH_COURSE_COPY.get.items,
+    syllabusSections: COACH_COURSE_COPY.peek.days.map((day, index) => ({
+      '@type': 'Syllabus',
+      name: `Day ${index + 1}`,
+      description: day.text,
+    })),
+    offers: {
+      '@type': 'Offer',
+      category: 'Free',
+      price: '0',
+      priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock',
+      url,
+    },
+    hasCourseInstance: {
+      '@type': 'CourseInstance',
+      courseMode: 'Online',
+      courseWorkload: 'P5D',
+      courseSchedule: { '@type': 'Schedule', repeatFrequency: 'P1D', repeatCount: 5 },
+    },
   }
 
   return (

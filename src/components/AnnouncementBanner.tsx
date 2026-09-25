@@ -3,9 +3,9 @@ import { useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { trackCtaClicked } from '../utils/analytics'
 
-/** Paid-traffic landing pages: one message, one screen, their own funnel. Plus
- *  /merci, the full-screen postcard page, which has no room for a bar. */
-const EXCLUDED = ['/nice-athletes', '/nice-coaches', '/merci']
+/** Paid-traffic landing pages: one message, their own funnel. Plus /merci, the
+ *  full-screen postcard page, which has no room for a bar. */
+const EXCLUDED = ['/nice-athletes', '/nice-coaches', '/irreplaceable-endurance-coach', '/merci']
 
 /**
  * The permanent bar above the header.

@@ -15,7 +15,10 @@ const QUOTE = COPY.quote
  * It is a real person's words, so it is marked up as a <blockquote> with a
  * <cite>, not as decorative text.
  */
-export default function MerciQuote() {
+export default function MerciQuote({ large = false }: { large?: boolean }) {
+    // `large` is for the coach course page, which sets all its body text bigger
+    // for easier reading. /merci keeps the default sizes.
+    const body = large ? 'text-[18px] sm:text-[20px]' : 'text-[15px]'
     return (
         <figure className="merci-quote m-0 mt-5 rounded-[20px] p-5">
             <div className="flex items-center gap-3.5">
@@ -27,10 +30,10 @@ export default function MerciQuote() {
                     className="h-14 w-14 shrink-0 rounded-full object-cover"
                 />
                 <div>
-                    <p className="font-sans text-[16px] font-extrabold leading-[1.2] tracking-[-0.02em] text-white">
+                    <p className={`font-sans ${large ? 'text-[19px]' : 'text-[16px]'} font-extrabold leading-[1.2] tracking-[-0.02em] text-white`}>
                         {QUOTE.name}
                     </p>
-                    <p className="mt-0.5 font-satoshi text-[13px] leading-[1.35] text-text-muted">{QUOTE.role}</p>
+                    <p className={`mt-0.5 font-satoshi ${large ? 'text-[16px]' : 'text-[13px]'} leading-[1.35] text-text-muted`}>{QUOTE.role}</p>
                 </div>
             </div>
 
@@ -39,8 +42,8 @@ export default function MerciQuote() {
                 his is cut between the two, and quoting across an omission
                 without marking it would present the two halves as adjacent. */}
             <blockquote className="m-0 mt-4">
-                <p className="font-satoshi text-[15px] leading-[1.5] text-white">{`\u201c${QUOTE.text}`}</p>
-                <p className="mt-2.5 font-satoshi text-[15px] font-bold leading-[1.5] text-white">{`\u2026 ${QUOTE.signoff}\u201d`}</p>
+                <p className={`font-satoshi ${body} leading-[1.5] text-white`}>{`\u201c${QUOTE.text}`}</p>
+                <p className={`mt-2.5 font-satoshi ${body} font-bold leading-[1.5] text-white`}>{`\u2026 ${QUOTE.signoff}\u201d`}</p>
             </blockquote>
 
             <figcaption className="sr-only">

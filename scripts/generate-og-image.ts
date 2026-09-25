@@ -25,6 +25,9 @@ const TARGETS = {
   home: { path: "/en", out: "og-image.jpg" },
   nice: { path: "/en/nice-athletes", out: "nice-athletes-og.jpg" },
   "nice-coaches": { path: "/en/nice-coaches", out: "nice-coaches-og.jpg" },
+  // Captured as a static snapshot: its headline rotates the sport, and the card
+  // should always read "Endurance", never a word caught mid-fade.
+  "coach-course": { path: "/en/irreplaceable-endurance-coach", out: "coach-course-og.jpg", still: true },
   mcp: { path: "/en/mcp", out: "mcp-og.jpg" },
   merci: { file: "og/merci-card.html", out: "merci-og.jpg" },
 } as const;
@@ -70,6 +73,14 @@ await page.evaluateOnNewDocument(() => {
     // file:// origin: nothing to suppress.
   }
 });
+
+// The flag scripts/prerender.ts sets. RotatingSport never starts rotating under
+// it. Reduced motion would do the same, but it also stills the button gradient.
+if ("still" in target && target.still) {
+  await page.evaluateOnNewDocument(() => {
+    (globalThis as unknown as { __PRERENDER__?: boolean }).__PRERENDER__ = true;
+  });
+}
 
 await page.goto(URL, { waitUntil: "networkidle2" });
 // Wait for GSAP intro animations to complete
