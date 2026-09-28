@@ -78,13 +78,26 @@ export const COPY = {
         ],
     },
     /**
-     * The first sentence of the /merci team line, followed by Marco Altini's quote
-     * (MerciQuote). That quote is a trimmed version of his words and still
-     * needs his approval, the same as on /merci.
+     * Who wrote the course, and the three coaches who advise the augo team,
+     * shown as headshots with a name and title (CoachCourseAdvisors). No quotes.
+     * The photos are matched by `photo` in CoachCourseAdvisors.
      */
     team: {
         title: 'Written by the augo team',
-        body: 'We build augo, the coaching platform Marco Altini moved his athletes to.',
+        body: 'This course is written by the augo team, advised by three coaches who have coached athletes to the top of their sport:',
+        advisors: [
+            { photo: 'marco', name: 'Marco Altini', title: 'Running coach & founder of HRV4Training' },
+            {
+                photo: 'gordon',
+                name: 'Gordon Crawford',
+                title: 'Triathlon coach, coach to European and World Champions short course',
+            },
+            {
+                photo: 'reto',
+                name: 'Reto Braendli',
+                title: 'Triathlon coach, coach to multiple pro podiums at Ironman and T100',
+            },
+        ],
         after: 'And now, you can learn how to avoid these 5 mistakes for free.',
     },
     peek: {

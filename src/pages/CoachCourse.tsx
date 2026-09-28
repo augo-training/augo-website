@@ -4,7 +4,7 @@ import { CoachCourseJsonLd, OrganizationJsonLd } from '../seo/JsonLd'
 import CoachCourseHeader from '../components/coachCourse/CoachCourseHeader'
 import CoachCourseOptInForm from '../components/coachCourse/CoachCourseOptInForm'
 import RotatingSport from '../components/coachCourse/RotatingSport'
-import MerciQuote from '../components/merci/MerciQuote'
+import CoachCourseAdvisors from '../components/coachCourse/CoachCourseAdvisors'
 import {
     COPY,
     COACH_COURSE_PATH,
@@ -103,7 +103,7 @@ export default function CoachCourse() {
 
                     <Section title={COPY.team.title}>
                         <p className={`${BODY} mt-3 text-white/85`}>{COPY.team.body}</p>
-                        <MerciQuote large />
+                        <CoachCourseAdvisors />
                         <p className={`${BODY} mt-5 font-bold text-white`}>{COPY.team.after}</p>
                         {optIn('team')}
                     </Section>
