@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://augotraining.com'
+export const BASE_URL = 'https://www.augotraining.com'
 
 /**
  * Canonical URL for the support hub, or for one article when given a slug.

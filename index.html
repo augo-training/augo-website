@@ -11,8 +11,13 @@
     injected at runtime via react-helmet-async (src/seo/SEOHead.tsx + JsonLd.tsx)
     and baked into the static HTML during prerender (scripts/prerender.ts).
     Leave them out of this template to avoid duplicate tags.
+
+    The one exception is this fallback title, for the moment before React
+    mounts. Helmet adds the page-specific title tag beside it rather than replacing
+    it, so scripts/prerender.ts removes this one (by its data attribute) before
+    snapshotting. Keep the attribute.
   -->
-  <title>augo</title>
+  <title data-template-title>augo</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

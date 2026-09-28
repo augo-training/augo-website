@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url'
 
 const here = dirname(fileURLToPath(import.meta.url))
 export const ROOT = dirname(here)
-export const BASE_URL = 'https://augotraining.com'
+export const BASE_URL = 'https://www.augotraining.com'
 
 export const LANGS = ['en', 'de', 'pt'] as const
 export const DEFAULT_LANG = 'en'

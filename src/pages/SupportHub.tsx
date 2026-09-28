@@ -9,6 +9,7 @@ import SupportArticleCard from '../components/support/SupportArticleCard'
 import SupportSearchBar from '../components/support/SupportSearchBar'
 import SupportSearchResults from '../components/support/SupportSearchResults'
 import SupportContactCard from '../components/support/SupportContactCard'
+import CoachCourseCallout from '../components/coachCourse/CoachCourseCallout'
 import { useSupportSearch } from '../hooks/useSupportSearch'
 import { articlesByCategory } from '../utils/supportArticles'
 import { SUPPORT_CATEGORIES } from '../utils/supportTaxonomy'
@@ -84,6 +85,7 @@ export default function SupportHub() {
               </section>
             ))}
             <SupportContactCard />
+            <CoachCourseCallout location="support_hub" />
           </>
         )}
       </main>

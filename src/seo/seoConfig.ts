@@ -164,19 +164,19 @@ const pageMeta: Record<string, Record<SupportedLanguage, PageMeta>> = {
   },
   coachCourse: {
     en: {
-      title: "Become an Irreplaceable Endurance Coach in 5 Days (Free Course) — augo",
+      title: "Free Course for Endurance Coaches: Scale Your Coaching with AI | augo",
       description:
-        "A free 5-day email course for endurance coaches: the 5 most common mistakes that cap how many athletes you can coach well, and how to fix each one.",
+        "A free 5-day email course for running, triathlon and endurance coaches: the 5 mistakes that cap how many athletes you can coach, and how to fix them with AI.",
     },
     de: {
-      title: "Become an Irreplaceable Endurance Coach in 5 Days (Free Course) — augo",
+      title: "Free Course for Endurance Coaches: Scale Your Coaching with AI | augo",
       description:
-        "A free 5-day email course for endurance coaches: the 5 most common mistakes that cap how many athletes you can coach well, and how to fix each one.",
+        "A free 5-day email course for running, triathlon and endurance coaches: the 5 mistakes that cap how many athletes you can coach, and how to fix them with AI.",
     },
     pt: {
-      title: "Become an Irreplaceable Endurance Coach in 5 Days (Free Course) — augo",
+      title: "Free Course for Endurance Coaches: Scale Your Coaching with AI | augo",
       description:
-        "A free 5-day email course for endurance coaches: the 5 most common mistakes that cap how many athletes you can coach well, and how to fix each one.",
+        "A free 5-day email course for running, triathlon and endurance coaches: the 5 mistakes that cap how many athletes you can coach, and how to fix them with AI.",
     },
   },
   contact: {

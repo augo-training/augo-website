@@ -10,14 +10,14 @@ describe('buildArticleSchema', () => {
       authorName: 'Author Name',
       datePublished: '2026-05-13T10:00:00.000Z',
       coverImage: '/blog/example-post/cover.jpg',
-      publisherLogoUrl: 'https://augotraining.com/assets/augo_footer_1.abc123.svg',
+      publisherLogoUrl: 'https://www.augotraining.com/assets/augo_footer_1.abc123.svg',
     })
 
-    expect(schema.url).toBe('https://augotraining.com/en/blog/example-post')
-    expect(schema.image).toBe('https://augotraining.com/blog/example-post/cover.jpg')
+    expect(schema.url).toBe('https://www.augotraining.com/en/blog/example-post')
+    expect(schema.image).toBe('https://www.augotraining.com/blog/example-post/cover.jpg')
     expect(schema.publisher.logo.url).toBe(
-      'https://augotraining.com/assets/augo_footer_1.abc123.svg'
+      'https://www.augotraining.com/assets/augo_footer_1.abc123.svg'
     )
-    expect(schema.publisher.logo.url).toMatch(/^https:\/\/augotraining\.com\//)
+    expect(schema.publisher.logo.url).toMatch(/^https:\/\/www\.augotraining\.com\//)
   })
 })

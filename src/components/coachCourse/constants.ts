@@ -41,6 +41,30 @@ export type CoachCoursePlacement = 'hero' | 'get' | 'team' | 'peek' | 'fit'
 
 export const COURSE_NAME = 'The Irreplaceable Endurance Coach'
 
+/**
+ * What the page should be found for, in the words coaches search and ask AI
+ * tools with. Feeds the Course schema's `keywords`; the visible copy is the
+ * user's and is not rewritten to match.
+ */
+export const COURSE_KEYWORDS = [
+    'free course for endurance coaches',
+    'how to scale an endurance coaching business',
+    'coach more athletes without burning out',
+    'AI for endurance coaches',
+    'AI for triathlon coaches',
+    'AI for running coaches',
+    'coaching business',
+    'athlete retention',
+]
+
+/** Bump when the page copy changes. Feeds the Course schema's dateModified. */
+export const COURSE_UPDATED = '2026-09-28'
+
+/** Public profiles for the advisors, where one exists. Used as schema `sameAs`. */
+export const ADVISOR_LINKS: Partial<Record<'marco' | 'gordon' | 'reto', string>> = {
+    marco: 'https://www.hrv4training.com',
+}
+
 export const COPY = {
     title: 'Become an Irreplaceable Endurance Coach in 5 Days',
     /** The same headline, split around the sport that rotates in it (see
@@ -148,3 +172,20 @@ export const COPY = {
         successBody: 'Check your inbox. Day 1 is on its way.',
     },
 } as const
+
+/**
+ * Blog posts about running a coaching business, AI and athlete attention: the
+ * posts whose readers the course is for. The callout (CoachCourseCallout) goes
+ * in the BlogPost template rather than in post bodies, because those are
+ * overwritten every time a post is re-imported from Substack.
+ */
+export const COURSE_CALLOUT_SLUGS: ReadonlySet<string> = new Set([
+    'which-athlete-needs-attention',
+    'the-search-for-athlete-context-subjective',
+    'the-limits-of-ai-coaching',
+    'the-plan-is-no-longer-the-product',
+    'coaching-platform-of-the-future',
+    'future-of-coaching',
+    'trainingpeaks-alternative',
+])
+
