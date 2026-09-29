@@ -2088,4 +2088,36 @@ export const coaches: Coach[] = [
         media: { portrait: placeholderPortrait },
         socials: { website: 'https://runningfar.coach' },
     },
+    {
+        slug: 'alexandre-pereira',
+        name: 'Alexandre Pereira',
+        firstName: 'Alexandre',
+        gender: 'male',
+        tagline:
+            'Science-driven running coach for performance-focused amateurs balancing training with work and family — 5K to mountain ultras.',
+        isFoundingCoach: false,
+        status: 'accepting',
+        disciplines: ['running'],
+        specialties: ['5K', '10K', 'half marathon', 'marathon', 'ultra', 'trail running', 'road running'],
+        location: { city: 'Barcelona', country: 'Spain', countryCode: 'ES', timezone: 'Europe/Madrid' },
+        coachesRemote: true,
+        languages: [EN, PT, ES],
+        credentials: ['UESCA Ultrarunning Coach', 'MPharm'],
+        yearsCoaching: 1,
+        athleteLevels: ['Advanced'],
+        communication: 'always-on',
+        offersStrength: true,
+        idealAthlete: 'Performance-focused amateurs juggling work, family and social life who want sustainable, long-term athletic development',
+        bio: {
+            short:
+                'Science-driven coach who understands the balance between high-level training and a busy family and professional life.',
+            long: [
+                'Alexandre is a science-driven coach based in Barcelona. He coaches road and trail runners at every distance from 5K up to mountain ultra-marathons.',
+                'He understands the balance between high-level training and managing a busy family and professional life, and brings a pharmacy background (MPharm) alongside his UESCA ultrarunning certification. Strength training is part of his coaching.',
+                'He works best with performance-focused amateurs looking to sustainably build their athletic potential over the long term, finding joy in both the process and the outcome. He is available to his athletes 24/7.',
+            ],
+            philosophy: 'Build your potential sustainably, and find joy in both the process and the outcome.',
+        },
+        media: { portrait: placeholderPortrait },
+    },
 ]

@@ -275,6 +275,33 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.augotraining.com/en/coaches/alexandre-pereira/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/coaches/alexandre-pereira/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/coaches/alexandre-pereira/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/coaches/alexandre-pereira/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/coaches/alexandre-pereira/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/de/coaches/alexandre-pereira/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/coaches/alexandre-pereira/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/coaches/alexandre-pereira/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/coaches/alexandre-pereira/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/coaches/alexandre-pereira/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/pt/coaches/alexandre-pereira/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/coaches/alexandre-pereira/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/coaches/alexandre-pereira/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/coaches/alexandre-pereira/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/coaches/alexandre-pereira/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.augotraining.com/en/coaches/amanda-martin/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/coaches/amanda-martin/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/coaches/amanda-martin/" />
