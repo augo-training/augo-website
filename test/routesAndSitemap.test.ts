@@ -9,6 +9,7 @@ import {
   STATIC_PATHS,
 } from '../scripts/routes.ts'
 import { renderSitemapXml } from '../scripts/generate-sitemap.ts'
+import { COURSE_CALLOUT_SLUGS } from '../src/components/coachCourse/constants'
 
 describe('routes and sitemap', () => {
   it('includes all localized static routes and english-only blog routes', async () => {
@@ -111,14 +112,14 @@ describe('routes and sitemap', () => {
     const entries = await getSitemapEntries()
     const xml = renderSitemapXml(entries)
     const blogEntry = entries.find((entry) => entry.url.includes('/en/blog/'))
-    const staticEntry = entries.find((entry) => entry.url === 'https://augotraining.com/en/')
+    const staticEntry = entries.find((entry) => entry.url === 'https://www.augotraining.com/en/')
 
     expect(blogEntry).toBeTruthy()
     expect(blogEntry?.alternates).toBeNull()
     expect(staticEntry).toBeTruthy()
     expect(staticEntry?.alternates).toHaveLength(LANGS.length)
     expect(xml).toMatch(/hreflang="x-default"/)
-    expect(xml).toMatch(/https:\/\/augotraining\.com\/en\/blog\//)
+    expect(xml).toMatch(/https:\/\/www\.augotraining\.com\/en\/blog\//)
   })
 
   it('lists support pages english-only with trailing slashes', async () => {
@@ -126,14 +127,14 @@ describe('routes and sitemap', () => {
     const supportSlugs = await discoverSupportSlugs()
 
     const hub = entries.find(
-      (entry) => entry.url === 'https://augotraining.com/en/support/',
+      (entry) => entry.url === 'https://www.augotraining.com/en/support/',
     )
     expect(hub).toBeTruthy()
     expect(hub?.alternates).toBeNull()
 
     for (const slug of supportSlugs) {
       const entry = entries.find(
-        (e) => e.url === `https://augotraining.com/en/support/${slug}/`,
+        (e) => e.url === `https://www.augotraining.com/en/support/${slug}/`,
       )
       // The trailing slash matters: without it the host 301s and every sitemap
       // URL lands in GSC as "Page with redirect".
@@ -152,7 +153,7 @@ describe('routes and sitemap', () => {
     const entries = await getSitemapEntries()
 
     for (const path of ['/en/nice-athletes/', '/en/nice-coaches/']) {
-      const entry = entries.find((e) => e.url === `https://augotraining.com${path}`)
+      const entry = entries.find((e) => e.url === `https://www.augotraining.com${path}`)
       expect(entry).toBeTruthy()
       expect(entry?.alternates).toBeNull()
       expect(entry?.priority).toBe(0.9)
@@ -163,11 +164,18 @@ describe('routes and sitemap', () => {
   // but it is English-only, so no hreflang alternates.
   it('lists the coach course page as an english-only sitemap entry', async () => {
     const entries = await getSitemapEntries()
-    const entry = entries.find((e) => e.url === 'https://augotraining.com/en/irreplaceable-endurance-coach/')
+    const entry = entries.find((e) => e.url === 'https://www.augotraining.com/en/irreplaceable-endurance-coach/')
 
     expect(entry).toBeTruthy()
     expect(entry?.alternates).toBeNull()
     expect(entry?.priority).toBe(0.9)
+  })
+
+  // The course callout is keyed on blog slugs. A renamed or removed post would
+  // silently lose its link to the course, so every listed slug must exist.
+  it('only lists existing blog posts for the course callout', async () => {
+    const slugs = new Set(await discoverBlogSlugs())
+    for (const slug of COURSE_CALLOUT_SLUGS) expect(slugs.has(slug), slug).toBe(true)
   })
 
   // The postcard page is prerendered (so GitHub Pages serves it with a 200) but

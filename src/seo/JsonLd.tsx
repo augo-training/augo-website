@@ -7,15 +7,22 @@ import { BASE_URL } from './seoConstants'
 import { getPricingTier } from '../config/pricingConfig'
 import { buildMcpHowTo, type McpSchemaStep } from './mcpSchema'
 import { MCP_URL } from '../components/mcp/constants'
-import { COPY as COACH_COURSE_COPY, COACH_COURSE_PATH, COURSE_NAME } from '../components/coachCourse/constants'
+import {
+  ADVISOR_LINKS,
+  COPY as COACH_COURSE_COPY,
+  COACH_COURSE_PATH,
+  COURSE_KEYWORDS,
+  COURSE_NAME,
+  COURSE_UPDATED,
+} from '../components/coachCourse/constants'
 
 export function OrganizationJsonLd() {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'augo',
-    url: 'https://augotraining.com',
-    logo: 'https://augotraining.com/assets/images/augo_footer_1.svg',
+    url: 'https://www.augotraining.com',
+    logo: 'https://www.augotraining.com/assets/images/augo_footer_1.svg',
     sameAs: [
       'https://www.instagram.com/augo.training/',
       'https://www.linkedin.com/company/augotraining',
@@ -52,6 +59,21 @@ export function CoachCourseJsonLd() {
     audience: { '@type': 'EducationalAudience', educationalRole: 'Endurance coach' },
     provider,
     author: provider,
+    // The coaches who advise the augo team on the course, as named on the page.
+    contributor: COACH_COURSE_COPY.team.advisors.map((advisor) => ({
+      '@type': 'Person',
+      name: advisor.name,
+      jobTitle: advisor.title,
+      ...(ADVISOR_LINKS[advisor.photo] ? { sameAs: ADVISOR_LINKS[advisor.photo] } : {}),
+    })),
+    about: [
+      { '@type': 'Thing', name: 'Endurance coaching' },
+      { '@type': 'Thing', name: 'Artificial intelligence in coaching' },
+      { '@type': 'Thing', name: 'Scaling a coaching business' },
+    ],
+    keywords: COURSE_KEYWORDS.join(', '),
+    timeRequired: 'P5D',
+    dateModified: COURSE_UPDATED,
     teaches: COACH_COURSE_COPY.get.items,
     syllabusSections: COACH_COURSE_COPY.peek.days.map((day, index) => ({
       '@type': 'Syllabus',
@@ -149,7 +171,7 @@ export function FAQJsonLd({ i18nKey = 'faq.items' }: { i18nKey?: string } = {}) 
 
 // ── Human Edge structured data ──────────────────────────────────────────────
 
-const HUMAN_EDGE_URL = 'https://augotraining.com/en/humanedge/'
+const HUMAN_EDGE_URL = 'https://www.augotraining.com/en/humanedge/'
 
 export function HumanEdgeProgramJsonLd() {
   const schema = {
@@ -173,7 +195,7 @@ export function HumanEdgeProgramJsonLd() {
     provider: {
       '@type': 'Organization',
       name: 'augo',
-      url: 'https://augotraining.com',
+      url: 'https://www.augotraining.com',
     },
     instructor: {
       '@type': 'Person',
@@ -273,7 +295,7 @@ export function HumanEdgeBreadcrumbJsonLd() {
         '@type': 'ListItem',
         position: 1,
         name: 'augo',
-        item: 'https://augotraining.com/en/',
+        item: 'https://www.augotraining.com/en/',
       },
       {
         '@type': 'ListItem',

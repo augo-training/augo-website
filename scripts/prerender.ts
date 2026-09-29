@@ -72,6 +72,27 @@ async function prerenderRouteOnce(
       console.warn(`    ⚠ no canonical link, snapshotting anyway`)
     }
 
+    // index.html carries a fallback <title> for the moment before React mounts.
+    // Helmet adds the page's own title beside it instead of replacing it, so
+    // every snapshot used to ship two <title> tags. Drop the fallback once
+    // Helmet's is in place, and refuse to write a page that still has two.
+    const titleCount = await page.evaluate(() => {
+      // Scripts are typed without the DOM lib; this runs in the page.
+      const { head } = (
+        globalThis as unknown as {
+          document: {
+            head: {
+              querySelectorAll: (s: string) => { length: number }
+              querySelector: (s: string) => { remove: () => void } | null
+            }
+          }
+        }
+      ).document
+      if (head.querySelectorAll('title').length > 1) head.querySelector('title[data-template-title]')?.remove()
+      return head.querySelectorAll('title').length
+    })
+    if (titleCount !== 1) throw new Error(`expected exactly one <title>, found ${titleCount}`)
+
     return await page.content()
   } finally {
     await page.close().catch(() => {})

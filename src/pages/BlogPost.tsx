@@ -8,6 +8,8 @@ import { OrganizationJsonLd } from '../seo/JsonLd'
 import { buildArticleSchema } from '../seo/articleSchema'
 import { buildFaqSchema } from '../seo/articleSchema.shared'
 import NotFound from './NotFound'
+import CoachCourseCallout from '../components/coachCourse/CoachCourseCallout'
+import { COURSE_CALLOUT_SLUGS } from '../components/coachCourse/constants'
 import { sanitizeBlogHtml } from '../utils/blogHtmlSanitizer.ts'
 import {
   formatPostDate,
@@ -60,7 +62,7 @@ export default function BlogPost() {
           author: post.author.name,
           tags: post.tags,
         }}
-        canonicalOverride={`https://augotraining.com/en/blog/${post.slug}/`}
+        canonicalOverride={`https://www.augotraining.com/en/blog/${post.slug}/`}
         noAlternates
       />
       <OrganizationJsonLd />
@@ -98,6 +100,8 @@ export default function BlogPost() {
           className="blog-prose"
           dangerouslySetInnerHTML={{ __html: sanitizedBody }}
         />
+
+        {COURSE_CALLOUT_SLUGS.has(post.slug) && <CoachCourseCallout location="blog_post" />}
 
         {post.substackUrl && (
           <footer className="mt-16 pt-8 border-t border-dark-600 text-text-muted text-sm">

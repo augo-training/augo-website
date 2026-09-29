@@ -23,7 +23,7 @@
  */
 
 export const MERCI_PATH = '/merci'
-export const MERCI_CANONICAL = 'https://augotraining.com/merci/'
+export const MERCI_CANONICAL = 'https://www.augotraining.com/merci/'
 
 /**
  * The share card, lives at public/merci-og.jpg and is regenerated with
@@ -34,7 +34,7 @@ export const MERCI_CANONICAL = 'https://augotraining.com/merci/'
  * Absolute, and on the same host as MERCI_CANONICAL. Social crawlers do not
  * resolve relative URLs and several do not follow redirects for images.
  */
-export const MERCI_OG_IMAGE = 'https://augotraining.com/merci-og.jpg'
+export const MERCI_OG_IMAGE = 'https://www.augotraining.com/merci-og.jpg'
 export const MERCI_OG_IMAGE_ALT =
     'A postcard reading "Merci, coach.", from the 2026 IRONMAN 70.3 World Championship in Nice.'
 

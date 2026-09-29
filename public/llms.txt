@@ -4,7 +4,7 @@
 
 augo is built for endurance coaches (running, swimming, biking, triathlon) and their athletes. The platform sits alongside existing tools like TrainingPeaks and Garmin/Coros devices, adding centralized communication and intelligent, context-aware insights on top.
 
-**Website:** https://augotraining.com
+**Website:** https://www.augotraining.com
 
 ---
 
@@ -77,9 +77,26 @@ messages to athletes, assign and edit workouts, and write notes, race events and
 asks the coach to confirm before acting. Anything it reads is sent to Anthropic or OpenAI to answer the question.
 Removing the connector ends access immediately.
 
-Setup guide: https://augotraining.com/en/mcp/
+Setup guide: https://www.augotraining.com/en/mcp/
 
-Contact augo: https://augotraining.com/en/contact/
+Contact augo: https://www.augotraining.com/en/contact/
+
+## Free course for coaches: The Irreplaceable Endurance Coach
+
+A free 5-day email course for running, triathlon and endurance coaches, written by the augo team and advised by
+Marco Altini (running coach, founder of HRV4Training), Gordon Crawford (triathlon coach to European and World
+Champions, short course) and Reto Braendli (triathlon coach to multiple pro podiums at Ironman and T100).
+
+It covers the 5 most common mistakes that cap how many athletes a coach can coach well while scaling a coaching
+business, and how to fix each one, including with AI. It is for coaches who are not tech people too. One email a day:
+
+- Day 1: Treating every piece of athlete information as a separate task, so details get lost across WhatsApp, the training platform and memory
+- Day 2: Letting scale turn individualized coaching into templated coaching, the fastest way to lose the value that justifies a coach's price over an $18 app
+- Day 3: Mistaking contact for communication, and the 3 things that actually build athlete trust
+- Day 4: Hiring an assistant coach to re-check the same scattered mess; how to know when you are ready to hire
+- Day 5: Training athletes without showing them their progress, so they never wonder why they pay for a coach
+
+Sign up (first name and email): https://www.augotraining.com/en/irreplaceable-endurance-coach/
 
 ## Key concepts and terminology
 
