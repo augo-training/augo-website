@@ -93,8 +93,10 @@ export default function CoachProfile() {
                 groupId={MATCHING_GROUP_ID}
                 fields={{ coach_name: coach.name, coach_slug: coach.slug }}
                 title={`Work with ${coach.firstName}`}
-                subtitle={`Drop your email and we'll introduce you to ${coach.firstName} over email — you'll both be connected so you can take it from there.`}
-                submitLabel={`Send to ${coach.firstName}`}
+                subtitle={`We'll email you a link to confirm your address. Once you confirm, we send ${coach.firstName} your name, email and note, and ${coach.firstName} replies to you directly.`}
+                submitLabel="Email me the link"
+                visitorType="athlete"
+                notePlaceholder={`Optional: a note for ${coach.firstName}. Your sport, your goals, what you're looking for in a coach.`}
                 onSuccess={() => setToastOpen(true)}
             />
             {toastOpen && (

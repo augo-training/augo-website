@@ -25,7 +25,7 @@ export default function CoachFinalCta({ coach, onContact }: Props) {
                     {coach.firstName}.
                 </h2>
                 <p className="font-satoshi font-medium text-[20px] sm:text-[24px] leading-[140%] tracking-[-0.01em] text-white/80 max-w-[680px]">
-                    Tell {coach.firstName} a bit about you. We'll introduce you over email.
+                    Leave your name and email. Once you confirm it, {coach.firstName} gets your details and replies to you directly.
                 </p>
                 <button
                     type="button"

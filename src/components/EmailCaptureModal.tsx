@@ -3,6 +3,9 @@ import { useTranslation } from 'react-i18next'
 import { trackEmailCaptureSubmitted, identifyEmailCapture, normalizePage } from '../utils/analytics'
 import { subscribeToMailerLite } from '../utils/mailerlite'
 
+/** Matches the cut Make applies before storing the note. */
+const NOTE_MAX_LENGTH = 1000
+
 interface EmailCaptureModalProps {
     isOpen: boolean
     onClose: () => void
@@ -12,6 +15,10 @@ interface EmailCaptureModalProps {
     /** Extra MailerLite custom fields to store with the subscriber (keyed by field key). */
     fields?: Record<string, string | number | null>
     onSuccess?: () => void
+    /** Shows an optional free-text note box with this placeholder (sent as `note`, never to MailerLite fields). */
+    notePlaceholder?: string
+    /** Fixes the visitor type and hides the coach/athlete/other picker. */
+    visitorType?: 'coach' | 'athlete' | 'other'
     title?: string
     subtitle?: string
     submitLabel?: string
@@ -25,6 +32,8 @@ export default function EmailCaptureModal({
     groupId,
     fields,
     onSuccess,
+    visitorType: fixedVisitorType,
+    notePlaceholder,
     title,
     subtitle,
     submitLabel,
@@ -34,9 +43,10 @@ export default function EmailCaptureModal({
     // Call sites that genuinely explain what happens next pass their own.
     const resolvedSubtitle = subtitle ?? ''
     // Defaults to coach: nearly everyone reaching these CTAs is one, and it is still switchable.
-    const [visitorType, setVisitorType] = useState<'coach' | 'athlete' | 'other'>('coach')
+    const [visitorType, setVisitorType] = useState<'coach' | 'athlete' | 'other'>(fixedVisitorType ?? 'coach')
     const [firstName, setFirstName] = useState('')
     const [email, setEmail] = useState('')
+    const [note, setNote] = useState('')
     const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
     const [errorKey, setErrorKey] = useState<'nameError' | 'error'>('error')
     const inputRef = useRef<HTMLInputElement>(null)
@@ -88,6 +98,7 @@ export default function EmailCaptureModal({
         await subscribeToMailerLite({
             email,
             name,
+            note: note.trim() || undefined,
             groupId,
             fields: { ...fields, visitor_type: visitorType },
             ctaText,
@@ -135,7 +146,7 @@ export default function EmailCaptureModal({
                 </div>
 
                 <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-                    <div className="flex flex-col gap-2">
+                    {!fixedVisitorType && <div className="flex flex-col gap-2">
                         <span className="font-satoshi text-[13px] text-[#969EA7]">
                             {t('emailCapture.typeLabel')}
                         </span>
@@ -161,7 +172,7 @@ export default function EmailCaptureModal({
                                 )
                             })}
                         </div>
-                    </div>
+                    </div>}
                     <input
                         ref={inputRef}
                         type="text"
@@ -183,6 +194,18 @@ export default function EmailCaptureModal({
                         disabled={status === 'loading'}
                         autoComplete="email"
                     />
+                    {notePlaceholder && (
+                        <textarea
+                            value={note}
+                            onChange={(e) => setNote(e.target.value)}
+                            placeholder={notePlaceholder}
+                            maxLength={NOTE_MAX_LENGTH}
+                            rows={4}
+                            className="w-full rounded-lg px-4 py-3 font-satoshi text-[15px] leading-[150%] text-white placeholder-[#555] outline-none focus:ring-1 focus:ring-[#FF5514] resize-none"
+                            style={{ backgroundColor: '#151515', border: '1px solid #333' }}
+                            disabled={status === 'loading'}
+                        />
+                    )}
                     {status === 'error' && (
                         <p className="font-satoshi text-[13px] text-red-400">
                             {t(`emailCapture.${errorKey}`)}
