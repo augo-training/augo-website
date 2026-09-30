@@ -32,6 +32,42 @@ export function buildFaqSchema(faqs: FaqItem[]) {
   }
 }
 
+export interface VideoSchemaInput {
+  /** YouTube video id. */
+  id: string
+  name: string
+  description: string
+  /** Site-relative or absolute poster URL. */
+  thumbnail: string
+  uploadDate: string
+  durationSeconds?: number
+}
+
+function toIsoDuration(totalSeconds: number): string {
+  const h = Math.floor(totalSeconds / 3600)
+  const m = Math.floor((totalSeconds % 3600) / 60)
+  const s = totalSeconds % 60
+  return `PT${h ? `${h}H` : ''}${m ? `${m}M` : ''}${s || (!h && !m) ? `${s}S` : ''}`
+}
+
+export function buildVideoSchema(input: VideoSchemaInput) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    name: input.name,
+    description: input.description,
+    thumbnailUrl: input.thumbnail.startsWith('http')
+      ? input.thumbnail
+      : `${BASE_URL}${input.thumbnail}`,
+    uploadDate: input.uploadDate,
+    contentUrl: `https://www.youtube.com/watch?v=${input.id}`,
+    embedUrl: `https://www.youtube-nocookie.com/embed/${input.id}`,
+    ...(input.durationSeconds != null
+      ? { duration: toIsoDuration(input.durationSeconds) }
+      : {}),
+  }
+}
+
 export function buildArticleSchema(input: ArticleSchemaInput) {
   const url = `${BASE_URL}/en/blog/${input.slug}`
   const image = input.coverImage

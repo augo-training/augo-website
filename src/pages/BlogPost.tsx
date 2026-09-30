@@ -6,8 +6,10 @@ import Footer from '../components/Footer'
 import SEOHead from '../seo/SEOHead'
 import { OrganizationJsonLd } from '../seo/JsonLd'
 import { buildArticleSchema } from '../seo/articleSchema'
-import { buildFaqSchema } from '../seo/articleSchema.shared'
+import { buildFaqSchema, buildVideoSchema } from '../seo/articleSchema.shared'
 import NotFound from './NotFound'
+import VideoFacade from '../components/VideoFacade'
+import { trackBlogVideoPlayed } from '../utils/analytics'
 import CoachCourseCallout from '../components/coachCourse/CoachCourseCallout'
 import { COURSE_CALLOUT_SLUGS } from '../components/coachCourse/constants'
 import { sanitizeBlogHtml } from '../utils/blogHtmlSanitizer.ts'
@@ -36,6 +38,7 @@ export default function BlogPost() {
   }
 
   const { newer, older } = getAdjacentPosts(post.slug)
+  const video = post.video
 
   const articleSchema = buildArticleSchema({
     slug: post.slug,
@@ -73,6 +76,20 @@ export default function BlogPost() {
             {JSON.stringify(buildFaqSchema(post.faqs))}
           </script>
         )}
+        {video && post.coverImage && (
+          <script type="application/ld+json">
+            {JSON.stringify(
+              buildVideoSchema({
+                id: video.id,
+                name: video.title,
+                description: video.description ?? post.description,
+                thumbnail: post.coverImage,
+                uploadDate: video.uploadDate ?? post.datePublished,
+                durationSeconds: video.durationSeconds,
+              })
+            )}
+          </script>
+        )}
       </Helmet>
       <Navbar />
       <article className="blog-post mx-auto max-w-[760px] px-6 pt-32 pb-24 text-white">
@@ -87,7 +104,20 @@ export default function BlogPost() {
           </div>
         </header>
 
-        {post.coverImage && (
+        {video && post.coverImage ? (
+          <VideoFacade
+            provider={video.provider}
+            id={video.id}
+            poster={post.coverImage}
+            alt={video.title}
+            durationSeconds={video.durationSeconds}
+            eagerPoster
+            className="mb-12"
+            onPlay={() =>
+              trackBlogVideoPlayed({ slug: post.slug, provider: video.provider, id: video.id })
+            }
+          />
+        ) : post.coverImage && (
           <img
             src={post.coverImage}
             alt={post.coverImageAlt ?? ''}

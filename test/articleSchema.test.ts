@@ -1,5 +1,36 @@
 import { describe, expect, it } from 'vitest'
-import { buildArticleSchema } from '../src/seo/articleSchema.shared'
+import { buildArticleSchema, buildVideoSchema } from '../src/seo/articleSchema.shared'
+
+describe('buildVideoSchema', () => {
+  it('emits an absolute thumbnail, YouTube URLs and an ISO 8601 duration', () => {
+    const schema = buildVideoSchema({
+      id: 'abc123XYZ_-',
+      name: 'Example video',
+      description: 'Example description',
+      thumbnail: '/blog/example-post/cover.jpg',
+      uploadDate: '2026-09-30T10:00:00.000Z',
+      durationSeconds: 754,
+    })
+
+    expect(schema['@type']).toBe('VideoObject')
+    expect(schema.thumbnailUrl).toBe('https://www.augotraining.com/blog/example-post/cover.jpg')
+    expect(schema.contentUrl).toBe('https://www.youtube.com/watch?v=abc123XYZ_-')
+    expect(schema.embedUrl).toBe('https://www.youtube-nocookie.com/embed/abc123XYZ_-')
+    expect(schema.duration).toBe('PT12M34S')
+  })
+
+  it('omits duration when it is not known', () => {
+    const schema = buildVideoSchema({
+      id: 'abc123XYZ_-',
+      name: 'Example video',
+      description: 'Example description',
+      thumbnail: '/blog/example-post/cover.jpg',
+      uploadDate: '2026-09-30T10:00:00.000Z',
+    })
+
+    expect(schema).not.toHaveProperty('duration')
+  })
+})
 
 describe('buildArticleSchema', () => {
   it('emits deployed absolute URLs for logo and images', () => {

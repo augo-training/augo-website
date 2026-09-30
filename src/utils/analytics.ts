@@ -373,6 +373,14 @@ export async function trackSupportVideoPlayed(props: {
     return track('support_video_played', props)
 }
 
+export async function trackBlogVideoPlayed(props: {
+    slug: string
+    provider: string
+    id: string
+}): Promise<void> {
+    return track('blog_video_played', props)
+}
+
 export async function trackSupportSearch(props: {
     query: string
     result_count: number

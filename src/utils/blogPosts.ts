@@ -16,6 +16,22 @@ export interface BlogPostData {
   dateModified?: string
   coverImage?: string
   coverImageAlt?: string
+  /**
+   * Optional video shown at the top of the post in place of the cover image,
+   * which becomes its poster (so `coverImage` is required alongside it). It is
+   * data rather than body HTML because the sanitizer strips iframes.
+   */
+  video?: {
+    provider: 'youtube'
+    /** YouTube video id — never a full URL. */
+    id: string
+    title: string
+    /** Falls back to the post description in the VideoObject schema. */
+    description?: string
+    /** Falls back to `datePublished`. */
+    uploadDate?: string
+    durationSeconds?: number
+  }
   bodyHtml: string
   substackUrl?: string
   tags?: string[]
