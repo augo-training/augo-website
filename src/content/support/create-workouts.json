@@ -42,6 +42,10 @@
     },
     {
       "type": "html",
+      "html": "<h2 id=\"strength-workouts\">Strength workouts</h2><p>Strength sessions work the same way: describe the exercises, sets and rest, and your athlete follows them in the app. See <a href=\"/en/support/strength-workouts/\">can I build strength workouts in augo?</a> for an example prompt.</p>"
+    },
+    {
+      "type": "html",
       "html": "<h2 id=\"where-workouts-land\">Where workouts land</h2><p>Whatever device your athlete uses, every workout you build shows up in their augo calendar on mobile.</p><p>If the athlete has connected a Garmin, Coros, Wahoo or Suunto account, the workout is also delivered to the device, so they can follow it step by step. The full breakdown is in <a href=\"/en/support/workouts-on-your-device/\">which workouts are delivered to my device?</a></p>"
     }
   ],
@@ -65,6 +69,7 @@
   ],
   "related": [
     "workouts-on-your-device",
+    "strength-workouts",
     "what-can-i-ask-the-assistant",
     "what-can-i-do-with-the-connector"
   ],
@@ -86,5 +91,5 @@
     "web"
   ],
   "datePublished": "2026-09-15",
-  "dateUpdated": "2026-09-21"
+  "dateUpdated": "2026-09-30"
 }

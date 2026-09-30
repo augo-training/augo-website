@@ -1,0 +1,113 @@
+{
+  "slug": "strength-workouts",
+  "title": "Can I build strength workouts in augo?",
+  "seoTitle": "Strength Workouts in augo: How to Build Them | augo support",
+  "description": "Yes. Describe the strength session you want and augo builds it: exercises, sets, rest, your notes and a demo video. Includes an example prompt to copy.",
+  "summary": "Yes. Describe the session to the augo assistant, or to Claude or ChatGPT through the augo connector: which athlete, which day, and what it should include. augo builds the workout and puts it on the athlete's calendar, where they follow each exercise with its sets, rest, your notes and a demo video. Athletes can't log the weights they lift yet; that is what we're adding next.",
+  "audience": "coach",
+  "category": "training",
+  "keywords": [
+    "strength",
+    "gym",
+    "weights",
+    "lifting",
+    "exercise",
+    "sets",
+    "reps",
+    "rest",
+    "rounds",
+    "mobility",
+    "conditioning",
+    "demo video",
+    "bodyweight",
+    "template"
+  ],
+  "questionForms": [
+    "can i build strength workouts in augo",
+    "how do i create a strength workout",
+    "does augo support strength training",
+    "can i add gym sessions for my athletes",
+    "how do i add an exercise video to a workout",
+    "can athletes log the weights they lift",
+    "how do i add sets and reps to a workout",
+    "can i plan strength and conditioning in augo",
+    "how do i add a mobility routine",
+    "can claude find exercise demo videos",
+    "what does a strength workout look like for my athlete",
+    "can i save a strength workout as a template"
+  ],
+  "weight": 2,
+  "platforms": [
+    "ios",
+    "android",
+    "web"
+  ],
+  "datePublished": "2026-09-30",
+  "body": [
+    {
+      "type": "html",
+      "html": "<p>Yes, you can build strength workouts in augo. Your athletes follow them in the app just like a run or a ride: each exercise, the sets, the rest, your notes and a demo video.</p><p>You don't need to build the session step by step. Just describe the one you want.</p>"
+    },
+    {
+      "type": "steps",
+      "heading": "How to create a strength workout",
+      "steps": [
+        {
+          "title": "Open the augo assistant",
+          "html": "<p>Open the assistant in the augo app. If you have <a href=\"/en/support/connect-augo-with-claude-and-chatgpt/\">connected augo with Claude or ChatGPT</a>, you can ask there too.</p>"
+        },
+        {
+          "title": "Describe the session",
+          "html": "<p>Tell it which athlete, which day, and what the session should include.</p>"
+        },
+        {
+          "title": "Check the workout and tweak it",
+          "html": "<p>Read through the workout it creates and change anything you want to change. The workout then shows up in your athlete's calendar.</p>"
+        }
+      ]
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"example-prompt\">Example prompt to try</h2><p>Copy this, swap in your athlete's name and a date, and send it:</p><pre><code>Create a strength workout for [athlete] on [date] called \"Functional Strength BASE\", about 35 minutes.\n\nStart with a short mobility routine.\n\nThen 4 blocks, each done 3 times with 1 min rest between rounds:\n1. Single leg pogo hops, 10 per side\n2. Split squats, 10 per side\n3. Bodyweight lunges, 10\n4. Glute bridges, 10 (or barbell hip thrusts if they have a gym)\n\nAdd a short description and key cues for each exercise.</code></pre><p>Change the exercises, reps, rounds and rest to fit your athlete. The more specific you are, the closer the result will be to what you have in mind.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"adding-exercise-videos\">Adding exercise videos</h2><p>A short demo video helps your athlete get the form right. You can add one to any exercise in two ways:</p><ul><li><strong>Use your own.</strong> Paste the video link and ask the assistant to add it to that exercise.</li><li><strong>Let Claude find one.</strong> If you use augo with Claude, ask it to search the web and pick the best demo video for each exercise:</li></ul><blockquote><p>\"Find a good demo video for each exercise and add the links\"</p></blockquote><p>Always watch the videos before sending the workout, so you know your athlete sees the form you want.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"what-your-athlete-sees\">What your athlete sees</h2><p>In the app, your athlete gets the full session laid out in order:</p><ul><li>The workout name, type and estimated duration</li><li>Each exercise with its reps, for example \"Split Squat x10/side\"</li><li>Repeat blocks, so it's clear what to do 3 times and where the rest goes</li><li>Rest timers between rounds</li><li>Your notes, the exercise description and the video, one tap away</li></ul>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"tips\">Tips for better results</h2><ul><li><strong>Give reps per side</strong> for single leg moves, like \"10 per side\".</li><li><strong>Offer options</strong> when equipment varies, like \"glute bridges or barbell hip thrusts\".</li><li><strong>Say how long</strong> you want the session to take.</li><li><strong>Ask for cues</strong> so each exercise has a short how-to your athlete can read mid-set.</li><li><strong>Save it as a template</strong> if you plan to reuse the session with other athletes.</li></ul>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"coming-next-weight-tracking\">Coming next: weight tracking</h2><p>Right now, athletes can't log the weights they lift as they go. That's the next thing we're adding, so augo can fully support strength training. Until then, athletes can share how the session went in their workout feedback.</p>"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Can athletes log the weights they lift?",
+      "answer": "Not yet. Weight tracking is the next thing we're adding for strength training. Until then, athletes can share how the session went in their workout feedback."
+    },
+    {
+      "question": "Do I have to build the workout exercise by exercise?",
+      "answer": "No. Describe the session to the augo assistant, or to Claude or ChatGPT if you have connected augo: which athlete, which day, and what it should include. Then check the workout it creates and tweak anything you want to change."
+    },
+    {
+      "question": "Can I add my own exercise videos?",
+      "answer": "Yes. Paste the video link and ask the assistant to add it to that exercise. If you use augo with Claude, you can also ask it to search the web for a demo video for each exercise. Watch the videos before sending the workout."
+    },
+    {
+      "question": "Can I reuse a strength workout with other athletes?",
+      "answer": "Yes. Save it as a template and assign it to other athletes whenever you need it."
+    }
+  ],
+  "related": [
+    "create-workouts",
+    "what-can-i-ask-the-assistant",
+    "connect-augo-with-claude-and-chatgpt"
+  ]
+}

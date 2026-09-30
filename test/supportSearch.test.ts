@@ -85,6 +85,11 @@ const EVAL: { query: string; expect: string; why: string }[] = [
   // create-workouts
   { query: 'how do i build a workout', expect: 'create-workouts', why: 'build <-> create group; must beat delivery article' },
   { query: 'where is the workout builder', expect: 'create-workouts', why: 'builder is only here' },
+  // strength-workouts
+  { query: 'strength workout', expect: 'strength-workouts', why: 'strength is only here; must beat create-workouts' },
+  { query: 'can athletes log the weights they lift', expect: 'strength-workouts', why: 'declared question form; the answer is "not yet"' },
+  { query: 'add exercise video', expect: 'strength-workouts', why: 'exercise and video are only here' },
+  { query: 'gym session for my athlete', expect: 'strength-workouts', why: 'gym keyword; session is a workout synonym' },
   // what-can-i-do-with-the-connector
   { query: 'what can claude do with augo', expect: 'what-can-i-do-with-the-connector', why: 'claude appears in several articles; connector owns the question form' },
   { query: 'does augo work with chatgpt', expect: 'what-can-i-do-with-the-connector', why: 'must beat connect-devices despite "work with"' },
