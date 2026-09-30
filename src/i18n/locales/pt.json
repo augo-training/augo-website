@@ -48,6 +48,12 @@
         "tagline": "Do jeito que você preferir trabalhar, a sessão cai no calendário do atleta."
       },
       {
+        "headline": "Treino de força.\nNo mesmo calendário.",
+        "body": "Descreva a sessão e a augo monta: exercícios, séries, repetições e descanso, com as suas dicas e um vídeo de demonstração para cada movimento. Seu atleta acompanha no app, como uma corrida ou um pedal.",
+        "tagline": "Sem app separado nem PDF para os dias de academia.",
+        "linkLabel": "Veja um exemplo de prompt"
+      },
+      {
         "headline": "Conecte a augo ao\nClaude e ao ChatGPT.",
         "body": "Adicione a augo como conector e pergunte ao Claude ou ao ChatGPT sobre qualquer atleta: as sessões, como estão se sentindo, o que vocês conversaram. Dá para criar treinos, escrever mensagens e montar relatórios também.",
         "tagline": "Ele entra como você e enxerga só os seus atletas.",
@@ -81,6 +87,10 @@
       {
         "headline": "Seu coach planeja.\nSeu relógio recebe.",
         "body": "Seu coach monta a sessão e ela aparece no seu app, passo a passo: aquecimento, intervalos, desaquecimento. Também sincroniza com o seu relógio, então é só seguir."
+      },
+      {
+        "headline": "Treino de força,\ndireto no seu celular.",
+        "body": "Corridas, pedais e natação não são as únicas sessões que seu coach pode enviar. Os treinos de força também aparecem no seu app: cada exercício em ordem, com repetições, timer de descanso, as dicas do seu coach e um vídeo de demonstração a um toque."
       },
       {
         "headline": "Compartilhe como você\nestá se sentindo, não\napenas como está\nperformando",

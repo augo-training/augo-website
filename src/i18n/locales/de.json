@@ -48,6 +48,12 @@
         "tagline": "Wie auch immer du arbeitest — die Einheit landet im Kalender deines Athleten."
       },
       {
+        "headline": "Krafttraining.\nIm selben Kalender.",
+        "body": "Beschreibe die Einheit und augo baut sie: Übungen, Sätze, Wiederholungen und Pausen, mit deinen Hinweisen und einem Demo-Video pro Übung. Dein Athlet folgt ihr in der App, genau wie einem Lauf oder einer Radeinheit.",
+        "tagline": "Keine separate App und kein PDF für die Tage im Gym.",
+        "linkLabel": "Beispiel-Prompt ansehen"
+      },
+      {
         "headline": "Verbinde augo mit\nClaude und ChatGPT.",
         "body": "Richte augo als Connector ein und frag Claude oder ChatGPT alles zu deinen Athleten: ihre Einheiten, wie sie sich fühlen, worüber ihr gesprochen habt. Einheiten erstellen, Nachrichten entwerfen und Berichte zusammenstellen geht ebenso.",
         "tagline": "Der Connector meldet sich als du an und sieht nur deine Athleten.",
@@ -81,6 +87,10 @@
       {
         "headline": "Dein Coach plant sie.\nDeine Uhr hat sie.",
         "body": "Dein Coach baut die Einheit, und sie erscheint Schritt für Schritt in deiner App: Aufwärmen, Intervalle, Auslaufen. Sie wird auch mit deiner Uhr synchronisiert — du folgst einfach mit."
+      },
+      {
+        "headline": "Krafttraining,\ndirekt auf deinem Handy.",
+        "body": "Dein Coach schickt dir nicht nur Läufe, Radeinheiten und Schwimmtraining. Auch Krafteinheiten erscheinen in deiner App: jede Übung der Reihe nach, mit Wiederholungen, Pausen-Timer, den Hinweisen deines Coachs und einem Demo-Video, nur einen Tipp entfernt."
       },
       {
         "headline": "Teile, wie du dich\nfühlst, nicht nur\nwie du performst",

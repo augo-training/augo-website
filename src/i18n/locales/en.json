@@ -48,6 +48,12 @@
         "tagline": "However you like to work, the session lands on your athlete's calendar."
       },
       {
+        "headline": "Strength training.\nSame calendar.",
+        "body": "Describe the session and augo builds it: exercises, sets, reps and rest, with your cues and a demo video for each move. Your athlete follows it in the app, just like a run or a ride.",
+        "tagline": "No separate app or PDF for gym days.",
+        "linkLabel": "See an example prompt"
+      },
+      {
         "headline": "Connect augo to\nClaude and ChatGPT.",
         "body": "Add augo as a connector and ask Claude or ChatGPT about any athlete: their sessions, how they're feeling, what you've discussed. It can create workouts, draft messages and pull together reports too.",
         "tagline": "It signs in as you and sees only your athletes.",
@@ -81,6 +87,10 @@
       {
         "headline": "Your coach plans it.\nYour watch has it.",
         "body": "Your coach builds the session and it shows up in your app, step by step: warm-up, intervals, cool-down. It syncs to your watch too, so you just follow along."
+      },
+      {
+        "headline": "Strength days,\nright on your phone.",
+        "body": "Runs, rides and swims aren't the only sessions your coach can send. Strength workouts show up in your app too: every exercise in order, with reps, rest timers, your coach's cues and a demo video one tap away."
       },
       {
         "headline": "Share how you're\nfeeling, not just\nhow you're\nperforming",
