@@ -1,0 +1,57 @@
+{
+  "slug": "ai-training-plan-workflow-for-coaches",
+  "title": "How I Keep My Athletes’ Training Plans Current with AI",
+  "seoTitle": "How Coaches Keep Training Plans Current with AI | augo",
+  "description": "See how I use augo and Claude to check 4 weeks of training against the plan, update paces, and draft a half marathon build in minutes.",
+  "author": {
+    "name": "Bruna, augo Co-founder & CEO"
+  },
+  "datePublished": "2026-09-30T10:00:00.000Z",
+  "dateModified": "2026-09-30T10:00:00.000Z",
+  "coverImage": "/blog/ai-training-plan-workflow-for-coaches/cover.jpg",
+  "coverImageAlt": "Video thumbnail: “Claude + augo: How I plan training blocks”, labelled Real Coach Workflow, next to a runner drinking from a bottle",
+  "video": {
+    "provider": "youtube",
+    "id": "n1jG2GncMzY",
+    "title": "How I Keep My Athletes’ Training Plans Current with AI"
+  },
+  "bodyHtml": "<p>I keep each athlete’s season plan as a note in augo. Every four weeks, I ask Claude to compare what the athlete actually did against that note. Then I update the note and have Claude draft the next block of workouts, which I review before they go live.</p><p>That’s the whole workflow. It keeps my plan true to how the athlete is really training, not how I hoped they would train eight weeks ago.</p><p>In the video above, I walk through it with a real athlete getting ready for the Amsterdam Half Marathon.</p><nav aria-label=\"On this page\"><p><strong>On this page</strong></p><ul><li><a href=\"#why-season-plan\">Why I still use a season plan</a></li><li><a href=\"#how-to\">How to keep a training plan current with Claude and augo</a></li><li><a href=\"#what-this-changes\">What this changes for me as a coach</a></li><li><a href=\"#faq\">FAQ</a></li><li><a href=\"#try-it\">Try it with your own athletes</a></li></ul></nav><h2 id=\"why-season-plan\">Why I still use a season plan</h2><p>A high-level season plan helps me think in weeks, not days. Where do I want this athlete to be on race day, and what do we need to cover to get there?</p><p>The problem is that most season plans go stale fast. They work for the first two or three weeks. Then life happens: travel, a cold, a moved session, a workout that went better than expected. By week eight the plan no longer matches the athlete in front of you.</p><p>Keeping the plan as a live note in augo fixes that. It stays the big picture, but it changes as the athlete does.</p><h2 id=\"how-to\">How to keep a training plan current with Claude and augo</h2><h3>Step 1: Connect augo to Claude</h3><p>In Claude, go to <strong>Settings → Connectors → Add custom connector</strong>. Name it augo and paste the MCP URL from our <a href=\"/en/mcp/#claude\">MCP setup guide</a>. Click continue and log in with your augo coach account. It takes about a minute.</p><h3>Step 2: Add your season plan as a note</h3><p>I upload my season plan sheet to Claude and ask it to save the plan as a note on my athlete’s profile.</p><blockquote><p>Add this program as a note to my athlete’s profile on augo.</p></blockquote><p>It took about a minute. The note now holds her goals, setup, paces, particularities and weekly plan, all in one place I can open from her profile.</p><h3>Step 3: Review the last four weeks against the plan</h3><p>I plan in four-week blocks, so every four weeks I start a new chat and ask:</p><blockquote><p>Can you review my athlete’s last four weeks of training and compare it against the training plan in her note?</p></blockquote><p>In a minute or two, Claude gave me a clear picture:</p><ul><li>She hit almost every key session.</li><li>Her race pace was faster than we planned.</li><li>Her easy days were not easy. Her heart rate was running high.</li><li>The last few days were travel and hiking, not running.</li></ul><p>Because augo holds our messages too, Claude knew why she skipped or moved certain workouts. I didn’t have to explain it.</p><h3>Step 4: Update the note</h3><p>Claude also flagged what in the note was out of date. Her half marathon pace was still set at 5:30 to 5:40 per km. I asked it to update the note to her new goal of 5:20 to 5:30 per km.</p><p>Now the note reflects both the original plan and what actually happened.</p><h3>Step 5: Draft the next block, then review it</h3><p>Next I asked what was in the plan for the days leading up to the race. She was coming back from travel, so I kept that first week light and only changed the sessions from October 5 onward.</p><p>Once I was happy with the plan, I asked:</p><blockquote><p>Can you create all workouts from October 6 until the race on her calendar, as drafts so I can review them before publishing? Add useful descriptions to guide her execution. Make sure she stays on race pace for the dress rehearsal sessions, even if they feel easy.</p></blockquote><p>I made one change: on the Tuesday before the race, 4 × 90 seconds at 10 seconds per km faster than race pace.</p><p>Claude created every session as a draft. Then I opened each one, checked the paces and heart rate limits, and published. AI can make mistakes, so I always review before anything reaches my athlete.</p><h2 id=\"what-this-changes\">What this changes for me as a coach</h2><p>I plan much faster, because I can create a whole block of workouts at once. I also refine better, because I’m working from what the athlete actually did, not from memory.</p><p>And the plan stays flexible. augo reads my conversations with each athlete, so Claude flags things I might miss: a trip, a niggle, a session that got moved. I still make every call. I just make them with the full picture.</p><h2 id=\"faq\">FAQ</h2><h3>Can AI build a training plan for my athletes?</h3><p>It can draft one, but I don’t let it decide. I use Claude to compare training against my plan and to draft workouts. I review every session and make the final call before anything is published.</p><h3>How do I connect augo to Claude?</h3><p>In Claude, go to Settings → Connectors → Add custom connector. Name it augo, paste the MCP URL from <a href=\"/en/mcp/#claude\">our setup guide</a>, and log in with your coach account.</p><h3>Do I need to be technical to use the augo MCP connector?</h3><p>No. Setup takes about a minute, and after that you just ask Claude questions in plain language.</p><h3>Does Claude publish workouts to my athletes automatically?</h3><p>No. I ask Claude to create workouts as drafts. My athlete only sees them after I review and publish each one in augo.</p><h3>What can Claude see about my athletes?</h3><p>Through augo, Claude can read your athletes’ workouts, your messages with them, their session feedback and your private notes. That’s why it can explain a skipped session without you telling it.</p><h3>How often should I review an athlete’s plan?</h3><p>I review every four weeks, at the end of each block. You can do it weekly if your athletes’ lives change a lot.</p><h3>Can I use ChatGPT instead of Claude?</h3><p>Yes. augo also connects to ChatGPT. <a href=\"/en/mcp/#chatgpt\">The setup steps are a little different.</a></p><h2 id=\"try-it\">Try it with your own athletes</h2><p>If your season plans end up forgotten in a spreadsheet by week eight, try this with one athlete this month. Connect augo to Claude, add your plan as a note, and ask it how the last four weeks went.</p><p><a href=\"/en/pricing\">Try augo →</a> · <a href=\"/en/mcp/\">Read the MCP setup guide →</a></p>",
+  "tags": [
+    "AI training plan for coaches",
+    "Claude for running coaches",
+    "MCP connector for coaches",
+    "half marathon training block",
+    "update a training plan",
+    "endurance coaching software"
+  ],
+  "faqs": [
+    {
+      "question": "Can AI build a training plan for my athletes?",
+      "answer": "It can draft one, but I don’t let it decide. I use Claude to compare training against my plan and to draft workouts. I review every session and make the final call before anything is published."
+    },
+    {
+      "question": "How do I connect augo to Claude?",
+      "answer": "In Claude, go to Settings → Connectors → Add custom connector. Name it augo, paste the MCP URL from our setup guide, and log in with your coach account."
+    },
+    {
+      "question": "Do I need to be technical to use the augo MCP connector?",
+      "answer": "No. Setup takes about a minute, and after that you just ask Claude questions in plain language."
+    },
+    {
+      "question": "Does Claude publish workouts to my athletes automatically?",
+      "answer": "No. I ask Claude to create workouts as drafts. My athlete only sees them after I review and publish each one in augo."
+    },
+    {
+      "question": "What can Claude see about my athletes?",
+      "answer": "Through augo, Claude can read your athletes’ workouts, your messages with them, their session feedback and your private notes. That’s why it can explain a skipped session without you telling it."
+    },
+    {
+      "question": "How often should I review an athlete’s plan?",
+      "answer": "I review every four weeks, at the end of each block. You can do it weekly if your athletes’ lives change a lot."
+    },
+    {
+      "question": "Can I use ChatGPT instead of Claude?",
+      "answer": "Yes. augo also connects to ChatGPT. The setup steps are a little different."
+    }
+  ]
+}
