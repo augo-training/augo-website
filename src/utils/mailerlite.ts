@@ -4,6 +4,12 @@ interface SubscribeArgs {
     email: string
     /** Subscriber first name, stored in MailerLite's `name` field. */
     name?: string
+    /**
+     * Free text for the recipient, e.g. an athlete's note to a coach. Top level,
+     * not in `fields`, so it never reaches MailerLite: only the coach-intro route
+     * in Make reads it.
+     */
+    note?: string
     groupId?: string
     fields?: Record<string, string | number | null>
     /** Used only for analytics if the call fails. */
@@ -21,7 +27,7 @@ interface SubscribeArgs {
  * list anyone — so it is safe to expose in client code.
  *
  * Payload contract (see the "Website signup → MailerLite" Make scenario):
- *   { email: string, name?: string, groupId?: string, fields?: Record<string, ...> }
+ *   { email: string, name?: string, note?: string, groupId?: string, fields?: Record<string, ...> }
  *
  * Returns true if the webhook accepted the request (2xx), false otherwise. The
  * caller usually doesn't need the result — analytics + console capture failures.
@@ -29,6 +35,7 @@ interface SubscribeArgs {
 export async function subscribeToMailerLite({
     email,
     name,
+    note,
     groupId,
     fields,
     ctaText = 'unknown',
@@ -39,6 +46,7 @@ export async function subscribeToMailerLite({
 
     const body: Record<string, unknown> = { email }
     if (name) body.name = name
+    if (note) body.note = note
     if (effectiveGroupId) body.groupId = effectiveGroupId
     if (fields && Object.keys(fields).length > 0) body.fields = fields
 

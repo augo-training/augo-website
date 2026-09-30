@@ -16,6 +16,7 @@ import ScrollToTop from './components/ScrollToTop'
 import Download from "./pages/Download.tsx";
 import HumanEdge from './pages/HumanEdge'
 import CoachProfile from './pages/CoachProfile'
+import ConfirmIntro from './pages/ConfirmIntro'
 import BlogPost from './pages/BlogPost'
 import BlogIndex from './pages/BlogIndex'
 import SupportHub from './pages/SupportHub'
@@ -93,6 +94,8 @@ function App() {
           <Route path="irreplaceable-endurance-coach" element={<CoachCourse />} />
           <Route path="coaches" element={<CoachesIndexToFind />} />
           <Route path="coaches/:slug" element={<CoachProfile />} />
+          {/* The link in the "confirm your email" message for coach intros. Unlinked, noindex. */}
+          <Route path="confirm-intro" element={<ConfirmIntro />} />
           <Route path="blog" element={<BlogIndex />} />
           <Route path="blog/:slug" element={<BlogPost />} />
           <Route path="support" element={<SupportHub />} />

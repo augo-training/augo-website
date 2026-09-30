@@ -43,8 +43,8 @@ export default function InquirySentToast({ coachName, onDismiss }: Props) {
                     <Check className="w-4 h-4 text-white" strokeWidth={3} />
                 </span>
                 <p className="font-satoshi text-[14px] sm:text-[15px] leading-[140%] text-white flex-1">
-                    Sent to <span className="font-bold">{coachName}</span>.
-                    <span className="text-white/55"> Introduction coming by email — check your inbox.</span>
+                    Check your inbox.
+                    <span className="text-white/55"> Confirm your email and we'll send your details to <span className="font-bold text-white">{coachName}</span>.</span>
                 </p>
                 <button
                     type="button"

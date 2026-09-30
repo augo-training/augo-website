@@ -337,6 +337,16 @@ export async function trackBillingToggle(props: { billing_period: 'monthly' | 'y
     return track('billing_toggle_switched', props)
 }
 
+// ── Coach intro confirmation (/confirm-intro) ──
+
+export async function trackCoachIntroConfirmViewed(): Promise<void> {
+    return track('coach_intro_confirm_viewed', { page: 'confirm-intro' })
+}
+
+export async function trackCoachIntroConfirmed(props: { result: 'ok' | 'already' | 'expired' | 'invalid' | 'error' }): Promise<void> {
+    return track('coach_intro_confirmed', { ...props, page: 'confirm-intro' })
+}
+
 // ── 404 and redirect tracking ──
 
 export async function trackPageNotFound(props: { path: string; referrer: string }): Promise<void> {
