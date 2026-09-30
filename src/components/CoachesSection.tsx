@@ -12,9 +12,10 @@ import coachesImg1_6 from '../assets/images/img_section_coaches_1_6.png'
 import coachesImg1_7 from '../assets/images/img_section_coaches_1_7.png'
 import carouselImgBg from '../assets/images/carousel_img_bg.webp'
 import coachesWorkouts from '../assets/images/img_section_coaches_workouts.png?w=606&format=webp'
+import coachesStrength from '../assets/images/img_strength_workout.png?w=438&format=webp'
 // PLACEHOLDER at 440px native — swap for the larger export before merging.
 import coachesConnector from '../assets/images/img_section_coaches_connector.png?w=440&format=webp'
-import coachesImg2 from '../assets/images/img_section_coaches_2.png?w=786&format=webp'
+import coachesSignals from '../assets/images/img_section_coaches_signals.png?w=532&format=webp'
 import coachesImg3 from '../assets/images/img_section_coaches_3.png?w=652&format=webp'
 import coachesImg4 from '../assets/images/img_section_coaches_4.png?w=786&format=webp'
 
@@ -26,7 +27,7 @@ interface PanelImage {
 }
 
 /** Optional per-panel link path, index-aligned with panelImages. */
-const panelLinks: (string | null)[] = [null, null, '/mcp', null, null, null]
+const panelLinks: (string | null)[] = [null, null, '/support/strength-workouts', '/mcp', null, null, null]
 
 const panelImages: PanelImage[][] = [
     [
@@ -49,15 +50,22 @@ const panelImages: PanelImage[][] = [
     ],
     [
         { src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' },
+        // The phone is cut off at the bottom of the source image, so it is sized
+        // taller than the well and the container crops the cut edge away.
+        { src: coachesStrength, className: 'absolute inset-x-0 top-0 mx-auto w-[75%] md:top-[5%] md:w-auto md:h-[110%] z-10' },
+    ],
+    [
+        { src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' },
         // A UI fragment rather than a device shot, and opaque rather than cut out,
         // so it reads as a card floating on the backdrop.
         { src: coachesConnector, className: 'absolute inset-0 m-auto w-[80%] md:w-[70%] h-auto rounded-xl z-10' },
     ],
     [
         { src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' },
-        // below md the phone is top-anchored and sized by width, so the container
-        // crops off its lower third — keeps the screenshot legible on small viewports
-        { src: coachesImg2, className: 'absolute inset-x-0 top-0 mx-auto w-[75%] md:inset-y-0 md:my-auto md:w-auto md:h-[90%] z-10' },
+        // Top-anchored at every width: the phone is cut off at the bottom of the
+        // source image, so the container has to crop that edge. Below md it is sized
+        // by width, which keeps the screenshot legible on small viewports.
+        { src: coachesSignals, className: 'absolute inset-x-0 top-0 mx-auto w-[75%] md:top-[10%] md:w-auto md:h-[95%] z-10' },
     ],
     [
         { src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' },

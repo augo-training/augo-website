@@ -9,6 +9,7 @@ import athletesImg1_4 from '../assets/images/img_for_athletes_1_4.png'
 import athletesImg1_5 from '../assets/images/img_for_athletes_1_5.png'
 import athletesImg1_6 from '../assets/images/img_for_athletes_1_6.png'
 import athletesWorkout from '../assets/images/img_for_athletes_workout.png?w=488&format=webp'
+import athletesStrength from '../assets/images/img_strength_workout.png?w=438&format=webp'
 import athletesImg2_1 from '../assets/images/img_for_athletes_2_1.png'
 import athletesImg2_2 from '../assets/images/img_for_athletes_2_2.png'
 import athletesImg2_3 from '../assets/images/img_for_athletes_2_3.png'
@@ -38,6 +39,11 @@ const panelImages: PanelImage[][] = [
         // (28vh on mobile), so it is top-anchored and the container crops the
         // bottom rather than shrinking the phone to nothing.
         { src: athletesWorkout, className: 'absolute inset-x-0 top-0 mx-auto w-[70%] sm:w-[52%] md:inset-y-0 md:my-auto md:w-auto md:h-[95%] z-10' },
+    ],
+    [
+        // The phone is cut off at the bottom of the source image, so it is sized
+        // taller than the well and the container crops the cut edge away.
+        { src: athletesStrength, className: 'absolute inset-x-0 top-0 mx-auto w-[70%] sm:w-[52%] md:top-[5%] md:w-auto md:h-[110%] z-10' },
     ],
     [
         { src: athletesImg2_1, className: 'absolute top-[7%] lg:top-[7%] md:top-[10%] left-[10%] w-[45%] z-10' },
