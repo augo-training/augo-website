@@ -1,0 +1,142 @@
+{
+  "slug": "copy-and-paste-workouts",
+  "title": "How do I copy and paste workouts on the calendar?",
+  "seoTitle": "Copy, Paste and Duplicate Workouts in augo | augo support",
+  "description": "Copy a workout or a whole week on the athlete calendar and paste it into another day, or another athlete's calendar. Right-click menus, keyboard shortcuts for Mac and Windows, and Option/Alt-drag to duplicate.",
+  "summary": "On the web app, right-click a workout and choose Copy, or hover it and press ⌘C (Ctrl+C on Windows). To paste, right-click an empty part of a day and choose Paste, or hover the day and press ⌘V (Ctrl+V). Copy a whole week from the ⋮ that appears when you hover the week row. Hold Option/Alt and drag a card to duplicate it.",
+  "audience": "coach",
+  "category": "training",
+  "keywords": [
+    "copy",
+    "paste",
+    "duplicate",
+    "clone",
+    "clipboard",
+    "shortcut",
+    "keyboard",
+    "cmd",
+    "ctrl",
+    "command",
+    "right-click",
+    "drag",
+    "week",
+    "calendar"
+  ],
+  "questionForms": [
+    "how do i copy a workout",
+    "how do i copy a whole week of training",
+    "how do i paste a workout into another day",
+    "how do i duplicate a workout",
+    "how do i copy a week to another athlete",
+    "can i paste a workout into another athletes calendar",
+    "what are the calendar keyboard shortcuts",
+    "does copy and paste work on windows",
+    "where is the copy week option",
+    "how do i reuse last weeks training"
+  ],
+  "weight": 2,
+  "platforms": [
+    "web"
+  ],
+  "datePublished": "2026-10-02",
+  "body": [
+    {
+      "type": "html",
+      "html": "<p>AI isn't the answer to everything. Sometimes copy and paste is still the fastest way to build a training week.</p><p>Everything below happens on the athlete calendar in the web app.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"copy-a-workout\">Copy a workout</h2><p>Right-click the workout card and choose <strong>Copy</strong>, or hover it and press <strong>⌘C</strong> (<strong>Ctrl+C</strong> on Windows).</p>"
+    },
+    {
+      "type": "media",
+      "media": {
+        "type": "image",
+        "src": "/support/copy-and-paste-workouts/copy-a-workout.png",
+        "alt": "A workout card on Thursday with the right-click menu showing Copy and the ⌘C shortcut",
+        "caption": "Right-click → Copy, or hover and press ⌘C.",
+        "frame": "wide",
+        "width": 1080,
+        "height": 670
+      }
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"copy-a-week\">Copy a week</h2><p>Hover the week row, then click the <strong>⋮</strong> that appears on its left and choose <strong>Copy week</strong>.</p>"
+    },
+    {
+      "type": "media",
+      "media": {
+        "type": "image",
+        "src": "/support/copy-and-paste-workouts/copy-a-week.png",
+        "alt": "A week row on the calendar with the ⋮ menu on its left open to Copy week",
+        "caption": "The ⋮ only appears while you hover the week row.",
+        "frame": "wide",
+        "width": 1080,
+        "height": 490
+      }
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"paste\">Paste</h2><p>Right-click an empty part of a day (or use its <strong>+</strong> menu) and choose <strong>Paste</strong>, or hover the day and press <strong>⌘V</strong> (<strong>Ctrl+V</strong> on Windows).</p><p>To paste a week you copied, open the <strong>⋮</strong> menu of the week you want to fill.</p>"
+    },
+    {
+      "type": "media",
+      "media": {
+        "type": "image",
+        "src": "/support/copy-and-paste-workouts/paste.png",
+        "alt": "An empty Friday on the calendar next to the Paste menu item with the ⌘V shortcut",
+        "caption": "Right-click an empty part of the day, use its + menu, or hover and press ⌘V.",
+        "frame": "wide",
+        "width": 1080,
+        "height": 630
+      }
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"duplicate\">Duplicate a workout</h2><p>Hold <strong>Option</strong> (<strong>Alt</strong> on Windows) and drag a card to another day. This doesn't touch the clipboard, so whatever you copied before is still there to paste.</p>"
+    },
+    {
+      "type": "media",
+      "media": {
+        "type": "image",
+        "src": "/support/copy-and-paste-workouts/duplicate.png",
+        "alt": "A workout dragged from Tuesday to Thursday while holding Option or Alt, leaving the original in place",
+        "caption": "Option/Alt + drag. The clipboard stays as it was.",
+        "frame": "wide",
+        "width": 1080,
+        "height": 660
+      }
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"copy-to-another-athlete\">Copy to another athlete</h2><p>Copy a workout or a whole week, open the other athlete's calendar, and paste it there. Handy when several athletes share a session or a training block.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"shortcuts\">Shortcuts at a glance</h2><div class=\"table-wrap\"><table><thead><tr><th scope=\"col\">Action</th><th scope=\"col\">Mac</th><th scope=\"col\">Windows</th></tr></thead><tbody><tr><th scope=\"row\">Copy a workout</th><td data-col=\"Mac\">Hover + ⌘C</td><td data-col=\"Windows\">Hover + Ctrl+C</td></tr><tr><th scope=\"row\">Paste</th><td data-col=\"Mac\">Hover a day + ⌘V</td><td data-col=\"Windows\">Hover a day + Ctrl+V</td></tr><tr><th scope=\"row\">Duplicate</th><td data-col=\"Mac\">Option + drag</td><td data-col=\"Windows\">Alt + drag</td></tr></tbody></table></div><p>Copying and pasting a whole week is done from the week's <strong>⋮</strong> menu rather than a shortcut.</p>"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Can I copy a workout to another athlete?",
+      "answer": "Yes. Copy the workout, open the other athlete's calendar, and paste it into the day you want. Whole weeks work the same way."
+    },
+    {
+      "question": "Does copy and paste work on Windows?",
+      "answer": "Yes. Use Ctrl+C and Ctrl+V instead of ⌘C and ⌘V, and hold Alt instead of Option to duplicate. The right-click menus are the same."
+    },
+    {
+      "question": "What is the difference between duplicate and copy?",
+      "answer": "Duplicate (Option/Alt + drag) places a second copy of the workout straight away and leaves your clipboard as it was. Copy puts the workout on the clipboard so you can paste it as many times as you like."
+    },
+    {
+      "question": "Can I copy a whole week at once?",
+      "answer": "Yes. Hover the week row, click the ⋮ that appears on its left and choose Copy week. Paste it from the ⋮ menu of the week you want to fill."
+    }
+  ],
+  "related": [
+    "create-workouts",
+    "strength-workouts"
+  ]
+}

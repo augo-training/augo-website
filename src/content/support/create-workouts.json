@@ -30,7 +30,7 @@
     },
     {
       "type": "html",
-      "html": "<h2 id=\"the-workout-builder-on-web\">1. The workout builder on web</h2><p>Click any day on an athlete's calendar and you will see the option to create a workout. That opens the manual builder, where you shape the session yourself and assign it to the day you want.</p>"
+      "html": "<h2 id=\"the-workout-builder-on-web\">1. The workout builder on web</h2><p>Click any day on an athlete's calendar and you will see the option to create a workout. That opens the manual builder, where you shape the session yourself and assign it to the day you want.</p><p>Already built the session once? You can <a href=\"/en/support/copy-and-paste-workouts/\">copy and paste workouts and whole weeks</a> on the calendar instead of building them again.</p>"
     },
     {
       "type": "html",
@@ -70,6 +70,7 @@
   "related": [
     "workouts-on-your-device",
     "strength-workouts",
+    "copy-and-paste-workouts",
     "what-can-i-ask-the-assistant",
     "what-can-i-do-with-the-connector"
   ],
@@ -91,5 +92,5 @@
     "web"
   ],
   "datePublished": "2026-09-15",
-  "dateUpdated": "2026-09-30"
+  "dateUpdated": "2026-10-02"
 }
