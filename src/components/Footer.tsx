@@ -175,7 +175,15 @@ export default function Footer() {
 
                 <div className="flex items-center justify-between sm:justify-start gap-4 sm:gap-8 w-full lg:w-auto order-2 lg:order-1">
                     <img src={footerIcon1} alt="HSG Startup" className="h-10 sm:h-12 w-auto" />
-                    <img src={footerFfi} alt="Female Founder Initiative FF+ Acceleration Program" className="h-10 sm:h-12 w-auto" />
+                    <a
+                        href="https://www.linkedin.com/posts/female-forward-switzerland_meet-bruna-fabienne-bruna-maia-activity-7506645966465200128-4IB-"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Female Founder Initiative FF+ Acceleration Program: meet Bruna and Fabienne on LinkedIn"
+                        className="shrink-0"
+                    >
+                        <img src={footerFfi} alt="Female Founder Initiative FF+ Acceleration Program" className="h-10 sm:h-12 w-auto" />
+                    </a>
                     <div className="flex items-center gap-2">
                         <img src={footerIcon2} alt="Switzerland" className="h-auto w-32 sm:w-36" />
                     </div>
