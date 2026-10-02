@@ -85,6 +85,15 @@ const EVAL: { query: string; expect: string; why: string }[] = [
   // create-workouts
   { query: 'how do i build a workout', expect: 'create-workouts', why: 'build <-> create group; must beat delivery article' },
   { query: 'where is the workout builder', expect: 'create-workouts', why: 'builder is only here' },
+  // copy-and-paste-workouts
+  { query: 'copy a week', expect: 'copy-and-paste-workouts', why: 'copy plus week; must beat create-workouts' },
+  {
+    query: 'how do i duplicate a workout',
+    expect: 'copy-and-paste-workouts',
+    why: 'declared question form; bare "duplicate workout" stays with the devices article (duplicate activities)',
+  },
+  { query: 'paste workout to another athlete', expect: 'copy-and-paste-workouts', why: 'athlete must not pull add-an-athlete' },
+  { query: 'calendar keyboard shortcuts', expect: 'copy-and-paste-workouts', why: 'shortcut is only here' },
   // strength-workouts
   { query: 'strength workout', expect: 'strength-workouts', why: 'strength is only here; must beat create-workouts' },
   { query: 'can athletes log the weights they lift', expect: 'strength-workouts', why: 'declared question form; the answer is "not yet"' },
