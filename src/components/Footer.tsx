@@ -5,6 +5,7 @@ import { gsap } from 'gsap'
 import augoFooter from '../assets/images/augo_footer_1.svg'
 import footerIcon1 from '../assets/images/footer_icon_1.png'
 import footerIcon2 from '../assets/images/footer_icon_2.svg'
+import footerFfi from '../assets/images/footer_ffi.png'
 import instagramIcon from '../assets/images/instagram_footer.svg'
 import linkedinIcon from '../assets/images/linkedin_footer.svg'
 import unknownIcon from '../assets/images/unknown_footer.svg'
@@ -174,6 +175,7 @@ export default function Footer() {
 
                 <div className="flex items-center justify-between sm:justify-start gap-4 sm:gap-8 w-full lg:w-auto order-2 lg:order-1">
                     <img src={footerIcon1} alt="HSG Startup" className="h-10 sm:h-12 w-auto" />
+                    <img src={footerFfi} alt="Female Founder Initiative FF+ Acceleration Program" className="h-10 sm:h-12 w-auto" />
                     <div className="flex items-center gap-2">
                         <img src={footerIcon2} alt="Switzerland" className="h-auto w-32 sm:w-36" />
                     </div>
