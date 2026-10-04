@@ -103,6 +103,9 @@ describe('earnings calculator', () => {
             monthly_gain: 615,
             pricing_currency: 'EUR',
             current_tool_cost: 49,
+            athletes_with_augo: 15,
+            net_income_without_augo: 1451,
+            net_income_with_augo: 2115,
         })
         expect(propsFor('pricing_page_cta_clicked')).toEqual({
             cta_text: 'Start 14-day free trial',
@@ -113,11 +116,87 @@ describe('earnings calculator', () => {
             monthly_gain: 615,
             pricing_currency: 'EUR',
             current_tool_cost: 49,
+            athletes_with_augo: 15,
+            net_income_without_augo: 1451,
+            net_income_with_augo: 2115,
         })
     })
 })
 
+// What coaches enter is the one thing the calculator can teach us that a click
+// count cannot, so the properties a report would read are pinned here.
+describe('earnings_calculator_updated', () => {
+    const SETTLED = {
+        price_per_athlete: 150,
+        athletes: 15,
+        athletes_with_augo: 22,
+        net_income_without_augo: 2201,
+        net_income_with_augo: 3102,
+        monthly_gain: 901,
+        pricing_currency: 'CHF',
+        current_tool_cost: 49,
+        last_input: 'tool_cost' as const,
+        last_method: 'typed' as const,
+        update_number: 2,
+    }
+
+    it('carries the settled values and which input moved last', async () => {
+        const { trackEarningsCalculatorUpdated } = await loadModule()
+        await trackEarningsCalculatorUpdated(SETTLED)
+        expect(propsFor('earnings_calculator_updated')).toEqual(SETTLED)
+        const call = track.mock.calls.find(([name]) => name === 'earnings_calculator_updated')
+        expect(call?.[2]).toBeUndefined()
+    })
+
+    it('goes as a beacon when the page is being left', async () => {
+        const { trackEarningsCalculatorUpdated } = await loadModule()
+        await trackEarningsCalculatorUpdated(SETTLED, { beacon: true })
+        const call = track.mock.calls.find(([name]) => name === 'earnings_calculator_updated')
+        expect(call?.[2]).toEqual({ transport: 'sendBeacon' })
+    })
+})
+
+describe('faq_expanded', () => {
+    // `question` is translated, so the same question arrives as three strings;
+    // the index is what lets a report add them up.
+    it('carries a language-stable index alongside the translated question', async () => {
+        const { trackFaqExpanded } = await loadModule()
+        await trackFaqExpanded({ question: 'Müssen meine Athlet:innen bezahlen?', page: 'pricing', question_index: 3 })
+        expect(propsFor('faq_expanded')).toEqual({
+            question: 'Müssen meine Athlet:innen bezahlen?',
+            page: 'pricing',
+            question_index: 3,
+        })
+    })
+})
+
+describe('page_viewed', () => {
+    it('registers the site language so later clicks carry it too', async () => {
+        vi.stubGlobal('window', { location: { search: '' } })
+        const { trackPageViewed } = await loadModule()
+        await trackPageViewed({ page: '/pricing', referrer: '', language: 'de' })
+        expect(register).toHaveBeenCalledWith({ language: 'de' })
+        expect(propsFor('page_viewed')).toEqual({ page: '/pricing', referrer: '', language: 'de' })
+        vi.unstubAllGlobals()
+    })
+})
+
 describe('cta_clicked', () => {
+    it('can go as a beacon for a link that leaves the page in the same tab', async () => {
+        const { trackCtaClicked } = await loadModule()
+        await trackCtaClicked(
+            { cta_text: 'Contact us', cta_location: 'pricing_location_note', destination: '/contact' },
+            { beacon: true },
+        )
+        expect(propsFor('cta_clicked')).toEqual({
+            cta_text: 'Contact us',
+            cta_location: 'pricing_location_note',
+            destination: '/contact',
+        })
+        const call = track.mock.calls.find(([name]) => name === 'cta_clicked')
+        expect(call?.[2]).toEqual({ transport: 'sendBeacon' })
+    })
+
     it('records the /download sign-up handoff to the web app', async () => {
         const { trackCtaClicked } = await loadModule()
         await trackCtaClicked({

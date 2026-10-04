@@ -7,6 +7,7 @@ import {
     barShares,
     calculateEarnings,
     clampToRange,
+    earningsSnapshot,
     minProfitablePrice,
     parseWholeNumber,
     sanitizeDigits,
@@ -116,6 +117,29 @@ describe('the default roster', () => {
     it('shows 2,250 against 3,102 at 150 with augo at 9', () => {
         const result = calculateEarnings({ athletes: 15, price: 150, proPrice: 9 })
         expect([result.today, result.augoCost, result.withAugo, result.monthlyGain]).toEqual([2250, 198, 3102, 852])
+    })
+})
+
+// The properties sent to analytics, for the values a coach settled on.
+describe('earningsSnapshot', () => {
+    it('reports what the card showed, in analytics names', () => {
+        const result = calculateEarnings({ athletes: 15, price: 150, proPrice: 9, currentToolCost: 49 })
+        expect(earningsSnapshot(result, { price: 150, currency: 'CHF', toolCost: 49 })).toEqual({
+            price_per_athlete: 150,
+            athletes: 15,
+            athletes_with_augo: 22,
+            net_income_without_augo: 2201,
+            net_income_with_augo: 3102,
+            monthly_gain: 901,
+            pricing_currency: 'CHF',
+            current_tool_cost: 49,
+        })
+    })
+
+    // "Not given" must stay distinguishable from a real zero in a report.
+    it('leaves the tool cost out when the field was empty', () => {
+        const result = calculateEarnings({ athletes: 15, price: 150, proPrice: 9 })
+        expect(earningsSnapshot(result, { price: 150, currency: 'CHF', toolCost: null })).not.toHaveProperty('current_tool_cost')
     })
 })
 

@@ -9,12 +9,17 @@ import {
     barShares,
     calculateEarnings,
     clampToRange,
+    earningsSnapshot,
     parseWholeNumber,
     sanitizeDigits,
     type SliderRange,
 } from '../../config/earningsCalculator'
 import { formatMoney } from '../../utils/formatMoney'
-import { trackEarningsCalculatorStarted, trackPricingCtaClicked } from '../../utils/analytics'
+import {
+    trackEarningsCalculatorStarted,
+    trackEarningsCalculatorUpdated,
+    trackPricingCtaClicked,
+} from '../../utils/analytics'
 import { useTrackSectionView } from '../../hooks/useTrackSectionView'
 import { useEmailCapture } from '../../contexts/EmailCaptureContext'
 
@@ -23,8 +28,11 @@ const BRAND_GRADIENT = 'linear-gradient(90deg, #C50017, #FF5514, #FFCA1E)'
 const TYPING_COMMIT_MS = 400
 /** A live region that follows a drag tick by tick is unusable with a screen reader. */
 const ANNOUNCE_DELAY_MS = 800
+/** How long the values must sit still before they are reported to analytics. */
+const ANALYTICS_SETTLE_MS = 2000
 
 type InputMethod = 'slider' | 'typed'
+type CalculatorInput = 'price' | 'athletes' | 'tool_cost'
 
 // ─── Inputs ──────────────────────────────────────────────────────────────────
 
@@ -242,6 +250,11 @@ export default function EarningsCalculator({ tier, lang }: EarningsCalculatorPro
     const headingId = useId()
     const contentRef = useTrackSectionView('earnings-calculator', 'pricing')
     const started = useRef(false)
+    // Analytics for the entered values: which input changed last, how many
+    // settled updates were sent, and the send that is still waiting to settle.
+    const lastChange = useRef<{ input: CalculatorInput; method: InputMethod } | null>(null)
+    const updateCount = useRef(0)
+    const pendingUpdate = useRef<((beacon: boolean) => void) | null>(null)
 
     // null until the coach enters a value. An untouched field follows the tier,
     // which changes once the geo lookup resolves; an entered value is kept.
@@ -305,7 +318,47 @@ export default function EarningsCalculator({ tier, lang }: EarningsCalculatorPro
         return () => observer.disconnect()
     }, [contentRef])
 
-    function markStarted(input: 'price' | 'athletes' | 'tool_cost', method: InputMethod) {
+    // Report the values once they stop changing, not per slider tick. Untouched
+    // defaults are never reported.
+    useEffect(() => {
+        const change = lastChange.current
+        if (!change) return
+        const send = (beacon: boolean) => {
+            pendingUpdate.current = null
+            updateCount.current += 1
+            const settled = calculateEarnings({ athletes, price, proPrice: tier.proPrice, currentToolCost: toolCost ?? 0 })
+            void trackEarningsCalculatorUpdated(
+                {
+                    ...earningsSnapshot(settled, { price, currency: tier.currency, toolCost }),
+                    last_input: change.input,
+                    last_method: change.method,
+                    update_number: updateCount.current,
+                },
+                { beacon },
+            )
+        }
+        pendingUpdate.current = send
+        const timer = window.setTimeout(() => {
+            // Already flushed by the page being hidden: do not send it twice.
+            if (pendingUpdate.current === send) send(false)
+        }, ANALYTICS_SETTLE_MS)
+        return () => window.clearTimeout(timer)
+    }, [athletes, price, toolCost, tier.proPrice, tier.currency])
+
+    // A coach who changes a value and leaves straight away still gets counted.
+    useEffect(() => {
+        const flushWhenHidden = () => {
+            if (document.visibilityState === 'hidden') pendingUpdate.current?.(true)
+        }
+        document.addEventListener('visibilitychange', flushWhenHidden)
+        return () => {
+            document.removeEventListener('visibilitychange', flushWhenHidden)
+            pendingUpdate.current?.(false)
+        }
+    }, [])
+
+    function markChanged(input: CalculatorInput, method: InputMethod) {
+        lastChange.current = { input, method }
         if (started.current) return
         started.current = true
         void trackEarningsCalculatorStarted({ input, method })
@@ -314,7 +367,7 @@ export default function EarningsCalculator({ tier, lang }: EarningsCalculatorPro
     function handleInput(input: 'price' | 'athletes', value: number, method: InputMethod) {
         if (input === 'price') setPriceOverride(value)
         else setAthletesOverride(value)
-        markStarted(input, method)
+        markChanged(input, method)
     }
 
     return (
@@ -372,7 +425,8 @@ export default function EarningsCalculator({ tier, lang }: EarningsCalculatorPro
                                 maxDigits={PRICE_MAX_DIGITS}
                                 onChange={(value) => {
                                     setToolCost(value)
-                                    if (value !== null) markStarted('tool_cost', 'typed')
+                                    // Leaving the empty field empty is not an interaction.
+                                    if (value !== null || toolCost !== null) markChanged('tool_cost', 'typed')
                                 }}
                             />
                         </div>
@@ -429,11 +483,7 @@ export default function EarningsCalculator({ tier, lang }: EarningsCalculatorPro
                                         cta_text: label,
                                         plan: 'pro',
                                         placement: 'earnings_calculator',
-                                        price_per_athlete: price,
-                                        athletes,
-                                        monthly_gain: result.monthlyGain,
-                                        pricing_currency: tier.currency,
-                                        ...(toolCost !== null ? { current_tool_cost: toolCost } : {}),
+                                        ...earningsSnapshot(result, { price, currency: tier.currency, toolCost }),
                                     })
                                     openModal(label, { placement: 'earnings_calculator' })
                                 }}

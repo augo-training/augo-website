@@ -90,6 +90,39 @@ export function calculateEarnings(input: {
     }
 }
 
+/** What the calculator showed for a set of inputs, as analytics properties. */
+export interface EarningsSnapshot {
+    price_per_athlete: number
+    athletes: number
+    athletes_with_augo: number
+    net_income_without_augo: number
+    net_income_with_augo: number
+    monthly_gain: number
+    pricing_currency: string
+    /** Only present when the coach filled in the optional field. */
+    current_tool_cost?: number
+}
+
+/**
+ * One builder for both the "values settled" event and the trial button's click,
+ * so the two cannot drift apart.
+ */
+export function earningsSnapshot(
+    result: EarningsResult,
+    input: { price: number; currency: string; toolCost: number | null },
+): EarningsSnapshot {
+    return {
+        price_per_athlete: input.price,
+        athletes: result.athletes,
+        athletes_with_augo: result.athletesWithAugo,
+        net_income_without_augo: result.today,
+        net_income_with_augo: result.withAugo,
+        monthly_gain: result.monthlyGain,
+        pricing_currency: input.currency,
+        ...(input.toolCost !== null ? { current_tool_cost: input.toolCost } : {}),
+    }
+}
+
 /** Keeps only digits, up to `maxDigits` of them. */
 export function sanitizeDigits(raw: string, maxDigits: number): string {
     return raw.replace(/\D/g, '').slice(0, maxDigits)

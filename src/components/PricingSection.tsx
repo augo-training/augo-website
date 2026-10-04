@@ -11,7 +11,9 @@ import {
     trackPricingCtaClicked,
     trackBillingToggle,
     trackFaqExpanded,
+    trackCtaClicked,
 } from '../utils/analytics'
+import { useTrackSectionView } from '../hooks/useTrackSectionView'
 import { useEmailCapture } from '../contexts/EmailCaptureContext'
 import { formatNumber } from '../utils/formatMoney'
 import EarningsCalculator from './pricing/EarningsCalculator'
@@ -27,6 +29,7 @@ function PricingFaq() {
 
     const [openIndex, setOpenIndex] = useState<number | null>(null)
     const [isAnimating, setIsAnimating] = useState(false)
+    const faqRef = useTrackSectionView('faq', 'pricing')
 
     const handleToggle = useCallback(
         (index: number) => {
@@ -42,12 +45,12 @@ function PricingFaq() {
                     setOpenIndex(index)
                     setTimeout(() => setIsAnimating(false), 500)
                 }, 800)
-                trackFaqExpanded({ question: faqItems[index].question, page: 'pricing' })
+                trackFaqExpanded({ question: faqItems[index].question, page: 'pricing', question_index: index + 1 })
             } else {
                 setIsAnimating(true)
                 setOpenIndex(index)
                 setTimeout(() => setIsAnimating(false), 500)
-                trackFaqExpanded({ question: faqItems[index].question, page: 'pricing' })
+                trackFaqExpanded({ question: faqItems[index].question, page: 'pricing', question_index: index + 1 })
             }
         },
         [openIndex, isAnimating, faqItems]
@@ -55,7 +58,7 @@ function PricingFaq() {
 
     return (
         <section className="w-full py-16 sm:py-20 px-5 sm:px-8">
-            <div className="max-w-[760px] mx-auto w-full flex flex-col gap-8">
+            <div ref={faqRef} className="max-w-[760px] mx-auto w-full flex flex-col gap-8">
                 <h2 className="font-mono font-bold text-[28px] sm:text-[36px] leading-[120%] text-white text-center">
                     {t('pricing.faqTitle')}
                 </h2>
@@ -122,6 +125,12 @@ export default function PricingSection() {
     const { countryCode, loading } = useGeoCountry()
     const pricingTier = getPricingTier(countryCode ?? 'US')
     const { openModal } = useEmailCapture()
+
+    // How far down the page visitors get. The refs sit on blocks short enough to
+    // reach the hook's 30% visibility on a phone; the calculator tracks its own.
+    const plansRef = useTrackSectionView('plans', 'pricing')
+    const addOnsRef = useTrackSectionView('add-ons', 'pricing')
+    const trustRef = useTrackSectionView('trust', 'pricing')
 
     // The only billing choice on the page: the Elite add-on. Plans are monthly-only.
     const [eliteBilling, setEliteBilling] = useState<'monthly' | 'yearly'>('monthly')
@@ -245,7 +254,7 @@ export default function PricingSection() {
             <section className="relative z-10 w-full pt-8 sm:pt-10 pb-16 sm:pb-20 px-5 sm:px-8">
                 <div className="max-w-[900px] mx-auto w-full flex flex-col gap-12">
                     {/* Plan cards */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full items-stretch">
+                    <div ref={plansRef} className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full items-stretch">
                         {/* Pro — featured */}
                         <div className="join-form-wrapper relative rounded-2xl order-1">
                             <div className="join-form-glow absolute -inset-6 rounded-[2rem] pointer-events-none" />
@@ -377,7 +386,7 @@ export default function PricingSection() {
                     </div>{/* end cards grid */}
 
                     {/* Add-ons */}
-                    <div className="w-full flex flex-col gap-4">
+                    <div ref={addOnsRef} className="w-full flex flex-col gap-4">
                         {/* Section eyebrow, same idiom as the hero's "PRICING" */}
                         <span className="font-mono text-[14px] tracking-[3px] uppercase text-[#969EA7]">
                             {t('pricing.addOnsTitle')}
@@ -461,7 +470,7 @@ export default function PricingSection() {
             <section className="relative z-10 w-full pt-16 sm:pt-20 pb-16 sm:pb-20 px-5 sm:px-8">
                 <div className="max-w-[900px] mx-auto w-full flex flex-col gap-10 items-center">
                     {/* Simple pricing headline + trust row */}
-                    <div className="w-full flex flex-col gap-5">
+                    <div ref={trustRef} className="w-full flex flex-col gap-5">
                         <h2 className="font-mono font-bold text-[32px] sm:text-[44px] lg:text-[52px] leading-[120%] text-white">
                             {t('pricing.pricingHeadline')}
                         </h2>
@@ -492,6 +501,13 @@ export default function PricingSection() {
                                         <a
                                             href={`/${currentLang}/contact`}
                                             className="underline hover:text-white transition-colors duration-150"
+                                            onClick={() => {
+                                                // A same-tab navigation, so it goes as a beacon.
+                                                void trackCtaClicked(
+                                                    { cta_text: 'Contact us', cta_location: 'pricing_location_note', destination: '/contact' },
+                                                    { beacon: true },
+                                                )
+                                            }}
                                         />
                                     ),
                                 }}
