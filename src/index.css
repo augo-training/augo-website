@@ -1581,3 +1581,78 @@ body {
 .countdown-number {
   color: #FFFFFF;
 }
+
+/* ─── Earnings Calculator Slider ─── */
+/* A native range, restyled. The filled part is a background on the track sized
+   by --pct (0 to 1, set inline), ending at the thumb's centre. Gradient on the
+   fill only; the thumb is white. */
+.calc-range {
+  --thumb: 28px;
+  --pct: 0;
+  -webkit-appearance: none;
+  appearance: none;
+  display: block;
+  width: 100%;
+  /* Taller than the track so the whole row is a touch target. */
+  height: 44px;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+  /* A swipe that starts on the slider still scrolls the page vertically. */
+  touch-action: pan-y;
+}
+
+.calc-range::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 9999px;
+  background:
+    linear-gradient(90deg, #C50017, #FF5514, #FFCA1E) 0 0 / calc(var(--pct) * (100% - var(--thumb)) + var(--thumb) / 2) 100% no-repeat,
+    var(--color-dark-600);
+}
+
+.calc-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: var(--thumb);
+  height: var(--thumb);
+  /* Centre the thumb on the 6px track. */
+  margin-top: -11px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.calc-range::-moz-range-track {
+  height: 6px;
+  border-radius: 9999px;
+  background: var(--color-dark-600);
+}
+
+.calc-range::-moz-range-progress {
+  height: 6px;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #C50017, #FF5514, #FFCA1E);
+}
+
+.calc-range::-moz-range-thumb {
+  width: var(--thumb);
+  height: var(--thumb);
+  border: 0;
+  border-radius: 50%;
+  background: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.calc-range:focus-visible {
+  outline: none;
+}
+
+.calc-range:focus-visible::-webkit-slider-thumb {
+  outline: 2px solid var(--color-orange);
+  outline-offset: 3px;
+}
+
+.calc-range:focus-visible::-moz-range-thumb {
+  outline: 2px solid var(--color-orange);
+  outline-offset: 3px;
+}

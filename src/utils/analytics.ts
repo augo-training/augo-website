@@ -1,6 +1,7 @@
 import { getConsentStatus } from '../components/cookieUtils'
 import { normalizePage } from './page'
 import { isLocalHost, isTrackingEnabled } from './trackingEnv'
+import type { EarningsSnapshot } from '../config/earningsCalculator'
 import {
     trackMetaPageView,
     trackMetaLead,
@@ -89,6 +90,17 @@ async function track(event: string, props?: Props, options?: { beacon?: boolean 
     }
 }
 
+/** Super properties ride on every later event from this browser. */
+async function register(props: Props): Promise<void> {
+    if (!(await tryInit())) return
+    try {
+        const { default: mixpanel } = await import('mixpanel-browser')
+        mixpanel.register(props)
+    } catch {
+        // Silently ignore if blocked
+    }
+}
+
 // ── Shared helpers ──
 
 export { normalizePage }
@@ -119,6 +131,9 @@ export function getUtmParams(): UtmParams {
 
 export async function trackPageViewed(props: { page: string; referrer: string; language: string }): Promise<void> {
     trackMetaPageView()
+    // Registered, not only sent: clicks and form events can then be split by the
+    // site language too, and it follows the visitor when they switch.
+    await register({ language: props.language })
     return track('page_viewed', { ...props, ...getUtmParams() })
 }
 
@@ -130,8 +145,11 @@ export async function trackSectionViewed(props: { section: string; page: string 
 
 // ── CTA / button click tracking ──
 
-export async function trackCtaClicked(props: { cta_text: string; cta_location: string; destination: string }): Promise<void> {
-    return track('cta_clicked', props)
+export async function trackCtaClicked(
+    props: { cta_text: string; cta_location: string; destination: string },
+    options?: { beacon?: boolean },
+): Promise<void> {
+    return track('cta_clicked', props, options)
 }
 
 // ── Navigation tracking ──
@@ -172,10 +190,45 @@ interface PricingCtaClickedProps {
     billing_period?: 'monthly' | 'yearly'
     /** Stable id for the button, since cta_text is localized: 'pro' | 'enterprise' | 'elite'. */
     plan: string
+    /** Set when the button is not the plan card's own, e.g. 'earnings_calculator'. */
+    placement?: string
+    /** What the coach had entered in the earnings calculator when they clicked. */
+    price_per_athlete?: number
+    athletes?: number
+    monthly_gain?: number
+    pricing_currency?: string
+    /** What they said they pay for their current tool per month, when they filled it in. */
+    current_tool_cost?: number
+    athletes_with_augo?: number
+    net_income_without_augo?: number
+    net_income_with_augo?: number
 }
 
 export async function trackPricingCtaClicked(props: PricingCtaClickedProps): Promise<void> {
     return track('pricing_page_cta_clicked', props)
+}
+
+/** First touch of the pricing page's earnings calculator; fires once per page view. */
+export async function trackEarningsCalculatorStarted(props: { input: 'price' | 'athletes' | 'tool_cost'; method: 'slider' | 'typed' }): Promise<void> {
+    return track('earnings_calculator_started', props)
+}
+
+/**
+ * The values a coach left the calculator on, sent once they stop changing
+ * rather than per slider tick. This is the only record of what was entered for
+ * the many who never click the trial button. `beacon` is for the flush when the
+ * page is being left.
+ */
+export async function trackEarningsCalculatorUpdated(
+    props: EarningsSnapshot & {
+        last_input: 'price' | 'athletes' | 'tool_cost'
+        last_method: 'slider' | 'typed'
+        /** 1 for the first settled change in this page view, then counting up. */
+        update_number: number
+    },
+    options?: { beacon?: boolean },
+): Promise<void> {
+    return track('earnings_calculator_updated', props, options)
 }
 
 export async function trackFloatingButtonClicked(props: { page: string }): Promise<void> {
@@ -300,7 +353,9 @@ export async function trackAppStoreClicked(props: {
 
 // ── FAQ tracking ──
 
-export async function trackFaqExpanded(props: { question: string; page: string }): Promise<void> {
+/** `question` is the translated text, so it differs per language; `question_index`
+ *  (1-based position in the list) is the stable id to group by. */
+export async function trackFaqExpanded(props: { question: string; page: string; question_index?: number }): Promise<void> {
     return track('faq_expanded', props)
 }
 

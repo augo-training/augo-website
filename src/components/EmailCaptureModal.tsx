@@ -22,6 +22,8 @@ interface EmailCaptureModalProps {
     title?: string
     subtitle?: string
     submitLabel?: string
+    /** Passed through to analytics so signups from different CTAs can be told apart. */
+    placement?: string
 }
 
 export default function EmailCaptureModal({
@@ -37,6 +39,7 @@ export default function EmailCaptureModal({
     title,
     subtitle,
     submitLabel,
+    placement,
 }: EmailCaptureModalProps) {
     const { t } = useTranslation()
     // No default subtitle: the old copy promised early-access tips that never get sent.
@@ -105,7 +108,7 @@ export default function EmailCaptureModal({
         })
         const page = normalizePage(window.location.pathname)
         void identifyEmailCapture({ email, first_name: name, source: ctaText, page })
-        void trackEmailCaptureSubmitted({ email, cta_text: ctaText, visitor_type: visitorType, page })
+        void trackEmailCaptureSubmitted({ email, cta_text: ctaText, visitor_type: visitorType, page, placement })
 
         if (onSuccess) {
             onClose()
