@@ -54,6 +54,15 @@ describe('interpolation contracts the components depend on', () => {
         const items = get(LOCALES[lang], 'faq.items') as Array<{ answer: string }>
         expect(items[0].answer).toContain('{{price}}')
     })
+
+    it.each(Object.keys(LOCALES))('%s keeps the figures in the earnings calculator lines', (lang) => {
+        expect(get(LOCALES[lang], 'pricing.calculator.afterAugo')).toContain('{{augoCost}}')
+        expect(get(LOCALES[lang], 'pricing.calculator.footnote')).toContain('{{proPrice}}')
+        const withoutAfterTool = get(LOCALES[lang], 'pricing.calculator.todayAfterTool') as string
+        for (const token of ['{{athletes}}', '{{toolCost}}']) expect(withoutAfterTool).toContain(token)
+        const breakEven = get(LOCALES[lang], 'pricing.calculator.breakEvenPrice') as string
+        for (const token of ['{{athletes}}', '{{price}}']) expect(breakEven).toContain(token)
+    })
 })
 
 describe('retired pricing keys', () => {

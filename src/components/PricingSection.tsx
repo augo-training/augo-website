@@ -13,6 +13,8 @@ import {
     trackFaqExpanded,
 } from '../utils/analytics'
 import { useEmailCapture } from '../contexts/EmailCaptureContext'
+import { formatNumber } from '../utils/formatMoney'
+import EarningsCalculator from './pricing/EarningsCalculator'
 
 // ─── FAQ Accordion ────────────────────────────────────────────────────────────
 
@@ -194,19 +196,9 @@ export default function PricingSection() {
         })
     }, [loading]) // eslint-disable-line react-hooks/exhaustive-deps
 
-    function formatPrice(price: number): string {
-        // Grouped thousands: the Elite annual prepay is a four-digit figure, and the
-        // separator is language-specific (€1,000 in en, €1.000 in de).
-        const fractionDigits = price % 1 === 0 ? 0 : 2
-        try {
-            return new Intl.NumberFormat(currentLang, {
-                minimumFractionDigits: fractionDigits,
-                maximumFractionDigits: fractionDigits,
-            }).format(price)
-        } catch {
-            return fractionDigits === 0 ? price.toString() : price.toFixed(2)
-        }
-    }
+    // Grouped thousands: the Elite annual prepay is a four-digit figure, and the
+    // separator is language-specific (€1,000 in en, €1.000 in de).
+    const formatPrice = (price: number) => formatNumber(price, currentLang)
 
     return (
         <div
@@ -460,6 +452,10 @@ export default function PricingSection() {
                 </div>{/* end max-w container */}
             </section>
             </div>{/* end topo bg wrapper */}
+
+            {/* ─── Earnings calculator ─────────────────────────────────────────── */}
+            {/* No vertical padding of its own: the sections either side supply it. */}
+            <EarningsCalculator tier={pricingTier} lang={currentLang} />
 
             {/* ─── Supplementary pricing content ──────────────────────────────── */}
             <section className="relative z-10 w-full pt-16 sm:pt-20 pb-16 sm:pb-20 px-5 sm:px-8">

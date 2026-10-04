@@ -7,6 +7,8 @@ export interface EmailCaptureModalOptions {
     destinationUrl?: string
     subtitle?: string
     submitLabel?: string
+    /** Which CTA on the page opened the modal, when a page has more than one with the same label. */
+    placement?: string
 }
 
 export interface EmailCaptureContextValue {

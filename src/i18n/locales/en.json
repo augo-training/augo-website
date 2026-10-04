@@ -401,7 +401,28 @@
       "annualSuffix": "/year",
       "annualNote": "Two months free"
     },
-    "perAthleteNote": "Pay only for the athletes you actively coach."
+    "perAthleteNote": "Pay only for the athletes you actively coach.",
+    "calculator": {
+      "tag": "Earnings calculator",
+      "headline": "Wondering if augo is worth it? See it for yourself.",
+      "body": "augo's promise is to give you time back so you can onboard at least 50% more athletes, while holding the same high standard of coaching you're known for.",
+      "priceLabel": "Your price per athlete, per month",
+      "athletesLabel": "Athletes you coach today",
+      "toolCostLabel": "What you pay for your coaching tool today, per month",
+      "optional": "optional",
+      "todayAfterTool": "{{athletes}}, after {{toolCost}} for your current tool",
+      "toolCostHint": "update above to see your correct net income",
+      "netIncomeHeading": "Your monthly net income",
+      "withoutAugoLabel": "Without augo",
+      "withAugoLabel": "With augo",
+      "afterAugo": "after {{augoCost}} for augo",
+      "athleteCount_one": "{{count}} athlete",
+      "athleteCount_other": "{{count}} athletes",
+      "breakEvenPrice": "With {{athletes}} athletes, augo pays for itself from {{price}} per athlete.",
+      "breakEvenAthletes": "The extra capacity starts at 2 athletes. With one, there is no extra athlete to add yet.",
+      "footnote": "Assumes you fill the extra places at your current price. augo Pro costs {{proPrice}} per athlete per month, on every athlete.",
+      "summary": "Monthly net income without augo: {{without}}. With augo: {{withAugo}}, a difference of {{gain}}."
+    }
   },
   "bookDemo": {
     "hero": {

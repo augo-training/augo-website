@@ -401,7 +401,28 @@
       "annualSuffix": "/Jahr",
       "annualNote": "Zwei Monate gratis"
     },
-    "perAthleteNote": "Zahle nur für die Athleten, die du aktiv coachst."
+    "perAthleteNote": "Zahle nur für die Athleten, die du aktiv coachst.",
+    "calculator": {
+      "tag": "Verdienstrechner",
+      "headline": "Fragst du dich, ob sich augo lohnt? Sieh selbst.",
+      "body": "augos Versprechen: dir Zeit zurückzugeben, damit du mindestens 50 % mehr Athleten aufnehmen kannst und dabei den hohen Coaching-Standard hältst, für den du bekannt bist.",
+      "priceLabel": "Dein Preis pro Athlet, pro Monat",
+      "athletesLabel": "Athleten, die du heute coachst",
+      "toolCostLabel": "Was du heute pro Monat für dein Coaching-Tool zahlst",
+      "optional": "optional",
+      "todayAfterTool": "{{athletes}}, nach {{toolCost}} für dein aktuelles Tool",
+      "toolCostHint": "oben anpassen, um dein korrektes Nettoeinkommen zu sehen",
+      "netIncomeHeading": "Dein monatliches Nettoeinkommen",
+      "withoutAugoLabel": "Ohne augo",
+      "withAugoLabel": "Mit augo",
+      "afterAugo": "nach {{augoCost}} für augo",
+      "athleteCount_one": "{{count}} Athlet",
+      "athleteCount_other": "{{count}} Athleten",
+      "breakEvenPrice": "Bei {{athletes}} Athleten rechnet sich augo ab {{price}} pro Athlet.",
+      "breakEvenAthletes": "Die zusätzliche Kapazität beginnt bei 2 Athleten. Mit einem gibt es noch keinen weiteren Platz zu füllen.",
+      "footnote": "Annahme: Du füllst die zusätzlichen Plätze zu deinem aktuellen Preis. augo Pro kostet {{proPrice}} pro Athlet und Monat, für jeden Athleten.",
+      "summary": "Monatliches Nettoeinkommen ohne augo: {{without}}. Mit augo: {{withAugo}}, ein Unterschied von {{gain}}."
+    }
   },
   "bookDemo": {
     "hero": {

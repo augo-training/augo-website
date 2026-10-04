@@ -172,10 +172,24 @@ interface PricingCtaClickedProps {
     billing_period?: 'monthly' | 'yearly'
     /** Stable id for the button, since cta_text is localized: 'pro' | 'enterprise' | 'elite'. */
     plan: string
+    /** Set when the button is not the plan card's own, e.g. 'earnings_calculator'. */
+    placement?: string
+    /** What the coach had entered in the earnings calculator when they clicked. */
+    price_per_athlete?: number
+    athletes?: number
+    monthly_gain?: number
+    pricing_currency?: string
+    /** What they said they pay for their current tool per month, when they filled it in. */
+    current_tool_cost?: number
 }
 
 export async function trackPricingCtaClicked(props: PricingCtaClickedProps): Promise<void> {
     return track('pricing_page_cta_clicked', props)
+}
+
+/** First touch of the pricing page's earnings calculator; fires once per page view. */
+export async function trackEarningsCalculatorStarted(props: { input: 'price' | 'athletes' | 'tool_cost'; method: 'slider' | 'typed' }): Promise<void> {
+    return track('earnings_calculator_started', props)
 }
 
 export async function trackFloatingButtonClicked(props: { page: string }): Promise<void> {

@@ -401,7 +401,28 @@
       "annualSuffix": "/ano",
       "annualNote": "Dois meses grátis"
     },
-    "perAthleteNote": "Pague apenas pelos atletas que você treina ativamente."
+    "perAthleteNote": "Pague apenas pelos atletas que você treina ativamente.",
+    "calculator": {
+      "tag": "Calculadora de ganhos",
+      "headline": "Será que a augo vale a pena? Veja você mesmo.",
+      "body": "A promessa da augo é devolver o seu tempo, para que você possa receber pelo menos 50% mais atletas, mantendo o mesmo alto padrão de coaching pelo qual você é conhecido.",
+      "priceLabel": "Seu preço por atleta, por mês",
+      "athletesLabel": "Atletas que você treina hoje",
+      "toolCostLabel": "Quanto você paga hoje pela sua ferramenta de coaching, por mês",
+      "optional": "opcional",
+      "todayAfterTool": "{{athletes}}, depois de {{toolCost}} da sua ferramenta atual",
+      "toolCostHint": "atualize acima para ver sua renda líquida correta",
+      "netIncomeHeading": "Sua renda líquida mensal",
+      "withoutAugoLabel": "Sem a augo",
+      "withAugoLabel": "Com a augo",
+      "afterAugo": "depois de {{augoCost}} da augo",
+      "athleteCount_one": "{{count}} atleta",
+      "athleteCount_other": "{{count}} atletas",
+      "breakEvenPrice": "Com {{athletes}} atletas, a augo se paga a partir de {{price}} por atleta.",
+      "breakEvenAthletes": "A capacidade extra começa com 2 atletas. Com um, ainda não há uma vaga a mais para preencher.",
+      "footnote": "Considera que você preenche as vagas extras ao seu preço atual. A augo Pro custa {{proPrice}} por atleta por mês, para cada atleta.",
+      "summary": "Renda líquida mensal sem a augo: {{without}}. Com a augo: {{withAugo}}, uma diferença de {{gain}}."
+    }
   },
   "bookDemo": {
     "hero": {

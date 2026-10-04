@@ -44,6 +44,7 @@ export function EmailCaptureProvider({ lang, children }: EmailCaptureProviderPro
                 onSuccess={options?.onSuccess}
                 subtitle={options?.subtitle}
                 submitLabel={options?.submitLabel}
+                placement={options?.placement}
             />
         </EmailCaptureContext.Provider>
     )

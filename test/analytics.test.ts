@@ -83,6 +83,40 @@ describe('pricing_page_cta_clicked', () => {
     })
 })
 
+describe('earnings calculator', () => {
+    it('records which input was touched first, and how', async () => {
+        const { trackEarningsCalculatorStarted } = await loadModule()
+        await trackEarningsCalculatorStarted({ input: 'athletes', method: 'slider' })
+        expect(propsFor('earnings_calculator_started')).toEqual({ input: 'athletes', method: 'slider' })
+    })
+
+    // Same event and plan as the Pro card's button, so funnel tiles still count
+    // it; `placement` is what tells the two buttons apart.
+    it('sends its CTA as a Pro click, with the numbers the coach had entered', async () => {
+        const { trackPricingCtaClicked } = await loadModule()
+        await trackPricingCtaClicked({
+            cta_text: 'Start 14-day free trial',
+            plan: 'pro',
+            placement: 'earnings_calculator',
+            price_per_athlete: 150,
+            athletes: 10,
+            monthly_gain: 615,
+            pricing_currency: 'EUR',
+            current_tool_cost: 49,
+        })
+        expect(propsFor('pricing_page_cta_clicked')).toEqual({
+            cta_text: 'Start 14-day free trial',
+            plan: 'pro',
+            placement: 'earnings_calculator',
+            price_per_athlete: 150,
+            athletes: 10,
+            monthly_gain: 615,
+            pricing_currency: 'EUR',
+            current_tool_cost: 49,
+        })
+    })
+})
+
 describe('cta_clicked', () => {
     it('records the /download sign-up handoff to the web app', async () => {
         const { trackCtaClicked } = await loadModule()
