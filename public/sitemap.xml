@@ -1112,6 +1112,33 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.augotraining.com/en/coaches/mauro/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/coaches/mauro/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/coaches/mauro/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/coaches/mauro/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/coaches/mauro/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/de/coaches/mauro/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/coaches/mauro/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/coaches/mauro/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/coaches/mauro/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/coaches/mauro/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/pt/coaches/mauro/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/coaches/mauro/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/coaches/mauro/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/coaches/mauro/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/coaches/mauro/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.augotraining.com/en/coaches/max-kinzlbauer/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/coaches/max-kinzlbauer/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/coaches/max-kinzlbauer/" />
@@ -1540,6 +1567,33 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/coaches/prashant-raut/" />
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/coaches/prashant-raut/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/coaches/prashant-raut/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/en/coaches/ramin-pavlovic/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/coaches/ramin-pavlovic/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/coaches/ramin-pavlovic/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/coaches/ramin-pavlovic/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/coaches/ramin-pavlovic/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/de/coaches/ramin-pavlovic/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/coaches/ramin-pavlovic/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/coaches/ramin-pavlovic/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/coaches/ramin-pavlovic/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/coaches/ramin-pavlovic/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/pt/coaches/ramin-pavlovic/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/coaches/ramin-pavlovic/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/coaches/ramin-pavlovic/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/coaches/ramin-pavlovic/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/coaches/ramin-pavlovic/" />
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
