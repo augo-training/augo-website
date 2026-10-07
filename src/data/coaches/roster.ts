@@ -693,7 +693,7 @@ export const coaches: Coach[] = [
         gender: 'male',
         tagline:
             'Patient multi-sport coach who reads each athlete\'s season — for triathletes ready to chase new challenges.',
-        isFoundingCoach: true,
+        isFoundingCoach: false,
         status: 'accepting',
         disciplines: ['triathlon', 'running', 'cycling'],
         specialties: ['long-course triathlon', 'marathon', 'half marathon', '10K', '5K', 'cycling', 'swimming'],
