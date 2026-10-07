@@ -55,6 +55,8 @@ export interface Coach {
     firstName: string
     tagline: string
     isFoundingCoach: boolean
+    /** Paying augo Pro customer, shown in its own directory group. Founding wins when both are set. */
+    isProCoach?: boolean
     status: CoachStatus
     gender?: CoachGender
     disciplines: Discipline[]

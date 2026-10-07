@@ -192,6 +192,7 @@ export const coaches: Coach[] = [
         gender: 'male',
         tagline: 'Cycling-first endurance coach for ambitious athletes with stories worth showing up for.',
         isFoundingCoach: false,
+        isProCoach: true,
         status: 'accepting',
         disciplines: ['cycling', 'triathlon', 'running'],
         specialties: ['cycling', 'long-course triathlon', 'trail running', 'half marathon', 'marathon', '5K', '10K'],
@@ -724,6 +725,7 @@ export const coaches: Coach[] = [
         tagline:
             'Personable, open-minded triathlon and running coach with a decade of life and sport experience.',
         isFoundingCoach: false,
+        isProCoach: true,
         status: 'accepting',
         disciplines: ['triathlon', 'running'],
         specialties: [
@@ -833,6 +835,7 @@ export const coaches: Coach[] = [
         tagline:
             'Straight-talking, evidence-led triathlon coach with decades of pro and amateur results.',
         isFoundingCoach: false,
+        isProCoach: true,
         status: 'accepting',
         disciplines: ['triathlon'],
         specialties: ['triathlon (Olympic to Ironman)', 'ultra-triathlon'],
@@ -1191,6 +1194,7 @@ export const coaches: Coach[] = [
         tagline:
             'Human-first then scientific. Athlete, coach and researcher, with a PhD in marathon running underway.',
         isFoundingCoach: false,
+        isProCoach: true,
         status: 'accepting',
         disciplines: ['triathlon', 'running', 'cycling'],
         specialties: [
@@ -1319,6 +1323,7 @@ export const coaches: Coach[] = [
         tagline:
             'Former Olympic triathlete coaching across triathlon, running and cycling — building athletes who outgrow their coach.',
         isFoundingCoach: false,
+        isProCoach: true,
         status: 'accepting',
         disciplines: ['triathlon', 'running', 'cycling'],
         specialties: [
@@ -1619,6 +1624,7 @@ export const coaches: Coach[] = [
         tagline:
             'Swiss trail and mountain running coach for runners who chase the challenge and the landscape, not the podium.',
         isFoundingCoach: false,
+        isProCoach: true,
         status: 'accepting',
         disciplines: ['running'],
         specialties: [
@@ -1669,6 +1675,7 @@ export const coaches: Coach[] = [
         tagline:
             'Trail and ultratrail coach looking for the smallest dose of stress that stimulates the biggest adaptation.',
         isFoundingCoach: false,
+        isProCoach: true,
         status: 'accepting',
         disciplines: ['running'],
         specialties: [
