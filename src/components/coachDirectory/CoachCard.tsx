@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom'
 import { ArrowUpRight } from 'lucide-react'
 import type { Coach } from '../../data/coaches/types'
 import { GENDER_LABEL } from '../../data/coaches/types'
+import { hasPortrait } from '../../data/coaches'
 import DisciplineIcons from './DisciplineIcons'
 import FoundingBadge from './FoundingBadge'
 import CoachMonogram from './CoachMonogram'
@@ -17,6 +18,8 @@ export default function CoachCard({ coach, matchReason }: Props) {
     const href = `/${currentLang}/coaches/${coach.slug}`
 
     const founding = coach.isFoundingCoach
+    // augo Pro coaches also use this card; they show their photo once it's added.
+    const showPhoto = founding || hasPortrait(coach)
 
     return (
         <Link
@@ -29,7 +32,7 @@ export default function CoachCard({ coach, matchReason }: Props) {
         >
             {/* Portrait */}
             <div className="relative aspect-square overflow-hidden bg-dark-700">
-                {founding ? (
+                {showPhoto ? (
                     <img
                         src={coach.media.portrait}
                         alt={`Portrait of ${coach.name}`}
