@@ -1750,6 +1750,7 @@ export const coaches: Coach[] = [
         tagline:
             'Positive running coach pairing data with feel — for dedicated runners training for performance.',
         isFoundingCoach: false,
+        isProCoach: true,
         status: 'accepting',
         disciplines: ['running'],
         specialties: ['5K', '10K', 'half marathon', 'marathon', 'trail running', 'fueling', 'mindset'],
