@@ -963,7 +963,7 @@
     }
   },
   "announcement": {
-    "desktop": "Wechselst du von TrainingPeaks? Wir übernehmen deine komplette Trainingsbibliothek und richten dich in einem Onboarding-Call ein.",
-    "mobile": "Wechsel von TrainingPeaks? Wir übernehmen deine Bibliothek."
+    "desktop": "Wechselst du von TrainingPeaks oder Final Surge? Wir übernehmen deine komplette Trainingsbibliothek und richten dich in einem Onboarding-Call ein.",
+    "mobile": "Wechsel von TrainingPeaks oder Final Surge? Wir übernehmen deine Bibliothek."
   }
 }

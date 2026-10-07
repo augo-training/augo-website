@@ -1019,7 +1019,7 @@
     }
   },
   "announcement": {
-    "desktop": "Switching from TrainingPeaks? We migrate your full workout library and set you up on an onboarding call.",
-    "mobile": "Switching from TrainingPeaks? We'll migrate your library."
+    "desktop": "Switching from TrainingPeaks or Final Surge? We migrate your full workout library and set you up on an onboarding call.",
+    "mobile": "Switching from TrainingPeaks or Final Surge? We'll migrate your library."
   }
 }
