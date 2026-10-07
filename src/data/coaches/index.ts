@@ -29,6 +29,14 @@ function foundingRank(slug: string): number {
     return i === -1 ? FOUNDING_ORDER.length : i
 }
 
+// augo Pro coaches (paying customers) get their own group under the founders.
+// A founding coach who also pays stays with the founders.
+export function isProGroup(coach: Coach): boolean {
+    return !!coach.isProCoach && !coach.isFoundingCoach
+}
+
+const byName = (a: Coach, b: Coach) => a.name.localeCompare(b.name)
+
 // Founding coaches always sit on top of the default browse order, sorted by the
 // priority above (Array.sort is stable, so unranked founders keep roster order).
 // Search results override this — relevance wins there.
@@ -36,10 +44,11 @@ export const coaches: Coach[] = [
     ...rawCoaches
         .filter((c) => c.isFoundingCoach)
         .sort((a, b) => foundingRank(a.slug) - foundingRank(b.slug)),
-    // Everyone else is shown alphabetically by name.
+    // Then augo Pro coaches, then everyone else, each alphabetically by name.
+    ...rawCoaches.filter(isProGroup).sort(byName),
     ...rawCoaches
-        .filter((c) => !c.isFoundingCoach)
-        .sort((a, b) => a.name.localeCompare(b.name)),
+        .filter((c) => !c.isFoundingCoach && !isProGroup(c))
+        .sort(byName),
 ]
 
 // "City, Country" for display — collapses to just the country when a coach only

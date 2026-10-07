@@ -248,6 +248,33 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.augotraining.com/en/coaches/alex-ferrario/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/coaches/alex-ferrario/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/coaches/alex-ferrario/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/coaches/alex-ferrario/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/coaches/alex-ferrario/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/de/coaches/alex-ferrario/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/coaches/alex-ferrario/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/coaches/alex-ferrario/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/coaches/alex-ferrario/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/coaches/alex-ferrario/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/pt/coaches/alex-ferrario/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/coaches/alex-ferrario/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/coaches/alex-ferrario/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/coaches/alex-ferrario/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/coaches/alex-ferrario/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.augotraining.com/en/coaches/alexander-graf/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/coaches/alexander-graf/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/coaches/alexander-graf/" />
@@ -1648,6 +1675,33 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/coaches/rodrigo-moro-backes/" />
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/coaches/rodrigo-moro-backes/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/coaches/rodrigo-moro-backes/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/en/coaches/roozbeh-taheri/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/coaches/roozbeh-taheri/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/coaches/roozbeh-taheri/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/coaches/roozbeh-taheri/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/coaches/roozbeh-taheri/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/de/coaches/roozbeh-taheri/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/coaches/roozbeh-taheri/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/coaches/roozbeh-taheri/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/coaches/roozbeh-taheri/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/coaches/roozbeh-taheri/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/pt/coaches/roozbeh-taheri/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/coaches/roozbeh-taheri/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/coaches/roozbeh-taheri/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/coaches/roozbeh-taheri/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/coaches/roozbeh-taheri/" />
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

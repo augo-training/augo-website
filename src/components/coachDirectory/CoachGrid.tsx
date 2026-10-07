@@ -2,6 +2,7 @@ import { useMemo, useState, type ReactNode } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import type { Coach, Discipline } from '../../data/coaches/types'
 import type { CoachSearchResult } from '../../utils/coachSearch'
+import { isProGroup } from '../../data/coaches'
 import CoachCard from './CoachCard'
 import CoachCompactCard from './CoachCompactCard'
 import SportFilter, { type SportFilterValue } from './SportFilter'
@@ -85,8 +86,9 @@ export default function CoachGrid({ coaches, searchResults, excludeFounding = fa
         () => orderedCoaches.filter((c) => c.isFoundingCoach),
         [orderedCoaches],
     )
+    const proOrdered = useMemo(() => orderedCoaches.filter(isProGroup), [orderedCoaches])
     const nonFoundingOrdered = useMemo(
-        () => orderedCoaches.filter((c) => !c.isFoundingCoach),
+        () => orderedCoaches.filter((c) => !c.isFoundingCoach && !isProGroup(c)),
         [orderedCoaches],
     )
 
@@ -140,6 +142,35 @@ export default function CoachGrid({ coaches, searchResults, excludeFounding = fa
                                             key={coach.slug}
                                             coach={coach}
                                             matchReason={reasonByCoach?.get(coach.slug)}
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
+                        {/* augo Pro coaches (paying customers) — photo cards, monogram until a photo is added */}
+                        {proOrdered.length > 0 && (
+                            <div className="flex flex-col gap-6">
+                                <div className="flex flex-col gap-2">
+                                    <div className="flex items-baseline justify-between gap-4">
+                                        <span className="font-mono text-[11px] sm:text-[12px] tracking-[3px] uppercase text-white/55">
+                                            augo Pro coaches
+                                        </span>
+                                        <span className="font-mono text-[11px] tracking-[3px] uppercase text-white/30 tabular-nums">
+                                            {String(proOrdered.length).padStart(2, '0')}
+                                        </span>
+                                    </div>
+                                    <p className="font-satoshi text-[14px] sm:text-[15px] leading-[150%] text-text-muted max-w-[560px]">
+                                        Coaches who run their practice on augo Pro.
+                                    </p>
+                                </div>
+                                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4">
+                                    {proOrdered.map((coach) => (
+                                        <CoachCard
+                                            key={coach.slug}
+                                            coach={coach}
+                                            matchReason={reasonByCoach?.get(coach.slug)}
+                                            size="sm"
                                         />
                                     ))}
                                 </div>
