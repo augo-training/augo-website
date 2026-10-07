@@ -10,9 +10,11 @@ import CoachMonogram from './CoachMonogram'
 interface Props {
     coach: Coach
     matchReason?: string
+    /** 'sm' is the denser second-tier card used for augo Pro coaches. */
+    size?: 'md' | 'sm'
 }
 
-export default function CoachCard({ coach, matchReason }: Props) {
+export default function CoachCard({ coach, matchReason, size = 'md' }: Props) {
     const { lang } = useParams<{ lang: string }>()
     const currentLang = lang ?? 'en'
     const href = `/${currentLang}/coaches/${coach.slug}`
@@ -20,6 +22,7 @@ export default function CoachCard({ coach, matchReason }: Props) {
     const founding = coach.isFoundingCoach
     // augo Pro coaches also use this card; they show their photo once it's added.
     const showPhoto = founding || hasPortrait(coach)
+    const sm = size === 'sm'
 
     return (
         <Link
@@ -60,26 +63,46 @@ export default function CoachCard({ coach, matchReason }: Props) {
                 )}
 
                 {/* Disciplines — bottom-left of portrait */}
-                <div className="absolute bottom-3 left-3 inline-flex items-center gap-2 px-2.5 py-1.5 rounded-full bg-dark/70 backdrop-blur-sm ring-1 ring-white/10">
-                    <DisciplineIcons disciplines={coach.disciplines} size={14} />
+                <div
+                    className={`absolute inline-flex items-center gap-2 rounded-full bg-dark/70 backdrop-blur-sm ring-1 ring-white/10 ${
+                        sm ? 'bottom-2 left-2 px-2 py-1' : 'bottom-3 left-3 px-2.5 py-1.5'
+                    }`}
+                >
+                    <DisciplineIcons disciplines={coach.disciplines} size={sm ? 12 : 14} />
                 </div>
             </div>
 
             {/* Body */}
-            <div className="p-5 sm:p-6 flex flex-col gap-3">
-                <div className="flex items-baseline justify-between gap-3">
-                    <span className="font-mono text-[10px] sm:text-[11px] tracking-[2px] uppercase text-white/55">
+            <div className={`flex flex-col ${sm ? 'p-4 gap-2' : 'p-5 sm:p-6 gap-3'}`}>
+                <div className={`flex items-baseline justify-between ${sm ? 'flex-wrap gap-x-3 gap-y-1' : 'gap-3'}`}>
+                    <span
+                        className={`font-mono uppercase text-white/55 ${
+                            sm ? 'text-[9.5px] tracking-[1.5px]' : 'text-[10px] sm:text-[11px] tracking-[2px]'
+                        }`}
+                    >
                         {coach.location.country}
                         {coach.gender && ` · ${GENDER_LABEL[coach.gender]}`}
                     </span>
-                    <span className="font-mono text-[10px] sm:text-[11px] tracking-[1.5px] uppercase text-white/55">
+                    <span
+                        className={`font-mono tracking-[1.5px] uppercase text-white/55 ${
+                            sm ? 'text-[9.5px]' : 'text-[10px] sm:text-[11px]'
+                        }`}
+                    >
                         {coach.languages.map((l) => l.code.toUpperCase()).join('/')}
                     </span>
                 </div>
-                <h3 className="font-satoshi font-bold text-[22px] sm:text-[26px] leading-[110%] tracking-[-0.015em] text-white">
+                <h3
+                    className={`font-satoshi font-bold leading-[110%] tracking-[-0.015em] text-white ${
+                        sm ? 'text-[17px] sm:text-[19px]' : 'text-[22px] sm:text-[26px]'
+                    }`}
+                >
                     {coach.name}
                 </h3>
-                <p className="font-satoshi text-[14px] sm:text-[15px] leading-[145%] text-text-muted line-clamp-2">
+                <p
+                    className={`font-satoshi leading-[145%] text-text-muted line-clamp-2 ${
+                        sm ? 'text-[13px]' : 'text-[14px] sm:text-[15px]'
+                    }`}
+                >
                     {coach.tagline}
                 </p>
 
@@ -89,7 +112,11 @@ export default function CoachCard({ coach, matchReason }: Props) {
                     </p>
                 )}
 
-                <div className="flex items-center justify-between mt-2 pt-3 border-t border-white/[0.06]">
+                <div
+                    className={`flex items-center justify-between border-t border-white/[0.06] ${
+                        sm ? 'mt-1 pt-2.5' : 'mt-2 pt-3'
+                    }`}
+                >
                     <span className="font-mono text-[10px] tracking-[2px] uppercase text-white/50">
                         View profile
                     </span>

@@ -164,12 +164,13 @@ export default function CoachGrid({ coaches, searchResults, excludeFounding = fa
                                         Coaches who run their practice on augo Pro.
                                     </p>
                                 </div>
-                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 sm:gap-6">
+                                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4">
                                     {proOrdered.map((coach) => (
                                         <CoachCard
                                             key={coach.slug}
                                             coach={coach}
                                             matchReason={reasonByCoach?.get(coach.slug)}
+                                            size="sm"
                                         />
                                     ))}
                                 </div>
