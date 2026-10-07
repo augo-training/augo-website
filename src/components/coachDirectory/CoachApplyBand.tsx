@@ -2,11 +2,10 @@ import { ArrowRight, Award, Check } from 'lucide-react'
 import { trackCtaClicked } from '../../utils/analytics'
 import { ambassadorFormUrl, matchingFormUrl } from '../find/matchingForm'
 
-const AMBASSADOR_BENEFITS = [
+const ENGAGE_BENEFITS = [
     'Shape the future of augo with your input',
     'Early access to new features',
-    'Preferential matching — more athletes sent your way',
-    '50% off augo for 12 months*',
+    "Featured on augo's social media and blog",
     'Limited spots',
 ]
 
@@ -19,9 +18,9 @@ export default function CoachApplyBand() {
         })
     }
 
-    function handleAmbassadorClick() {
+    function handleEngageClick() {
         trackCtaClicked({
-            cta_text: 'Apply as ambassador',
+            cta_text: 'Apply to join',
             cta_location: 'ambassador-band',
             destination: ambassadorFormUrl(),
         })
@@ -68,17 +67,17 @@ export default function CoachApplyBand() {
                         </a>
                     </div>
 
-                    {/* augo ambassador — deliberately quiet; for coaches who read the details */}
+                    {/* Engage Group — deliberately quiet; for coaches who read the details */}
                     <div className="flex flex-col gap-4 rounded-2xl ring-1 ring-white/[0.08] p-6 sm:p-8">
                         <span className="inline-flex items-center gap-1.5 font-mono text-[11px] sm:text-[12px] tracking-[3px] uppercase text-white/45">
                             <Award className="w-3.5 h-3.5 flex-shrink-0" strokeWidth={2} aria-hidden="true" />
-                            augo ambassador
+                            Engage Group
                         </span>
                         <p className="font-satoshi text-[14px] sm:text-[15px] leading-[150%] text-white/60">
-                            An exclusive group co-creating augo.
+                            Co-creating augo.
                         </p>
                         <ul className="flex flex-col gap-2">
-                            {AMBASSADOR_BENEFITS.map((benefit) => (
+                            {ENGAGE_BENEFITS.map((benefit) => (
                                 <li
                                     key={benefit}
                                     className="flex items-start gap-2.5 font-satoshi text-[13px] sm:text-[14px] leading-[145%] text-white/45"
@@ -92,17 +91,14 @@ export default function CoachApplyBand() {
                                 </li>
                             ))}
                         </ul>
-                        <p className="font-satoshi text-[11px] leading-[145%] text-white/30">
-                            *Terms and conditions apply.
-                        </p>
                         <a
                             href={ambassadorFormUrl()}
                             target="_blank"
                             rel="noopener noreferrer"
-                            onClick={handleAmbassadorClick}
+                            onClick={handleEngageClick}
                             className="mt-auto self-start inline-flex items-center gap-2 font-mono text-[12px] font-extrabold tracking-[2px] uppercase text-white/60 rounded-lg px-5 py-3 ring-1 ring-white/15 hover:text-white hover:ring-white/40 transition-all cursor-pointer bg-transparent"
                         >
-                            Apply as ambassador <ArrowRight className="w-3.5 h-3.5" strokeWidth={2.5} />
+                            Apply to join <ArrowRight className="w-3.5 h-3.5" strokeWidth={2.5} />
                         </a>
                     </div>
                 </div>
