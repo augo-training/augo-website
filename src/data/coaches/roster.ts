@@ -38,6 +38,8 @@ const GSW: CoachLanguage = { code: 'gsw', flag: '🇨🇭', label: 'Swiss German
 const MT: CoachLanguage = { code: 'mt', flag: '🇲🇹', label: 'Maltese' }
 const AF: CoachLanguage = { code: 'af', flag: '🇿🇦', label: 'Afrikaans' }
 const HE: CoachLanguage = { code: 'he', flag: '🇮🇱', label: 'Hebrew' }
+const DA: CoachLanguage = { code: 'da', flag: '🇩🇰', label: 'Danish' }
+const FA: CoachLanguage = { code: 'fa', flag: '🇮🇷', label: 'Persian' }
 
 export const coaches: Coach[] = [
     {
@@ -2210,5 +2212,71 @@ export const coaches: Coach[] = [
         },
         media: { portrait: placeholderPortrait },
         socials: { website: 'https://predictive-coaching.com/' },
+    },
+    {
+        slug: 'roozbeh-taheri',
+        name: 'Roozbeh Taheri',
+        firstName: 'Roozbeh',
+        gender: 'male',
+        tagline:
+            'Goal-oriented, analytical trail and mountain running coach for coachable athletes focused on long-term growth.',
+        isFoundingCoach: false,
+        status: 'accepting',
+        disciplines: ['running'],
+        specialties: ['trail running', 'mountain running', 'road running', '5K', 'marathon', 'ultra', '100km'],
+        location: { city: 'Tehran', country: 'Iran', countryCode: 'IR', timezone: 'Asia/Tehran' },
+        coachesRemote: true,
+        languages: [EN, FA],
+        credentials: ['UESCA Ultrarunning Coach'],
+        yearsCoaching: 18,
+        athleteLevels: ['Beginner'],
+        communication: 'always-on',
+        offersStrength: true,
+        idealAthlete:
+            'Highly coachable, self-motivated athletes who train 4–5 days a week, communicate openly and want long-term improvement',
+        bio: {
+            short:
+                'Goal-oriented, analytical, independent and ambitious coach specialising in trail and mountain running.',
+            long: [
+                'Roozbeh is a Tehran-based sports professional with a background in sports management, endurance coaching and international commercial law. He has been coaching since 2008 and specialises in trail and mountain running.',
+                'He coaches trail and road running from the 5K through the marathon to 100km. He is a UESCA-certified ultrarunning coach, includes strength training, and is available to his athletes around the clock.',
+                'He looks for highly coachable, self-motivated athletes who train four to five days a week, value teamwork over personal stats, communicate openly and focus on long-term growth.',
+            ],
+            philosophy: 'Coachability, open communication and patience build long-term growth.',
+        },
+        media: { portrait: placeholderPortrait },
+        socials: { website: 'https://www.maraltrailrunning.com' },
+    },
+    {
+        slug: 'alex-ferrario',
+        name: 'Alex Ferrario',
+        firstName: 'Alex',
+        gender: 'male',
+        tagline:
+            'Flexible long-course triathlon coach for competitive athletes juggling sport with work and family.',
+        isFoundingCoach: false,
+        status: 'accepting',
+        disciplines: ['triathlon', 'running', 'cycling'],
+        specialties: ['70.3', 'Ironman', 'long-course triathlon', 'marathon', 'half marathon'],
+        location: { city: 'Copenhagen', country: 'Denmark', countryCode: 'DK', timezone: 'Europe/Copenhagen' },
+        coachesRemote: true,
+        languages: [EN, ES, IT, DE, DA],
+        credentials: ["Master's in High Performance of Endurance Sports"],
+        yearsCoaching: 10,
+        athleteLevels: ['Intermediate'],
+        communication: 'always-on',
+        offersStrength: true,
+        idealAthlete: 'Intermediate athletes preparing for an Ironman',
+        bio: {
+            short:
+                'Very flexible coach for competitive triathletes and runners who balance training with work and family life.',
+            long: [
+                'Alex is a Copenhagen-based coach who has been coaching since 2016. He coaches triathlon, road running and cycling, with a focus on long-course triathlon (Ironman and Half Ironman) and the marathon and half marathon.',
+                "He holds a Master's degree in High Performance of Endurance Sports, includes strength training, and is available to his athletes around the clock. He coaches in English, Spanish, Italian, German and Danish.",
+                'He is particularly keen on working with intermediate, competitive athletes who are preparing for an Ironman while juggling sport with work and family.',
+            ],
+            philosophy: 'A flexible plan that fits work and family gets you to the Ironman start line.',
+        },
+        media: { portrait: placeholderPortrait },
     },
 ]
