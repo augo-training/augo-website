@@ -103,7 +103,7 @@ export const AGENDA: AgendaItem[] = [
         title: 'Build 2: your hard problem',
         owner: 'You',
         minutes: 90,
-        note: 'Pick the task you named in your intake form and build a repeatable workflow for it: race debrief, injury pattern review, fuelling check, season review. Pairs are fine. augo’s team supports. You build.',
+        note: 'Pick a challenge from your own coaching and build a repeatable workflow for it: race debrief, injury pattern review, fuelling check, season review. Pairs are fine. augo’s team supports. You build.',
     },
     { time: '15:00', title: 'Break', kind: 'break' },
     {
