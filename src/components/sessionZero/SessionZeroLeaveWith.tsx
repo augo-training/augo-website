@@ -4,7 +4,6 @@ const pad = (n: number) => String(n).padStart(2, '0')
 
 export default function SessionZeroLeaveWith() {
     const { leaveWith } = COPY
-    const count = pad(leaveWith.items.length)
 
     return (
         <section
@@ -20,14 +19,9 @@ export default function SessionZeroLeaveWith() {
                 </h2>
 
                 <div className="mt-12 sm:mt-14 flex flex-col gap-5">
-                    <div className="flex items-baseline justify-between gap-6">
-                        <p className="font-mono text-[11px] sm:text-[12px] tracking-[3px] uppercase text-white/55">
-                            {leaveWith.label}
-                        </p>
-                        <p className="font-mono text-[11px] sm:text-[12px] tracking-[3px] uppercase text-white/30 tabular-nums">
-                            {count} / {count}
-                        </p>
-                    </div>
+                    <p className="font-mono text-[11px] sm:text-[12px] tracking-[3px] uppercase text-white/55">
+                        {leaveWith.label}
+                    </p>
 
                     <dl className="flex flex-col">
                         {leaveWith.items.map((item, i) => (

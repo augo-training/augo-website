@@ -73,6 +73,7 @@ export const AGENDA: AgendaItem[] = [
         time: '09:20',
         title: 'Opening round',
         owner: 'Everyone',
+        minutes: 25,
         note: 'Introductions. What makes a great coach. How much you already use AI, and for what. What you want it to bring to coaching, and what you are afraid of.',
     },
     {
@@ -80,14 +81,14 @@ export const AGENDA: AgendaItem[] = [
         title: 'Where coaching is going',
         owner: 'augo',
         minutes: 30,
-        note: 'Plans are being commoditised. The irreplaceable coach works at the level of connection. AI is a lever for that connection, not a replacement for it.',
+        note: 'Our vision of the future: how coaching is changing, what changes, and what stays.',
     },
     {
         time: '10:15',
         title: 'A week in augo',
         owner: 'augo',
         minutes: 30,
-        note: 'A coach walks through their actual last week: signals, chat, feedback, notes, the assistant, a connector query. A real athlete, real messiness.',
+        note: 'A coach walks through their week in augo: how they use the in-app assistant and augo with Claude to save time and gain depth.',
     },
     { time: '10:45', title: 'Break', kind: 'break' },
     {
@@ -95,9 +96,9 @@ export const AGENDA: AgendaItem[] = [
         title: 'Build 1: your personalised dashboard',
         owner: 'You',
         minutes: 75,
-        note: 'Hands-on. Build your own dashboard with augo’s connector and Claude or ChatGPT. Whatever you have always wanted to see. Open-ended, to get your hands on the tool.',
+        note: 'Hands-on. Build your own dashboard with augo’s connector and Claude or ChatGPT. Whatever you have always wanted to see.',
     },
-    { time: '12:15', title: 'Lunch. Long, on purpose.', kind: 'break' },
+    { time: '12:15', title: 'Lunch', kind: 'break' },
     {
         time: '13:30',
         title: 'Build 2: your hard problem',
@@ -111,7 +112,7 @@ export const AGENDA: AgendaItem[] = [
         title: 'Show and tell',
         owner: 'You',
         minutes: 60,
-        note: 'What I built, what surprised me, what I would change. The block you will remember.',
+        note: 'What you built, what surprised you, what you would change. The block you will remember.',
     },
     {
         time: '16:15',
@@ -153,7 +154,7 @@ export const COPY = {
         statement: [
             'You’re not invited to watch where coaching is going.',
             // Non-breaking space: "it." never sits alone on the last line.
-            'You’re invited to help decide\u00A0it.',
+            'You’re invited to build\u00A0it.',
         ],
     },
 
@@ -162,34 +163,64 @@ export const COPY = {
         label: 'What you leave with',
         items: [
             {
-                label: 'A routine',
-                statement: 'An AI-supported coaching routine you built yourself, on your own athletes, during the day.',
+                label: 'Skills',
+                statement: 'Hands-on skills you keep. How to use AI to work faster, and how to use it to go deeper: more effective coaching in less time.',
             },
             {
-                label: 'A workflow',
-                statement: 'A repeatable workflow for the hardest task on your plate, built with augo’s connector and Claude or ChatGPT.',
+                label: 'Inspiration',
+                statement: 'New workflows from the room. Nine other high-level coaches showing what they built and how it changes their coaching.',
             },
             {
-                label: 'A line',
-                statement: 'A shared position on where the human coach ends and AI begins.',
-            },
-            {
-                label: 'Your name',
-                statement: 'On the first AI principles for endurance coaching, as a founding author.',
+                label: 'A mark',
+                statement: 'Your contribution to the principles of AI in coaching, as a founding author.',
             },
         ],
     },
 
     agenda: {
         title: 'The day',
-        lead: '09:00 to 17:30, run after.',
+        lead: '09:00 to 17:30.',
         label: 'Running order',
         ownerLabel: 'Owner',
     },
 
     authors: {
         title: 'Founding authors',
-        lead: 'The principles drafted in the room will be published on augo’s website as our principles for AI, with the coaches in the room as founding authors.',
+        lead: 'The principles drafted in the room will become the foundation of augo’s principles for AI in coaching, and you will be the founding authors.',
+    },
+
+    confirmed: {
+        title: 'Already confirmed',
+        label: 'Confirmed',
+        /** Of the ten seats. The counter reads "03 / 10". */
+        seats: 10,
+        /** In the order the photos are listed in SessionZeroConfirmed.tsx. */
+        coaches: [
+            {
+                name: 'Gordon Crawford',
+                facts: [
+                    'Performance Director at Triathlon Ireland. Before that, Swiss Triathlon’s national elite and U23 coach.',
+                    '35 years of coaching, from steeplechase and rugby strength and conditioning to Olympic distance, 70.3, T100 and Ironman.',
+                    'Four principles: engage, enable, educate, empower.',
+                ],
+            },
+            {
+                name: 'Reto Braendli',
+                facts: [
+                    'Swiss triathlon and cycling coach to professionals including Imogen Simmonds, Anne Reischmann and Sara Svensk.',
+                    'Athletes he coaches have placed top ten at Kona and the T100, and won Ironman titles back to back.',
+                    'A performance-lab background: lactate, gas exchange and body composition testing inform his coaching.',
+                ],
+            },
+            {
+                name: 'David Tilbury-Davis',
+                facts: [
+                    'Coaching since the mid-1990s. Loughborough-trained engineer turned evidence-led coach.',
+                    'Has coached Lionel Sanders, Ashleigh Gentle, Matt Hanson, Cody Beals and David McNamee, among others.',
+                    'Evidence first. Sentiment second. Results follow.',
+                ],
+            },
+        ],
     },
 
     closing: {

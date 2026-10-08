@@ -5,6 +5,7 @@ import SessionZeroIdea from '../components/sessionZero/SessionZeroIdea'
 import SessionZeroLeaveWith from '../components/sessionZero/SessionZeroLeaveWith'
 import SessionZeroAgenda from '../components/sessionZero/SessionZeroAgenda'
 import SessionZeroAuthors from '../components/sessionZero/SessionZeroAuthors'
+import SessionZeroConfirmed from '../components/sessionZero/SessionZeroConfirmed'
 import SessionZeroClosing from '../components/sessionZero/SessionZeroClosing'
 import {
     COPY,
@@ -83,6 +84,7 @@ export default function SessionZero() {
                     <SessionZeroAuthors />
                     <SessionZeroAgenda />
                     <SessionZeroLeaveWith />
+                    <SessionZeroConfirmed />
                     <SessionZeroClosing />
                 </main>
             )}
