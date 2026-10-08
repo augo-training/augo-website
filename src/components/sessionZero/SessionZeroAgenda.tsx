@@ -1,8 +1,6 @@
 import { useTrackSectionView } from '../../hooks/useTrackSectionView'
 import { AGENDA, COPY, SESSION_ZERO_PATH } from './constants'
 
-const pad = (n: number) => String(n).padStart(2, '0')
-
 /** Time | title and note | owner | duration. On a phone the last two fold under the time. */
 const ROW_GRID = 'grid grid-cols-[76px_1fr] sm:grid-cols-[120px_1fr_120px_72px] items-baseline gap-x-4 sm:gap-x-8'
 const META = 'font-mono text-[11px] sm:text-[12px] tracking-[1.5px] uppercase text-white/35 tabular-nums'
@@ -10,7 +8,6 @@ const META = 'font-mono text-[11px] sm:text-[12px] tracking-[1.5px] uppercase te
 export default function SessionZeroAgenda() {
     const { agenda } = COPY
     const ref = useTrackSectionView('agenda', SESSION_ZERO_PATH)
-    const count = pad(AGENDA.length)
 
     return (
         <section
@@ -36,9 +33,6 @@ export default function SessionZeroAgenda() {
                         </p>
                         <p className="hidden sm:block font-mono text-[12px] tracking-[3px] uppercase text-white/55">
                             {agenda.ownerLabel}
-                        </p>
-                        <p className="hidden sm:block font-mono text-[12px] tracking-[3px] uppercase text-white/30 tabular-nums text-right">
-                            {count} / {count}
                         </p>
                     </div>
 
