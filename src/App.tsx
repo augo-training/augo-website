@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { lazy, Suspense, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, useParams } from 'react-router-dom'
 import LanguageLayout from './components/LanguageLayout'
 import LanguageRedirect from './components/LanguageRedirect'
@@ -28,6 +28,11 @@ import Mcp from './pages/Mcp'
 import Contact from './pages/Contact'
 import Merci from './pages/Merci'
 import { setupMetaPixelConsentListener } from './utils/metaPixel'
+
+// The one lazy route. The invitation copy then lives in its own chunk, loaded
+// only when somebody opens /session-zero, instead of in the bundle every
+// visitor downloads (see components/sessionZero/constants.ts for the why).
+const SessionZero = lazy(() => import('./pages/SessionZero'))
 
 // March 26, 2026 at 20:00 Zurich time
 // DST starts March 29, 2026, so March 26 is still CET (UTC+1)
@@ -76,6 +81,18 @@ function App() {
             /merci, and nothing on the site links to it. A static path outranks
             /:lang, so it is never mistaken for a language prefix. */}
         <Route path="/merci" element={<Merci />} />
+
+        {/* Invitation to Future of Coaching: Session Zero. Unprefixed, unlinked,
+            not in the sitemap, noindex, and the body renders only in the
+            browser so the prerendered HTML carries the head alone. */}
+        <Route
+          path="/session-zero"
+          element={
+            <Suspense fallback={null}>
+              <SessionZero />
+            </Suspense>
+          }
+        />
 
         {/* Language-prefixed routes */}
         <Route path="/:lang" element={<LanguageLayout />}>

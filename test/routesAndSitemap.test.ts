@@ -22,7 +22,8 @@ describe('routes and sitemap', () => {
     // + 1 for the /en/blog index route + 3 for the /en/nice-athletes,
     // /en/nice-coaches and /en/irreplaceable-endurance-coach landing pages
     // + english-only support articles
-    // + 1 for the /en/support hub route + 1 for the unprefixed /merci page.
+    // + 1 for the /en/support hub route + 2 for the unprefixed /merci and
+    // /session-zero pages.
     expect(routes).toHaveLength(
       LANGS.length * STATIC_PATHS.length +
         LANGS.length * coachSlugs.length +
@@ -31,13 +32,17 @@ describe('routes and sitemap', () => {
         3 +
         supportSlugs.length +
         1 +
-        1,
+        2,
     )
 
     // /merci sits outside /:lang (the postcard QR points at augotraining.com/merci)
     // and exists once, with no language copies.
     expect(routes).toContain('/merci')
     expect(routes.filter((route) => route.endsWith('/merci'))).toHaveLength(1)
+
+    // Same shape for the Session Zero invitation.
+    expect(routes).toContain('/session-zero')
+    expect(routes.filter((route) => route.endsWith('/session-zero'))).toHaveLength(1)
 
     expect(routes).toContain('/en/nice-athletes')
     expect(routes.filter((route) => route.endsWith('/nice-athletes'))).toHaveLength(1)
@@ -186,5 +191,15 @@ describe('routes and sitemap', () => {
 
     expect(entries.some((e) => e.url.includes('merci'))).toBe(false)
     expect(xml).not.toContain('merci')
+  })
+
+  // The invitation is sent to ten coaches by hand. Same rule as /merci: a 200
+  // and a share card, never a sitemap entry.
+  it('keeps /session-zero out of the sitemap', async () => {
+    const entries = await getSitemapEntries()
+    const xml = renderSitemapXml(entries)
+
+    expect(entries.some((e) => e.url.includes('session-zero'))).toBe(false)
+    expect(xml).not.toContain('session-zero')
   })
 })

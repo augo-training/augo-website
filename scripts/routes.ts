@@ -156,6 +156,11 @@ export async function getAllPrerenderRoutes(): Promise<string[]> {
   // it is for the coaches holding a card. Prerendered anyway so GitHub Pages
   // answers a scan with a 200 rather than the 404.html SPA shell.
   routes.push('/merci')
+  // The Session Zero invitation. Unprefixed and English only, sent to coaches
+  // one at a time, and also absent from getSitemapEntries(). Prerendered for
+  // the same 200 and for the share card; the page itself renders an empty
+  // body under the prerender flag, so the snapshot holds the head alone.
+  routes.push('/session-zero')
   // Blog posts are English-only at launch (Substack posts are in English).
   routes.push(`/${DEFAULT_LANG}/blog`)
   const slugs = await discoverBlogSlugs()

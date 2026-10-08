@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>session zero share card</title>
+    <!--
+      The /session-zero social share card, captured by scripts/generate-og-image.ts
+      into public/session-zero-og.jpg.
+
+      Static rather than a screenshot of the page: the page body renders only in
+      the browser and the card is the one part of the invitation a crawler is
+      allowed to see, so it says exactly what the head tags say. The name, the
+      city, the date. No agenda, no seat count, no audience.
+
+      The frame is 1200x630 because that is what the og:image:width/height tags
+      on the page claim. Change one and the other starts lying.
+
+      Fonts come from the same two stylesheets index.html loads. The generator
+      waits for networkidle2 and then two seconds, which covers the fetch.
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700&display=swap" rel="stylesheet" />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+      body {
+        width: 1200px;
+        height: 630px;
+        /* --color-dark, the site's background. */
+        background: #0a0a0a;
+        color: #ffffff;
+        box-sizing: border-box;
+        padding: 72px 80px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .mono {
+        font-family: 'JetBrains Mono', monospace;
+        font-weight: 500;
+        font-size: 18px;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+      }
+      .top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .top img {
+        height: 30px;
+        width: auto;
+        display: block;
+      }
+      .top .mono {
+        color: rgba(255, 255, 255, 0.55);
+      }
+      .middle {
+        display: flex;
+        align-items: flex-start;
+        gap: 32px;
+      }
+      /* The one shape of colour on the card: a bar in the brand gradient. */
+      .bar {
+        width: 6px;
+        height: 230px;
+        margin-top: 8px;
+        border-radius: 3px;
+        background: linear-gradient(180deg, #c50017 0%, #ff5514 60%, #ffca1e 100%);
+        flex: none;
+      }
+      .eyebrow {
+        color: #ffffff;
+        margin-bottom: 28px;
+      }
+      h1 {
+        margin: 0;
+        font-family: 'Satoshi', 'Inter', sans-serif;
+        font-weight: 700;
+        font-size: 112px;
+        line-height: 0.95;
+        letter-spacing: -0.035em;
+      }
+      .bottom {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 28px;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+      }
+      .bottom .mono {
+        color: rgba(255, 255, 255, 0.7);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top">
+      <img src="../../src/assets/images/augo_footer_1.svg" alt="augo" />
+      <span class="mono">Private &middot; by invitation</span>
+    </div>
+    <div class="middle">
+      <div class="bar"></div>
+      <div>
+        <div class="mono eyebrow">Future of Coaching</div>
+        <h1>Session Zero.</h1>
+      </div>
+    </div>
+    <div class="bottom">
+      <span class="mono">Zurich</span>
+      <span class="mono">Friday 4 December 2026</span>
+    </div>
+  </body>
+</html>
