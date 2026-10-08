@@ -111,7 +111,7 @@ export const AGENDA: AgendaItem[] = [
         title: 'Show and tell',
         owner: 'You',
         minutes: 60,
-        note: 'Five to seven minutes each: what I built, what surprised me, what I would change. The block you will remember.',
+        note: 'What I built, what surprised me, what I would change. The block you will remember.',
     },
     {
         time: '16:15',
