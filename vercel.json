@@ -5,6 +5,14 @@
   "installCommand": "npm install",
   "outputDirectory": "dist",
   "trailingSlash": true,
+  "headers": [
+    {
+      "source": "/session-zero(.*)",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive, nosnippet, noimageindex" }
+      ]
+    }
+  ],
   "github": {
     "silent": true
   }
