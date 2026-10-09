@@ -2277,7 +2277,7 @@ export const coaches: Coach[] = [
         languages: [EN, ES, IT, DE, DA],
         credentials: ["Master's in High Performance of Endurance Sports"],
         yearsCoaching: 10,
-        athleteLevels: ['Intermediate'],
+        athleteLevels: ['Beginner', 'Intermediate', 'Advanced'],
         communication: 'always-on',
         offersStrength: true,
         idealAthlete: 'Intermediate athletes preparing for an Ironman',
