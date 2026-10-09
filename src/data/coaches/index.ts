@@ -13,7 +13,7 @@ export function hasPortrait(coach: Coach): boolean {
 // Founding coaches not listed here fall after, in roster order.
 const FOUNDING_ORDER: string[] = [
     'marco-altini',
-    'andrea-salvisberg',
+    'manuel-nicolau',
     'gordon-crawford',
     'bevan-mckinnon',
     'brian-boisvert',
@@ -22,6 +22,10 @@ const FOUNDING_ORDER: string[] = [
     'megan-edwards',
     'megan-tobin',
     'amanda-martin',
+    'peter-glassford',
+    'paolo-gaffurini',
+    'max-kinzlbauer',
+    'andrea-salvisberg',
 ]
 
 function foundingRank(slug: string): number {
