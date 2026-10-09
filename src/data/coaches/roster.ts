@@ -25,6 +25,7 @@ import manuelNicolauPortrait from '../../assets/images/ManuelNicolau.webp'
 import gabrielPortrait from '../../assets/images/Gabriel.webp'
 import davidTilburyDavisPortrait from '../../assets/images/DavidTilburyDavis.webp'
 import robertoPortrait from '../../assets/images/Roberto.webp'
+import gabrielePortrait from '../../assets/images/Gabriele.webp'
 // Generic placeholder for coaches without dedicated photography yet.
 import placeholderPortrait from '../../assets/images/brian-profile.webp'
 
@@ -1711,7 +1712,7 @@ export const coaches: Coach[] = [
             philosophy:
                 'The smallest amount of stress that stimulates the biggest adaptation — and an athlete who trusts their own feelings before they look at the sportwatch.',
         },
-        media: { portrait: placeholderPortrait },
+        media: { portrait: gabrielePortrait },
         socials: { website: 'https://goemon07.github.io/coach/' },
     },
     {
