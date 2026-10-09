@@ -23,14 +23,14 @@ export const SESSION_ZERO_PATH = '/session-zero'
 export const SESSION_ZERO_CANONICAL = 'https://www.augotraining.com/session-zero/'
 
 /**
- * The share card, lives at public/session-zero-og.jpg and is regenerated with
+ * The share card, lives at public/session-zero-og-v2.jpg and is regenerated with
  * `npm run og-image:session-zero` from scripts/og/session-zero-card.html. The
  * card says only what the head tags say: the name, the city and the date.
  *
  * Absolute, and on the same host as SESSION_ZERO_CANONICAL. Social crawlers do
  * not resolve relative URLs and several do not follow redirects for images.
  */
-export const SESSION_ZERO_OG_IMAGE = 'https://www.augotraining.com/session-zero-og.jpg'
+export const SESSION_ZERO_OG_IMAGE = 'https://www.augotraining.com/session-zero-og-v2.jpg'
 export const SESSION_ZERO_OG_IMAGE_ALT =
     'Future of Coaching: Session Zero. Zurich, Friday 4 December 2026.'
 

@@ -32,7 +32,7 @@ const TARGETS = {
   merci: { file: "og/merci-card.html", out: "merci-og.jpg" },
   // Static as well: the page body is client-only and must not be photographed,
   // and the card should say no more than the head tags do.
-  "session-zero": { file: "og/session-zero-card.html", out: "session-zero-og.jpg" },
+  "session-zero": { file: "og/session-zero-card.html", out: "session-zero-og-v2.jpg" },
 } as const;
 
 type TargetName = keyof typeof TARGETS;
