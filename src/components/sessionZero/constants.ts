@@ -23,14 +23,14 @@ export const SESSION_ZERO_PATH = '/session-zero'
 export const SESSION_ZERO_CANONICAL = 'https://www.augotraining.com/session-zero/'
 
 /**
- * The share card, lives at public/session-zero-og.jpg and is regenerated with
+ * The share card, lives at public/session-zero-og-v2.jpg and is regenerated with
  * `npm run og-image:session-zero` from scripts/og/session-zero-card.html. The
  * card says only what the head tags say: the name, the city and the date.
  *
  * Absolute, and on the same host as SESSION_ZERO_CANONICAL. Social crawlers do
  * not resolve relative URLs and several do not follow redirects for images.
  */
-export const SESSION_ZERO_OG_IMAGE = 'https://www.augotraining.com/session-zero-og.jpg'
+export const SESSION_ZERO_OG_IMAGE = 'https://www.augotraining.com/session-zero-og-v2.jpg'
 export const SESSION_ZERO_OG_IMAGE_ALT =
     'Future of Coaching: Session Zero. Zurich, Friday 4 December 2026.'
 
@@ -207,7 +207,7 @@ export const COPY = {
             {
                 name: 'Reto Braendli',
                 facts: [
-                    'Swiss triathlon and cycling coach to professionals including Imogen Simmonds, Anne Reischmann and Sara Svensk.',
+                    'Swiss triathlon and cycling coach to professional athletes.',
                     'Athletes he coaches have placed top ten at Kona and the T100, and won Ironman titles back to back.',
                     'A performance-lab background: lactate, gas exchange and body composition testing inform his coaching.',
                 ],
@@ -215,9 +215,9 @@ export const COPY = {
             {
                 name: 'David Tilbury-Davis',
                 facts: [
-                    'Coaching since the mid-1990s. Loughborough-trained engineer turned evidence-led coach.',
-                    'Has coached Lionel Sanders, Ashleigh Gentle, Matt Hanson, Cody Beals and David McNamee, among others.',
-                    'Evidence first. Sentiment second. Results follow.',
+                    'Over 30 years of coaching athletes at the very tip of world class performance of Triathlon, Cycling, Mountain Biking and UFC.',
+                    'Has coached notably Ashleigh Gentle, Skye Moench, Lotte Wilms, Lionel Sanders, Bart Aernouts, Cody Beals and Matt Hanson.',
+                    'Has an evidence-led style grounded in empowering and embedding the right behaviours for athletes to achieve the highest level of success they are capable of.',
                 ],
             },
         ],
