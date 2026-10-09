@@ -1,7 +1,5 @@
 import type { Coach, CoachLanguage } from './types'
 
-import brianPortrait from '../../assets/images/Brian.png'
-import brianHero from '../../assets/images/brian-hero.webp'
 import marcoPortrait from '../../assets/images/Marco.webp'
 import meganPortrait from '../../assets/images/Megan.png'
 import meganTobinPortrait from '../../assets/images/MeganTobin.png'
@@ -123,44 +121,6 @@ export const coaches: Coach[] = [
             philosophy: "Healthy runners hit goals. Manage the body and the rest follows.",
         },
         media: { portrait: meganPortrait },
-    },
-    {
-        slug: 'brian-boisvert',
-        name: 'Brian Boisvert',
-        firstName: 'Brian',
-        gender: 'male',
-        tagline:
-            'Warm, motivational coach for runners ready to take training seriously without taking themselves too seriously.',
-        isFoundingCoach: true,
-        status: 'accepting',
-        disciplines: ['running'],
-        specialties: ['marathon', 'half marathon', 'sustainable training', 'nontraditional schedules'],
-        location: { city: 'London', country: 'United Kingdom', countryCode: 'GB', timezone: 'Europe/London' },
-        coachesRemote: true,
-        languages: [EN],
-        credentials: [
-            'RRCA Level II Coach',
-            'Level 3 Personal Trainer',
-            'Registered Yoga Teacher (RYT 200)',
-        ],
-        yearsCoaching: 6,
-        athleteLevels: ['Intermediate'],
-        communication: 'weekly',
-        offersStrength: true,
-        idealAthlete: 'Runners who already run regularly and are ready to train more seriously',
-        bio: {
-            short:
-                'Soft, joyful coaching with sharp running results. Brian builds runners for the long arc — and the long run.',
-            long: [
-                'Brian coaches intermediate runners who already love the sport, run regularly, and are ready to seriously explore what they can do.',
-                "His tone is friendly, queer-affirming, funny, and unfailingly motivational — but his work is rigorous. He takes great care to actually get to know each runner before writing a plan.",
-                "Especially open to athletes with nontraditional schedules and lifestyles.",
-            ],
-            philosophy:
-                'Self-compassion is the most underrated training tool. Sustainable progress beats heroic blocks.',
-        },
-        media: { portrait: brianPortrait, hero: brianHero },
-        socials: { website: 'https://greatdayforrunners.com' },
     },
     {
         slug: 'manuel-wyss',
