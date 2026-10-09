@@ -1,12 +1,13 @@
 import gordon from '../../assets/images/advisor-gordon.png'
 import reto from '../../assets/images/advisor-reto.png'
 import david from '../../assets/images/session-zero-david.jpg'
+import nico from '../../assets/images/session-zero-nico.jpg'
 import { COPY } from './constants'
 
 const pad = (n: number) => String(n).padStart(2, '0')
 
 /** Same order as COPY.confirmed.coaches. Gordon and Reto reuse the advisor portraits. */
-const PHOTOS = [gordon, reto, david]
+const PHOTOS = [gordon, reto, david, nico]
 
 export default function SessionZeroConfirmed() {
     const { confirmed } = COPY
@@ -34,7 +35,7 @@ export default function SessionZeroConfirmed() {
                         </p>
                     </div>
 
-                    <ul className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 lg:gap-8">
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-6 lg:gap-8">
                         {confirmed.coaches.map(({ name, facts }, i) => (
                             <li key={name} className="group flex flex-col gap-4">
                                 {/* Portraits sit in the page's black-and-white world, like the hero clip. */}
