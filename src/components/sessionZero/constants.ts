@@ -192,7 +192,7 @@ export const COPY = {
     confirmed: {
         title: 'Already confirmed',
         label: 'Confirmed',
-        /** Of the ten seats. The counter reads "03 / 10". */
+        /** Of the ten seats. The counter reads "04 / 10". */
         seats: 10,
         /** In the order the photos are listed in SessionZeroConfirmed.tsx. */
         coaches: [
@@ -218,6 +218,14 @@ export const COPY = {
                     'Over 30 years of coaching athletes at the very tip of world class performance of Triathlon, Cycling, Mountain Biking and UFC.',
                     'Has coached notably Ashleigh Gentle, Skye Moench, Lotte Wilms, Lionel Sanders, Bart Aernouts, Cody Beals and Matt Hanson.',
                     'Has an evidence-led style grounded in empowering and embedding the right behaviours for athletes to achieve the highest level of success they are capable of.',
+                ],
+            },
+            {
+                name: 'Nico Montavon',
+                facts: [
+                    'Founder and Head Coach of Ris3 Sport. Former Swiss Triathlon National Junior Coach and Head Coach of the National Training Centre.',
+                    'Coach of Olympians, developing athletes from junior to elite level, from short course to Ironman distance.',
+                    'Human-first coaching built on trust, authenticity and sense of responsibility: progression over comparison, where sustainable performance grows from a healthy, balanced athlete.',
                 ],
             },
         ],
