@@ -21,6 +21,10 @@ import maxPortrait from '../../assets/images/Max.png'
 import sanderPortrait from '../../assets/images/Sander.png'
 import amandaPortrait from '../../assets/images/Amanda.png'
 import brunaPortrait from '../../assets/images/bruna-track.webp'
+import manuelNicolauPortrait from '../../assets/images/ManuelNicolau.webp'
+import gabrielPortrait from '../../assets/images/Gabriel.webp'
+import davidTilburyDavisPortrait from '../../assets/images/DavidTilburyDavis.webp'
+import robertoPortrait from '../../assets/images/Roberto.webp'
 // Generic placeholder for coaches without dedicated photography yet.
 import placeholderPortrait from '../../assets/images/brian-profile.webp'
 
@@ -858,7 +862,7 @@ export const coaches: Coach[] = [
             ],
             philosophy: 'Evidence first. Sentiment second. Results follow.',
         },
-        media: { portrait: placeholderPortrait },
+        media: { portrait: davidTilburyDavisPortrait },
         socials: { website: 'https://www.tilburydavis.com' },
     },
     {
@@ -1666,7 +1670,7 @@ export const coaches: Coach[] = [
             philosophy:
                 'Running is not just performance. It is enjoying movement and nature, taking on new challenges, and discovering what you are capable of.',
         },
-        media: { portrait: placeholderPortrait },
+        media: { portrait: robertoPortrait },
         socials: { website: 'https://www.movimentor.ch' },
     },
     {
@@ -2330,7 +2334,7 @@ export const coaches: Coach[] = [
             philosophy:
                 'Test, measure, then prescribe: physiological profiling shows where the ceiling is and how to break through it.',
         },
-        media: { portrait: placeholderPortrait },
+        media: { portrait: manuelNicolauPortrait },
         socials: { website: 'https://www.space-trainingcentre.com' },
     },
     {
@@ -2374,7 +2378,7 @@ export const coaches: Coach[] = [
             ],
             philosophy: 'Science sets the principles; the individual athlete decides how they are applied.',
         },
-        media: { portrait: placeholderPortrait },
+        media: { portrait: gabrielPortrait },
         socials: { website: 'https://www.space-trainingcentre.com/' },
     },
 ]
