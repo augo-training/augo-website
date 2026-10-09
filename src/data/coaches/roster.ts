@@ -26,6 +26,7 @@ import gabrielPortrait from '../../assets/images/Gabriel.webp'
 import davidTilburyDavisPortrait from '../../assets/images/DavidTilburyDavis.webp'
 import robertoPortrait from '../../assets/images/Roberto.webp'
 import gabrielePortrait from '../../assets/images/Gabriele.webp'
+import gregoryPortrait from '../../assets/images/Gregory.webp'
 // Generic placeholder for coaches without dedicated photography yet.
 import placeholderPortrait from '../../assets/images/brian-profile.webp'
 
@@ -761,7 +762,7 @@ export const coaches: Coach[] = [
             ],
             philosophy: "Stay open. Stay organised. Don't outsource your coach to TikTok.",
         },
-        media: { portrait: placeholderPortrait },
+        media: { portrait: gregoryPortrait },
         socials: { website: 'https://www.cooach.ch' },
     },
     {
