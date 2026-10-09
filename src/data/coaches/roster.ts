@@ -1,7 +1,5 @@
 import type { Coach, CoachLanguage } from './types'
 
-import brianPortrait from '../../assets/images/Brian.png'
-import brianHero from '../../assets/images/brian-hero.webp'
 import marcoPortrait from '../../assets/images/Marco.webp'
 import meganPortrait from '../../assets/images/Megan.png'
 import meganTobinPortrait from '../../assets/images/MeganTobin.png'
@@ -16,11 +14,17 @@ import andreaPortrait from '../../assets/images/Andrea.png'
 import bevanPortrait from '../../assets/images/Bevan.png'
 import peterPortrait from '../../assets/images/Peter.png'
 import andersonPortrait from '../../assets/images/Anderson.png'
-import gordonPortrait from '../../assets/images/Gordon.png'
+import gordonPortrait from '../../assets/images/Gordon.webp'
 import maxPortrait from '../../assets/images/Max.png'
 import sanderPortrait from '../../assets/images/Sander.png'
 import amandaPortrait from '../../assets/images/Amanda.png'
 import brunaPortrait from '../../assets/images/bruna-track.webp'
+import manuelNicolauPortrait from '../../assets/images/ManuelNicolau.webp'
+import gabrielPortrait from '../../assets/images/Gabriel.webp'
+import davidTilburyDavisPortrait from '../../assets/images/DavidTilburyDavis.webp'
+import robertoPortrait from '../../assets/images/Roberto.webp'
+import gabrielePortrait from '../../assets/images/Gabriele.webp'
+import gregoryPortrait from '../../assets/images/Gregory.webp'
 // Generic placeholder for coaches without dedicated photography yet.
 import placeholderPortrait from '../../assets/images/brian-profile.webp'
 
@@ -117,44 +121,6 @@ export const coaches: Coach[] = [
             philosophy: "Healthy runners hit goals. Manage the body and the rest follows.",
         },
         media: { portrait: meganPortrait },
-    },
-    {
-        slug: 'brian-boisvert',
-        name: 'Brian Boisvert',
-        firstName: 'Brian',
-        gender: 'male',
-        tagline:
-            'Warm, motivational coach for runners ready to take training seriously without taking themselves too seriously.',
-        isFoundingCoach: true,
-        status: 'accepting',
-        disciplines: ['running'],
-        specialties: ['marathon', 'half marathon', 'sustainable training', 'nontraditional schedules'],
-        location: { city: 'London', country: 'United Kingdom', countryCode: 'GB', timezone: 'Europe/London' },
-        coachesRemote: true,
-        languages: [EN],
-        credentials: [
-            'RRCA Level II Coach',
-            'Level 3 Personal Trainer',
-            'Registered Yoga Teacher (RYT 200)',
-        ],
-        yearsCoaching: 6,
-        athleteLevels: ['Intermediate'],
-        communication: 'weekly',
-        offersStrength: true,
-        idealAthlete: 'Runners who already run regularly and are ready to train more seriously',
-        bio: {
-            short:
-                'Soft, joyful coaching with sharp running results. Brian builds runners for the long arc — and the long run.',
-            long: [
-                'Brian coaches intermediate runners who already love the sport, run regularly, and are ready to seriously explore what they can do.',
-                "His tone is friendly, queer-affirming, funny, and unfailingly motivational — but his work is rigorous. He takes great care to actually get to know each runner before writing a plan.",
-                "Especially open to athletes with nontraditional schedules and lifestyles.",
-            ],
-            philosophy:
-                'Self-compassion is the most underrated training tool. Sustainable progress beats heroic blocks.',
-        },
-        media: { portrait: brianPortrait, hero: brianHero },
-        socials: { website: 'https://greatdayforrunners.com' },
     },
     {
         slug: 'manuel-wyss',
@@ -756,7 +722,7 @@ export const coaches: Coach[] = [
             ],
             philosophy: "Stay open. Stay organised. Don't outsource your coach to TikTok.",
         },
-        media: { portrait: placeholderPortrait },
+        media: { portrait: gregoryPortrait },
         socials: { website: 'https://www.cooach.ch' },
     },
     {
@@ -858,7 +824,7 @@ export const coaches: Coach[] = [
             ],
             philosophy: 'Evidence first. Sentiment second. Results follow.',
         },
-        media: { portrait: placeholderPortrait },
+        media: { portrait: davidTilburyDavisPortrait },
         socials: { website: 'https://www.tilburydavis.com' },
     },
     {
@@ -1666,7 +1632,7 @@ export const coaches: Coach[] = [
             philosophy:
                 'Running is not just performance. It is enjoying movement and nature, taking on new challenges, and discovering what you are capable of.',
         },
-        media: { portrait: placeholderPortrait },
+        media: { portrait: robertoPortrait },
         socials: { website: 'https://www.movimentor.ch' },
     },
     {
@@ -1707,7 +1673,7 @@ export const coaches: Coach[] = [
             philosophy:
                 'The smallest amount of stress that stimulates the biggest adaptation — and an athlete who trusts their own feelings before they look at the sportwatch.',
         },
-        media: { portrait: placeholderPortrait },
+        media: { portrait: gabrielePortrait },
         socials: { website: 'https://goemon07.github.io/coach/' },
     },
     {
@@ -2271,7 +2237,7 @@ export const coaches: Coach[] = [
         languages: [EN, ES, IT, DE, DA],
         credentials: ["Master's in High Performance of Endurance Sports"],
         yearsCoaching: 10,
-        athleteLevels: ['Intermediate'],
+        athleteLevels: ['Beginner', 'Intermediate', 'Advanced'],
         communication: 'always-on',
         offersStrength: true,
         idealAthlete: 'Intermediate athletes preparing for an Ironman',
@@ -2286,5 +2252,95 @@ export const coaches: Coach[] = [
             philosophy: 'A flexible plan that fits work and family gets you to the Ironman start line.',
         },
         media: { portrait: placeholderPortrait },
+    },
+    {
+        slug: 'manuel-nicolau',
+        name: 'Manuel Nicolau',
+        firstName: 'Manuel',
+        gender: 'male',
+        tagline:
+            'Sports scientist and exercise physiologist coaching runners and triathletes past their performance ceilings with physiological testing and data.',
+        isFoundingCoach: true,
+        status: 'accepting',
+        disciplines: ['triathlon', 'running', 'cycling'],
+        specialties: [
+            '5K',
+            '10K',
+            'half marathon',
+            'marathon',
+            'road running',
+            'trail running',
+            '70.3',
+            'Ironman',
+            'physiological testing',
+            'durability',
+        ],
+        location: { city: 'Lisbon', country: 'Portugal', countryCode: 'PT', timezone: 'Europe/Lisbon' },
+        coachesRemote: true,
+        languages: [EN, PT, ES],
+        credentials: ['MSc in Sports Training', 'PhD student in Exercise Physiology'],
+        yearsCoaching: 10,
+        athleteLevels: ['Intermediate'],
+        communication: 'always-on',
+        offersStrength: true,
+        idealAthlete:
+            'Committed athletes who train with purpose, want to break through performance plateaus, and follow a data-driven process',
+        bio: {
+            short:
+                'Sports scientist and exercise physiologist combining physiological testing, data analysis and individualised training prescription.',
+            long: [
+                'Manuel is a Lisbon-based sports scientist, exercise physiologist, and athletics and triathlon coach who has been coaching since 2016. He coaches triathlon, road and trail running, and cycling, at every distance from 5K to full Ironman.',
+                'He holds an MSc in Sports Training and is a PhD student in exercise physiology. His coaching combines physiological testing, data analysis and individualised training prescription, with a particular focus on durability in endurance performance. Strength training is part of his coaching.',
+                'He looks for committed athletes who train with purpose and show up consistently, and who want to overcome their performance ceilings through scientifically backed data and physiological profiling. He coaches in English, Portuguese and Spanish, and is available to his athletes 24/7.',
+            ],
+            philosophy:
+                'Test, measure, then prescribe: physiological profiling shows where the ceiling is and how to break through it.',
+        },
+        media: { portrait: manuelNicolauPortrait },
+        socials: { website: 'https://www.space-trainingcentre.com' },
+    },
+    {
+        slug: 'gabriel-da-costa-pereira',
+        name: 'Gabriel da Costa Pereira',
+        firstName: 'Gabriel',
+        gender: 'male',
+        tagline:
+            'Science-based running coach adapting every method to the individual athlete — from 800m to ultra marathon.',
+        isFoundingCoach: false,
+        isProCoach: true,
+        status: 'accepting',
+        disciplines: ['running'],
+        specialties: [
+            '800m',
+            '1500m',
+            '5K',
+            '10K',
+            'half marathon',
+            'marathon',
+            'ultra',
+            'road running',
+            'trail running',
+        ],
+        location: { city: 'Portugal', country: 'Portugal', countryCode: 'PT', timezone: 'Europe/Lisbon' },
+        coachesRemote: true,
+        languages: [EN, PT],
+        credentials: ["Bachelor's in Sports Science", "Master's in High Performance Training"],
+        yearsCoaching: 3,
+        athleteLevels: ['Advanced'],
+        communication: 'weekly',
+        offersStrength: true,
+        idealAthlete: 'Advanced athletes with strong drive and commitment to their training',
+        bio: {
+            short:
+                'Science-based running coach who adapts his methods to each individual athlete.',
+            long: [
+                'Gabriel is a Portugal-based running coach who has been coaching since 2023. He coaches road and trail runners at every distance from the 800m up to the ultra marathon.',
+                "He holds a Bachelor's in Sports Science and a Master's in High Performance Training. His coaching is science-based, with methods adapted to each individual athlete, and includes strength training.",
+                'He prefers working with advanced athletes who show strong drive and commitment to their training, and checks in with them on a weekly basis. He coaches in English and Portuguese.',
+            ],
+            philosophy: 'Science sets the principles; the individual athlete decides how they are applied.',
+        },
+        media: { portrait: gabrielPortrait },
+        socials: { website: 'https://www.space-trainingcentre.com/' },
     },
 ]
