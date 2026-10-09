@@ -19,13 +19,13 @@ const FOUNDING_ORDER: string[] = [
     'brian-boisvert',
     'markus-lombardini',
     'stef-vanhaeren',
-    'megan-edwards',
-    'megan-tobin',
-    'amanda-martin',
-    'peter-glassford',
-    'paolo-gaffurini',
     'max-kinzlbauer',
     'andrea-salvisberg',
+    'megan-edwards',
+    'amanda-martin',
+    'paolo-gaffurini',
+    'peter-glassford',
+    'megan-tobin',
 ]
 
 function foundingRank(slug: string): number {
