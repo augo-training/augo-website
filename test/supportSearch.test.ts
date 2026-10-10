@@ -110,6 +110,9 @@ const EVAL: { query: string; expect: string; why: string }[] = [
   // get-found-by-athletes
   { query: 'how do i get listed', expect: 'get-found-by-athletes', why: 'listed -> directory group' },
   { query: 'how do i get more athletes', expect: 'get-found-by-athletes', why: 'must beat add-an-athlete' },
+  // uesca-coaches
+  { query: 'uesca discount', expect: 'uesca-coaches', why: 'uesca is only here' },
+  { query: 'what is the elite tier', expect: 'uesca-coaches', why: 'declared question form; elite is only described here' },
 ]
 
 describe('support search — eval set', () => {

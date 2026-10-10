@@ -1,0 +1,95 @@
+{
+  "slug": "uesca-coaches",
+  "title": "I'm a UESCA-certified coach. What do I get with augo?",
+  "seoTitle": "UESCA Coach Discount and Free Elite | augo support",
+  "description": "augo partners with UESCA. Certified coaches get 10% off their first 6 months, and the first 20 also get the Elite add-on free for 3 months.",
+  "summary": "augo partners with UESCA. If you hold a UESCA certification, you get 10% off your first 6 months on augo. Subscribe as usual, then email info@augotraining.com with your certificate and we apply the discount for you. The first 20 UESCA coaches can also get the Elite add-on free for 3 months: ask in the same email and we'll tell you if a spot is left.",
+  "audience": "coach",
+  "category": "account",
+  "keywords": [
+    "uesca",
+    "certification",
+    "certified",
+    "certificate",
+    "partner",
+    "partnership",
+    "discount",
+    "coupon",
+    "promo",
+    "offer",
+    "elite",
+    "add-on",
+    "account executive"
+  ],
+  "weight": 2,
+  "platforms": [
+    "ios",
+    "android",
+    "web"
+  ],
+  "datePublished": "2026-10-10",
+  "dateUpdated": "2026-10-10",
+  "body": [
+    {
+      "type": "html",
+      "html": "<h2 id=\"partnership\">The UESCA partnership</h2><p>augo partners with UESCA to support the coaches it certifies. If you hold a UESCA certification, you get <strong>10% off your first 6 months</strong> on augo. The <strong>first 20 UESCA coaches</strong> also get the Elite add-on <strong>free for 3 months</strong>.</p><p>There's no code to enter at checkout. You subscribe as normal, send us your certificate, and we apply the offer to your account.</p>"
+    },
+    {
+      "type": "steps",
+      "heading": "Get 10% off your first 6 months",
+      "steps": [
+        {
+          "title": "Subscribe to augo",
+          "html": "<p>Sign up and subscribe to augo Pro the usual way. You don't need to wait for the discount before you start.</p>"
+        },
+        {
+          "title": "Email us your certificate",
+          "html": "<p>Send your UESCA certificate, as a PDF or a screenshot, to <a href=\"mailto:info@augotraining.com\">info@augotraining.com</a>. Include the email address you use for your augo account so we can find it.</p>"
+        },
+        {
+          "title": "We apply the discount",
+          "html": "<p>We add the 10% discount to your subscription for your first 6 months and confirm by email.</p>"
+        }
+      ]
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"free-elite\">Free Elite for the first 20 UESCA coaches</h2><p>The first 20 UESCA-certified coaches who ask get the Elite add-on free for 3 months. To claim it, ask for the Elite upgrade in your email to <a href=\"mailto:info@augotraining.com\">info@augotraining.com</a>. It can be the same email as your certificate or a separate one.</p><p>Spots go in the order requests arrive, and we'll reply to tell you whether one is still available. After the 3 months, you can keep Elite at the normal price or remove it.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"what-is-elite\">What the Elite tier is</h2><p>Elite is an optional add-on to augo Pro for coaches who want dedicated support as their coaching business grows. It includes:</p><ul><li><strong>A dedicated account executive</strong>, your direct contact at augo.</li><li><strong>AI consulting and training</strong>, to help you get more out of augo and AI in your coaching.</li><li><strong>Your choice of AI model</strong>: Claude Sonnet, Claude Opus, Gemini or ChatGPT.</li></ul><p>Pro already includes everything you need to coach. Elite adds the support on top. See <a href=\"/en/pricing/#add-ons\">Elite on the pricing page</a> for the price where you are.</p>"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Who qualifies for the UESCA offer?",
+      "answer": "Any coach who holds a UESCA certification. Send a copy of your certificate to info@augotraining.com, and we apply the offer to your augo account."
+    },
+    {
+      "question": "Do I need a coupon code at checkout?",
+      "answer": "No. Subscribe to augo as usual, then email info@augotraining.com with your UESCA certificate and the email on your augo account. We add the 10% discount for your first 6 months ourselves."
+    },
+    {
+      "question": "Can I still get Elite if the 20 free spots are gone?",
+      "answer": "Yes. You can add Elite at the normal price from the pricing page, and your 10% discount on augo still applies for your first 6 months."
+    },
+    {
+      "question": "What happens after my 3 free months of Elite?",
+      "answer": "Elite continues at the normal price unless you remove it. Let us know at info@augotraining.com if you'd rather not keep it."
+    }
+  ],
+  "related": [
+    "getting-started-as-a-coach"
+  ],
+  "questionForms": [
+    "i am uesca certified",
+    "is there a uesca discount",
+    "how do i get the uesca discount",
+    "what is the elite tier",
+    "how do i get elite for free",
+    "do you have a coupon code",
+    "is there a discount for certified coaches",
+    "what does the elite add-on include"
+  ]
+}
