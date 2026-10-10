@@ -35,6 +35,7 @@ const EVAL: { query: string; expect: string; why: string }[] = [
   { query: "my watch won't sync", expect: 'connect-devices-and-apps', why: 'contraction -> not; watch -> device hypernym' },
   { query: 'does augo work with garmin', expect: 'connect-devices-and-apps', why: 'declared question form' },
   { query: 'apple health', expect: 'connect-devices-and-apps', why: 'unsupported integration — "no" is the right answer' },
+  { query: 'does augo work with apple watch', expect: 'connect-devices-and-apps', why: 'supported integration; the compatibility table owns it' },
   { query: 'does augo support suunto', expect: 'connect-devices-and-apps', why: 'suunto survives stemming; brand-only query' },
   { query: 'does augo work with rouvy', expect: 'connect-devices-and-apps', why: 'declared question form; new brand' },
   { query: 'does augo support hammerhead', expect: 'connect-devices-and-apps', why: 'declared question form; new brand' },
