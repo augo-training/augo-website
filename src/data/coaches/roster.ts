@@ -2343,4 +2343,37 @@ export const coaches: Coach[] = [
         media: { portrait: gabrielPortrait },
         socials: { website: 'https://www.space-trainingcentre.com/' },
     },
+    {
+        slug: 'ian-wilson',
+        name: 'Ian Wilson',
+        firstName: 'Ian',
+        gender: 'male',
+        tagline:
+            'Collaborative running coach who builds every plan around athlete feedback — from half marathon to backyard ultra.',
+        isFoundingCoach: false,
+        status: 'accepting',
+        disciplines: ['running'],
+        specialties: ['half marathon', 'marathon', 'ultra', 'Backyard Ultras', 'road running', 'trail running'],
+        location: { city: 'England', country: 'United Kingdom', countryCode: 'GB', timezone: 'Europe/London' },
+        coachesRemote: true,
+        languages: [EN],
+        credentials: ['UESCA Running Coach', 'Lydiard Foundation Level 2 Coach', 'TrainingPeaks Level 2 Coach'],
+        yearsCoaching: 1,
+        athleteLevels: ['Intermediate'],
+        communication: 'weekly',
+        offersStrength: false,
+        idealAthlete:
+            "High level of commitment and desire to do their best, with a strong mindset. That's more important than their ability or experience",
+        bio: {
+            short: 'Collaborative running coach whose plans are shaped by athlete feedback and input.',
+            long: [
+                'Ian is an England-based running coach who has been coaching since 2025. He coaches road and trail runners from the half marathon and marathon up to ultras and backyard ultras.',
+                'He is a UESCA Running Coach, a Lydiard Foundation Level 2 Coach and a TrainingPeaks Level 2 Coach. His coaching style is collaborative and relies heavily on athlete feedback and input.',
+                'He looks for intermediate athletes with a high level of commitment, a strong mindset and a desire to do their best, and values that dedication over current ability or experience. He checks in with his athletes on a weekly basis and coaches in English.',
+            ],
+            philosophy: 'Commitment and mindset matter more than where you start.',
+        },
+        media: { portrait: placeholderPortrait },
+        socials: { website: 'https://onemoremile.run' },
+    },
 ]
