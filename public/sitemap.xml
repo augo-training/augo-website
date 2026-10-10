@@ -2112,6 +2112,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.augotraining.com/en/support/uesca-coaches/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.augotraining.com/en/support/what-can-i-ask-the-assistant/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

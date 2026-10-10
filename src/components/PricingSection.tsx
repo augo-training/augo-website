@@ -386,7 +386,7 @@ export default function PricingSection() {
                     </div>{/* end cards grid */}
 
                     {/* Add-ons */}
-                    <div ref={addOnsRef} className="w-full flex flex-col gap-4">
+                    <div ref={addOnsRef} id="add-ons" className="w-full flex flex-col gap-4 scroll-mt-28">
                         {/* Section eyebrow, same idiom as the hero's "PRICING" */}
                         <span className="font-mono text-[14px] tracking-[3px] uppercase text-[#969EA7]">
                             {t('pricing.addOnsTitle')}

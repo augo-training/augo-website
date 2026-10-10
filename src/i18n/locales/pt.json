@@ -323,7 +323,7 @@
       },
       {
         "question": "Com quais plataformas o augo se integra?",
-        "answer": "Atualmente suportamos dados de Garmin, Coros, Wahoo, Suunto, Polar, Zwift, Strava, Rouvy e Hammerhead."
+        "answer": "Atualmente suportamos dados de Garmin, Coros, Wahoo, Suunto, Polar, Apple Watch, Zwift, Strava, Rouvy e Hammerhead."
       },
       {
         "question": "Posso usar o augo com diferentes esportes ou estilos de coaching?",
@@ -360,7 +360,7 @@
         {
           "title": "Dados",
           "items": [
-            "Sincronização bidirecional com Garmin, Coros, Wahoo e Suunto; importação de atividades de Polar, Zwift, Strava, Rouvy e Hammerhead"
+            "Sincronização bidirecional com Garmin, Coros, Wahoo e Suunto; importação de atividades de Polar, Apple Watch, Zwift, Strava, Rouvy e Hammerhead"
           ]
         },
         {

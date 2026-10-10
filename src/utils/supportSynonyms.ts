@@ -116,6 +116,7 @@ export const PHRASE_ALIASES: readonly { phrase: string; expandsTo: readonly stri
   { phrase: 'link account', expandsTo: ['connect', 'sync'] },
   { phrase: 'add athlete', expandsTo: ['invite', 'roster'] },
   { phrase: 'apple health', expandsTo: ['device', 'sync'] },
+  { phrase: 'apple watch', expandsTo: ['device', 'watch', 'sync'] },
   { phrase: 'daily list', expandsTo: ['priority', 'signal'] },
   { phrase: 'priority list', expandsTo: ['priority', 'signal'] },
   { phrase: 'head unit', expandsTo: ['device'] },
