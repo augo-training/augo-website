@@ -1031,6 +1031,33 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.augotraining.com/en/coaches/juan-cianciulli/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/coaches/juan-cianciulli/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/coaches/juan-cianciulli/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/coaches/juan-cianciulli/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/coaches/juan-cianciulli/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/de/coaches/juan-cianciulli/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/coaches/juan-cianciulli/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/coaches/juan-cianciulli/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/coaches/juan-cianciulli/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/coaches/juan-cianciulli/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/pt/coaches/juan-cianciulli/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/coaches/juan-cianciulli/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/coaches/juan-cianciulli/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/coaches/juan-cianciulli/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/coaches/juan-cianciulli/" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.augotraining.com/en/coaches/kevin-brann/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/coaches/kevin-brann/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/coaches/kevin-brann/" />
