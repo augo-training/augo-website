@@ -1,6 +1,7 @@
 {
   "extraKnownMarketplaces": {
     "augo-plugins": {
+      "autoUpdate": true,
       "source": { "source": "github", "repo": "augo-training/augo-shared" }
     }
   },
