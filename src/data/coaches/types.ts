@@ -1,4 +1,6 @@
-export type Discipline = 'running' | 'cycling' | 'triathlon' | 'rowing' | 'mental-coaching'
+export type Discipline = 'running' | 'cycling' | 'triathlon' | 'rowing'
+/** Support beyond endurance coaching. Shown in the directory's experts section. */
+export type ExpertService = 'mental-coaching' | 'nutrition' | 'physiotherapy' | 'strength-conditioning'
 export type CoachStatus = 'accepting' | 'waitlist' | 'full'
 export type CoachGender = 'female' | 'male' | 'non-binary'
 export type AthleteLevel = 'Beginner' | 'Intermediate' | 'Advanced' | 'Elite/Pro'
@@ -9,6 +11,21 @@ export const GENDER_LABEL: Record<CoachGender, string> = {
     female: 'Female',
     male: 'Male',
     'non-binary': 'Non-binary',
+}
+
+export const DISCIPLINE_VALUES: Discipline[] = ['running', 'cycling', 'triathlon', 'rowing']
+export const EXPERT_SERVICE_VALUES: ExpertService[] = [
+    'mental-coaching',
+    'nutrition',
+    'physiotherapy',
+    'strength-conditioning',
+]
+
+export const EXPERT_SERVICE_LABEL: Record<ExpertService, string> = {
+    'mental-coaching': 'Mental coaching',
+    nutrition: 'Sports nutrition',
+    physiotherapy: 'Physiotherapy',
+    'strength-conditioning': 'Strength & conditioning',
 }
 
 export const COMMUNICATION_LABEL: Record<CommunicationStyle, string> = {
@@ -59,7 +76,10 @@ export interface Coach {
     isProCoach?: boolean
     status: CoachStatus
     gender?: CoachGender
+    /** Endurance sports the person coaches. Empty for experts who don't coach a sport. */
     disciplines: Discipline[]
+    /** Services beyond endurance coaching. A coach with both shows in both directory sections. */
+    expertServices?: ExpertService[]
     specialties: string[]
     location: CoachLocation
     coachesRemote: boolean

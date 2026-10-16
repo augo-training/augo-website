@@ -1,5 +1,5 @@
-import type { Coach } from '../data/coaches/types'
-import { GENDER_LABEL } from '../data/coaches/types'
+import type { Coach, ExpertService } from '../data/coaches/types'
+import { EXPERT_SERVICE_LABEL, GENDER_LABEL } from '../data/coaches/types'
 
 // Gender is matched by exact token equality (not substring) so a search for
 // "male" doesn't match "female". Tokenizer keeps hyphens, so "non-binary" is one token.
@@ -38,6 +38,7 @@ function buildHaystack(coach: Coach): string {
         coach.name,
         coach.tagline,
         coach.disciplines.join(' '),
+        (coach.expertServices ?? []).map(expertSearchTerms).join(' '),
         coach.specialties.join(' '),
         coach.location.city,
         coach.location.country,
@@ -53,6 +54,19 @@ function buildHaystack(coach: Coach): string {
         .toLowerCase()
 }
 
+// Words athletes use for each expert service. They go into the haystack so a
+// search for "physio" or "dietitian" finds the right experts.
+const EXPERT_SYNONYMS: Record<ExpertService, string[]> = {
+    'mental-coaching': ['mental', 'mindset', 'psychology', 'psychologist', 'mental-coaching'],
+    nutrition: ['nutrition', 'nutritionist', 'dietitian', 'dietician', 'fueling', 'fuelling', 'diet'],
+    physiotherapy: ['physio', 'physiotherapy', 'physiotherapist', 'rehab', 'rehabilitation', 'injury', 'injuries'],
+    'strength-conditioning': ['strength', 'conditioning', 'gym'],
+}
+
+function expertSearchTerms(service: ExpertService): string {
+    return EXPERT_SYNONYMS[service].join(' ')
+}
+
 // Why-we-matched copy: explain in plain English which signals fired.
 function buildReason(coach: Coach, tokens: string[]): string {
     const fired: string[] = []
@@ -62,9 +76,14 @@ function buildReason(coach: Coach, tokens: string[]): string {
         if (tokenSet.has(d) || (d === 'running' && tokenSet.has('run')) ||
             (d === 'cycling' && (tokenSet.has('bike') || tokenSet.has('cyclist'))) ||
             (d === 'triathlon' && (tokenSet.has('tri') || tokenSet.has('ironman'))) ||
-            (d === 'rowing' && (tokenSet.has('row') || tokenSet.has('rower'))) ||
-            (d === 'mental-coaching' && (tokenSet.has('mental') || tokenSet.has('mindset')))) {
-            fired.push(d === 'mental-coaching' ? 'Mental coaching' : d.charAt(0).toUpperCase() + d.slice(1))
+            (d === 'rowing' && (tokenSet.has('row') || tokenSet.has('rower')))) {
+            fired.push(d.charAt(0).toUpperCase() + d.slice(1))
+        }
+    }
+
+    for (const service of coach.expertServices ?? []) {
+        if (EXPERT_SYNONYMS[service].some((t) => tokenSet.has(t))) {
+            fired.push(EXPERT_SERVICE_LABEL[service])
         }
     }
 
@@ -125,6 +144,7 @@ export function coachSearch(query: string, coaches: Coach[]): CoachSearchResult[
                 score += 1
                 // Boost for high-signal fields
                 if (coach.disciplines.some((d) => d.includes(t))) score += 1.5
+                if (coach.expertServices?.some((sv) => EXPERT_SYNONYMS[sv].includes(t))) score += 1.5
                 if (coach.specialties.some((s) => s.toLowerCase().includes(t))) score += 1
                 if (coach.location.city.toLowerCase().includes(t)) score += 1
                 if (coach.languages.some((l) => l.code === t || l.label.toLowerCase() === t)) score += 1

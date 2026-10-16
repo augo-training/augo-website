@@ -1,6 +1,6 @@
-import type { Discipline } from '../../data/coaches/types'
+import type { Discipline, ExpertService } from '../../data/coaches/types'
 
-export type SportFilterValue = 'all' | Discipline
+export type SportFilterValue = 'all' | Discipline | ExpertService
 
 interface Props {
     value: SportFilterValue
@@ -15,13 +15,16 @@ const OPTIONS: { value: SportFilterValue; label: string }[] = [
     { value: 'triathlon', label: 'Triathlon' },
     { value: 'rowing', label: 'Rowing' },
     { value: 'mental-coaching', label: 'Mental coaching' },
+    { value: 'nutrition', label: 'Nutrition' },
+    { value: 'physiotherapy', label: 'Physio' },
+    { value: 'strength-conditioning', label: 'Strength & conditioning' },
 ]
 
 export default function SportFilter({ value, onChange, counts }: Props) {
     return (
         <div
             role="tablist"
-            aria-label="Filter by sport"
+            aria-label="Filter by sport or service"
             className="flex flex-wrap items-center gap-2 sm:gap-3"
         >
             {OPTIONS.map((opt) => {

@@ -38,6 +38,16 @@ export function isProGroup(coach: Coach): boolean {
     return !!coach.isProCoach && !coach.isFoundingCoach
 }
 
+// Endurance coaches fill the coach rows; experts (physio, nutrition, mental
+// coaching, S&C) get their own section. Someone who does both shows in both.
+export function isEnduranceCoach(coach: Coach): boolean {
+    return coach.disciplines.length > 0
+}
+
+export function isExpert(coach: Coach): boolean {
+    return !!coach.expertServices?.length
+}
+
 const byName = (a: Coach, b: Coach) => a.name.localeCompare(b.name)
 
 // Founding coaches always sit on top of the default browse order, sorted by the
@@ -91,4 +101,4 @@ export function getRelatedCoaches(slug: string, limit = 3): Coach[] {
         .slice(0, limit)
 }
 
-export type { Coach, Discipline } from './types'
+export type { Coach, Discipline, ExpertService } from './types'

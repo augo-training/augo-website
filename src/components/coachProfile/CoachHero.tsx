@@ -1,6 +1,7 @@
 import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react'
 import { Link, useParams } from 'react-router-dom'
 import type { Coach } from '../../data/coaches/types'
+import { EXPERT_SERVICE_LABEL } from '../../data/coaches/types'
 import DisciplineIcons, { DISCIPLINE_LABEL } from '../coachDirectory/DisciplineIcons'
 import FoundingBadge from '../coachDirectory/FoundingBadge'
 import { trackCtaClicked } from '../../utils/analytics'
@@ -36,8 +37,11 @@ export default function CoachHero({ coach, onContact }: Props) {
     const { lang } = useParams<{ lang: string }>()
     const currentLang = lang ?? 'en'
 
-    const disciplineString = coach.disciplines
-        .map((d) => DISCIPLINE_LABEL[d].toUpperCase())
+    const disciplineString = [
+        ...coach.disciplines.map((d) => DISCIPLINE_LABEL[d]),
+        ...(coach.expertServices ?? []).map((s) => EXPERT_SERVICE_LABEL[s]),
+    ]
+        .map((label) => label.toUpperCase())
         .join(' · ')
 
     const backLink = (
@@ -52,7 +56,7 @@ export default function CoachHero({ coach, onContact }: Props) {
 
     const eyebrow = (
         <span className="font-mono text-[11px] sm:text-[12px] tracking-[3px] uppercase text-white/75 inline-flex items-center gap-3 flex-wrap">
-            <span>Coach</span>
+            <span>{coach.disciplines.length > 0 ? 'Coach' : 'Expert'}</span>
             <span className="text-white/30">/</span>
             <DisciplineIcons disciplines={coach.disciplines} size={14} />
             <span>{disciplineString}</span>

@@ -23,18 +23,47 @@ const MATCHING_GROUP_ID =
 // Localized discipline nouns + SEO title pattern, so de/pt visitors (and crawlers)
 // get a translated, keyword-bearing <title> instead of an English-only one.
 const DISCIPLINE_LABEL: Record<string, Record<string, string>> = {
-    en: { running: 'Running', cycling: 'Cycling', triathlon: 'Triathlon', rowing: 'Rowing', 'mental-coaching': 'Mental coaching' },
-    de: { running: 'Laufen', cycling: 'Radsport', triathlon: 'Triathlon', rowing: 'Rudern', 'mental-coaching': 'Mentalcoaching' },
-    pt: { running: 'Corrida', cycling: 'Ciclismo', triathlon: 'Triatlo', rowing: 'Remo', 'mental-coaching': 'Coaching mental' },
+    en: { running: 'Running', cycling: 'Cycling', triathlon: 'Triathlon', rowing: 'Rowing' },
+    de: { running: 'Laufen', cycling: 'Radsport', triathlon: 'Triathlon', rowing: 'Rudern' },
+    pt: { running: 'Corrida', cycling: 'Ciclismo', triathlon: 'Triatlo', rowing: 'Remo' },
+}
+
+// Job titles for experts who don't coach an endurance sport.
+const EXPERT_TITLE: Record<string, Record<string, string>> = {
+    en: {
+        'mental-coaching': 'Mental Coach',
+        nutrition: 'Sports Nutritionist',
+        physiotherapy: 'Physiotherapist',
+        'strength-conditioning': 'Strength & Conditioning Coach',
+    },
+    de: {
+        'mental-coaching': 'Mentalcoach',
+        nutrition: 'Sporternährungsberater',
+        physiotherapy: 'Physiotherapeut',
+        'strength-conditioning': 'Kraft- und Athletiktrainer',
+    },
+    pt: {
+        'mental-coaching': 'Coach mental',
+        nutrition: 'Nutricionista desportivo',
+        physiotherapy: 'Fisioterapeuta',
+        'strength-conditioning': 'Treinador de força e condicionamento',
+    },
 }
 
 function localizedCoachTitle(
     name: string,
     disciplines: string[],
+    expertServices: string[],
     city: string,
     lang: string,
 ): string {
     const L = DISCIPLINE_LABEL[lang] ? lang : 'en'
+    if (disciplines.length === 0 && expertServices.length > 0) {
+        const role = EXPERT_TITLE[L][expertServices[0]] ?? expertServices[0]
+        if (L === 'de') return `${name} — ${role} in ${city} | augo`
+        if (L === 'pt') return `${name} — ${role} em ${city} | augo`
+        return `${name} — ${role} in ${city} | augo`
+    }
     const list = disciplines.map((d) => DISCIPLINE_LABEL[L][d] ?? d).join(' & ')
     if (L === 'de') return `${name} — Coach für ${list} in ${city} | augo`
     if (L === 'pt') return `${name} — Treinador de ${list} em ${city} | augo`
@@ -72,6 +101,7 @@ export default function CoachProfile() {
                 title={localizedCoachTitle(
                     coach.name,
                     coach.disciplines,
+                    coach.expertServices ?? [],
                     coach.location.city,
                     currentLang,
                 )}

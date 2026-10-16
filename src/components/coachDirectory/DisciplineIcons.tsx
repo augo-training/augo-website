@@ -11,7 +11,6 @@ const LABEL: Record<Discipline, string> = {
     cycling: 'Bike',
     triathlon: 'Tri',
     rowing: 'Row',
-    'mental-coaching': 'Mind',
 }
 
 function Icon({ d, size }: { d: Discipline; size: number }) {
@@ -46,14 +45,6 @@ function Icon({ d, size }: { d: Discipline; size: number }) {
             </svg>
         )
     }
-    if (d === 'mental-coaching') {
-        return (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={s} aria-hidden="true">
-                <path d="M9 21v-3H6l-1-3 2-1V9a6 6 0 0 1 12 0v2l1 3-2 1v3h-3v3" />
-                <path d="M11 9a2 2 0 1 1 3 1.7V13" />
-            </svg>
-        )
-    }
     // Triathlon: swim wave over a bike wheel and a running stride.
     return (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={s} aria-hidden="true">
@@ -67,6 +58,7 @@ function Icon({ d, size }: { d: Discipline; size: number }) {
 }
 
 export default function DisciplineIcons({ disciplines, size = 18, className = '' }: Props) {
+    if (disciplines.length === 0) return null
     return (
         <div className={`inline-flex items-center gap-2 ${className}`} aria-label={`Disciplines: ${disciplines.map((d) => LABEL[d]).join(', ')}`}>
             {disciplines.map((d) => (
