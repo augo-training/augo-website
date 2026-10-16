@@ -1,10 +1,12 @@
 import { useMemo, useState, type ReactNode } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import type { Coach, Discipline } from '../../data/coaches/types'
+import type { Coach, Discipline, ExpertService } from '../../data/coaches/types'
+import { DISCIPLINE_VALUES, EXPERT_SERVICE_VALUES } from '../../data/coaches/types'
 import type { CoachSearchResult } from '../../utils/coachSearch'
-import { isProGroup } from '../../data/coaches'
+import { isEnduranceCoach, isExpert, isProGroup } from '../../data/coaches'
 import CoachCard from './CoachCard'
 import CoachCompactCard from './CoachCompactCard'
+import ExpertCard from './ExpertCard'
 import SportFilter, { type SportFilterValue } from './SportFilter'
 
 interface Props {
@@ -17,20 +19,18 @@ interface Props {
 }
 
 function isDiscipline(v: string | null): v is Discipline {
-    return (
-        v === 'running' ||
-        v === 'cycling' ||
-        v === 'triathlon' ||
-        v === 'rowing' ||
-        v === 'mental-coaching'
-    )
+    return DISCIPLINE_VALUES.includes(v as Discipline)
+}
+
+function isExpertService(v: string | null): v is ExpertService {
+    return EXPERT_SERVICE_VALUES.includes(v as ExpertService)
 }
 
 export default function CoachGrid({ coaches, searchResults, excludeFounding = false, searchSlot }: Props) {
     const [searchParams, setSearchParams] = useSearchParams()
     const initial = searchParams.get('sport')
     const [sport, setSport] = useState<SportFilterValue>(
-        isDiscipline(initial) ? initial : 'all',
+        isDiscipline(initial) || isExpertService(initial) ? initial : 'all',
     )
 
     function setSportAndSync(next: SportFilterValue) {
@@ -49,16 +49,11 @@ export default function CoachGrid({ coaches, searchResults, excludeFounding = fa
     }, [coaches, searchResults, excludeFounding])
 
     const counts = useMemo<Record<SportFilterValue, number>>(() => {
-        const base = {
-            all: visibleCoaches.length,
-            running: 0,
-            cycling: 0,
-            triathlon: 0,
-            rowing: 0,
-            'mental-coaching': 0,
-        }
+        const base = { all: visibleCoaches.length } as Record<SportFilterValue, number>
+        for (const v of [...DISCIPLINE_VALUES, ...EXPERT_SERVICE_VALUES]) base[v] = 0
         for (const c of visibleCoaches) {
             for (const d of c.disciplines) base[d] += 1
+            for (const sv of c.expertServices ?? []) base[sv] += 1
         }
         return base
     }, [visibleCoaches])
@@ -77,19 +72,31 @@ export default function CoachGrid({ coaches, searchResults, excludeFounding = fa
         // (founding coaches first via data/coaches/index.ts) is preserved.
         const list = searchResults ? searchResults.map((r) => r.coach) : visibleCoaches
         if (sport === 'all') return list
-        return list.filter((c) => c.disciplines.includes(sport))
+        if (isDiscipline(sport)) return list.filter((c) => c.disciplines.includes(sport))
+        return list.filter((c) => c.expertServices?.includes(sport))
     }, [searchResults, visibleCoaches, sport])
+
+    // A sport chip shows coaches only, a service chip experts only, and "All"
+    // shows both. Someone who coaches and offers a service appears in both.
+    const coachRows = useMemo(
+        () => (isExpertService(sport) ? [] : orderedCoaches.filter(isEnduranceCoach)),
+        [orderedCoaches, sport],
+    )
+    const expertsOrdered = useMemo(
+        () => (isDiscipline(sport) ? [] : orderedCoaches.filter(isExpert)),
+        [orderedCoaches, sport],
+    )
 
     // Founding coaches carry photos and render as rich cards; everyone else we
     // have no photography for, so they render as compact text cards below.
     const foundingOrdered = useMemo(
-        () => orderedCoaches.filter((c) => c.isFoundingCoach),
-        [orderedCoaches],
+        () => coachRows.filter((c) => c.isFoundingCoach),
+        [coachRows],
     )
-    const proOrdered = useMemo(() => orderedCoaches.filter(isProGroup), [orderedCoaches])
+    const proOrdered = useMemo(() => coachRows.filter(isProGroup), [coachRows])
     const nonFoundingOrdered = useMemo(
-        () => orderedCoaches.filter((c) => !c.isFoundingCoach && !isProGroup(c)),
-        [orderedCoaches],
+        () => coachRows.filter((c) => !c.isFoundingCoach && !isProGroup(c)),
+        [coachRows],
     )
 
     return (
@@ -121,7 +128,7 @@ export default function CoachGrid({ coaches, searchResults, excludeFounding = fa
 
                 {orderedCoaches.length === 0 ? (
                     <div className="py-16 text-center font-satoshi text-[17px] text-text-muted">
-                        No coaches match that filter yet. Try another sport.
+                        No coaches or experts match that filter yet. Try another one.
                     </div>
                 ) : (
                     <div className="flex flex-col gap-14 sm:gap-16">
@@ -188,6 +195,34 @@ export default function CoachGrid({ coaches, searchResults, excludeFounding = fa
                                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5">
                                     {nonFoundingOrdered.map((coach) => (
                                         <CoachCompactCard
+                                            key={coach.slug}
+                                            coach={coach}
+                                            matchReason={reasonByCoach?.get(coach.slug)}
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Experts beyond endurance coaching — physio, nutrition, mental, S&C */}
+                        {expertsOrdered.length > 0 && (
+                            <div className="flex flex-col gap-6">
+                                <div className="flex flex-col gap-2">
+                                    <div className="flex items-baseline justify-between gap-4">
+                                        <span className="font-mono text-[11px] sm:text-[12px] tracking-[3px] uppercase text-white/55">
+                                            Experts beyond endurance coaching
+                                        </span>
+                                        <span className="font-mono text-[11px] tracking-[3px] uppercase text-white/30 tabular-nums">
+                                            {String(expertsOrdered.length).padStart(2, '0')}
+                                        </span>
+                                    </div>
+                                    <p className="font-satoshi text-[14px] sm:text-[15px] leading-[150%] text-text-muted max-w-[560px]">
+                                        Physiotherapists, nutritionists, mental coaches and strength specialists who support your training.
+                                    </p>
+                                </div>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5">
+                                    {expertsOrdered.map((coach) => (
+                                        <ExpertCard
                                             key={coach.slug}
                                             coach={coach}
                                             matchReason={reasonByCoach?.get(coach.slug)}

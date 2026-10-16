@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
 import { coaches, hasPortrait } from '../data/coaches'
 import type { Coach } from '../data/coaches/types'
-import { GENDER_LABEL } from '../data/coaches/types'
+import { EXPERT_SERVICE_LABEL, GENDER_LABEL } from '../data/coaches/types'
 import { BASE_URL } from './seoConstants'
 import { getPricingTier } from '../config/pricingConfig'
 import { buildMcpHowTo, type McpSchemaStep } from './mcpSchema'
@@ -316,13 +316,12 @@ export function HumanEdgeBreadcrumbJsonLd() {
 // ── Coach Directory structured data ─────────────────────────────────────────
 
 // Human-readable discipline nouns for the Service schema; keys are Discipline
-// values, which are not all safe to capitalise mechanically ('mental-coaching').
+// values, which are not all safe to capitalise mechanically.
 const SERVICE_LABEL: Record<string, string> = {
   running: 'Running',
   cycling: 'Cycling',
   triathlon: 'Triathlon',
   rowing: 'Rowing',
-  'mental-coaching': 'Mental',
 }
 
 function coachUrl(coach: Coach, lang: string = 'en'): string {
@@ -335,22 +334,24 @@ function coachPersonSchema(coach: Coach, lang: string = 'en') {
   const disciplineLabel = coach.disciplines
     .map((d) => SERVICE_LABEL[d] ?? d.charAt(0).toUpperCase() + d.slice(1))
     .join(' & ')
+  const expertLabels = (coach.expertServices ?? []).map((s) => EXPERT_SERVICE_LABEL[s])
 
-  // Advertise the coaching service so answer engines can field "online
-  // <discipline> coach" queries. Pricing is deliberately never published.
-  const offer = {
+  // Advertise each service so answer engines can field "online <discipline>
+  // coach" or "sports physio" queries. Pricing is deliberately never published.
+  const areaServed = coach.coachesRemote ? 'Worldwide' : coach.location.country
+  const services = [
+    ...(disciplineLabel ? [`${disciplineLabel} coaching`] : []),
+    ...expertLabels,
+  ]
+  const offers = services.map((serviceType) => ({
     '@type': 'Offer',
-    itemOffered: {
-      '@type': 'Service',
-      serviceType: `${disciplineLabel} coaching`,
-      areaServed: coach.coachesRemote ? 'Worldwide' : coach.location.country,
-    },
-  }
+    itemOffered: { '@type': 'Service', serviceType, areaServed },
+  }))
 
   return {
     '@type': 'Person',
     name: coach.name,
-    jobTitle: `${disciplineLabel} Coach`,
+    jobTitle: disciplineLabel ? `${disciplineLabel} Coach` : expertLabels.join(' & '),
     ...(coach.gender ? { gender: GENDER_LABEL[coach.gender] } : {}),
     description: coach.bio.short,
     url: coachUrl(coach, lang),
@@ -366,7 +367,7 @@ function coachPersonSchema(coach: Coach, lang: string = 'en') {
       addressCountry: coach.location.countryCode,
     },
     worksFor: { '@type': 'Organization', name: 'augo', url: BASE_URL },
-    makesOffer: offer,
+    makesOffer: offers.length === 1 ? offers[0] : offers,
     hasCredential: coach.credentials.map((c) => ({
       '@type': 'EducationalOccupationalCredential',
       name: c,
