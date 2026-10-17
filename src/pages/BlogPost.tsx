@@ -118,12 +118,26 @@ export default function BlogPost() {
             }
           />
         ) : post.coverImage && (
-          <img
-            src={post.coverImage}
-            alt={post.coverImageAlt ?? ''}
-            className="w-full rounded-2xl mb-12"
-            loading="eager"
-          />
+          post.coverImageCaption ? (
+            <figure className="mb-12">
+              <img
+                src={post.coverImage}
+                alt={post.coverImageAlt ?? ''}
+                className="w-full rounded-2xl"
+                loading="eager"
+              />
+              <figcaption className="mt-2 text-center text-sm text-text-muted">
+                {post.coverImageCaption}
+              </figcaption>
+            </figure>
+          ) : (
+            <img
+              src={post.coverImage}
+              alt={post.coverImageAlt ?? ''}
+              className="w-full rounded-2xl mb-12"
+              loading="eager"
+            />
+          )
         )}
 
         <div

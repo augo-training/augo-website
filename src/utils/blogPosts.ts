@@ -16,6 +16,8 @@ export interface BlogPostData {
   dateModified?: string
   coverImage?: string
   coverImageAlt?: string
+  /** Shown under the cover, e.g. to credit the race or photographer. */
+  coverImageCaption?: string
   /**
    * Optional video shown at the top of the post in place of the cover image,
    * which becomes its poster (so `coverImage` is required alongside it). It is
