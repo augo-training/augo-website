@@ -17,7 +17,7 @@ interface Props {
 export default function CoachCard({ coach, matchReason, size = 'md' }: Props) {
     const { lang } = useParams<{ lang: string }>()
     const currentLang = lang ?? 'en'
-    const href = `/${currentLang}/coaches/${coach.slug}`
+    const href = `/${currentLang}/coaches/${coach.slug}/`
 
     const founding = coach.isFoundingCoach
     // augo Pro coaches also use this card; they show their photo once it's added.

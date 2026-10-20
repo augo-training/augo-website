@@ -11,7 +11,7 @@ import puppeteer, { type Browser } from 'puppeteer'
 import { writeFile, mkdir, copyFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import { pathToFileURL } from 'node:url'
-import { getAllPrerenderRoutes, ROOT, DEFAULT_LANG } from './routes.ts'
+import { getAllPrerenderRoutes, ROOT, DEFAULT_LANG, BASE_URL } from './routes.ts'
 
 const HELMET_READY_SELECTOR = 'link[rel="canonical"]'
 const PAGE_TIMEOUT_MS = 30_000
@@ -19,6 +19,26 @@ const MAX_ATTEMPTS = 3
 const INTER_ROUTE_DELAY_MS = 150
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
+
+const LEGACY_DIRECTORY_PATHS = ['find', 'coaches'] as const
+
+function legacyRedirectHtml(target: string): string {
+  const url = `${BASE_URL}${target}`
+  return [
+    '<!doctype html>',
+    '<html lang="en">',
+    '<head>',
+    '<meta charset="utf-8">',
+    '<title>augo</title>',
+    '<meta name="robots" content="noindex">',
+    `<link rel="canonical" href="${url}">`,
+    `<meta http-equiv="refresh" content="0; url=${target}">`,
+    '</head>',
+    `<body><p>Redirecting to <a href="${target}">${url}</a></p></body>`,
+    '</html>',
+    '',
+  ].join('\n')
+}
 
 // Puppeteer ships its own Chrome, which is what we use locally and in GitHub
 // Actions (the ubuntu-latest runner has the system libraries it links against).
@@ -179,6 +199,23 @@ async function main() {
       const message = err instanceof Error ? err.message : String(err)
       console.error(`  ✗ /: ${message}`)
       process.exitCode = 1
+    }
+
+    // Unprefixed legacy paths to the directory. App.tsx redirects them in the
+    // browser, but on GitHub Pages that only happens after the host has answered
+    // 404 with the SPA shell, which is what a crawler following an old link sees.
+    // A static stub answers 200, names the canonical and sends people on.
+    for (const legacy of LEGACY_DIRECTORY_PATHS) {
+      try {
+        const dir = join(ROOT, 'dist', legacy)
+        await mkdir(dir, { recursive: true })
+        await writeFile(join(dir, 'index.html'), legacyRedirectHtml(`/${DEFAULT_LANG}/find/`), 'utf8')
+        console.log(`  ✓ /${legacy} (redirect stub → /${DEFAULT_LANG}/find/)`)
+      } catch (err: unknown) {
+        const message = err instanceof Error ? err.message : String(err)
+        console.error(`  ✗ /${legacy}: ${message}`)
+        process.exitCode = 1
+      }
     }
   } finally {
     await browser.close()

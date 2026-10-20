@@ -4,6 +4,8 @@ import { coaches, hasPortrait } from '../data/coaches'
 import type { Coach } from '../data/coaches/types'
 import { EXPERT_SERVICE_LABEL, GENDER_LABEL } from '../data/coaches/types'
 import { BASE_URL } from './seoConstants'
+import { getCanonicalUrl } from './seoConfig'
+import type { SupportedLanguage } from '../i18n'
 import { getPricingTier } from '../config/pricingConfig'
 import { buildMcpHowTo, type McpSchemaStep } from './mcpSchema'
 import { MCP_URL } from '../components/mcp/constants'
@@ -358,8 +360,20 @@ const SERVICE_LABEL: Record<string, string> = {
   rowing: 'Rowing',
 }
 
+// Every URL below goes through getCanonicalUrl so it carries the trailing slash
+// the host serves with a 200 (see seoConfig.ts). Without it each schema URL and
+// internal link pointed at a 301, and CollectionPage.url differed from the canonical.
+function langUrl(lang: string, path: string): string {
+  return getCanonicalUrl(lang as SupportedLanguage, path)
+}
+
 function coachUrl(coach: Coach, lang: string = 'en'): string {
-  return `${BASE_URL}/${lang}/coaches/${coach.slug}`
+  return langUrl(lang, `/coaches/${coach.slug}`)
+}
+
+// Schema.org consumers expect absolute image URLs; the Vite asset path is root-relative.
+function absoluteUrl(path: string): string {
+  return path.startsWith('http') ? path : `${BASE_URL}${path}`
 }
 
 // Person schema for one coach — WITHOUT @context, so it can be embedded inside
@@ -392,7 +406,7 @@ function coachPersonSchema(coach: Coach, lang: string = 'en') {
     // Coaches without dedicated photography carry a shared placeholder — a real
     // person's face. Publishing it as their Person.image would attribute one
     // coach's likeness to another, so it's omitted rather than substituted.
-    ...(hasPortrait(coach) ? { image: coach.media.portrait } : {}),
+    ...(hasPortrait(coach) ? { image: absoluteUrl(coach.media.portrait) } : {}),
     knowsAbout: coach.specialties,
     knowsLanguage: coach.languages.map((l) => l.label),
     address: {
@@ -428,15 +442,14 @@ export function CoachJsonLd({ coach }: { coach: Coach }) {
 }
 
 export function FindJsonLd() {
-  const { i18n } = useTranslation()
+  const { t, i18n } = useTranslation()
   const lang = i18n.language || 'en'
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
-    name: 'Find an Endurance Coach — augo',
-    description:
-      "Browse augo's roster of online running, cycling and triathlon coaches and find one matched to your goals, schedule and communication style.",
-    url: `${BASE_URL}/${lang}/find`,
+    name: t('find.seo.collectionName'),
+    description: t('find.seo.collectionDescription'),
+    url: langUrl(lang, '/find'),
     isPartOf: { '@type': 'WebSite', name: 'augo', url: BASE_URL },
     mainEntity: {
       '@type': 'ItemList',
@@ -457,14 +470,14 @@ export function FindJsonLd() {
 }
 
 export function CoachBreadcrumbJsonLd() {
-  const { i18n } = useTranslation()
+  const { t, i18n } = useTranslation()
   const lang = i18n.language || 'en'
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'augo', item: `${BASE_URL}/${lang}` },
-      { '@type': 'ListItem', position: 2, name: 'Find a Coach', item: `${BASE_URL}/${lang}/find` },
+      { '@type': 'ListItem', position: 1, name: 'augo', item: langUrl(lang, '/') },
+      { '@type': 'ListItem', position: 2, name: t('find.seo.breadcrumb'), item: langUrl(lang, '/find') },
     ],
   }
   return (
@@ -475,14 +488,14 @@ export function CoachBreadcrumbJsonLd() {
 }
 
 export function CoachProfileBreadcrumbJsonLd({ coach }: { coach: Coach }) {
-  const { i18n } = useTranslation()
+  const { t, i18n } = useTranslation()
   const lang = i18n.language || 'en'
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'augo', item: `${BASE_URL}/${lang}` },
-      { '@type': 'ListItem', position: 2, name: 'Find a Coach', item: `${BASE_URL}/${lang}/find` },
+      { '@type': 'ListItem', position: 1, name: 'augo', item: langUrl(lang, '/') },
+      { '@type': 'ListItem', position: 2, name: t('find.seo.breadcrumb'), item: langUrl(lang, '/find') },
       { '@type': 'ListItem', position: 3, name: coach.name, item: coachUrl(coach, lang) },
     ],
   }

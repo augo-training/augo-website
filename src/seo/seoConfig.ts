@@ -60,19 +60,19 @@ const pageMeta: Record<string, Record<SupportedLanguage, PageMeta>> = {
   },
   find: {
     en: {
-      title: 'Find Your Perfect Coach or Athlete — augo',
+      title: 'Find an Online Running, Cycling or Triathlon Coach | augo',
       description:
-        'Get matched with the perfect endurance coach or athlete. Answer a few questions and augo connects you based on training goals and communication style.',
+        'Browse 60+ vetted online running, cycling and triathlon coaches. Compare specialties, languages and credentials, then get matched with the right coach for your goals.',
     },
     de: {
-      title: 'Finde deinen perfekten Coach oder Athleten — augo',
+      title: 'Online-Coach für Laufen, Radsport oder Triathlon finden | augo',
       description:
-        'Finde den perfekten Ausdauer-Coach oder Athleten. Beantworte ein paar Fragen und augo verbindet dich basierend auf Trainingszielen und Kommunikationsstil.',
+        'Über 60 geprüfte Online-Coaches für Laufen, Radsport und Triathlon. Vergleiche Spezialgebiete, Sprachen und Qualifikationen und finde den Coach, der zu deinen Zielen passt.',
     },
     pt: {
-      title: 'Encontre o Coach ou Atleta Perfeito — augo',
+      title: 'Treinador Online de Corrida, Ciclismo ou Triatlo | augo',
       description:
-        'Encontre o coach ou atleta de endurance perfeito. Responda algumas perguntas e a augo conecta você com base em objetivos de treino e estilo de comunicação.',
+        'Mais de 60 treinadores online verificados de corrida, ciclismo e triatlo. Compare especialidades, idiomas e credenciais e encontre o treinador certo para os seus objetivos.',
     },
   },
   pricing: {

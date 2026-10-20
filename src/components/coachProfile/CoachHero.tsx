@@ -46,7 +46,7 @@ export default function CoachHero({ coach, onContact }: Props) {
 
     const backLink = (
         <Link
-            to={`/${currentLang}/find`}
+            to={`/${currentLang}/find/`}
             className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[2px] uppercase text-white/55 hover:text-white transition-colors w-fit"
         >
             <ArrowLeft className="w-4 h-4" strokeWidth={2} />
