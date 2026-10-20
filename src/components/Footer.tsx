@@ -61,6 +61,8 @@ export default function Footer() {
                 { label: t('footer.links.mcp'), href: `/${currentLang}/mcp` },
                 // The course page is English-only, so it always links to /en.
                 { label: t('footer.links.coachCourse'), href: '/en/irreplaceable-endurance-coach' },
+                // English-only as well.
+                { label: t('footer.links.racingTeam'), href: '/en/racing-team' },
             ],
         },
     ]

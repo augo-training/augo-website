@@ -27,6 +27,7 @@ import CoachCourse from './pages/CoachCourse'
 import Mcp from './pages/Mcp'
 import Contact from './pages/Contact'
 import Merci from './pages/Merci'
+import RacingTeam from './pages/RacingTeam'
 import { setupMetaPixelConsentListener } from './utils/metaPixel'
 
 // The one lazy route. The invitation copy then lives in its own chunk, loaded
@@ -68,6 +69,7 @@ function App() {
         <Route path="/join" element={<LegacyRedirect to="/en/download" />} />
         <Route path="/find" element={<LegacyRedirect to="/en/find" />} />
         <Route path="/humanedge" element={<LegacyRedirect to="/en/humanedge" />} />
+        <Route path="/racing-team" element={<LegacyRedirect to="/en/racing-team" />} />
         <Route path="/book-a-demo" element={<LegacyRedirect to="/en/book-a-demo" />} />
         <Route path="/coaches" element={<LegacyRedirect to="/en/find" />} />
         <Route path="/mcp" element={<LegacyRedirect to="/en/mcp" />} />
@@ -109,6 +111,8 @@ function App() {
           <Route path="nice-athletes" element={<NiceAthletes />} />
           <Route path="nice-coaches" element={<NiceCoaches />} />
           <Route path="irreplaceable-endurance-coach" element={<CoachCourse />} />
+          {/* The Racing Team program page, English-only like the course page. */}
+          <Route path="racing-team" element={<RacingTeam />} />
           <Route path="coaches" element={<CoachesIndexToFind />} />
           <Route path="coaches/:slug" element={<CoachProfile />} />
           {/* The link in the "confirm your email" message for coach intros. Unlinked, noindex. */}

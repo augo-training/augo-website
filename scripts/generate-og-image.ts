@@ -29,6 +29,7 @@ const TARGETS = {
   // should always read "Endurance", never a word caught mid-fade.
   "coach-course": { path: "/en/irreplaceable-endurance-coach", out: "coach-course-og.jpg", still: true },
   mcp: { path: "/en/mcp", out: "mcp-og.jpg" },
+  "racing-team": { path: "/en/racing-team", out: "racing-team-og.jpg" },
   merci: { file: "og/merci-card.html", out: "merci-og.jpg" },
   // Static as well: the page body is client-only and must not be photographed,
   // and the card should say no more than the head tags do.

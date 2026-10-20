@@ -20,7 +20,8 @@ describe('routes and sitemap', () => {
 
     // localized static + localized coach profiles + english-only blog posts
     // + 1 for the /en/blog index route + 3 for the /en/nice-athletes,
-    // /en/nice-coaches and /en/irreplaceable-endurance-coach landing pages
+    // /en/nice-coaches, /en/irreplaceable-endurance-coach and /en/racing-team
+    // landing pages
     // + english-only support articles
     // + 1 for the /en/support hub route + 2 for the unprefixed /merci and
     // /session-zero pages.
@@ -29,7 +30,7 @@ describe('routes and sitemap', () => {
         LANGS.length * coachSlugs.length +
         slugs.length +
         1 +
-        3 +
+        4 +
         supportSlugs.length +
         1 +
         2,
@@ -50,6 +51,8 @@ describe('routes and sitemap', () => {
     expect(routes.filter((route) => route.endsWith('/nice-coaches'))).toHaveLength(1)
     expect(routes).toContain('/en/irreplaceable-endurance-coach')
     expect(routes.filter((route) => route.endsWith('/irreplaceable-endurance-coach'))).toHaveLength(1)
+    expect(routes).toContain('/en/racing-team')
+    expect(routes.filter((route) => route.endsWith('/racing-team'))).toHaveLength(1)
 
     // /mcp is a localized static path, so the counts above already cover it.
     // These two assertions stop a refactor from silently dropping the page or
@@ -170,6 +173,16 @@ describe('routes and sitemap', () => {
   it('lists the coach course page as an english-only sitemap entry', async () => {
     const entries = await getSitemapEntries()
     const entry = entries.find((e) => e.url === 'https://www.augotraining.com/en/irreplaceable-endurance-coach/')
+
+    expect(entry).toBeTruthy()
+    expect(entry?.alternates).toBeNull()
+    expect(entry?.priority).toBe(0.9)
+  })
+
+  // Same for the Racing Team program page.
+  it('lists the racing team page as an english-only sitemap entry', async () => {
+    const entries = await getSitemapEntries()
+    const entry = entries.find((e) => e.url === 'https://www.augotraining.com/en/racing-team/')
 
     expect(entry).toBeTruthy()
     expect(entry?.alternates).toBeNull()
