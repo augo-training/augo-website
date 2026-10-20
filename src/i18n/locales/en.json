@@ -2,7 +2,7 @@
   "nav": {
     "forCoaches": "For Coaches",
     "forAthletes": "For Athletes",
-    "findAMatch": "Find a Match",
+    "findAMatch": "Find a coach",
     "pricing": "Pricing",
     "bookDemo": "Book a Demo",
     "humanEdge": "Human Edge",
@@ -183,6 +183,11 @@
     "cookiesRequired": "Cookies Required",
     "cookiesMessage": "This form uses cookies from Typeform. Please accept cookies to load the form.",
     "acceptCookies": "Accept Cookies",
+    "seo": {
+      "collectionName": "Find an Online Running, Cycling or Triathlon Coach — augo",
+      "collectionDescription": "Browse 60+ vetted online running, cycling and triathlon coaches. Compare specialties, languages and credentials, then get matched with the right coach for your goals.",
+      "breadcrumb": "Find a coach"
+    },
     "directory": {
       "h1": "Find your endurance coach.",
       "subhead": "Running, cycling and triathlon coaches who deliver elite coaching & prioritise a strong coach-athlete relationship",
@@ -228,7 +233,7 @@
         },
         {
           "question": "How much does an online running, cycling or triathlon coach cost?",
-          "answer": "It varies by coach, experience and how hands-on the support is. Many endurance coaches charge a monthly fee, and typical starting prices are listed on individual coach profiles. augo connects you directly with the coach so you can agree on what's included before you commit."
+          "answer": "It varies by coach, experience and how hands-on the support is. Most endurance coaches charge a monthly fee. augo doesn't publish prices: once you're matched, you talk to the coach directly and agree on what's included and what it costs before you commit."
         },
         {
           "question": "Can I get a coach for my first marathon or first IRONMAN?",
@@ -260,7 +265,7 @@
       "bookDemo": "Book a Demo",
       "about": "About",
       "faq": "FAQ",
-      "findAMatch": "Find a match",
+      "findAMatch": "Find a coach",
       "humanEdge": "Human Edge",
       "blog": "Blog",
       "support": "Support",

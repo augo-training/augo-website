@@ -2,7 +2,7 @@
   "nav": {
     "forCoaches": "Para Coaches",
     "forAthletes": "Para Atletas",
-    "findAMatch": "Encontrar um Match",
+    "findAMatch": "Encontrar coach",
     "pricing": "Preços",
     "bookDemo": "Agendar Demo",
     "humanEdge": "Human Edge",
@@ -183,6 +183,11 @@
     "cookiesRequired": "Cookies necessários",
     "cookiesMessage": "Este formulário usa cookies do Typeform. Por favor, aceite cookies para carregar o formulário.",
     "acceptCookies": "Aceitar Cookies",
+    "seo": {
+      "collectionName": "Treinador Online de Corrida, Ciclismo ou Triatlo — augo",
+      "collectionDescription": "Mais de 60 treinadores online verificados de corrida, ciclismo e triatlo. Compare especialidades, idiomas e credenciais e encontre o treinador certo para os seus objetivos.",
+      "breadcrumb": "Encontrar coach"
+    },
     "directory": {
       "h1": "Encontre o coach perfeito para você.",
       "subhead": "Treinadores de corrida, ciclismo e triatlo que entregam coaching de elite & priorizam uma relação forte entre treinador e atleta",
@@ -228,7 +233,7 @@
         },
         {
           "question": "Quanto custa um treinador online de corrida, ciclismo ou triatlo?",
-          "answer": "Depende do treinador, da experiência e do nível de acompanhamento. Muitos treinadores de endurance cobram uma mensalidade, e os preços iniciais típicos aparecem nos perfis individuais. A augo conecta você diretamente com o treinador para que vocês combinem o que está incluído antes de fechar."
+          "answer": "Depende do treinador, da experiência e do nível de acompanhamento. A maioria dos treinadores de endurance cobra uma mensalidade. A augo não publica preços: depois do match, você fala diretamente com o treinador e combina o que está incluído e quanto custa antes de fechar."
         },
         {
           "question": "Posso ter um treinador para minha primeira maratona ou primeiro IRONMAN?",
@@ -260,7 +265,7 @@
       "bookDemo": "Agendar Demo",
       "about": "Sobre",
       "faq": "FAQ",
-      "findAMatch": "Encontrar um match",
+      "findAMatch": "Encontrar coach",
       "humanEdge": "Human Edge",
       "blog": "Blog",
       "support": "Ajuda",

@@ -2,6 +2,8 @@
 // Used by prerender.ts and generate-sitemap.ts.
 
 import { readdir, readFile } from 'node:fs/promises'
+import { execFile } from 'node:child_process'
+import { promisify } from 'node:util'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -41,6 +43,31 @@ export interface SitemapEntry {
   alternates: SitemapAlternate[] | null
   xDefault: string
   changefreq: 'weekly' | 'monthly'
+  /** ISO date (YYYY-MM-DD). Only set where a real change date is known. */
+  lastmod?: string
+}
+
+/**
+ * Date of the last commit that touched a file, as YYYY-MM-DD. The roster drives
+ * the directory and every coach profile, so its commit date is the honest
+ * <lastmod> for those URLs. A date stamped on every URL at every build would
+ * teach crawlers to ignore the field, which is why the other entries carry none.
+ * Falls back to today when git is unavailable (shallow CI checkouts still return
+ * the deploy commit, which is close enough).
+ */
+export async function lastCommitDate(relPath: string): Promise<string> {
+  try {
+    const { stdout } = await promisify(execFile)(
+      'git',
+      ['log', '-1', '--format=%cs', '--', relPath],
+      { cwd: ROOT },
+    )
+    const date = stdout.trim()
+    if (/^\d{4}-\d{2}-\d{2}$/.test(date)) return date
+  } catch {
+    // git missing or not a repository
+  }
+  return new Date().toISOString().slice(0, 10)
 }
 
 export async function discoverCoachSlugs(): Promise<string[]> {
@@ -196,6 +223,7 @@ function langUrl(lang: string, path: string): string {
  */
 export async function getSitemapEntries(): Promise<SitemapEntry[]> {
   const entries: SitemapEntry[] = []
+  const rosterLastmod = await lastCommitDate('src/data/coaches/roster.ts')
   for (const path of STATIC_PATHS) {
     for (const lang of LANGS) {
       entries.push({
@@ -204,6 +232,7 @@ export async function getSitemapEntries(): Promise<SitemapEntry[]> {
         alternates: LANGS.map((l) => ({ lang: l, url: langUrl(l, path) })),
         xDefault: langUrl(DEFAULT_LANG, path),
         changefreq: 'weekly',
+        ...(path === '/find' ? { lastmod: rosterLastmod } : {}),
       })
     }
   }
@@ -218,6 +247,7 @@ export async function getSitemapEntries(): Promise<SitemapEntry[]> {
         alternates: LANGS.map((l) => ({ lang: l, url: langUrl(l, path) })),
         xDefault: langUrl(DEFAULT_LANG, path),
         changefreq: 'monthly',
+        lastmod: rosterLastmod,
       })
     }
   }

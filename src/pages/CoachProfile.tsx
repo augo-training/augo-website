@@ -55,19 +55,34 @@ function localizedCoachTitle(
     disciplines: string[],
     expertServices: string[],
     city: string,
+    country: string,
+    coachesRemote: boolean,
     lang: string,
 ): string {
     const L = DISCIPLINE_LABEL[lang] ? lang : 'en'
+    // "in Brisighella" alone matches nobody's query. Athletes search "online
+    // running coach"; the country keeps the local match for those who do search
+    // by place. "Online" is only claimed for coaches who actually coach remotely.
+    const place = `${city}, ${country}`
     if (disciplines.length === 0 && expertServices.length > 0) {
         const role = EXPERT_TITLE[L][expertServices[0]] ?? expertServices[0]
-        if (L === 'de') return `${name} — ${role} in ${city} | augo`
-        if (L === 'pt') return `${name} — ${role} em ${city} | augo`
-        return `${name} — ${role} in ${city} | augo`
+        if (L === 'pt') return `${name} — ${role} em ${place} | augo`
+        return `${name} — ${role} in ${place} | augo`
     }
     const list = disciplines.map((d) => DISCIPLINE_LABEL[L][d] ?? d).join(' & ')
-    if (L === 'de') return `${name} — Coach für ${list} in ${city} | augo`
-    if (L === 'pt') return `${name} — Treinador de ${list} em ${city} | augo`
-    return `${name} — ${list} Coach in ${city} | augo`
+    if (L === 'de') {
+        return coachesRemote
+            ? `${name} — Online-Coach für ${list} in ${place} | augo`
+            : `${name} — Coach für ${list} in ${place} | augo`
+    }
+    if (L === 'pt') {
+        return coachesRemote
+            ? `${name} — Treinador Online de ${list} em ${place} | augo`
+            : `${name} — Treinador de ${list} em ${place} | augo`
+    }
+    return coachesRemote
+        ? `${name} — Online ${list} Coach in ${place} | augo`
+        : `${name} — ${list} Coach in ${place} | augo`
 }
 
 export default function CoachProfile() {
@@ -79,7 +94,7 @@ export default function CoachProfile() {
     const [toastOpen, setToastOpen] = useState(false)
 
     if (!coach) {
-        return <Navigate to={`/${currentLang}/find`} replace />
+        return <Navigate to={`/${currentLang}/find/`} replace />
     }
 
     function openContact(location: string) {
@@ -103,6 +118,8 @@ export default function CoachProfile() {
                     coach.disciplines,
                     coach.expertServices ?? [],
                     coach.location.city,
+                    coach.location.country,
+                    coach.coachesRemote,
                     currentLang,
                 )}
                 description={coach.tagline}

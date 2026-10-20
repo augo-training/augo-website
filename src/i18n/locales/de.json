@@ -2,7 +2,7 @@
   "nav": {
     "forCoaches": "Für Coaches",
     "forAthletes": "Für Athleten",
-    "findAMatch": "Match finden",
+    "findAMatch": "Coach finden",
     "pricing": "Preise",
     "bookDemo": "Demo buchen",
     "humanEdge": "Human Edge",
@@ -183,6 +183,11 @@
     "cookiesRequired": "Cookies erforderlich",
     "cookiesMessage": "Dieses Formular verwendet Cookies von Typeform. Bitte akzeptiere Cookies, um das Formular zu laden.",
     "acceptCookies": "Cookies akzeptieren",
+    "seo": {
+      "collectionName": "Online-Coach für Laufen, Radsport oder Triathlon finden — augo",
+      "collectionDescription": "Über 60 geprüfte Online-Coaches für Laufen, Radsport und Triathlon. Vergleiche Spezialgebiete, Sprachen und Qualifikationen und finde den Coach, der zu deinen Zielen passt.",
+      "breadcrumb": "Coach finden"
+    },
     "directory": {
       "h1": "Finde deinen Ausdauercoach.",
       "subhead": "Coaches fürs Laufen, Radsport und Triathlon, die Coaching auf Elite-Niveau liefern & eine starke Coach-Athlet-Beziehung in den Mittelpunkt stellen",
@@ -228,7 +233,7 @@
         },
         {
           "question": "Was kostet ein Online-Coach fürs Laufen, Radsport oder Triathlon?",
-          "answer": "Das hängt vom Coach, der Erfahrung und der Intensität der Betreuung ab. Viele Ausdauercoaches berechnen eine monatliche Gebühr; typische Einstiegspreise findest du auf den einzelnen Coach-Profilen. augo verbindet dich direkt mit dem Coach, sodass ihr vor einer Zusage klären könnt, was enthalten ist."
+          "answer": "Das hängt vom Coach, der Erfahrung und der Intensität der Betreuung ab. Die meisten Ausdauercoaches berechnen eine monatliche Gebühr. augo veröffentlicht keine Preise: Nach dem Match sprichst du direkt mit dem Coach und ihr klärt vor einer Zusage, was enthalten ist und was es kostet."
         },
         {
           "question": "Bekomme ich einen Coach für meinen ersten Marathon oder ersten IRONMAN?",
@@ -260,7 +265,7 @@
       "bookDemo": "Demo buchen",
       "about": "Über uns",
       "faq": "FAQ",
-      "findAMatch": "Match finden",
+      "findAMatch": "Coach finden",
       "humanEdge": "Human Edge",
       "blog": "Blog",
       "support": "Hilfe",

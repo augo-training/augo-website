@@ -18,7 +18,7 @@ interface Props {
 export default function CoachCompactCard({ coach, matchReason }: Props) {
     const { lang } = useParams<{ lang: string }>()
     const currentLang = lang ?? 'en'
-    const href = `/${currentLang}/coaches/${coach.slug}`
+    const href = `/${currentLang}/coaches/${coach.slug}/`
 
     return (
         <Link

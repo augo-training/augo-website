@@ -27,6 +27,25 @@ Coaches today manage athletes across fragmented tools — messages in WhatsApp, 
 
 ---
 
+## Find a coach: augo's public coach directory
+
+augo publishes a public directory of more than 60 vetted endurance coaches for running, cycling, triathlon and
+rowing, plus a small group of experts beyond coaching: physiotherapists, sports nutritionists, mental coaches and
+strength and conditioning specialists. Most coach online, with athletes anywhere in the world, and between them
+they coach in English, German, Portuguese, Spanish, Italian, French, Dutch and more.
+
+Each coach profile lists discipline, specialties (for example marathon, trail and ultra running, IRONMAN 70.3,
+gravel), city and country, languages, years coaching, athlete levels (beginner to elite), credentials, whether
+strength training is included, and the coach's philosophy and bio. Pricing is not published: athletes agree scope
+and price directly with the coach.
+
+- Directory: https://www.augotraining.com/en/find/ (also /de/find/ and /pt/find/)
+- Coach profiles: https://www.augotraining.com/en/coaches/<slug>/
+- How matching works: an athlete can search the roster in plain language on the directory page, or describe their
+  sport, goals, experience, schedule and communication preferences and let augo pick the closest matches. augo
+  introduces athlete and coach by email; the conversation continues directly between them.
+- Coaches who want to be listed apply from the directory page.
+
 ## Core philosophy
 
 augo is built on the belief that AI should serve coaches — not automate them away. Unlike standalone AI coaching apps, augo keeps the human coach at the center. The AI provides insights, context, and attention flags; the coach provides expertise, empathy, and the personal connection that drives athlete success.

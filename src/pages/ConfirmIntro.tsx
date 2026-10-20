@@ -124,7 +124,7 @@ function Body({ state, lang, onConfirm }: { state: State; lang: string; onConfir
                 <>
                     <Heading>This link has expired</Heading>
                     <Text>Links are valid for 7 days. Ask again from the coach's profile and we'll send you a new one.</Text>
-                    <Link to={state.coachSlug ? `/${lang}/coaches/${state.coachSlug}` : `/${lang}/find`} className={buttonClass}>
+                    <Link to={state.coachSlug ? `/${lang}/coaches/${state.coachSlug}/` : `/${lang}/find/`} className={buttonClass}>
                         {state.coachSlug ? "Back to the coach's profile" : 'Find a coach'}
                     </Link>
                 </>
@@ -134,7 +134,7 @@ function Body({ state, lang, onConfirm }: { state: State; lang: string; onConfir
                 <>
                     <Heading>This link doesn't work</Heading>
                     <Text>It may be incomplete. Open it again from the email, or ask again from the coach's profile.</Text>
-                    <Link to={`/${lang}/find`} className={buttonClass}>
+                    <Link to={`/${lang}/find/`} className={buttonClass}>
                         Find a coach
                     </Link>
                 </>

@@ -35,7 +35,7 @@ export default function Find() {
 
     return (
         <>
-            <SEOHead page="find" path="/find" />
+            <SEOHead page="find" path="/find" ogImagePath="/find-og.jpg" />
             <FindJsonLd />
             <CoachBreadcrumbJsonLd />
             <FAQJsonLd i18nKey="find.faq.items" />

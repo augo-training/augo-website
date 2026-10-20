@@ -25,6 +25,7 @@ export function renderEntry({
   alternates,
   xDefault,
   changefreq,
+  lastmod,
 }: SitemapEntry): string {
   const lines = []
   lines.push('  <url>')
@@ -39,6 +40,7 @@ export function renderEntry({
       `    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(xDefault)}" />`
     )
   }
+  if (lastmod) lines.push(`    <lastmod>${lastmod}</lastmod>`)
   if (changefreq) lines.push(`    <changefreq>${changefreq}</changefreq>`)
   lines.push(`    <priority>${priority.toFixed(1)}</priority>`)
   lines.push('  </url>')
