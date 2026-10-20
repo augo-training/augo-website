@@ -15,6 +15,7 @@ import {
   COURSE_NAME,
   COURSE_UPDATED,
 } from '../components/coachCourse/constants'
+import { COPY as RACING_TEAM_COPY, RACING_TEAM_URL } from '../components/racingTeam/constants'
 
 export function OrganizationJsonLd() {
   const schema = {
@@ -309,6 +310,39 @@ export function HumanEdgeBreadcrumbJsonLd() {
   return (
     <Helmet>
       <script type="application/ld+json">{JSON.stringify(schema)}</script>
+    </Helmet>
+  )
+}
+
+// ── Racing Team structured data ─────────────────────────────────────────────
+
+/**
+ * Breadcrumb plus the page's FAQ. The FAQ reads the page's own COPY rather
+ * than i18n (the page is English-only), which is why FAQJsonLd is not reused.
+ */
+export function RacingTeamJsonLd() {
+  const breadcrumb = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'augo', item: `${BASE_URL}/en/` },
+      { '@type': 'ListItem', position: 2, name: 'augo Racing Team 2027', item: RACING_TEAM_URL },
+    ],
+  }
+  const faq = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: RACING_TEAM_COPY.faq.items.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+  }
+
+  return (
+    <Helmet>
+      <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
+      <script type="application/ld+json">{JSON.stringify(faq)}</script>
     </Helmet>
   )
 }

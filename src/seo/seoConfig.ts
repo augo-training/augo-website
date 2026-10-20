@@ -179,6 +179,23 @@ const pageMeta: Record<string, Record<SupportedLanguage, PageMeta>> = {
         "A free 5-day email course for running, triathlon and endurance coaches: the 5 mistakes that cap how many athletes you can coach, and how to fix them with AI.",
     },
   },
+  racingTeam: {
+    en: {
+      title: 'augo Racing Team 2027: Sponsorship for 5 Coach and Athlete Duos | augo',
+      description:
+        'augo sponsors five coach and athlete duos for the March to October 2027 season: Elite tier for the coach, kit, nutrition and a filming day for the athlete, and a community for life. Applications open until December 15, 2026.',
+    },
+    de: {
+      title: 'augo Racing Team 2027: Sponsorship for 5 Coach and Athlete Duos | augo',
+      description:
+        'augo sponsors five coach and athlete duos for the March to October 2027 season: Elite tier for the coach, kit, nutrition and a filming day for the athlete, and a community for life. Applications open until December 15, 2026.',
+    },
+    pt: {
+      title: 'augo Racing Team 2027: Sponsorship for 5 Coach and Athlete Duos | augo',
+      description:
+        'augo sponsors five coach and athlete duos for the March to October 2027 season: Elite tier for the coach, kit, nutrition and a filming day for the athlete, and a community for life. Applications open until December 15, 2026.',
+    },
+  },
   contact: {
     en: {
       title: 'Contact augo | Questions, feedback, ideas',

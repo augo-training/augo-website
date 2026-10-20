@@ -19,6 +19,7 @@
     "og-image:nice-coaches": "node --experimental-strip-types scripts/generate-og-image.ts nice-coaches",
     "og-image:coach-course": "node --experimental-strip-types scripts/generate-og-image.ts coach-course",
     "og-image:mcp": "node --experimental-strip-types scripts/generate-og-image.ts mcp",
+    "og-image:racing-team": "node --experimental-strip-types scripts/generate-og-image.ts racing-team",
     "og-image:merci": "node --experimental-strip-types scripts/generate-og-image.ts merci",
     "og-image:session-zero": "node --experimental-strip-types scripts/generate-og-image.ts session-zero",
     "preview": "vite preview"
