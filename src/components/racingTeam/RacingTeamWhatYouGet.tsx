@@ -30,6 +30,11 @@ export default function RacingTeamWhatYouGet() {
                                 </span>
                                 {group.label}
                             </h3>
+                            {'lead' in group && group.lead && (
+                                <p className="font-satoshi text-[16px] sm:text-[18px] leading-[160%] text-text-muted max-w-[640px] -mt-1 mb-1">
+                                    {group.lead}
+                                </p>
+                            )}
                             <SpecList label="What's included" items={group.items} />
                             {'note' in group && group.note && (
                                 <p className="font-mono text-[11px] sm:text-[12px] tracking-[2.5px] uppercase text-white/40">

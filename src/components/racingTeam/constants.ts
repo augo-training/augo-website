@@ -76,8 +76,8 @@ export const COPY = {
         ],
         athlete: {
             label: 'The athlete',
-            summary: 'One result from the list, an audience to share the season with, and at least two races in 2027.',
-            resultsLabel: 'Results · one of',
+            summary: 'One result from the list in the last 12 months, an audience to share the season with, and at least two races in 2027.',
+            resultsLabel: 'Last 12 months · one of',
             results: [
                 {
                     label: 'Triathlon',
@@ -177,13 +177,14 @@ export const COPY = {
             },
             {
                 label: 'The athlete only',
+                lead: 'Discounts or better prices on everything below.',
                 note: 'Exact partners and details to be confirmed.',
                 items: [
-                    { label: 'Kit', statement: 'Fully personalised team race kit for free' },
-                    { label: 'Nutrition', statement: 'Training and race nutrition from our nutrition partner' },
-                    { label: 'Bike fit', statement: 'Bike fit discount' },
-                    { label: 'Shoes', statement: 'Shoe discount' },
-                    { label: 'Lab', statement: 'Lab testing discount' },
+                    { label: 'Kit', statement: 'Fully personalised team race kit' },
+                    { label: 'Nutrition', statement: 'Training and race nutrition' },
+                    { label: 'Bike fit', statement: 'Bike fit' },
+                    { label: 'Shoes', statement: 'Running shoes' },
+                    { label: 'Lab', statement: 'Lab testing' },
                 ] as SpecItem[],
             },
         ],
