@@ -76,7 +76,8 @@ function GroupHeading({ index, label, summary }: { index: number; label: string;
                 </span>
                 {label}
             </h3>
-            <p className="font-satoshi text-[16px] sm:text-[18px] leading-[160%] text-text-muted max-w-[640px]">
+            {/* One line on desktop, like the other lead sentences on the page. */}
+            <p className="font-satoshi text-[16px] sm:text-[18px] leading-[160%] text-text-muted lg:whitespace-nowrap">
                 {summary}
             </p>
         </div>
