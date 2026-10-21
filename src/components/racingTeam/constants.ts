@@ -85,13 +85,9 @@ export const COPY = {
                         'Top 3 in age group or top 5 overall at an Ironman, Ironman 70.3, T100, Challenge Family or World Triathlon event in the last 12 months',
                 },
                 {
-                    label: 'Trail',
+                    label: 'Running',
                     statement:
-                        'Top 3 in age group or top 5 overall at a UTMB World Series event in the last 12 months, or a UTMB Index in the top 5% for your gender',
-                },
-                {
-                    label: 'ITRA',
-                    statement: 'ITRA Performance Index at elite level: 825+ (men) or 700+ (women)',
+                        'Top 3 in age group or top 5 overall at a UTMB World Series event in the last 12 months, a UTMB Index in the top 5% for your gender, or an ITRA Performance Index of 825+ (men) or 700+ (women)',
                 },
                 {
                     label: 'Marathon',
@@ -103,7 +99,7 @@ export const COPY = {
                 },
                 {
                     label: 'Professional',
-                    statement: 'Professional athlete in any endurance sport',
+                    statement: 'Professional athlete in running, cycling or triathlon',
                 },
             ] as SpecItem[],
             alsoRequiredLabel: 'Also required',
@@ -133,7 +129,7 @@ export const COPY = {
                 },
                 {
                     label: 'Social',
-                    statement: 'An active profile on social media, Instagram for example',
+                    statement: 'An active Instagram profile',
                 },
             ] as SpecItem[],
         },
@@ -244,7 +240,7 @@ export const COPY = {
             },
             {
                 question: 'Does the coach need a social media presence?',
-                answer: 'Yes. The coach needs an active profile on social media, Instagram for example. During the year the coach writes at least one blog post for augo and does a collab post on Instagram with @augo.training.',
+                answer: 'Yes. The coach needs an active Instagram profile. During the year the coach writes at least one blog post for augo and does a collab post on Instagram with @augo.training.',
             },
             {
                 question: 'What does "coached on augo" mean?',
