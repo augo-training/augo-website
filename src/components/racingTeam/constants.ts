@@ -176,7 +176,7 @@ export const COPY = {
                 lead: 'Discounts or better prices on everything below.',
                 note: 'Exact partners and details to be confirmed.',
                 items: [
-                    { label: 'Apparel', statement: 'Personalised team race kit and running shoes' },
+                    { label: 'Apparel', statement: 'Personalised team race kit' },
                     { label: 'Nutrition', statement: 'Training and race nutrition' },
                     { label: 'Tech and science', statement: 'Bike fitting and lab testing' },
                 ] as SpecItem[],
