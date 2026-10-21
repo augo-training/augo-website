@@ -176,11 +176,9 @@ export const COPY = {
                 lead: 'Discounts or better prices on everything below.',
                 note: 'Exact partners and details to be confirmed.',
                 items: [
-                    { label: 'Kit', statement: 'Fully personalised team race kit' },
+                    { label: 'Apparel', statement: 'Personalised team race kit and running shoes' },
                     { label: 'Nutrition', statement: 'Training and race nutrition' },
-                    { label: 'Bike fit', statement: 'Bike fit' },
-                    { label: 'Shoes', statement: 'Running shoes' },
-                    { label: 'Lab', statement: 'Lab testing' },
+                    { label: 'Tech and science', statement: 'Bike fitting and lab testing' },
                 ] as SpecItem[],
             },
         ],
