@@ -82,12 +82,12 @@ export const COPY = {
                 {
                     label: 'Triathlon',
                     statement:
-                        'Top 3 in age group or top 5 overall at an Ironman, Ironman 70.3, T100, Challenge Family or World Triathlon event in the last 12 months',
+                        'Top 3 in age group or top 5 overall at an Ironman, Ironman 70.3, T100, Challenge Family or World Triathlon event',
                 },
                 {
-                    label: 'Running',
+                    label: 'Trail running',
                     statement:
-                        'Top 3 in age group or top 5 overall at a UTMB World Series event in the last 12 months, a UTMB Index in the top 5% for your gender, or an ITRA Performance Index of 825+ (men) or 700+ (women)',
+                        'Top 3 in age group or top 5 overall at a UTMB World Series event, a UTMB Index in the top 5% for your gender, or an ITRA Performance Index of 825+ (men) or 700+ (women)',
                 },
                 {
                     label: 'Marathon',
