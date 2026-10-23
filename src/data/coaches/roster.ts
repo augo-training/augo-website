@@ -25,6 +25,7 @@ import robertoPortrait from '../../assets/images/Roberto.webp'
 import gabrielePortrait from '../../assets/images/Gabriele.webp'
 import gregoryPortrait from '../../assets/images/Gregory.webp'
 import kathrinPortrait from '../../assets/images/Kathrin.webp'
+import thierryPortrait from '../../assets/images/Thierry.webp'
 // Generic placeholder for coaches without dedicated photography yet.
 import placeholderPortrait from '../../assets/images/brian-profile.webp'
 
@@ -184,7 +185,7 @@ export const coaches: Coach[] = [
             ],
             philosophy: "Sessions are important. The long-term relationship with the athlete is more important.",
         },
-        media: { portrait: placeholderPortrait },
+        media: { portrait: thierryPortrait },
         socials: { website: 'https://www.jurasports.com' },
     },
     {
