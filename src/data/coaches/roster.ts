@@ -44,6 +44,7 @@ const AF: CoachLanguage = { code: 'af', flag: '🇿🇦', label: 'Afrikaans' }
 const HE: CoachLanguage = { code: 'he', flag: '🇮🇱', label: 'Hebrew' }
 const DA: CoachLanguage = { code: 'da', flag: '🇩🇰', label: 'Danish' }
 const FA: CoachLanguage = { code: 'fa', flag: '🇮🇷', label: 'Persian' }
+const FI: CoachLanguage = { code: 'fi', flag: '🇫🇮', label: 'Finnish' }
 
 export const coaches: Coach[] = [
     {
@@ -2575,5 +2576,35 @@ export const coaches: Coach[] = [
         },
         media: { portrait: placeholderPortrait },
         socials: { website: 'https://www.liamwalkempc.ca' },
+    },
+    {
+        slug: 'petri-lehikoinen',
+        name: 'Petri Lehikoinen',
+        firstName: 'Petri',
+        gender: 'male',
+        tagline:
+            'Sports physiotherapist and strength & conditioning coach supporting elite athletes and their coaches.',
+        isFoundingCoach: false,
+        status: 'accepting',
+        disciplines: [],
+        expertServices: ['physiotherapy', 'strength-conditioning'],
+        specialties: ['sports physiotherapy', 'rehabilitation', 'strength & conditioning', 'sports massage'],
+        location: { city: 'Nyon', country: 'Switzerland', countryCode: 'CH', timezone: 'Europe/Zurich' },
+        coachesRemote: false,
+        languages: [EN, FI],
+        credentials: ['Sports performance coaching and rehabilitation', 'Sports massage'],
+        athleteLevels: ['Elite/Pro'],
+        idealAthlete: 'Dedicated elite junior or professional athletes, and the coaches who work with them',
+        bio: {
+            short: 'Analytic, detail-oriented sports physiotherapist and S&C coach for high-level athletes and coaches.',
+            long: [
+                'Petri is a sports physiotherapist and strength and conditioning coach based in Nyon, Switzerland. He provides expert support to high-level athletes and the coaches who work with them, in person.',
+                'His approach is analytic, detail-oriented and holistic. He works in English and Finnish.',
+                'He prefers working with dedicated elite junior or professional athletes, as well as coaches.',
+            ],
+            philosophy: 'Look at the whole athlete, and get the details right.',
+        },
+        media: { portrait: placeholderPortrait },
+        socials: { website: 'https://www.sportstherapy.ch' },
     },
 ]
