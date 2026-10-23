@@ -25,6 +25,7 @@ import davidTilburyDavisPortrait from '../../assets/images/DavidTilburyDavis.web
 import robertoPortrait from '../../assets/images/Roberto.webp'
 import gabrielePortrait from '../../assets/images/Gabriele.webp'
 import gregoryPortrait from '../../assets/images/Gregory.webp'
+import kathrinPortrait from '../../assets/images/Kathrin.webp'
 // Generic placeholder for coaches without dedicated photography yet.
 import placeholderPortrait from '../../assets/images/brian-profile.webp'
 
@@ -2468,6 +2469,7 @@ export const coaches: Coach[] = [
         tagline:
             'Former elite trail runner and sports dietitian coaching road and trail runners from 5K to 100 miles.',
         isFoundingCoach: false,
+        isProCoach: true,
         status: 'accepting',
         disciplines: ['running'],
         expertServices: ['nutrition'],
@@ -2501,7 +2503,7 @@ export const coaches: Coach[] = [
             ],
             philosophy: 'Close collaboration and ongoing communication, with training and fuelling planned together.',
         },
-        media: { portrait: placeholderPortrait },
+        media: { portrait: kathrinPortrait },
     },
     {
         slug: 'gael-aliphon',
