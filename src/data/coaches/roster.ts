@@ -18,13 +18,17 @@ import gordonPortrait from '../../assets/images/Gordon.webp'
 import maxPortrait from '../../assets/images/Max.png'
 import sanderPortrait from '../../assets/images/Sander.png'
 import amandaPortrait from '../../assets/images/Amanda.png'
-import brunaPortrait from '../../assets/images/bruna-track.webp'
 import manuelNicolauPortrait from '../../assets/images/ManuelNicolau.webp'
 import gabrielPortrait from '../../assets/images/Gabriel.webp'
 import davidTilburyDavisPortrait from '../../assets/images/DavidTilburyDavis.webp'
 import robertoPortrait from '../../assets/images/Roberto.webp'
 import gabrielePortrait from '../../assets/images/Gabriele.webp'
 import gregoryPortrait from '../../assets/images/Gregory.webp'
+import kathrinPortrait from '../../assets/images/Kathrin.webp'
+import thierryPortrait from '../../assets/images/Thierry.webp'
+import juanPortrait from '../../assets/images/Juan.webp'
+import gaelPortrait from '../../assets/images/Gael.webp'
+import jonathanPortrait from '../../assets/images/Jonathan.webp'
 // Generic placeholder for coaches without dedicated photography yet.
 import placeholderPortrait from '../../assets/images/brian-profile.webp'
 
@@ -44,6 +48,7 @@ const AF: CoachLanguage = { code: 'af', flag: '🇿🇦', label: 'Afrikaans' }
 const HE: CoachLanguage = { code: 'he', flag: '🇮🇱', label: 'Hebrew' }
 const DA: CoachLanguage = { code: 'da', flag: '🇩🇰', label: 'Danish' }
 const FA: CoachLanguage = { code: 'fa', flag: '🇮🇷', label: 'Persian' }
+const FI: CoachLanguage = { code: 'fi', flag: '🇫🇮', label: 'Finnish' }
 
 export const coaches: Coach[] = [
     {
@@ -183,7 +188,7 @@ export const coaches: Coach[] = [
             ],
             philosophy: "Sessions are important. The long-term relationship with the athlete is more important.",
         },
-        media: { portrait: placeholderPortrait },
+        media: { portrait: thierryPortrait },
         socials: { website: 'https://www.jurasports.com' },
     },
     {
@@ -1197,7 +1202,7 @@ export const coaches: Coach[] = [
             ],
             philosophy: 'Human first, scientific second. The other order causes burnout and injury.',
         },
-        media: { portrait: placeholderPortrait },
+        media: { portrait: jonathanPortrait },
         socials: { website: 'https://www.breakaway-coaching.com' },
     },
     {
@@ -1710,41 +1715,6 @@ export const coaches: Coach[] = [
         },
         media: { portrait: placeholderPortrait },
         socials: { website: 'https://www.meromind.com/' },
-    },
-    {
-        slug: 'bruna-maia',
-        name: 'Bruna Maia',
-        firstName: 'Bruna',
-        gender: 'female',
-        tagline:
-            'Positive running coach pairing data with feel — for dedicated runners training for performance.',
-        isFoundingCoach: false,
-        isProCoach: true,
-        status: 'accepting',
-        disciplines: ['running'],
-        specialties: ['5K', '10K', 'half marathon', 'marathon', 'trail running', 'fueling', 'mindset'],
-        location: { city: 'Zurich', country: 'Switzerland', countryCode: 'CH', timezone: 'Europe/Zurich' },
-        coachesRemote: true,
-        languages: [EN, PT],
-        credentials: ['UESCA Running coach'],
-        notableResults: ['8 road marathons finished'],
-        yearsCoaching: 5,
-        athleteLevels: ['Intermediate'],
-        communication: 'always-on',
-        offersStrength: true,
-        idealAthlete: 'Dedicated, performance-minded runners — motivated beginners or those getting serious about the sport',
-        bio: {
-            short:
-                'Positive, experienced running coach who combines the data with how you actually feel.',
-            long: [
-                'Bruna coaches road and trail running from 5K to the marathon, combining training data with subjective feel rather than trusting one over the other.',
-                'She has completed eight road marathons and has come back from RED-S herself, which shapes how she guides athletes on fueling and mindset alongside the training.',
-                'She works best with dedicated, performance-minded runners — very motivated beginners or athletes just starting to take the sport seriously — who value consistency in their training. She is available to her athletes 24/7.',
-            ],
-            philosophy: 'Data and feel belong together. Consistency, fueling and mindset carry the training.',
-        },
-        media: { portrait: brunaPortrait },
-        socials: { website: 'https://www.jornadaendurance.com' },
     },
     {
         slug: 'yuval-ben-moshe',
@@ -2426,7 +2396,7 @@ export const coaches: Coach[] = [
             ],
             philosophy: 'Rigour about shared goals, and a coach who lives the training too.',
         },
-        media: { portrait: placeholderPortrait },
+        media: { portrait: juanPortrait },
         socials: { website: 'https://www.efasports.com.ar' },
     },
     {
@@ -2467,6 +2437,7 @@ export const coaches: Coach[] = [
         tagline:
             'Former elite trail runner and sports dietitian coaching road and trail runners from 5K to 100 miles.',
         isFoundingCoach: false,
+        isProCoach: true,
         status: 'accepting',
         disciplines: ['running'],
         expertServices: ['nutrition'],
@@ -2500,7 +2471,7 @@ export const coaches: Coach[] = [
             ],
             philosophy: 'Close collaboration and ongoing communication, with training and fuelling planned together.',
         },
-        media: { portrait: placeholderPortrait },
+        media: { portrait: kathrinPortrait },
     },
     {
         slug: 'gael-aliphon',
@@ -2536,7 +2507,7 @@ export const coaches: Coach[] = [
             ],
             philosophy: 'Work hard, trust the long-term process, and the results follow.',
         },
-        media: { portrait: placeholderPortrait },
+        media: { portrait: gaelPortrait },
     },
     {
         slug: 'liam-walke',
@@ -2575,5 +2546,35 @@ export const coaches: Coach[] = [
         },
         media: { portrait: placeholderPortrait },
         socials: { website: 'https://www.liamwalkempc.ca' },
+    },
+    {
+        slug: 'petri-lehikoinen',
+        name: 'Petri Lehikoinen',
+        firstName: 'Petri',
+        gender: 'male',
+        tagline:
+            'Sports physiotherapist and strength & conditioning coach supporting elite athletes and their coaches.',
+        isFoundingCoach: false,
+        status: 'accepting',
+        disciplines: [],
+        expertServices: ['physiotherapy', 'strength-conditioning'],
+        specialties: ['sports physiotherapy', 'rehabilitation', 'strength & conditioning', 'sports massage'],
+        location: { city: 'Nyon', country: 'Switzerland', countryCode: 'CH', timezone: 'Europe/Zurich' },
+        coachesRemote: false,
+        languages: [EN, FI],
+        credentials: ['Sports performance coaching and rehabilitation', 'Sports massage'],
+        athleteLevels: ['Elite/Pro'],
+        idealAthlete: 'Dedicated elite junior or professional athletes, and the coaches who work with them',
+        bio: {
+            short: 'Analytic, detail-oriented sports physiotherapist and S&C coach for high-level athletes and coaches.',
+            long: [
+                'Petri is a sports physiotherapist and strength and conditioning coach based in Nyon, Switzerland. He provides expert support to high-level athletes and the coaches who work with them, in person.',
+                'His approach is analytic, detail-oriented and holistic. He works in English and Finnish.',
+                'He prefers working with dedicated elite junior or professional athletes, as well as coaches.',
+            ],
+            philosophy: 'Look at the whole athlete, and get the details right.',
+        },
+        media: { portrait: placeholderPortrait },
+        socials: { website: 'https://www.sportstherapy.ch' },
     },
 ]
