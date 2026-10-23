@@ -28,6 +28,7 @@ import kathrinPortrait from '../../assets/images/Kathrin.webp'
 import thierryPortrait from '../../assets/images/Thierry.webp'
 import juanPortrait from '../../assets/images/Juan.webp'
 import gaelPortrait from '../../assets/images/Gael.webp'
+import jonathanPortrait from '../../assets/images/Jonathan.webp'
 // Generic placeholder for coaches without dedicated photography yet.
 import placeholderPortrait from '../../assets/images/brian-profile.webp'
 
@@ -1201,7 +1202,7 @@ export const coaches: Coach[] = [
             ],
             philosophy: 'Human first, scientific second. The other order causes burnout and injury.',
         },
-        media: { portrait: placeholderPortrait },
+        media: { portrait: jonathanPortrait },
         socials: { website: 'https://www.breakaway-coaching.com' },
     },
     {
