@@ -27,6 +27,7 @@ import gregoryPortrait from '../../assets/images/Gregory.webp'
 import kathrinPortrait from '../../assets/images/Kathrin.webp'
 import thierryPortrait from '../../assets/images/Thierry.webp'
 import juanPortrait from '../../assets/images/Juan.webp'
+import gaelPortrait from '../../assets/images/Gael.webp'
 // Generic placeholder for coaches without dedicated photography yet.
 import placeholderPortrait from '../../assets/images/brian-profile.webp'
 
@@ -2505,7 +2506,7 @@ export const coaches: Coach[] = [
             ],
             philosophy: 'Work hard, trust the long-term process, and the results follow.',
         },
-        media: { portrait: placeholderPortrait },
+        media: { portrait: gaelPortrait },
     },
     {
         slug: 'liam-walke',
