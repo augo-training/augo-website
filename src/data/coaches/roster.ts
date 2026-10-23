@@ -18,7 +18,6 @@ import gordonPortrait from '../../assets/images/Gordon.webp'
 import maxPortrait from '../../assets/images/Max.png'
 import sanderPortrait from '../../assets/images/Sander.png'
 import amandaPortrait from '../../assets/images/Amanda.png'
-import brunaPortrait from '../../assets/images/bruna-track.webp'
 import manuelNicolauPortrait from '../../assets/images/ManuelNicolau.webp'
 import gabrielPortrait from '../../assets/images/Gabriel.webp'
 import davidTilburyDavisPortrait from '../../assets/images/DavidTilburyDavis.webp'
@@ -1712,41 +1711,6 @@ export const coaches: Coach[] = [
         },
         media: { portrait: placeholderPortrait },
         socials: { website: 'https://www.meromind.com/' },
-    },
-    {
-        slug: 'bruna-maia',
-        name: 'Bruna Maia',
-        firstName: 'Bruna',
-        gender: 'female',
-        tagline:
-            'Positive running coach pairing data with feel — for dedicated runners training for performance.',
-        isFoundingCoach: false,
-        isProCoach: true,
-        status: 'accepting',
-        disciplines: ['running'],
-        specialties: ['5K', '10K', 'half marathon', 'marathon', 'trail running', 'fueling', 'mindset'],
-        location: { city: 'Zurich', country: 'Switzerland', countryCode: 'CH', timezone: 'Europe/Zurich' },
-        coachesRemote: true,
-        languages: [EN, PT],
-        credentials: ['UESCA Running coach'],
-        notableResults: ['8 road marathons finished'],
-        yearsCoaching: 5,
-        athleteLevels: ['Intermediate'],
-        communication: 'always-on',
-        offersStrength: true,
-        idealAthlete: 'Dedicated, performance-minded runners — motivated beginners or those getting serious about the sport',
-        bio: {
-            short:
-                'Positive, experienced running coach who combines the data with how you actually feel.',
-            long: [
-                'Bruna coaches road and trail running from 5K to the marathon, combining training data with subjective feel rather than trusting one over the other.',
-                'She has completed eight road marathons and has come back from RED-S herself, which shapes how she guides athletes on fueling and mindset alongside the training.',
-                'She works best with dedicated, performance-minded runners — very motivated beginners or athletes just starting to take the sport seriously — who value consistency in their training. She is available to her athletes 24/7.',
-            ],
-            philosophy: 'Data and feel belong together. Consistency, fueling and mindset carry the training.',
-        },
-        media: { portrait: brunaPortrait },
-        socials: { website: 'https://www.jornadaendurance.com' },
     },
     {
         slug: 'yuval-ben-moshe',
