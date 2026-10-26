@@ -191,7 +191,7 @@ export const COPY = {
     confirmed: {
         title: 'Already confirmed',
         label: 'Confirmed',
-        /** Of the ten seats. The counter reads "04 / 10". */
+        /** Of the ten seats. The counter reads "05 / 10". */
         seats: 10,
         /** In the order the photos are listed in SessionZeroConfirmed.tsx. */
         coaches: [
@@ -225,6 +225,14 @@ export const COPY = {
                     'Founder and Head Coach of Ris3 Sport. Former Swiss Triathlon National Junior Coach and Head Coach of the National Training Centre.',
                     'Coach of Olympians, developing athletes from junior to elite level, from short course to Ironman distance.',
                     'Human-first coaching built on trust, authenticity and sense of responsibility: progression over comparison, where sustainable performance grows from a healthy, balanced athlete.',
+                ],
+            },
+            {
+                name: 'Steve Lloyd',
+                facts: [
+                    'Coaching full time for over 20 years, and for 10 years before that.',
+                    'Extensive experience with elite and professional athletes, from youth and junior to U23 and senior, across every distance from super sprint to Ironman.',
+                    'A real passion for working with anyone who wants to be the best they can be, whatever their level.',
                 ],
             },
         ],
