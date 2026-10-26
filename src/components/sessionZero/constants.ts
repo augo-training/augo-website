@@ -46,8 +46,7 @@ export const SESSION_ZERO_ROBOTS_AI = 'noai, noimageai'
 export const EVENT = {
     date: 'Friday 4 December 2026',
     city: 'Zurich',
-    /** The venue is not settled yet. Swap the placeholder once it is. */
-    location: 'TBD',
+    location: 'Seestrasse 353, 8038 Zürich, Switzerland',
     hours: '09:00 to 17:30',
     seats: '10, by invitation',
 } as const
