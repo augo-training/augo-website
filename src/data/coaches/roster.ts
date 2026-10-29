@@ -2,7 +2,6 @@ import type { Coach, CoachLanguage } from './types'
 
 import marcoPortrait from '../../assets/images/Marco.webp'
 import meganPortrait from '../../assets/images/Megan.png'
-import meganTobinPortrait from '../../assets/images/MeganTobin.png'
 import mikaelPortrait from '../../assets/images/Mikael.png'
 import markusPortrait from '../../assets/images/Markus.png'
 import paoloPortrait from '../../assets/images/Paolo.png'
@@ -10,7 +9,6 @@ import jazminePortrait from '../../assets/images/Jazmine.png'
 import tobiasPortrait from '../../assets/images/Tobias.png'
 import manuelPortrait from '../../assets/images/Manuel.png'
 import stefPortrait from '../../assets/images/Stef.png'
-import andreaPortrait from '../../assets/images/Andrea.png'
 import bevanPortrait from '../../assets/images/Bevan.png'
 import peterPortrait from '../../assets/images/Peter.png'
 import andersonPortrait from '../../assets/images/Anderson.png'
@@ -1047,38 +1045,6 @@ export const coaches: Coach[] = [
         socials: { website: 'https://max-training.pro' },
     },
     {
-        slug: 'andrea-salvisberg',
-        name: 'Andrea Salvisberg',
-        firstName: 'Andrea',
-        gender: 'male',
-        tagline:
-            'Two-time Olympian and performance-focused triathlon coach — precision, data, honesty.',
-        isFoundingCoach: true,
-        status: 'accepting',
-        disciplines: ['triathlon'],
-        specialties: ['Olympic-distance triathlon', '70.3', 'Ironman', '5K', '10K', 'half marathon', 'marathon', 'race strategy', 'swim coaching'],
-        location: { city: 'Baden', country: 'Switzerland', countryCode: 'CH', timezone: 'Europe/Zurich' },
-        coachesRemote: true,
-        languages: [EN, DE, GSW, FR],
-        credentials: ['2x Olympian', 'Certified triathlon coach', 'Strength training certified'],
-        yearsCoaching: 2,
-        athleteLevels: ['Intermediate'],
-        communication: 'always-on',
-        offersStrength: true,
-        idealAthlete: "Consistent athletes who don't need motivation — they need precision",
-        bio: {
-            short:
-                'Two-time Olympian coaching like one — precision, execution, data-driven, no hype.',
-            long: [
-                'Andrea uses real-world racing experience and data to optimise training, nutrition and race-day strategy.',
-                'He looks for disciplined athletes training 6–12+ hours per week who are focused on systems, numbers and honest feedback rather than just showing up.',
-            ],
-            philosophy: 'Precision and execution. Hype is for someone else.',
-        },
-        media: { portrait: andreaPortrait },
-        socials: { website: 'https://andreasalvisberg.com' },
-    },
-    {
         slug: 'dani-treise',
         name: 'Dani Treise',
         firstName: 'Dani',
@@ -1204,47 +1170,6 @@ export const coaches: Coach[] = [
         },
         media: { portrait: jonathanPortrait },
         socials: { website: 'https://www.breakaway-coaching.com' },
-    },
-    {
-        slug: 'megan-tobin',
-        name: 'Megan Tobin',
-        firstName: 'Megan',
-        gender: 'female',
-        tagline:
-            'Whole-athlete endurance coach blending nutrition, strength and mindset — for long-course and adventure junkies.',
-        isFoundingCoach: true,
-        status: 'accepting',
-        disciplines: ['triathlon', 'running', 'cycling'],
-        specialties: [
-            'short-course triathlon',
-            'long-course triathlon',
-            'multi-day events',
-            'marathon swimming',
-            'trail running',
-            'road running',
-            'cycling',
-        ],
-        location: { city: 'Boulder', country: 'United States', countryCode: 'US', timezone: 'America/Denver' },
-        coachesRemote: true,
-        languages: [EN],
-        credentials: ['TrainingPeaks Level 2', 'Strength training certified'],
-        yearsCoaching: 10,
-        athleteLevels: ['Intermediate'],
-        communication: 'always-on',
-        offersStrength: true,
-        idealAthlete: 'Dedicated endurance athletes at any level, long course and adventure junkies',
-        bio: {
-            short:
-                'Coaches the whole athlete — nutrition, strength and mindset — with a focus on women and motivated endurance athletes.',
-            long: [
-                'Megan is a certified short- and long-course triathlon specialist who coaches the whole athlete, consulting on nutrition, strength and mindset alongside the training plan.',
-                'She specialises in coaching women and motivated athletes, and her range runs from multi-day cycling and running events to marathon swimming.',
-                'Available 24/7 to her athletes, she works with dedicated endurance athletes of any experience level — particularly long-course and adventure junkies.',
-            ],
-            philosophy: 'Coach the whole athlete. Nutrition, strength and mindset belong in the plan too.',
-        },
-        media: { portrait: meganTobinPortrait },
-        socials: { website: 'https://www.tmtcoaching.com' },
     },
     {
         slug: 'gordon-crawford',
