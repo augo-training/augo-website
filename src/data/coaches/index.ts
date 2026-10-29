@@ -18,12 +18,10 @@ const FOUNDING_ORDER: string[] = [
     'bevan-mckinnon',
     'megan-edwards',
     'amanda-martin',
-    'andrea-salvisberg',
     'max-kinzlbauer',
     'stef-vanhaeren',
     'markus-lombardini',
     'paolo-gaffurini',
-    'megan-tobin',
     'peter-glassford',
 ]
 
