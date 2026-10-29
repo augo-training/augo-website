@@ -47,6 +47,7 @@ const HE: CoachLanguage = { code: 'he', flag: '🇮🇱', label: 'Hebrew' }
 const DA: CoachLanguage = { code: 'da', flag: '🇩🇰', label: 'Danish' }
 const FA: CoachLanguage = { code: 'fa', flag: '🇮🇷', label: 'Persian' }
 const FI: CoachLanguage = { code: 'fi', flag: '🇫🇮', label: 'Finnish' }
+const RU: CoachLanguage = { code: 'ru', flag: '🇷🇺', label: 'Russian' }
 
 export const coaches: Coach[] = [
     {
@@ -2556,5 +2557,52 @@ export const coaches: Coach[] = [
         },
         media: { portrait: placeholderPortrait },
         socials: { website: 'https://www.betendurance.com' },
+    },
+    {
+        slug: 'iuliia-iakunina',
+        name: 'Iuliia Iakunina',
+        firstName: 'Iuliia',
+        gender: 'female',
+        tagline:
+            'Running, nutrition and Nordic ski coach — open communication, structured training and long-term fitness.',
+        isFoundingCoach: false,
+        status: 'accepting',
+        disciplines: ['running'],
+        expertServices: ['nutrition', 'mental-coaching'],
+        specialties: [
+            '5K',
+            '10K',
+            'half marathon',
+            'marathon',
+            'road running',
+            'trail running',
+            'Nordic skiing',
+            'sports nutrition',
+            'pregnant & postpartum athletes',
+        ],
+        location: { city: 'Toronto', country: 'Canada', countryCode: 'CA', timezone: 'America/Toronto' },
+        coachesRemote: true,
+        languages: [EN, RU],
+        credentials: [
+            'UESCA Certified Running Coach',
+            'UESCA Certified Endurance Sports Nutrition Coach',
+            'Coaching the Pregnant and Postpartum Endurance Athlete Specialization',
+            'Specialist Degree in Physical Education and Sport',
+        ],
+        athleteLevels: ['Beginner', 'Intermediate'],
+        communication: 'always-on',
+        offersStrength: true,
+        idealAthlete: 'Keen learners who communicate openly and enjoy being active and making progress together',
+        bio: {
+            short: 'Certified running, nutrition and Nordic ski coach building long-term fitness through structured training and open communication.',
+            long: [
+                'Iuliia is a running, sports nutrition and Nordic ski coach based in Toronto, Canada. She coaches road and trail runners from 5K to the marathon, remotely and in person.',
+                'She brings a specialist degree in physical education and sport, UESCA certifications in running and endurance sports nutrition, and a specialization in coaching pregnant and postpartum endurance athletes. Alongside training plans she offers sports nutrition and mental coaching, and strength training is part of her coaching.',
+                'She works best with beginner and intermediate athletes who are keen to learn, communicate openly and enjoy making progress together. She coaches in English and Russian, and is available to her athletes 24/7.',
+            ],
+            philosophy: 'Structure and open communication, building fitness that lasts.',
+        },
+        media: { portrait: placeholderPortrait },
+        socials: { website: 'https://jamrunning.com' },
     },
 ]
