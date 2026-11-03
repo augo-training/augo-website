@@ -156,7 +156,7 @@ export default function BlogPost() {
               rel="noopener noreferrer"
               className="underline hover:text-white"
             >
-              augo's Substack
+              {post.substackName ?? "augo's Substack"}
             </a>
             .
           </footer>

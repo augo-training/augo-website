@@ -36,6 +36,8 @@ export interface BlogPostData {
   }
   bodyHtml: string
   substackUrl?: string
+  /** Footer label for `substackUrl`, for posts first published elsewhere. Falls back to "augo's Substack". */
+  substackName?: string
   tags?: string[]
   faqs?: { question: string; answer: string }[]
 }
