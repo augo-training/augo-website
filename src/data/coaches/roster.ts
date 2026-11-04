@@ -5,7 +5,6 @@ import meganPortrait from '../../assets/images/Megan.png'
 import markusPortrait from '../../assets/images/Markus.png'
 import paoloPortrait from '../../assets/images/Paolo.png'
 import jazminePortrait from '../../assets/images/Jazmine.png'
-import tobiasPortrait from '../../assets/images/Tobias.png'
 import stefPortrait from '../../assets/images/Stef.png'
 import bevanPortrait from '../../assets/images/Bevan.png'
 import peterPortrait from '../../assets/images/Peter.png'
@@ -188,50 +187,6 @@ export const coaches: Coach[] = [
         },
         media: { portrait: placeholderPortrait },
         socials: { website: 'https://www.myendurance.life' },
-    },
-    {
-        slug: 'tobi-haumann',
-        name: 'Tobi Haumann',
-        firstName: 'Tobi',
-        gender: 'male',
-        tagline:
-            'Open, creative triathlon and endurance coach for driven athletes who refuse to lose the fun.',
-        isFoundingCoach: false,
-        status: 'accepting',
-        disciplines: ['triathlon', 'running', 'cycling'],
-        specialties: [
-            'triathlon (short + long)',
-            '5K',
-            '10K',
-            'half marathon',
-            'marathon',
-            '50km',
-            '100km',
-            '100mi',
-            'trail running',
-            'swimming',
-            'Nordic skiing',
-        ],
-        location: { city: 'Rosenheim', country: 'Germany', countryCode: 'DE', timezone: 'Europe/Berlin' },
-        coachesRemote: true,
-        languages: [EN, DE],
-        credentials: ['Certified triathlon coach', 'Strength training certified'],
-        yearsCoaching: 15,
-        athleteLevels: ['Intermediate', 'Advanced', 'Elite/Pro'],
-        communication: 'weekly',
-        offersStrength: true,
-        idealAthlete: 'Driven athletes with clear goals who still keep the fun in it',
-        bio: {
-            short:
-                'Fifteen years of multi-sport coaching with a creative streak. Tobi works with intermediate to pro athletes.',
-            long: [
-                'Tobi coaches triathlon, road and trail running, cycling, swimming and Nordic skiing — and his roster reflects that range.',
-                'He gravitates to athletes who are communicative, driven but not losing the fun, and who have clear goals worth chasing.',
-            ],
-            philosophy: 'Driven, communicative, clear-goaled — without losing the fun.',
-        },
-        media: { portrait: tobiasPortrait },
-        socials: { website: 'https://scientifictriathlon.com' },
     },
     {
         slug: 'daniel-garcia-sandua',
