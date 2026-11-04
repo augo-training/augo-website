@@ -27,6 +27,7 @@ import thierryPortrait from '../../assets/images/Thierry.webp'
 import juanPortrait from '../../assets/images/Juan.webp'
 import gaelPortrait from '../../assets/images/Gael.webp'
 import jonathanPortrait from '../../assets/images/Jonathan.webp'
+import robertoAncidoniPortrait from '../../assets/images/RobertoAncidoni.webp'
 // Generic placeholder for coaches without dedicated photography yet.
 import placeholderPortrait from '../../assets/images/brian-profile.webp'
 
@@ -2644,7 +2645,7 @@ export const coaches: Coach[] = [
             ],
             philosophy: 'Support my athletes in achieving their results by fitting their endurance plan into their life, in a sustainable way.',
         },
-        media: { portrait: placeholderPortrait },
+        media: { portrait: robertoAncidoniPortrait },
     },
     {
         slug: 'matthew-marino',
