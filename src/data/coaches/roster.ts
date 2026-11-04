@@ -1315,6 +1315,7 @@ export const coaches: Coach[] = [
         tagline:
             'Detail-obsessed endurance coach for high-performance triathletes and ultra runners — building trust and chasing ambitious goals together.',
         isFoundingCoach: false,
+        isProCoach: true,
         status: 'accepting',
         disciplines: ['triathlon', 'running', 'cycling'],
         specialties: [
