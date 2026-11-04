@@ -2,12 +2,10 @@ import type { Coach, CoachLanguage } from './types'
 
 import marcoPortrait from '../../assets/images/Marco.webp'
 import meganPortrait from '../../assets/images/Megan.png'
-import mikaelPortrait from '../../assets/images/Mikael.png'
 import markusPortrait from '../../assets/images/Markus.png'
 import paoloPortrait from '../../assets/images/Paolo.png'
 import jazminePortrait from '../../assets/images/Jazmine.png'
 import tobiasPortrait from '../../assets/images/Tobias.png'
-import manuelPortrait from '../../assets/images/Manuel.png'
 import stefPortrait from '../../assets/images/Stef.png'
 import bevanPortrait from '../../assets/images/Bevan.png'
 import peterPortrait from '../../assets/images/Peter.png'
@@ -40,7 +38,6 @@ const PT: CoachLanguage = { code: 'pt', flag: '🇵🇹', label: 'Portuguese' }
 const ES: CoachLanguage = { code: 'es', flag: '🇪🇸', label: 'Spanish' }
 const NL: CoachLanguage = { code: 'nl', flag: '🇳🇱', label: 'Dutch' }
 const BG: CoachLanguage = { code: 'bg', flag: '🇧🇬', label: 'Bulgarian' }
-const SV: CoachLanguage = { code: 'sv', flag: '🇸🇪', label: 'Swedish' }
 const GSW: CoachLanguage = { code: 'gsw', flag: '🇨🇭', label: 'Swiss German' }
 const MT: CoachLanguage = { code: 'mt', flag: '🇲🇹', label: 'Maltese' }
 const AF: CoachLanguage = { code: 'af', flag: '🇿🇦', label: 'Afrikaans' }
@@ -128,37 +125,6 @@ export const coaches: Coach[] = [
         media: { portrait: meganPortrait },
     },
     {
-        slug: 'manuel-wyss',
-        name: 'Manuel Wyss',
-        firstName: 'Manuel',
-        gender: 'male',
-        tagline: '15 years of Swiss-precision triathlon and running coaching, from beginner to pro.',
-        isFoundingCoach: false,
-        status: 'accepting',
-        disciplines: ['triathlon', 'running'],
-        specialties: ['triathlon (short + long)', '10K', 'half marathon', 'marathon', 'swimming'],
-        location: { city: 'Salzburg', country: 'Austria', countryCode: 'AT', timezone: 'Europe/Vienna' },
-        coachesRemote: true,
-        languages: [GSW, DE],
-        credentials: ['Certified triathlon coach', 'Strength training certified'],
-        yearsCoaching: 15,
-        athleteLevels: ['Beginner', 'Intermediate', 'Advanced', 'Elite/Pro'],
-        communication: 'always-on',
-        offersStrength: true,
-        idealAthlete: 'Focused athletes who stay curious about their training',
-        bio: {
-            short:
-                'Fifteen years coaching across triathlon, running and swimming — from beginner up to elite.',
-            long: [
-                'Manuel works across the full triathlon stack and the run side of it: from a first sprint to long-course racing, from a goal 10K to a marathon.',
-                'Available to his athletes 24/7, he coaches from beginner to elite/pro.',
-            ],
-            philosophy: 'Focused, interested athletes go furthest. Show up, stay curious.',
-        },
-        media: { portrait: manuelPortrait },
-        socials: { website: 'https://team-wyss.ch' },
-    },
-    {
         slug: 'thierry-bessede',
         name: 'Thierry Bessède',
         firstName: 'Thierry',
@@ -222,50 +188,6 @@ export const coaches: Coach[] = [
         },
         media: { portrait: placeholderPortrait },
         socials: { website: 'https://www.myendurance.life' },
-    },
-    {
-        slug: 'mikael-eriksson',
-        name: 'Mikael Eriksson',
-        firstName: 'Mikael',
-        gender: 'male',
-        tagline:
-            'Empathetic, systematic triathlon coach for athletes whose effort matches their ambition.',
-        isFoundingCoach: false,
-        status: 'accepting',
-        disciplines: ['triathlon', 'running', 'cycling'],
-        specialties: [
-            'triathlon (short + long)',
-            '5K',
-            '10K',
-            'half marathon',
-            'marathon',
-            '50km',
-            '100km',
-            '100mi',
-            'trail running',
-            'cycling',
-        ],
-        location: { city: 'Mafra', country: 'Portugal', countryCode: 'PT', timezone: 'Europe/Lisbon' },
-        coachesRemote: true,
-        languages: [EN, PT, SV],
-        credentials: ['Certified triathlon coach', 'Strength training certified'],
-        yearsCoaching: 10,
-        athleteLevels: ['Beginner', 'Intermediate', 'Advanced', 'Elite/Pro'],
-        communication: 'as-needed',
-        offersStrength: true,
-        idealAthlete: 'Consistent athletes whose effort matches their ambition',
-        bio: {
-            short:
-                'Curious, empathetic, systematic. Mikael coaches across triathlon, running and cycling — beginner to pro.',
-            long: [
-                "Mikael's coaching is the marriage of two things he's done for a decade: take a problem apart with a researcher's patience, and stay close to the athlete with a teammate's empathy.",
-                'He looks for athletes who are dedicated, consistent, love the sport, communicate well, and whose effort actually matches their ambition.',
-                'Communication is bi-weekly calls plus a few text-based check-ins per week — and more when needed.',
-            ],
-            philosophy: "Pragmatic, systematic, always trying to learn more. Coaching is a feedback loop.",
-        },
-        media: { portrait: mikaelPortrait },
-        socials: { website: 'https://www.scientifictriathlon.com' },
     },
     {
         slug: 'tobi-haumann',
@@ -338,35 +260,6 @@ export const coaches: Coach[] = [
                 'He gravitates to disciplined, hard-working athletes who are self-assured and bring something of their own to the work.',
             ],
             philosophy: 'Disciplined, hard-working, self-assured — bring those and we go far.',
-        },
-        media: { portrait: placeholderPortrait },
-    },
-    {
-        slug: 'rodrigo-moro-backes',
-        name: 'Rodrigo Moro Backes',
-        firstName: 'Rodrigo',
-        gender: 'male',
-        tagline: 'Short-course triathlon coach who treats training as a craft.',
-        isFoundingCoach: false,
-        status: 'accepting',
-        disciplines: ['triathlon', 'running'],
-        specialties: ['sprint triathlon', 'Olympic triathlon', '5K', '10K', 'half marathon', 'marathon'],
-        location: { city: 'Belo Horizonte', country: 'Brazil', countryCode: 'BR', timezone: 'America/Sao_Paulo' },
-        coachesRemote: true,
-        languages: [PT, EN],
-        credentials: ['Certified triathlon coach', 'Strength training certified'],
-        yearsCoaching: 10,
-        athleteLevels: ['Beginner', 'Intermediate', 'Advanced'],
-        communication: 'weekly',
-        offersStrength: true,
-        idealAthlete: 'Athletes with specific goals who take their training seriously',
-        bio: {
-            short: 'Endurance practitioner first, coach second. Rodrigo specialises in short-course triathlon.',
-            long: [
-                'A decade of coaching, all centred on endurance — Rodrigo trains the way he expects his athletes to.',
-                'He looks for athletes with specific goals who enjoy training, take it seriously, and want to keep improving.',
-            ],
-            philosophy: "Specialise. Take training seriously. Always improve.",
         },
         media: { portrait: placeholderPortrait },
     },
