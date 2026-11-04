@@ -1832,6 +1832,7 @@ export const coaches: Coach[] = [
         tagline:
             'Ultra running coach for older athletes and newer runners going beyond the marathon, on trail and road.',
         isFoundingCoach: false,
+        isProCoach: true,
         status: 'accepting',
         disciplines: ['running'],
         specialties: ['marathon', 'ultra', 'trail running', 'road running'],
