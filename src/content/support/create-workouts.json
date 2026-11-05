@@ -3,7 +3,7 @@
   "title": "How do I create workouts in augo?",
   "seoTitle": "Creating Workouts in augo: Builder, Assistant, Connector | augo support",
   "description": "Three ways to create workouts in augo: the workout builder on web, the in-app assistant, or Claude and ChatGPT through the augo connector. Mix them however you like.",
-  "summary": "There are three ways to create workouts in augo, and you can mix them however you like: shape a session yourself in the workout builder on web, ask the in-app assistant to build it, or have Claude or ChatGPT create a whole block through the augo connector. Whatever you build lands in the athlete's augo calendar, and on Garmin, Coros, Wahoo and Suunto it is delivered to the device too.",
+  "summary": "There are three ways to create workouts in augo, and you can mix them however you like: shape a session yourself in the workout builder on web, ask the in-app assistant to build it, or have Claude or ChatGPT create a whole block through the augo connector. Whatever you build lands in the athlete's augo calendar, and Garmin, Coros, Wahoo, Suunto and Rouvy (rides) receive it too.",
   "category": "training",
   "keywords": [
     "create workout",
@@ -46,7 +46,7 @@
     },
     {
       "type": "html",
-      "html": "<h2 id=\"where-workouts-land\">Where workouts land</h2><p>Whatever device your athlete uses, every workout you build shows up in their augo calendar on mobile.</p><p>If the athlete has connected a Garmin, Coros, Wahoo or Suunto account, the workout is also delivered to the device, so they can follow it step by step. The full breakdown is in <a href=\"/en/support/workouts-on-your-device/\">which workouts are delivered to my device?</a></p>"
+      "html": "<h2 id=\"where-workouts-land\">Where workouts land</h2><p>Whatever device your athlete uses, every workout you build shows up in their augo calendar on mobile.</p><p>If the athlete has connected a Garmin, Coros, Wahoo or Suunto account, the workout is also delivered to the device, so they can follow it step by step. If they have connected Rouvy, planned rides appear in their Rouvy calendar automatically. The full breakdown is in <a href=\"/en/support/workouts-on-your-device/\">which workouts are delivered to my device?</a></p>"
     }
   ],
   "faqs": [
@@ -64,7 +64,7 @@
     },
     {
       "question": "Will the workout reach my athlete's watch?",
-      "answer": "It always appears in their augo app. On Garmin, Coros, Wahoo and Suunto it is also delivered to the device."
+      "answer": "It always appears in their augo app. On Garmin, Coros, Wahoo and Suunto it is also delivered to the device, and planned rides go to Rouvy if the athlete has connected it."
     }
   ],
   "related": [
@@ -92,5 +92,5 @@
     "web"
   ],
   "datePublished": "2026-09-15",
-  "dateUpdated": "2026-10-02"
+  "dateUpdated": "2026-11-05"
 }
