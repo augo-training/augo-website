@@ -1,0 +1,238 @@
+{
+  "slug": "import-training-history",
+  "title": "How do I bring my training history to augo?",
+  "seoTitle": "Import Your TrainingPeaks or Garmin History | augo support",
+  "description": "Bring your past training into augo so your coach can plan from day one. Export your history from TrainingPeaks or Garmin and we import it for you, or ask us to backfill it from another app.",
+  "summary": "There are three ways to bring your past training into augo. If your history is in TrainingPeaks or Garmin, export it yourself, upload the files to Google Drive and email us the link at info@augotraining.com. We import it for you, and this is the most reliable route. For any other app or device, connect it in augo and email us to ask for a backfill of up to five years, which is less reliable.",
+  "audience": "both",
+  "category": "integrations",
+  "keywords": [
+    "trainingpeaks",
+    "training peaks",
+    "tp",
+    "export",
+    "export data",
+    "workout files",
+    "zip",
+    "gzip",
+    "google drive",
+    "garmin export",
+    "garmin connect",
+    "api key",
+    "fit files",
+    "import history",
+    "training history",
+    "past training",
+    "migrate",
+    "switch from trainingpeaks",
+    "backfill",
+    "five years"
+  ],
+  "weight": 2,
+  "platforms": [
+    "web"
+  ],
+  "datePublished": "2026-11-09",
+  "dateUpdated": "2026-11-09",
+  "body": [
+    {
+      "type": "html",
+      "html": "<h2 id=\"options\">Three ways to bring your history</h2><p>Your coach can plan better from day one when they can see your past training. There are three ways to bring your history into augo.</p><div class=\"table-wrap\"><table><thead><tr><th>Option</th><th>What you do</th><th>How reliable</th></tr></thead><tbody><tr><td><a href=\"#option-1-trainingpeaks\">TrainingPeaks export</a></td><td>Export your files, upload them to Google Drive, email us the link</td><td>Most reliable (recommended)</td></tr><tr><td><a href=\"#option-2-garmin\">Garmin export</a></td><td>Export your files, upload them to Google Drive, email us the link</td><td>Most reliable (recommended)</td></tr><tr><td><a href=\"#option-3-other-sources\">Any other source</a></td><td>Connect it in augo, then email us to ask for a backfill</td><td>Less reliable, not guaranteed</td></tr></tbody></table></div><p>If your history is in TrainingPeaks or Garmin, please use one of those. You do the export yourself, and we do the import for you.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"option-1-trainingpeaks\">Option 1: Export from TrainingPeaks</h2><p>TrainingPeaks lets you export about 3 to 4 months at a time. For a longer history, you repeat the export for each block.</p><h3 id=\"trainingpeaks-before-you-start\">Before you start</h3><ul><li>Use a computer and a web browser. The export is not in the TrainingPeaks mobile app.</li><li>Log in at <a href=\"https://www.trainingpeaks.com\">trainingpeaks.com</a>.</li><li>Decide how far back you want to go (for example, 12 months) and split it into blocks of 3 to 4 months.</li></ul>"
+    },
+    {
+      "type": "steps",
+      "steps": [
+        {
+          "title": "Open Settings",
+          "html": "<p>Click your name and profile picture in the top right, then choose <strong>Settings</strong>.</p>"
+        },
+        {
+          "title": "Go to Export Data",
+          "html": "<p>In Account Settings, click <strong>Export Data</strong> (the last item under Account).</p>"
+        },
+        {
+          "title": "Pick your dates under Workout Files",
+          "html": "<p>Enter a <strong>From</strong> and <strong>To</strong> date no more than 3 to 4 months apart. Dates are month/day/year. Leave the format as GZIP.</p>"
+        },
+        {
+          "title": "Click Export on the Workout Files row",
+          "html": "<p>It can take a minute.</p>"
+        },
+        {
+          "title": "Download the file",
+          "html": "<p>When the Export Complete box appears, click the link. The file is named like <code>WorkoutFileExport-Lastname-Firstname-2026-07-17-2026-10-17.zip</code>.</p>"
+        },
+        {
+          "title": "Check your Downloads folder",
+          "html": "<p>Don't unzip or rename the file.</p><p>You can ignore the Workout Summary and Custom Metrics rows. You don't need to click Save.</p>"
+        }
+      ]
+    },
+    {
+      "type": "html",
+      "html": "<h3 id=\"trainingpeaks-longer-history\">Exporting a longer history</h3><p>Repeat steps 3 to 5 for each earlier block, starting the day before the last one began. For a full year, that's four exports:</p><div class=\"table-wrap\"><table><thead><tr><th>Export</th><th>Covers</th></tr></thead><tbody><tr><td>1</td><td>Last 3 months, up to today</td></tr><tr><td>2</td><td>Months 4 to 6 back</td></tr><tr><td>3</td><td>Months 7 to 9 back</td></tr><tr><td>4</td><td>Months 10 to 12 back</td></tr></tbody></table></div><p>You'll end up with one .zip file per block. Keep them all, then go to <a href=\"#send-your-files\">Send us your files</a> below.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"option-2-garmin\">Option 2: Export from Garmin</h2><p>This downloads every workout in your Garmin Connect account as an original .fit file, all in one .zip. Use a computer if you can.</p>"
+    },
+    {
+      "type": "steps",
+      "steps": [
+        {
+          "title": "Open the export page",
+          "html": "<p>Go to <a href=\"https://file-export.fly.dev\">file-export.fly.dev</a> and keep it open. You'll paste your key here at the end.</p>"
+        },
+        {
+          "title": "Get a Garmin API key",
+          "html": "<p>In a new tab, go to <a href=\"https://developer.garmin.com/gc-developer-program/overview/\">developer.garmin.com/gc-developer-program/overview</a> and click <strong>Set up now</strong> under Personal.</p>",
+          "media": {
+            "type": "image",
+            "src": "/support/import-training-history/garmin-set-up-now.png",
+            "alt": "The Personal section of the Garmin Connect Developer Program page with the Set up now button highlighted",
+            "caption": "Under Personal, click Set up now.",
+            "frame": "phone",
+            "width": 746,
+            "height": 725
+          }
+        },
+        {
+          "title": "Create a new personal API key",
+          "html": "<p>Sign in to Garmin Connect if asked, then choose to create a new personal API key.</p>",
+          "media": {
+            "type": "image",
+            "src": "/support/import-training-history/garmin-create-key.png",
+            "alt": "The Personal API Key page in Garmin Connect with the Create Key button highlighted",
+            "caption": "Create a new personal API key.",
+            "frame": "wide",
+            "width": 760,
+            "height": 315
+          }
+        },
+        {
+          "title": "Set the expiry and copy your key",
+          "html": "<p>Set <strong>Key Expires In</strong> to 1 year and click <strong>Create</strong>. Copy your key right away. Garmin only shows it once.</p>",
+          "media": {
+            "type": "image",
+            "src": "/support/import-training-history/garmin-key-expiry.png",
+            "alt": "The Create Personal API Key window with Key Expires In set to 1 year and the Create button highlighted",
+            "caption": "Set Key Expires In to 1 year, then click Create.",
+            "frame": "wide",
+            "width": 744,
+            "height": 492
+          }
+        },
+        {
+          "title": "Paste the key into the export page",
+          "html": "<p>Paste it into <strong>Your Garmin API key</strong> on the export page and click <strong>Connect</strong>.</p>"
+        },
+        {
+          "title": "Download the .zip",
+          "html": "<p>When your export is ready, it downloads to your computer. Check your Downloads folder. Don't unzip or rename it.</p>"
+        }
+      ]
+    },
+    {
+      "type": "html",
+      "html": "<p>Then go to <a href=\"#send-your-files\">Send us your files</a> below.</p><p><strong>About your key and files:</strong> your key is only used to read your activities for this export and is never stored. You can delete it in Garmin Connect when you're done. Files are deleted from the export server 48 hours after your export is ready, so download yours soon.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"send-your-files\">Send us your files (TrainingPeaks and Garmin)</h2><p>The files are too big for email, so you share them through your own Google Drive. We can only import them if we can open the folder.</p>"
+    },
+    {
+      "type": "steps",
+      "steps": [
+        {
+          "title": "Make a folder in your Google Drive",
+          "html": "<p>For example, <em>augo export Your Name</em>.</p>"
+        },
+        {
+          "title": "Upload all your .zip files into it",
+          "html": "<p>Don't unzip them.</p>"
+        },
+        {
+          "title": "Give us access",
+          "html": "<p>Right-click the folder, choose <strong>Share</strong>, add <a href=\"mailto:info@augotraining.com\">info@augotraining.com</a> and click <strong>Send</strong>. If you'd rather use a link, set General access to <strong>Anyone with the link</strong>.</p>"
+        },
+        {
+          "title": "Copy the folder link",
+          "html": "<p>Choose <strong>Share</strong>, then <strong>Copy link</strong>.</p>"
+        },
+        {
+          "title": "Email us the link",
+          "html": "<p>Send it to <a href=\"mailto:info@augotraining.com\">info@augotraining.com</a> with:</p><ul><li>your full name</li><li>the email address you use in augo</li><li>your coach's name</li><li>where the files are from (TrainingPeaks or Garmin)</li></ul>"
+        }
+      ]
+    },
+    {
+      "type": "html",
+      "html": "<p><strong>Important:</strong> if we can't open the folder, we can't import your data. Please check step 3 before you send the email.</p><p>We'll import the files into your augo account for you.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"option-3-other-sources\">Option 3: Any other source</h2><p>If your history is in another app or device, we can try to pull up to 5 years of it for you. No files or Google Drive needed.</p><ol><li><a href=\"/en/support/connect-devices-and-apps/\">Connect the app or device</a> to your augo account first.</li><li>Email <a href=\"mailto:info@augotraining.com\">info@augotraining.com</a> and ask for a backfill. Include:<ul><li>your full name</li><li>the email address you use in augo</li><li>which app or device your history is in</li><li>how far back you'd like to go (up to 5 years)</li></ul></li></ol><p>This method is less reliable, and we can't promise every workout will come through. If your history is also in TrainingPeaks or Garmin, use <a href=\"#option-1-trainingpeaks\">Option 1</a> or <a href=\"#option-2-garmin\">Option 2</a> instead.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"for-coaches\">For coaches</h2><p>Want to see an athlete's past training? Send them the link to this page. Only athletes can access their own TrainingPeaks, Garmin or other accounts, so they need to do the export and send the email themselves.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"troubleshooting\">If something goes wrong</h2><ul><li><strong>TrainingPeaks export fails or never finishes:</strong> shorten the date range (for example to 2 months) and try again.</li><li><strong>TrainingPeaks menu looks different:</strong> make sure you're on the website on a computer, not the mobile app.</li><li><strong>Lost your Garmin key:</strong> Garmin only shows it once. Create a new key and use that one.</li><li><strong>Garmin download link stopped working:</strong> files are deleted after 48 hours. Run the export again.</li><li><strong>Can't find the download:</strong> check your browser's downloads list or the Downloads folder on your computer.</li><li><strong>We wrote back saying we can't open your folder:</strong> share it again with <a href=\"mailto:info@augotraining.com\">info@augotraining.com</a>, or set it to Anyone with the link.</li><li><strong>Still stuck?</strong> Ask your coach, or email <a href=\"mailto:info@augotraining.com\">info@augotraining.com</a> with a screenshot of where you are.</li></ul>"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "How do I move my TrainingPeaks history to augo?",
+      "answer": "Export your workout files from TrainingPeaks on a computer (Settings, then Export Data), 3 to 4 months at a time. Upload the .zip files to a Google Drive folder, share it with info@augotraining.com and email us the link. We import the files for you."
+    },
+    {
+      "question": "Can I import my full Garmin history?",
+      "answer": "Yes. The Garmin export downloads every workout in your Garmin Connect account as .fit files in one .zip. Share it with us through Google Drive and we import it. Connecting Garmin in augo only brings in the last 30 days, so the export is how you get more."
+    },
+    {
+      "question": "Do I need to unzip the files?",
+      "answer": "No. Upload the .zip files to Google Drive as they are. Don't unzip or rename them."
+    },
+    {
+      "question": "Is my Garmin API key stored?",
+      "answer": "No. Your key is only used to read your activities for the export and is never stored. You can delete it in Garmin Connect when you're done."
+    },
+    {
+      "question": "Can my coach do the export for me?",
+      "answer": "No. Only athletes can access their own TrainingPeaks, Garmin or other accounts, so the athlete does the export and sends the email. Coaches can send their athletes the link to this page."
+    },
+    {
+      "question": "What if my history is in another app?",
+      "answer": "Connect the app or device in augo, then email info@augotraining.com to ask for a backfill of up to 5 years. This is less reliable, so if your history is also in TrainingPeaks or Garmin, export from there instead."
+    }
+  ],
+  "related": [
+    "historical-activities",
+    "connect-devices-and-apps"
+  ],
+  "questionForms": [
+    "how do i import my trainingpeaks history",
+    "how do i move from trainingpeaks to augo",
+    "how do i export my workouts from trainingpeaks",
+    "can i bring my training history to augo",
+    "how do i export my garmin history",
+    "how do i get my full garmin history into augo",
+    "can i import more than 30 days from garmin",
+    "where do i get a garmin api key",
+    "where do i send my export",
+    "how do i share my export with augo",
+    "do i need to unzip the files",
+    "trainingpeaks export not working",
+    "garmin download link not working",
+    "my coach wants to see my past training",
+    "how do i get my athletes past training",
+    "can my coach export my trainingpeaks data",
+    "how do i ask for a backfill"
+  ]
+}
