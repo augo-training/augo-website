@@ -1,9 +1,9 @@
 {
   "slug": "ride-augo-workouts-indoors",
-  "title": "How do I ride an augo workout in Zwift, MyWhoosh or Rouvy?",
-  "seoTitle": "Ride augo Workouts in Zwift, MyWhoosh and Rouvy | augo support",
-  "description": "Export a planned workout from the augo app as a .zwo file, then add it to Zwift, MyWhoosh or Rouvy and ride it on your smart trainer.",
-  "summary": "Open the planned workout in the augo mobile app and tap Export .zwo file. Then add the file to your indoor app: in Zwift, copy it into your Workouts folder; in MyWhoosh, upload it at workout.mywhoosh.com; in Rouvy, use Import from file. It takes a couple of minutes and is worth it for structured sessions you want the trainer to control.",
+  "title": "How do I ride an augo workout in Zwift or MyWhoosh?",
+  "seoTitle": "Ride augo Workouts in Zwift and MyWhoosh | augo support",
+  "description": "Export a planned workout from the augo app as a .zwo file, then add it to Zwift or MyWhoosh and ride it on your smart trainer. Rouvy gets planned rides automatically.",
+  "summary": "Open the planned workout in the augo mobile app and tap Export .zwo file. In Zwift, copy it into your Workouts folder; in MyWhoosh, upload it at workout.mywhoosh.com. On Rouvy you don't need the file: connect Rouvy and planned rides appear in your Rouvy calendar automatically. You can still import a .zwo into Rouvy by hand if you prefer.",
   "audience": "both",
   "category": "integrations",
   "keywords": [
@@ -32,11 +32,11 @@
     "android"
   ],
   "datePublished": "2026-09-24",
-  "dateUpdated": "2026-09-24",
+  "dateUpdated": "2026-11-05",
   "body": [
     {
       "type": "html",
-      "html": "<h2 id=\"export\">Export the workout from augo</h2><p>Planned workouts aren't sent to Zwift, MyWhoosh or Rouvy automatically, but you can take them there yourself. In the augo mobile app, open the planned workout, open the menu and tap <strong>Export .zwo file</strong>. Save the file somewhere you can reach from the computer or app you ride on — your files, a cloud drive, or an email to yourself.</p><p>A .zwo file is the standard format for structured indoor workouts. It carries every step of the session, so the app can set your trainer's resistance for each interval.</p>"
+      "html": "<h2 id=\"rouvy-is-automatic\">On Rouvy? You don't need a file</h2><p>augo integrates natively with Rouvy. Connect Rouvy from the augo app and every planned ride appears in your Rouvy calendar on its own. See <a href=\"/en/support/rouvy-workouts/\">how do planned workouts get to Rouvy?</a> The import steps further down are only for when you'd rather add a workout by hand.</p><h2 id=\"export\">Export the workout from augo</h2><p>Planned workouts aren't sent to Zwift or MyWhoosh automatically, but you can take them there yourself. In the augo mobile app, open the planned workout, open the menu and tap <strong>Export .zwo file</strong>. Save the file somewhere you can reach from the computer or app you ride on — your files, a cloud drive, or an email to yourself.</p><p>A .zwo file is the standard format for structured indoor workouts. It carries every step of the session, so the app can set your trainer's resistance for each interval.</p>"
     },
     {
       "type": "html",
@@ -98,7 +98,7 @@
     },
     {
       "type": "html",
-      "html": "<h2 id=\"rouvy\">Rouvy</h2><p>Rouvy imports the file directly, in the app or on rouvy.com.</p>"
+      "html": "<h2 id=\"rouvy\">Rouvy, by hand</h2><p>With Rouvy connected, you don't need this — planned rides arrive in your Rouvy calendar automatically. If you'd rather import a workout yourself, Rouvy takes the file directly, in the app or on rouvy.com.</p>"
     },
     {
       "type": "steps",
@@ -136,6 +136,10 @@
       "answer": "Not automatically. Export the workout from the augo app as a .zwo file, copy it into your Zwift Workouts folder on your computer, and restart Zwift. It then appears under Training, then Custom Workouts."
     },
     {
+      "question": "Do I need a .zwo file for Rouvy?",
+      "answer": "No. augo integrates natively with Rouvy, so once Rouvy is connected your planned rides appear in your Rouvy calendar automatically. Importing a .zwo file by hand still works if you prefer."
+    },
+    {
       "question": "Where do I find the .zwo export in augo?",
       "answer": "In the augo mobile app, open the planned workout and open its menu. Export .zwo file sits alongside Send to device and Move to another day."
     },
@@ -153,6 +157,7 @@
     }
   ],
   "related": [
+    "rouvy-workouts",
     "workouts-on-your-device",
     "connect-devices-and-apps"
   ],

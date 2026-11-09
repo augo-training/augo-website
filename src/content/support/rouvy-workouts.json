@@ -1,0 +1,114 @@
+{
+  "slug": "rouvy-workouts",
+  "title": "How do planned workouts get to Rouvy?",
+  "seoTitle": "augo Workouts in Rouvy, Automatically | augo support",
+  "description": "augo integrates natively with Rouvy. Connect Rouvy once from the augo app and your coach's planned rides appear in your Rouvy calendar automatically, ready to ride on your smart trainer.",
+  "summary": "augo integrates natively with Rouvy. Connect Rouvy once from the augo app and every structured ride your coach plans appears in your Rouvy calendar automatically, so there's no file to export. Rides only: runs and other sessions stay in the augo app. If you connected Rouvy before this changed, connect it again so workouts can be sent.",
+  "audience": "both",
+  "category": "integrations",
+  "keywords": [
+    "rouvy",
+    "rouvy workouts",
+    "rouvy calendar",
+    "planned workouts in rouvy",
+    "send workouts to rouvy",
+    "structured workout",
+    "native integration",
+    "automatic",
+    "smart trainer",
+    "indoor",
+    "reconnect",
+    "reauthorise"
+  ],
+  "weight": 2,
+  "platforms": [
+    "ios",
+    "android",
+    "web"
+  ],
+  "datePublished": "2026-11-05",
+  "dateUpdated": "2026-11-05",
+  "body": [
+    {
+      "type": "html",
+      "html": "<h2 id=\"how-it-works\">Connect once, ride every planned workout</h2><p>augo integrates natively with Rouvy. Once Rouvy is connected to your augo account, every structured ride your coach plans is sent to Rouvy on its own. It appears in your Rouvy calendar on the day it's scheduled, with every step — warm-up, intervals, recoveries, cool-down — ready for Rouvy to control your smart trainer.</p><p>There's no file to export and nothing to import. When your coach adds or changes a ride in augo, Rouvy gets it.</p>"
+    },
+    {
+      "type": "steps",
+      "steps": [
+        {
+          "title": "Open integrations in the augo app",
+          "html": "<p>In the augo app, go to your connected devices and apps.</p>"
+        },
+        {
+          "title": "Connect Rouvy",
+          "html": "<p>Choose Rouvy, log in with your Rouvy account and approve the permissions it asks for.</p>"
+        },
+        {
+          "title": "Ride from your Rouvy calendar",
+          "html": "<p>Planned rides now show up in your Rouvy calendar. Start one from there and Rouvy sets the trainer's resistance for each interval.</p>"
+        }
+      ]
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"rides-only\">Rides only</h2><p>Rouvy is an indoor cycling app, so only cycling workouts are sent to it. Runs, swims, strength sessions and anything else your coach plans stay in your augo app, where you can follow them as usual.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"reconnect-rouvy\">If you connected Rouvy before this changed</h2><p>Sending workouts to Rouvy is new. A Rouvy connection made before it existed was authorised to read your rides, not to send workouts, so planned rides won't reach Rouvy yet.</p><p>The fix is to connect Rouvy again from the augo app and approve the permissions it asks for. Nothing you already have in augo is removed, and your completed rides keep coming in. If you're connecting Rouvy for the first time, there's nothing extra to do.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"after-the-ride\">After the ride</h2><p>Your completed ride syncs back to augo automatically, usually within minutes, so your coach sees what you actually rode next to what was planned.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"for-coaches\">For coaches</h2><p>There's nothing extra to do. Plan rides in augo as usual. Any athlete who has connected Rouvy gets them in their Rouvy calendar, and the completed ride shows up in your view like any other activity.</p><p>If an athlete says a ride isn't in Rouvy, the most likely cause is a connection made before this change. Ask them to reconnect Rouvy from the augo app.</p>"
+    },
+    {
+      "type": "html",
+      "html": "<h2 id=\"not-showing-up\">If a ride isn't in Rouvy</h2><ul><li><strong>Check that it's a ride.</strong> Only cycling workouts are sent to Rouvy.</li><li><strong>Reconnect Rouvy</strong> from the augo app if you connected it before this changed.</li><li><strong>Still missing?</strong> Use the feedback button in the augo app and tell us which workout and which day. We'll take a look.</li></ul><p>In the meantime you can still ride it: export the workout as a .zwo file and import it into Rouvy yourself. See <a href=\"/en/support/ride-augo-workouts-indoors/#rouvy\">how do I ride an augo workout indoors?</a></p>"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Does augo send workouts to Rouvy?",
+      "answer": "Yes. augo integrates natively with Rouvy. Connect Rouvy from the augo app and every structured ride your coach plans appears in your Rouvy calendar automatically."
+    },
+    {
+      "question": "Do I still need to export a .zwo file for Rouvy?",
+      "answer": "No. Once Rouvy is connected, planned rides are sent to it automatically. The .zwo export is still there if you ever want to import a workout by hand."
+    },
+    {
+      "question": "Do I need to reconnect Rouvy?",
+      "answer": "Only if you connected it before augo started sending workouts to Rouvy. That connection doesn't carry the permission it needs, so connect Rouvy again from the augo app and approve what it asks for."
+    },
+    {
+      "question": "Are runs and other workouts sent to Rouvy?",
+      "answer": "No. Rouvy is for cycling, so only rides are sent. Everything else stays in your augo app."
+    },
+    {
+      "question": "Does my coach need to do anything?",
+      "answer": "No. Coaches plan rides in augo as usual. Delivery to Rouvy happens automatically for every athlete who has connected it."
+    }
+  ],
+  "related": [
+    "workouts-on-your-device",
+    "connect-devices-and-apps",
+    "ride-augo-workouts-indoors"
+  ],
+  "questionForms": [
+    "does augo send workouts to rouvy",
+    "how do i get my planned workouts in rouvy",
+    "will my planned workouts show up in rouvy",
+    "do augo workouts show up in rouvy automatically",
+    "does augo integrate with rouvy",
+    "do i need to reconnect rouvy",
+    "why isnt my workout in rouvy",
+    "do i still need a zwo file for rouvy",
+    "can my coach send workouts to rouvy",
+    "are runs sent to rouvy",
+    "where do i find my augo workout in rouvy"
+  ]
+}

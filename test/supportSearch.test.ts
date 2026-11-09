@@ -53,7 +53,11 @@ const EVAL: { query: string; expect: string; why: string }[] = [
   { query: 'can i see the intervals on my bike computer', expect: 'workouts-on-your-device', why: 'bike computer phrase alias' },
   { query: 'planned workouts on my coros', expect: 'workouts-on-your-device', why: 'planned is delivery vocabulary' },
   { query: 'can i follow the workout on my karoo', expect: 'workouts-on-your-device', why: 'a bike computer that is not a push target — delivery article owns the no' },
-  { query: 'does augo send workouts to rouvy', expect: 'workouts-on-your-device', why: 'send -> deliver group; a negative answer still belongs to the delivery article' },
+  // rouvy-workouts
+  { query: 'does augo send workouts to rouvy', expect: 'rouvy-workouts', why: 'declared question form; Rouvy push has its own article' },
+  { query: 'planned workouts in rouvy', expect: 'rouvy-workouts', why: 'planned + rouvy must beat the general delivery article' },
+  { query: 'do i need to reconnect rouvy', expect: 'rouvy-workouts', why: 'rouvy reconnect lives with rouvy push, not the garmin section' },
+  { query: 'rouvy calendar', expect: 'rouvy-workouts', why: 'where delivered rides land; only the rouvy article owns it' },
   // ride-augo-workouts-indoors
   { query: 'how do i get my workout into zwift', expect: 'ride-augo-workouts-indoors', why: 'declared-form neighbour; must beat the delivery article' },
   { query: 'zwo file', expect: 'ride-augo-workouts-indoors', why: 'zwo is only in the indoor article' },
