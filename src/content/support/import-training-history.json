@@ -41,40 +41,76 @@
     },
     {
       "type": "html",
-      "html": "<h2 id=\"option-1-trainingpeaks\">Option 1: Export from TrainingPeaks</h2><p>TrainingPeaks lets you export about 3 to 4 months at a time. For a longer history, you repeat the export for each block.</p><h3 id=\"trainingpeaks-before-you-start\">Before you start</h3><ul><li>Use a computer and a web browser. The export is not in the TrainingPeaks mobile app.</li><li>Log in at <a href=\"https://www.trainingpeaks.com\">trainingpeaks.com</a>.</li><li>Decide how far back you want to go (for example, 12 months) and split it into blocks of 3 to 4 months.</li></ul>"
+      "html": "<h2 id=\"option-1-trainingpeaks\">Option 1: Export from TrainingPeaks</h2><p>TrainingPeaks lets you export about 3 to 4 months at a time. You'll do the steps below once for your most recent months, then repeat steps 3 to 6 for each older block.</p><h3 id=\"trainingpeaks-before-you-start\">Before you start</h3><ul><li><strong>Use a computer.</strong> The export isn't in the TrainingPeaks mobile app.</li><li><strong>Log in</strong> at <a href=\"https://www.trainingpeaks.com\">trainingpeaks.com</a> in your web browser.</li><li><strong>Decide how far back to go</strong>, for example 12 months. That's four exports of 3 months each.</li></ul>"
     },
     {
       "type": "steps",
       "steps": [
         {
           "title": "Open Settings",
-          "html": "<p>Click your name and profile picture in the top right, then choose <strong>Settings</strong>.</p>"
+          "html": "<p>Click your name and profile picture in the top right, then choose <strong>Settings</strong>.</p>",
+          "media": {
+            "type": "image",
+            "src": "/support/import-training-history/trainingpeaks-settings-menu.png",
+            "alt": "The TrainingPeaks profile menu opened from the top right, with Settings highlighted",
+            "caption": "Your name, top right, then Settings.",
+            "frame": "phone",
+            "width": 392,
+            "height": 448
+          }
         },
         {
-          "title": "Go to Export Data",
-          "html": "<p>In Account Settings, click <strong>Export Data</strong> (the last item under Account).</p>"
+          "title": "Click Export Data",
+          "html": "<p>In the Account Settings window, click <strong>Export Data</strong>. It's the last item under Account in the left-hand menu.</p>",
+          "media": {
+            "type": "image",
+            "src": "/support/import-training-history/trainingpeaks-export-data.png",
+            "alt": "The TrainingPeaks Account Settings window on Export Data, with the Export Data menu item, the Workout Files From and To dates and its Export button highlighted",
+            "caption": "Steps 2 to 4 all happen on this screen: Export Data on the left, then the Workout Files row.",
+            "frame": "wide",
+            "width": 1554,
+            "height": 976
+          }
         },
         {
-          "title": "Pick your dates under Workout Files",
-          "html": "<p>Enter a <strong>From</strong> and <strong>To</strong> date no more than 3 to 4 months apart. Dates are month/day/year. Leave the format as GZIP.</p>"
+          "title": "Enter your dates in the Workout Files row",
+          "html": "<p>Use the top row, <strong>Workout Files</strong>. Enter a <strong>From</strong> and <strong>To</strong> date no more than 3 to 4 months apart.</p><ul><li>Type dates as <strong>month/day/year</strong>, for example 8/10/2026.</li><li>Leave the format as <strong>GZIP</strong>.</li></ul>"
         },
         {
-          "title": "Click Export on the Workout Files row",
-          "html": "<p>It can take a minute.</p>"
+          "title": "Click Export on that same row",
+          "html": "<p>Click the <strong>Export</strong> button at the end of the Workout Files row. It can take a minute to prepare.</p><p>Ignore the Workout Summary and Custom Metrics rows. You don't need to click Save.</p>"
         },
         {
-          "title": "Download the file",
-          "html": "<p>When the Export Complete box appears, click the link. The file is named like <code>WorkoutFileExport-Lastname-Firstname-2026-07-17-2026-10-17.zip</code>.</p>"
+          "title": "Click the download link",
+          "html": "<p>When the <strong>Export Complete</strong> box appears, click the link in it. The file is named like <code>WorkoutFileExport-Lastname-Firstname-2026-08-10-2026-11-09.zip</code>.</p>",
+          "media": {
+            "type": "image",
+            "src": "/support/import-training-history/trainingpeaks-export-complete.png",
+            "alt": "The TrainingPeaks Export Complete box with the WorkoutFileExport .zip download link highlighted",
+            "caption": "Click the .zip link to download it.",
+            "frame": "wide",
+            "width": 872,
+            "height": 302
+          }
         },
         {
-          "title": "Check your Downloads folder",
-          "html": "<p>Don't unzip or rename the file.</p><p>You can ignore the Workout Summary and Custom Metrics rows. You don't need to click Save.</p>"
+          "title": "Find the .zip in your Downloads",
+          "html": "<p>The file is saved to your Downloads folder. <strong>Don't unzip or rename it.</strong></p>",
+          "media": {
+            "type": "image",
+            "src": "/support/import-training-history/trainingpeaks-downloads.png",
+            "alt": "A browser's recent downloads list showing a WorkoutFileExport .zip file",
+            "caption": "Your browser's downloads list shows the .zip once it's saved.",
+            "frame": "phone",
+            "width": 534,
+            "height": 240
+          }
         }
       ]
     },
     {
       "type": "html",
-      "html": "<h3 id=\"trainingpeaks-longer-history\">Exporting a longer history</h3><p>Repeat steps 3 to 5 for each earlier block, starting the day before the last one began. For a full year, that's four exports:</p><div class=\"table-wrap\"><table><thead><tr><th>Export</th><th>Covers</th></tr></thead><tbody><tr><td>1</td><td>Last 3 months, up to today</td></tr><tr><td>2</td><td>Months 4 to 6 back</td></tr><tr><td>3</td><td>Months 7 to 9 back</td></tr><tr><td>4</td><td>Months 10 to 12 back</td></tr></tbody></table></div><p>You'll end up with one .zip file per block. Keep them all, then go to <a href=\"#send-your-files\">Send us your files</a> below.</p>"
+      "html": "<h3 id=\"trainingpeaks-longer-history\">Exporting a longer history</h3><p>Repeat steps 3 to 6 for each older block. Each block ends the day before the previous one started, so nothing is missed. For example, exporting a full year on 9 November 2026 takes four exports:</p><div class=\"table-wrap\"><table><thead><tr><th>Export</th><th>From</th><th>To</th></tr></thead><tbody><tr><td>1</td><td>8/10/2026</td><td>11/9/2026</td></tr><tr><td>2</td><td>5/10/2026</td><td>8/9/2026</td></tr><tr><td>3</td><td>2/10/2026</td><td>5/9/2026</td></tr><tr><td>4</td><td>11/10/2025</td><td>2/9/2026</td></tr></tbody></table></div><p>Use today's date for your own first export and count back from there.</p><p><strong>Before you move on, check that you have:</strong></p><ul><li>one .zip file for each block</li><li>every file still zipped, with its original name</li></ul><p>Then go to <a href=\"#send-your-files\">Send us your files</a> below.</p>"
     },
     {
       "type": "html",
