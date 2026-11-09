@@ -72,6 +72,12 @@ const EVAL: { query: string; expect: string; why: string }[] = [
   { query: 'will augo import my rouvy history', expect: 'historical-activities', why: 'history beats connect despite rouvy being a connect-article brand' },
   { query: 'my last 30 days havent shown up', expect: 'historical-activities', why: '30 days phrase alias; must beat the devices article' },
   { query: 'backfil', expect: 'historical-activities', why: '1-edit typo on a rare term' },
+  // import-training-history
+  { query: 'how do i import my trainingpeaks history', expect: 'import-training-history', why: 'declared question form; history must not pull historical-activities' },
+  { query: 'export from training peaks', expect: 'import-training-history', why: 'two-word brand; export must beat the indoor article' },
+  { query: 'garmin api key', expect: 'import-training-history', why: 'api key is only in the export steps; must beat connect-devices on garmin' },
+  { query: 'google drive', expect: 'import-training-history', why: 'google drive is only in the send-your-files steps' },
+  { query: 'can i import more than 30 days from garmin', expect: 'import-training-history', why: 'the Garmin export owns the more-than-30-days answer' },
   // add-an-athlete
   { query: 'how do i invite an athlete', expect: 'add-an-athlete', why: 'invite <-> add synonym group' },
   { query: 'what is my coach code', expect: 'add-an-athlete', why: 'coach code is only in the invite article' },

@@ -108,7 +108,8 @@
     "workouts-on-your-device",
     "rouvy-workouts",
     "historical-activities",
-    "ride-augo-workouts-indoors"
+    "ride-augo-workouts-indoors",
+    "import-training-history"
   ],
   "questionForms": [
     "does augo work with garmin",
