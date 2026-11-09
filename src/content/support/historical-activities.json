@@ -41,7 +41,7 @@
     },
     {
       "type": "html",
-      "html": "<h2 id=\"not-appeared\">If the last 30 days haven't appeared</h2><p>Give it an hour after connecting. If your recent activities still aren't showing, email <a href=\"mailto:info@augotraining.com\">info@augotraining.com</a> and tell us which device or app you connected and roughly when. We'll check the connection and re-run the import.</p><p>If your Garmin has been connected for a while and no history came in, the connection needs renewing. It was authorised before augo could ask Garmin for your past activities, so it doesn't carry that permission. Connect Garmin again from the augo app, approve what Garmin asks for, and your last 30 days arrive as usual. There is more on this in <a href=\"/en/support/connect-devices-and-apps/#reconnect-garmin\">which devices and apps does augo integrate with?</a></p>"
+      "html": "<h2 id=\"not-appeared\">If the last 30 days haven't appeared</h2><p>Give it an hour after connecting. If your recent activities still aren't showing, use the feedback button in the augo app to ask for support. Tell us which device or app you connected and roughly when. We'll check the connection and re-run the import.</p><p>If your Garmin has been connected for a while and no history came in, the connection needs renewing. It was authorised before augo could ask Garmin for your past activities, so it doesn't carry that permission. Connect Garmin again from the augo app, approve what Garmin asks for, and your last 30 days arrive as usual. There is more on this in <a href=\"/en/support/connect-devices-and-apps/#reconnect-garmin\">which devices and apps does augo integrate with?</a></p>"
     }
   ],
   "faqs": [
@@ -51,7 +51,7 @@
     },
     {
       "question": "How long does the backfill take?",
-      "answer": "Your last 30 days usually appear within an hour of connecting. If they haven't after an hour, email info@augotraining.com and we'll re-run it."
+      "answer": "Your last 30 days usually appear within an hour of connecting. If they haven't after an hour, use the feedback button in the augo app to ask for support and we'll re-run it."
     },
     {
       "question": "Can my coach request my history for me?",
