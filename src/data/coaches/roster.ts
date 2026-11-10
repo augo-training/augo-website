@@ -25,6 +25,7 @@ import juanPortrait from '../../assets/images/Juan.webp'
 import gaelPortrait from '../../assets/images/Gael.webp'
 import jonathanPortrait from '../../assets/images/Jonathan.webp'
 import robertoAncidoniPortrait from '../../assets/images/RobertoAncidoni.webp'
+import andresZimeriPortrait from '../../assets/images/AndresZimeri.webp'
 // Generic placeholder for coaches without dedicated photography yet.
 import placeholderPortrait from '../../assets/images/brian-profile.webp'
 
@@ -1163,7 +1164,6 @@ export const coaches: Coach[] = [
         tagline:
             'Detail-obsessed endurance coach for high-performance triathletes and ultra runners — building trust and chasing ambitious goals together.',
         isFoundingCoach: false,
-        isProCoach: true,
         status: 'accepting',
         disciplines: ['triathlon', 'running', 'cycling'],
         specialties: [
@@ -1741,6 +1741,7 @@ export const coaches: Coach[] = [
             philosophy: 'Every session has a purpose. Measure objectively, train efficiently, recover deliberately.',
         },
         media: { portrait: placeholderPortrait },
+        socials: { website: 'http://darioriccardi.com' },
     },
     {
         slug: 'jack-anstey',
@@ -2552,6 +2553,7 @@ export const coaches: Coach[] = [
         firstName: 'Andres',
         tagline: 'Approachable, highly passionate endurance coach who gives 110% to his athletes, whatever their level or speed.',
         isFoundingCoach: false,
+        isProCoach: true,
         status: 'accepting',
         gender: 'male',
         disciplines: ['running', 'cycling', 'triathlon'],
@@ -2587,7 +2589,7 @@ export const coaches: Coach[] = [
             ],
             philosophy: 'With health you can evolve, progress, adapt and improve, with time and, most importantly, by being highly consistent.',
         },
-        media: { portrait: placeholderPortrait },
+        media: { portrait: andresZimeriPortrait },
         socials: { website: 'https://azkpeakperformance.com/' },
     },
 ]
