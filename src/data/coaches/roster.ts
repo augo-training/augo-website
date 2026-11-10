@@ -2597,7 +2597,7 @@ export const coaches: Coach[] = [
         name: 'Reto Braendli',
         firstName: 'Reto',
         tagline: 'Open-minded, honest and goal-oriented triathlon and cycling coach based in Zurich.',
-        isFoundingCoach: false,
+        isFoundingCoach: true,
         status: 'accepting',
         gender: 'male',
         disciplines: ['cycling', 'triathlon'],
