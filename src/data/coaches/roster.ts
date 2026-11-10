@@ -1597,6 +1597,7 @@ export const coaches: Coach[] = [
         tagline:
             'Encouraging, direct running coach pairing data-driven training with recovery, fueling and meditation.',
         isFoundingCoach: false,
+        isProCoach: true,
         status: 'accepting',
         disciplines: ['running'],
         specialties: ['5K', '10K', 'half marathon', 'marathon', 'yoga', 'breathwork', 'mobility'],
@@ -1711,6 +1712,7 @@ export const coaches: Coach[] = [
         tagline:
             'Sports scientist and detail-oriented tactician — efficient, evidence-based triathlon coaching for time-crunched athletes.',
         isFoundingCoach: false,
+        isProCoach: true,
         status: 'accepting',
         disciplines: ['triathlon', 'cycling', 'running'],
         specialties: [
