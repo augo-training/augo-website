@@ -186,7 +186,7 @@ export const COPY = {
             },
             {
                 label: 'The athlete only',
-                lead: 'Discounts or better prices on everything below.',
+                lead: 'Services from the team partners: race suit, fuel and hydration, bike fit and mental coaching.',
                 note: 'More partners to be announced.',
                 items: [
                     {
@@ -201,7 +201,7 @@ export const COPY = {
                     },
                     {
                         label: 'Bike fit',
-                        statement: '20% off a bike fit at Cyclometry',
+                        statement: 'A professional bike fit at Cyclometry',
                         link: { text: 'Cyclometry', href: CYCLOMETRY_URL },
                     },
                     {
@@ -209,7 +209,6 @@ export const COPY = {
                         statement: 'Vegetative Training Therapy at Cyclometry',
                         link: { text: 'Cyclometry', href: CYCLOMETRY_URL },
                     },
-                    { label: 'Lab testing', statement: 'Lab testing' },
                 ] as SpecItem[],
                 partners: [
                     { name: 'Purpose', href: PURPOSE_URL, logo: purposeLogo },
