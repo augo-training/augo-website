@@ -42,7 +42,7 @@ export const PRICING_ELITE_PATH = '/en/pricing#add-ons'
 /** augo's podcast, linked from the "Podcast" row of what the duo gets. */
 export const PODCAST_URL = 'https://open.spotify.com/show/4JR5cvFpYmuvaQxbx2D9nb?si=d1c0745b225d45ef'
 
-/** Cyclometry, the bike fit partner, linked from the "Bike fit" row and its logo. */
+/** Cyclometry, the bike fit and mental coaching partner, linked from those rows and its logo. */
 export const CYCLOMETRY_URL = 'https://cyclometry.ch/'
 
 /** Purpose, the race suit partner, linked from the "Apparel" row and its logo. */
@@ -186,7 +186,7 @@ export const COPY = {
             },
             {
                 label: 'The athlete only',
-                lead: 'Discounts or better prices on everything below.',
+                lead: 'Services from the team partners: race suit, fuel and hydration, bike fit and mental coaching.',
                 note: 'More partners to be announced.',
                 items: [
                     {
@@ -201,10 +201,14 @@ export const COPY = {
                     },
                     {
                         label: 'Bike fit',
-                        statement: '20% off a bike fit at Cyclometry',
+                        statement: 'A professional bike fit at Cyclometry',
                         link: { text: 'Cyclometry', href: CYCLOMETRY_URL },
                     },
-                    { label: 'Lab testing', statement: 'Lab testing' },
+                    {
+                        label: 'Mental coaching',
+                        statement: 'Vegetative Training Therapy at Cyclometry',
+                        link: { text: 'Cyclometry', href: CYCLOMETRY_URL },
+                    },
                 ] as SpecItem[],
                 partners: [
                     { name: 'Purpose', href: PURPOSE_URL, logo: purposeLogo },
