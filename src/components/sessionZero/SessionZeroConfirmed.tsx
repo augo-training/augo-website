@@ -3,12 +3,14 @@ import reto from '../../assets/images/advisor-reto.png'
 import david from '../../assets/images/session-zero-david.jpg'
 import nico from '../../assets/images/session-zero-nico.jpg'
 import steve from '../../assets/images/session-zero-steve.jpg'
+import jason from '../../assets/images/session-zero-jason.jpg'
+import marco from '../../assets/images/session-zero-marco.jpg'
 import { COPY } from './constants'
 
 const pad = (n: number) => String(n).padStart(2, '0')
 
 /** Same order as COPY.confirmed.coaches. Gordon and Reto reuse the advisor portraits. */
-const PHOTOS = [gordon, reto, david, nico, steve]
+const PHOTOS = [gordon, reto, david, nico, steve, jason, marco]
 
 export default function SessionZeroConfirmed() {
     const { confirmed } = COPY

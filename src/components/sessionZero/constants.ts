@@ -235,6 +235,22 @@ export const COPY = {
                     'A real passion for working with anyone who wants to be the best they can be, whatever their level.',
                 ],
             },
+            {
+                name: 'Jason Koop',
+                facts: [
+                    'Professional coach for the last 25 years, and one of the most sought after trail and ultramarathon coaches today.',
+                    'Athletes he coaches have won numerous Western States 100, UTMB and world championship titles.',
+                    'Author of Training Essentials for Ultrarunning, and developer of the ultramarathon coach certification for UESCA.',
+                ],
+            },
+            {
+                name: 'Marco Altini',
+                facts: [
+                    'Started HRV4Training in 2012, the heart rate variability app used by athletes and coaches worldwide.',
+                    'PhD in data science, with master’s degrees in computer science engineering and in human movement sciences with a high-performance coaching specialisation.',
+                    'Endurance coach at Destination Unknown, mainly for runners, and author of Heart Rate Variability: Science and Strategies for Peak Performance.',
+                ],
+            },
         ],
     },
 
