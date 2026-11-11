@@ -243,6 +243,14 @@ export const COPY = {
                     'Author of Training Essentials for Ultrarunning, and developer of the ultramarathon coach certification for UESCA.',
                 ],
             },
+            {
+                name: 'Marco Altini',
+                facts: [
+                    'Started HRV4Training in 2012, the heart rate variability app used by athletes and coaches worldwide.',
+                    'PhD in data science, with master’s degrees in computer science engineering and in human movement sciences with a high-performance coaching specialisation.',
+                    'Endurance coach at Destination Unknown, mainly for runners, and author of Heart Rate Variability: Science and Strategies for Peak Performance.',
+                ],
+            },
         ],
     },
 
