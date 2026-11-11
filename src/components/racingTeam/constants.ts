@@ -12,6 +12,10 @@
  * instead of the locale files. Everything a copy edit could touch is in COPY.
  */
 
+import cyclometryLogo from '../../assets/images/cyclometry.png'
+import purposeLogo from '../../assets/images/purpose.png'
+import precisionLogo from '../../assets/images/precision-fuel-hydration.png'
+
 /** Path under /:lang. Kept in sync with src/App.tsx and scripts/routes.ts. */
 export const RACING_TEAM_PATH = '/racing-team'
 
@@ -37,6 +41,15 @@ export const PRICING_ELITE_PATH = '/en/pricing#add-ons'
 
 /** augo's podcast, linked from the "Podcast" row of what the duo gets. */
 export const PODCAST_URL = 'https://open.spotify.com/show/4JR5cvFpYmuvaQxbx2D9nb?si=d1c0745b225d45ef'
+
+/** Cyclometry, the bike fit partner, linked from the "Bike fit" row and its logo. */
+export const CYCLOMETRY_URL = 'https://cyclometry.ch/'
+
+/** Purpose, the race suit partner, linked from the "Apparel" row and its logo. */
+export const PURPOSE_URL = 'https://purposeperformancewear.com/collections/triathlonsuit'
+
+/** Precision Fuel & Hydration, the nutrition partner, linked from the "Nutrition" row and its logo. */
+export const PRECISION_URL = 'https://www.precisionhydration.com/'
 
 export interface SpecItem {
     label: string
@@ -174,12 +187,30 @@ export const COPY = {
             {
                 label: 'The athlete only',
                 lead: 'Discounts or better prices on everything below.',
-                note: 'Exact partners and details to be confirmed.',
+                note: 'More partners to be announced.',
                 items: [
-                    { label: 'Apparel', statement: 'Personalised team race kit' },
-                    { label: 'Nutrition', statement: 'Training and race nutrition' },
-                    { label: 'Tech and science', statement: 'Bike fitting and lab testing' },
+                    {
+                        label: 'Apparel',
+                        statement: 'Personalised team race suit from Purpose',
+                        link: { text: 'Purpose', href: PURPOSE_URL },
+                    },
+                    {
+                        label: 'Nutrition',
+                        statement: 'Training and race fuel and hydration from Precision Fuel & Hydration',
+                        link: { text: 'Precision Fuel & Hydration', href: PRECISION_URL },
+                    },
+                    {
+                        label: 'Bike fit',
+                        statement: '20% off a bike fit at Cyclometry',
+                        link: { text: 'Cyclometry', href: CYCLOMETRY_URL },
+                    },
+                    { label: 'Lab testing', statement: 'Lab testing' },
                 ] as SpecItem[],
+                partners: [
+                    { name: 'Purpose', href: PURPOSE_URL, logo: purposeLogo },
+                    { name: 'Precision Fuel & Hydration', href: PRECISION_URL, logo: precisionLogo },
+                    { name: 'Cyclometry', href: CYCLOMETRY_URL, logo: cyclometryLogo },
+                ],
             },
         ],
     },

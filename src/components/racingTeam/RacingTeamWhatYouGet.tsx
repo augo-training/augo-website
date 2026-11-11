@@ -36,6 +36,26 @@ export default function RacingTeamWhatYouGet() {
                                 </p>
                             )}
                             <SpecList label="What's included" items={group.items} />
+                            {'partners' in group && group.partners && (
+                                <div className="flex flex-col gap-5">
+                                    <p className="font-mono text-[11px] sm:text-[12px] tracking-[3px] uppercase text-white/55">
+                                        Partners
+                                    </p>
+                                    <div className="flex flex-wrap items-center gap-x-6 gap-y-6 sm:gap-x-10">
+                                        {group.partners.map((partner) => (
+                                            <a
+                                                key={partner.name}
+                                                href={partner.href}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="opacity-90 hover:opacity-100 transition-opacity duration-200"
+                                            >
+                                                <img src={partner.logo} alt={partner.name} className="h-12 sm:h-20 w-auto" />
+                                            </a>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
                             {'note' in group && group.note && (
                                 <p className="font-mono text-[11px] sm:text-[12px] tracking-[2.5px] uppercase text-white/40">
                                     {group.note}
