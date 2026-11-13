@@ -36,9 +36,13 @@ export function FilmProvider({ children }: FilmProviderProps) {
     // The Ironman Nice landing pages are deliberate dead ends with a single CTA.
     // A floating button offering a film is exactly the distraction they are built
     // to avoid, so it doesn't render there at all.
-    // The coach course opt-in page is built the same way, so it goes too.
+    // The coach course opt-in page is built the same way, so it goes too, and so
+    // does the manifesto, which holds the manifesto and nothing else.
     const isNiceLanding =
-        page === '/nice-athletes' || page === '/nice-coaches' || page === '/irreplaceable-endurance-coach'
+        page === '/nice-athletes' ||
+        page === '/nice-coaches' ||
+        page === '/irreplaceable-endurance-coach' ||
+        page === '/manifesto'
 
     // On home, reveal the floating button only once the visitor scrolls past the hero
     useEffect(() => {

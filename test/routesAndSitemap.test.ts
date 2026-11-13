@@ -19,9 +19,9 @@ describe('routes and sitemap', () => {
     const supportSlugs = await discoverSupportSlugs()
 
     // localized static + localized coach profiles + english-only blog posts
-    // + 1 for the /en/blog index route + 3 for the /en/nice-athletes,
-    // /en/nice-coaches, /en/irreplaceable-endurance-coach and /en/racing-team
-    // landing pages
+    // + 1 for the /en/blog index route + 5 for the /en/nice-athletes,
+    // /en/nice-coaches, /en/irreplaceable-endurance-coach, /en/racing-team and
+    // /en/manifesto pages
     // + english-only support articles
     // + 1 for the /en/support hub route + 2 for the unprefixed /merci and
     // /session-zero pages.
@@ -30,7 +30,7 @@ describe('routes and sitemap', () => {
         LANGS.length * coachSlugs.length +
         slugs.length +
         1 +
-        4 +
+        5 +
         supportSlugs.length +
         1 +
         2,
@@ -53,6 +53,8 @@ describe('routes and sitemap', () => {
     expect(routes.filter((route) => route.endsWith('/irreplaceable-endurance-coach'))).toHaveLength(1)
     expect(routes).toContain('/en/racing-team')
     expect(routes.filter((route) => route.endsWith('/racing-team'))).toHaveLength(1)
+    expect(routes).toContain('/en/manifesto')
+    expect(routes.filter((route) => route.endsWith('/manifesto'))).toHaveLength(1)
 
     // /mcp is a localized static path, so the counts above already cover it.
     // These two assertions stop a refactor from silently dropping the page or
@@ -187,6 +189,14 @@ describe('routes and sitemap', () => {
     expect(entry).toBeTruthy()
     expect(entry?.alternates).toBeNull()
     expect(entry?.priority).toBe(0.9)
+  })
+
+  it('lists the manifesto as an english-only sitemap entry', async () => {
+    const entries = await getSitemapEntries()
+    const entry = entries.find((e) => e.url === 'https://www.augotraining.com/en/manifesto/')
+
+    expect(entry).toBeTruthy()
+    expect(entry?.alternates).toBeNull()
   })
 
   // The course callout is keyed on blog slugs. A renamed or removed post would

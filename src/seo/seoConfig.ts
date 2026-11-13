@@ -196,6 +196,23 @@ const pageMeta: Record<string, Record<SupportedLanguage, PageMeta>> = {
         'augo sponsors five coach and athlete duos for the March to October 2027 season: Elite tier for the coach, kit, nutrition and a filming day for the athlete, and a community for life. Applications open until December 15, 2026.',
     },
   },
+  manifesto: {
+    en: {
+      title: 'What We Stand For: The augo Community Manifesto | augo',
+      description:
+        'Coaching is human first. Read the augo community manifesto and add your name next to the coaches and athletes who have signed the Augo Standard.',
+    },
+    de: {
+      title: 'What We Stand For: The augo Community Manifesto | augo',
+      description:
+        'Coaching is human first. Read the augo community manifesto and add your name next to the coaches and athletes who have signed the Augo Standard.',
+    },
+    pt: {
+      title: 'What We Stand For: The augo Community Manifesto | augo',
+      description:
+        'Coaching is human first. Read the augo community manifesto and add your name next to the coaches and athletes who have signed the Augo Standard.',
+    },
+  },
   contact: {
     en: {
       title: 'Contact augo | Questions, feedback, ideas',
