@@ -76,8 +76,9 @@ function buildReason(coach: Coach, tokens: string[]): string {
         if (tokenSet.has(d) || (d === 'running' && tokenSet.has('run')) ||
             (d === 'cycling' && (tokenSet.has('bike') || tokenSet.has('cyclist'))) ||
             (d === 'triathlon' && (tokenSet.has('tri') || tokenSet.has('ironman'))) ||
-            (d === 'rowing' && (tokenSet.has('row') || tokenSet.has('rower')))) {
-            fired.push(d.charAt(0).toUpperCase() + d.slice(1))
+            (d === 'rowing' && (tokenSet.has('row') || tokenSet.has('rower'))) ||
+            (d === 'nordic-skiing' && (tokenSet.has('nordic') || tokenSet.has('ski') || tokenSet.has('skiing') || tokenSet.has('skier') || tokenSet.has('xc')))) {
+            fired.push(d === 'nordic-skiing' ? 'Nordic skiing' : d.charAt(0).toUpperCase() + d.slice(1))
         }
     }
 

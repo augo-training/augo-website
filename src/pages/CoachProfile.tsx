@@ -23,9 +23,9 @@ const MATCHING_GROUP_ID =
 // Localized discipline nouns + SEO title pattern, so de/pt visitors (and crawlers)
 // get a translated, keyword-bearing <title> instead of an English-only one.
 const DISCIPLINE_LABEL: Record<string, Record<string, string>> = {
-    en: { running: 'Running', cycling: 'Cycling', triathlon: 'Triathlon', rowing: 'Rowing' },
-    de: { running: 'Laufen', cycling: 'Radsport', triathlon: 'Triathlon', rowing: 'Rudern' },
-    pt: { running: 'Corrida', cycling: 'Ciclismo', triathlon: 'Triatlo', rowing: 'Remo' },
+    en: { running: 'Running', cycling: 'Cycling', triathlon: 'Triathlon', rowing: 'Rowing', 'nordic-skiing': 'Nordic Skiing' },
+    de: { running: 'Laufen', cycling: 'Radsport', triathlon: 'Triathlon', rowing: 'Rudern', 'nordic-skiing': 'Langlauf' },
+    pt: { running: 'Corrida', cycling: 'Ciclismo', triathlon: 'Triatlo', rowing: 'Remo', 'nordic-skiing': 'Esqui de fundo' },
 }
 
 // Job titles for experts who don't coach an endurance sport.
