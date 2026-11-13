@@ -1656,3 +1656,25 @@ body {
   outline: 2px solid var(--color-orange);
   outline-offset: 3px;
 }
+
+/* ── Manifesto ──
+   A new signature writes itself left to right, like a pen across the sheet. */
+.manifesto-ink-fresh {
+  display: inline-block;
+  animation: manifesto-ink 1.6s cubic-bezier(0.45, 0.05, 0.35, 1) 0.35s both;
+}
+
+@keyframes manifesto-ink {
+  from {
+    clip-path: inset(-20% 100% -20% -5%);
+  }
+  to {
+    clip-path: inset(-20% -5% -20% -5%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .manifesto-ink-fresh {
+    animation: none;
+  }
+}

@@ -5,8 +5,9 @@ import { trackCtaClicked } from '../utils/analytics'
 
 /** Paid-traffic landing pages: one message, their own funnel. Plus /merci, the
  *  full-screen postcard page, which has no room for a bar, and /session-zero,
- *  the invitation, which carries no navigation at all. */
-const EXCLUDED = ['/nice-athletes', '/nice-coaches', '/irreplaceable-endurance-coach', '/merci', '/session-zero']
+ *  the invitation, which carries no navigation at all. And /manifesto, which
+ *  holds the manifesto and nothing else. */
+const EXCLUDED = ['/nice-athletes', '/nice-coaches', '/irreplaceable-endurance-coach', '/merci', '/session-zero', '/manifesto']
 
 /**
  * The permanent bar above the header.
