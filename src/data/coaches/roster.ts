@@ -2653,7 +2653,6 @@ export const coaches: Coach[] = [
         firstName: 'Celia',
         tagline: 'Triathlon coach for women, fully committed and keeping a small roster for a good work life balance.',
         isFoundingCoach: false,
-        isProCoach: true,
         status: 'accepting',
         gender: 'female',
         disciplines: ['running', 'cycling', 'triathlon'],
