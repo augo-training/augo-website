@@ -99,14 +99,13 @@ describe('mergeSignatures', () => {
         expect(mergeSignatures(founding, approved, null).map((s) => s.name)).toEqual(['Andreas', 'Joel', 'Laura'])
     })
 
-    it('adds the visitor’s own signature as pending until it is approved', () => {
+    it('adds the visitor’s own signature until the list has it, and never twice', () => {
         const own: Signature = { name: 'Bruna', role: 'coach', signedAt: '2026-11-13' }
-        const merged = mergeSignatures(founding, approved, own)
-        expect(merged.at(-1)).toEqual({ ...own, pending: true })
+        expect(mergeSignatures(founding, approved, own).at(-1)).toBe(own)
 
         const later = mergeSignatures(founding, [...approved, { ...own, name: 'bruna' }], own)
         expect(later).toHaveLength(4)
-        expect(later.some((s) => s.pending)).toBe(false)
+        expect(later).not.toContain(own)
     })
 
     it('counts coaches and athletes', () => {

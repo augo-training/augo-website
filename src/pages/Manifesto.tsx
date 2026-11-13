@@ -16,7 +16,7 @@ import {
     MANIFESTO_SIGNATURE_STORAGE_KEY,
     type Signature,
 } from '../components/manifesto/constants'
-import { countSignatures, isApproved, mergeSignatures } from '../components/manifesto/signatures'
+import { countSignatures, mergeSignatures } from '../components/manifesto/signatures'
 import { useReducedMotion } from '../components/merci/motion'
 import { trackManifestoSignOpened, type ManifestoOpenLocation } from '../utils/analytics'
 
@@ -39,7 +39,7 @@ function writeOwn(signature: Signature | null) {
         if (signature) window.localStorage.setItem(MANIFESTO_SIGNATURE_STORAGE_KEY, JSON.stringify(signature))
         else window.localStorage.removeItem(MANIFESTO_SIGNATURE_STORAGE_KEY)
     } catch {
-        // Private mode: the signature still went in, the signer just won't see it until approval.
+        // Private mode: the signature still went in and shows on the next fetch.
     }
 }
 
@@ -53,16 +53,17 @@ function writeOwn(signature: Signature | null) {
  * components/manifesto/constants.ts).
  *
  * The prerendered HTML holds the founding signatures only. The client then
- * fetches the approved ones and adds the visitor's own if it is still waiting
- * for approval. A new signature is written onto the sheet at once, but only in
- * this browser; everyone else sees it once someone approves it in Make.
+ * fetches everyone who signed online. A new signature is written onto the
+ * sheet at once and is in the list for everyone from then on; there is no
+ * approval step. Each one is posted to Slack, and a bad one is removed by
+ * deleting its record in Make.
  *
  * English-only, so SEOHead runs with noAlternates and scripts/routes.ts lists
  * just the /en URL. Page views come from LanguageLayout.
  */
 export default function Manifesto() {
     const reducedMotion = useReducedMotion()
-    const [approved, setApproved] = useState<Signature[]>([])
+    const [listed, setListed] = useState<Signature[]>([])
     const [own, setOwn] = useState<Signature | null>(null)
     const [fresh, setFresh] = useState<Signature | null>(null)
     const [panelOpen, setPanelOpen] = useState(false)
@@ -76,9 +77,7 @@ export default function Manifesto() {
         let cancelled = false
         void fetchSignatures().then((result) => {
             if (cancelled || result === 'error') return
-            setApproved(result)
-            // Approved now: the saved copy has done its job.
-            if (saved && isApproved(result, saved)) writeOwn(null)
+            setListed(result)
         })
         return () => {
             cancelled = true
@@ -93,9 +92,9 @@ export default function Manifesto() {
         return () => observer.disconnect()
     }, [])
 
-    const signatures = useMemo(() => mergeSignatures(FOUNDING_SIGNATURES, approved, own), [approved, own])
+    const signatures = useMemo(() => mergeSignatures(FOUNDING_SIGNATURES, listed, own), [listed, own])
     const counts = useMemo(() => countSignatures(signatures), [signatures])
-    const freshIndex = fresh ? signatures.findIndex((s) => s.pending && s.name === fresh.name) : -1
+    const freshIndex = fresh ? signatures.findIndex((s) => s === own && s.name === fresh.name) : -1
 
     const openPanel = (location: ManifestoOpenLocation) => {
         setPanelOpen(true)

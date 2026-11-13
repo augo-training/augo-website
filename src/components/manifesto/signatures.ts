@@ -2,7 +2,7 @@ import { NAME_MAX, NAME_MIN, type Signature } from './constants'
 
 /**
  * Pure helpers for the signature list: validating a typed name, merging the
- * founding names, the approved list and the visitor's own pending one, and
+ * founding names, the signed list and the visitor's own, and
  * counting. Kept free of browser globals so they can be unit-tested under Node.
  */
 
@@ -44,24 +44,20 @@ function sameSignature(a: Signature, b: Signature): boolean {
 
 /**
  * Everything that goes on the sheet, oldest first: the founding names, then the
- * approved ones, then the visitor's own if it has not been approved yet. The
+ * online ones, then the visitor's own if the list does not have it yet (it was
+ * fetched before they signed, or the list call failed). The
  * order matters to the layout, which places signatures in this order so that
  * an earlier one never moves when a later one arrives.
  */
 export function mergeSignatures(
     founding: Signature[],
-    approved: Signature[],
+    listed: Signature[],
     own: Signature | null,
 ): Signature[] {
-    const sorted = [...approved].sort((a, b) => a.signedAt.localeCompare(b.signedAt))
+    const sorted = [...listed].sort((a, b) => a.signedAt.localeCompare(b.signedAt))
     const all = [...founding, ...sorted]
-    if (own && !all.some((s) => sameSignature(s, own))) all.push({ ...own, pending: true })
+    if (own && !all.some((s) => sameSignature(s, own))) all.push(own)
     return all
-}
-
-/** True once the visitor's own signature is in the approved list, so the saved copy can go. */
-export function isApproved(approved: Signature[], own: Signature): boolean {
-    return approved.some((s) => sameSignature(s, own))
 }
 
 export interface SignatureCounts {

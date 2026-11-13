@@ -8,17 +8,18 @@ import {
 
 /**
  * The page's two server calls, both Make custom webhooks on one data store
- * ("Manifesto signatures": name, email, role, signed_at, approved).
+ * ("Manifesto signatures": name, email, role, signed_at, marketing).
  *
  *   list:  GET                          -> 200 { signatures: [{ name, role, signed_at }] }
  *   sign:  POST { name, email, role, signed_at, marketing }   -> 200 { ok: true }
  *
- * The list scenario returns approved records only, and never the email. A new
- * signature is stored with approved = false and posted to Slack; someone flips
- * it to true in the data store, and from then on everyone sees it. Until then
- * only the signer does, from localStorage (see MANIFESTO_SIGNATURE_STORAGE_KEY).
+ * There is no approval step. A new signature is in the list for everyone from
+ * the moment it is stored, and the sign scenario posts it to Slack so the team
+ * sees every name. A wrong or harmful one is removed by deleting its record
+ * from the data store. The list never includes the email.
+ *
  * `signed_at` is the signer's own date, sent rather than stamped by Make, so the
- * approved copy matches the saved one even when Make's UTC day is different.
+ * listed copy matches the saved one even when Make's UTC day is different.
  * `marketing` is 'yes' or 'no', from the opt-in box, unticked by default. The
  * sign scenario adds the email to MailerLite only on 'yes'; on 'no' the email
  * stays in the data store and nowhere else.
@@ -83,7 +84,7 @@ function parseSignature(value: unknown): Signature | null {
     return { name, role, signedAt: signedAt.slice(0, 10) }
 }
 
-/** The approved signatures, or 'error'. The page still shows the founding names on an error. */
+/** Everyone who signed online, or 'error'. The page still shows the founding names on an error. */
 export async function fetchSignatures(): Promise<Signature[] | 'error'> {
     if (stubbed(MANIFESTO_LIST_WEBHOOK_URL)) {
         await pause(300)

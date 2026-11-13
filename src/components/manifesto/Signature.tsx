@@ -1,5 +1,5 @@
 import { forwardRef } from 'react'
-import { COPY, type Signature as SignatureData } from './constants'
+import type { Signature as SignatureData } from './constants'
 import { inkStyle } from './ink'
 import type { Placement } from './layout'
 import { formatSignedAt } from './signatures'
@@ -53,11 +53,6 @@ const Signature = forwardRef<HTMLDivElement, SignatureProps>(function Signature(
             <span className={`font-mono text-[10px] leading-none text-dark-200 ${stacked ? '' : 'translate-y-[-2px]'}`}>
                 {formatSignedAt(signature.signedAt)}
             </span>
-            {signature.pending && (
-                <span className="absolute left-1/2 top-full mt-1 w-[150px] -translate-x-1/2 whitespace-normal text-center font-mono text-[10px] leading-tight text-dark-200">
-                    {COPY.pendingNote}
-                </span>
-            )}
         </div>
     )
 })

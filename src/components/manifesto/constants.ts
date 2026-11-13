@@ -29,8 +29,9 @@ export const MANIFESTO_SIGN_WEBHOOK_URL = import.meta.env.VITE_MANIFESTO_SIGN_WE
 export const MANIFESTO_LIST_WEBHOOK_URL = import.meta.env.VITE_MANIFESTO_LIST_WEBHOOK_URL as string | undefined
 
 /**
- * The visitor's own signature, kept until it shows up in the approved list.
- * Approval is by hand, so without this a signer would see nothing happen.
+ * The visitor's own signature. Shows it on the sheet straight after signing,
+ * before the list is fetched again, and marks the button "You signed" on
+ * later visits.
  */
 export const MANIFESTO_SIGNATURE_STORAGE_KEY = 'augo_manifesto_signature'
 
@@ -42,8 +43,6 @@ export interface Signature {
     role?: SignerRole
     /** YYYY-MM-DD. */
     signedAt: string
-    /** The visitor's own signature, not yet approved. Only ever set in their browser. */
-    pending?: boolean
 }
 
 /**
@@ -167,7 +166,6 @@ export const COPY = {
     errorEmail: 'That email looks off.',
     errorRole: 'Pick coach or athlete.',
     errorSubmit: 'That did not go through. Try again in a moment.',
-    pendingNote: 'Yours. Everyone sees it after a quick check.',
     thanks: 'Thank you for signing.',
     close: 'Close',
 }
