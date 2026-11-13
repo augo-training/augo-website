@@ -27,6 +27,7 @@ import jonathanPortrait from '../../assets/images/Jonathan.webp'
 import robertoAncidoniPortrait from '../../assets/images/RobertoAncidoni.webp'
 import andresZimeriPortrait from '../../assets/images/AndresZimeri.webp'
 import retoBraendliPortrait from '../../assets/images/RetoBraendli.webp'
+import darioRiccardiPortrait from '../../assets/images/DarioRiccardi.webp'
 // Generic placeholder for coaches without dedicated photography yet.
 import placeholderPortrait from '../../assets/images/brian-profile.webp'
 
@@ -1735,7 +1736,7 @@ export const coaches: Coach[] = [
             ],
             philosophy: 'Every session has a purpose. Measure objectively, train efficiently, recover deliberately.',
         },
-        media: { portrait: placeholderPortrait },
+        media: { portrait: darioRiccardiPortrait },
         socials: { website: 'http://darioriccardi.com' },
     },
     {
