@@ -5,13 +5,14 @@ import { identifyEmailCapture, trackManifestoSigned, trackManifestoSignError } f
 import { signManifesto } from './api'
 import { COPY, MANIFESTO_PATH, NAME_MAX, type Signature, type SignerRole } from './constants'
 import { layoutSignatures, WIDE_GRID } from './layout'
-import { inkStyle } from './ink'
+import { inkStyle, type Look } from './ink'
 import { cleanName, isValidName, todayIso } from './signatures'
 
 interface SignPanelProps {
     open: boolean
     onClose: () => void
     onSigned: (signature: Signature) => void
+    look: Look
 }
 
 type FieldError = 'name' | 'email' | 'role' | 'submit' | null
@@ -28,7 +29,7 @@ const inputClass =
  * Off the paper, so the site's text rule applies: white and grey on dark. The
  * red is only in the preview strip, which is a scrap of the sheet.
  */
-export default function SignPanel({ open, onClose, onSigned }: SignPanelProps) {
+export default function SignPanel({ open, onClose, onSigned, look }: SignPanelProps) {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [role, setRole] = useState<SignerRole | null>(null)
@@ -122,13 +123,13 @@ export default function SignPanel({ open, onClose, onSigned }: SignPanelProps) {
                 <p className="mt-1 text-text-muted text-[15px]">{COPY.panelLead}</p>
 
                 {/* The preview strip: a scrap of the sheet with the name in ink. */}
-                <div className="mt-5 h-[84px] rounded-md bg-[#F7F5F0] flex items-center justify-center gap-2 px-4 overflow-hidden">
+                <div className={`mt-5 h-[84px] rounded-md ${look.strip} flex items-center justify-center gap-2 px-4 overflow-hidden`}>
                     {preview ? (
-                        <span className="truncate" style={{ ...inkStyle(font, 34), lineHeight: 1.2 }}>
+                        <span className="truncate" style={{ ...inkStyle(font, 34, look), lineHeight: 1.2 }}>
                             {preview}
                         </span>
                     ) : (
-                        <span className="font-mono text-[12px] uppercase tracking-[1px] text-[#9A9A9A]">
+                        <span className={`font-mono text-[12px] uppercase tracking-[1px] ${look.stripEmpty}`}>
                             {COPY.previewEmpty}
                         </span>
                     )}

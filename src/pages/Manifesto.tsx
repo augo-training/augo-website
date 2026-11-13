@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import augoLogo from '../assets/images/augo_footer_1.svg'
 import SEOHead from '../seo/SEOHead'
@@ -7,7 +7,7 @@ import { OrganizationJsonLd } from '../seo/JsonLd'
 import ManifestoSheet from '../components/manifesto/ManifestoSheet'
 import SignPanel from '../components/manifesto/SignPanel'
 import Counter from '../components/manifesto/Counter'
-import { SIGNATURE_FONTS_HREF } from '../components/manifesto/ink'
+import { parseLook, SIGNATURE_FONTS_HREF } from '../components/manifesto/ink'
 import { fetchSignatures } from '../components/manifesto/api'
 import {
     COPY,
@@ -61,6 +61,8 @@ function writeOwn(signature: Signature | null) {
  */
 export default function Manifesto() {
     const reducedMotion = useReducedMotion()
+    const [searchParams] = useSearchParams()
+    const look = parseLook(searchParams.get('look'))
     const [approved, setApproved] = useState<Signature[]>([])
     const [own, setOwn] = useState<Signature | null>(null)
     const [fresh, setFresh] = useState<Signature | null>(null)
@@ -145,7 +147,7 @@ export default function Manifesto() {
                     <Counter counts={counts} reducedMotion={reducedMotion} />
                 </div>
 
-                <ManifestoSheet signatures={signatures} freshIndex={freshIndex >= 0 ? freshIndex : null} />
+                <ManifestoSheet signatures={signatures} freshIndex={freshIndex >= 0 ? freshIndex : null} look={look} />
 
                 <div ref={inlineRef} className="mt-10 flex flex-col items-center gap-3">
                     {button('below_sheet')}
@@ -160,7 +162,7 @@ export default function Manifesto() {
                 </div>
             )}
 
-            <SignPanel open={panelOpen} onClose={closePanel} onSigned={onSigned} />
+            <SignPanel open={panelOpen} onClose={closePanel} onSigned={onSigned} look={look} />
         </>
     )
 }

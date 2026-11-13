@@ -3,6 +3,7 @@ import augoLogo from '../../assets/images/augo_footer_1.svg'
 import { COPY, type ManifestoBlock, type Signature as SignatureData } from './constants'
 import { layoutSignatures, NARROW_GRID, WIDE_GRID, type Placement, type Zone } from './layout'
 import Signature from './Signature'
+import type { Look } from './ink'
 
 /** Matches Tailwind's `lg`, where the gutters beside the text appear. */
 const WIDE_QUERY = '(min-width: 1024px)'
@@ -32,13 +33,13 @@ function useIsWide(): boolean {
     return wide
 }
 
-function Block({ block }: { block: ManifestoBlock }) {
+function Block({ block, look }: { block: ManifestoBlock; look: Look }) {
     return (
         <p
             className={
                 block.kind === 'statement'
-                    ? 'font-semibold text-[#111111] text-[17px] leading-snug'
-                    : 'text-[#2A2A2A] text-[16px] leading-relaxed'
+                    ? `font-semibold ${look.statement} text-[17px] leading-snug`
+                    : `${look.body} text-[16px] leading-relaxed`
             }
         >
             {block.lines.map((line, i) => (
@@ -56,9 +57,10 @@ interface ZoneLayerProps {
     wide: boolean
     freshIndex: number | null
     freshRef: RefObject<HTMLDivElement | null>
+    look: Look
 }
 
-function ZoneLayer({ zone, items, wide, freshIndex, freshRef }: ZoneLayerProps) {
+function ZoneLayer({ zone, items, wide, freshIndex, freshRef, look }: ZoneLayerProps) {
     const ink = wide ? ZONE_INK[zone] : NARROW_INK
     return (
         <>
@@ -74,6 +76,7 @@ function ZoneLayer({ zone, items, wide, freshIndex, freshRef }: ZoneLayerProps) 
                         fits={ink.fits}
                         fresh={index === freshIndex}
                         stacked={!wide || zone === 'left' || zone === 'right'}
+                        look={look}
                     />
                 ))}
         </>
@@ -84,6 +87,7 @@ interface ManifestoSheetProps {
     signatures: SignatureData[]
     /** Index of a signature that was just added, to write it on and scroll to it. */
     freshIndex: number | null
+    look: Look
 }
 
 /**
@@ -92,7 +96,7 @@ interface ManifestoSheetProps {
  * poster, so its text is near-black on off-white and the ink is red; see the
  * note in constants.ts.
  */
-export default function ManifestoSheet({ signatures, freshIndex }: ManifestoSheetProps) {
+export default function ManifestoSheet({ signatures, freshIndex, look }: ManifestoSheetProps) {
     const wide = useIsWide()
     const freshRef = useRef<HTMLDivElement>(null)
 
@@ -106,22 +110,24 @@ export default function ManifestoSheet({ signatures, freshIndex }: ManifestoShee
     }, [freshIndex])
 
     const layer = (zone: Zone) => (
-        <ZoneLayer zone={zone} items={items} wide={wide} freshIndex={freshIndex} freshRef={freshRef} />
+        <ZoneLayer zone={zone} items={items} wide={wide} freshIndex={freshIndex} freshRef={freshRef} look={look} />
     )
 
     return (
-        <div className="relative w-full max-w-[1240px] mx-auto rounded-[6px] bg-[#F7F5F0] text-[#111111] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7)] overflow-hidden">
+        <div className={`relative w-full max-w-[1240px] mx-auto overflow-hidden ${look.sheet}`}>
             {/* A faint paper grain, so the sheet does not read as a flat UI card. */}
-            <div
-                aria-hidden="true"
-                className="absolute inset-0 pointer-events-none opacity-[0.35] mix-blend-multiply"
-                style={{
-                    backgroundImage:
-                        'radial-gradient(rgba(0,0,0,0.035) 1px, transparent 1px), radial-gradient(rgba(0,0,0,0.025) 1px, transparent 1px)',
-                    backgroundSize: '3px 3px, 7px 7px',
-                    backgroundPosition: '0 0, 1px 2px',
-                }}
-            />
+            {look.grain && (
+                <div
+                    aria-hidden="true"
+                    className="absolute inset-0 pointer-events-none opacity-[0.35] mix-blend-multiply"
+                    style={{
+                        backgroundImage:
+                            'radial-gradient(rgba(0,0,0,0.035) 1px, transparent 1px), radial-gradient(rgba(0,0,0,0.025) 1px, transparent 1px)',
+                        backgroundSize: '3px 3px, 7px 7px',
+                        backgroundPosition: '0 0, 1px 2px',
+                    }}
+                />
+            )}
 
             {wide && <div className="relative h-[150px]">{layer('top')}</div>}
 
@@ -129,17 +135,17 @@ export default function ManifestoSheet({ signatures, freshIndex }: ManifestoShee
                 {wide && <div className="relative">{layer('left')}</div>}
 
                 <div className="px-6 pt-10 sm:px-10 lg:px-4 lg:pt-0">
-                    <p className="font-mono font-bold text-[18px] sm:text-[20px] text-[#111111] mb-8">{COPY.eyebrow}</p>
+                    <p className={`font-mono font-bold text-[18px] sm:text-[20px] mb-8 ${look.eyebrow}`}>{COPY.eyebrow}</p>
                     <div className="grid gap-y-5 md:grid-cols-2 md:gap-x-14">
                         {COPY.columns.map((column, c) => (
                             <div key={c} className="flex flex-col gap-5">
                                 {column.map((block, b) => (
-                                    <Block key={b} block={block} />
+                                    <Block key={b} block={block} look={look} />
                                 ))}
                             </div>
                         ))}
                     </div>
-                    <p className="font-mono text-[12px] text-[#3A3A3A] mt-8">{COPY.place}</p>
+                    <p className={`font-mono text-[12px] mt-8 ${look.place}`}>{COPY.place}</p>
                 </div>
 
                 {wide && <div className="relative">{layer('right')}</div>}
@@ -154,7 +160,7 @@ export default function ManifestoSheet({ signatures, freshIndex }: ManifestoShee
                     alt="augo"
                     width={80}
                     height={28}
-                    className="absolute right-6 bottom-5 sm:right-10 sm:bottom-7 w-[72px] sm:w-[88px] h-auto invert"
+                    className={`absolute right-6 bottom-5 sm:right-10 sm:bottom-7 w-[72px] sm:w-[88px] h-auto ${look.logo}`}
                 />
             </div>
         </div>
