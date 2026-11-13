@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { Link, useSearchParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import augoLogo from '../assets/images/augo_footer_1.svg'
 import SEOHead from '../seo/SEOHead'
@@ -7,7 +7,7 @@ import { OrganizationJsonLd } from '../seo/JsonLd'
 import ManifestoSheet from '../components/manifesto/ManifestoSheet'
 import SignPanel from '../components/manifesto/SignPanel'
 import Counter from '../components/manifesto/Counter'
-import { parseLook, SIGNATURE_FONTS_HREF } from '../components/manifesto/ink'
+import { SIGNATURE_FONTS_HREF } from '../components/manifesto/ink'
 import { fetchSignatures } from '../components/manifesto/api'
 import {
     COPY,
@@ -48,8 +48,9 @@ function writeOwn(signature: Signature | null) {
  *
  * Nothing but the manifesto: no navbar or footer, a small logo home, the
  * counter, the sheet with the signatures around it, and one button. The sheet
- * copies the poster signed in Zürich on 26 March 2026, which is why it breaks
- * the site's text rule on purpose (see components/manifesto/constants.ts).
+ * is modelled on the poster signed in Zürich on 26 March 2026, and its yellow
+ * signatures break the site's text rule on purpose (see
+ * components/manifesto/constants.ts).
  *
  * The prerendered HTML holds the founding signatures only. The client then
  * fetches the approved ones and adds the visitor's own if it is still waiting
@@ -61,8 +62,6 @@ function writeOwn(signature: Signature | null) {
  */
 export default function Manifesto() {
     const reducedMotion = useReducedMotion()
-    const [searchParams] = useSearchParams()
-    const look = parseLook(searchParams.get('look'))
     const [approved, setApproved] = useState<Signature[]>([])
     const [own, setOwn] = useState<Signature | null>(null)
     const [fresh, setFresh] = useState<Signature | null>(null)
@@ -147,7 +146,7 @@ export default function Manifesto() {
                     <Counter counts={counts} reducedMotion={reducedMotion} />
                 </div>
 
-                <ManifestoSheet signatures={signatures} freshIndex={freshIndex >= 0 ? freshIndex : null} look={look} />
+                <ManifestoSheet signatures={signatures} freshIndex={freshIndex >= 0 ? freshIndex : null} />
 
                 <div ref={inlineRef} className="mt-10 flex flex-col items-center gap-3">
                     {button('below_sheet')}
@@ -162,7 +161,7 @@ export default function Manifesto() {
                 </div>
             )}
 
-            <SignPanel open={panelOpen} onClose={closePanel} onSigned={onSigned} look={look} />
+            <SignPanel open={panelOpen} onClose={closePanel} onSigned={onSigned} />
         </>
     )
 }

@@ -1,16 +1,16 @@
 /**
  * The community manifesto, "What we stand for": configuration and copy.
  *
- * The page at /en/manifesto recreates the poster the team signed in Zürich on
- * 26 March 2026: an off-white sheet with the manifesto in two columns, and the
- * signatures in red marker around it. Visitors sign by typing their name.
+ * The page at /en/manifesto is modelled on the poster the team signed in
+ * Zürich on 26 March 2026: the manifesto in two columns with the signatures
+ * written around it. Visitors sign by typing their name. All black: white
+ * text, signatures in yellow marker. (A paper version with red ink was built
+ * and compared first; the team chose this one.)
  *
  * The one exception to the site's text rule. Everywhere else text is white or
- * grey only and the brand colours are for shapes. Here the sheet is a picture
- * of a real poster, so the manifesto is set in near-black on paper and the
- * signatures are red ink. The rule still holds off the sheet: the counter, the
- * sign panel and the button are white and grey on dark like the rest of the
- * site.
+ * grey only and the brand colours are for shapes. Here the signatures stand
+ * in for marker on a poster, so they are yellow ink. Everything else on the
+ * page, the manifesto included, is white and grey.
  *
  * English-only, so every string lives here instead of the locale files. Copy
  * rules: no em dashes, the manifesto text exactly as written.
@@ -47,12 +47,34 @@ export interface Signature {
 }
 
 /**
- * The people who signed the paper poster in Zürich. Rendered into the
- * prerendered HTML, so the sheet is never empty, and counted in the total.
- * Spellings come from the team, not from reading the photo.
+ * The people who signed the paper poster in Zürich, all on 26 March 2026.
+ * Rendered into the prerendered HTML, so the sheet is never empty, and counted
+ * in the total. Names and roles as the team gave them.
  */
 export const FOUNDING_DATE = '2026-03-26'
-export const FOUNDING_SIGNATURES: Signature[] = []
+
+const FOUNDING: [string, SignerRole][] = [
+    ['Bruna', 'coach'],
+    ['Andreas', 'athlete'],
+    ['Fabi', 'coach'],
+    ['Brian', 'coach'],
+    ['Moritz', 'coach'],
+    ['Tony', 'coach'],
+    ['Monika', 'athlete'],
+    ['Julian', 'athlete'],
+    ['Anja', 'athlete'],
+    ['Andrea', 'athlete'],
+    ['Lorena', 'athlete'],
+    ['Sebastian', 'athlete'],
+    ['Gregory', 'coach'],
+    ['Celine', 'athlete'],
+]
+
+export const FOUNDING_SIGNATURES: Signature[] = FOUNDING.map(([name, role]) => ({
+    name,
+    role,
+    signedAt: FOUNDING_DATE,
+}))
 
 /** A paragraph on the sheet: a bold statement, or plain lines under it. */
 export interface ManifestoBlock {

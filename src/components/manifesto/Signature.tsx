@@ -1,6 +1,6 @@
 import { forwardRef } from 'react'
 import { COPY, type Signature as SignatureData } from './constants'
-import { inkStyle, type Look } from './ink'
+import { inkStyle } from './ink'
 import type { Placement } from './layout'
 import { formatSignedAt } from './signatures'
 
@@ -20,15 +20,14 @@ interface SignatureProps {
     fresh?: boolean
     /** Date under the name rather than beside it, for the narrow gutters. */
     stacked?: boolean
-    look: Look
 }
 
 /**
- * One name on the sheet: the signature in red ink and, beside it, the date in
+ * One name on the sheet: the signature in yellow ink and, beside it, the date in
  * small grey mono. Positioned by its centre within its zone.
  */
 const Signature = forwardRef<HTMLDivElement, SignatureProps>(function Signature(
-    { signature, placement, sizePx, fits, fresh = false, stacked = false, look },
+    { signature, placement, sizePx, fits, fresh = false, stacked = false },
     ref,
 ) {
     const size = sizePx * placement.scale * lengthFactor(signature.name, fits)
@@ -47,15 +46,15 @@ const Signature = forwardRef<HTMLDivElement, SignatureProps>(function Signature(
         >
             <span
                 className={fresh ? 'manifesto-ink-fresh' : undefined}
-                style={{ ...inkStyle(placement.font, size, look), lineHeight: 1.1 }}
+                style={{ ...inkStyle(placement.font, size), lineHeight: 1.1 }}
             >
                 {signature.name}
             </span>
-            <span className={`font-mono text-[10px] leading-none ${look.note} ${stacked ? '' : 'translate-y-[-2px]'}`}>
+            <span className={`font-mono text-[10px] leading-none text-dark-200 ${stacked ? '' : 'translate-y-[-2px]'}`}>
                 {formatSignedAt(signature.signedAt)}
             </span>
             {signature.pending && (
-                <span className={`absolute left-1/2 top-full mt-1 w-[150px] -translate-x-1/2 whitespace-normal text-center font-mono text-[10px] leading-tight ${look.note}`}>
+                <span className="absolute left-1/2 top-full mt-1 w-[150px] -translate-x-1/2 whitespace-normal text-center font-mono text-[10px] leading-tight text-dark-200">
                     {COPY.pendingNote}
                 </span>
             )}

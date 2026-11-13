@@ -28,9 +28,10 @@ import {
  * form-encoded rather than JSON to avoid a preflight Make cannot answer. The
  * same setup as components/merci/api.ts, which explains it in full.
  *
- * Stub: with a URL unset, and only on localhost, the list returns a few made
- * up names (or `?fake=300` of them, to see a crowded sheet) and signing always
- * works. Anywhere else an unset URL is an error.
+ * Stub: with a URL unset, and only on localhost, the list is empty, so the
+ * sheet shows the founding names alone (add `?fake=300` for that many made up
+ * names, to see a crowded sheet), and signing always works. Anywhere else an
+ * unset URL is an error.
  */
 
 export interface SignArgs {
@@ -63,7 +64,7 @@ const pause = (ms: number) => new Promise<void>((resolve) => setTimeout(resolve,
 
 function stubSignatures(): Signature[] {
     const fake = Number(new URLSearchParams(window.location.search).get('fake'))
-    const count = Number.isFinite(fake) && fake > 0 ? Math.min(fake, 2000) : STUB_NAMES.length
+    const count = Number.isFinite(fake) && fake > 0 ? Math.min(fake, 2000) : 0
     const start = Date.UTC(2026, 3, 1)
     return Array.from({ length: count }, (_, i) => ({
         name: i < STUB_NAMES.length ? STUB_NAMES[i] : `${STUB_NAMES[i % STUB_NAMES.length].split(' ')[0]} ${i}`,
