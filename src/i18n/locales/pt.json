@@ -43,6 +43,12 @@
         "tagline": "Chega de vasculhar anotações de calendário ou rolar históricos de mensagens para lembrar quando seu atleta mencionou aquele desconforto no joelho."
       },
       {
+        "headline": "Conecte a augo ao\nClaude e ao ChatGPT.",
+        "body": "Adicione a augo como conector e pergunte ao Claude ou ao ChatGPT sobre qualquer atleta: as sessões, como estão se sentindo, o que vocês conversaram. Dá para criar treinos, escrever mensagens e montar relatórios também.",
+        "tagline": "Ele entra como você e enxerga só os seus atletas.",
+        "linkLabel": "Configure em dois minutos"
+      },
+      {
         "headline": "Crie treinos.\nEm segundos.",
         "body": "Monte a sessão você mesmo no construtor de treinos na web, descreva para o assistente na web ou no app, ou crie direto no Claude ou no ChatGPT com o conector da augo.",
         "tagline": "Do jeito que você preferir trabalhar, a sessão cai no calendário do atleta."
@@ -54,20 +60,24 @@
         "linkLabel": "Veja um exemplo de prompt"
       },
       {
-        "headline": "Conecte a augo ao\nClaude e ao ChatGPT.",
-        "body": "Adicione a augo como conector e pergunte ao Claude ou ao ChatGPT sobre qualquer atleta: as sessões, como estão se sentindo, o que vocês conversaram. Dá para criar treinos, escrever mensagens e montar relatórios também.",
-        "tagline": "Ele entra como você e enxerga só os seus atletas.",
-        "linkLabel": "Configure em dois minutos"
+        "headline": "Saiba como seus\natletas realmente se sentem",
+        "body": "augo captura feedback pós-sessão, dando ao coach visibilidade sobre tendências de bem-estar de longo prazo, ajudando a detectar mudanças sutis que sinalizam desafios à frente.",
+        "tagline": "Detecte fadiga, quedas de motivação ou sinais precoces de lesão enquanto ainda há tempo para agir."
+      },
+      {
+        "headline": "Veja os dados\ne a sensação,\nlado a lado",
+        "body": "Planejado versus realizado, os dados do relógio e o tempo em cada zona de pace e frequência cardíaca, ao lado do RPE, das anotações e dos áudios do seu atleta.",
+        "tagline": "Quando os números e o feedback não batem, é aí que o coaching começa."
+      },
+      {
+        "headline": "Suas zonas.\nDo seu jeito.",
+        "body": "Comece pelos modelos de zona padrão da augo ou crie os seus para frequência cardíaca, pace e potência. Crie quantos precisar, defina as âncoras de desempenho de cada atleta e aplique os modelos certos em poucos cliques.",
+        "tagline": "Ou entregue o relatório do laboratório ao assistente e deixe que ele crie as zonas e as âncoras para você."
       },
       {
         "headline": "Saiba exatamente quem\nprecisa de você hoje",
         "body": "augo identifica os atletas que precisam de atenção agora: sinais de alerta precoce de dados de treino e feedback de sessão, pedidos de alteração de agenda, sessões marcadas para revisão, momentos-chave onde sua contribuição é mais importante.",
         "tagline": "Comece cada dia com clareza e foco."
-      },
-      {
-        "headline": "Saiba como seus\natletas realmente se sentem",
-        "body": "augo captura feedback pós-sessão, dando ao coach visibilidade sobre tendências de bem-estar de longo prazo, ajudando a detectar mudanças sutis que sinalizam desafios à frente.",
-        "tagline": "Detecte fadiga, quedas de motivação ou sinais precoces de lesão enquanto ainda há tempo para agir."
       },
       {
         "headline": "Um lugar para cada\nanotação de cada atleta.",
