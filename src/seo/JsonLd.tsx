@@ -358,6 +358,7 @@ const SERVICE_LABEL: Record<string, string> = {
   cycling: 'Cycling',
   triathlon: 'Triathlon',
   rowing: 'Rowing',
+  'nordic-skiing': 'Nordic Skiing',
 }
 
 // Every URL below goes through getCanonicalUrl so it carries the trailing slash

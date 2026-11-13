@@ -14,6 +14,7 @@ const OPTIONS: { value: SportFilterValue; label: string }[] = [
     { value: 'cycling', label: 'Cycling' },
     { value: 'triathlon', label: 'Triathlon' },
     { value: 'rowing', label: 'Rowing' },
+    { value: 'nordic-skiing', label: 'Nordic skiing' },
     { value: 'mental-coaching', label: 'Mental coaching' },
     { value: 'nutrition', label: 'Nutrition' },
     { value: 'physiotherapy', label: 'Physio' },

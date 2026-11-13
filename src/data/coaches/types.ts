@@ -1,4 +1,4 @@
-export type Discipline = 'running' | 'cycling' | 'triathlon' | 'rowing'
+export type Discipline = 'running' | 'cycling' | 'triathlon' | 'rowing' | 'nordic-skiing'
 /** Support beyond endurance coaching. Shown in the directory's experts section. */
 export type ExpertService = 'mental-coaching' | 'nutrition' | 'physiotherapy' | 'strength-conditioning'
 export type CoachStatus = 'accepting' | 'waitlist' | 'full'
@@ -13,7 +13,7 @@ export const GENDER_LABEL: Record<CoachGender, string> = {
     'non-binary': 'Non-binary',
 }
 
-export const DISCIPLINE_VALUES: Discipline[] = ['running', 'cycling', 'triathlon', 'rowing']
+export const DISCIPLINE_VALUES: Discipline[] = ['running', 'cycling', 'triathlon', 'rowing', 'nordic-skiing']
 export const EXPERT_SERVICE_VALUES: ExpertService[] = [
     'mental-coaching',
     'nutrition',
