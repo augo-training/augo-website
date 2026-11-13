@@ -8,6 +8,9 @@ import { trackCtaClicked } from '../utils/analytics'
  *  the invitation, which carries no navigation at all. */
 const EXCLUDED = ['/nice-athletes', '/nice-coaches', '/irreplaceable-endurance-coach', '/merci', '/session-zero']
 
+/** Booking calendar for the migration onboarding call. */
+const ONBOARDING_CALL_URL = 'https://calendar.app.google/5QoSwEbUYr9hHZKU7'
+
 /**
  * The permanent bar above the header.
  *
@@ -28,8 +31,6 @@ export default function AnnouncementBanner() {
     // URL is /en/nice-athletes/ and a bare endsWith would miss it.
     const path = pathname.replace(/\/+$/, '')
     const hidden = EXCLUDED.some((p) => path.endsWith(p))
-    // Mounted above the /:lang route, so there are no route params to read.
-    const lang = /^\/(en|de|pt)(\/|$)/.exec(pathname)?.[1] ?? 'en'
 
     useLayoutEffect(() => {
         if (hidden) return
@@ -40,17 +41,17 @@ export default function AnnouncementBanner() {
 
     if (hidden) return null
 
-    const href = `/${lang}/download`
-
     return (
         <div className="announcement-banner fixed top-0 left-0 right-0 z-[70]">
             <a
-                href={href}
+                href={ONBOARDING_CALL_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() =>
                     void trackCtaClicked({
-                        cta_text: 'TrainingPeaks migration banner',
+                        cta_text: 'Onboarding call banner',
                         cta_location: 'announcement_banner',
-                        destination: href,
+                        destination: ONBOARDING_CALL_URL,
                     })
                 }
                 className="flex items-center justify-center gap-2 h-[var(--banner-h)] px-4 text-center font-satoshi text-[13px] sm:text-[14px] leading-[130%] text-white/75 hover:text-white transition-colors duration-200"
