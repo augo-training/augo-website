@@ -16,6 +16,8 @@ import coachesStrength from '../assets/images/img_strength_workout.png?w=438&for
 // PLACEHOLDER at 440px native — swap for the larger export before merging.
 import coachesConnector from '../assets/images/img_section_coaches_connector.png?w=440&format=webp'
 import coachesSignals from '../assets/images/img_section_coaches_signals.png?w=532&format=webp'
+import coachesAnalysis from '../assets/images/img_section_coaches_analysis.png?w=1200&format=webp'
+import coachesZones from '../assets/images/img_section_coaches_zones.png?w=744&format=webp'
 import coachesImg3 from '../assets/images/img_section_coaches_3.png?w=652&format=webp'
 import coachesImg4 from '../assets/images/img_section_coaches_4.png?w=786&format=webp'
 
@@ -27,7 +29,7 @@ interface PanelImage {
 }
 
 /** Optional per-panel link path, index-aligned with panelImages. */
-const panelLinks: (string | null)[] = [null, null, '/support/strength-workouts', '/mcp', null, null, null]
+const panelLinks: (string | null)[] = [null, '/mcp', null, '/support/strength-workouts', null, null, null, null, null]
 
 const panelImages: PanelImage[][] = [
     [
@@ -44,6 +46,12 @@ const panelImages: PanelImage[][] = [
     ],
     [
         { src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' },
+        // A UI fragment rather than a device shot, and opaque rather than cut out,
+        // so it reads as a card floating on the backdrop.
+        { src: coachesConnector, className: 'absolute inset-0 m-auto w-[80%] md:w-[70%] h-auto rounded-xl z-10' },
+    ],
+    [
+        { src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' },
         // Same treatment as the athlete-signals panel: top-anchored and width-sized
         // below md so it fills the well, height-driven and centred above it.
         { src: coachesWorkouts, className: 'absolute inset-x-0 top-0 mx-auto w-[85%] md:inset-y-0 md:my-auto md:w-auto md:h-[90%] z-10' },
@@ -56,9 +64,19 @@ const panelImages: PanelImage[][] = [
     ],
     [
         { src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' },
-        // A UI fragment rather than a device shot, and opaque rather than cut out,
-        // so it reads as a card floating on the backdrop.
-        { src: coachesConnector, className: 'absolute inset-0 m-auto w-[80%] md:w-[70%] h-auto rounded-xl z-10' },
+        { src: coachesImg3, className: 'absolute inset-0 m-auto w-auto h-[90%] z-10' },
+    ],
+    [
+        { src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' },
+        // A full desktop screen rather than a device shot, so it floats as a card
+        // like the connector panel, sized by width to keep the charts legible.
+        { src: coachesAnalysis, className: 'absolute inset-0 m-auto w-[90%] md:w-[85%] h-auto rounded-xl z-10' },
+    ],
+    [
+        { src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' },
+        // A near-square modal, so width-sized below md and height-sized above it
+        // to stay inside the well either way.
+        { src: coachesZones, className: 'absolute inset-0 m-auto w-[80%] h-auto md:w-auto md:h-[85%] rounded-xl z-10' },
     ],
     [
         { src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' },
@@ -66,10 +84,6 @@ const panelImages: PanelImage[][] = [
         // source image, so the container has to crop that edge. Below md it is sized
         // by width, which keeps the screenshot legible on small viewports.
         { src: coachesSignals, className: 'absolute inset-x-0 top-0 mx-auto w-[75%] md:top-[10%] md:w-auto md:h-[95%] z-10' },
-    ],
-    [
-        { src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' },
-        { src: coachesImg3, className: 'absolute inset-0 m-auto w-auto h-[90%] z-10' },
     ],
     [
         { src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' },

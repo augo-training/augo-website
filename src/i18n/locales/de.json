@@ -43,6 +43,12 @@
         "tagline": "Kein Durchsuchen vergrabener Kalendernotizen oder Scrollen durch Nachrichtenverläufe mehr, um sich zu erinnern, wann dein Athlet das Knieproblem erwähnt hat."
       },
       {
+        "headline": "Verbinde augo mit\nClaude und ChatGPT.",
+        "body": "Richte augo als Connector ein und frag Claude oder ChatGPT alles zu deinen Athleten: ihre Einheiten, wie sie sich fühlen, worüber ihr gesprochen habt. Einheiten erstellen, Nachrichten entwerfen und Berichte zusammenstellen geht ebenso.",
+        "tagline": "Der Connector meldet sich als du an und sieht nur deine Athleten.",
+        "linkLabel": "In zwei Minuten eingerichtet"
+      },
+      {
         "headline": "Einheiten erstellen.\nIn Sekunden.",
         "body": "Baue eine Einheit selbst im Workout-Builder im Web, beschreibe sie dem Assistenten im Web oder in der App, oder erstelle sie direkt in Claude oder ChatGPT über den augo-Connector.",
         "tagline": "Wie auch immer du arbeitest — die Einheit landet im Kalender deines Athleten."
@@ -54,20 +60,24 @@
         "linkLabel": "Beispiel-Prompt ansehen"
       },
       {
-        "headline": "Verbinde augo mit\nClaude und ChatGPT.",
-        "body": "Richte augo als Connector ein und frag Claude oder ChatGPT alles zu deinen Athleten: ihre Einheiten, wie sie sich fühlen, worüber ihr gesprochen habt. Einheiten erstellen, Nachrichten entwerfen und Berichte zusammenstellen geht ebenso.",
-        "tagline": "Der Connector meldet sich als du an und sieht nur deine Athleten.",
-        "linkLabel": "In zwei Minuten eingerichtet"
+        "headline": "Erkenne, wie sich deine\nAthleten wirklich fühlen",
+        "body": "augo kombiniert Session-Feedbacks mit langfristigen Trends. So erkennst du subtile Veränderungen sofort, bevor Herausforderungen zu Problemen werden.",
+        "tagline": "Erkenne Ermüdung, Motivationstiefs oder frühe Verletzungsanzeichen, solange noch Zeit zum Handeln bleibt."
+      },
+      {
+        "headline": "Daten und Gefühl,\nSeite an Seite",
+        "body": "Geplant gegenüber absolviert, die Datenströme der Uhr und die Zeit in den Pace- und Herzfrequenzzonen, direkt neben RPE, Notizen und Sprachnachrichten deines Athleten.",
+        "tagline": "Wenn Zahlen und Feedback nicht zusammenpassen, beginnt das Coaching."
+      },
+      {
+        "headline": "Deine Zonen.\nDein Weg.",
+        "body": "Starte mit den Standard-Zonenmodellen von augo oder erstelle eigene für Herzfrequenz, Pace und Leistung. Lege so viele an, wie du brauchst, setze die Leistungsanker jedes Athleten und wende die passenden Modelle mit wenigen Klicks an.",
+        "tagline": "Oder gib den Laborbericht dem Assistenten und lass ihn Zonen und Anker für dich erstellen."
       },
       {
         "headline": "Spüre sofort, wer\ndich heute braucht",
         "body": "augo zeigt dir die Athleten, die jetzt Aufmerksamkeit brauchen: Frühwarnsignale aus Trainingsdaten und Session-Feedback, Terminänderungswünsche, zur Überprüfung markierte Sessions, Schlüsselmomente, in denen dein Input am wichtigsten ist.",
         "tagline": "Starte jeden Tag mit Klarheit und Fokus."
-      },
-      {
-        "headline": "Erkenne, wie sich deine\nAthleten wirklich fühlen",
-        "body": "augo kombiniert Session-Feedbacks mit langfristigen Trends. So erkennst du subtile Veränderungen sofort, bevor Herausforderungen zu Problemen werden.",
-        "tagline": "Erkenne Ermüdung, Motivationstiefs oder frühe Verletzungsanzeichen, solange noch Zeit zum Handeln bleibt."
       },
       {
         "headline": "Ein Ort für jede Notiz\nzu jedem Athleten.",
