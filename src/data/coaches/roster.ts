@@ -2753,7 +2753,7 @@ export const coaches: Coach[] = [
         isFoundingCoach: false,
         status: 'accepting',
         gender: 'male',
-        disciplines: ['running', 'triathlon'],
+        disciplines: ['running', 'triathlon', 'nordic-skiing'],
         expertServices: ['nutrition', 'strength-conditioning'],
         specialties: [
             '5K',
