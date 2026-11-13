@@ -56,7 +56,7 @@ function writeOwn(signature: Signature | null) {
  * fetches everyone who signed online. A new signature is written onto the
  * sheet at once and is in the list for everyone from then on; there is no
  * approval step. Each one is posted to Slack, and a bad one is removed by
- * deleting its record in Make.
+ * deleting its row in the sheet (see components/manifesto/api.ts).
  *
  * English-only, so SEOHead runs with noAlternates and scripts/routes.ts lists
  * just the /en URL. Page views come from LanguageLayout.

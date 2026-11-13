@@ -7,22 +7,24 @@ import {
 } from './constants'
 
 /**
- * The page's two server calls, both Make custom webhooks on one data store
- * ("Manifesto signatures": name, email, role, signed_at, marketing).
+ * The page's two server calls, both Make custom webhooks on one Google Sheet:
+ * "Manifesto signatures" (15s_zUFEiNHIsUkv3ENIim5ExIQlKQsc1zCoz7CDxcpQ), tab
+ * "Signatures", columns name, email, role, signed_at, marketing, submitted_at.
+ * Make scenarios 10158247 "Manifesto sign" and 10158259 "Manifesto list".
  *
  *   list:  GET                          -> 200 { signatures: [{ name, role, signed_at }] }
  *   sign:  POST { name, email, role, signed_at, marketing }   -> 200 { ok: true }
  *
  * There is no approval step. A new signature is in the list for everyone from
  * the moment it is stored, and the sign scenario posts it to Slack so the team
- * sees every name. A wrong or harmful one is removed by deleting its record
- * from the data store. The list never includes the email.
+ * sees every name (#manifesto-signatures). A wrong or harmful one is removed by
+ * deleting its row from the sheet. The list never includes the email.
  *
  * `signed_at` is the signer's own date, sent rather than stamped by Make, so the
  * listed copy matches the saved one even when Make's UTC day is different.
  * `marketing` is 'yes' or 'no', from the opt-in box, unticked by default. The
  * sign scenario adds the email to MailerLite only on 'yes'; on 'no' the email
- * stays in the data store and nowhere else.
+ * stays in the sheet and nowhere else.
  *
  * The page reads both responses, so both Webhook response modules must send
  * Access-Control-Allow-Origin for augotraining.com, and the sign call posts
