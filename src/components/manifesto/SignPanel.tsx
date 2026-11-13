@@ -21,7 +21,8 @@ const inputClass =
 
 /**
  * The sign form, in a dialog over the sheet. Name, email and coach or athlete;
- * only the name is ever shown. As the visitor types, the name is written out
+ * only the name is ever shown. Marketing emails are a separate opt-in, unticked
+ * by default, and signing works without it. As the visitor types, the name is written out
  * in the same hand it will have on the sheet.
  *
  * Off the paper, so the site's text rule applies: white and grey on dark. The
@@ -31,6 +32,7 @@ export default function SignPanel({ open, onClose, onSigned }: SignPanelProps) {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [role, setRole] = useState<SignerRole | null>(null)
+    const [marketing, setMarketing] = useState(false)
     const [error, setError] = useState<FieldError>(null)
     const [submitting, setSubmitting] = useState(false)
     const nameRef = useRef<HTMLInputElement>(null)
@@ -70,15 +72,15 @@ export default function SignPanel({ open, onClose, onSigned }: SignPanelProps) {
         setSubmitting(true)
 
         const signature: Signature = { name: cleanName(name), role, signedAt: today }
-        const result = await signManifesto({ name: signature.name, email, role, signedAt: today })
+        const result = await signManifesto({ name: signature.name, email, role, signedAt: today, marketing })
         setSubmitting(false)
         if (result !== 'ok') {
             setError('submit')
-            void trackManifestoSignError({ role })
+            void trackManifestoSignError({ role, marketing })
             return
         }
         void identifyEmailCapture({ email, source: 'manifesto', page: MANIFESTO_PATH })
-        void trackManifestoSigned({ role })
+        void trackManifestoSigned({ role, marketing })
         onSigned(signature)
     }
 
@@ -185,6 +187,16 @@ export default function SignPanel({ open, onClose, onSigned }: SignPanelProps) {
                             ))}
                         </div>
                     </fieldset>
+
+                    <label className="flex items-start gap-3 cursor-pointer">
+                        <input
+                            type="checkbox"
+                            checked={marketing}
+                            onChange={(event) => setMarketing(event.target.checked)}
+                            className="mt-0.5 h-[18px] w-[18px] shrink-0 cursor-pointer accent-white"
+                        />
+                        <span className="text-[14px] text-text-muted leading-snug">{COPY.marketing}</span>
+                    </label>
 
                     <p className="text-[13px] text-dark-200 leading-snug">{COPY.privacy}</p>
                     {errorText && (

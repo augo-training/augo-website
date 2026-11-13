@@ -592,11 +592,11 @@ export async function trackManifestoSignOpened(props: { location: ManifestoOpenL
 }
 
 /** The sign call accepted the signature. It shows to others only once approved. */
-export async function trackManifestoSigned(props: { role: 'coach' | 'athlete' }): Promise<void> {
+export async function trackManifestoSigned(props: { role: 'coach' | 'athlete'; marketing: boolean }): Promise<void> {
     return track('manifesto_signed', props)
 }
 
 /** The sign call failed: Make unreachable or answering with an error. */
-export async function trackManifestoSignError(props: { role: 'coach' | 'athlete' }): Promise<void> {
+export async function trackManifestoSignError(props: { role: 'coach' | 'athlete'; marketing: boolean }): Promise<void> {
     return track('manifesto_sign_error', props)
 }

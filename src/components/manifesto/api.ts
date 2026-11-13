@@ -11,7 +11,7 @@ import {
  * ("Manifesto signatures": name, email, role, signed_at, approved).
  *
  *   list:  GET                          -> 200 { signatures: [{ name, role, signed_at }] }
- *   sign:  POST { name, email, role, signed_at }   -> 200 { ok: true }
+ *   sign:  POST { name, email, role, signed_at, marketing }   -> 200 { ok: true }
  *
  * The list scenario returns approved records only, and never the email. A new
  * signature is stored with approved = false and posted to Slack; someone flips
@@ -19,6 +19,9 @@ import {
  * only the signer does, from localStorage (see MANIFESTO_SIGNATURE_STORAGE_KEY).
  * `signed_at` is the signer's own date, sent rather than stamped by Make, so the
  * approved copy matches the saved one even when Make's UTC day is different.
+ * `marketing` is 'yes' or 'no', from the opt-in box, unticked by default. The
+ * sign scenario adds the email to MailerLite only on 'yes'; on 'no' the email
+ * stays in the data store and nowhere else.
  *
  * The page reads both responses, so both Webhook response modules must send
  * Access-Control-Allow-Origin for augotraining.com, and the sign call posts
@@ -35,6 +38,8 @@ export interface SignArgs {
     email: string
     role: SignerRole
     signedAt: string
+    /** Ticked the marketing emails box. */
+    marketing: boolean
 }
 
 const STUB_NAMES = [
@@ -112,6 +117,7 @@ export async function signManifesto(args: SignArgs): Promise<'ok' | 'error'> {
                 email: args.email.trim(),
                 role: args.role,
                 signed_at: args.signedAt,
+                marketing: args.marketing ? 'yes' : 'no',
             }).toString(),
         })
         return response.ok ? 'ok' : 'error'
