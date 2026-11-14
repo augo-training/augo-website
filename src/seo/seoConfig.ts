@@ -200,17 +200,17 @@ const pageMeta: Record<string, Record<SupportedLanguage, PageMeta>> = {
     en: {
       title: 'What We Stand For: The augo Community Manifesto | augo',
       description:
-        'Coaching is human first. Read the augo community manifesto and add your name next to the coaches and athletes who have signed the Augo Standard.',
+        'Coaching is human first. Read the augo community manifesto and add your name next to the coaches and athletes who have signed the augo Standard.',
     },
     de: {
       title: 'What We Stand For: The augo Community Manifesto | augo',
       description:
-        'Coaching is human first. Read the augo community manifesto and add your name next to the coaches and athletes who have signed the Augo Standard.',
+        'Coaching is human first. Read the augo community manifesto and add your name next to the coaches and athletes who have signed the augo Standard.',
     },
     pt: {
       title: 'What We Stand For: The augo Community Manifesto | augo',
       description:
-        'Coaching is human first. Read the augo community manifesto and add your name next to the coaches and athletes who have signed the Augo Standard.',
+        'Coaching is human first. Read the augo community manifesto and add your name next to the coaches and athletes who have signed the augo Standard.',
     },
   },
   contact: {
