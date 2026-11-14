@@ -112,7 +112,7 @@ export default function AdvisorsSection() {
                         />
                         <div className="flex flex-col gap-4">
                             <div>
-                                <p className="m-0 font-mono font-extrabold text-[20px] sm:text-[22px] leading-[130%] text-white">
+                                <p className="m-0 font-satoshi font-bold text-[22px] sm:text-[24px] leading-[130%] text-white">
                                     {advisor.name}
                                 </p>
                                 <p className="m-0 mt-1 font-satoshi font-medium text-[16px] leading-[140%] text-[#969EA7]">
