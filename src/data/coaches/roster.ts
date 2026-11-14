@@ -2590,7 +2590,7 @@ export const coaches: Coach[] = [
     },
     {
         slug: 'reto-braendli',
-        name: 'Reto Braendli',
+        name: 'Reto Brändli',
         firstName: 'Reto',
         tagline: 'Open-minded, honest and goal-oriented triathlon and cycling coach based in Zurich.',
         isFoundingCoach: true,

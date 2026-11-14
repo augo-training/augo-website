@@ -118,7 +118,7 @@ export const COPY = {
             },
             {
                 photo: 'reto',
-                name: 'Reto Braendli',
+                name: 'Reto Brändli',
                 title: 'Triathlon coach, coach to multiple pro podiums at Ironman and T100',
             },
         ],

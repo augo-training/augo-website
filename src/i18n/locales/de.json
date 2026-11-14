@@ -116,6 +116,15 @@
     "headline1": "Was Coaches",
     "headline2": "über augo sagen"
   },
+  "advisors": {
+    "headline1": "Unsere",
+    "headline2": "Berater",
+    "tag": "BERATER",
+    "intro": "Anerkannte Namen im Ausdauersport, die unsere täglichen Entscheidungen mitprägen, um augo besser zu machen.",
+    "marco": { "title": "Forscher, Laufcoach & Gründer von HRV4Training", "bio": "Promoviert in angewandtem maschinellem Lernen, mit Masterabschlüssen in Informatik und Hochleistungscoaching. Zertifizierter Ultralauf-Coach, Autor von über 50 Publikationen und Patenten zu Physiologie, Technologie und menschlicher Leistung sowie Berater von Oura." },
+    "gordon": { "title": "Performance Director bei Triathlon Ireland & ehemaliger Nationaltrainer für Elite und U23 bei Swiss Triathlon", "bio": "35 Jahre Coaching, vom Hindernislauf und Athletiktraining im Rugby bis zu Olympischer Distanz, 70.3, T100 und Ironman." },
+    "reto": { "title": "Sportwissenschaftler & Elite-Triathlon-Coach", "bio": "Schweizer Triathlon- und Radcoach für Profis, deren Athleten in Kona und bei der T100 in die Top Ten kamen und Ironman-Titel in Serie gewannen. Sein Hintergrund im Leistungslabor mit Laktat-, Atemgas- und Körperzusammensetzungsanalysen prägt sein Coaching." }
+  },
   "athleteTestimonials": {
     "headline1": "Was Athleten",
     "headline2": "über augo sagen"

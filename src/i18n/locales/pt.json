@@ -116,6 +116,15 @@
     "headline1": "O que coaches",
     "headline2": "dizem sobre a augo"
   },
+  "advisors": {
+    "headline1": "Nossos",
+    "headline2": "conselheiros",
+    "tag": "CONSELHEIROS",
+    "intro": "Nomes respeitados do esporte de endurance que ajudam a moldar nossas decisões do dia a dia para tornar a augo melhor.",
+    "marco": { "title": "Pesquisador, coach de corrida e fundador do HRV4Training", "bio": "Doutor em aprendizado de máquina aplicado, com mestrados em ciência da computação e em treinamento de alto rendimento. Coach certificado de ultramaratona, autor de mais de 50 artigos e patentes sobre fisiologia, tecnologia e desempenho humano, e conselheiro da Oura." },
+    "gordon": { "title": "Performance Director da Triathlon Ireland e ex-treinador das seleções elite e sub-23 da Swiss Triathlon", "bio": "35 anos como coach, do steeplechase e da preparação física no rugby ao triathlon olímpico, 70.3, T100 e Ironman." },
+    "reto": { "title": "Cientista do esporte e coach de triathlon de elite", "bio": "Coach suíço de triathlon e ciclismo de atletas profissionais, que já ficaram entre os dez primeiros em Kona e no T100 e venceram títulos consecutivos de Ironman. Sua experiência em laboratório de performance, com testes de lactato, troca gasosa e composição corporal, orienta seu coaching." }
+  },
   "athleteTestimonials": {
     "headline1": "O que atletas",
     "headline2": "dizem sobre a augo"
