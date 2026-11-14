@@ -18,6 +18,7 @@ import {
   COURSE_UPDATED,
 } from '../components/coachCourse/constants'
 import { COPY as RACING_TEAM_COPY, RACING_TEAM_URL } from '../components/racingTeam/constants'
+import { COPY as MANIFESTO_COPY, FOUNDING_DATE, MANIFESTO_URL } from '../components/manifesto/constants'
 
 export function OrganizationJsonLd() {
   const schema = {
@@ -261,7 +262,7 @@ export function HumanEdgeHowToJsonLd() {
       {
         '@type': 'HowToStep',
         position: 1,
-        name: 'Follow Augo and Brian on Instagram',
+        name: 'Follow augo and Brian on Instagram',
         text: 'Follow @augo.training and @brianboisvert on Instagram so you do not miss the Human Edge series posts.',
         url: `${HUMAN_EDGE_URL}#how-to-apply`,
       },
@@ -269,7 +270,7 @@ export function HumanEdgeHowToJsonLd() {
         '@type': 'HowToStep',
         position: 2,
         name: 'Comment "Human Edge"',
-        text: 'Comment "Human Edge" on any post in the Human Edge series on Augo or Brian Boisvert\'s Instagram.',
+        text: 'Comment "Human Edge" on any post in the Human Edge series on augo or Brian Boisvert\'s Instagram.',
         url: `${HUMAN_EDGE_URL}#how-to-apply`,
       },
       {
@@ -345,6 +346,49 @@ export function RacingTeamJsonLd() {
     <Helmet>
       <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
       <script type="application/ld+json">{JSON.stringify(faq)}</script>
+    </Helmet>
+  )
+}
+
+// The manifesto as a published work. Its text is built from the same COPY the
+// sheet renders, so the two never drift. The signature count is left out: it
+// changes after load, and prerendered schema must be deterministic.
+export function ManifestoJsonLd() {
+  const augo = { '@type': 'Organization', name: 'augo', url: BASE_URL }
+  const breadcrumb = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'augo', item: `${BASE_URL}/en/` },
+      { '@type': 'ListItem', position: 2, name: 'Community manifesto', item: MANIFESTO_URL },
+    ],
+  }
+  const work = {
+    '@context': 'https://schema.org',
+    '@type': 'CreativeWork',
+    name: 'What we stand for: the augo community manifesto',
+    alternateName: 'The augo Standard',
+    text: MANIFESTO_COPY.columns
+      .flat()
+      .map((block) => block.lines.join(' '))
+      .join('\n\n'),
+    url: MANIFESTO_URL,
+    image: `${BASE_URL}/manifesto-og.jpg`,
+    inLanguage: 'en',
+    datePublished: FOUNDING_DATE,
+    locationCreated: {
+      '@type': 'Place',
+      name: 'Zürich',
+      address: { '@type': 'PostalAddress', addressLocality: 'Zürich', addressCountry: 'CH' },
+    },
+    author: augo,
+    publisher: augo,
+  }
+
+  return (
+    <Helmet>
+      <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
+      <script type="application/ld+json">{JSON.stringify(work)}</script>
     </Helmet>
   )
 }

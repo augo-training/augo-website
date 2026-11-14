@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import augoLogo from '../assets/images/augo_footer_1.svg'
 import SEOHead from '../seo/SEOHead'
-import { OrganizationJsonLd } from '../seo/JsonLd'
+import { ManifestoJsonLd, OrganizationJsonLd } from '../seo/JsonLd'
 import ManifestoSheet from '../components/manifesto/ManifestoSheet'
 import SignPanel from '../components/manifesto/SignPanel'
 import Counter from '../components/manifesto/Counter'
@@ -125,6 +125,7 @@ export default function Manifesto() {
         <>
             <SEOHead page="manifesto" path={MANIFESTO_PATH} ogImagePath="/manifesto-og.jpg" noAlternates />
             <OrganizationJsonLd />
+            <ManifestoJsonLd />
             <Helmet>
                 <link rel="stylesheet" href={SIGNATURE_FONTS_HREF} />
             </Helmet>

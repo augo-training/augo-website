@@ -140,7 +140,7 @@ export const COPY = {
                     'Progress over noise.',
                 ],
             },
-            { kind: 'statement', lines: ['This is the Augo Standard.'] },
+            { kind: 'statement', lines: ['This is the augo Standard.'] },
             { kind: 'statement', lines: ['Come join us.'] },
         ],
     ] satisfies ManifestoBlock[][],
