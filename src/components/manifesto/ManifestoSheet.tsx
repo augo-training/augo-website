@@ -120,7 +120,6 @@ export default function ManifestoSheet({ signatures, freshIndex }: ManifestoShee
                 {wide && <div className="relative">{layer('left')}</div>}
 
                 <div className="px-6 pt-10 sm:px-10 lg:px-4 lg:pt-0">
-                    <p className="font-mono font-bold text-[18px] sm:text-[20px] mb-8 text-white">{COPY.eyebrow}</p>
                     <div className="grid gap-y-5 md:grid-cols-2 md:gap-x-14">
                         {COPY.columns.map((column, c) => (
                             <div key={c} className="flex flex-col gap-5">
@@ -130,7 +129,6 @@ export default function ManifestoSheet({ signatures, freshIndex }: ManifestoShee
                             </div>
                         ))}
                     </div>
-                    <p className="font-mono text-[12px] mt-8 text-text-muted">{COPY.place}</p>
                 </div>
 
                 {wide && <div className="relative">{layer('right')}</div>}
@@ -140,13 +138,11 @@ export default function ManifestoSheet({ signatures, freshIndex }: ManifestoShee
                 <div className="absolute inset-x-0 top-6 px-3 sm:px-6 lg:px-16" style={{ height: `${layout.bottomRows * rowPx}px` }}>
                     <div className="relative h-full">{layer('bottom')}</div>
                 </div>
-                <img
-                    src={augoLogo}
-                    alt="augo"
-                    width={80}
-                    height={28}
-                    className="absolute right-6 bottom-5 sm:right-10 sm:bottom-7 w-[72px] sm:w-[88px] h-auto"
-                />
+                {/* Signed off at the bottom right, where a reader going left to right ends. */}
+                <div className="absolute right-6 bottom-5 sm:right-10 sm:bottom-7 flex items-center gap-4 sm:gap-6">
+                    <p className="font-mono text-[12px] text-text-muted">{COPY.place}</p>
+                    <img src={augoLogo} alt="augo" width={80} height={28} className="w-[72px] sm:w-[88px] h-auto" />
+                </div>
             </div>
         </div>
     )

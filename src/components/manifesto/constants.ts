@@ -82,7 +82,6 @@ export interface ManifestoBlock {
 }
 
 export const COPY = {
-    eyebrow: '/// What we stand for',
     pageEyebrow: 'Community manifesto',
     place: 'Zürich, March 26th, 2026.',
     columns: [
