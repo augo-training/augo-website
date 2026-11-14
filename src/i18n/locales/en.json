@@ -116,6 +116,15 @@
     "headline1": "What coaches",
     "headline2": "say about augo"
   },
+  "advisors": {
+    "headline1": "Our",
+    "headline2": "advisors",
+    "tag": "ADVISORS",
+    "intro": "Coaches who have backed augo since day 0.",
+    "marco": { "title": "Researcher, Running Coach & Founder of HRV4Training", "bio": "PhD in applied machine learning, with master's degrees in computer science and high-performance coaching. Certified ultrarunning coach, author of 50+ papers and patents on physiology, technology and human performance, and advisor to Oura." },
+    "gordon": { "title": "Performance Director at Triathlon Ireland & Former Swiss Triathlon National Coach", "bio": "Formerly Swiss Triathlon's national elite and U23 coach. 35 years of coaching, from steeplechase and rugby strength and conditioning to Olympic distance, 70.3, T100 and Ironman." },
+    "reto": { "title": "Sports Scientist & Elite Triathlon Coach", "bio": "Swiss triathlon and cycling coach to professional athletes, who have placed top ten at Kona and the T100 and won back-to-back Ironman titles. His performance-lab background in lactate, gas exchange and body composition testing informs his coaching." }
+  },
   "athleteTestimonials": {
     "headline1": "What athletes",
     "headline2": "say about augo"
