@@ -7,9 +7,8 @@ import retoPhoto from '../assets/images/advisor-reto.png?w=256&h=256&format=webp
 
 /**
  * The three coaches who have advised augo since day 0, under the About section.
- * Title and bio live in the locale files under `advisors.<key>`. A locale can
- * override a name with `advisors.<key>.name` (German spells Reto's "Brändli").
- * Same headshot crops as the course page (CoachCourseAdvisors).
+ * Title and bio live in the locale files under `advisors.<key>`; names are not
+ * translated. Same headshot crops as the course page (CoachCourseAdvisors).
  *
  * Split layout: the headline on the left (sticky on desktop), one card per
  * advisor on the right. On phones everything stacks.
@@ -17,7 +16,7 @@ import retoPhoto from '../assets/images/advisor-reto.png?w=256&h=256&format=webp
 const advisors = [
     { key: 'marco', name: 'Dr. Marco Altini', photo: marcoPhoto },
     { key: 'gordon', name: 'Gordon Crawford', photo: gordonPhoto },
-    { key: 'reto', name: 'Reto Braendli', photo: retoPhoto },
+    { key: 'reto', name: 'Reto Brändli', photo: retoPhoto },
 ] as const
 
 export default function AdvisorsSection() {
@@ -114,7 +113,7 @@ export default function AdvisorsSection() {
                         <div className="flex flex-col gap-4">
                             <div>
                                 <p className="m-0 font-satoshi font-bold text-[22px] sm:text-[24px] leading-[130%] text-white">
-                                    {t(`advisors.${advisor.key}.name`, { defaultValue: advisor.name })}
+                                    {advisor.name}
                                 </p>
                                 <p className="m-0 mt-1 font-satoshi font-medium text-[16px] leading-[140%] text-[#969EA7]">
                                     {t(`advisors.${advisor.key}.title`)}
