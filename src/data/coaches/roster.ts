@@ -48,6 +48,7 @@ const DA: CoachLanguage = { code: 'da', flag: '🇩🇰', label: 'Danish' }
 const FA: CoachLanguage = { code: 'fa', flag: '🇮🇷', label: 'Persian' }
 const FI: CoachLanguage = { code: 'fi', flag: '🇫🇮', label: 'Finnish' }
 const RU: CoachLanguage = { code: 'ru', flag: '🇷🇺', label: 'Russian' }
+const HU: CoachLanguage = { code: 'hu', flag: '🇭🇺', label: 'Hungarian' }
 
 export const coaches: Coach[] = [
     {
@@ -2888,5 +2889,34 @@ export const coaches: Coach[] = [
             philosophy: 'I take a very scientific, evidence-based approach and help athletes get the most out of their individual potential.',
         },
         media: { portrait: placeholderPortrait },
+    },
+    {
+        slug: 'balazs-sandor',
+        name: 'Balázs Sándor',
+        firstName: 'Balázs',
+        tagline: 'Cycling coach in Salgótarján, Hungary, offering strength training and sports nutrition.',
+        isFoundingCoach: false,
+        status: 'accepting',
+        gender: 'male',
+        disciplines: ['cycling'],
+        expertServices: ['nutrition'],
+        specialties: ['marathon'],
+        location: { city: 'Salgótarján', country: 'Hungary', countryCode: 'HU', timezone: 'Europe/Budapest' },
+        coachesRemote: true,
+        languages: [EN, HU],
+        credentials: [],
+        athleteLevels: ['Intermediate', 'Advanced'],
+        communication: 'always-on',
+        offersStrength: true,
+        bio: {
+            short: 'Salgótarján-based cycling coach who also offers strength training and sports nutrition.',
+            long: [
+                'Balázs coaches cyclists at Intermediate and Advanced level, remotely, and includes strength training in his coaching.',
+                'He also offers sports nutrition, coaches in English and Hungarian, and is available to his athletes 24/7.',
+            ],
+            philosophy: "I'm available 24/7 to my athletes.",
+        },
+        media: { portrait: placeholderPortrait },
+        socials: { website: 'https://sandorbazsi.com/' },
     },
 ]
