@@ -484,20 +484,20 @@ export default function Hero({ onWatchFilm }: HeroProps) {
                             />
                         </div>
                     </div>
-                    {/* Two iPhones on the right — Home behind, Assistant forward */}
+                    {/* Two iPhones on the left, keeping the athlete feedback panel visible — Home behind, Assistant forward */}
                     <IPhone
-                        className="mockup-phone-back"
+                        className="mockup-phone-back left-[13%] xl:left-[1%]"
                         src={imgHome}
                         src2x={imgHome2x}
                         alt="augo coach home on iPhone"
-                        style={{ width: '24%', right: '13%', bottom: '5%', zIndex: 2, transform: 'rotateY(-8deg) rotate(-3deg)', filter: 'brightness(0.85)' }}
+                        style={{ width: '24%', bottom: '5%', zIndex: 2, transform: 'rotateY(8deg) rotate(3deg)', filter: 'brightness(0.85)' }}
                     />
                     <IPhone
-                        className="mockup-phone-front"
+                        className="mockup-phone-front left-[-4%] xl:left-[-16%]"
                         src={imgAssistant}
                         src2x={imgAssistant2x}
                         alt="augo AI assistant on iPhone"
-                        style={{ width: '25%', right: '-4%', bottom: 0, zIndex: 3, transform: 'rotateY(-10deg) rotate(2deg)' }}
+                        style={{ width: '25%', bottom: 0, zIndex: 3, transform: 'rotateY(10deg) rotate(-2deg)' }}
                     />
                 </div>
             </div>
