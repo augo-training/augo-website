@@ -486,7 +486,7 @@ export default function Hero({ onWatchFilm }: HeroProps) {
                         src={imgAssistant}
                         src2x={imgAssistant2x}
                         alt="augo AI assistant on iPhone"
-                        style={{ width: '32%', bottom: 0, zIndex: 3, transform: 'rotateY(16deg) rotate(-3deg)' }}
+                        style={{ width: '32%', bottom: 0, zIndex: 3, transform: 'rotateY(6deg) rotate(-1.5deg)' }}
                     />
                 </div>
             </div>
