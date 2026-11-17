@@ -3,9 +3,10 @@ import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
 import { trackCtaClicked } from '../utils/analytics'
 import bgSection1 from '../assets/images/bg_section_1.webp'
-import imgWeb from '../assets/images/app_web_dashboard.png?w=1400&format=webp'
-import imgSignals from '../assets/images/app_athlete_signals.png?w=560&format=webp'
-import imgAssistant from '../assets/images/app_assistant.png?w=560&format=webp'
+import imgScreen from '../assets/images/app_session_details.png?w=1400&format=webp'
+import imgScreen2x from '../assets/images/app_session_details.png?w=2400&format=webp'
+import imgAssistant from '../assets/images/app_assistant_empty.png?w=600&format=webp'
+import imgAssistant2x from '../assets/images/app_assistant_empty.png?w=900&format=webp'
 
 const WORD_DURATION = 3 // seconds each word is visible
 const FADE_DURATION = 0.4 // seconds for fade in/out
@@ -13,6 +14,62 @@ const FADE_DURATION = 0.4 // seconds for fade in/out
 interface HeroProps {
     /** Called on "Watch the film" click — gates behind email capture and plays the film. */
     onWatchFilm?: () => void
+}
+
+interface IPhoneProps {
+    className: string
+    src: string
+    src2x: string
+    alt: string
+    style: React.CSSProperties
+}
+
+/** CSS iPhone frame — titanium rim, side buttons and Dynamic Island around a 393×852 screen. */
+function IPhone({ className, src, src2x, alt, style }: IPhoneProps) {
+    const button = (side: 'left' | 'right', top: string, height: string) => (
+        <div
+            className="absolute"
+            style={{
+                [side]: '-2.5%',
+                top,
+                width: '2%',
+                height,
+                borderRadius: side === 'left' ? '2px 0 0 2px' : '0 2px 2px 0',
+                background: '#2c2c2e',
+            }}
+        />
+    )
+    return (
+        <div className={`${className} absolute`} style={style}>
+            <div
+                className="relative"
+                style={{
+                    padding: '3.2%',
+                    borderRadius: '16% / 7.4%',
+                    background: 'linear-gradient(145deg, #3a3a3d 0%, #1c1c1e 45%, #121214 100%)',
+                    border: '1px solid rgba(255,255,255,0.18)',
+                    boxShadow: 'inset 0 0 0 2px #050505, 0 30px 80px -20px rgba(0,0,0,0.85)',
+                }}
+            >
+                {/* Action, volume and side buttons */}
+                {button('left', '17%', '5%')}
+                {button('left', '25%', '9%')}
+                {button('left', '36%', '9%')}
+                {button('right', '27%', '14%')}
+                <div className="relative overflow-hidden" style={{ borderRadius: '13% / 6%', aspectRatio: '393 / 852' }}>
+                    <img
+                        src={src}
+                        srcSet={`${src} 600w, ${src2x} 900w`}
+                        sizes="(min-width: 1280px) 200px, (min-width: 1024px) 135px, 32vw"
+                        alt={alt}
+                        className="block w-full h-full"
+                    />
+                    {/* Dynamic Island */}
+                    <div className="absolute left-1/2 -translate-x-1/2" style={{ top: '1.4%', width: '32%', height: '3.6%', borderRadius: '999px', background: '#000' }} />
+                </div>
+            </div>
+        </div>
+    )
 }
 
 export default function Hero({ onWatchFilm }: HeroProps) {
@@ -124,11 +181,10 @@ export default function Hero({ onWatchFilm }: HeroProps) {
             rotateTl.to({}, { duration: WORD_DURATION })
         }
 
-        // 5. Mockups — phones fan out on entrance, then float at different speeds for depth
-        const webImg = mockups.querySelector<HTMLElement>('.mockup-web')
-        const leftImg = mockups.querySelector<HTMLElement>('.mockup-left')
-        const rightImg = mockups.querySelector<HTMLElement>('.mockup-right')
-        const phones = [webImg, leftImg, rightImg].filter(Boolean) as HTMLElement[]
+        // 5. Mockups — laptop and phone rise in on entrance, then float at different speeds for depth
+        const laptop = mockups.querySelector<HTMLElement>('.mockup-laptop')
+        const phone = mockups.querySelector<HTMLElement>('.mockup-phone')
+        const devices = [laptop, phone].filter(Boolean) as HTMLElement[]
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
         // Tracked so they can be killed on cleanup — the effect re-runs on language change
@@ -138,9 +194,8 @@ export default function Hero({ onWatchFilm }: HeroProps) {
 
         const startFloats = () => {
             const floats: [HTMLElement | null, number, number][] = [
-                [webImg, -8, 6.5],
-                [leftImg, -14, 5],
-                [rightImg, -11, 5.8],
+                [laptop, -8, 6.5],
+                [phone, -11, 5.8],
             ]
             floats.forEach(([el, y, duration]) => {
                 if (!el) return
@@ -148,9 +203,9 @@ export default function Hero({ onWatchFilm }: HeroProps) {
             })
         }
 
-        if (phones.length > 0 && !prefersReducedMotion) {
-            gsap.set(phones, { opacity: 0, scale: 0.92, y: 28 })
-            entranceTween = gsap.to(phones, {
+        if (devices.length > 0 && !prefersReducedMotion) {
+            gsap.set(devices, { opacity: 0, scale: 0.94, y: 28 })
+            entranceTween = gsap.to(devices, {
                 opacity: 1,
                 scale: 1,
                 y: 0,
@@ -349,15 +404,15 @@ export default function Hero({ onWatchFilm }: HeroProps) {
                     </button>
                 </div>
 
-                {/* Right: App Mockups */}
-                <div ref={mockupsRef} className="relative z-10 w-full max-w-[340px] sm:max-w-[440px] md:max-w-[620px] lg:w-[420px] xl:w-[620px] lg:max-w-none aspect-[620/580] flex-shrink-0" style={{ perspective: '1400px' }}>
-                    {/* Static gradient glow behind mockups — warm core behind the web window */}
+                {/* Right: Laptop mockup */}
+                <div ref={mockupsRef} className="relative z-10 w-full max-w-[340px] sm:max-w-[440px] md:max-w-[620px] lg:w-[420px] xl:w-[620px] lg:max-w-none flex-shrink-0" style={{ perspective: '1400px', paddingBottom: '6%' }}>
+                    {/* Static gradient glow behind the laptop — warm core behind the screen */}
                     <div
                         className="absolute pointer-events-none"
                         style={{
                             width: '100%',
                             height: '100%',
-                            top: '38%',
+                            top: '45%',
                             left: '55%',
                             transform: 'translate(-50%, -50%)',
                             borderRadius: '50%',
@@ -366,66 +421,72 @@ export default function Hero({ onWatchFilm }: HeroProps) {
                             zIndex: 0,
                         }}
                     />
-                    {/* Low wash spanning beneath both phones */}
+                    {/* Low wash beneath the base */}
                     <div
                         className="absolute pointer-events-none"
                         style={{
                             width: '120%',
                             height: '50%',
-                            top: '80%',
+                            top: '90%',
                             left: '50%',
                             transform: 'translate(-50%, -50%)',
                             borderRadius: '50%',
-                            background: 'radial-gradient(circle, rgba(255,202,30,0.5) 0%, rgba(255,85,20,0.3) 35%, rgba(197,0,23,0.15) 65%, transparent 100%)',
+                            background: 'radial-gradient(circle, rgba(255,202,30,0.4) 0%, rgba(255,85,20,0.25) 35%, rgba(197,0,23,0.12) 65%, transparent 100%)',
                             filter: 'blur(50px)',
                             zIndex: 0,
                         }}
                     />
-                    {/* Web app — flat anchor at the back */}
-                    <img
-                        src={imgWeb}
-                        alt="augo web app — coach dashboard with athlete profile, training zones and chat"
-                        className="mockup-web absolute block rounded-[14px]"
-                        style={{
-                            width: '100%',
-                            top: 0,
-                            left: 0,
-                            zIndex: 1,
-                            border: '1px solid rgba(255,255,255,0.10)',
-                            boxShadow: '0 30px 80px -20px rgba(0,0,0,0.75)',
-                        }}
-                    />
-                    {/* Athlete signals — behind, angled in */}
-                    <img
-                        src={imgSignals}
-                        alt="augo athlete signals"
-                        className="mockup-left absolute shadow-2xl"
-                        style={{
-                            width: '25%',
-                            bottom: '10%',
-                            left: '-3%',
-                            zIndex: 2,
-                            transform: 'rotateY(10deg) rotate(-2deg)',
-                            filter: 'brightness(0.85)',
-                            borderRadius: '4.33% / 2%',
-                            border: '1px solid rgba(255,255,255,0.08)',
-                        }}
-                    />
-                    {/* Assistant — forward, bracketing the window's right edge */}
-                    <img
+                    <div className="mockup-laptop relative" style={{ zIndex: 1 }}>
+                        {/* Lid — black bezel around the screen, camera notch at the top */}
+                        <div
+                            className="relative"
+                            style={{
+                                padding: '2.2% 2.2% 2.6%',
+                                borderRadius: '3.2% / 4.2%',
+                                background: 'linear-gradient(180deg, #1c1c1e 0%, #0b0b0c 100%)',
+                                border: '1px solid rgba(255,255,255,0.14)',
+                                boxShadow: 'inset 0 0 0 2px #050505, 0 40px 90px -30px rgba(0,0,0,0.85)',
+                            }}
+                        >
+                            <div
+                                className="absolute left-1/2 -translate-x-1/2"
+                                style={{ top: '0.9%', width: '1%', aspectRatio: '1', borderRadius: '50%', background: '#1f2a33', boxShadow: '0 0 0 1px #000' }}
+                            />
+                            <div className="overflow-hidden" style={{ borderRadius: '0.6%', background: '#090909', aspectRatio: '1512 / 982' }}>
+                                <img
+                                    src={imgScreen}
+                                    srcSet={`${imgScreen} 1400w, ${imgScreen2x} 2400w`}
+                                    sizes="(min-width: 1280px) 600px, (min-width: 1024px) 400px, 90vw"
+                                    alt="augo web app: session details with pace, heart rate and cadence zones and athlete feedback"
+                                    className="block w-full h-full"
+                                    style={{ objectFit: 'cover', objectPosition: 'top' }}
+                                />
+                            </div>
+                        </div>
+                        {/* Base — aluminium deck, wider than the lid, with the thumb notch */}
+                        <div
+                            className="relative w-[106%] -ml-[3%] sm:w-[114%] sm:-ml-[7%]"
+                            style={{
+                                height: 0,
+                                paddingBottom: '3.4%',
+                                borderRadius: '0 0 12% 12% / 0 0 100% 100%',
+                                background: 'linear-gradient(180deg, #d9d9dc 0%, #a7a7ab 35%, #6e6e73 70%, #3a3a3d 100%)',
+                                boxShadow: '0 18px 30px -12px rgba(0,0,0,0.8)',
+                            }}
+                        >
+                            <div
+                                className="absolute left-1/2 -translate-x-1/2 top-0"
+                                style={{ width: '15%', height: '45%', borderRadius: '0 0 10px 10px / 0 0 6px 6px', background: 'linear-gradient(180deg, #8d8d92 0%, #b9b9bd 100%)' }}
+                            />
+                        </div>
+                    </div>
+                    {/* iPhone on the left, keeping the athlete feedback panel visible */}
+                    <IPhone
+                        className="mockup-phone left-[-4%] xl:left-[-24%]"
                         src={imgAssistant}
-                        alt="augo AI coaching assistant"
-                        className="mockup-right absolute"
-                        style={{
-                            width: '28%',
-                            bottom: '-2%',
-                            right: '-3%',
-                            zIndex: 3,
-                            transform: 'rotateY(-10deg) rotate(2deg)',
-                            borderRadius: '4.33% / 2%',
-                            border: '1px solid rgba(255,255,255,0.10)',
-                            boxShadow: '0 30px 80px -20px rgba(0,0,0,0.75)',
-                        }}
+                        src2x={imgAssistant2x}
+                        alt="augo AI assistant on iPhone"
+                        style={{ width: '32%', bottom: 0, zIndex: 3, transform: 'rotateY(6deg) rotate(-1.5deg)' }}
                     />
                 </div>
             </div>
