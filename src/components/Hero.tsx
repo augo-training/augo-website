@@ -18,6 +18,62 @@ interface HeroProps {
     onWatchFilm?: () => void
 }
 
+interface IPhoneProps {
+    className: string
+    src: string
+    src2x: string
+    alt: string
+    style: React.CSSProperties
+}
+
+/** CSS iPhone frame — titanium rim, side buttons and Dynamic Island around a 393×852 screen. */
+function IPhone({ className, src, src2x, alt, style }: IPhoneProps) {
+    const button = (side: 'left' | 'right', top: string, height: string) => (
+        <div
+            className="absolute"
+            style={{
+                [side]: '-2.5%',
+                top,
+                width: '2%',
+                height,
+                borderRadius: side === 'left' ? '2px 0 0 2px' : '0 2px 2px 0',
+                background: '#2c2c2e',
+            }}
+        />
+    )
+    return (
+        <div className={`${className} absolute`} style={style}>
+            <div
+                className="relative"
+                style={{
+                    padding: '3.2%',
+                    borderRadius: '16% / 7.4%',
+                    background: 'linear-gradient(145deg, #3a3a3d 0%, #1c1c1e 45%, #121214 100%)',
+                    border: '1px solid rgba(255,255,255,0.18)',
+                    boxShadow: 'inset 0 0 0 2px #050505, 0 30px 80px -20px rgba(0,0,0,0.85)',
+                }}
+            >
+                {/* Action, volume and side buttons */}
+                {button('left', '17%', '5%')}
+                {button('left', '25%', '9%')}
+                {button('left', '36%', '9%')}
+                {button('right', '27%', '14%')}
+                <div className="relative overflow-hidden" style={{ borderRadius: '13% / 6%', aspectRatio: '393 / 852' }}>
+                    <img
+                        src={src}
+                        srcSet={`${src} 600w, ${src2x} 900w`}
+                        sizes="(min-width: 1280px) 155px, (min-width: 1024px) 105px, 25vw"
+                        alt={alt}
+                        className="block w-full h-full"
+                    />
+                    {/* Dynamic Island */}
+                    <div className="absolute left-1/2 -translate-x-1/2" style={{ top: '1.4%', width: '32%', height: '3.6%', borderRadius: '999px', background: '#000' }} />
+                </div>
+            </div>
+        </div>
+    )
+}
+
 export default function Hero({ onWatchFilm }: HeroProps) {
     const { t, i18n } = useTranslation()
     const rotatingWords = t('hero.rotatingWords', { returnObjects: true }) as string[]
@@ -129,9 +185,9 @@ export default function Hero({ onWatchFilm }: HeroProps) {
 
         // 5. Mockups — laptop and phones rise in on entrance, then float at different speeds for depth
         const laptop = mockups.querySelector<HTMLElement>('.mockup-laptop')
-        const android = mockups.querySelector<HTMLElement>('.mockup-android')
-        const iphone = mockups.querySelector<HTMLElement>('.mockup-iphone')
-        const devices = [laptop, android, iphone].filter(Boolean) as HTMLElement[]
+        const phoneBack = mockups.querySelector<HTMLElement>('.mockup-phone-back')
+        const phoneFront = mockups.querySelector<HTMLElement>('.mockup-phone-front')
+        const devices = [laptop, phoneBack, phoneFront].filter(Boolean) as HTMLElement[]
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
         // Tracked so they can be killed on cleanup — the effect re-runs on language change
@@ -142,8 +198,8 @@ export default function Hero({ onWatchFilm }: HeroProps) {
         const startFloats = () => {
             const floats: [HTMLElement | null, number, number][] = [
                 [laptop, -8, 6.5],
-                [android, -14, 5],
-                [iphone, -11, 5.8],
+                [phoneBack, -14, 5],
+                [phoneFront, -11, 5.8],
             ]
             floats.forEach(([el, y, duration]) => {
                 if (!el) return
@@ -428,83 +484,21 @@ export default function Hero({ onWatchFilm }: HeroProps) {
                             />
                         </div>
                     </div>
-                    {/* Android (Pixel-style) — behind, angled in at the bottom-left */}
-                    <div
-                        className="mockup-android absolute"
-                        style={{
-                            width: '23%',
-                            left: '-4%',
-                            bottom: '2%',
-                            zIndex: 2,
-                            transform: 'rotateY(10deg) rotate(-2deg)',
-                            filter: 'brightness(0.9)',
-                        }}
-                    >
-                        <div
-                            className="relative"
-                            style={{
-                                padding: '3.5%',
-                                borderRadius: '11% / 5%',
-                                background: '#0a0a0a',
-                                border: '1px solid rgba(255,255,255,0.14)',
-                                boxShadow: '0 30px 60px -20px rgba(0,0,0,0.8)',
-                            }}
-                        >
-                            {/* Power and volume buttons on the right edge */}
-                            <div className="absolute" style={{ right: '-2.5%', top: '20%', width: '2%', height: '9%', borderRadius: '0 2px 2px 0', background: '#2a2a2c' }} />
-                            <div className="absolute" style={{ right: '-2.5%', top: '33%', width: '2%', height: '16%', borderRadius: '0 2px 2px 0', background: '#2a2a2c' }} />
-                            <div className="relative overflow-hidden" style={{ borderRadius: '8% / 3.7%', aspectRatio: '393 / 852' }}>
-                                <img
-                                    src={imgHome}
-                                    srcSet={`${imgHome} 600w, ${imgHome2x} 900w`}
-                                    sizes="(min-width: 1280px) 145px, (min-width: 1024px) 100px, 25vw"
-                                    alt="augo coach home on Android"
-                                    className="block w-full h-full"
-                                />
-                                {/* Punch-hole camera */}
-                                <div className="absolute left-1/2 -translate-x-1/2" style={{ top: '1.6%', width: '5%', aspectRatio: '1', borderRadius: '50%', background: '#000', boxShadow: '0 0 0 1px #1a1a1a' }} />
-                            </div>
-                        </div>
-                    </div>
-                    {/* iPhone — forward, bracketing the laptop's bottom-right corner */}
-                    <div
-                        className="mockup-iphone absolute"
-                        style={{
-                            width: '25%',
-                            right: '-4%',
-                            bottom: 0,
-                            zIndex: 3,
-                            transform: 'rotateY(-10deg) rotate(2deg)',
-                        }}
-                    >
-                        <div
-                            className="relative"
-                            style={{
-                                padding: '3.2%',
-                                borderRadius: '16% / 7.4%',
-                                background: 'linear-gradient(145deg, #3a3a3d 0%, #1c1c1e 45%, #121214 100%)',
-                                border: '1px solid rgba(255,255,255,0.18)',
-                                boxShadow: 'inset 0 0 0 2px #050505, 0 30px 80px -20px rgba(0,0,0,0.85)',
-                            }}
-                        >
-                            {/* Action, volume and side buttons */}
-                            <div className="absolute" style={{ left: '-2.5%', top: '17%', width: '2%', height: '5%', borderRadius: '2px 0 0 2px', background: '#2c2c2e' }} />
-                            <div className="absolute" style={{ left: '-2.5%', top: '25%', width: '2%', height: '9%', borderRadius: '2px 0 0 2px', background: '#2c2c2e' }} />
-                            <div className="absolute" style={{ left: '-2.5%', top: '36%', width: '2%', height: '9%', borderRadius: '2px 0 0 2px', background: '#2c2c2e' }} />
-                            <div className="absolute" style={{ right: '-2.5%', top: '27%', width: '2%', height: '14%', borderRadius: '0 2px 2px 0', background: '#2c2c2e' }} />
-                            <div className="relative overflow-hidden" style={{ borderRadius: '13% / 6%', aspectRatio: '393 / 852' }}>
-                                <img
-                                    src={imgAssistant}
-                                    srcSet={`${imgAssistant} 600w, ${imgAssistant2x} 900w`}
-                                    sizes="(min-width: 1280px) 155px, (min-width: 1024px) 105px, 25vw"
-                                    alt="augo AI assistant on iPhone"
-                                    className="block w-full h-full"
-                                />
-                                {/* Dynamic Island */}
-                                <div className="absolute left-1/2 -translate-x-1/2" style={{ top: '1.4%', width: '32%', height: '3.6%', borderRadius: '999px', background: '#000' }} />
-                            </div>
-                        </div>
-                    </div>
+                    {/* Two iPhones on the right — Home behind, Assistant forward */}
+                    <IPhone
+                        className="mockup-phone-back"
+                        src={imgHome}
+                        src2x={imgHome2x}
+                        alt="augo coach home on iPhone"
+                        style={{ width: '24%', right: '13%', bottom: '5%', zIndex: 2, transform: 'rotateY(-8deg) rotate(-3deg)', filter: 'brightness(0.85)' }}
+                    />
+                    <IPhone
+                        className="mockup-phone-front"
+                        src={imgAssistant}
+                        src2x={imgAssistant2x}
+                        alt="augo AI assistant on iPhone"
+                        style={{ width: '25%', right: '-4%', bottom: 0, zIndex: 3, transform: 'rotateY(-10deg) rotate(2deg)' }}
+                    />
                 </div>
             </div>
         </section>
