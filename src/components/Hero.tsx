@@ -5,8 +5,6 @@ import { trackCtaClicked } from '../utils/analytics'
 import bgSection1 from '../assets/images/bg_section_1.webp'
 import imgScreen from '../assets/images/app_session_details.png?w=1400&format=webp'
 import imgScreen2x from '../assets/images/app_session_details.png?w=2400&format=webp'
-import imgHome from '../assets/images/app_coach_home.png?w=600&format=webp'
-import imgHome2x from '../assets/images/app_coach_home.png?w=900&format=webp'
 import imgAssistant from '../assets/images/app_assistant_empty.png?w=600&format=webp'
 import imgAssistant2x from '../assets/images/app_assistant_empty.png?w=900&format=webp'
 
@@ -183,11 +181,10 @@ export default function Hero({ onWatchFilm }: HeroProps) {
             rotateTl.to({}, { duration: WORD_DURATION })
         }
 
-        // 5. Mockups — laptop and phones rise in on entrance, then float at different speeds for depth
+        // 5. Mockups — laptop and phone rise in on entrance, then float at different speeds for depth
         const laptop = mockups.querySelector<HTMLElement>('.mockup-laptop')
-        const phoneBack = mockups.querySelector<HTMLElement>('.mockup-phone-back')
-        const phoneFront = mockups.querySelector<HTMLElement>('.mockup-phone-front')
-        const devices = [laptop, phoneBack, phoneFront].filter(Boolean) as HTMLElement[]
+        const phone = mockups.querySelector<HTMLElement>('.mockup-phone')
+        const devices = [laptop, phone].filter(Boolean) as HTMLElement[]
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
         // Tracked so they can be killed on cleanup — the effect re-runs on language change
@@ -198,8 +195,7 @@ export default function Hero({ onWatchFilm }: HeroProps) {
         const startFloats = () => {
             const floats: [HTMLElement | null, number, number][] = [
                 [laptop, -8, 6.5],
-                [phoneBack, -14, 5],
-                [phoneFront, -11, 5.8],
+                [phone, -11, 5.8],
             ]
             floats.forEach(([el, y, duration]) => {
                 if (!el) return
@@ -484,20 +480,13 @@ export default function Hero({ onWatchFilm }: HeroProps) {
                             />
                         </div>
                     </div>
-                    {/* Two iPhones on the left, keeping the athlete feedback panel visible — Home behind, Assistant forward */}
+                    {/* iPhone on the left, keeping the athlete feedback panel visible */}
                     <IPhone
-                        className="mockup-phone-back left-[13%] xl:left-[1%]"
-                        src={imgHome}
-                        src2x={imgHome2x}
-                        alt="augo coach home on iPhone"
-                        style={{ width: '24%', bottom: '5%', zIndex: 2, transform: 'rotateY(8deg) rotate(3deg)', filter: 'brightness(0.85)' }}
-                    />
-                    <IPhone
-                        className="mockup-phone-front left-[-4%] xl:left-[-16%]"
+                        className="mockup-phone left-[-4%] xl:left-[-16%]"
                         src={imgAssistant}
                         src2x={imgAssistant2x}
                         alt="augo AI assistant on iPhone"
-                        style={{ width: '25%', bottom: 0, zIndex: 3, transform: 'rotateY(10deg) rotate(-2deg)' }}
+                        style={{ width: '25%', bottom: 0, zIndex: 3, transform: 'rotateY(16deg) rotate(-3deg)' }}
                     />
                 </div>
             </div>
