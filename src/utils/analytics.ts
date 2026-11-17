@@ -581,3 +581,22 @@ export async function trackMerciLinkClicked(props: { code: string; link: string 
     // The contact link leaves in the same tab; a beacon costs the others nothing.
     return track('merci_link_clicked', props, { beacon: true })
 }
+
+// ── Manifesto (/manifesto) ──
+
+export type ManifestoOpenLocation = 'below_sheet' | 'sticky'
+
+/** The sign button, which opens the panel. */
+export async function trackManifestoSignOpened(props: { location: ManifestoOpenLocation }): Promise<void> {
+    return track('manifesto_sign_opened', props)
+}
+
+/** The sign call accepted the signature. It shows to others only once approved. */
+export async function trackManifestoSigned(props: { role: 'coach' | 'athlete'; marketing: boolean }): Promise<void> {
+    return track('manifesto_signed', props)
+}
+
+/** The sign call failed: Make unreachable or answering with an error. */
+export async function trackManifestoSignError(props: { role: 'coach' | 'athlete'; marketing: boolean }): Promise<void> {
+    return track('manifesto_sign_error', props)
+}

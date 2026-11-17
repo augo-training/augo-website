@@ -204,7 +204,7 @@ export const COPY = {
                 ],
             },
             {
-                name: 'Reto Braendli',
+                name: 'Reto Brändli',
                 facts: [
                     'Swiss triathlon and cycling coach to professional athletes.',
                     'Athletes he coaches have placed top ten at Kona and the T100, and won Ironman titles back to back.',

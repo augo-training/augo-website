@@ -180,6 +180,8 @@ export async function getAllPrerenderRoutes(): Promise<string[]> {
   routes.push(`/${DEFAULT_LANG}/irreplaceable-endurance-coach`)
   // The Racing Team program page — English-only as well.
   routes.push(`/${DEFAULT_LANG}/racing-team`)
+  // The community manifesto people sign — English-only as well.
+  routes.push(`/${DEFAULT_LANG}/manifesto`)
   // The Worlds postcard page. Unprefixed, since the QR on the card points at
   // augotraining.com/merci, and deliberately absent from getSitemapEntries():
   // it is for the coaches holding a card. Prerendered anyway so GitHub Pages
@@ -284,6 +286,15 @@ export async function getSitemapEntries(): Promise<SitemapEntry[]> {
     priority: 0.9,
     alternates: null,
     xDefault: racingTeamUrl,
+    changefreq: 'weekly',
+  })
+  // The community manifesto: English-only, changes as people sign.
+  const manifestoUrl = langUrl(DEFAULT_LANG, '/manifesto')
+  entries.push({
+    url: manifestoUrl,
+    priority: 0.7,
+    alternates: null,
+    xDefault: manifestoUrl,
     changefreq: 'weekly',
   })
   const blogIndexUrl = langUrl(DEFAULT_LANG, '/blog')

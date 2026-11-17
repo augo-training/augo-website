@@ -33,6 +33,7 @@ const TARGETS = {
   // headline over the poster frame rather than whatever frame the capture hit.
   find: { path: "/en/find", out: "find-og.jpg", still: true },
   "racing-team": { path: "/en/racing-team", out: "racing-team-og.jpg" },
+  manifesto: { path: "/en/manifesto", out: "manifesto-og.jpg" },
   merci: { file: "og/merci-card.html", out: "merci-og.jpg" },
   // Static as well: the page body is client-only and must not be photographed,
   // and the card should say no more than the head tags do.

@@ -9,6 +9,7 @@ import AthletesSection from '../components/AthletesSection'
 import TestimonialsSection from '../components/TestimonialsSection'
 import AthleteTestimonialsSection from '../components/AthleteTestimonialsSection'
 import AboutSection from '../components/AboutSection'
+import AdvisorsSection from '../components/AdvisorsSection'
 import FaqSection from '../components/FaqSection'
 import Footer from '../components/Footer'
 import SEOHead from '../seo/SEOHead'
@@ -29,6 +30,7 @@ function Home() {
     const testimonialsRef = useTrackSectionView('testimonials', 'home')
     const athleteTestimonialsRef = useTrackSectionView('athlete-testimonials', 'home')
     const aboutRef = useTrackSectionView('about', 'home')
+    const advisorsRef = useTrackSectionView('advisors', 'home')
     const faqRef = useTrackSectionView('faq', 'home')
 
     // Contact used to be a section here and is now its own page. Links to
@@ -58,6 +60,7 @@ function Home() {
             <div ref={testimonialsRef}><TestimonialsSection /></div>
             <div ref={athleteTestimonialsRef}><AthleteTestimonialsSection /></div>
             <div ref={aboutRef}><AboutSection /></div>
+            <div ref={advisorsRef}><AdvisorsSection /></div>
             <div ref={faqRef}><FaqSection /></div>
             <Footer />
         </>

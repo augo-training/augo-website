@@ -11,6 +11,7 @@ const LABEL: Record<Discipline, string> = {
     cycling: 'Bike',
     triathlon: 'Tri',
     rowing: 'Row',
+    'nordic-skiing': 'Ski',
 }
 
 function Icon({ d, size }: { d: Discipline; size: number }) {
@@ -42,6 +43,19 @@ function Icon({ d, size }: { d: Discipline; size: number }) {
                 <path d="M12 16V7" />
                 <path d="M12 7l7-3" />
                 <circle cx="7" cy="6" r="1.3" />
+            </svg>
+        )
+    }
+    if (d === 'nordic-skiing') {
+        // Nordic skier: head, poling arm, body and two skis.
+        return (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={s} aria-hidden="true">
+                <circle cx="13" cy="4" r="1.3" />
+                <path d="M12 7l-2 5l3 2l-1 5" />
+                <path d="M10 12l-3 4" />
+                <path d="M12 8l4 2l3 -1" />
+                <path d="M17 10l-2 9" />
+                <path d="M3 20h18" />
             </svg>
         )
     }

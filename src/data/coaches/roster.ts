@@ -27,6 +27,7 @@ import jonathanPortrait from '../../assets/images/Jonathan.webp'
 import robertoAncidoniPortrait from '../../assets/images/RobertoAncidoni.webp'
 import andresZimeriPortrait from '../../assets/images/AndresZimeri.webp'
 import retoBraendliPortrait from '../../assets/images/RetoBraendli.webp'
+import darioRiccardiPortrait from '../../assets/images/DarioRiccardi.webp'
 // Generic placeholder for coaches without dedicated photography yet.
 import placeholderPortrait from '../../assets/images/brian-profile.webp'
 
@@ -47,6 +48,7 @@ const DA: CoachLanguage = { code: 'da', flag: '🇩🇰', label: 'Danish' }
 const FA: CoachLanguage = { code: 'fa', flag: '🇮🇷', label: 'Persian' }
 const FI: CoachLanguage = { code: 'fi', flag: '🇫🇮', label: 'Finnish' }
 const RU: CoachLanguage = { code: 'ru', flag: '🇷🇺', label: 'Russian' }
+const HU: CoachLanguage = { code: 'hu', flag: '🇭🇺', label: 'Hungarian' }
 
 export const coaches: Coach[] = [
     {
@@ -1735,7 +1737,7 @@ export const coaches: Coach[] = [
             ],
             philosophy: 'Every session has a purpose. Measure objectively, train efficiently, recover deliberately.',
         },
-        media: { portrait: placeholderPortrait },
+        media: { portrait: darioRiccardiPortrait },
         socials: { website: 'http://darioriccardi.com' },
     },
     {
@@ -2589,7 +2591,7 @@ export const coaches: Coach[] = [
     },
     {
         slug: 'reto-braendli',
-        name: 'Reto Braendli',
+        name: 'Reto Brändli',
         firstName: 'Reto',
         tagline: 'Open-minded, honest and goal-oriented triathlon and cycling coach based in Zurich.',
         isFoundingCoach: true,
@@ -2653,7 +2655,6 @@ export const coaches: Coach[] = [
         firstName: 'Celia',
         tagline: 'Triathlon coach for women, fully committed and keeping a small roster for a good work life balance.',
         isFoundingCoach: false,
-        isProCoach: true,
         status: 'accepting',
         gender: 'female',
         disciplines: ['running', 'cycling', 'triathlon'],
@@ -2753,7 +2754,7 @@ export const coaches: Coach[] = [
         isFoundingCoach: false,
         status: 'accepting',
         gender: 'male',
-        disciplines: ['running', 'triathlon'],
+        disciplines: ['running', 'triathlon', 'nordic-skiing'],
         expertServices: ['nutrition', 'strength-conditioning'],
         specialties: [
             '5K',
@@ -2794,5 +2795,128 @@ export const coaches: Coach[] = [
         },
         media: { portrait: placeholderPortrait },
         socials: { website: 'https://ammnperformance.com/' },
+    },
+    {
+        slug: 'jodi-hawley',
+        name: 'Jodi Hawley',
+        firstName: 'Jodi',
+        tagline: 'Exercise physiologist and endurance coach who loves solving puzzles, with a holistic, human-centred approach.',
+        isFoundingCoach: false,
+        status: 'accepting',
+        gender: 'female',
+        disciplines: ['running', 'cycling', 'triathlon', 'nordic-skiing'],
+        specialties: [
+            '5K',
+            '10K',
+            'half marathon',
+            'marathon',
+            '50km',
+            '100km',
+            '100 miles',
+            'trail running',
+            'sprint triathlon',
+            'Olympic triathlon',
+            'half-distance triathlon',
+            'full-distance triathlon',
+            'Nordic ski loppets',
+            'heat and altitude adaptation',
+        ],
+        location: { city: 'Kimberley', country: 'Canada', countryCode: 'CA', timezone: 'America/Edmonton' },
+        coachesRemote: true,
+        languages: [EN],
+        credentials: [
+            'MSc Exercise Physiology',
+            'Clinical Exercise Physiologist, High Performance Specialization',
+            'National Coaching Certification Program (NCCP): Triathlon, Cycling, Weightlifting',
+        ],
+        athleteLevels: ['Intermediate', 'Advanced', 'Elite/Pro'],
+        communication: 'weekly',
+        offersStrength: true,
+        idealAthlete:
+            'Goal-oriented students of the sport who log training, sleep and HRV, give honest feedback and enjoy the process as much as the outcome',
+        bio: {
+            short: 'Kimberley, BC exercise physiologist who uses lab, performance and wearable data to coach endurance athletes.',
+            long: [
+                'Jodi is a Clinical Exercise Physiologist with a High Performance Specialization and an MSc in Exercise Physiology, certified through the National Coaching Certification Program in triathlon, cycling and weightlifting. She coaches road and trail runners from 5K to 100 miles, triathletes from sprint to full distance, cyclists and Nordic skiers, at Intermediate to Elite/Pro level, remotely and in person.',
+                'She uses performance, lab and wearable data to profile strengths and weaknesses, model training load and analyse training response, and specialises in heat and altitude adaptation and in recovery from overreaching or overtraining.',
+                'She offers strength training, coaches in English and checks in with her athletes weekly.',
+            ],
+            philosophy: 'Life is about love, laughter and learning.',
+        },
+        media: { portrait: placeholderPortrait },
+    },
+    {
+        slug: 'fynn-wember',
+        name: 'Fynn Wember',
+        firstName: 'Fynn',
+        tagline: 'Sport science nerd and professional triathlete with a scientific, evidence-based approach to coaching.',
+        isFoundingCoach: false,
+        status: 'accepting',
+        gender: 'male',
+        disciplines: ['running', 'cycling', 'triathlon'],
+        expertServices: ['nutrition', 'strength-conditioning'],
+        specialties: [
+            '5K',
+            '10K',
+            'half marathon',
+            'marathon',
+            '50km',
+            'trail running',
+            'sprint triathlon',
+            'Olympic triathlon',
+            'half-distance triathlon',
+            'full-distance triathlon',
+            'road cycling',
+            'MTB',
+            'gravel',
+        ],
+        location: { city: 'Cologne', country: 'Germany', countryCode: 'DE', timezone: 'Europe/Berlin' },
+        coachesRemote: true,
+        languages: [DE, EN],
+        credentials: ['BSc Sport and Performance, German Sport University Cologne'],
+        athleteLevels: ['Intermediate', 'Advanced', 'Elite/Pro'],
+        communication: 'always-on',
+        offersStrength: true,
+        idealAthlete:
+            'Motivated, committed athletes open to a data-driven approach who want to understand the reasoning behind their training and are curious about their physiology',
+        bio: {
+            short: 'Cologne-based sport science student and professional triathlete who coaches triathletes, runners and cyclists.',
+            long: [
+                'Fynn studies Sport and Performance at the German Sport University Cologne, races as a professional triathlete and has been coaching triathletes and cyclists for several years.',
+                'He coaches road and trail runners from 5K to 50km, triathletes from sprint to full distance and road, MTB and gravel cyclists, at Intermediate to Elite/Pro level, remotely. He also offers sports nutrition, strength and conditioning, lab testing and bike fitting.',
+                'He describes himself as ambitious, disciplined and empathetic, coaches in German and English, and is available to his athletes 24/7.',
+            ],
+            philosophy: 'I take a very scientific, evidence-based approach and help athletes get the most out of their individual potential.',
+        },
+        media: { portrait: placeholderPortrait },
+    },
+    {
+        slug: 'balazs-sandor',
+        name: 'Balázs Sándor',
+        firstName: 'Balázs',
+        tagline: 'Cycling coach in Salgótarján, Hungary, offering strength training and sports nutrition.',
+        isFoundingCoach: false,
+        status: 'accepting',
+        gender: 'male',
+        disciplines: ['cycling'],
+        expertServices: ['nutrition'],
+        specialties: ['marathon'],
+        location: { city: 'Salgótarján', country: 'Hungary', countryCode: 'HU', timezone: 'Europe/Budapest' },
+        coachesRemote: true,
+        languages: [EN, HU],
+        credentials: [],
+        athleteLevels: ['Intermediate', 'Advanced'],
+        communication: 'always-on',
+        offersStrength: true,
+        bio: {
+            short: 'Salgótarján-based cycling coach who also offers strength training and sports nutrition.',
+            long: [
+                'Balázs coaches cyclists at Intermediate and Advanced level, remotely, and includes strength training in his coaching.',
+                'He also offers sports nutrition, coaches in English and Hungarian, and is available to his athletes 24/7.',
+            ],
+            philosophy: "I'm available 24/7 to my athletes.",
+        },
+        media: { portrait: placeholderPortrait },
+        socials: { website: 'https://sandorbazsi.com/' },
     },
 ]

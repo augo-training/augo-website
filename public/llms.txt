@@ -104,7 +104,7 @@ Contact augo: https://www.augotraining.com/en/contact/
 
 A free 5-day email course for running, triathlon and endurance coaches, written by the augo team and advised by
 Marco Altini (running coach, founder of HRV4Training), Gordon Crawford (triathlon coach to European and World
-Champions, short course) and Reto Braendli (triathlon coach to multiple pro podiums at Ironman and T100).
+Champions, short course) and Reto Brändli (triathlon coach to multiple pro podiums at Ironman and T100).
 
 It covers the 5 most common mistakes that cap how many athletes a coach can coach well while scaling a coaching
 business, and how to fix each one, including with AI. It is for coaches who are not tech people too. One email a day:
@@ -116,6 +116,23 @@ business, and how to fix each one, including with AI. It is for coaches who are 
 - Day 5: Training athletes without showing them their progress, so they never wonder why they pay for a coach
 
 Sign up (first name and email): https://www.augotraining.com/en/irreplaceable-endurance-coach/
+
+## Community manifesto: the augo Standard
+
+"What we stand for" is augo's community manifesto. The augo team, coaches and athletes first signed it on a
+printed poster in Zürich on 26 March 2026, the day augo became generally available. It says:
+
+- Coaching is human first, and performance isn't just numbers on a screen: it's trust, effort and the quiet signals
+  that don't show up in a dashboard.
+- augo rejects systems that bury meaning under data and force coaches to choose between growth and care.
+- The best coaches combine empathy with intelligence, spending less time managing tools and more time developing people.
+- Athletes deserve to be heard, not just tracked: understood, not just analysed.
+- Clarity over chaos, connection over automation, progress over noise.
+
+Anyone can read it and sign it online by typing their name. Signatures appear in handwriting around the text with
+the date, and a counter shows how many coaches and athletes have signed. Only names are shown.
+
+- Read and sign: https://www.augotraining.com/en/manifesto/
 
 ## Key concepts and terminology
 
