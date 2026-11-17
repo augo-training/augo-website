@@ -60,7 +60,7 @@ function IPhone({ className, src, src2x, alt, style }: IPhoneProps) {
                     <img
                         src={src}
                         srcSet={`${src} 600w, ${src2x} 900w`}
-                        sizes="(min-width: 1280px) 155px, (min-width: 1024px) 105px, 25vw"
+                        sizes="(min-width: 1280px) 200px, (min-width: 1024px) 135px, 32vw"
                         alt={alt}
                         className="block w-full h-full"
                     />
@@ -482,11 +482,11 @@ export default function Hero({ onWatchFilm }: HeroProps) {
                     </div>
                     {/* iPhone on the left, keeping the athlete feedback panel visible */}
                     <IPhone
-                        className="mockup-phone left-[-4%] xl:left-[-16%]"
+                        className="mockup-phone left-[-4%] xl:left-[-24%]"
                         src={imgAssistant}
                         src2x={imgAssistant2x}
                         alt="augo AI assistant on iPhone"
-                        style={{ width: '25%', bottom: 0, zIndex: 3, transform: 'rotateY(16deg) rotate(-3deg)' }}
+                        style={{ width: '32%', bottom: 0, zIndex: 3, transform: 'rotateY(16deg) rotate(-3deg)' }}
                     />
                 </div>
             </div>
