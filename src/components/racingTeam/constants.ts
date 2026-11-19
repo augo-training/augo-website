@@ -15,6 +15,7 @@
 import cyclometryLogo from '../../assets/images/cyclometry.png'
 import purposeLogo from '../../assets/images/purpose.png'
 import precisionLogo from '../../assets/images/precision-fuel-hydration.png'
+import hrv4trainingLogo from '../../assets/images/hrv4training.png'
 
 /** Path under /:lang. Kept in sync with src/App.tsx and scripts/routes.ts. */
 export const RACING_TEAM_PATH = '/racing-team'
@@ -50,6 +51,9 @@ export const PURPOSE_URL = 'https://purposeperformancewear.com/collections/triat
 
 /** Precision Fuel & Hydration, the nutrition partner, linked from the "Nutrition" row and its logo. */
 export const PRECISION_URL = 'https://www.precisionhydration.com/'
+
+/** HRV4Training, the physiology tracking and recovery partner, linked from that row and its logo. */
+export const HRV4TRAINING_URL = 'https://www.hrv4training.com/'
 
 export interface SpecItem {
     label: string
@@ -170,6 +174,11 @@ export const COPY = {
                     },
                     { label: 'Community', statement: 'A place in the augo Racing Team community for life: coaches meet coaches, athletes meet athletes, all at the same level' },
                     { label: 'Access', statement: 'Early access to new augo features and a direct line to the founders' },
+                    {
+                        label: 'Physiology tracking / Recovery',
+                        statement: 'HRV4Training Pro free for 2027',
+                        link: { text: 'HRV4Training Pro', href: HRV4TRAINING_URL },
+                    },
                 ] as SpecItem[],
             },
             {
@@ -187,7 +196,6 @@ export const COPY = {
             {
                 label: 'The athlete only',
                 lead: 'Services from the team partners: race suit, fuel and hydration, bike fit and mental coaching.',
-                note: 'More partners to be announced.',
                 items: [
                     {
                         label: 'Apparel',
@@ -210,13 +218,16 @@ export const COPY = {
                         link: { text: 'Cyclometry', href: CYCLOMETRY_URL },
                     },
                 ] as SpecItem[],
-                partners: [
-                    { name: 'Purpose', href: PURPOSE_URL, logo: purposeLogo },
-                    { name: 'Precision Fuel & Hydration', href: PRECISION_URL, logo: precisionLogo },
-                    { name: 'Cyclometry', href: CYCLOMETRY_URL, logo: cyclometryLogo },
-                ],
             },
         ],
+        // Shown once below all three groups: HRV4Training serves coaches too.
+        partners: [
+            { name: 'Purpose', href: PURPOSE_URL, logo: purposeLogo },
+            { name: 'Precision Fuel & Hydration', href: PRECISION_URL, logo: precisionLogo },
+            { name: 'Cyclometry', href: CYCLOMETRY_URL, logo: cyclometryLogo },
+            { name: 'HRV4Training', href: HRV4TRAINING_URL, logo: hrv4trainingLogo },
+        ],
+        note: 'More partners to be announced.',
     },
 
     whatWeAsk: {
