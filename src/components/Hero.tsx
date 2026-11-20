@@ -4,10 +4,6 @@ import { gsap } from 'gsap'
 import { trackCtaClicked } from '../utils/analytics'
 import heroVideo from '../assets/videos/home-hero.mp4'
 import heroPoster from '../assets/images/home-hero-poster.jpg'
-import imgScreen from '../assets/images/app_session_details.png?w=1400&format=webp'
-import imgScreen2x from '../assets/images/app_session_details.png?w=2400&format=webp'
-import imgAssistant from '../assets/images/app_assistant_empty.png?w=600&format=webp'
-import imgAssistant2x from '../assets/images/app_assistant_empty.png?w=900&format=webp'
 
 const WORD_DURATION = 3 // seconds each word is visible
 const FADE_DURATION = 0.4 // seconds for fade in/out
@@ -15,62 +11,6 @@ const FADE_DURATION = 0.4 // seconds for fade in/out
 interface HeroProps {
     /** Called on "Watch the film" click — gates behind email capture and plays the film. */
     onWatchFilm?: () => void
-}
-
-interface IPhoneProps {
-    className: string
-    src: string
-    src2x: string
-    alt: string
-    style: React.CSSProperties
-}
-
-/** CSS iPhone frame — titanium rim, side buttons and Dynamic Island around a 393×852 screen. */
-function IPhone({ className, src, src2x, alt, style }: IPhoneProps) {
-    const button = (side: 'left' | 'right', top: string, height: string) => (
-        <div
-            className="absolute"
-            style={{
-                [side]: '-2.5%',
-                top,
-                width: '2%',
-                height,
-                borderRadius: side === 'left' ? '2px 0 0 2px' : '0 2px 2px 0',
-                background: '#2c2c2e',
-            }}
-        />
-    )
-    return (
-        <div className={`${className} absolute`} style={style}>
-            <div
-                className="relative"
-                style={{
-                    padding: '3.2%',
-                    borderRadius: '16% / 7.4%',
-                    background: 'linear-gradient(145deg, #3a3a3d 0%, #1c1c1e 45%, #121214 100%)',
-                    border: '1px solid rgba(255,255,255,0.18)',
-                    boxShadow: 'inset 0 0 0 2px #050505, 0 30px 80px -20px rgba(0,0,0,0.85)',
-                }}
-            >
-                {/* Action, volume and side buttons */}
-                {button('left', '17%', '5%')}
-                {button('left', '25%', '9%')}
-                {button('left', '36%', '9%')}
-                {button('right', '27%', '14%')}
-                <div className="relative overflow-hidden" style={{ borderRadius: '13% / 6%', aspectRatio: '393 / 852' }}>
-                    <img
-                        src={src}
-                        srcSet={`${src} 600w, ${src2x} 900w`}
-                        sizes="(min-width: 1280px) 200px, (min-width: 1024px) 135px, 32vw"
-                        alt={alt}
-                        className="block w-full h-full"
-                    />
-                    {/* Dynamic Island */}
-                    <div className="absolute left-1/2 -translate-x-1/2" style={{ top: '1.4%', width: '32%', height: '3.6%', borderRadius: '999px', background: '#000' }} />
-                </div>
-            </div>
-        </div>
-    )
 }
 
 export default function Hero({ onWatchFilm }: HeroProps) {
@@ -84,7 +24,6 @@ export default function Hero({ onWatchFilm }: HeroProps) {
     const rotatingRef = useRef<HTMLSpanElement>(null)
     const ctaRef = useRef<HTMLButtonElement>(null)
     const sectionRef = useRef<HTMLElement>(null)
-    const mockupsRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
         const lines = [line1Ref.current, line2Ref.current, line3Ref.current].filter(Boolean) as HTMLElement[]
@@ -92,8 +31,7 @@ export default function Hero({ onWatchFilm }: HeroProps) {
         const rotatingContainer = rotatingRef.current
         const cta = ctaRef.current
         const section = sectionRef.current
-        const mockups = mockupsRef.current
-        if (lines.length === 0 || !subheadline || !rotatingContainer || !cta || !section || !mockups) return
+        if (lines.length === 0 || !subheadline || !rotatingContainer || !cta || !section) return
 
         const wordEls = rotatingContainer.querySelectorAll<HTMLSpanElement>('.rotating-word')
 
@@ -173,50 +111,9 @@ export default function Hero({ onWatchFilm }: HeroProps) {
             rotateTl.to({}, { duration: WORD_DURATION })
         }
 
-        // 5. Mockups — laptop and phone rise in on entrance, then float at different speeds for depth
-        const laptop = mockups.querySelector<HTMLElement>('.mockup-laptop')
-        const phone = mockups.querySelector<HTMLElement>('.mockup-phone')
-        const devices = [laptop, phone].filter(Boolean) as HTMLElement[]
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-
-        // Tracked so they can be killed on cleanup — the effect re-runs on language change
-        const floatTweens: gsap.core.Tween[] = []
-        let entranceTween: gsap.core.Tween | null = null
-
-        const startFloats = () => {
-            const floats: [HTMLElement | null, number, number][] = [
-                [laptop, -8, 6.5],
-                [phone, -11, 5.8],
-            ]
-            floats.forEach(([el, y, duration]) => {
-                if (!el) return
-                floatTweens.push(gsap.to(el, { y, duration, ease: 'sine.inOut', yoyo: true, repeat: -1 }))
-            })
-        }
-
-        if (devices.length > 0 && !prefersReducedMotion) {
-            gsap.set(devices, { opacity: 0, scale: 0.94, y: 28 })
-            entranceTween = gsap.to(devices, {
-                opacity: 1,
-                scale: 1,
-                y: 0,
-                duration: 0.9,
-                ease: 'power3.out',
-                stagger: 0.12,
-                delay: 0.35,
-                onComplete: startFloats,
-            })
-        }
-
-        const killMockupTweens = () => {
-            entranceTween?.kill()
-            floatTweens.forEach((tween) => tween.kill())
-        }
-
         return () => {
             tl.kill()
             rotateTl.kill()
-            killMockupTweens()
         }
     }, [i18n.language]) // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -225,7 +122,7 @@ export default function Hero({ onWatchFilm }: HeroProps) {
             ref={sectionRef}
             className="relative min-h-screen flex items-center overflow-hidden bg-dark"
         >
-            {/* Brand footage, full bleed behind the copy and mockups. Hidden for
+            {/* Brand footage, full bleed behind the copy. Hidden for
                 reduced-motion, where the poster frame takes its place. */}
             <video
                 src={heroVideo}
@@ -340,62 +237,6 @@ export default function Hero({ onWatchFilm }: HeroProps) {
                     >
                         {t('floatingButton.label')}
                     </button>
-                </div>
-
-                {/* Right: Laptop mockup */}
-                <div ref={mockupsRef} className="relative z-10 w-full max-w-[340px] sm:max-w-[440px] md:max-w-[620px] lg:w-[420px] xl:w-[620px] lg:max-w-none flex-shrink-0" style={{ perspective: '1400px', paddingBottom: '6%' }}>
-                    <div className="mockup-laptop relative" style={{ zIndex: 1 }}>
-                        {/* Lid — black bezel around the screen, camera notch at the top */}
-                        <div
-                            className="relative"
-                            style={{
-                                padding: '2.2% 2.2% 2.6%',
-                                borderRadius: '3.2% / 4.2%',
-                                background: 'linear-gradient(180deg, #1c1c1e 0%, #0b0b0c 100%)',
-                                border: '1px solid rgba(255,255,255,0.14)',
-                                boxShadow: 'inset 0 0 0 2px #050505, 0 40px 90px -30px rgba(0,0,0,0.85)',
-                            }}
-                        >
-                            <div
-                                className="absolute left-1/2 -translate-x-1/2"
-                                style={{ top: '0.9%', width: '1%', aspectRatio: '1', borderRadius: '50%', background: '#1f2a33', boxShadow: '0 0 0 1px #000' }}
-                            />
-                            <div className="overflow-hidden" style={{ borderRadius: '0.6%', background: '#090909', aspectRatio: '1512 / 982' }}>
-                                <img
-                                    src={imgScreen}
-                                    srcSet={`${imgScreen} 1400w, ${imgScreen2x} 2400w`}
-                                    sizes="(min-width: 1280px) 600px, (min-width: 1024px) 400px, 90vw"
-                                    alt="augo web app: session details with pace, heart rate and cadence zones and athlete feedback"
-                                    className="block w-full h-full"
-                                    style={{ objectFit: 'cover', objectPosition: 'top' }}
-                                />
-                            </div>
-                        </div>
-                        {/* Base — aluminium deck, wider than the lid, with the thumb notch */}
-                        <div
-                            className="relative w-[106%] -ml-[3%] sm:w-[114%] sm:-ml-[7%]"
-                            style={{
-                                height: 0,
-                                paddingBottom: '3.4%',
-                                borderRadius: '0 0 12% 12% / 0 0 100% 100%',
-                                background: 'linear-gradient(180deg, #d9d9dc 0%, #a7a7ab 35%, #6e6e73 70%, #3a3a3d 100%)',
-                                boxShadow: '0 18px 30px -12px rgba(0,0,0,0.8)',
-                            }}
-                        >
-                            <div
-                                className="absolute left-1/2 -translate-x-1/2 top-0"
-                                style={{ width: '15%', height: '45%', borderRadius: '0 0 10px 10px / 0 0 6px 6px', background: 'linear-gradient(180deg, #8d8d92 0%, #b9b9bd 100%)' }}
-                            />
-                        </div>
-                    </div>
-                    {/* iPhone on the left, keeping the athlete feedback panel visible */}
-                    <IPhone
-                        className="mockup-phone left-[-4%] xl:left-[-24%]"
-                        src={imgAssistant}
-                        src2x={imgAssistant2x}
-                        alt="augo AI assistant on iPhone"
-                        style={{ width: '32%', bottom: 0, zIndex: 3, transform: 'rotateY(6deg) rotate(-1.5deg)' }}
-                    />
                 </div>
             </div>
         </section>
