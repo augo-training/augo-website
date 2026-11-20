@@ -22,7 +22,8 @@
       "triathlon",
       "endurance"
     ],
-    "subheadline": "A plataforma inteligente que combina comunicação coach-atleta, como os atletas estão se sentindo, dados de treino e criação de planos de treino em um só lugar."
+    "subheadline": "A plataforma inteligente que combina comunicação coach-atleta,",
+    "subheadlineContinued": "como os atletas estão se sentindo, dados de treino e criação de planos de treino em um só lugar."
   },
   "connects": {
     "headline": "Conecta-se perfeitamente com seus apps e dispositivos"

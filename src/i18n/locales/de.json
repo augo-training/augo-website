@@ -22,7 +22,8 @@
       "Triathlon-",
       "Ausdauer-"
     ],
-    "subheadline": "Die intelligente Plattform, die Kommunikation zwischen Coach und Athlet, das Befinden der Athleten, Trainingsdaten und Trainingsplanung an einem einzigen Ort vereint."
+    "subheadline": "Die intelligente Plattform, die Kommunikation zwischen Coach und Athlet,",
+    "subheadlineContinued": "das Befinden der Athleten, Trainingsdaten und Trainingsplanung an einem einzigen Ort vereint."
   },
   "connects": {
     "headline": "Verbindet sich nahtlos mit deinen Apps und Geräten"

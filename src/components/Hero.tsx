@@ -161,7 +161,7 @@ export default function Hero({ onWatchFilm }: HeroProps) {
             {/* Content Container */}
             <div className="relative z-10 w-full max-w-[1440px] mx-auto px-5 sm:px-6 md:px-8 lg:px-12 flex flex-col items-center text-center lg:flex-row lg:items-center lg:justify-between lg:text-left pt-44 sm:pt-40 lg:pt-36 pb-12 lg:pb-0 gap-12 lg:gap-0">
                 {/* Left: Text Content */}
-                <div className="max-w-[480px] flex-shrink-0">
+                <div className="max-w-[480px] lg:max-w-[860px] flex-shrink-0">
                     <h1 className="font-satoshi font-bold text-[34px] sm:text-[44px] md:text-[52px] lg:text-[60px] leading-[120%] text-white mb-6">
                         <span ref={line1Ref} className="block">
                             {t('hero.line1')}
@@ -188,8 +188,10 @@ export default function Hero({ onWatchFilm }: HeroProps) {
                             </span>
                         )}
                     </h1>
-                    <p ref={subheadlineRef} className="font-satoshi font-medium text-base sm:text-lg leading-[130%] text-text-muted mb-8 sm:mb-10" style={{ opacity: 0 }}>
-                        {t('hero.subheadline')}
+                    <p ref={subheadlineRef} className="font-satoshi font-medium text-base sm:text-lg leading-[130%] text-white mb-8 sm:mb-10" style={{ opacity: 0 }}>
+                        {/* Breaks after the first clause on desktop; flows as one paragraph on smaller screens */}
+                        {t('hero.subheadline')}{' '}
+                        <span className="lg:block">{t('hero.subheadlineContinued')}</span>
                     </p>
                     <button
                         ref={ctaRef}
