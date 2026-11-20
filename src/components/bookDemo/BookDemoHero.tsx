@@ -4,7 +4,8 @@ import { gsap } from 'gsap'
 import { ArrowUpRight } from 'lucide-react'
 import { BOOK_DEMO_URL } from './constants'
 import { trackCtaClicked } from '../../utils/analytics'
-import brunaTrack from '../../assets/images/bruna-track.webp'
+import heroVideo from '../../assets/videos/book-demo-hero.mp4'
+import heroPoster from '../../assets/images/book-demo-hero-poster.jpg'
 
 export default function BookDemoHero() {
     const { t } = useTranslation()
@@ -12,7 +13,6 @@ export default function BookDemoHero() {
     const headingRef = useRef<HTMLHeadingElement>(null)
     const leadRef = useRef<HTMLParagraphElement>(null)
     const ctaRef = useRef<HTMLDivElement>(null)
-    const photoRef = useRef<HTMLDivElement>(null)
 
     // Entrance on mount rather than on scroll: this hero is above the fold, so
     // there is nothing to scroll into view. Same fade-up recipe as the footer.
@@ -24,23 +24,18 @@ export default function BookDemoHero() {
         if (prefersReducedMotion || navigator.webdriver) return
 
         const text = [headingRef.current, leadRef.current, ctaRef.current].filter(Boolean) as HTMLElement[]
-        const photo = photoRef.current
-        if (!text.length && !photo) return
+        if (!text.length) return
 
         gsap.set(text, { opacity: 0, y: 16 })
-        if (photo) gsap.set(photo, { opacity: 0, scale: 1.02 })
 
         const tl = gsap.timeline({
             // Leave no inline styles behind: the prerenderer snapshots this DOM,
             // and a frozen opacity would ship a blank page in the static HTML.
             onComplete: () => {
-                gsap.set([...text, ...(photo ? [photo] : [])], { clearProps: 'all' })
+                gsap.set(text, { clearProps: 'all' })
             },
         })
 
-        if (photo) {
-            tl.to(photo, { opacity: 1, scale: 1, duration: 0.6, ease: 'power2.out' }, 0.05)
-        }
         text.forEach((el, i) => {
             tl.to(el, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, i * 0.1)
         })
@@ -51,9 +46,47 @@ export default function BookDemoHero() {
     }, [])
 
     return (
-        <section className="w-full min-h-screen flex items-center pt-28 pb-16 sm:pt-32 sm:pb-20 px-5 sm:px-8 bg-dark texture-grain">
-            <div className="w-full max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_0.72fr] gap-10 lg:gap-16 items-center">
-                <div className="order-2 lg:order-1 flex flex-col gap-6 sm:gap-8">
+        // No texture-grain here: it forces every direct child to position: relative,
+        // which would pull the video out of its absolute full-bleed layer.
+        <section className="relative w-full min-h-screen flex items-center overflow-hidden pt-28 pb-16 sm:pt-32 sm:pb-20 px-5 sm:px-8 bg-dark">
+            {/* Running footage, full bleed behind the copy. Hidden for
+                reduced-motion, where the poster frame takes its place. */}
+            <video
+                src={heroVideo}
+                poster={heroPoster}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full object-cover motion-reduce:hidden"
+            />
+            <img
+                src={heroPoster}
+                alt=""
+                aria-hidden="true"
+                className="hidden motion-reduce:block absolute inset-0 w-full h-full object-cover"
+            />
+
+            {/* Readability: an even dim, darker behind the text column, a band
+                behind the navbar and a fade into the page background below. */}
+            <div
+                aria-hidden="true"
+                className="absolute inset-0"
+                style={{ backgroundColor: 'rgba(10,10,10,0.6)' }}
+            />
+            <div
+                aria-hidden="true"
+                className="absolute inset-0"
+                style={{
+                    background:
+                        'linear-gradient(to right, rgba(10,10,10,0.6) 0%, rgba(10,10,10,0) 55%), linear-gradient(to top, #0A0A0A 2%, rgba(10,10,10,0) 40%), linear-gradient(to bottom, rgba(10,10,10,0.6) 0%, rgba(10,10,10,0) 22%)',
+                }}
+            />
+
+            <div className="relative z-10 w-full max-w-[1200px] mx-auto">
+                <div className="max-w-[700px] flex flex-col gap-6 sm:gap-8">
                     <h1
                         ref={headingRef}
                         className="font-satoshi font-bold text-[44px] sm:text-[64px] lg:text-[80px] leading-[98%] tracking-[-0.03em] text-white"
@@ -83,21 +116,6 @@ export default function BookDemoHero() {
                             {t('bookDemo.hero.cta')}
                             <ArrowUpRight className="w-4 h-4" strokeWidth={2.5} />
                         </a>
-                    </div>
-                </div>
-
-                <div ref={photoRef} className="order-1 lg:order-2">
-                    {/* Wide on mobile so the CTA stays near the fold, tall on desktop to
-                        fill the column. Offset to 62% because a 4:5 window on this 16:9
-                        frame crops her trailing foot off at centre. */}
-                    <div className="relative aspect-[3/2] lg:aspect-[4/5] w-full max-w-[420px] mx-auto lg:ml-auto overflow-hidden rounded-2xl bg-dark-700 ring-1 ring-white/[0.10]">
-                        <img
-                            src={brunaTrack}
-                            alt={t('bookDemo.hero.imageAlt')}
-                            width={1600}
-                            height={900}
-                            className="w-full h-full object-cover object-[62%_center]"
-                        />
                     </div>
                 </div>
             </div>
