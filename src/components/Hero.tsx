@@ -1,12 +1,59 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
 import { trackCtaClicked } from '../utils/analytics'
-import heroVideo from '../assets/videos/home-hero.mp4'
+import cyclingClip from '../assets/videos/home-hero-cycling.mp4'
+import runningClip from '../assets/videos/home-hero-running.mp4'
+import swimmingClip from '../assets/videos/home-hero-swimming.mp4'
 import heroPoster from '../assets/images/home-hero-poster.jpg'
 
 const WORD_DURATION = 3 // seconds each word is visible
 const FADE_DURATION = 0.4 // seconds for fade in/out
+
+/** Played in order, each once, then back to the first. */
+const HERO_CLIPS = [cyclingClip, runningClip, swimmingClip]
+
+/**
+ * Stacked clips that crossfade into each other as each one ends. Only the
+ * first loads up front; the next one starts loading while the current plays.
+ */
+function HeroVideoReel() {
+    const [active, setActive] = useState(0)
+    const videoRefs = useRef<(HTMLVideoElement | null)[]>([])
+
+    useEffect(() => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+        const video = videoRefs.current[active]
+        if (!video) return
+        video.currentTime = 0
+        video.play().catch(() => {})
+
+        const next = videoRefs.current[(active + 1) % HERO_CLIPS.length]
+        if (next && next.preload !== 'auto') {
+            next.preload = 'auto'
+            next.load()
+        }
+    }, [active])
+
+    return (
+        <div className="absolute inset-0 motion-reduce:hidden" aria-hidden="true">
+            {HERO_CLIPS.map((src, i) => (
+                <video
+                    key={src}
+                    ref={(el) => { videoRefs.current[i] = el }}
+                    src={src}
+                    poster={i === 0 ? heroPoster : undefined}
+                    muted
+                    playsInline
+                    preload={i === 0 ? 'auto' : 'none'}
+                    onEnded={() => setActive((i + 1) % HERO_CLIPS.length)}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    style={{ opacity: i === active ? 1 : 0, transition: 'opacity 0.8s ease-in-out' }}
+                />
+            ))}
+        </div>
+    )
+}
 
 interface HeroProps {
     /** Called on "Watch the film" click — gates behind email capture and plays the film. */
@@ -122,19 +169,9 @@ export default function Hero({ onWatchFilm }: HeroProps) {
             ref={sectionRef}
             className="relative min-h-screen flex items-center overflow-hidden bg-dark"
         >
-            {/* Brand footage, full bleed behind the copy. Hidden for
-                reduced-motion, where the poster frame takes its place. */}
-            <video
-                src={heroVideo}
-                poster={heroPoster}
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="auto"
-                aria-hidden="true"
-                className="absolute inset-0 w-full h-full object-cover motion-reduce:hidden"
-            />
+            {/* Brand footage (cycling, running, swimming), full bleed behind the copy.
+                Hidden for reduced-motion, where the poster frame takes its place. */}
+            <HeroVideoReel />
             <img
                 src={heroPoster}
                 alt=""
