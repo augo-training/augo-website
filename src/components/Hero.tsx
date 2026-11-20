@@ -2,7 +2,8 @@ import { useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
 import { trackCtaClicked } from '../utils/analytics'
-import bgSection1 from '../assets/images/bg_section_1.webp'
+import heroVideo from '../assets/videos/home-hero.mp4'
+import heroPoster from '../assets/images/home-hero-poster.jpg'
 import imgScreen from '../assets/images/app_session_details.png?w=1400&format=webp'
 import imgScreen2x from '../assets/images/app_session_details.png?w=2400&format=webp'
 import imgAssistant from '../assets/images/app_assistant_empty.png?w=600&format=webp'
@@ -222,13 +223,44 @@ export default function Hero({ onWatchFilm }: HeroProps) {
     return (
         <section
             ref={sectionRef}
-            className="relative min-h-screen flex items-center overflow-hidden"
-            style={{
-                backgroundImage: `url(${bgSection1})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-            }}
+            className="relative min-h-screen flex items-center overflow-hidden bg-dark"
         >
+            {/* Brand footage, full bleed behind the copy and mockups. Hidden for
+                reduced-motion, where the poster frame takes its place. */}
+            <video
+                src={heroVideo}
+                poster={heroPoster}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full object-cover motion-reduce:hidden"
+            />
+            <img
+                src={heroPoster}
+                alt=""
+                aria-hidden="true"
+                className="hidden motion-reduce:block absolute inset-0 w-full h-full object-cover"
+            />
+
+            {/* Readability: an even dim, darker behind the text column, a band
+                behind the navbar and a fade into the page background below. */}
+            <div
+                aria-hidden="true"
+                className="absolute inset-0"
+                style={{ backgroundColor: 'rgba(10,10,10,0.6)' }}
+            />
+            <div
+                aria-hidden="true"
+                className="absolute inset-0"
+                style={{
+                    background:
+                        'linear-gradient(to right, rgba(10,10,10,0.6) 0%, rgba(10,10,10,0) 55%), linear-gradient(to top, #0A0A0A 2%, rgba(10,10,10,0) 40%), linear-gradient(to bottom, rgba(10,10,10,0.6) 0%, rgba(10,10,10,0) 22%)',
+                }}
+            />
+
             {/* Content Container */}
             <div className="relative z-10 w-full max-w-[1440px] mx-auto px-5 sm:px-6 md:px-8 lg:px-12 flex flex-col items-center text-center lg:flex-row lg:items-center lg:justify-between lg:text-left pt-44 sm:pt-40 lg:pt-36 pb-12 lg:pb-0 gap-12 lg:gap-0">
                 {/* Left: Text Content */}
@@ -312,36 +344,6 @@ export default function Hero({ onWatchFilm }: HeroProps) {
 
                 {/* Right: Laptop mockup */}
                 <div ref={mockupsRef} className="relative z-10 w-full max-w-[340px] sm:max-w-[440px] md:max-w-[620px] lg:w-[420px] xl:w-[620px] lg:max-w-none flex-shrink-0" style={{ perspective: '1400px', paddingBottom: '6%' }}>
-                    {/* Static gradient glow behind the laptop — warm core behind the screen */}
-                    <div
-                        className="absolute pointer-events-none"
-                        style={{
-                            width: '100%',
-                            height: '100%',
-                            top: '45%',
-                            left: '55%',
-                            transform: 'translate(-50%, -50%)',
-                            borderRadius: '50%',
-                            background: 'radial-gradient(circle, rgba(255,202,30,0.5) 0%, rgba(255,85,20,0.3) 35%, rgba(197,0,23,0.15) 65%, transparent 100%)',
-                            filter: 'blur(50px)',
-                            zIndex: 0,
-                        }}
-                    />
-                    {/* Low wash beneath the base */}
-                    <div
-                        className="absolute pointer-events-none"
-                        style={{
-                            width: '120%',
-                            height: '50%',
-                            top: '90%',
-                            left: '50%',
-                            transform: 'translate(-50%, -50%)',
-                            borderRadius: '50%',
-                            background: 'radial-gradient(circle, rgba(255,202,30,0.4) 0%, rgba(255,85,20,0.25) 35%, rgba(197,0,23,0.12) 65%, transparent 100%)',
-                            filter: 'blur(50px)',
-                            zIndex: 0,
-                        }}
-                    />
                     <div className="mockup-laptop relative" style={{ zIndex: 1 }}>
                         {/* Lid — black bezel around the screen, camera notch at the top */}
                         <div
