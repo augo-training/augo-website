@@ -31,7 +31,7 @@ export default function CoachTestimonial({ coach }: Props) {
                     </cite>
                     {testimonial.result && (
                         <>
-                            <span className="text-white/25 font-mono text-[12px]">·</span>
+                            <span className="text-white/25 font-satoshi text-[12px]">·</span>
                             <span className="font-mono text-[12px] sm:text-[13px] tracking-[1.5px] uppercase text-white/85">
                                 {testimonial.result}
                             </span>

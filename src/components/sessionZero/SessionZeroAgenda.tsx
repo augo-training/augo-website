@@ -17,7 +17,7 @@ export default function SessionZeroAgenda() {
             <div ref={ref} className="max-w-[1100px] mx-auto">
                 <h2
                     id="session-zero-agenda-title"
-                    className="font-mono font-bold text-[28px] sm:text-[36px] lg:text-[44px] leading-[120%] text-white"
+                    className="font-satoshi font-bold text-[28px] sm:text-[36px] lg:text-[44px] leading-[120%] text-white"
                 >
                     {agenda.title}
                 </h2>
@@ -58,7 +58,7 @@ export default function SessionZeroAgenda() {
                                                 {item.title}
                                             </span>
                                         ) : (
-                                            <span className="font-satoshi font-bold text-[20px] sm:text-[26px] md:text-[30px] leading-[110%] tracking-[-0.015em] uppercase text-white">
+                                            <span className="font-mono font-bold text-[20px] sm:text-[26px] md:text-[30px] leading-[110%] tracking-[-0.015em] uppercase text-white">
                                                 {item.title}
                                             </span>
                                         )}

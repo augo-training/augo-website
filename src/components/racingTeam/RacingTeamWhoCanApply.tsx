@@ -21,7 +21,7 @@ export default function RacingTeamWhoCanApply() {
             <div className="max-w-[1100px] mx-auto">
                 <h2
                     id="who-can-apply-title"
-                    className="font-mono font-bold text-[28px] sm:text-[36px] lg:text-[44px] leading-[120%] text-white"
+                    className="font-satoshi font-bold text-[28px] sm:text-[36px] lg:text-[44px] leading-[120%] text-white"
                 >
                     {whoCanApply.title}
                 </h2>
@@ -71,7 +71,7 @@ function GroupHeading({ index, label, summary }: { index: number; label: string;
     return (
         <div className="flex flex-col gap-3 mb-3">
             <h3 className="font-satoshi font-bold text-[28px] sm:text-[40px] md:text-[48px] leading-[100%] tracking-[-0.025em] text-white">
-                <span className="font-mono text-[12px] sm:text-[14px] tracking-[2px] text-white/35 tabular-nums align-middle mr-4">
+                <span className="font-satoshi text-[12px] sm:text-[14px] tracking-[2px] text-white/35 tabular-nums align-middle mr-4">
                     {String(index).padStart(2, '0')}
                 </span>
                 {label}

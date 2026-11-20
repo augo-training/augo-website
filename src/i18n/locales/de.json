@@ -22,7 +22,8 @@
       "Triathlon-",
       "Ausdauer-"
     ],
-    "subheadline": "Die intelligente Plattform, die Kommunikation zwischen Coach und Athlet, das Befinden der Athleten, Trainingsdaten und Trainingsplanung an einem einzigen Ort vereint."
+    "subheadline": "Die intelligente Plattform, die Kommunikation zwischen Coach und Athlet,",
+    "subheadlineContinued": "das Befinden der Athleten, Trainingsdaten und Trainingsplanung an einem einzigen Ort vereint."
   },
   "connects": {
     "headline": "Verbindet sich nahtlos mit deinen Apps und Geräten"
@@ -452,8 +453,7 @@
   "bookDemo": {
     "hero": {
       "title": "Demo buchen",
-      "lead": "Dreißig Minuten mit Bruna — Co-Founder, CEO und Running Coach. Sieh augo in Aktion, versteh, wie es funktioniert, und stell alle deine Fragen.",
-      "imageAlt": "Bruna, Co-Founder und Running Coach bei augo, beim Dehnen auf einer Laufbahn",
+      "lead": "Dreißig Minuten mit Bruna, Co-Founder, CEO und Running Coach bei augo. Sieh augo in Aktion, versteh, wie es funktioniert, und stell alle deine Fragen.",
       "cta": "Demo buchen"
     }
   },

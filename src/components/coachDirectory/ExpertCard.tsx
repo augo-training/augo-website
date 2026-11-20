@@ -35,7 +35,7 @@ export default function ExpertCard({ coach, matchReason }: Props) {
                         </li>
                     ))}
                 </ul>
-                <span className="shrink-0 pt-1 font-mono text-[10px] sm:text-[11px] tracking-[1px] text-white/55">
+                <span className="shrink-0 pt-1 font-satoshi text-[10px] sm:text-[11px] tracking-[1px] text-white/55">
                     {coach.languages.map((l) => l.code.toUpperCase()).join('/')}
                 </span>
             </div>

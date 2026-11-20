@@ -34,7 +34,7 @@ export default function AugoStandard() {
                             key={i}
                             className="group grid grid-cols-[24px_minmax(96px,150px)_1fr] sm:grid-cols-[32px_minmax(130px,190px)_1fr] items-baseline gap-x-3 sm:gap-x-6 py-5 sm:py-6 border-t border-white/[0.08] last:border-b last:border-white/[0.08] transition-colors duration-200 hover:bg-white/[0.015]"
                         >
-                            <span className="font-mono text-[11px] sm:text-[12px] tracking-[1.5px] text-white/35 tabular-nums">
+                            <span className="font-satoshi text-[11px] sm:text-[12px] tracking-[1.5px] text-white/35 tabular-nums">
                                 {String(i + 1).padStart(2, '0')}
                             </span>
                             <dt className="font-mono text-[11px] sm:text-[12px] tracking-[2.5px] uppercase text-white/55 group-hover:text-white/85 transition-colors duration-200">

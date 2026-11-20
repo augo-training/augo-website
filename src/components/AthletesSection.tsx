@@ -228,7 +228,7 @@ export default function AthletesSection() {
                     </span>
                 </div>
 
-                <h2 className="font-mono font-bold text-[28px] sm:text-[36px] md:text-[48px] leading-[130%] md:text-center text-white">
+                <h2 className="font-satoshi font-bold text-[28px] sm:text-[36px] md:text-[48px] leading-[130%] md:text-center text-white">
                     {t('athletes.sectionHeadline')}
                 </h2>
             </div>

@@ -22,7 +22,7 @@ export default function McpSpecList({ rows, size = 'default' }: McpSpecListProps
                         compact ? 'py-4 sm:py-5' : 'py-5 sm:py-6'
                     }`}
                 >
-                    <span className="font-mono text-[11px] sm:text-[12px] tracking-[1.5px] text-white/35 tabular-nums">
+                    <span className="font-satoshi text-[11px] sm:text-[12px] tracking-[1.5px] text-white/35 tabular-nums">
                         {String(i + 1).padStart(2, '0')}
                     </span>
                     <dt className="font-mono text-[11px] sm:text-[12px] tracking-[2.5px] uppercase text-white/55 group-hover:text-white/85 transition-colors duration-200">

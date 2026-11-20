@@ -7,7 +7,7 @@ export default function HumanEdgeDocumenting() {
     return (
         <section className="w-full py-20 sm:py-24 px-5 sm:px-8 bg-dark-800 border-t border-white/[0.06] texture-grain">
             <div className="max-w-[1100px] mx-auto">
-                <h2 className="font-mono font-bold text-[28px] sm:text-[36px] lg:text-[44px] leading-[120%] text-white">
+                <h2 className="font-satoshi font-bold text-[28px] sm:text-[36px] lg:text-[44px] leading-[120%] text-white">
                     {t('humanEdge.documenting.title')}
                 </h2>
 
@@ -37,10 +37,10 @@ export default function HumanEdgeDocumenting() {
                                 key={i}
                                 className="group grid grid-cols-[80px_1fr] sm:grid-cols-[120px_1fr] items-baseline gap-x-4 sm:gap-x-8 py-5 sm:py-7 border-t border-white/[0.08] last:border-b last:border-white/[0.08] transition-colors duration-200 hover:bg-white/[0.015]"
                             >
-                                <span className="font-mono text-[11px] sm:text-[12px] tracking-[1.5px] text-white/35 tabular-nums group-hover:text-white/60 transition-colors duration-200">
+                                <span className="font-satoshi text-[11px] sm:text-[12px] tracking-[1.5px] text-white/35 tabular-nums group-hover:text-white/60 transition-colors duration-200">
                                     T+00:{String(i + 1).padStart(2, '0')}
                                 </span>
-                                <span className="font-satoshi font-bold text-[20px] sm:text-[26px] md:text-[30px] leading-[110%] tracking-[-0.015em] uppercase text-white">
+                                <span className="font-mono font-bold text-[20px] sm:text-[26px] md:text-[30px] leading-[110%] tracking-[-0.015em] uppercase text-white">
                                     {item}
                                 </span>
                             </li>

@@ -91,7 +91,7 @@ export default function CountdownBanner({ targetDate, onComplete }: CountdownBan
                     <div className="flex items-center gap-2 sm:gap-4 lg:gap-5">
                         {/* Days */}
                         <div className="flex items-baseline gap-0.5 sm:gap-1">
-                            <span className="countdown-number font-mono text-[16px] sm:text-[28px] lg:text-[32px] font-bold tabular-nums">
+                            <span className="countdown-number font-satoshi text-[16px] sm:text-[28px] lg:text-[32px] font-bold tabular-nums">
                                 {padNumber(timeLeft.days)}
                             </span>
                             <span className="font-mono text-[8px] sm:text-[11px] lg:text-[12px] tracking-[1px] uppercase text-text-muted">
@@ -99,11 +99,11 @@ export default function CountdownBanner({ targetDate, onComplete }: CountdownBan
                             </span>
                         </div>
 
-                        <span className="text-white/40 font-mono text-[12px] sm:text-[20px] lg:text-[24px]">:</span>
+                        <span className="text-white/40 font-satoshi text-[12px] sm:text-[20px] lg:text-[24px]">:</span>
 
                         {/* Hours */}
                         <div className="flex items-baseline gap-0.5 sm:gap-1">
-                            <span className="countdown-number font-mono text-[16px] sm:text-[28px] lg:text-[32px] font-bold tabular-nums">
+                            <span className="countdown-number font-satoshi text-[16px] sm:text-[28px] lg:text-[32px] font-bold tabular-nums">
                                 {padNumber(timeLeft.hours)}
                             </span>
                             <span className="font-mono text-[8px] sm:text-[11px] lg:text-[12px] tracking-[1px] uppercase text-text-muted">
@@ -111,11 +111,11 @@ export default function CountdownBanner({ targetDate, onComplete }: CountdownBan
                             </span>
                         </div>
 
-                        <span className="text-white/40 font-mono text-[12px] sm:text-[20px] lg:text-[24px]">:</span>
+                        <span className="text-white/40 font-satoshi text-[12px] sm:text-[20px] lg:text-[24px]">:</span>
 
                         {/* Minutes */}
                         <div className="flex items-baseline gap-0.5 sm:gap-1">
-                            <span className="countdown-number font-mono text-[16px] sm:text-[28px] lg:text-[32px] font-bold tabular-nums">
+                            <span className="countdown-number font-satoshi text-[16px] sm:text-[28px] lg:text-[32px] font-bold tabular-nums">
                                 {padNumber(timeLeft.minutes)}
                             </span>
                             <span className="font-mono text-[8px] sm:text-[11px] lg:text-[12px] tracking-[1px] uppercase text-text-muted">
@@ -123,11 +123,11 @@ export default function CountdownBanner({ targetDate, onComplete }: CountdownBan
                             </span>
                         </div>
 
-                        <span className="text-white/40 font-mono text-[12px] sm:text-[20px] lg:text-[24px]">:</span>
+                        <span className="text-white/40 font-satoshi text-[12px] sm:text-[20px] lg:text-[24px]">:</span>
 
                         {/* Seconds */}
                         <div className="flex items-baseline gap-0.5 sm:gap-1">
-                            <span className="countdown-number font-mono text-[16px] sm:text-[28px] lg:text-[32px] font-bold tabular-nums">
+                            <span className="countdown-number font-satoshi text-[16px] sm:text-[28px] lg:text-[32px] font-bold tabular-nums">
                                 {padNumber(timeLeft.seconds)}
                             </span>
                             <span className="font-mono text-[8px] sm:text-[11px] lg:text-[12px] tracking-[1px] uppercase text-text-muted">

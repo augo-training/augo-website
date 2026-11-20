@@ -205,7 +205,7 @@ export default function TestimonialsSection() {
             {/* Headline */}
             <h2
                 ref={headlineRef}
-                className="font-mono font-bold text-[36px] sm:text-[48px] md:text-[56px] lg:text-[64px] leading-[130%] text-white px-5 sm:px-8 md:px-16"
+                className="font-satoshi font-bold text-[36px] sm:text-[48px] md:text-[56px] lg:text-[64px] leading-[130%] text-white px-5 sm:px-8 md:px-16"
                 style={{
                     maxWidth: '1200px',
                     marginLeft: 'max(1.25rem, calc((100vw - 1200px) / 2))',
@@ -258,7 +258,7 @@ export default function TestimonialsSection() {
                                 />
                                 <div className="flex flex-col">
                                     <span
-                                        className="font-mono font-extrabold text-[16px] sm:text-[18px] md:text-[22px] leading-[130%]"
+                                        className="font-satoshi font-extrabold text-[16px] sm:text-[18px] md:text-[22px] leading-[130%]"
                                         style={{ color: '#151515' }}
                                     >
                                         {t.name}

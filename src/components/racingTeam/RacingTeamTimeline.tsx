@@ -12,7 +12,7 @@ export default function RacingTeamTimeline() {
             <div className="max-w-[1100px] mx-auto">
                 <h2
                     id="how-the-year-runs-title"
-                    className="font-mono font-bold text-[28px] sm:text-[36px] lg:text-[44px] leading-[120%] text-white"
+                    className="font-satoshi font-bold text-[28px] sm:text-[36px] lg:text-[44px] leading-[120%] text-white"
                 >
                     {timeline.title}
                 </h2>
@@ -40,7 +40,7 @@ export default function RacingTeamTimeline() {
                                     {item.when}
                                 </span>
                                 <div className="flex flex-col gap-2">
-                                    <span className="font-satoshi font-bold text-[20px] sm:text-[26px] md:text-[30px] leading-[110%] tracking-[-0.015em] uppercase text-white">
+                                    <span className="font-mono font-bold text-[20px] sm:text-[26px] md:text-[30px] leading-[110%] tracking-[-0.015em] uppercase text-white">
                                         {item.title}
                                     </span>
                                     <span className="font-satoshi text-[15px] sm:text-[17px] leading-[150%] text-text-muted">

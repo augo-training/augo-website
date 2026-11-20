@@ -93,7 +93,7 @@ export default function ContactSection() {
                                     <div data-tf-live="01KJGKY5FEG41JEKDRFTM4F4D6"></div>
                                 ) : (
                                     <div className="flex flex-col items-center justify-center text-center px-6 sm:px-10 py-12" style={{ minHeight: '500px' }}>
-                                        <h3 className="font-mono font-bold text-[18px] sm:text-[20px] text-white leading-[130%] mb-3">{t('contact.cookiesRequired')}</h3>
+                                        <h3 className="font-satoshi font-bold text-[18px] sm:text-[20px] text-white leading-[130%] mb-3">{t('contact.cookiesRequired')}</h3>
                                         <p className="font-satoshi text-[14px] sm:text-[15px] leading-[160%] text-white mb-8" style={{ opacity: 0.7 }}>{t('contact.cookiesMessage')}</p>
                                         <button onClick={handleAcceptCookies} className="join-augo-btn font-mono text-[13px] sm:text-[14px] font-extrabold tracking-[2px] uppercase px-8 py-3.5 rounded-lg cursor-pointer transition-all duration-200">{t('contact.acceptCookies')}</button>
                                     </div>
@@ -104,7 +104,7 @@ export default function ContactSection() {
                 </div>
 
                 <div className="order-1 lg:order-2 flex flex-col gap-4 sm:gap-6 pt-4 text-center lg:text-left items-center lg:items-start max-w-[500px] lg:max-w-none mx-auto lg:mx-0 w-full mb-8 lg:mb-0">
-                    <h1 className="font-mono font-bold text-[32px] sm:text-[48px] lg:text-[56px] leading-[110%] text-white">
+                    <h1 className="font-satoshi font-bold text-[32px] sm:text-[48px] lg:text-[56px] leading-[110%] text-white">
                         {t('contact.headline')}
                     </h1>
                     <p className="font-satoshi font-medium text-[16px] sm:text-[18px] leading-[150%] text-white" style={{ opacity: 0.8 }}>

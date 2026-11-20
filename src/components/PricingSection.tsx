@@ -2,7 +2,6 @@ import { useState, useEffect, useMemo, useRef, useCallback } from 'react'
 import { useTranslation, Trans } from 'react-i18next'
 import { useParams } from 'react-router-dom'
 import { gsap } from 'gsap'
-import bgSection1 from '../assets/images/bg_section_1.webp'
 import { useGeoCountry } from '../hooks/useGeoCountry'
 import { getPricingTier } from '../config/pricingConfig'
 import {
@@ -59,7 +58,7 @@ function PricingFaq() {
     return (
         <section className="w-full py-16 sm:py-20 px-5 sm:px-8">
             <div ref={faqRef} className="max-w-[760px] mx-auto w-full flex flex-col gap-8">
-                <h2 className="font-mono font-bold text-[28px] sm:text-[36px] leading-[120%] text-white text-center">
+                <h2 className="font-satoshi font-bold text-[28px] sm:text-[36px] leading-[120%] text-white text-center">
                     {t('pricing.faqTitle')}
                 </h2>
                 <div className="flex flex-col gap-[10px]">
@@ -214,17 +213,8 @@ export default function PricingSection() {
             className="relative"
             style={{ overflowX: 'hidden' }}
         >
-            {/* ─── Hero + Pricing Cards wrapper (topo bg scoped here) ─────────── */}
+            {/* ─── Hero + Pricing Cards wrapper ─────────────────────────────────── */}
             <div className="relative">
-                {/* Topo background — spans hero + pricing tiers only */}
-                <div
-                    className="absolute inset-0 pointer-events-none"
-                    style={{
-                        backgroundImage: `url(${bgSection1})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                    }}
-                />
 
             {/* ─── 1. Hero ─────────────────────────────────────────────────────── */}
             <section className="relative z-10 w-full pt-40 sm:pt-48 pb-8 sm:pb-10 px-5 sm:px-8">
@@ -237,7 +227,7 @@ export default function PricingSection() {
                     </div>
                     <h1
                         ref={heroHeadlineRef}
-                        className="font-mono font-bold text-[32px] sm:text-[44px] lg:text-[52px] leading-[120%] text-white"
+                        className="font-satoshi font-bold text-[32px] sm:text-[44px] lg:text-[52px] leading-[120%] text-white"
                     >
                         {t('pricing.heroHeadline')}
                     </h1>
@@ -274,10 +264,10 @@ export default function PricingSection() {
                                         </div>
                                         <div className="flex flex-col gap-2 min-h-[88px] justify-center">
                                             <div>
-                                                <span className="font-mono font-bold text-[40px] sm:text-[48px] leading-none text-white">
+                                                <span className="font-satoshi font-bold text-[40px] sm:text-[48px] leading-none text-white">
                                                     {pricingTier.symbol}{formatPrice(pricingTier.proPrice)}
                                                 </span>
-                                                <span className="font-mono text-[14px] text-[#969EA7] ml-1">
+                                                <span className="font-satoshi text-[14px] text-[#969EA7] ml-1">
                                                     {t('pricing.pro.priceSuffix')}
                                                 </span>
                                             </div>
@@ -345,10 +335,10 @@ export default function PricingSection() {
                                     </p>
                                 </div>
                                 <div className="flex flex-col gap-2 min-h-[88px] justify-center">
-                                    <span className="font-mono text-[13px] tracking-[1px] text-[#969EA7]">
+                                    <span className="font-satoshi text-[13px] tracking-[1px] text-[#969EA7]">
                                         {t('pricing.enterprise.planLabel')}
                                     </span>
-                                    <span className="font-mono font-bold text-[40px] sm:text-[48px] leading-none text-white">
+                                    <span className="font-satoshi font-bold text-[40px] sm:text-[48px] leading-none text-white">
                                         {t('pricing.enterprise.price')}
                                     </span>
                                 </div>
@@ -358,7 +348,7 @@ export default function PricingSection() {
                                     </li>
                                     {enterpriseFeatures.map((f, i) => (
                                         <li key={i} className="flex items-start gap-3">
-                                            <span className="flex-shrink-0 mt-0.5 w-5 h-5 flex items-center justify-center font-mono text-[16px] leading-none text-[#969EA7]">
+                                            <span className="flex-shrink-0 mt-0.5 w-5 h-5 flex items-center justify-center font-satoshi text-[16px] leading-none text-[#969EA7]">
                                                 +
                                             </span>
                                             <span className="font-satoshi font-medium text-[14px] sm:text-[15px] leading-[160%] text-[#FFFFFF]">{f}</span>
@@ -439,12 +429,12 @@ export default function PricingSection() {
                                 </div>
                                 <div className="flex flex-col items-start sm:items-end gap-1">
                                     <div>
-                                        <span className="font-mono font-bold text-[28px] sm:text-[32px] leading-none text-white">
+                                        <span className="font-satoshi font-bold text-[28px] sm:text-[32px] leading-none text-white">
                                             +{pricingTier.symbol}{formatPrice(elitePrice)}
                                         </span>
                                         {/* The yearly figure is a prepaid annual total, not a
                                             monthly rate, so the period label switches with it. */}
-                                        <span className="font-mono text-[13px] text-[#969EA7] ml-1">
+                                        <span className="font-satoshi text-[13px] text-[#969EA7] ml-1">
                                             {t(isEliteYearly ? 'pricing.elite.annualSuffix' : 'pricing.elite.priceSuffix')}
                                         </span>
                                     </div>
@@ -471,7 +461,7 @@ export default function PricingSection() {
                 <div className="max-w-[900px] mx-auto w-full flex flex-col gap-10 items-center">
                     {/* Simple pricing headline + trust row */}
                     <div ref={trustRef} className="w-full flex flex-col gap-5">
-                        <h2 className="font-mono font-bold text-[32px] sm:text-[44px] lg:text-[52px] leading-[120%] text-white">
+                        <h2 className="font-satoshi font-bold text-[32px] sm:text-[44px] lg:text-[52px] leading-[120%] text-white">
                             {t('pricing.pricingHeadline')}
                         </h2>
                         {/* Trust statements */}

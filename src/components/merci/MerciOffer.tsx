@@ -183,7 +183,7 @@ export default function MerciOffer({ code, src, email, alreadyRedeemed, onRedeem
 /** The one list marker on the page, so every list reads as the same list. */
 function Tick() {
     return (
-        <span aria-hidden="true" className="shrink-0 font-mono text-white">
+        <span aria-hidden="true" className="shrink-0 font-satoshi text-white">
             ✓
         </span>
     )
@@ -209,7 +209,7 @@ function Pass({ code, state, children }: { code: string; state: OptInState; chil
         <div className="merci-pass rounded-[24px]">
             <div className="px-5 pt-4 pb-3.5">
                 <p className="merci-label merci-label-sm text-text-muted">{OFFER.codeLabel}</p>
-                <p className="mt-1.5 font-mono text-[22px] font-bold leading-none tracking-[0.06em] text-white">
+                <p className="mt-1.5 font-satoshi text-[22px] font-bold leading-none tracking-[0.06em] text-white">
                     {code}
                 </p>
             </div>

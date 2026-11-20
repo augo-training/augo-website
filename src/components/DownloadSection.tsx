@@ -143,7 +143,7 @@ export default function DownloadSection() {
                     </div>
                     <h1
                         ref={headlineRef}
-                        className="font-mono font-bold text-[32px] sm:text-[44px] lg:text-[52px] leading-[120%] text-white"
+                        className="font-satoshi font-bold text-[32px] sm:text-[44px] lg:text-[52px] leading-[120%] text-white"
                     >
                         {t('download.headline')}
                     </h1>

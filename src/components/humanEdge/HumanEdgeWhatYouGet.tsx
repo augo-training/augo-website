@@ -32,7 +32,7 @@ export default function HumanEdgeWhatYouGet() {
             <div className="max-w-[1100px] mx-auto">
                 <h2
                     id="what-you-get-title"
-                    className="font-mono font-bold text-[28px] sm:text-[36px] lg:text-[44px] leading-[120%] text-white"
+                    className="font-satoshi font-bold text-[28px] sm:text-[36px] lg:text-[44px] leading-[120%] text-white"
                 >
                     {t('humanEdge.whatYouGet.title')}
                 </h2>
@@ -103,7 +103,7 @@ export default function HumanEdgeWhatYouGet() {
                                 key={i}
                                 className="group grid grid-cols-[36px_minmax(110px,180px)_1fr] items-baseline gap-x-4 sm:gap-x-8 py-5 sm:py-6 border-t border-white/[0.08] last:border-b last:border-white/[0.08] transition-colors duration-200 hover:bg-white/[0.015]"
                             >
-                                <span className="font-mono text-[11px] sm:text-[12px] tracking-[1.5px] text-white/35 tabular-nums">
+                                <span className="font-satoshi text-[11px] sm:text-[12px] tracking-[1.5px] text-white/35 tabular-nums">
                                     {String(i + 1).padStart(2, '0')}
                                 </span>
                                 <dt className="font-mono text-[11px] sm:text-[12px] tracking-[2.5px] uppercase text-white/55 group-hover:text-white/80 transition-colors duration-200">
@@ -126,7 +126,7 @@ export default function HumanEdgeWhatYouGet() {
                         <span className="font-satoshi font-bold text-[36px] sm:text-[52px] md:text-[64px] lg:text-[76px] leading-[100%] tracking-[-0.03em] line-through decoration-white/30 decoration-[2px] sm:decoration-[3px] text-white/35">
                             {t('humanEdge.whatYouGet.valueOriginal')}
                         </span>
-                        <span className="font-mono text-[20px] sm:text-[28px] text-white/40">→</span>
+                        <span className="font-satoshi text-[20px] sm:text-[28px] text-white/40">→</span>
                         <span className="font-satoshi font-bold text-[44px] sm:text-[64px] md:text-[80px] lg:text-[96px] leading-[100%] tracking-[-0.035em] text-white">
                             {t('humanEdge.whatYouGet.valueOffer')}
                         </span>

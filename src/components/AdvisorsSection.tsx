@@ -82,7 +82,7 @@ export default function AdvisorsSection() {
                 </div>
                 <h2
                     id="advisors-title"
-                    className="m-0 font-mono font-bold text-[36px] sm:text-[48px] md:text-[56px] leading-[120%] text-white"
+                    className="m-0 font-satoshi font-bold text-[36px] sm:text-[48px] md:text-[56px] leading-[120%] text-white"
                 >
                     {t('advisors.headline1')}
                     <br />

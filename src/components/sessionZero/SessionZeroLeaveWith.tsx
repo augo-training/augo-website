@@ -13,7 +13,7 @@ export default function SessionZeroLeaveWith() {
             <div className="max-w-[1100px] mx-auto">
                 <h2
                     id="session-zero-leave-with-title"
-                    className="font-mono font-bold text-[28px] sm:text-[36px] lg:text-[44px] leading-[120%] text-white"
+                    className="font-satoshi font-bold text-[28px] sm:text-[36px] lg:text-[44px] leading-[120%] text-white"
                 >
                     {leaveWith.title}
                 </h2>
@@ -29,7 +29,7 @@ export default function SessionZeroLeaveWith() {
                                 key={item.label}
                                 className="group grid grid-cols-[28px_minmax(80px,120px)_1fr] sm:grid-cols-[36px_minmax(100px,150px)_1fr] items-baseline gap-x-3 sm:gap-x-6 py-5 sm:py-6 border-t border-white/[0.08] last:border-b last:border-white/[0.08] transition-colors duration-200 hover:bg-white/[0.015]"
                             >
-                                <span className="font-mono text-[11px] sm:text-[12px] tracking-[1.5px] text-white/35 tabular-nums">
+                                <span className="font-satoshi text-[11px] sm:text-[12px] tracking-[1.5px] text-white/35 tabular-nums">
                                     {pad(i + 1)}
                                 </span>
                                 <dt className="font-mono text-[11px] sm:text-[12px] tracking-[2.5px] uppercase text-white/55 group-hover:text-white/80 transition-colors duration-200">

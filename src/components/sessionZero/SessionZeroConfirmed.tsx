@@ -23,7 +23,7 @@ export default function SessionZeroConfirmed() {
             <div className="max-w-[1100px] mx-auto">
                 <h2
                     id="session-zero-confirmed-title"
-                    className="font-mono font-bold text-[28px] sm:text-[36px] lg:text-[44px] leading-[120%] text-white"
+                    className="font-satoshi font-bold text-[28px] sm:text-[36px] lg:text-[44px] leading-[120%] text-white"
                 >
                     {confirmed.title}
                 </h2>
@@ -54,7 +54,7 @@ export default function SessionZeroConfirmed() {
                                     />
                                 </div>
                                 <div className="flex items-baseline gap-3 sm:gap-4">
-                                    <span className="font-mono text-[11px] sm:text-[12px] tracking-[1.5px] text-white/35 tabular-nums">
+                                    <span className="font-satoshi text-[11px] sm:text-[12px] tracking-[1.5px] text-white/35 tabular-nums">
                                         {pad(i + 1)}
                                     </span>
                                     <span className="font-satoshi font-bold text-[20px] sm:text-[22px] md:text-[24px] leading-[110%] tracking-[-0.015em] text-white">
