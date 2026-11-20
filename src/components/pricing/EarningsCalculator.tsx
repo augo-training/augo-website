@@ -85,7 +85,7 @@ function NumberField({ id, prefix, text, placeholder, onType, onFinish }: Number
             style={{ backgroundColor: '#1E1E1E', border: '1px solid #333' }}
         >
             {prefix && (
-                <span aria-hidden="true" className="font-mono font-bold text-[22px] leading-none text-[#969EA7] whitespace-nowrap">
+                <span aria-hidden="true" className="font-satoshi font-bold text-[22px] leading-none text-[#969EA7] whitespace-nowrap">
                     {prefix.trim()}
                 </span>
             )}
@@ -104,7 +104,7 @@ function NumberField({ id, prefix, text, placeholder, onType, onFinish }: Number
                 onFocus={(e) => e.currentTarget.select()}
                 onBlur={onFinish}
                 onKeyDown={(e) => { if (e.key === 'Enter') e.currentTarget.blur() }}
-                className="w-full min-w-0 bg-transparent outline-none font-mono font-bold text-[22px] leading-none text-white placeholder-[#555] tabular-nums"
+                className="w-full min-w-0 bg-transparent outline-none font-satoshi font-bold text-[22px] leading-none text-white placeholder-[#555] tabular-nums"
             />
         </div>
     )
@@ -222,7 +222,7 @@ function ComparisonBar({ label, caption, amount, difference, share, background }
         <>
             <span className="min-w-0 font-mono text-[11px] tracking-[1.5px] uppercase text-white">{label}</span>
             {/* The bracket wraps under the amount when the column is narrow. */}
-            <span className="min-w-0 flex flex-wrap content-start items-baseline gap-x-2 gap-y-1 font-mono font-bold text-[20px] sm:text-[28px] leading-none text-white tabular-nums">
+            <span className="min-w-0 flex flex-wrap content-start items-baseline gap-x-2 gap-y-1 font-satoshi font-bold text-[20px] sm:text-[28px] leading-none text-white tabular-nums">
                 <span>{amount}</span>
                 {difference && <span>({difference})</span>}
             </span>
@@ -379,7 +379,7 @@ export default function EarningsCalculator({ tier, lang }: EarningsCalculatorPro
                     </span>
                     <h2
                         id={headingId}
-                        className="font-mono font-bold text-[28px] sm:text-[36px] lg:text-[44px] leading-[120%] text-white"
+                        className="font-satoshi font-bold text-[28px] sm:text-[36px] lg:text-[44px] leading-[120%] text-white"
                     >
                         {t('pricing.calculator.headline')}
                     </h2>

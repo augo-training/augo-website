@@ -39,7 +39,7 @@ export default function McpSteps({
                 >
                     <span
                         aria-hidden="true"
-                        className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 font-mono text-[13px] text-white/70 tabular-nums"
+                        className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 font-satoshi text-[13px] text-white/70 tabular-nums"
                     >
                         {i + 1}
                     </span>

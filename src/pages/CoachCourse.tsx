@@ -155,7 +155,7 @@ const BODY = 'font-satoshi text-[18px] sm:text-[20px] leading-[1.55]'
 /** The one list marker on the page, so every list reads as the same list. */
 function Tick() {
     return (
-        <span aria-hidden="true" className="shrink-0 font-mono text-white">
+        <span aria-hidden="true" className="shrink-0 font-satoshi text-white">
             ✓
         </span>
     )

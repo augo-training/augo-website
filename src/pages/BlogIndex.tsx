@@ -52,7 +52,7 @@ export default function BlogIndex() {
                   </div>
                 )}
                 <div className="flex flex-col gap-3 min-w-0 flex-1">
-                  <div className="flex flex-wrap items-center gap-2 font-mono text-[13px] sm:text-[14px] text-text-muted">
+                  <div className="flex flex-wrap items-center gap-2 font-satoshi text-[13px] sm:text-[14px] text-text-muted">
                     <time dateTime={post.datePublished}>
                       {formatPostDate(post.datePublished)}
                     </time>

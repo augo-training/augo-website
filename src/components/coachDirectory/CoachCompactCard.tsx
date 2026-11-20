@@ -27,7 +27,7 @@ export default function CoachCompactCard({ coach, matchReason }: Props) {
         >
             <div className="flex items-center justify-between gap-3">
                 <DisciplineIcons disciplines={coach.disciplines} size={15} className="text-white/70" />
-                <span className="font-mono text-[10px] sm:text-[11px] tracking-[1px] text-white/55">
+                <span className="font-satoshi text-[10px] sm:text-[11px] tracking-[1px] text-white/55">
                     {coach.languages.map((l) => l.code.toUpperCase()).join('/')}
                 </span>
             </div>

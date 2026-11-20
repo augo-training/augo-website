@@ -59,7 +59,7 @@ export default function CoachCredentialsAndStats({ coach }: Props) {
                                     key={c}
                                     className="grid grid-cols-[28px_1fr] sm:grid-cols-[36px_1fr] items-baseline gap-3 sm:gap-6 py-4 border-t border-white/[0.08] last:border-b last:border-white/[0.08]"
                                 >
-                                    <span className="font-mono text-[11px] tracking-[1.5px] text-white/35 tabular-nums">
+                                    <span className="font-satoshi text-[11px] tracking-[1.5px] text-white/35 tabular-nums">
                                         {String(i + 1).padStart(2, '0')}
                                     </span>
                                     <span className="font-satoshi font-medium text-[15px] sm:text-[17px] text-white">
@@ -81,7 +81,7 @@ export default function CoachCredentialsAndStats({ coach }: Props) {
                                         key={r}
                                         className="grid grid-cols-[28px_1fr] sm:grid-cols-[36px_1fr] items-baseline gap-3 sm:gap-6 py-4 border-t border-white/[0.08] last:border-b last:border-white/[0.08]"
                                     >
-                                        <span className="font-mono text-[11px] tracking-[1.5px] text-white/35 tabular-nums">
+                                        <span className="font-satoshi text-[11px] tracking-[1.5px] text-white/35 tabular-nums">
                                             {String(i + 1).padStart(2, '0')}
                                         </span>
                                         <span className="font-satoshi font-medium text-[15px] sm:text-[17px] text-white">

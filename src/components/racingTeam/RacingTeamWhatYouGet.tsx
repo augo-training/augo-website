@@ -13,7 +13,7 @@ export default function RacingTeamWhatYouGet() {
             <div className="max-w-[1100px] mx-auto">
                 <h2
                     id="what-the-duo-gets-title"
-                    className="font-mono font-bold text-[28px] sm:text-[36px] lg:text-[44px] leading-[120%] text-white"
+                    className="font-satoshi font-bold text-[28px] sm:text-[36px] lg:text-[44px] leading-[120%] text-white"
                 >
                     {whatYouGet.title}
                 </h2>
@@ -25,7 +25,7 @@ export default function RacingTeamWhatYouGet() {
                     {whatYouGet.groups.map((group, i) => (
                         <div key={group.label} className="flex flex-col gap-5">
                             <h3 className="font-satoshi font-bold text-[28px] sm:text-[40px] md:text-[48px] leading-[100%] tracking-[-0.025em] text-white">
-                                <span className="font-mono text-[12px] sm:text-[14px] tracking-[2px] text-white/35 tabular-nums align-middle mr-4">
+                                <span className="font-satoshi text-[12px] sm:text-[14px] tracking-[2px] text-white/35 tabular-nums align-middle mr-4">
                                     {String(i + 1).padStart(2, '0')}
                                 </span>
                                 {group.label}

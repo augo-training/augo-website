@@ -81,7 +81,7 @@ export default function CoachHero({ coach, onContact }: Props) {
                     destination: websiteUrl,
                 })
             }
-            className="inline-flex items-center gap-1.5 w-fit py-1 font-mono text-[13px] sm:text-[14px] text-white/70 underline decoration-white/25 underline-offset-4 hover:text-white hover:decoration-white transition-colors"
+            className="inline-flex items-center gap-1.5 w-fit py-1 font-satoshi text-[13px] sm:text-[14px] text-white/70 underline decoration-white/25 underline-offset-4 hover:text-white hover:decoration-white transition-colors"
         >
             {websiteLabel(websiteUrl)}
             <ArrowUpRight className="w-4 h-4 flex-shrink-0" strokeWidth={2} aria-hidden="true" />

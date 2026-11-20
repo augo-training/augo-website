@@ -91,7 +91,7 @@ export default function AthleteTestimonialsSection() {
                 <h2
                     id="athlete-testimonials-title"
                     ref={headlineRef}
-                    className="font-mono font-bold text-[36px] sm:text-[48px] md:text-[56px] lg:text-[64px] leading-[130%] text-white"
+                    className="font-satoshi font-bold text-[36px] sm:text-[48px] md:text-[56px] lg:text-[64px] leading-[130%] text-white"
                 >
                     {t('athleteTestimonials.headline1')}
                     <br />
@@ -125,7 +125,7 @@ export default function AthleteTestimonialsSection() {
                                         loading="lazy"
                                         className="flex-shrink-0 rounded-lg object-cover w-10 h-10 sm:w-12 sm:h-12 grayscale"
                                     />
-                                    <span className="font-mono font-extrabold text-[16px] sm:text-[17px] leading-[130%] text-white">
+                                    <span className="font-satoshi font-extrabold text-[16px] sm:text-[17px] leading-[130%] text-white">
                                         {athlete.name}
                                     </span>
                                 </figcaption>

@@ -125,7 +125,7 @@ export default function Footer() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12">
                 <div ref={logoRef} className="flex flex-col gap-4">
                     <img src={augoFooter} alt="augo" className="h-10 sm:h-12 w-fit" />
-                    <p className="font-mono font-medium text-[14px] sm:text-[16px] leading-[130%] text-[#969EA7]">
+                    <p className="font-satoshi font-medium text-[14px] sm:text-[16px] leading-[130%] text-[#969EA7]">
                         {t('footer.tagline1')}
                         <br />
                         {t('footer.tagline2')}
@@ -135,7 +135,7 @@ export default function Footer() {
                 <div ref={linksRef} className="grid grid-cols-3 gap-2 sm:gap-8">
                     {linkColumns.map((col) => (
                         <div key={col.title} className="flex flex-col gap-3 sm:gap-4">
-                            <h4 className="font-mono font-bold text-[16px] sm:text-[20px] lg:text-[24px] leading-[130%] text-white">
+                            <h4 className="font-satoshi font-bold text-[16px] sm:text-[20px] lg:text-[24px] leading-[130%] text-white">
                                 {col.title}
                             </h4>
                             <ul className="flex flex-col gap-2 sm:gap-3">

@@ -140,7 +140,7 @@ export default function ManifestoSheet({ signatures, freshIndex }: ManifestoShee
                 </div>
                 {/* Signed off at the bottom right, where a reader going left to right ends. */}
                 <div className="absolute right-6 bottom-5 sm:right-10 sm:bottom-7 flex items-center gap-4 sm:gap-6">
-                    <p className="font-mono text-[12px] text-text-muted">{COPY.place}</p>
+                    <p className="font-satoshi text-[12px] text-text-muted">{COPY.place}</p>
                     <img src={augoLogo} alt="augo" width={80} height={28} className="w-[72px] sm:w-[88px] h-auto" />
                 </div>
             </div>

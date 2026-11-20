@@ -12,7 +12,7 @@ export default function RacingTeamWhat() {
             <div className="max-w-[1100px] mx-auto">
                 <h2
                     id="what-it-is-title"
-                    className="font-mono font-bold text-[28px] sm:text-[36px] lg:text-[44px] leading-[120%] text-white"
+                    className="font-satoshi font-bold text-[28px] sm:text-[36px] lg:text-[44px] leading-[120%] text-white"
                 >
                     {what.title}
                 </h2>

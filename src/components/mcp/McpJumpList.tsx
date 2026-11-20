@@ -31,7 +31,7 @@ export default function McpJumpList() {
                     <li key={item.id} className="flex items-baseline gap-2">
                         <span
                             aria-hidden="true"
-                            className="font-mono text-[11px] text-white/30 tabular-nums"
+                            className="font-satoshi text-[11px] text-white/30 tabular-nums"
                         >
                             {String(i + 1).padStart(2, '0')}
                         </span>

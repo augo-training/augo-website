@@ -60,7 +60,7 @@ export default function ConfirmIntro() {
 }
 
 function Heading({ children }: { children: React.ReactNode }) {
-    return <h1 className="font-mono font-bold text-[24px] leading-[125%] text-white">{children}</h1>
+    return <h1 className="font-satoshi font-bold text-[24px] leading-[125%] text-white">{children}</h1>
 }
 
 function Text({ children }: { children: React.ReactNode }) {
@@ -73,7 +73,7 @@ function Steps({ done }: { done: number }) {
             {STEPS.map((step, i) => (
                 <li key={step} className="flex gap-3 items-start font-satoshi text-[15px] leading-[150%]">
                     <span
-                        className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center font-mono text-[12px] font-bold text-white"
+                        className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center font-satoshi text-[12px] font-bold text-white"
                         style={{
                             background: i < done ? 'linear-gradient(83.9deg, #C50017 0%, #FF5514 50%, #FFCA1E 100%)' : '#1A1A1A',
                             border: i < done ? 'none' : '1px solid #333',

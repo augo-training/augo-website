@@ -11,7 +11,7 @@ const HumanEdgeHowToApply = forwardRef<HTMLDivElement>(function HumanEdgeHowToAp
             className="w-full py-20 sm:py-24 px-5 sm:px-8 bg-dark scroll-mt-[calc(6rem+var(--banner-h))] border-t border-white/[0.06] texture-grain"
         >
             <div className="max-w-[1100px] mx-auto">
-                <h2 className="font-mono font-bold text-[28px] sm:text-[36px] lg:text-[44px] leading-[120%] text-white">
+                <h2 className="font-satoshi font-bold text-[28px] sm:text-[36px] lg:text-[44px] leading-[120%] text-white">
                     {t('humanEdge.howToApply.title')}
                 </h2>
                 <p className="font-satoshi text-[16px] sm:text-[18px] text-text-muted mt-3 max-w-[640px]">

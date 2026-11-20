@@ -21,10 +21,10 @@ export default function NotFound() {
       <SEOHead page="notFound" path="/404" />
       <Navbar />
       <section className="min-h-screen flex flex-col items-center justify-center px-5 text-center">
-        <h1 className="font-mono font-bold text-[64px] sm:text-[96px] leading-[100%] text-white mb-4">
+        <h1 className="font-satoshi font-bold text-[64px] sm:text-[96px] leading-[100%] text-white mb-4">
           404
         </h1>
-        <h2 className="font-mono font-bold text-[24px] sm:text-[32px] leading-[130%] text-white mb-4">
+        <h2 className="font-satoshi font-bold text-[24px] sm:text-[32px] leading-[130%] text-white mb-4">
           {t('notFound.title')}
         </h2>
         <p className="font-satoshi font-medium text-[16px] sm:text-[18px] leading-[150%] text-[#969EA7] mb-10 max-w-[500px]">

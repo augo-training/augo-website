@@ -136,7 +136,7 @@ export default function EmailCaptureModal({
                 <div className="flex flex-col gap-2">
                     <h2
                         id="email-modal-title"
-                        className="font-mono font-bold text-[22px] leading-[120%] text-white"
+                        className="font-satoshi font-bold text-[22px] leading-[120%] text-white"
                     >
                         {title ?? t('emailCapture.title')}
                     </h2>

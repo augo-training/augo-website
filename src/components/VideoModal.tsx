@@ -247,7 +247,7 @@ export default function VideoModal({ isOpen, onClose }: VideoModalProps) {
                         </button>
 
                         {/* Current time */}
-                        <span className="text-white text-xs font-mono opacity-80 min-w-[36px]">
+                        <span className="text-white text-xs font-satoshi opacity-80 min-w-[36px]">
                             {formatTime(currentTime)}
                         </span>
 
@@ -274,7 +274,7 @@ export default function VideoModal({ isOpen, onClose }: VideoModalProps) {
                         </div>
 
                         {/* Duration */}
-                        <span className="text-white text-xs font-mono opacity-80 min-w-[36px]">
+                        <span className="text-white text-xs font-satoshi opacity-80 min-w-[36px]">
                             {formatTime(duration)}
                         </span>
 

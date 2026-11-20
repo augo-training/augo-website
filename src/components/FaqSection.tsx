@@ -66,7 +66,7 @@ export default function FaqSection() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 max-w-[1200px] mx-auto w-full items-start">
                 {/* Left: CTA */}
                 <div className="flex flex-col gap-6 sm:gap-8 justify-center h-full pt-8 sm:pt-16 lg:pt-24 items-center lg:items-start text-center lg:text-left">
-                    <h2 className="font-mono font-bold text-[32px] sm:text-[40px] lg:text-[48px] leading-[120%] text-white">
+                    <h2 className="font-satoshi font-bold text-[32px] sm:text-[40px] lg:text-[48px] leading-[120%] text-white">
                         {t('faq.ctaHeadline1')}
                         <br />
                         {t('faq.ctaHeadline2')}

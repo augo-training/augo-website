@@ -183,7 +183,7 @@ export default function EmpowerSection() {
                 {/* Headline */}
                 <h2
                     ref={headlineRef}
-                    className="font-mono font-bold text-[28px] sm:text-[36px] md:text-[40px] lg:text-[48px] leading-[130%] text-white"
+                    className="font-satoshi font-bold text-[28px] sm:text-[36px] md:text-[40px] lg:text-[48px] leading-[130%] text-white"
                     style={{ gridArea: 'headline' }}
                 >
                     {t('empower.headline1')}

@@ -50,7 +50,7 @@ const Signature = forwardRef<HTMLDivElement, SignatureProps>(function Signature(
             >
                 {signature.name}
             </span>
-            <span className={`font-mono text-[10px] leading-none text-dark-200 ${stacked ? '' : 'translate-y-[-2px]'}`}>
+            <span className={`font-satoshi text-[10px] leading-none text-dark-200 ${stacked ? '' : 'translate-y-[-2px]'}`}>
                 {formatSignedAt(signature.signedAt)}
             </span>
         </div>

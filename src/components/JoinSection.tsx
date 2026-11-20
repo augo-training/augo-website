@@ -71,7 +71,7 @@ export default function JoinSection() {
         >
             <div className="relative z-10 w-full max-w-[1200px] mx-auto px-5 sm:px-8 py-20 sm:py-32 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                 <div className="flex flex-col gap-6 lg:gap-8 items-center lg:items-start text-center lg:text-left pt-10">
-                    <h1 ref={headlineRef} className="font-mono font-bold text-[32px] sm:text-[44px] lg:text-[40px] xl:text-[48px] leading-[130%] text-white">
+                    <h1 ref={headlineRef} className="font-satoshi font-bold text-[32px] sm:text-[44px] lg:text-[40px] xl:text-[48px] leading-[130%] text-white">
                         {t('join.headline')}
                     </h1>
                     <p ref={bodyRef} className="font-satoshi font-medium text-[16px] sm:text-[18px] leading-[130%] text-[#969EA7] max-w-[420px] sm:max-w-[500px] lg:max-w-[420px]">
@@ -88,7 +88,7 @@ export default function JoinSection() {
                                     <div data-tf-live="01K9FM9BX0ES43PVK4GR1KFKQT"></div>
                                 ) : (
                                     <div className="flex flex-col items-center justify-center text-center px-6 sm:px-10 py-12 flex-1">
-                                        <h3 className="font-mono font-bold text-[18px] sm:text-[20px] text-white leading-[130%] mb-3">{t('join.cookiesRequired')}</h3>
+                                        <h3 className="font-satoshi font-bold text-[18px] sm:text-[20px] text-white leading-[130%] mb-3">{t('join.cookiesRequired')}</h3>
                                         <p className="font-satoshi text-[14px] sm:text-[15px] leading-[160%] text-white mb-8" style={{ opacity: 0.7 }}>{t('join.cookiesMessage')}</p>
                                         <button onClick={handleAcceptCookies} className="join-augo-btn font-mono text-[13px] sm:text-[14px] font-extrabold tracking-[2px] uppercase px-8 py-3.5 rounded-lg cursor-pointer transition-all duration-200">{t('join.acceptCookies')}</button>
                                     </div>

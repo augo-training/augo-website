@@ -46,7 +46,7 @@ function LanguageSwitcher({ onSwitch }: { onSwitch?: () => void } = {}) {
         <div className="flex items-center gap-1">
             {supportedLanguages.map((lang, i) => (
                 <span key={lang} className="flex items-center">
-                    {i > 0 && <span className="text-white/30 mx-1 font-mono text-[12px]">/</span>}
+                    {i > 0 && <span className="text-white/30 mx-1 font-satoshi text-[12px]">/</span>}
                     <button
                         onClick={() => switchLanguage(lang)}
                         className={`font-mono text-[12px] tracking-[1px] uppercase cursor-pointer transition-colors duration-200 bg-transparent border-none ${

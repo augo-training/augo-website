@@ -13,7 +13,7 @@ export default function RacingTeamWhatWeAsk() {
             <div className="max-w-[1100px] mx-auto">
                 <h2
                     id="what-we-ask-title"
-                    className="font-mono font-bold text-[28px] sm:text-[36px] lg:text-[44px] leading-[120%] text-white"
+                    className="font-satoshi font-bold text-[28px] sm:text-[36px] lg:text-[44px] leading-[120%] text-white"
                 >
                     {whatWeAsk.title}
                 </h2>
