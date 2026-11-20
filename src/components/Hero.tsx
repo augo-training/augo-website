@@ -84,13 +84,6 @@ export default function Hero({ onWatchFilm }: HeroProps) {
     const ctaRef = useRef<HTMLButtonElement>(null)
     const sectionRef = useRef<HTMLElement>(null)
     const mockupsRef = useRef<HTMLDivElement>(null)
-    const glowRef = useRef<HTMLDivElement>(null)
-
-    // Mouse position for glow follow (using refs to avoid re-renders)
-    const mousePos = useRef({ x: 0, y: 0 })
-    const glowPos = useRef({ x: 0, y: 0 })
-    const rafId = useRef<number>(0)
-    const isMouseInSection = useRef(false)
 
     useEffect(() => {
         const lines = [line1Ref.current, line2Ref.current, line3Ref.current].filter(Boolean) as HTMLElement[]
@@ -99,8 +92,7 @@ export default function Hero({ onWatchFilm }: HeroProps) {
         const cta = ctaRef.current
         const section = sectionRef.current
         const mockups = mockupsRef.current
-        const glow = glowRef.current
-        if (lines.length === 0 || !subheadline || !rotatingContainer || !cta || !section || !mockups || !glow) return
+        if (lines.length === 0 || !subheadline || !rotatingContainer || !cta || !section || !mockups) return
 
         const wordEls = rotatingContainer.querySelectorAll<HTMLSpanElement>('.rotating-word')
 
@@ -109,7 +101,6 @@ export default function Hero({ onWatchFilm }: HeroProps) {
         gsap.set(subheadline, { opacity: 0 })
         gsap.set(wordEls, { opacity: 0, y: 10 })
         gsap.set(cta, { opacity: 0 })
-        gsap.set(glow, { opacity: 0 })
 
         // --- Main timeline ---
         const tl = gsap.timeline()
@@ -190,7 +181,6 @@ export default function Hero({ onWatchFilm }: HeroProps) {
         // Tracked so they can be killed on cleanup — the effect re-runs on language change
         const floatTweens: gsap.core.Tween[] = []
         let entranceTween: gsap.core.Tween | null = null
-        let driftTl: gsap.core.Timeline | null = null
 
         const startFloats = () => {
             const floats: [HTMLElement | null, number, number][] = [
@@ -220,80 +210,12 @@ export default function Hero({ onWatchFilm }: HeroProps) {
         const killMockupTweens = () => {
             entranceTween?.kill()
             floatTweens.forEach((tween) => tween.kill())
-            driftTl?.kill()
-        }
-
-        // 6. Glow mouse-follow (desktop) — set up event listeners
-        const isMobile = window.matchMedia('(max-width: 768px)').matches
-
-        if (isMobile) {
-            // Mobile: simple ambient drift behind mockups
-            gsap.set(glow, { opacity: 0.7 })
-            driftTl = gsap.timeline({ repeat: -1, yoyo: true })
-            driftTl.to(glow, {
-                x: 30,
-                y: -20,
-                duration: 3,
-                ease: 'sine.inOut',
-            }).to(glow, {
-                x: -20,
-                y: 25,
-                duration: 4,
-                ease: 'sine.inOut',
-            })
-        } else {
-            // Desktop: follow cursor with lerp
-            const handleMouseMove = (e: MouseEvent) => {
-                const rect = section.getBoundingClientRect()
-                mousePos.current.x = e.clientX - rect.left
-                mousePos.current.y = e.clientY - rect.top
-            }
-
-            const handleMouseEnter = () => {
-                isMouseInSection.current = true
-                gsap.to(glow, { opacity: 0.7, duration: 0.4, ease: 'power2.out' })
-            }
-
-            const handleMouseLeave = () => {
-                isMouseInSection.current = false
-                gsap.to(glow, { opacity: 0, duration: 0.6, ease: 'power2.out' })
-            }
-
-            section.addEventListener('mousemove', handleMouseMove)
-            section.addEventListener('mouseenter', handleMouseEnter)
-            section.addEventListener('mouseleave', handleMouseLeave)
-
-            // Glow lerp animation loop
-            function animateGlow() {
-                const g = glowRef.current
-                if (!g) return
-                const lerp = 0.08
-                glowPos.current.x += (mousePos.current.x - glowPos.current.x) * lerp
-                glowPos.current.y += (mousePos.current.y - glowPos.current.y) * lerp
-                g.style.transform = `translate(${glowPos.current.x - 225}px, ${glowPos.current.y - 225}px)`
-                rafId.current = requestAnimationFrame(animateGlow)
-            }
-
-            // Start glow animation loop
-            rafId.current = requestAnimationFrame(animateGlow)
-
-            // Cleanup
-            return () => {
-                tl.kill()
-                rotateTl.kill()
-                killMockupTweens()
-                section.removeEventListener('mousemove', handleMouseMove)
-                section.removeEventListener('mouseenter', handleMouseEnter)
-                section.removeEventListener('mouseleave', handleMouseLeave)
-                cancelAnimationFrame(rafId.current)
-            }
         }
 
         return () => {
             tl.kill()
             rotateTl.kill()
             killMockupTweens()
-            cancelAnimationFrame(rafId.current)
         }
     }, [i18n.language]) // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -307,22 +229,6 @@ export default function Hero({ onWatchFilm }: HeroProps) {
                 backgroundPosition: 'center',
             }}
         >
-            {/* Glow — stays behind UI mockups (z-index lower) */}
-            <div
-                ref={glowRef}
-                className="pointer-events-none absolute"
-                style={{
-                    width: 450,
-                    height: 450,
-                    borderRadius: '50%',
-                    background: 'radial-gradient(circle, rgba(255,202,30,0.7) 0%, rgba(255,85,20,0.45) 35%, rgba(197,0,23,0.2) 65%, transparent 100%)',
-                    filter: 'blur(40px)',
-                    opacity: 0,
-                    zIndex: 5,
-                    willChange: 'transform, opacity',
-                }}
-            />
-
             {/* Content Container */}
             <div className="relative z-10 w-full max-w-[1440px] mx-auto px-5 sm:px-6 md:px-8 lg:px-12 flex flex-col items-center text-center lg:flex-row lg:items-center lg:justify-between lg:text-left pt-44 sm:pt-40 lg:pt-36 pb-12 lg:pb-0 gap-12 lg:gap-0">
                 {/* Left: Text Content */}
