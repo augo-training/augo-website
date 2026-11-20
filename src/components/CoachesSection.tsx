@@ -32,10 +32,11 @@ interface PanelImage {
 const panelLinks: (string | null)[] = [null, '/mcp', null, '/support/strength-workouts', null, null, null, null, null, null]
 
 /**
- * Square renders with their own dark backdrop baked in: width-sized below md and
- * height-sized above it, so they stay inside the well either way.
+ * Square UI renders cut out onto transparency, so the backdrop card and glow show
+ * through as on the first panel. Width-sized below md and height-sized above it,
+ * so they stay inside the well either way.
  */
-const squareRender = 'absolute inset-0 m-auto w-[85%] h-auto md:w-auto md:h-[85%] rounded-xl z-10'
+const squareRender = 'absolute inset-0 m-auto w-[85%] h-auto md:w-auto md:h-[85%] z-10'
 
 const panelImages: PanelImage[][] = [
     [
