@@ -2,7 +2,6 @@ import { useState, useEffect, useMemo, useRef, useCallback } from 'react'
 import { useTranslation, Trans } from 'react-i18next'
 import { useParams } from 'react-router-dom'
 import { gsap } from 'gsap'
-import bgSection1 from '../assets/images/bg_section_1.webp'
 import { useGeoCountry } from '../hooks/useGeoCountry'
 import { getPricingTier } from '../config/pricingConfig'
 import {
@@ -214,17 +213,8 @@ export default function PricingSection() {
             className="relative"
             style={{ overflowX: 'hidden' }}
         >
-            {/* ─── Hero + Pricing Cards wrapper (topo bg scoped here) ─────────── */}
+            {/* ─── Hero + Pricing Cards wrapper ─────────────────────────────────── */}
             <div className="relative">
-                {/* Topo background — spans hero + pricing tiers only */}
-                <div
-                    className="absolute inset-0 pointer-events-none"
-                    style={{
-                        backgroundImage: `url(${bgSection1})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                    }}
-                />
 
             {/* ─── 1. Hero ─────────────────────────────────────────────────────── */}
             <section className="relative z-10 w-full pt-40 sm:pt-48 pb-8 sm:pb-10 px-5 sm:px-8">
