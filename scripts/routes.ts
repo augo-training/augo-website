@@ -14,6 +14,10 @@ export const BASE_URL = 'https://www.augotraining.com'
 export const LANGS = ['en', 'de', 'pt'] as const
 export const DEFAULT_LANG = 'en'
 
+// English-only legal pages, rendered from src/content/legal/<slug>.md.
+// Keep in sync with LEGAL_SLUGS in src/utils/legal.ts.
+export const LEGAL_SLUGS = ['privacy', 'terms'] as const
+
 // Paths under /:lang. Keep in sync with src/App.tsx routes.
 // Empty string = lang root (e.g. /en).
 export const STATIC_PATHS = ['', '/download', '/join', '/find', '/pricing', '/book-a-demo', '/humanedge', '/mcp', '/contact']
@@ -206,6 +210,10 @@ export async function getAllPrerenderRoutes(): Promise<string[]> {
   for (const slug of supportSlugs) {
     routes.push(`/${DEFAULT_LANG}/support/${slug}`)
   }
+  // Legal pages — English-only, the English text being the binding one.
+  for (const slug of LEGAL_SLUGS) {
+    routes.push(`/${DEFAULT_LANG}/${slug}`)
+  }
   return routes
 }
 
@@ -335,6 +343,18 @@ export async function getSitemapEntries(): Promise<SitemapEntry[]> {
       alternates: null,
       xDefault: url,
       changefreq: 'monthly',
+    })
+  }
+  // Legal pages: the commit date of the Markdown file is when the text changed.
+  for (const slug of LEGAL_SLUGS) {
+    const url = langUrl(DEFAULT_LANG, `/${slug}`)
+    entries.push({
+      url,
+      priority: 0.3,
+      alternates: null,
+      xDefault: url,
+      changefreq: 'monthly',
+      lastmod: await lastCommitDate(`src/content/legal/${slug}.md`),
     })
   }
   return entries

@@ -342,6 +342,12 @@ body {
   border-color: var(--color-dark-600);
   margin: 2.5em 0;
 }
+/* Legal pages: every heading and explicit anchor is a deep-link target, so keep
+   it clear of the announcement banner and fixed navbar. The generic
+   .support-prose rule below (96px) is too short for that. */
+.support-prose.legal-prose [id] {
+  scroll-margin-top: 140px;
+}
 
 /* Copy-paste blocks (invite messages, codes). Wraps rather than scrolls: these
    are meant to be read and copied on a phone, not scrolled sideways. */
