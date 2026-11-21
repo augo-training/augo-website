@@ -39,6 +39,11 @@
     "tag": "PARA COACHES",
     "panels": [
       {
+        "headline": "Cada conversa,\nao lado do treino.",
+        "body": "Converse com cada atleta dentro da augo. Responda a uma mensagem específica, reaja com um toque ou deixe um comentário em áudio na corrida que ele acabou de fazer. As perguntas ficam ao lado dos treinos a que se referem.",
+        "tagline": "Chega de vasculhar o WhatsApp para lembrar o que foi dito."
+      },
+      {
         "headline": "Insights instantâneos\ncom contexto completo do atleta",
         "body": "augo armazena e lembra cada conversa, feedback de sessão e dado de treino do atleta. Pergunte qualquer coisa ao assistente inteligente e obtenha respostas instantâneas com contexto completo do atleta.",
         "tagline": "Chega de vasculhar anotações de calendário ou rolar históricos de mensagens para lembrar quando seu atleta mencionou aquele desconforto no joelho."

@@ -11,6 +11,7 @@ import coachesImg1_5 from '../assets/images/img_section_coaches_1_5.png'
 import coachesImg1_6 from '../assets/images/img_section_coaches_1_6.png'
 import coachesImg1_7 from '../assets/images/img_section_coaches_1_7.png'
 import carouselImgBg from '../assets/images/carousel_img_bg.webp'
+import coachesChat from '../assets/images/img_section_chat.png?w=960&format=webp'
 import coachesWorkouts from '../assets/images/img_section_coaches_workouts.png?w=960&format=webp'
 import coachesStrength from '../assets/images/img_section_coaches_strength.png?w=960&format=webp'
 import coachesConnector from '../assets/images/img_section_coaches_connector.png?w=960&format=webp'
@@ -29,7 +30,7 @@ interface PanelImage {
 }
 
 /** Optional per-panel link path, index-aligned with panelImages. */
-const panelLinks: (string | null)[] = [null, '/mcp', null, '/support/strength-workouts', null, null, null, null, null, null]
+const panelLinks: (string | null)[] = [null, null, '/mcp', null, '/support/strength-workouts', null, null, null, null, null, null]
 
 /**
  * Square UI renders cut out onto transparency, so the backdrop card and glow show
@@ -39,6 +40,10 @@ const panelLinks: (string | null)[] = [null, '/mcp', null, '/support/strength-wo
 const squareRender = 'absolute inset-0 m-auto w-[85%] h-auto md:w-auto md:h-[85%] z-10'
 
 const panelImages: PanelImage[][] = [
+    [
+        { src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' },
+        { src: coachesChat, className: squareRender },
+    ],
     [
         { src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' },
         { src: coachesImg1_1, className: 'absolute top-[6%] right-[18%] w-[55%] z-10' },
