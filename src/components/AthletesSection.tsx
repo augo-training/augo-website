@@ -8,6 +8,7 @@ import athletesStrength from '../assets/images/img_for_athletes_strength.png?w=9
 import athletesImg2_1 from '../assets/images/img_for_athletes_2_1.png'
 import athletesImg2_2 from '../assets/images/img_for_athletes_2_2.png'
 import athletesImg2_3 from '../assets/images/img_for_athletes_2_3.png'
+import athletesRecovery from '../assets/images/img_section_coaches_recovery.png?w=960&format=webp'
 import athletesTrends from '../assets/images/img_for_athletes_trends.png?w=960&format=webp'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -38,6 +39,9 @@ const panelImages: PanelImage[][] = [
         { src: athletesImg2_1, className: 'absolute top-[7%] lg:top-[7%] md:top-[10%] left-[10%] w-[45%] z-10' },
         { src: athletesImg2_2, className: 'absolute top-[20%] lg:top-[15%] md:top-[20%] right-[5%] w-[38%] z-10' },
         { src: athletesImg2_3, className: 'absolute top-[45%] lg:top-[45%] md:top-[55%] left-[10%] w-[45%] z-10' },
+    ],
+    [
+        { src: athletesRecovery, className: squareRender },
     ],
     [
         { src: athletesTrends, className: squareRender },
