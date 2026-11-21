@@ -46,7 +46,7 @@
       },
       {
         "headline": "Seu assistente inteligente\ncom contexto completo do atleta",
-        "body": "A augo tem um assistente integrado, com tecnologia Claude, que lê cada conversa, treino, feedback, sessão e dado de recuperação dos seus atletas. Pergunte qualquer coisa e receba análises e insights na hora.",
+        "body": "A augo tem um assistente integrado, com tecnologia Claude, que lê todas as conversas com seus atletas, além dos treinos, feedbacks, notas e dados de recuperação de cada um. Pergunte qualquer coisa e receba análises e insights na hora.",
         "tagline": "Não precisa de conta no ChatGPT ou no Claude. Ele fica dentro do app da augo e está incluído na sua assinatura."
       },
       {
@@ -68,12 +68,12 @@
       },
       {
         "headline": "Dados de recuperação,\ntoda manhã.",
-        "body": "Sono, frequência cardíaca de repouso, VFC e passos chegam do Garmin, COROS, WHOOP, Oura ou Apple Health dos seus atletas, cada um comparado à média dos últimos 30 dias.",
+        "body": "Sono, frequência cardíaca de repouso, VFC e passos chegam do Garmin, COROS, WHOOP, Oura ou Apple Health dos seus atletas, cada um comparado à média dos últimos 30 dias. Seu assistente inteligente também lê esses dados: pergunte como a recuperação se relaciona com o treino e com o que o atleta diz estar sentindo.",
         "tagline": "Perceba a noite mal dormida ou a frequência cardíaca subindo antes que apareçam no treino."
       },
       {
-        "headline": "Saiba como seus\natletas realmente se sentem",
-        "body": "augo captura feedback pós-sessão, dando ao coach visibilidade sobre tendências de bem-estar de longo prazo, ajudando a detectar mudanças sutis que sinalizam desafios à frente.",
+        "headline": "Saiba como seus\natletas realmente se sentem e se alimentam",
+        "body": "Escolha até cinco perguntas que seus atletas respondem após cada sessão: bem-estar, RPE, incômodos, carboidratos por hora, alimentação antes e durante o treino e mais. Perguntas direcionadas trazem respostas melhores e mais consistentes, e seu assistente inteligente lê todas elas.",
         "tagline": "Detecte fadiga, quedas de motivação ou sinais precoces de lesão enquanto ainda há tempo para agir."
       },
       {
