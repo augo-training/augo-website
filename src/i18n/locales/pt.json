@@ -9,6 +9,7 @@
     "joinAugo": "Junte-se à augo",
     "contact": "Fale com a gente",
     "signUp": "Criar conta",
+    "support": "Ajuda e suporte",
     "coachLogin": "Coach Login"
   },
   "hero": {
@@ -33,7 +34,7 @@
     "headline2": "fortalecer coaches,",
     "headline3": "não substituí-los.",
     "body": "Muitas ferramentas de coaching focam em planos, não em pessoas. Mensagens se espalham por plataformas. O contexto se perde. E sinais importantes passam despercebidos no ruído.",
-    "highlight": "augo reúne tudo – combinando dados de treino, a percepção subjetiva do atleta e as conversas entre treinador e atleta em um único lugar."
+    "highlight": "augo reúne tudo – combinando dados de treino e de recuperação, a percepção subjetiva do atleta e as conversas entre treinador e atleta em um único lugar."
   },
   "coaches": {
     "tag": "PARA COACHES",

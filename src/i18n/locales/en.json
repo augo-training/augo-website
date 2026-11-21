@@ -9,6 +9,7 @@
     "joinAugo": "Join augo",
     "contact": "Contact us",
     "signUp": "Sign up",
+    "support": "Get help and support",
     "coachLogin": "Coach Login"
   },
   "hero": {
@@ -33,7 +34,7 @@
     "headline2": "empower coaches,",
     "headline3": "not replace them.",
     "body": "Too many coaching tools focus on plans, not people. Messages scatter across platforms. Context gets lost. And important signals go unnoticed in the noise.",
-    "highlight": "augo brings everything together - combining workout data, subjective athlete feeling, and coach-athlete conversations in a single place."
+    "highlight": "augo brings everything together - combining workout and recovery data, subjective athlete feeling, and coach-athlete conversations in a single place."
   },
   "coaches": {
     "tag": "FOR COACHES",

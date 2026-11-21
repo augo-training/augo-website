@@ -9,6 +9,7 @@
     "joinAugo": "augo beitreten",
     "contact": "Kontakt",
     "signUp": "Registrieren",
+    "support": "Hilfe und Support",
     "coachLogin": "Coach Login"
   },
   "hero": {
@@ -33,7 +34,7 @@
     "headline2": "Coaches zu stärken",
     "headline3": "– nicht zu ersetzen.",
     "body": "Zu viele Coaching-Tools konzentrieren sich auf Pläne, nicht auf Menschen. Nachrichten sind über Plattformen verstreut. Der Kontext geht verloren. Und wichtige Signale gehen im Rauschen unter.",
-    "highlight": "augo bringt alles zusammen – kombiniert Trainingsdaten, das subjektive Empfinden der Athleten und die Gespräche zwischen Coach und Athlet an einem einzigen Ort."
+    "highlight": "augo bringt alles zusammen – kombiniert Trainings- und Erholungsdaten, das subjektive Empfinden der Athleten und die Gespräche zwischen Coach und Athlet an einem einzigen Ort."
   },
   "coaches": {
     "tag": "FÜR COACHES",
