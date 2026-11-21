@@ -51,22 +51,40 @@ const panelImages: PanelImage[][] = [
         { src: coachesImg1_6, className: 'absolute top-[73%] left-[12%] w-[52%] z-10' },
         { src: coachesImg1_4, className: 'absolute top-[84%] left-[5%] w-[4.5%] z-10' },
     ],
-    [{ src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' }, { src: coachesConnector, className: squareRender }],
-    [{ src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' }, { src: coachesWorkouts, className: squareRender }],
-    [{ src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' }, { src: coachesStrength, className: squareRender }],
+    [
+        { src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' },
+        { src: coachesConnector, className: squareRender },
+    ],
+    [
+        { src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' },
+        { src: coachesWorkouts, className: squareRender },
+    ],
+    [
+        { src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' },
+        { src: coachesStrength, className: squareRender },
+    ],
     [
         { src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' },
         { src: coachesImg3, className: 'absolute inset-0 m-auto w-auto h-[90%] z-10' },
     ],
-    [{ src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' }, { src: coachesAnalysis, className: squareRender }],
-    [{ src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' }, { src: coachesRecovery, className: squareRender }],
+    [
+        { src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' },
+        { src: coachesAnalysis, className: squareRender },
+    ],
+    [
+        { src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' },
+        { src: coachesRecovery, className: squareRender },
+    ],
     [
         { src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' },
         // A near-square modal, so width-sized below md and height-sized above it
         // to stay inside the well either way.
         { src: coachesZones, className: 'absolute inset-0 m-auto w-[80%] h-auto md:w-auto md:h-[85%] rounded-xl z-10' },
     ],
-    [{ src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' }, { src: coachesSignals, className: squareRender }],
+    [
+        { src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' },
+        { src: coachesSignals, className: squareRender },
+    ],
     [
         { src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' },
         // below md the phone is top-anchored and sized by width, so the container
