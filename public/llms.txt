@@ -141,3 +141,12 @@ the date, and a counter shows how many coaches and athletes have signed. Only na
 - **Wellbeing trends:** Long-term patterns surfaced from session feedback to identify fatigue, motivation changes, and injury risk
 - **Attention flags:** Proactive alerts that surface athletes requiring coach input based on data signals, feedback, or schedule requests
 - **Coaching ecosystem:** The combination of tools coaches use — augo sits alongside TrainingPeaks (planning), Garmin/Coros (tracking), and existing messaging apps
+
+---
+
+## Legal
+
+- Privacy Policy: https://www.augotraining.com/en/privacy/ (plain Markdown: https://www.augotraining.com/privacy.md)
+- Terms & Conditions: https://www.augotraining.com/en/terms/ (plain Markdown: https://www.augotraining.com/terms.md)
+
+These cover the augo website, mobile apps and web app. The English text is the binding version.

@@ -31,10 +31,12 @@ import RacingTeam from './pages/RacingTeam'
 import Manifesto from './pages/Manifesto'
 import { setupMetaPixelConsentListener } from './utils/metaPixel'
 
-// The one lazy route. The invitation copy then lives in its own chunk, loaded
-// only when somebody opens /session-zero, instead of in the bundle every
-// visitor downloads (see components/sessionZero/constants.ts for the why).
+// Lazy routes. Their copy then lives in its own chunk, loaded only when somebody
+// opens the page, instead of in the bundle every visitor downloads (see
+// components/sessionZero/constants.ts for the why). The legal pages carry ~100 kB
+// of text plus the Markdown renderer.
 const SessionZero = lazy(() => import('./pages/SessionZero'))
+const Legal = lazy(() => import('./pages/Legal'))
 
 // March 26, 2026 at 20:00 Zurich time
 // DST starts March 29, 2026, so March 26 is still CET (UTC+1)
@@ -80,6 +82,9 @@ function App() {
         {/* /help is the URL people type and paste, even though the section is /support. */}
         <Route path="/support" element={<LegacyRedirect to="/en/support" />} />
         <Route path="/help" element={<LegacyRedirect to="/en/support" />} />
+        {/* Short legal URLs; the webapp's old /privacy and /terms redirect here. */}
+        <Route path="/privacy" element={<LegacyRedirect to="/en/privacy" />} />
+        <Route path="/terms" element={<LegacyRedirect to="/en/terms" />} />
 
         {/* Worlds postcard page. Unprefixed because the printed QR points at
             /merci, and nothing on the site links to it. A static path outranks
@@ -124,6 +129,9 @@ function App() {
           <Route path="blog/:slug" element={<BlogPost />} />
           <Route path="support" element={<SupportHub />} />
           <Route path="support/:slug" element={<SupportArticle />} />
+          {/* Legal pages, English-only like the blog (see pages/Legal.tsx). */}
+          <Route path="privacy" element={<Suspense fallback={null}><Legal slug="privacy" /></Suspense>} />
+          <Route path="terms" element={<Suspense fallback={null}><Legal slug="terms" /></Suspense>} />
           <Route path="*" element={<NotFound />} />
         </Route>
 

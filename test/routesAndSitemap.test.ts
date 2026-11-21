@@ -7,6 +7,7 @@ import {
   getSitemapEntries,
   LANGS,
   STATIC_PATHS,
+  LEGAL_SLUGS,
 } from '../scripts/routes.ts'
 import { renderSitemapXml } from '../scripts/generate-sitemap.ts'
 import { COURSE_CALLOUT_SLUGS } from '../src/components/coachCourse/constants'
@@ -24,7 +25,7 @@ describe('routes and sitemap', () => {
     // /en/manifesto pages
     // + english-only support articles
     // + 1 for the /en/support hub route + 2 for the unprefixed /merci and
-    // /session-zero pages.
+    // /session-zero pages + english-only legal pages.
     expect(routes).toHaveLength(
       LANGS.length * STATIC_PATHS.length +
         LANGS.length * coachSlugs.length +
@@ -33,7 +34,8 @@ describe('routes and sitemap', () => {
         5 +
         supportSlugs.length +
         1 +
-        2,
+        2 +
+        LEGAL_SLUGS.length,
     )
 
     // /merci sits outside /:lang (the postcard QR points at augotraining.com/merci)

@@ -16,11 +16,10 @@ const socialLinks = [
     { icon: unknownIcon, alt: 'Substack', href: 'https://substack.com/@augotraining' },
 ]
 
-// Hosted by the webapp (webapp.augotraining.com), not this site — the legal
-// pages live there so the same copy backs both the app and this footer.
+// English-only (pages/Legal.tsx), so the links skip the language prefix.
 const legalLinks = [
-    { key: 'privacyPolicy', href: 'https://webapp.augotraining.com/privacy' },
-    { key: 'terms', href: 'https://webapp.augotraining.com/terms' },
+    { key: 'privacyPolicy', href: '/en/privacy/' },
+    { key: 'terms', href: '/en/terms/' },
 ]
 
 export default function Footer() {
@@ -201,8 +200,6 @@ export default function Footer() {
                         <a
                             key={link.key}
                             href={link.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
                             className="font-satoshi font-medium text-[12px] sm:text-[14px] lg:text-[20px] leading-[130%] text-[#323439] hover:text-white transition-colors duration-200"
                         >
                             {t(`footer.links.${link.key}`)}
