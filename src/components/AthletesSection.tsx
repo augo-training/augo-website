@@ -2,20 +2,14 @@ import { useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import athletesImg1_1 from '../assets/images/img_for_athletes_1_1.png'
-import athletesImg1_2 from '../assets/images/img_for_athletes_1_2.png'
-import athletesImg1_3 from '../assets/images/img_for_athletes_1_3.png'
-import athletesImg1_4 from '../assets/images/img_for_athletes_1_4.png'
-import athletesImg1_5 from '../assets/images/img_for_athletes_1_5.png'
-import athletesImg1_6 from '../assets/images/img_for_athletes_1_6.png'
-import athletesWorkout from '../assets/images/img_for_athletes_workout.png?w=488&format=webp'
-import athletesStrength from '../assets/images/img_strength_workout.png?w=438&format=webp'
+import athletesChat from '../assets/images/img_section_chat.png?w=960&format=webp'
+import athletesWorkout from '../assets/images/img_for_athletes_workout.png?w=960&format=webp'
+import athletesStrength from '../assets/images/img_for_athletes_strength.png?w=960&format=webp'
 import athletesImg2_1 from '../assets/images/img_for_athletes_2_1.png'
 import athletesImg2_2 from '../assets/images/img_for_athletes_2_2.png'
 import athletesImg2_3 from '../assets/images/img_for_athletes_2_3.png'
-import athletesImg3_1 from '../assets/images/img_for_athletes_3_1.png'
-import athletesImg3_2 from '../assets/images/img_for_athletes_3_2.png'
-import athletesImg3_3 from '../assets/images/img_for_athletes_3_3.png'
+import athletesRecovery from '../assets/images/img_section_coaches_recovery.png?w=960&format=webp'
+import athletesTrends from '../assets/images/img_for_athletes_trends.png?w=960&format=webp'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -24,26 +18,22 @@ interface PanelImage {
     className?: string
 }
 
+/**
+ * Square UI renders cut out onto transparency, so the glow shows through. The
+ * wells here are wider than they are tall at every breakpoint (28vh on mobile),
+ * so they are height-sized throughout to keep the whole render in view.
+ */
+const squareRender = 'absolute inset-0 m-auto w-auto h-[92%] z-10'
+
 const panelImages: PanelImage[][] = [
     [
-        { src: athletesImg1_2, className: 'absolute top-[7%] left-[12%] w-[55%] z-10' },
-        { src: athletesImg1_3, className: 'grayscale absolute top-[78%] left-[5%] w-[5%] z-10' },
-        { src: athletesImg1_4, className: 'absolute top-[22%] left-[12%] w-[52%] z-10' },
-        { src: athletesImg1_5, className: 'absolute top-[40%] right-[18%] w-[52%] z-10' },
-        { src: athletesImg1_3, className: 'absolute top-[32%] left-[5%] w-[5%] z-10' },
-        { src: athletesImg1_6, className: 'absolute top-[62%] left-[12%] w-[52%] z-10' },
-        { src: athletesImg1_1, className: 'grayscale absolute top-[56%] right-[10%] w-[5%] z-10' },
+        { src: athletesChat, className: squareRender },
     ],
     [
-        // The only full device shot in this section, and the wells here are short
-        // (28vh on mobile), so it is top-anchored and the container crops the
-        // bottom rather than shrinking the phone to nothing.
-        { src: athletesWorkout, className: 'absolute inset-x-0 top-0 mx-auto w-[70%] sm:w-[52%] md:inset-y-0 md:my-auto md:w-auto md:h-[95%] z-10' },
+        { src: athletesWorkout, className: squareRender },
     ],
     [
-        // The phone is cut off at the bottom of the source image, so it is sized
-        // taller than the well and the container crops the cut edge away.
-        { src: athletesStrength, className: 'absolute inset-x-0 top-0 mx-auto w-[70%] sm:w-[52%] md:top-[5%] md:w-auto md:h-[110%] z-10' },
+        { src: athletesStrength, className: squareRender },
     ],
     [
         { src: athletesImg2_1, className: 'absolute top-[7%] lg:top-[7%] md:top-[10%] left-[10%] w-[45%] z-10' },
@@ -51,9 +41,10 @@ const panelImages: PanelImage[][] = [
         { src: athletesImg2_3, className: 'absolute top-[45%] lg:top-[45%] md:top-[55%] left-[10%] w-[45%] z-10' },
     ],
     [
-        { src: athletesImg3_1, className: 'absolute top-[1%] left-[15%] w-[48%] z-10' },
-        { src: athletesImg3_2, className: 'absolute top-[30%] right-[1%] w-[48%] z-10' },
-        { src: athletesImg3_3, className: 'absolute top-[50%] left-[8%] w-[48%] z-10' },
+        { src: athletesRecovery, className: squareRender },
+    ],
+    [
+        { src: athletesTrends, className: squareRender },
     ],
 ]
 

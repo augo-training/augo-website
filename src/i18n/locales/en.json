@@ -39,6 +39,11 @@
     "tag": "FOR COACHES",
     "panels": [
       {
+        "headline": "Every conversation,\nright next to the training.",
+        "body": "Chat with each athlete inside augo. Reply to a specific message, react in a tap, or leave a voice comment on the run they just finished. Questions sit right next to the sessions they're about.",
+        "tagline": "No more digging through WhatsApp to remember what was said."
+      },
+      {
         "headline": "Instant insights\nwith full athlete context",
         "body": "augo stores and remembers every athlete conversation, session feedback, and workout data. Ask the intelligent assistant anything and get instant answers with full athlete context.",
         "tagline": "No more searching through buried calendar notes or scrolling through messages histories to remember when your athlete mentioned that knee discomfort."
@@ -111,6 +116,10 @@
       {
         "headline": "Share how you're\nfeeling, not just\nhow you're\nperforming",
         "body": "Log session feedback and share it seamlessly with your coach: energy level, pain, fueling, and how you're feeling. Help your coach understand the complete picture, not just the data coming from your watch."
+      },
+      {
+        "headline": "Your recovery,\nnot just\nyour training.",
+        "body": "Connect WHOOP, Oura, Garmin, Apple Health or COROS and augo picks up your sleep, resting heart rate, HRV and steps every morning, right next to your workouts. Your coach sees how you've recovered and plans what comes next around it."
       },
       {
         "headline": "Track how\nyou're really\ndoing",
