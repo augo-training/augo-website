@@ -225,8 +225,9 @@ export default function Hero({ onWatchFilm }: HeroProps) {
                             </span>
                         )}
                     </h1>
-                    <p ref={subheadlineRef} className="font-satoshi font-medium text-base sm:text-lg leading-[130%] text-white mb-8 sm:mb-10" style={{ opacity: 0 }}>
-                        {/* Breaks after the first clause on desktop; flows as one paragraph on smaller screens */}
+                    <p ref={subheadlineRef} className="max-w-[640px] text-balance font-satoshi font-medium text-base sm:text-lg leading-[130%] text-white mb-8 sm:mb-10" style={{ opacity: 0 }}>
+                        {/* Breaks after the first sentence on desktop; flows as one paragraph on smaller screens.
+                            Narrower than the headline column, and balanced, so neither part ends on a stub line. */}
                         {t('hero.subheadline')}{' '}
                         <span className="lg:block">{t('hero.subheadlineContinued')}</span>
                     </p>

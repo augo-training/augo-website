@@ -9,6 +9,7 @@
     "joinAugo": "augo beitreten",
     "contact": "Kontakt",
     "signUp": "Registrieren",
+    "support": "Hilfe und Support",
     "coachLogin": "Coach Login"
   },
   "hero": {
@@ -22,8 +23,8 @@
       "Triathlon-",
       "Ausdauer-"
     ],
-    "subheadline": "Die intelligente Plattform, die Kommunikation zwischen Coach und Athlet,",
-    "subheadlineContinued": "das Befinden der Athleten, Trainingsdaten und Trainingsplanung an einem einzigen Ort vereint."
+    "subheadline": "Die intelligente Plattform, die Kommunikation zwischen Coach und Athlet, das Befinden der Athleten, Trainings- und Erholungsdaten und die Trainingsplanung an einem Ort vereint.",
+    "subheadlineContinued": "Weniger Suchen, mehr Zeit, um deine Athleten zu begleiten und zu entscheiden, was als Nächstes kommt."
   },
   "connects": {
     "headline": "Verbindet sich nahtlos mit deinen Apps und Geräten"
@@ -33,7 +34,7 @@
     "headline2": "Coaches zu stärken",
     "headline3": "– nicht zu ersetzen.",
     "body": "Zu viele Coaching-Tools konzentrieren sich auf Pläne, nicht auf Menschen. Nachrichten sind über Plattformen verstreut. Der Kontext geht verloren. Und wichtige Signale gehen im Rauschen unter.",
-    "highlight": "augo bringt alles zusammen – kombiniert Trainingsdaten, das subjektive Empfinden der Athleten und die Gespräche zwischen Coach und Athlet an einem einzigen Ort."
+    "highlight": "augo bringt alles zusammen – kombiniert Trainings- und Erholungsdaten, das subjektive Empfinden der Athleten und die Gespräche zwischen Coach und Athlet an einem einzigen Ort."
   },
   "coaches": {
     "tag": "FÜR COACHES",
@@ -44,9 +45,9 @@
         "tagline": "Kein Durchsuchen von WhatsApp mehr, um dich zu erinnern, was gesagt wurde."
       },
       {
-        "headline": "Sofortige Einblicke\nmit vollem Athletenkontext",
-        "body": "augo speichert und merkt sich jedes Athletengespräch, Session-Feedback und Trainingsdaten. Frage den intelligenten Assistenten alles und erhalte sofortige Antworten mit vollem Athletenkontext.",
-        "tagline": "Kein Durchsuchen vergrabener Kalendernotizen oder Scrollen durch Nachrichtenverläufe mehr, um sich zu erinnern, wann dein Athlet das Knieproblem erwähnt hat."
+        "headline": "Dein intelligenter Assistent\nmit vollem Athletenkontext",
+        "body": "augo hat einen eingebauten Assistenten, betrieben von Claude, der jedes Gespräch, jede Einheit, jedes Feedback, jedes Workout und alle Erholungsdaten deiner Athleten kennt. Frag ihn alles und erhalte Analysen und Einblicke im Handumdrehen.",
+        "tagline": "Kein ChatGPT- oder Claude-Konto nötig. Er ist direkt in der augo App und in deinem Abo enthalten."
       },
       {
         "headline": "Verbinde augo mit\nClaude und ChatGPT.",
@@ -66,6 +67,11 @@
         "linkLabel": "Beispiel-Prompt ansehen"
       },
       {
+        "headline": "Erholungsdaten,\njeden Morgen.",
+        "body": "Schlaf, Ruhepuls, HRV und Schritte kommen direkt von Garmin, COROS, WHOOP, Oura oder Apple Health deiner Athleten, jeweils im Vergleich zu ihrem eigenen 30-Tage-Schnitt.",
+        "tagline": "Erkenne die kurze Nacht oder den steigenden Ruhepuls, bevor sie sich in der Einheit zeigen."
+      },
+      {
         "headline": "Erkenne, wie sich deine\nAthleten wirklich fühlen",
         "body": "augo kombiniert Session-Feedbacks mit langfristigen Trends. So erkennst du subtile Veränderungen sofort, bevor Herausforderungen zu Problemen werden.",
         "tagline": "Erkenne Ermüdung, Motivationstiefs oder frühe Verletzungsanzeichen, solange noch Zeit zum Handeln bleibt."
@@ -74,11 +80,6 @@
         "headline": "Daten und Gefühl,\nSeite an Seite",
         "body": "Geplant gegenüber absolviert, die Datenströme der Uhr und die Zeit in den Pace- und Herzfrequenzzonen, direkt neben RPE, Notizen und Sprachnachrichten deines Athleten.",
         "tagline": "Wenn Zahlen und Feedback nicht zusammenpassen, beginnt das Coaching."
-      },
-      {
-        "headline": "Erholungsdaten,\njeden Morgen.",
-        "body": "Schlaf, Ruhepuls, HRV und Schritte kommen direkt von Garmin, COROS, WHOOP, Oura oder Apple Health deiner Athleten, jeweils im Vergleich zu ihrem eigenen 30-Tage-Schnitt.",
-        "tagline": "Erkenne die kurze Nacht oder den steigenden Ruhepuls, bevor sie sich in der Einheit zeigen."
       },
       {
         "headline": "Deine Zonen.\nDein Weg.",

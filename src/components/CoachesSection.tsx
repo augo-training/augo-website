@@ -70,15 +70,15 @@ const panelImages: PanelImage[][] = [
     ],
     [
         { src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' },
+        { src: coachesRecovery, className: squareRender },
+    ],
+    [
+        { src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' },
         { src: coachesImg3, className: 'absolute inset-0 m-auto w-auto h-[90%] z-10' },
     ],
     [
         { src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' },
         { src: coachesAnalysis, className: squareRender },
-    ],
-    [
-        { src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' },
-        { src: coachesRecovery, className: squareRender },
     ],
     [
         { src: carouselImgBg, className: 'absolute inset-0 m-auto w-auto h-[80%] rounded-2xl opacity-30' },

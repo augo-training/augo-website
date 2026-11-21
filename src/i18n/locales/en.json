@@ -9,6 +9,7 @@
     "joinAugo": "Join augo",
     "contact": "Contact us",
     "signUp": "Sign up",
+    "support": "Get help & support",
     "coachLogin": "Coach Login"
   },
   "hero": {
@@ -22,8 +23,8 @@
       "triathlon",
       "endurance"
     ],
-    "subheadline": "The intelligent platform that combines coach-athlete communication,",
-    "subheadlineContinued": "how athletes are feeling, workout data and training plan creation in a single place."
+    "subheadline": "The intelligent platform that brings coach-athlete communication, how athletes feel, workout and recovery data, and plan creation into one place.",
+    "subheadlineContinued": "Less searching, more time to guide your athletes and decide what comes next."
   },
   "connects": {
     "headline": "Connects seamlessly with your apps and devices"
@@ -33,7 +34,7 @@
     "headline2": "empower coaches,",
     "headline3": "not replace them.",
     "body": "Too many coaching tools focus on plans, not people. Messages scatter across platforms. Context gets lost. And important signals go unnoticed in the noise.",
-    "highlight": "augo brings everything together - combining workout data, subjective athlete feeling, and coach-athlete conversations in a single place."
+    "highlight": "augo brings everything together - combining workout and recovery data, subjective athlete feeling, and coach-athlete conversations in a single place."
   },
   "coaches": {
     "tag": "FOR COACHES",
@@ -44,9 +45,9 @@
         "tagline": "No more digging through WhatsApp to remember what was said."
       },
       {
-        "headline": "Instant insights\nwith full athlete context",
-        "body": "augo stores and remembers every athlete conversation, session feedback, and workout data. Ask the intelligent assistant anything and get instant answers with full athlete context.",
-        "tagline": "No more searching through buried calendar notes or scrolling through messages histories to remember when your athlete mentioned that knee discomfort."
+        "headline": "Your intelligent assistant\nwith full athlete context",
+        "body": "augo has a built-in assistant, powered by Claude, that reads every athlete conversation, session, piece of feedback, workout and recovery data. Ask it anything and get analysis and insights in an instant.",
+        "tagline": "No ChatGPT or Claude account needed. It lives inside the augo app and is included in your subscription."
       },
       {
         "headline": "Connect augo to\nClaude and ChatGPT.",
@@ -66,6 +67,11 @@
         "linkLabel": "See an example prompt"
       },
       {
+        "headline": "Recovery data,\nevery morning.",
+        "body": "Sleep, resting heart rate, HRV and steps arrive from your athletes' Garmin, COROS, WHOOP, Oura or Apple Health, each one set against their own 30-day average.",
+        "tagline": "Spot the short night or the climbing heart rate before it shows up in the session."
+      },
+      {
         "headline": "Know how your\nathletes really feel",
         "body": "augo captures post-session feedback, providing the coach visibility on long-term wellbeing trends, helping you spot subtle changes that signal challenges ahead.",
         "tagline": "Catch fatigue, motivation dips, or early injury signs while there's still time to act."
@@ -74,11 +80,6 @@
         "headline": "See the data\nand the feeling,\nside by side",
         "body": "Planned versus completed, the streams from the watch, and time in zones for pace and heart rate, right next to your athlete's RPE, notes and voice memos.",
         "tagline": "When the numbers and the feedback disagree, that's where coaching starts."
-      },
-      {
-        "headline": "Recovery data,\nevery morning.",
-        "body": "Sleep, resting heart rate, HRV and steps arrive from your athletes' Garmin, COROS, WHOOP, Oura or Apple Health, each one set against their own 30-day average.",
-        "tagline": "Spot the short night or the climbing heart rate before it shows up in the session."
       },
       {
         "headline": "Your zones.\nYour way.",

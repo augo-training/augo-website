@@ -79,13 +79,15 @@ export default function Navbar() {
     ]
 
     const mobileMenuLinks = [
-        { label: t('nav.forCoaches'), href: '#coaches' },
         { label: t('nav.forAthletes'), href: '#athletes' },
+        { label: t('nav.forCoaches'), href: '#coaches' },
         { label: t('nav.pricing'), href: `/${currentLang}/pricing` },
         { label: t('nav.bookDemo'), href: `/${currentLang}/book-a-demo` },
         { label: t('nav.findAMatch'), href: `/${currentLang}/find/` },
-        { label: t('nav.contact'), href: `/${currentLang}/contact` },
         { label: t('nav.signUp'), href: `/${currentLang}/download` },
+        // English-only like the footer's Support link; /de and /pt redirect to /en
+        { label: t('nav.support'), href: `/${currentLang}/support` },
+        { label: t('nav.contact'), href: `/${currentLang}/contact` },
     ]
 
     const [menuOpen, setMenuOpen] = useState(false)
@@ -354,7 +356,7 @@ export default function Navbar() {
                 </div>
 
                 {/* Menu links — centered in the upper area */}
-                <nav className="flex flex-col items-center gap-8 pt-8 sm:pt-32 flex-1">
+                <nav className="flex flex-col items-center gap-5 sm:gap-8 pt-6 sm:pt-32 flex-1">
                     {mobileMenuLinks.map((link, i) => (
                         <a
                             key={link.href}
@@ -364,7 +366,7 @@ export default function Navbar() {
                                 trackNavLinkClicked({ link_text: link.label, destination: link.href, is_mobile: true })
                                 handleMenuLinkClick(e, link.href)
                             }}
-                            className="font-['JetBrains_Mono'] font-normal text-[24px] leading-[150%] tracking-[0px] text-center uppercase text-white no-underline"
+                            className="font-['JetBrains_Mono'] font-normal text-[20px] sm:text-[24px] leading-[150%] tracking-[0px] text-center uppercase text-white no-underline"
                             style={{ opacity: 0 }}
                         >
                             {link.label}

@@ -9,6 +9,7 @@
     "joinAugo": "Junte-se à augo",
     "contact": "Fale com a gente",
     "signUp": "Criar conta",
+    "support": "Ajuda e suporte",
     "coachLogin": "Coach Login"
   },
   "hero": {
@@ -22,8 +23,8 @@
       "triathlon",
       "endurance"
     ],
-    "subheadline": "A plataforma inteligente que combina comunicação coach-atleta,",
-    "subheadlineContinued": "como os atletas estão se sentindo, dados de treino e criação de planos de treino em um só lugar."
+    "subheadline": "A plataforma inteligente que reúne a comunicação coach-atleta, como os atletas se sentem, dados de treino e de recuperação e a criação de planos em um só lugar.",
+    "subheadlineContinued": "Menos procura, mais tempo para orientar seus atletas e decidir o próximo passo."
   },
   "connects": {
     "headline": "Conecta-se perfeitamente com seus apps e dispositivos"
@@ -33,7 +34,7 @@
     "headline2": "fortalecer coaches,",
     "headline3": "não substituí-los.",
     "body": "Muitas ferramentas de coaching focam em planos, não em pessoas. Mensagens se espalham por plataformas. O contexto se perde. E sinais importantes passam despercebidos no ruído.",
-    "highlight": "augo reúne tudo – combinando dados de treino, a percepção subjetiva do atleta e as conversas entre treinador e atleta em um único lugar."
+    "highlight": "augo reúne tudo – combinando dados de treino e de recuperação, a percepção subjetiva do atleta e as conversas entre treinador e atleta em um único lugar."
   },
   "coaches": {
     "tag": "PARA COACHES",
@@ -44,9 +45,9 @@
         "tagline": "Chega de vasculhar o WhatsApp para lembrar o que foi dito."
       },
       {
-        "headline": "Insights instantâneos\ncom contexto completo do atleta",
-        "body": "augo armazena e lembra cada conversa, feedback de sessão e dado de treino do atleta. Pergunte qualquer coisa ao assistente inteligente e obtenha respostas instantâneas com contexto completo do atleta.",
-        "tagline": "Chega de vasculhar anotações de calendário ou rolar históricos de mensagens para lembrar quando seu atleta mencionou aquele desconforto no joelho."
+        "headline": "Seu assistente inteligente\ncom contexto completo do atleta",
+        "body": "A augo tem um assistente integrado, com tecnologia Claude, que lê cada conversa, treino, feedback, sessão e dado de recuperação dos seus atletas. Pergunte qualquer coisa e receba análises e insights na hora.",
+        "tagline": "Não precisa de conta no ChatGPT ou no Claude. Ele fica dentro do app da augo e está incluído na sua assinatura."
       },
       {
         "headline": "Conecte a augo ao\nClaude e ao ChatGPT.",
@@ -66,6 +67,11 @@
         "linkLabel": "Veja um exemplo de prompt"
       },
       {
+        "headline": "Dados de recuperação,\ntoda manhã.",
+        "body": "Sono, frequência cardíaca de repouso, VFC e passos chegam do Garmin, COROS, WHOOP, Oura ou Apple Health dos seus atletas, cada um comparado à média dos últimos 30 dias.",
+        "tagline": "Perceba a noite mal dormida ou a frequência cardíaca subindo antes que apareçam no treino."
+      },
+      {
         "headline": "Saiba como seus\natletas realmente se sentem",
         "body": "augo captura feedback pós-sessão, dando ao coach visibilidade sobre tendências de bem-estar de longo prazo, ajudando a detectar mudanças sutis que sinalizam desafios à frente.",
         "tagline": "Detecte fadiga, quedas de motivação ou sinais precoces de lesão enquanto ainda há tempo para agir."
@@ -74,11 +80,6 @@
         "headline": "Veja os dados\ne a sensação,\nlado a lado",
         "body": "Planejado versus realizado, os dados do relógio e o tempo em cada zona de pace e frequência cardíaca, ao lado do RPE, das anotações e dos áudios do seu atleta.",
         "tagline": "Quando os números e o feedback não batem, é aí que o coaching começa."
-      },
-      {
-        "headline": "Dados de recuperação,\ntoda manhã.",
-        "body": "Sono, frequência cardíaca de repouso, VFC e passos chegam do Garmin, COROS, WHOOP, Oura ou Apple Health dos seus atletas, cada um comparado à média dos últimos 30 dias.",
-        "tagline": "Perceba a noite mal dormida ou a frequência cardíaca subindo antes que apareçam no treino."
       },
       {
         "headline": "Suas zonas.\nDo seu jeito.",
