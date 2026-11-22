@@ -40,12 +40,15 @@ const INTEGRATION_KEYWORDS = [
     ...RECOVERY_INTEGRATIONS.map((row) => row.name),
     ...HISTORY_IMPORTS.map((row) => row.name),
     'history', 'import', 'export', 'unlimited',
-    'karoo', 'mywhoosh', 'devices', 'watch', 'sync', 'connect', 'integrations', 'web app', 'ios', 'android', 'mobile app', 'iphone',
+    'karoo', 'mywhoosh', 'watch', 'sync', 'connect', 'integrations',
 ]
+
+const DEVICE_KEYWORDS = ['devices', 'web app', 'web version', 'browser', 'desktop', 'computer', 'ios', 'android', 'iphone', 'mobile app', 'phone', 'app store']
 
 interface PageCopy {
     coach: FeatureItem[]
     athlete: FeatureItem[]
+    devices: { title: string; lead: string; text: string[] }
     integrations: { title: string; lead: string; text: string[] }
     faq: { question: string; answer: string }[]
 }
@@ -100,6 +103,7 @@ export function buildFeaturesSearch(copy: PageCopy): { index: SupportSearchIndex
         }
     }
 
+    add(doc(`#${SECTION_IDS.devices}`, copy.devices.title, copy.devices.lead, copy.devices.text, DEVICE_KEYWORDS, 'both'))
     add(doc(`#${SECTION_IDS.integrations}`, copy.integrations.title, copy.integrations.lead, copy.integrations.text, INTEGRATION_KEYWORDS, 'both'))
 
     copy.faq.forEach((item, i) => {

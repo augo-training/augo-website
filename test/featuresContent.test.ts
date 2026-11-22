@@ -4,7 +4,7 @@ import { join } from 'node:path'
 import en from '../src/i18n/locales/en.json'
 import de from '../src/i18n/locales/de.json'
 import pt from '../src/i18n/locales/pt.json'
-import { FEATURE_VISUALS, STAGE_FEATURES, SUPPORT_SLUGS, viewForHash } from '../src/components/features/constants'
+import { FEATURE_VISUALS, SUPPORT_SLUGS } from '../src/components/features/constants'
 
 const locales = { en, de, pt } as const
 
@@ -39,38 +39,11 @@ describe('features content', () => {
         expect(new Set(Object.keys(FEATURE_VISUALS))).toEqual(new Set(ids(en)))
     })
 
-    it('only puts real features in the coaching week, coach and athlete on their own side', () => {
-        const coach = new Set(en.features.coach.items.map((item) => item.id))
-        const athlete = new Set(en.features.athlete.items.map((item) => item.id))
-        expect(STAGE_FEATURES.map((s) => s.key)).toEqual(en.features.week.stages.map((s) => s.key))
-        for (const stage of STAGE_FEATURES) {
-            expect(stage.coach.length).toBeGreaterThan(0)
-            expect(stage.athlete.length).toBeGreaterThan(0)
-            for (const id of stage.coach) expect(coach.has(id)).toBe(true)
-            for (const id of stage.athlete) expect(athlete.has(id)).toBe(true)
-        }
-    })
-
     it('links only to support articles that exist', () => {
         for (const [id, slug] of Object.entries(SUPPORT_SLUGS)) {
             expect(ids(en)).toContain(id)
             expect(existsSync(join(__dirname, '../src/content/support', `${slug}.json`))).toBe(true)
         }
-    })
-
-    it('opens the week view for week and stage hashes, and the guide for features', () => {
-        expect(viewForHash('#by-week')).toBe('week')
-        expect(viewForHash('#week-listen')).toBe('week')
-        expect(viewForHash('#by-feature')).toBe('guide')
-        expect(viewForHash('#assistant')).toBe('guide')
-        expect(viewForHash('#a-recovery')).toBe('guide')
-    })
-
-    it('leaves the view alone for sections under both views', () => {
-        expect(viewForHash('#all-features')).toBeNull()
-        expect(viewForHash('#integrations')).toBeNull()
-        expect(viewForHash('#at-a-glance')).toBeNull()
-        expect(viewForHash('#faqs')).toBeNull()
     })
 
     it('carries no i18next interpolation in FAQ items', () => {

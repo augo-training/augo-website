@@ -1006,13 +1006,16 @@
     "hero": {
       "eyebrow": "Funcionalidades",
       "title": "Tudo o que a augo faz, para coaches e seus atletas",
-      "lead": "A augo reúne a comunicação entre coach e atleta, o feedback de cada treino, os dados de treino e de recuperação e a criação do plano em um só lugar. Leia cada funcionalidade em detalhe, ou acompanhe uma semana de treino para ver como tudo se encaixa."
+      "lead": "A augo reúne a comunicação entre coach e atleta, o feedback de cada treino, os dados de treino e de recuperação e a criação do plano em um só lugar. Pesquise o que você precisa, ou veja abaixo cada funcionalidade."
     },
     "index": {
       "title": "Todas as funcionalidades",
       "lead": "Vá direto para qualquer funcionalidade, ou pesquise o que você quer saber.",
-      "integrationsTitle": "Apps e integrações",
-      "integrationsSummary": "Web, iOS e Android, além de Garmin, COROS, Wahoo, WHOOP, Oura e mais."
+      "setupTitle": "Dispositivos e integrações",
+      "devicesTitle": "Dispositivos",
+      "devicesSummary": "Web, iOS e Android para coaches. iOS e Android para atletas, web ainda em 2026.",
+      "integrationsTitle": "Integrações",
+      "integrationsSummary": "Garmin, COROS, Wahoo, Strava, WHOOP, Oura, TrainingPeaks e mais."
     },
     "search": {
       "label": "Pesquisar funcionalidades e suporte",
@@ -1029,17 +1032,10 @@
         "Dados de recuperação"
       ]
     },
-    "switch": {
-      "label": "Escolha uma visualização",
+    "nav": {
+      "label": "Seções",
       "allFeatures": "Todas as funcionalidades",
-      "guide": {
-        "title": "Por funcionalidade",
-        "hint": "Cada funcionalidade em detalhe"
-      },
-      "week": {
-        "title": "Pela semana de treino",
-        "hint": "Veja como tudo se encaixa"
-      }
+      "faq": "Perguntas"
     },
     "guide": {
       "coachHeading": "Para coaches",
@@ -1047,8 +1043,6 @@
       "athleteHeading": "Para atletas",
       "athleteLead": "O app da augo que seus atletas usam para treinar, dar feedback e falar com você. Gratuito para atletas.",
       "howItWorks": "Como funciona",
-      "whereItFits": "Onde se encaixa",
-      "stepLabel": "Etapa {{n}} · {{stage}}",
       "learnMore": "Saiba mais no Suporte"
     },
     "coach": {
@@ -1545,142 +1539,34 @@
         }
       ]
     },
-    "week": {
-      "title": "Como a augo se encaixa na sua semana de treino",
-      "lead": "Acompanhe uma semana, do planejamento do treino à decisão do que vem a seguir. Em cada etapa, veja com o que você trabalha e o que o seu atleta vê.",
-      "coachSide": "O que você vê",
-      "athleteSide": "O que o seu atleta vê",
-      "stepLabel": "Etapa {{n}}",
-      "details": "Detalhes",
-      "stages": [
-        {
-          "key": "plan",
-          "name": "Planejar",
-          "title": "Planeje a semana",
-          "intro": "Crie os treinos que o seu atleta precisa, do jeito mais rápido para você.",
-          "coach": {
-            "points": [
-              "Monte treinos no criador, ou descreva para o assistente.",
-              "Treinos de força com séries, descanso, dicas e vídeos.",
-              "Zonas de frequência cardíaca, pace e potência, por atleta.",
-              "Copie um treino ou uma semana inteira para outro dia ou atleta."
-            ]
-          },
-          "athlete": {
-            "points": [
-              "A semana aparece no app, dia a dia.",
-              "Cada treino mostra cada etapa: aquecimento, tiros, desaquecimento.",
-              "As próximas provas aparecem logo ali."
-            ]
-          }
-        },
-        {
-          "key": "deliver",
-          "name": "Entregar",
-          "title": "Entregue no relógio",
-          "intro": "O treino vai para onde o seu atleta treina, sem copiar nada.",
-          "coach": {
-            "points": [
-              "Os treinos planejados sincronizam com Garmin, COROS, Wahoo e Suunto.",
-              "Os pedais vão direto para o Rouvy.",
-              "Prefere Claude ou ChatGPT? Planeje semanas ou blocos inteiros por lá com o conector."
-            ]
-          },
-          "athlete": {
-            "points": [
-              "Siga o treino no relógio ou no app.",
-              "Timer de descanso e vídeo para cada exercício de força.",
-              "Exporte pedais para o Zwift ou o MyWhoosh."
-            ]
-          }
-        },
-        {
-          "key": "listen",
-          "name": "Ouvir",
-          "title": "Ouça o atleta e o corpo dele",
-          "intro": "Feedback, recuperação e dados, lado a lado.",
-          "coach": {
-            "points": [
-              "Feedback de cada treino: sensação, dor, PSE, alimentação e áudios.",
-              "Dados de recuperação toda manhã: sono, FC de repouso, VFC, passos.",
-              "Planejado contra realizado, com parciais e tempo em zonas."
-            ]
-          },
-          "athlete": {
-            "points": [
-              "Responda a algumas perguntas depois de cada treino.",
-              "Conecte WHOOP, Oura, Garmin, Apple Health ou COROS uma vez.",
-              "Seu coach vê como você se recuperou."
-            ]
-          }
-        },
-        {
-          "key": "decide",
-          "name": "Decidir",
-          "title": "Decida quem precisa de você, e o que vem a seguir",
-          "intro": "Comece o dia com os atletas que precisam de você, e pergunte qualquer coisa sobre eles.",
-          "coach": {
-            "points": [
-              "Athlete Signals toda manhã: quem está com dificuldade, quem quer uma mudança, quem bateu recorde.",
-              "O assistente no app leu tudo. Não precisa de conta extra.",
-              "Prepare uma conversa em um minuto."
-            ]
-          },
-          "athlete": {
-            "points": [
-              "Veja seu volume semanal e como você tem se sentido.",
-              "Conte os dias até a sua próxima prova.",
-              "Identifique sinais de alerta junto com seu coach."
-            ]
-          }
-        },
-        {
-          "key": "adjust",
-          "name": "Ajustar",
-          "title": "Ajustem juntos",
-          "intro": "Conversem e guardem o contexto para a próxima vez.",
-          "coach": {
-            "points": [
-              "Chat com respostas, reações e comentários em áudio nos treinos.",
-              "Notas privadas por atleta, lidas pelo assistente.",
-              "Guarde o histórico completo de cada conversa."
-            ]
-          },
-          "athlete": {
-            "points": [
-              "Fale com seu coach no app, não no WhatsApp.",
-              "Ouça o comentário em áudio dele sobre a sua corrida.",
-              "Conte como você se sentiu depois de cada treino."
-            ]
-          }
-        }
-      ]
+    "devices": {
+      "eyebrow": "Dispositivos",
+      "title": "Onde você usa a augo",
+      "lead": "Coaches trabalham na web ou no celular. Atletas usam o app da augo para iOS e Android.",
+      "download": "Baixar o app",
+      "coach": {
+        "title": "Coaches",
+        "body": "O app web da augo, mais o app para iOS e Android. Seus atletas, conversas e planos são os mesmos nos dois.",
+        "tags": [
+          "App web",
+          "iOS",
+          "Android"
+        ]
+      },
+      "athlete": {
+        "title": "Atletas",
+        "body": "O app da augo para iOS e Android, gratuito para atletas. Uma versão web para atletas chega ainda em 2026.",
+        "tags": [
+          "iOS",
+          "Android",
+          "Web: ainda em 2026"
+        ]
+      }
     },
     "integrations": {
-      "eyebrow": "Apps e integrações",
-      "title": "Onde a augo funciona, e com o que ela se conecta",
+      "eyebrow": "Integrações",
+      "title": "Com o que a augo se conecta",
       "lead": "A augo funciona com os relógios, ciclocomputadores, plataformas indoor e wearables que seus atletas já usam. Veja exatamente o que cada integração faz.",
-      "platforms": {
-        "title": "Onde você usa a augo",
-        "coach": {
-          "title": "Coaches",
-          "body": "O app web da augo, mais o app para iOS e Android. Seus atletas, conversas e planos são os mesmos nos dois.",
-          "tags": [
-            "App web",
-            "iOS",
-            "Android"
-          ]
-        },
-        "athlete": {
-          "title": "Atletas",
-          "body": "O app da augo para iOS e Android, gratuito para atletas. Uma versão web para atletas chega ainda em 2026.",
-          "tags": [
-            "iOS",
-            "Android",
-            "Web: ainda em 2026"
-          ]
-        }
-      },
       "how": {
         "title": "Como as integrações funcionam",
         "items": [
@@ -1717,7 +1603,7 @@
         "planned": "Treinos planejados",
         "completed": "Atividades concluídas",
         "historyAuto": "Histórico, automático",
-      "historyRequest": "Histórico, sob pedido",
+        "historyRequest": "Histórico, sob pedido",
         "recovery": "Dados de recuperação",
         "values": {
           "yes": "Sim",
@@ -1735,8 +1621,8 @@
           "recovery": "Wearables de recuperação"
         },
         "historyNote": "Ao conectar um dispositivo, os últimos 30 dias chegam sozinhos. O TrainingPeaks não está conectado para treinos planejados nem atividades concluídas, então nada chega de lá automaticamente. Para Garmin e TrainingPeaks, o atleta exporta os arquivos e nós importamos o histórico completo, sem limite.",
-      "historyLink": "Como solicitar",
-      "supportLink": "Todos os detalhes de compatibilidade no Suporte"
+        "historyLink": "Como solicitar",
+        "supportLink": "Todos os detalhes de compatibilidade no Suporte"
       },
       "more": {
         "title": "Também funciona com",

@@ -7,12 +7,15 @@ const f = en.features
 const { index, hits } = buildFeaturesSearch({
     coach: f.coach.items,
     athlete: f.athlete.items,
+    devices: {
+        title: f.devices.title,
+        lead: f.devices.lead,
+        text: [f.devices.coach.body, f.devices.athlete.body],
+    },
     integrations: {
         title: f.integrations.title,
         lead: f.integrations.lead,
         text: [
-            f.integrations.platforms.coach.body,
-            f.integrations.platforms.athlete.body,
             ...f.integrations.how.items.map((i) => i.body),
             ...f.integrations.connect.points,
         ],
@@ -35,7 +38,9 @@ describe('features page search', () => {
         ['who needs attention today', '#signals'],
         ['mcp', '#connector'],
         ['hammerhead', '#integrations'],
-        ['is there a web app for athletes', '#integrations'],
+        ['is there a web app for athletes', '#devices'],
+        ['does augo work on android', '#devices'],
+        ['trainingpeaks history', '#integrations'],
     ])('"%s" finds %s in the top 3', (query, hash) => {
         expect(top(query)).toContain(hash)
     })

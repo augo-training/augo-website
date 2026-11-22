@@ -10,12 +10,6 @@ import {
     type IntegrationRow,
 } from './constants'
 
-interface Platform {
-    title: string
-    body: string
-    tags: string[]
-}
-
 interface TitledBody {
     title: string
     body: string
@@ -29,18 +23,14 @@ interface MoreItem extends TitledBody {
 const COLUMNS = ['planned', 'completed', 'historyAuto', 'historyRequest', 'recovery'] as const
 
 /**
- * Where augo runs (coach and athlete apps), the device-logo strip from the
- * homepage, how each kind of integration works, and every integration in one
- * table. Sits under both views, like At a glance.
+ * What augo connects to: the device-logo strip from the homepage, how each
+ * kind of integration works, and every integration in one table.
  */
 export default function FeaturesIntegrations() {
     const { t } = useTranslation()
     const { lang } = useParams<{ lang: string }>()
     const currentLang = lang ?? 'en'
 
-    const platforms = ['coach', 'athlete'].map(
-        (who) => t(`features.integrations.platforms.${who}`, { returnObjects: true }) as Platform,
-    )
     const how = t('features.integrations.how.items', { returnObjects: true }) as TitledBody[]
     const points = t('features.integrations.connect.points', { returnObjects: true }) as string[]
     const more = t('features.integrations.more.items', { returnObjects: true }) as MoreItem[]
@@ -116,28 +106,6 @@ export default function FeaturesIntegrations() {
                     <p className="mt-4 font-satoshi text-[16px] sm:text-[18px] leading-[155%] text-white/65 max-w-[720px]">
                         {t('features.integrations.lead')}
                     </p>
-
-                    <h3 className="mt-12 font-satoshi font-bold text-[22px] sm:text-[26px] leading-[120%] text-white">
-                        {t('features.integrations.platforms.title')}
-                    </h3>
-                    <div className="mt-5 grid md:grid-cols-2 gap-4 sm:gap-5">
-                        {platforms.map((platform) => (
-                            <div key={platform.title} className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-5 sm:p-6">
-                                <h4 className="font-satoshi font-bold text-[18px] sm:text-[20px] text-white">{platform.title}</h4>
-                                <p className="mt-2 font-satoshi text-[15px] sm:text-[16px] leading-[155%] text-white/65">{platform.body}</p>
-                                <ul className="mt-4 flex flex-wrap gap-2">
-                                    {platform.tags.map((tag) => (
-                                        <li
-                                            key={tag}
-                                            className="rounded-full border border-white/[0.14] px-3 py-1 font-mono text-[11px] tracking-[1.5px] uppercase text-white/75"
-                                        >
-                                            {tag}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        ))}
-                    </div>
                 </div>
             </div>
 

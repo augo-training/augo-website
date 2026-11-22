@@ -20,11 +20,15 @@ export default function FeaturesSearch() {
             buildFeaturesSearch({
                 coach: t('features.coach.items', { returnObjects: true }) as FeatureItem[],
                 athlete: t('features.athlete.items', { returnObjects: true }) as FeatureItem[],
+                devices: {
+                    title: t('features.devices.title'),
+                    lead: t('features.devices.lead'),
+                    text: (['coach', 'athlete'] as const).map((who) => t(`features.devices.${who}.body`)),
+                },
                 integrations: {
                     title: t('features.integrations.title'),
                     lead: t('features.integrations.lead'),
                     text: [
-                        ...(['coach', 'athlete'] as const).map((who) => t(`features.integrations.platforms.${who}.body`)),
                         ...(t('features.integrations.how.items', { returnObjects: true }) as { body: string }[]).map((i) => i.body),
                         ...(t('features.integrations.connect.points', { returnObjects: true }) as string[]),
                     ],

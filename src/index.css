@@ -1679,25 +1679,26 @@ body {
   }
 }
 
-/* Features page: the view switch sticks under the fixed Navbar, and hash
+/* Features page: the section menu sticks under the fixed Navbar, and hash
    targets stop below both. The added lengths are the Navbar's own height
-   (67px, 78px from sm up) and the switch's. */
+   (67px, 78px from sm up) and the menu's (58px). */
 .features-page {
   --features-top: calc(var(--banner-h) + 67px);
-  --features-offset: calc(var(--features-top) + 86px);
+  --features-offset: calc(var(--features-top) + 58px);
 }
 @media (min-width: 640px) {
   .features-page {
     --features-top: calc(var(--banner-h) + 78px);
-    --features-offset: calc(var(--features-top) + 90px);
   }
 }
-.features-switch {
+.features-nav {
   top: var(--features-top);
-}
-.features-views {
-  scroll-margin-top: var(--features-top);
 }
 .features-target {
   scroll-margin-top: calc(var(--features-offset) + 16px);
+}
+/* Sections with a top border stop flush under the menu, so the two lines meet
+   instead of doubling up. */
+.features-target.border-t {
+  scroll-margin-top: calc(var(--features-offset) - 1px);
 }

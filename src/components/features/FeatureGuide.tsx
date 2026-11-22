@@ -1,19 +1,9 @@
 import { useTranslation } from 'react-i18next'
 import FeatureVisual from './FeatureVisual'
-import {
-    FEATURE_VISUALS,
-    STAGE_FEATURES,
-    STAGE_OF,
-    SUPPORT_SLUGS,
-    stageId,
-    type FeatureItem,
-    type WeekStage,
-} from './constants'
+import { FEATURE_VISUALS, SECTION_IDS, SUPPORT_SLUGS, type FeatureItem } from './constants'
 
-function FeatureSection({ item, stages, flip }: { item: FeatureItem; stages: WeekStage[]; flip: boolean }) {
+function FeatureSection({ item, flip }: { item: FeatureItem; flip: boolean }) {
     const { t } = useTranslation()
-    const stageIndex = STAGE_OF[item.id]
-    const stage = stageIndex === undefined ? undefined : stages[stageIndex]
     const slug = SUPPORT_SLUGS[item.id]
 
     return (
@@ -62,21 +52,14 @@ function FeatureSection({ item, stages, flip }: { item: FeatureItem; stages: Wee
                     ))}
                 </dl>
 
-                <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 font-satoshi text-[14px] sm:text-[15px]">
-                    {stage && (
-                        <a href={`#${stageId(STAGE_FEATURES[stageIndex].key)}`} className="text-white/70 hover:text-white underline-offset-4 hover:underline">
-                            {t('features.guide.whereItFits')}:{' '}
-                            <span className="text-white">
-                                {t('features.guide.stepLabel', { n: stageIndex + 1, stage: stage.name })} →
-                            </span>
-                        </a>
-                    )}
-                    {slug && (
-                        <a href={`/en/support/${slug}/`} className="text-white/70 hover:text-white underline-offset-4 hover:underline">
-                            {t('features.guide.learnMore')} →
-                        </a>
-                    )}
-                </div>
+                {slug && (
+                    <a
+                        href={`/en/support/${slug}/`}
+                        className="inline-block mt-6 font-satoshi text-[14px] sm:text-[15px] text-white/70 hover:text-white underline-offset-4 hover:underline"
+                    >
+                        {t('features.guide.learnMore')} →
+                    </a>
+                )}
             </div>
 
             <div className={flip ? 'md:order-1' : ''}>
@@ -87,15 +70,14 @@ function FeatureSection({ item, stages, flip }: { item: FeatureItem; stages: Wee
 }
 
 /**
- * View A: every feature in detail, coaches first, full width with the render
- * alternating sides. The index above the views is the way in, so there is no
+ * Every feature in detail, coaches first, full width with the render
+ * alternating sides. The index at the top and the section menu are the way around, so there is no
  * contents sidebar.
  */
 export default function FeatureGuide() {
     const { t } = useTranslation()
     const coach = t('features.coach.items', { returnObjects: true }) as FeatureItem[]
     const athlete = t('features.athlete.items', { returnObjects: true }) as FeatureItem[]
-    const stages = t('features.week.stages', { returnObjects: true }) as WeekStage[]
 
     const audience = (id: string, heading: string, lead: string, items: FeatureItem[]) => (
         <section aria-labelledby={id} className="pt-12 sm:pt-16">
@@ -108,7 +90,7 @@ export default function FeatureGuide() {
             <p className="mt-3 font-satoshi text-[16px] sm:text-[18px] leading-[155%] text-white/65 max-w-[680px]">{lead}</p>
             <div className="mt-4">
                 {items.map((item, i) => (
-                    <FeatureSection key={item.id} item={item} stages={stages} flip={i % 2 === 1} />
+                    <FeatureSection key={item.id} item={item} flip={i % 2 === 1} />
                 ))}
             </div>
         </section>
@@ -117,8 +99,8 @@ export default function FeatureGuide() {
     return (
         <div className="px-5 sm:px-8">
             <div className="max-w-[1200px] mx-auto pb-16">
-                {audience('for-coaches', t('features.guide.coachHeading'), t('features.guide.coachLead'), coach)}
-                {audience('for-athletes', t('features.guide.athleteHeading'), t('features.guide.athleteLead'), athlete)}
+                {audience(SECTION_IDS.coaches, t('features.guide.coachHeading'), t('features.guide.coachLead'), coach)}
+                {audience(SECTION_IDS.athletes, t('features.guide.athleteHeading'), t('features.guide.athleteLead'), athlete)}
             </div>
         </div>
     )

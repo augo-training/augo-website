@@ -2,9 +2,10 @@ import type { ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
 import FeaturesSearch from './FeaturesSearch'
 import { DEVICE_LOGOS } from '../../data/deviceLogos'
+import dashboard from '../../assets/images/app_web_dashboard.png?w=640&format=webp'
 import { FEATURE_VISUALS, SECTION_IDS, type FeatureItem } from './constants'
 
-function Card({ href, title, summary, image }: { href: string; title: string; summary: string; image?: string }) {
+function Card({ href, title, summary, image, wide }: { href: string; title: string; summary: string; image?: string; wide?: boolean }) {
     return (
         <li className="snap-start shrink-0 w-[72vw] max-w-[300px] sm:w-auto sm:max-w-none">
             <a
@@ -12,7 +13,7 @@ function Card({ href, title, summary, image }: { href: string; title: string; su
                 className="group flex flex-col h-full rounded-2xl border border-white/[0.08] bg-white/[0.02] hover:border-white/25 hover:bg-white/[0.04] overflow-hidden transition-colors"
             >
                 <div
-                    className="relative aspect-[4/3] flex items-center justify-center overflow-hidden"
+                    className={`relative ${wide ? 'aspect-[4/3] sm:aspect-[2/1]' : 'aspect-[4/3]'} flex items-center justify-center overflow-hidden`}
                     style={{ background: 'linear-gradient(14.48deg, #151515 -17.53%, #090909 79.83%)' }}
                 >
                     <div
@@ -58,14 +59,14 @@ export default function FeatureIndex() {
     const coach = t('features.coach.items', { returnObjects: true }) as FeatureItem[]
     const athlete = t('features.athlete.items', { returnObjects: true }) as FeatureItem[]
 
-    const group = (id: string, heading: string, cards: ReactNode) => (
+    const group = (id: string, heading: string, cards: ReactNode, columns = 'sm:grid-cols-3 lg:grid-cols-4') => (
         <div className="mt-10">
             <h3 id={id} className="font-mono text-[12px] tracking-[2.5px] uppercase text-white/50">
                 {heading}
             </h3>
             <ul
                 aria-labelledby={id}
-                className="mt-4 -mx-5 px-5 sm:mx-0 sm:px-0 flex sm:grid sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 overflow-x-auto sm:overflow-visible snap-x snap-mandatory scroll-px-5 pb-2 sm:pb-0"
+                className={`mt-4 -mx-5 px-5 sm:mx-0 sm:px-0 flex sm:grid ${columns} gap-3 sm:gap-4 overflow-x-auto sm:overflow-visible snap-x snap-mandatory scroll-px-5 pb-2 sm:pb-0`}
             >
                 {cards}
             </ul>
@@ -95,17 +96,28 @@ export default function FeatureIndex() {
                 </p>
                 <FeaturesSearch />
 
+                {group(
+                    'index-setup',
+                    t('features.index.setupTitle'),
+                    <>
+                        <Card
+                            href={`#${SECTION_IDS.devices}`}
+                            title={t('features.index.devicesTitle')}
+                            summary={t('features.index.devicesSummary')}
+                            image={dashboard}
+                            wide
+                        />
+                        <Card
+                            href={`#${SECTION_IDS.integrations}`}
+                            title={t('features.index.integrationsTitle')}
+                            summary={t('features.index.integrationsSummary')}
+                            wide
+                        />
+                    </>,
+                    'sm:grid-cols-2',
+                )}
                 {group('index-coaches', t('features.guide.coachHeading'), featureCards(coach))}
                 {group('index-athletes', t('features.guide.athleteHeading'), featureCards(athlete))}
-                {group(
-                    'index-integrations',
-                    t('features.index.integrationsTitle'),
-                    <Card
-                        href={`#${SECTION_IDS.integrations}`}
-                        title={t('features.index.integrationsTitle')}
-                        summary={t('features.index.integrationsSummary')}
-                    />,
-                )}
             </div>
         </section>
     )

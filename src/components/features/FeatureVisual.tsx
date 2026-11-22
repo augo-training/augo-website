@@ -6,12 +6,14 @@ const FRAME: Record<Visual['shape'], string> = {
     square: 'aspect-square',
     tall: 'aspect-[4/5]',
     wide: 'aspect-[3/2]',
+    phone: 'aspect-[3/2]',
 }
 
 const IMAGE: Record<Visual['shape'], string> = {
     square: 'w-[92%] h-[92%] object-contain',
     tall: 'h-[88%] w-auto max-w-[80%] object-contain rounded-[22px]',
     wide: 'w-[94%] h-auto object-contain rounded-xl border border-white/[0.08]',
+    phone: 'h-[90%] w-auto object-contain rounded-[18px]',
 }
 
 /**
