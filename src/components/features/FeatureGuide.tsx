@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next'
 import FeatureVisual from './FeatureVisual'
 import {
     FEATURE_VISUALS,
+    SECTION_IDS,
     STAGE_FEATURES,
     STAGE_OF,
     SUPPORT_SLUGS,
@@ -110,6 +111,12 @@ function Contents({ coach, athlete }: { coach: FeatureItem[]; athlete: FeatureIt
         <nav aria-label={t('features.guide.contents')} className="flex flex-col gap-6">
             {group(t('features.guide.coachHeading'), coach)}
             {group(t('features.guide.athleteHeading'), athlete)}
+            <a
+                href={`#${SECTION_IDS.integrations}`}
+                className="font-mono text-[11px] tracking-[2px] uppercase text-white/45 hover:text-white"
+            >
+                {t('features.guide.contentsIntegrations')} →
+            </a>
         </nav>
     )
 }

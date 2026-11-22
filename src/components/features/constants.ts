@@ -26,6 +26,7 @@ import athleteHome from '../../assets/images/athlete_home.png?w=334&format=webp'
 export const SECTION_IDS = {
     guide: 'by-feature',
     week: 'by-week',
+    integrations: 'integrations',
     glance: 'at-a-glance',
     faqs: 'faqs',
 } as const
@@ -103,12 +104,51 @@ STAGE_FEATURES.forEach((stage, i) => {
     }
 })
 
-/** Which view holds a given hash target. Unknown hashes fall back to the guide. */
-export function viewForHash(hash: string): FeaturesView {
+/**
+ * Which view holds a given hash target, or null for sections that sit under
+ * both views (integrations, at a glance, FAQ), where the view shouldn't change.
+ */
+export function viewForHash(hash: string): FeaturesView | null {
     const id = hash.replace(/^#/, '')
     if (id === SECTION_IDS.week || STAGE_FEATURES.some((s) => stageId(s.key) === id)) return 'week'
-    return 'guide'
+    if (id === SECTION_IDS.guide || id === 'for-coaches' || id === 'for-athletes' || id in FEATURE_VISUALS) return 'guide'
+    return null
 }
+
+/**
+ * The integrations table, from the support article "Which devices and apps
+ * does augo integrate with?". Cell values are keys into
+ * `features.integrations.table.values`.
+ */
+export type IntegrationCell = 'yes' | 'no' | 'rides' | 'export' | 'days30' | 'years5'
+
+export interface IntegrationRow {
+    name: string
+    planned: IntegrationCell
+    completed: IntegrationCell
+    history: IntegrationCell
+    recovery: IntegrationCell
+}
+
+export const TRAINING_INTEGRATIONS: IntegrationRow[] = [
+    { name: 'Garmin', planned: 'yes', completed: 'yes', history: 'days30', recovery: 'yes' },
+    { name: 'COROS', planned: 'yes', completed: 'yes', history: 'years5', recovery: 'yes' },
+    { name: 'Wahoo', planned: 'yes', completed: 'yes', history: 'years5', recovery: 'no' },
+    { name: 'Suunto', planned: 'yes', completed: 'yes', history: 'years5', recovery: 'no' },
+    { name: 'Polar', planned: 'no', completed: 'yes', history: 'years5', recovery: 'no' },
+    { name: 'Apple Watch', planned: 'no', completed: 'yes', history: 'years5', recovery: 'no' },
+    { name: 'Strava', planned: 'no', completed: 'yes', history: 'years5', recovery: 'no' },
+    { name: 'Zwift', planned: 'export', completed: 'yes', history: 'years5', recovery: 'no' },
+    { name: 'Rouvy', planned: 'rides', completed: 'yes', history: 'years5', recovery: 'no' },
+    { name: 'Hammerhead', planned: 'no', completed: 'yes', history: 'years5', recovery: 'no' },
+]
+
+/** Recovery-only sources: sleep, resting heart rate, HRV and steps. */
+export const RECOVERY_INTEGRATIONS: IntegrationRow[] = [
+    { name: 'WHOOP', planned: 'no', completed: 'no', history: 'no', recovery: 'yes' },
+    { name: 'Oura', planned: 'no', completed: 'no', history: 'no', recovery: 'yes' },
+    { name: 'Apple Health', planned: 'no', completed: 'no', history: 'no', recovery: 'yes' },
+]
 
 export interface FeatureItem {
     id: string

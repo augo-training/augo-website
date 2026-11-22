@@ -8,6 +8,7 @@ import FeaturesHero from '../components/features/FeaturesHero'
 import ViewSwitch from '../components/features/ViewSwitch'
 import FeatureGuide from '../components/features/FeatureGuide'
 import WeekStory from '../components/features/WeekStory'
+import FeaturesIntegrations from '../components/features/FeaturesIntegrations'
 import FeaturesGlance from '../components/features/FeaturesGlance'
 import FeaturesFaq from '../components/features/FeaturesFaq'
 import FeaturesCta from '../components/features/FeaturesCta'
@@ -39,7 +40,8 @@ export default function Features() {
         // it has layout. This also lets ScrollToTop finish first on a fresh load,
         // as in Mcp.tsx.
         requestAnimationFrame(() => {
-            setView(viewForHash(hash))
+            const next = viewForHash(hash)
+            if (next) setView(next)
             requestAnimationFrame(() =>
                 requestAnimationFrame(() => {
                     const el = id === SECTION_IDS.guide || id === SECTION_IDS.week ? viewsRef.current : document.getElementById(id)
@@ -104,6 +106,7 @@ export default function Features() {
                         <WeekStory />
                     </div>
                 </div>
+                <FeaturesIntegrations />
                 <FeaturesGlance />
                 <FeaturesFaq />
                 <FeaturesCta />

@@ -41,16 +41,23 @@ export default function ConnectsSection() {
                 {t('connects.headline')}
             </h2>
 
-            {/* Marquee container with edge fades */}
-            <div className="marquee-container w-full overflow-hidden">
-                <div className="marquee-scroll flex items-center">
-                    {/* Render 4 logo sets for continuous coverage on wide screens */}
-                    <LogoSet />
-                    <LogoSet />
-                    <LogoSet />
-                    <LogoSet />
-                </div>
-            </div>
+            <LogoMarquee />
         </section>
+    )
+}
+
+/** The rotating device-logo strip. Also used on the Features page. */
+export function LogoMarquee() {
+    return (
+        // Marquee container with edge fades
+        <div className="marquee-container w-full overflow-hidden">
+            <div className="marquee-scroll flex items-center">
+                {/* Render 4 logo sets for continuous coverage on wide screens */}
+                <LogoSet />
+                <LogoSet />
+                <LogoSet />
+                <LogoSet />
+            </div>
+        </div>
     )
 }

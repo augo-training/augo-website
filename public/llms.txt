@@ -117,6 +117,18 @@ For athletes: the augo app (iOS and Android) is free, with no premium tier. It h
 workouts and races synced to the watch, strength sessions with timers and demo videos, feeling and pain trends,
 weekly volume across sports, manual activity entry, and recovery data from their wearable.
 
+Where augo runs: coaches use the augo web app and the mobile app for iOS and Android. Athletes use the mobile
+app for iOS and Android; a web version for athletes is coming later in 2026.
+
+Integrations:
+- Planned workouts go to Garmin, COROS, Wahoo and Suunto devices, and planned rides to Rouvy. Zwift and MyWhoosh
+  take a .zwo file exported from the augo app. Polar, Apple Watch, Strava and Hammerhead don't receive planned
+  workouts.
+- Completed activities sync from Garmin, COROS, Wahoo, Suunto, Polar, Apple Watch, Strava, Zwift, Rouvy and
+  Hammerhead. Connecting brings in the last 30 days; every source except Garmin can go back up to 5 years on request.
+- Recovery data (sleep, resting heart rate, HRV, steps) comes from WHOOP, Oura, Garmin, COROS and Apple Health.
+- Athletes connect their own devices from the augo app. Coaches can also use augo from Claude and ChatGPT (MCP).
+
 Features page: https://www.augotraining.com/en/features/
 
 ---

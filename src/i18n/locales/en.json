@@ -1077,6 +1077,7 @@
     },
     "guide": {
       "contents": "Contents",
+      "contentsIntegrations": "Apps and integrations",
       "coachHeading": "For coaches",
       "coachLead": "Everything you use to plan, deliver and adjust training, and to stay close to every athlete.",
       "athleteHeading": "For athletes",
@@ -1691,6 +1692,106 @@
         }
       ]
     },
+    "integrations": {
+      "eyebrow": "Apps and integrations",
+      "title": "Where augo runs, and what it connects to",
+      "lead": "augo works with the watches, bike computers, indoor platforms and wearables your athletes already use. Here is exactly what each one does.",
+      "platforms": {
+        "title": "Where you use augo",
+        "coach": {
+          "title": "Coaches",
+          "body": "The augo web app, plus the mobile app for iOS and Android. Your athletes, chats and plans are the same on both.",
+          "tags": [
+            "Web app",
+            "iOS",
+            "Android"
+          ]
+        },
+        "athlete": {
+          "title": "Athletes",
+          "body": "The augo mobile app for iOS and Android, free for athletes. A web version for athletes is coming later in 2026.",
+          "tags": [
+            "iOS",
+            "Android",
+            "Web: later in 2026"
+          ]
+        }
+      },
+      "how": {
+        "title": "How integrations work",
+        "items": [
+          {
+            "title": "Planned workouts",
+            "body": "Every planned workout shows up in the augo app. Garmin, COROS, Wahoo and Suunto also get it on the watch or bike computer, Rouvy gets planned rides in its calendar, and for Zwift and MyWhoosh your athlete exports a .zwo file from the app."
+          },
+          {
+            "title": "Completed activities",
+            "body": "Every session your athlete finishes after connecting arrives in augo automatically, usually within minutes, and appears in your chat and on the calendar."
+          },
+          {
+            "title": "Training history",
+            "body": "Connecting brings in the last 30 days. Every source except Garmin can go back up to five years on request, and we import full TrainingPeaks or Garmin exports for you."
+          },
+          {
+            "title": "Recovery data",
+            "body": "WHOOP, Oura, Garmin, COROS and Apple Health send sleep, resting heart rate, HRV and steps every morning, next to the athlete's 30-day average."
+          }
+        ]
+      },
+      "connect": {
+        "title": "Good to know",
+        "points": [
+          "Athletes connect their own devices from the augo app. A coach can't connect them on an athlete's behalf.",
+          "One source is enough if it carries every workout. Connecting two is fine: augo won't show the same activity twice.",
+          "For planned workouts on the device, connect the watch itself (Garmin, COROS, Wahoo or Suunto), not only Strava.",
+          "Connected Garmin or Rouvy a while ago? Connect it again to get history and planned workouts."
+        ]
+      },
+      "table": {
+        "title": "All integrations at a glance",
+        "name": "Device or app",
+        "planned": "Planned workouts",
+        "completed": "Completed activities",
+        "history": "History",
+        "recovery": "Recovery data",
+        "values": {
+          "yes": "Yes",
+          "no": "No",
+          "rides": "Rides",
+          "export": "Export (.zwo)",
+          "days30": "30 days",
+          "years5": "Up to 5 years"
+        },
+        "groups": {
+          "training": "Watches, bike computers and apps",
+          "recovery": "Recovery wearables"
+        },
+        "supportLink": "Full compatibility details in Support"
+      },
+      "more": {
+        "title": "Also works with",
+        "items": [
+          {
+            "id": "ai",
+            "title": "Claude and ChatGPT",
+            "body": "Coaches add augo as a connector and work with their athletes' data from their own assistant.",
+            "link": "Set it up in two minutes"
+          },
+          {
+            "id": "trainingpeaks",
+            "title": "TrainingPeaks",
+            "body": "augo replaces TrainingPeaks. We move your workout library with you and import your athletes' history.",
+            "link": "Switching to augo"
+          },
+          {
+            "id": "indoor",
+            "title": "Zwift and MyWhoosh",
+            "body": "Export any planned ride from the augo app as a .zwo file and ride it indoors.",
+            "link": "How to export a ride"
+          }
+        ]
+      }
+    },
     "glance": {
       "title": "At a glance",
       "lead": "Every augo feature in one table.",
@@ -1709,6 +1810,10 @@
         {
           "question": "Which devices and apps does augo work with?",
           "answer": "Garmin, COROS, Wahoo, Suunto, Polar, Apple Watch, Zwift, Strava, Rouvy and Hammerhead sync completed activities. Garmin, COROS, Wahoo and Suunto also receive planned workouts, and Rouvy receives planned rides. Recovery data comes from WHOOP, Oura, Garmin, COROS and Apple Health."
+        },
+        {
+          "question": "Is augo on web or mobile?",
+          "answer": "Both, for coaches: the augo web app and the mobile app for iOS and Android. Athletes use the mobile app for iOS and Android today, and a web version for athletes is coming later in 2026."
         },
         {
           "question": "Can I bring my library and history from TrainingPeaks?",

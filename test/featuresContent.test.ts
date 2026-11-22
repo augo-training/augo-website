@@ -58,12 +58,18 @@ describe('features content', () => {
         }
     })
 
-    it('opens the week view for week and stage hashes, and the guide otherwise', () => {
+    it('opens the week view for week and stage hashes, and the guide for features', () => {
         expect(viewForHash('#by-week')).toBe('week')
         expect(viewForHash('#week-listen')).toBe('week')
         expect(viewForHash('#by-feature')).toBe('guide')
         expect(viewForHash('#assistant')).toBe('guide')
-        expect(viewForHash('')).toBe('guide')
+        expect(viewForHash('#a-recovery')).toBe('guide')
+    })
+
+    it('leaves the view alone for sections under both views', () => {
+        expect(viewForHash('#integrations')).toBeNull()
+        expect(viewForHash('#at-a-glance')).toBeNull()
+        expect(viewForHash('#faqs')).toBeNull()
     })
 
     it('carries no i18next interpolation in FAQ items', () => {
