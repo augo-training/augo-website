@@ -94,7 +94,7 @@ export default function FeaturesIntegrations() {
             className="features-target w-full py-20 sm:py-24 bg-dark border-t border-white/[0.06]"
         >
             <div className="mb-12 sm:mb-14">
-                <LogoMarquee logos={INTEGRATION_LOGOS} />
+                <LogoMarquee logos={INTEGRATION_LOGOS} className="py-3" />
             </div>
 
             <div className="px-5 sm:px-8">

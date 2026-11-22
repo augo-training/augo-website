@@ -6,9 +6,9 @@ function LogoSet({ logos }: { logos: LogoItem[] }) {
         <div className="marquee-track flex items-center shrink-0">
             {logos.map((logo) =>
                 logo.label ? (
-                    <span key={logo.alt} className="flex items-center gap-2.5 px-8 flex-shrink-0 opacity-80">
-                        <img src={logo.src} alt="" className="h-8 w-auto" />
-                        <span className="font-satoshi font-bold text-[20px] leading-none tracking-[0.2px] text-white">
+                    <span key={logo.alt} className="flex items-center gap-3 px-8 flex-shrink-0 opacity-80">
+                        <img src={logo.src} alt="" className="h-10 w-auto" />
+                        <span className="font-satoshi font-black text-[34px] leading-none tracking-[-0.5px] text-white">
                             {logo.label}
                         </span>
                     </span>
@@ -17,7 +17,7 @@ function LogoSet({ logos }: { logos: LogoItem[] }) {
                         key={logo.alt}
                         src={logo.src}
                         alt={logo.alt}
-                        className={`${logo.size ?? 'h-8'} w-auto opacity-80 px-8 flex-shrink-0`}
+                        className={`${logo.tune ?? 'h-8'} w-auto opacity-80 px-8 flex-shrink-0`}
                     />
                 ),
             )}
@@ -40,10 +40,10 @@ export default function ConnectsSection() {
 }
 
 /** The rotating device-logo strip. Also used on the Features page. */
-export function LogoMarquee({ logos = DEVICE_LOGOS }: { logos?: LogoItem[] }) {
+export function LogoMarquee({ logos = DEVICE_LOGOS, className = '' }: { logos?: LogoItem[]; className?: string }) {
     return (
         // Marquee container with edge fades
-        <div className="marquee-container w-full overflow-hidden">
+        <div className={`marquee-container w-full overflow-hidden ${className}`}>
             <div className="marquee-scroll flex items-center">
                 {/* Render 4 logo sets for continuous coverage on wide screens */}
                 <LogoSet logos={logos} />

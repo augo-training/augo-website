@@ -2,12 +2,19 @@ import type { ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
 import FeaturesSearch from './FeaturesSearch'
 import LabUploadVisual from './LabUploadVisual'
-import { DEVICE_LOGOS } from '../../data/deviceLogos'
+import { INTEGRATION_LOGOS } from '../../data/deviceLogos'
 import dashboard from '../../assets/images/app_web_dashboard.png?w=640&format=webp'
 import trainingPeaksLogo from '../../assets/images/training_peaks_logo.svg'
 import augoLogo from '../../assets/images/augo_footer_1.svg'
 import finalSurgeLogo from '../../assets/images/final_surge_logo.png'
 import { FEATURE_VISUALS, SECTION_IDS, type FeatureItem } from './constants'
+
+/** The strip's sizes scaled down for the card: see TUNE in deviceLogos.ts. */
+const CARD_SIZE: Record<string, string> = {
+    Garmin: 'h-[18px] -translate-y-[4px]',
+    Suunto: 'h-[18px] -translate-y-[4px]',
+    Coros: 'h-[9px]',
+}
 
 function Card({
     href,
@@ -53,11 +60,18 @@ function Card({
                             {art}
                         </div>
                     ) : (
-                        // No render for integrations: show the device logos instead.
-                        <div aria-hidden className="relative grid grid-cols-3 gap-x-5 gap-y-4 px-6 items-center justify-items-center">
-                            {DEVICE_LOGOS.map((logo) => (
-                                <img key={logo.alt} src={logo.src} alt="" className="h-5 w-auto opacity-80" />
-                            ))}
+                        // No render for integrations: every integration's logo instead.
+                        <div aria-hidden className="relative grid grid-cols-3 gap-x-4 gap-y-3.5 px-4 items-center justify-items-center">
+                            {INTEGRATION_LOGOS.map((logo) =>
+                                logo.label ? (
+                                    <span key={logo.alt} className="flex items-center gap-1 opacity-80">
+                                        <img src={logo.src} alt="" className="h-[13px] w-auto" />
+                                        <span className="font-satoshi font-black text-[11px] leading-none text-white">{logo.label}</span>
+                                    </span>
+                                ) : (
+                                    <img key={logo.alt} src={logo.src} alt="" className={`${CARD_SIZE[logo.alt] ?? 'h-[12px]'} w-auto opacity-80`} />
+                                ),
+                            )}
                         </div>
                     )}
                 </div>
