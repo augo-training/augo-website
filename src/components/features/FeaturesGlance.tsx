@@ -1,17 +1,32 @@
 import { useTranslation } from 'react-i18next'
+import { useParams } from 'react-router-dom'
+import { featureHref } from '../../data/featurePages'
 import { SECTION_IDS, type FeatureItem } from './constants'
 
+interface Row {
+    id: string
+    title: string
+    summary: string
+}
+
 /**
- * Every feature in one table, under both views. A plain <table> on purpose:
- * it is the part of the page an answer engine is most likely to quote.
+ * Every feature in one table, right under the tiles, in the same order. Each
+ * row links to the feature's page. A plain <table> on purpose: it is the part of the page
+ * an answer engine is most likely to quote.
  */
 export default function FeaturesGlance() {
     const { t } = useTranslation()
+    const { lang = 'en' } = useParams<{ lang: string }>()
     const coach = t('features.coach.items', { returnObjects: true }) as FeatureItem[]
     const athlete = t('features.athlete.items', { returnObjects: true }) as FeatureItem[]
     const migration = t('features.migration.item', { returnObjects: true }) as FeatureItem
+    const setup: Row[] = [
+        { id: SECTION_IDS.devices, title: t('features.index.devicesTitle'), summary: t('features.index.devicesSummary') },
+        { id: SECTION_IDS.integrations, title: t('features.index.integrationsTitle'), summary: t('features.index.integrationsSummary') },
+        migration,
+    ]
 
-    const group = (heading: string, items: FeatureItem[]) => (
+    const group = (heading: string, items: Row[]) => (
         <tbody>
             <tr>
                 <th
@@ -25,7 +40,7 @@ export default function FeaturesGlance() {
             {items.map((item) => (
                 <tr key={item.id} className="border-t border-white/[0.08]">
                     <th scope="row" className="py-4 pr-4 sm:pr-8 align-top text-left font-normal w-[40%] sm:w-[34%]">
-                        <a href={`#${item.id}`} className="font-satoshi font-medium text-[15px] sm:text-[16px] leading-[140%] text-white hover:underline underline-offset-4">
+                        <a href={featureHref(lang, item.id)} className="font-satoshi font-medium text-[15px] sm:text-[16px] leading-[140%] text-white hover:underline underline-offset-4">
                             {item.title}
                         </a>
                     </th>
@@ -43,7 +58,7 @@ export default function FeaturesGlance() {
             aria-labelledby="features-glance-title"
             className="features-target w-full py-20 sm:py-24 px-5 sm:px-8 bg-dark-800 border-t border-white/[0.06] texture-grain"
         >
-            <div className="max-w-[1000px] mx-auto">
+            <div className="max-w-[1200px] mx-auto">
                 <h2
                     id="features-glance-title"
                     className="font-satoshi font-bold text-[28px] sm:text-[40px] lg:text-[44px] leading-[110%] tracking-[-0.025em] text-white"
@@ -60,9 +75,9 @@ export default function FeaturesGlance() {
                             <th scope="col">{t('features.glance.what')}</th>
                         </tr>
                     </thead>
+                    {group(t('features.glance.setup'), setup)}
                     {group(t('features.glance.coaches'), coach)}
                     {group(t('features.glance.athletes'), athlete)}
-                    {group(t('features.glance.migration'), [migration])}
                 </table>
             </div>
         </section>

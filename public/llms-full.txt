@@ -1,0 +1,405 @@
+# augo features, in full
+
+> Everything augo does for coaches and athletes. The long-form companion to https://www.augotraining.com/llms.txt, generated from the Features page (https://www.augotraining.com/en/features/). Each feature has its own page, linked under it.
+
+## For coaches
+
+### Chat and workout feed in one place
+
+Messages and finished workouts in one feed per athlete, with replies, reactions and voice comments.
+
+Every workout flows in from your athlete's watch, right into the conversation. React to it, reply, or leave a written or voice comment, and every voice note is transcribed. No more WhatsApp on top of a training app, no screenshots, and no checking athletes one by one.
+
+Staying close to your athletes is what an AI training plan can't copy. augo is built to make that easy.
+
+How it works:
+1. Invite an athlete with your link or coach code.
+2. Their finished workouts appear in the chat as they sync.
+3. Reply, react, or record a voice comment on any message or session.
+
+- Voice: Recorded and transcribed
+- Notifications: Your choice, for example messages only
+- Athletes: augo app for iOS and Android
+
+Details: https://www.augotraining.com/en/features/chat-and-workout-feed/
+
+### Session feedback after every workout
+
+Athletes answer the questions you choose: how they felt, pain, RPE, digestion and fuelling.
+
+After each session, your athlete answers the questions you picked: how they felt, any pain, RPE, how it went against expectations, digestive issues and fuelling. They can add free text or a voice note of up to five minutes. You find out how they are really doing without reaching out every week.
+
+About 75% of athletes send feedback every week, on about 4 sessions.
+
+How it works:
+1. Choose the questions you want answered after each session.
+2. Your athlete answers in a few taps, with a note or voice memo if they like.
+3. You see it next to the session, and as a trend over time.
+
+- Questions: Feeling, pain, RPE, expectations, digestion, fuelling
+- Notes: Free text, or voice up to 5 minutes
+- Trends: Week by week, per athlete
+
+Details: https://www.augotraining.com/en/features/session-feedback/
+
+### In-app assistant, powered by Claude
+
+Ask anything about any athlete. It has read every message, workout, metric, feedback and recovery data.
+
+The assistant lives inside augo and sees everything: conversations, workouts, metrics, session feedback, notes and recovery data. Ask it to find every run over 30 km with 1,500 m of climbing, compare race effort with training, or work out how fuelling affected a race. It combines objective, subjective and nutrition data in one answer.
+
+How it works:
+1. Open the assistant on web or mobile.
+2. Ask about one athlete or your whole roster.
+3. Get analysis, call prep or a new workout in seconds.
+
+- Reads: Chat, workouts, feedback, notes, recovery
+- Account: No ChatGPT or Claude account needed
+- Plan: Included in your subscription
+
+Details: https://www.augotraining.com/en/features/in-app-assistant/
+
+### Build workouts three ways
+
+Use the workout builder, ask the assistant, or plan whole weeks from Claude or ChatGPT.
+
+The workout builder covers pace, heart rate and RPE targets, mixed per segment, with descriptions, images, videos and a library. Drag and drop, and copy and paste whole weeks. If you build it in TrainingPeaks today, you can build it here. Or ask the assistant: "a track session like the ones she's been doing, with fuelling reminders that work for her." It reads her history and feedback, so the session is personal without you digging.
+
+Many augo coaches no longer need a library: every session is built for the athlete, on the fly.
+
+How it works:
+1. Build it step by step, or describe it in a sentence.
+2. Drop it on the athlete's calendar, or copy a whole week.
+3. It syncs to Garmin, COROS, Wahoo and Suunto, and to Rouvy for indoor rides.
+
+- Targets: Pace, heart rate, RPE, mixed per segment
+- Ways to build: Builder, assistant, Claude or ChatGPT
+- Devices: Garmin, COROS, Wahoo, Suunto, Rouvy
+
+Details: https://www.augotraining.com/en/features/workout-builder/
+
+### Strength training on the same calendar
+
+Exercises, sets, reps and rest, with your cues and a demo video for each move.
+
+Describe the session and augo builds it. Your athlete follows it in the app with rest timers and a demo one tap away, just like a run or a ride. Save it as a template to reuse it.
+
+How it works:
+1. Describe the session, or paste your usual routine.
+2. Check the exercises, sets, rest and cues.
+3. Your athlete follows it in the app.
+
+- Includes: Sets, reps, rest, cues, demo video
+- Athletes: augo app
+- Reuse: Save as a template
+
+Details: https://www.augotraining.com/en/features/strength-training/
+
+### Claude and ChatGPT connector
+
+Work from your own Claude or ChatGPT, with full context of your athletes' conversations and feedback.
+
+Add augo as a connector and plan whole weeks or blocks at once, write season overviews to share with athletes, and use your own workout names and library workouts. Unlike connectors that only push workouts, augo's has the full context of your conversations and session feedback. It signs in as you and sees only your athletes.
+
+How it works:
+1. Add augo as a connector in Claude or ChatGPT.
+2. Sign in with your augo account.
+3. Ask about an athlete, or build a week, a message or a note.
+
+- Works with: Claude and ChatGPT, free plans included
+- Setup: About two minutes
+- Access: Only your athletes
+
+Details: https://www.augotraining.com/en/features/claude-and-chatgpt-connector/
+
+### Workout analysis, planned against completed
+
+Splits, intervals, metrics and time in zones from the watch, next to how the athlete felt.
+
+Every completed session comes in from the device with splits, intervals, zoomable charts and time-in-zone distribution, matched to what you planned. The athlete's RPE, notes and voice memos sit right beside it. When the numbers and the feedback disagree, that's where coaching starts.
+
+How it works:
+1. The completed activity syncs from the device.
+2. augo matches it to the planned session.
+3. Review splits, zones and feedback in one view.
+
+- Data: Splits, intervals, pace, heart rate, power
+- Zones: Time in each zone
+- Feedback: Right next to the data
+
+Details: https://www.augotraining.com/en/features/workout-analysis/
+
+### Recovery data, every morning
+
+Sleep, resting heart rate, HRV and steps from WHOOP, Oura, Garmin, COROS and Apple Health.
+
+Not just training data: augo also collects recovery data from your athletes' wearables. Each metric is set against the athlete's own 30-day average, so the short night or the climbing heart rate stands out before it shows up in a session.
+
+How it works:
+1. Your athlete connects their wearable once.
+2. Daily health data arrives every morning.
+3. Compare it with their 30-day average, or ask the assistant.
+
+- Sources: WHOOP, Oura, Garmin, COROS, Apple Health
+- Metrics: Sleep, resting heart rate, HRV, steps
+- Baseline: Athlete's 30-day average
+
+Details: https://www.augotraining.com/en/features/recovery-data/
+
+### Athlete Signals: who needs you today
+
+Every morning, see who is struggling, who wants a change, and who just set a PB.
+
+Signals refresh every morning from the last seven days of messages, feedback and training. They flag athletes who are struggling, sick, stressed or injured, athletes who asked to change their schedule, and highlights like a new PB, so you start each day with the people who need you.
+
+How it works:
+1. augo reads the last week of messages, feedback and sessions.
+2. Signals show who needs your attention today.
+3. Ask the assistant for more on any signal.
+
+- Refresh: Every morning
+- Looks at: Last 7 days
+- Flags: Struggles, schedule changes, highlights
+
+Details: https://www.augotraining.com/en/features/athlete-signals/
+
+### Zones and performance anchors
+
+Heart rate, pace and power zone models, applied per athlete.
+
+Start from augo's default models or build your own, as many as you need. Set each athlete's performance anchors, like threshold heart rate, threshold pace or FTP, or hand a lab report to the assistant and let it build them.
+
+How it works:
+1. Pick a default model or create your own.
+2. Set the athlete's anchors, or let the assistant read a lab report.
+3. Apply the right models in a few clicks.
+
+- Metrics: Heart rate, pace, power
+- Models: As many as you need
+- Shortcut: Built from a lab report
+
+Details: https://www.augotraining.com/en/features/zones-and-performance-anchors/
+
+### Upload a lab report, get zones and anchors set
+
+Drop a lab or field test file into the augo assistant, or into Claude or ChatGPT, and it sets the athlete's anchors and zones for you.
+
+No forms to fill in. Upload the results of a lactate, VO2max or field test as a PDF or a photo, in augo or in your own Claude or ChatGPT, and the assistant reads them. It records the athlete's performance anchors, like threshold heart rate, threshold pace or FTP, then builds and applies their zones. You check the result, and that's it.
+
+How it works:
+1. Upload the file to the augo assistant, or to Claude or ChatGPT with the augo connector.
+2. The assistant reads it and suggests anchors and zones for that athlete.
+3. Confirm, and they're set in augo.
+
+- Files: PDFs and photos of lab or field tests
+- Sets: Performance anchors and zones
+- Works in: augo assistant, Claude, ChatGPT
+
+Details: https://www.augotraining.com/en/features/lab-report-upload/
+
+### Private coach notes
+
+Notes on each athlete that only you and your assistant can read.
+
+Keep the intake call, injury history and season plan in one place for each athlete. Athletes never see them. The assistant reads them as context, and can write them for you.
+
+How it works:
+1. Open an athlete and add a note.
+2. The assistant reads it as context.
+3. Ask about it later, or have the assistant write one.
+
+- Visibility: Only you
+- Assistant: Reads and writes notes
+- Per: Athlete
+
+Details: https://www.augotraining.com/en/features/private-coach-notes/
+
+## For athletes
+
+### One place to talk with your coach
+
+Messages, feedback and workout data together, so you always feel supported.
+
+Ask your coach a question, react to their reply, and hear their voice comment on your run. Everything sits next to the training it's about.
+
+How it works:
+1. Join with your coach's link or code.
+2. Chat, reply to a message, or react.
+3. See your coach's comments on each session.
+
+- App: iOS and Android
+- Voice: Voice notes and comments
+- Notifications: Your choice
+
+Details: https://www.augotraining.com/en/features/athlete-chat/
+
+### Your coach plans it. Your watch has it.
+
+Upcoming workouts and races in the app, and step by step on your watch.
+
+Warm-up, intervals, cool-down: the session shows up in your app and on Garmin, COROS, Wahoo or Suunto. Rides go straight to Rouvy, or export them for Zwift or MyWhoosh. Did something your watch didn't catch? Add the activity by hand.
+
+How it works:
+1. Your coach plans the session.
+2. It appears in your app and on your device.
+3. Follow along; it syncs back when you finish.
+
+- Devices: Garmin, COROS, Wahoo, Suunto
+- Indoor: Rouvy, Zwift, MyWhoosh
+- Manual entry: Yes
+
+Details: https://www.augotraining.com/en/features/workouts-on-your-watch/
+
+### Strength days, right on your phone
+
+Every exercise in order, with reps, rest timers, cues and a demo video.
+
+Strength sessions from your coach show up like any other workout, with a demo one tap away and a timer for every rest.
+
+How it works:
+1. Open the day's session.
+2. Follow each exercise with its rest timer.
+3. Tell your coach how it felt.
+
+- App: augo
+- Video: Per exercise
+- Timers: Built in
+
+Details: https://www.augotraining.com/en/features/strength-training-for-athletes/
+
+### Track how you're really doing
+
+How you've felt, aches over time, weekly volume across sports, and your next race.
+
+Your session feedback becomes trends you and your coach both see: how you're feeling, pain and aches, and your volume across every sport week by week. You catch warning signs together, and count down to race day.
+
+How it works:
+1. Answer a few questions after each session.
+2. See how you've felt and your volume over time.
+3. Count down to your next race.
+
+- Views: 12 weeks, 6 months, 1 year
+- Sports: Run, bike, swim, strength
+- Races: Next race countdown
+
+Details: https://www.augotraining.com/en/features/athlete-trends/
+
+### Your recovery, not just your training
+
+Sleep, resting heart rate, HRV and steps from your wearable, next to your workouts.
+
+Connect WHOOP, Oura, Garmin, Apple Health or COROS. Your coach sees how you've recovered and plans what comes next around it.
+
+How it works:
+1. Connect your wearable once.
+2. Your daily health data arrives each morning.
+3. Your coach plans around it.
+
+- Sources: WHOOP, Oura, Garmin, Apple Health, COROS
+- Metrics: Sleep, resting heart rate, HRV, steps
+- Shared with: Your coach
+
+Details: https://www.augotraining.com/en/features/athlete-recovery-data/
+
+### Free for athletes
+
+No premium tier and no paywall. Your coach's plan covers everything.
+
+The augo app is simple and fast: talk to your coach, give feedback, and see what's next. Every feature is included, with nothing to unlock.
+
+How it works:
+1. Download augo for iOS or Android.
+2. Join with your coach's link or code.
+3. Connect your watch and start training.
+
+- Price: Free
+- Premium tier: None
+- App: iOS and Android
+
+Details: https://www.augotraining.com/en/features/free-for-athletes/
+
+## Where you use augo
+
+Coaches work from the web or their phone. Athletes use the augo app on iOS and Android.
+
+- Coaches: The augo web app, plus the mobile app for iOS and Android. Your athletes, chats and plans are the same on both.
+- Athletes: The augo mobile app for iOS and Android, free for athletes. A web version for athletes is coming later in 2026.
+
+Details: https://www.augotraining.com/en/features/devices/
+
+## What augo connects to
+
+augo works with the watches, bike computers, indoor platforms and wearables your athletes already use. Here is exactly what each one does.
+
+### How integrations work
+
+- Planned workouts: Every planned workout shows up in the augo app. Garmin, COROS, Wahoo and Suunto also get it on the watch or bike computer, Rouvy gets planned rides in its calendar, and for Zwift and MyWhoosh your athlete exports a .zwo file from the app.
+- Completed activities: Every session your athlete finishes after connecting arrives in augo automatically, usually within minutes, and appears in your chat and on the calendar.
+- Training history: Connecting brings in the last 30 days automatically. For Garmin and TrainingPeaks we import the full history, with no limit, from an export your athlete sends us. Other sources can go back up to five years on request.
+- Recovery data: WHOOP, Oura, Garmin, COROS and Apple Health send sleep, resting heart rate, HRV and steps every morning, next to the athlete's 30-day average.
+
+Connecting a device brings in the last 30 days on its own. TrainingPeaks isn't connected for planned workouts or completed activities, so nothing comes over automatically. For Garmin and TrainingPeaks, your athlete exports their files and we import the full history, with no limit.
+
+### Good to know
+
+- Athletes connect their own devices from the augo app. A coach can't connect them on an athlete's behalf.
+- One source is enough if it carries every workout. Connecting two is fine: augo won't show the same activity twice.
+- For planned workouts on the device, connect the watch itself (Garmin, COROS, Wahoo or Suunto), not only Strava.
+- Connected Garmin or Rouvy a while ago? Connect it again to get history and planned workouts.
+
+### Also works with
+
+- Claude and ChatGPT: Coaches add augo as a connector and work with their athletes' data from their own assistant.
+- TrainingPeaks: augo replaces TrainingPeaks, so it isn't connected for planned workouts or completed activities. We move your workout library with you and import your athletes' full history, with no limit.
+- Zwift and MyWhoosh: Export any planned ride from the augo app as a .zwo file and ride it indoors.
+
+Details: https://www.augotraining.com/en/features/integrations/
+
+## Migration
+
+### Switching to augo
+
+Your TrainingPeaks or Final Surge library moved in about five minutes, and your athletes' history imported.
+
+We move your workout library from TrainingPeaks or Final Surge together with you, on an onboarding call of about five minutes. Athletes' full history comes in from TrainingPeaks or Garmin exports, and other connected sources are backfilled from our side. Try it all with a 14-day free trial, no credit card needed. Need longer? Just ask.
+
+How it works:
+1. Start your 14-day free trial.
+2. Book an onboarding call, and we move your TrainingPeaks or Final Surge library with you.
+3. Invite your athletes. Their history comes with them.
+
+- Library: From TrainingPeaks or Final Surge, about 5 minutes
+- History: TrainingPeaks and Garmin exports, backfill
+- Trial: 14 days, no credit card
+
+Details: https://www.augotraining.com/en/features/migration/
+
+## Questions about features
+
+### Do I need a ChatGPT or Claude account to use the assistant?
+
+No. The in-app assistant is built into augo, powered by Claude, and included in your subscription. The Claude and ChatGPT connector is optional, for coaches who want to work from those apps.
+
+### Which devices and apps does augo work with?
+
+Garmin, COROS, Wahoo, Suunto, Polar, Apple Watch, Zwift, Strava, Rouvy and Hammerhead sync completed activities. Garmin, COROS, Wahoo and Suunto also receive planned workouts, and Rouvy receives planned rides. Recovery data comes from WHOOP, Oura, Garmin, COROS and Apple Health.
+
+### Is augo on web or mobile?
+
+Both, for coaches: the augo web app and the mobile app for iOS and Android. Athletes use the mobile app for iOS and Android today, and a web version for athletes is coming later in 2026.
+
+### Can I bring my library and history from TrainingPeaks or Final Surge?
+
+Yes. We move your TrainingPeaks or Final Surge workout library with you on an onboarding call of about five minutes. Your athletes' history comes in from TrainingPeaks or Garmin exports, and other connected sources are backfilled from our side.
+
+### Do my athletes pay for augo?
+
+No. The augo app is free for athletes, with no premium tier and no paywall. Coaches pay per athlete they actively coach.
+
+### Which sports is augo built for?
+
+augo is built for endurance coaches: running, cycling and triathlon, with strength training on the same calendar.
+
+### Can I try every feature before paying?
+
+Yes. Every coach starts with a 14-day free trial, no credit card needed. If you need longer to decide, just ask us.

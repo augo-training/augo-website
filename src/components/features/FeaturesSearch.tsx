@@ -1,5 +1,7 @@
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useParams } from 'react-router-dom'
+import { FEATURE_SLUGS, featureHref } from '../../data/featurePages'
 import { supportSearch } from '../../utils/supportSearch'
 import { articlesBySlug, getSupportSearchIndex } from '../../utils/supportArticles'
 import { buildFeaturesSearch } from './pageSearchIndex'
@@ -8,11 +10,12 @@ import type { FeatureItem } from './constants'
 /**
  * Instant search over this page and the support articles, no AI. Uses the
  * support centre's engine, so typos, synonyms and question phrasing work the
- * same way they do there. Results split into "On this page" (hash links the
- * page's click handler turns into a view switch and scroll) and "In Support".
+ * same way they do there. Results split into "On this page" (feature pages,
+ * or the FAQ) and "In Support".
  */
 export default function FeaturesSearch() {
     const { t, i18n } = useTranslation()
+    const { lang = 'en' } = useParams<{ lang: string }>()
     const [query, setQuery] = useState('')
 
     const page = useMemo(
@@ -129,7 +132,7 @@ export default function FeaturesSearch() {
                             <ul>
                                 {results.page.map((hit) => (
                                     <li key={hit.hash + hit.title}>
-                                        <a href={hit.hash} className={resultLink}>
+                                        <a href={hit.hash.slice(1) in FEATURE_SLUGS ? featureHref(lang, hit.hash.slice(1)) : hit.hash} className={resultLink}>
                                             <span className="block font-satoshi font-medium text-[16px] text-white">{hit.title}</span>
                                             <span className="block mt-0.5 font-satoshi text-[14px] leading-[145%] text-white/60 line-clamp-2">
                                                 {hit.summary}

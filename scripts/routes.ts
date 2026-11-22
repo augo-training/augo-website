@@ -6,6 +6,7 @@ import { execFile } from 'node:child_process'
 import { promisify } from 'node:util'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { FEATURE_PAGE_PATHS } from '../src/data/featurePages.ts'
 
 const here = dirname(fileURLToPath(import.meta.url))
 export const ROOT = dirname(here)
@@ -16,7 +17,20 @@ export const DEFAULT_LANG = 'en'
 
 // Paths under /:lang. Keep in sync with src/App.tsx routes.
 // Empty string = lang root (e.g. /en).
-export const STATIC_PATHS = ['', '/download', '/join', '/find', '/pricing', '/book-a-demo', '/humanedge', '/mcp', '/contact', '/features']
+export const STATIC_PATHS = [
+  '',
+  '/download',
+  '/join',
+  '/find',
+  '/pricing',
+  '/book-a-demo',
+  '/humanedge',
+  '/mcp',
+  '/contact',
+  '/features',
+  // One page per feature, in every language: src/data/featurePages.ts.
+  ...FEATURE_PAGE_PATHS,
+]
 
 // Sitemap priority per path
 export const PATH_PRIORITY = {
@@ -231,7 +245,7 @@ export async function getSitemapEntries(): Promise<SitemapEntry[]> {
     for (const lang of LANGS) {
       entries.push({
         url: langUrl(lang, path),
-        priority: PATH_PRIORITY[path as keyof typeof PATH_PRIORITY] ?? 0.5,
+        priority: PATH_PRIORITY[path as keyof typeof PATH_PRIORITY] ?? (path.startsWith('/features/') ? 0.6 : 0.5),
         alternates: LANGS.map((l) => ({ lang: l, url: langUrl(l, path) })),
         xDefault: langUrl(DEFAULT_LANG, path),
         changefreq: 'weekly',

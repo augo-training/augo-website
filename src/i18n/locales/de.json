@@ -1034,16 +1034,15 @@
         "Krafttraining"
       ]
     },
-    "nav": {
-      "label": "Abschnitte",
+    "page": {
       "allFeatures": "Alle Funktionen",
-      "faq": "FAQ"
+      "previous": "Zurück",
+      "next": "Weiter",
+      "moreFeatures": "Weitere Funktionen"
     },
     "guide": {
       "coachHeading": "Für Coaches",
-      "coachLead": "Alles, womit du Training planst, auslieferst und anpasst, und womit du jedem Athleten nah bleibst.",
       "athleteHeading": "Für Athleten",
-      "athleteLead": "Die augo App, mit der deine Athleten trainieren, Feedback geben und mit dir sprechen. Kostenlos für Athleten.",
       "howItWorks": "So funktioniert's",
       "bookCall": "Onboarding-Call buchen",
       "learnMore": "Mehr dazu im Support"
@@ -1651,6 +1650,16 @@
         ]
       }
     },
+    "glance": {
+      "title": "Auf einen Blick",
+      "lead": "Alle Funktionen von augo in einer Tabelle.",
+      "feature": "Funktion",
+      "what": "Was sie macht",
+      "coaches": "Coaches",
+      "athletes": "Athleten",
+      "migration": "Migration",
+      "setup": "Geräte, Integrationen und Migration"
+    },
     "migration": {
       "label": "Migration",
       "item": {
@@ -1680,15 +1689,6 @@
         ],
         "proof": ""
       }
-    },
-    "glance": {
-      "title": "Auf einen Blick",
-      "lead": "Alle Funktionen von augo in einer Tabelle.",
-      "feature": "Funktion",
-      "what": "Was sie macht",
-      "coaches": "Coaches",
-      "athletes": "Athleten",
-      "migration": "Migration"
     },
     "faq": {
       "title": "Fragen zu den Funktionen",

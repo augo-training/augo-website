@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useParams } from 'react-router-dom'
 import FeaturesSearch from './FeaturesSearch'
 import LabUploadVisual from './LabUploadVisual'
 import { INTEGRATION_LOGOS } from '../../data/deviceLogos'
@@ -8,6 +9,7 @@ import trainingPeaksLogo from '../../assets/images/training_peaks_logo.svg'
 import augoLogo from '../../assets/images/augo_footer_1.svg'
 import finalSurgeLogo from '../../assets/images/final_surge_logo.png'
 import { FEATURE_VISUALS, SECTION_IDS, type FeatureItem } from './constants'
+import { featureHref } from '../../data/featurePages'
 
 /** The strip's sizes scaled down for the card: see TUNE in deviceLogos.ts. */
 const CARD_SIZE: Record<string, string> = {
@@ -91,6 +93,7 @@ function Card({
  */
 export default function FeatureIndex() {
     const { t } = useTranslation()
+    const { lang = 'en' } = useParams<{ lang: string }>()
     const coach = t('features.coach.items', { returnObjects: true }) as FeatureItem[]
     const athlete = t('features.athlete.items', { returnObjects: true }) as FeatureItem[]
     const migration = t('features.migration', { returnObjects: true }) as { label: string; item: FeatureItem }
@@ -113,7 +116,7 @@ export default function FeatureIndex() {
         items.map((item) => (
             <Card
                 key={item.id}
-                href={`#${item.id}`}
+                href={featureHref(lang, item.id)}
                 title={item.title}
                 summary={item.summary}
                 image={FEATURE_VISUALS[item.id]?.src}
@@ -144,18 +147,18 @@ export default function FeatureIndex() {
                     t('features.index.setupTitle'),
                     <>
                         <Card
-                            href={`#${SECTION_IDS.devices}`}
+                            href={featureHref(lang, SECTION_IDS.devices)}
                             title={t('features.index.devicesTitle')}
                             summary={t('features.index.devicesSummary')}
                             image={dashboard}
                         />
                         <Card
-                            href={`#${SECTION_IDS.integrations}`}
+                            href={featureHref(lang, SECTION_IDS.integrations)}
                             title={t('features.index.integrationsTitle')}
                             summary={t('features.index.integrationsSummary')}
                         />
                         <Card
-                            href={`#${SECTION_IDS.migration}`}
+                            href={featureHref(lang, migration.item.id)}
                             title={migration.label}
                             summary={migration.item.summary}
                             art={
