@@ -67,7 +67,7 @@
     },
     {
       "type": "html",
-      "html": "<h2 id=\"recovery-data\">Recovery data from WHOOP, Oura and more</h2><p>augo also brings in daily recovery data: sleep, resting heart rate, HRV and steps. It comes from WHOOP, Oura, Garmin, Coros and Apple Health. The athlete connects once from the augo app, and each morning the coach sees the numbers next to the athlete's 30-day average.</p><h2 id=\"not-supported\">TrainingPeaks</h2><p>TrainingPeaks is a different case. It isn't a data source, and augo is built to sit alongside it rather than replace it.</p>"
+      "html": "<h2 id=\"recovery-data\">Recovery data from WHOOP, Oura and more</h2><p>augo also brings in daily recovery data: sleep, resting heart rate, HRV and steps. It comes from WHOOP, Oura, Garmin, Coros and Apple Health. The athlete connects once from the augo app, and each morning the coach sees the numbers next to the athlete's 30-day average.</p><h2 id=\"trainingpeaks\">Moving from TrainingPeaks</h2><p>augo replaces TrainingPeaks, so there is no ongoing sync between the two. When you switch, we move your workout library with you on a call of about five minutes, and your athletes' history comes in from their TrainingPeaks export. See <a href=\"/en/support/import-training-history/\">how do I bring my training history to augo?</a></p>"
     },
     {
       "type": "html",
