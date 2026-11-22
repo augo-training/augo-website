@@ -1,17 +1,26 @@
 import { useTranslation } from 'react-i18next'
-import { DEVICE_LOGOS } from '../data/deviceLogos'
+import { DEVICE_LOGOS, type LogoItem } from '../data/deviceLogos'
 
-function LogoSet() {
+function LogoSet({ logos }: { logos: LogoItem[] }) {
     return (
         <div className="marquee-track flex items-center shrink-0">
-            {DEVICE_LOGOS.map((logo) => (
-                <img
-                    key={logo.alt}
-                    src={logo.src}
-                    alt={logo.alt}
-                    className="h-8 w-auto opacity-80 px-8 flex-shrink-0"
-                />
-            ))}
+            {logos.map((logo) =>
+                logo.label ? (
+                    <span key={logo.alt} className="flex items-center gap-2.5 px-8 flex-shrink-0 opacity-80">
+                        <img src={logo.src} alt="" className="h-8 w-auto" />
+                        <span className="font-satoshi font-bold text-[20px] leading-none tracking-[0.2px] text-white">
+                            {logo.label}
+                        </span>
+                    </span>
+                ) : (
+                    <img
+                        key={logo.alt}
+                        src={logo.src}
+                        alt={logo.alt}
+                        className={`${logo.size ?? 'h-8'} w-auto opacity-80 px-8 flex-shrink-0`}
+                    />
+                ),
+            )}
         </div>
     )
 }
@@ -31,16 +40,16 @@ export default function ConnectsSection() {
 }
 
 /** The rotating device-logo strip. Also used on the Features page. */
-export function LogoMarquee() {
+export function LogoMarquee({ logos = DEVICE_LOGOS }: { logos?: LogoItem[] }) {
     return (
         // Marquee container with edge fades
         <div className="marquee-container w-full overflow-hidden">
             <div className="marquee-scroll flex items-center">
                 {/* Render 4 logo sets for continuous coverage on wide screens */}
-                <LogoSet />
-                <LogoSet />
-                <LogoSet />
-                <LogoSet />
+                <LogoSet logos={logos} />
+                <LogoSet logos={logos} />
+                <LogoSet logos={logos} />
+                <LogoSet logos={logos} />
             </div>
         </div>
     )

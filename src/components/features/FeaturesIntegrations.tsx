@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom'
 import { LogoMarquee } from '../ConnectsSection'
+import { INTEGRATION_LOGOS } from '../../data/deviceLogos'
 import {
     HISTORY_IMPORTS,
     RECOVERY_INTEGRATIONS,
@@ -93,7 +94,7 @@ export default function FeaturesIntegrations() {
             className="features-target w-full py-20 sm:py-24 bg-dark border-t border-white/[0.06]"
         >
             <div className="mb-12 sm:mb-14">
-                <LogoMarquee />
+                <LogoMarquee logos={INTEGRATION_LOGOS} />
             </div>
 
             <div className="px-5 sm:px-8">
