@@ -2,9 +2,11 @@
 
 > augo is an AI-powered coaching platform for endurance sports. It brings coach-athlete communication, workout data, and session feedback into one place — designed to empower coaches, not replace them.
 
-augo is built for endurance coaches (running, swimming, biking, triathlon) and their athletes. The platform sits alongside existing tools like TrainingPeaks and Garmin/Coros devices, adding centralized communication and intelligent, context-aware insights on top.
+augo is built for endurance coaches (running, swimming, biking, triathlon) and their athletes. augo replaces training platforms like TrainingPeaks and Final Surge, and works with the devices athletes already use, like Garmin and COROS, adding centralized communication and intelligent, context-aware insights on top.
 
 **Website:** https://www.augotraining.com
+
+**Every feature in full:** https://www.augotraining.com/llms-full.txt
 
 ---
 

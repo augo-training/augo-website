@@ -1034,16 +1034,13 @@
         "Treino de força"
       ]
     },
-    "nav": {
-      "label": "Seções",
-      "allFeatures": "Todas as funcionalidades",
-      "faq": "Perguntas"
+    "panel": {
+      "close": "Fechar",
+      "next": "Próximo"
     },
     "guide": {
       "coachHeading": "Para coaches",
-      "coachLead": "Tudo o que você usa para planejar, entregar e ajustar o treino, e para ficar perto de cada atleta.",
       "athleteHeading": "Para atletas",
-      "athleteLead": "O app da augo que seus atletas usam para treinar, dar feedback e falar com você. Gratuito para atletas.",
       "howItWorks": "Como funciona",
       "bookCall": "Agendar call de onboarding",
       "learnMore": "Saiba mais no Suporte"
@@ -1680,15 +1677,6 @@
         ],
         "proof": ""
       }
-    },
-    "glance": {
-      "title": "Visão geral",
-      "lead": "Todas as funcionalidades da augo em uma tabela.",
-      "feature": "Funcionalidade",
-      "what": "O que faz",
-      "coaches": "Coaches",
-      "athletes": "Atletas",
-      "migration": "Migração"
     },
     "faq": {
       "title": "Perguntas sobre as funcionalidades",

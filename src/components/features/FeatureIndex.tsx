@@ -155,7 +155,7 @@ export default function FeatureIndex() {
                             summary={t('features.index.integrationsSummary')}
                         />
                         <Card
-                            href={`#${SECTION_IDS.migration}`}
+                            href={`#${migration.item.id}`}
                             title={migration.label}
                             summary={migration.item.summary}
                             art={

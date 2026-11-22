@@ -25,12 +25,8 @@ import { ONBOARDING_CALL_URL } from '../../data/onboarding'
 /** Section ids. Hash links use these, so they are part of the page's public URLs. */
 export const SECTION_IDS = {
     index: 'all-features',
-    coaches: 'for-coaches',
-    athletes: 'for-athletes',
     devices: 'devices',
     integrations: 'integrations',
-    migration: 'migration',
-    glance: 'at-a-glance',
     faqs: 'faqs',
 } as const
 

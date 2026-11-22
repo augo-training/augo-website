@@ -1090,16 +1090,13 @@
         "Strength training"
       ]
     },
-    "nav": {
-      "label": "Sections",
-      "allFeatures": "All features",
-      "faq": "FAQ"
+    "panel": {
+      "close": "Close",
+      "next": "Next"
     },
     "guide": {
       "coachHeading": "For coaches",
-      "coachLead": "Everything you use to plan, deliver and adjust training, and to stay close to every athlete.",
       "athleteHeading": "For athletes",
-      "athleteLead": "The augo app your athletes use to train, give feedback and talk to you. Free for athletes.",
       "howItWorks": "How it works",
       "bookCall": "Book an onboarding call",
       "learnMore": "Learn more in Support"
@@ -1736,15 +1733,6 @@
         ],
         "proof": ""
       }
-    },
-    "glance": {
-      "title": "At a glance",
-      "lead": "Every augo feature in one table.",
-      "feature": "Feature",
-      "what": "What it does",
-      "coaches": "Coaches",
-      "athletes": "Athletes",
-      "migration": "Migration"
     },
     "faq": {
       "title": "Questions about features",
