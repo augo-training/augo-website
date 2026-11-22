@@ -60,6 +60,7 @@ describe('routes and sitemap', () => {
     // These two assertions stop a refactor from silently dropping the page or
     // demoting it to English-only.
     for (const lang of LANGS) expect(routes).toContain(`/${lang}/mcp`)
+    for (const lang of LANGS) expect(routes).toContain(`/${lang}/features`)
 
     for (const lang of LANGS) {
       for (const path of STATIC_PATHS) {

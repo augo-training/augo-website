@@ -251,6 +251,33 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.augotraining.com/en/features/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/de/features/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/pt/features/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.augotraining.com/en/coaches/adam-labbett/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/coaches/adam-labbett/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/coaches/adam-labbett/" />

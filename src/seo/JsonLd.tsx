@@ -107,7 +107,8 @@ export function CoachCourseJsonLd() {
   )
 }
 
-export function SoftwareApplicationJsonLd() {
+/** `featureList` is optional; the Features page passes its feature titles. */
+export function SoftwareApplicationJsonLd({ featureList }: { featureList?: string[] } = {}) {
   // Pinned to the global tier, not a geo lookup: prerendered schema must be deterministic.
   const tier = getPricingTier('US')
   const schema = {
@@ -133,6 +134,7 @@ export function SoftwareApplicationJsonLd() {
         billingPeriod: 'P1M',
       },
     },
+    ...(featureList?.length ? { featureList } : {}),
   }
 
   return (
@@ -585,6 +587,24 @@ export function McpBreadcrumbJsonLd() {
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'augo', item: `${BASE_URL}/${lang}` },
       { '@type': 'ListItem', position: 2, name: 'MCP setup', item: `${BASE_URL}/${lang}/mcp` },
+    ],
+  }
+  return (
+    <Helmet>
+      <script type="application/ld+json">{JSON.stringify(schema)}</script>
+    </Helmet>
+  )
+}
+
+export function FeaturesBreadcrumbJsonLd() {
+  const { i18n } = useTranslation()
+  const lang = i18n.language || 'en'
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'augo', item: `${BASE_URL}/${lang}` },
+      { '@type': 'ListItem', position: 2, name: 'Features', item: `${BASE_URL}/${lang}/features` },
     ],
   }
   return (

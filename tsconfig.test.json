@@ -25,5 +25,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["test/**/*.ts", "test/**/*.d.ts"]
+  "include": ["test/**/*.ts", "test/**/*.d.ts", "src/imagetools.d.ts"]
 }

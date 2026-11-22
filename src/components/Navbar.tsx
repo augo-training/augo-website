@@ -15,7 +15,7 @@ function NavLink({ label, href, onClick }: { label: string; href: string; onClic
                 trackNavLinkClicked({ link_text: label, destination: href, is_mobile: false })
                 onClick?.(e)
             }}
-            className="group relative flex items-center font-['JetBrains_Mono'] text-[13px] xl:text-[14px] font-normal leading-[100%] tracking-[1.5px] xl:tracking-[2px] uppercase text-white no-underline transition-all duration-200 ease-out hover:font-bold hover:italic"
+            className="group relative flex items-center whitespace-nowrap font-['JetBrains_Mono'] text-[13px] min-[1440px]:text-[14px] font-normal leading-[100%] tracking-[1.5px] min-[1440px]:tracking-[2px] uppercase text-white no-underline transition-all duration-200 ease-out hover:font-bold hover:italic"
         >
             {/* Out of flow: in flow it reserved ~31px per link even while invisible,
                 which is what forced the links to collapse below 1280px. */}
@@ -71,23 +71,25 @@ export default function Navbar() {
     const currentLang = lang || i18n.language || 'en'
 
     const navLinks = [
-        { label: t('nav.forCoaches'), href: '#coaches' },
-        { label: t('nav.forAthletes'), href: '#athletes' },
+        { label: t('nav.features'), href: `/${currentLang}/features` },
         { label: t('nav.pricing'), href: `/${currentLang}/pricing` },
         { label: t('nav.bookDemo'), href: `/${currentLang}/book-a-demo` },
         { label: t('nav.findAMatch'), href: `/${currentLang}/find/` },
+        // The founders' section on the homepage; the advisors follow right after it.
+        { label: t('nav.team'), href: '#about' },
+        { label: t('nav.signUp'), href: `/${currentLang}/download` },
     ]
 
     const mobileMenuLinks = [
-        { label: t('nav.forAthletes'), href: '#athletes' },
-        { label: t('nav.forCoaches'), href: '#coaches' },
+        { label: t('nav.features'), href: `/${currentLang}/features` },
         { label: t('nav.pricing'), href: `/${currentLang}/pricing` },
         { label: t('nav.bookDemo'), href: `/${currentLang}/book-a-demo` },
         { label: t('nav.findAMatch'), href: `/${currentLang}/find/` },
-        { label: t('nav.signUp'), href: `/${currentLang}/download` },
+        { label: t('nav.team'), href: '#about' },
         // English-only like the footer's Support link; /de and /pt redirect to /en
         { label: t('nav.support'), href: `/${currentLang}/support` },
         { label: t('nav.contact'), href: `/${currentLang}/contact` },
+        { label: t('nav.signUp'), href: `/${currentLang}/download` },
     ]
 
     const [menuOpen, setMenuOpen] = useState(false)
@@ -265,7 +267,7 @@ export default function Navbar() {
         <>
             <nav className="navbar-sticky fixed top-[var(--banner-h)] left-0 right-0 z-[60] flex items-center justify-between px-5 sm:px-6 md:px-8 lg:px-12 pt-6 pb-2">
                 {/* Left Side: Logo + Nav Links */}
-                <div className="flex items-center gap-12 2xl:gap-[100px]">
+                <div className="flex items-center gap-10 2xl:gap-[100px]">
                     {/* Logo */}
                     <a href={`/${currentLang}`} className="flex-shrink-0 relative z-[60]">
                         <img src={augoLogo} alt="augo" className="h-7" />
@@ -273,7 +275,7 @@ export default function Navbar() {
 
                     {/* Nav Links — visible only on xl+; below that the hamburger carries them */}
                     <div
-                        className="hidden xl:flex items-center gap-12 min-[1440px]:gap-16"
+                        className="hidden xl:flex items-center gap-8 min-[1440px]:gap-12 2xl:gap-16"
                         style={{
                             opacity: !menuOpen ? 1 : 0,
                             transform: !menuOpen ? 'translateY(0)' : 'translateY(10px)',
@@ -305,7 +307,7 @@ export default function Navbar() {
                         href="https://webapp.augotraining.com/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hidden xl:inline-flex nav-cta-btn font-mono text-[11px] sm:text-sm font-extrabold tracking-[1.5px] sm:tracking-[2px] uppercase px-3.5 py-2 sm:px-6 sm:py-3 rounded-md sm:rounded-lg"
+                        className="hidden xl:inline-flex whitespace-nowrap nav-cta-btn font-mono text-[11px] sm:text-sm font-extrabold tracking-[1.5px] sm:tracking-[2px] uppercase px-3.5 py-2 sm:px-6 sm:py-3 rounded-md sm:rounded-lg"
                         style={ctaFadeStyle}
                         onClick={() => trackCtaClicked({ cta_text: t('nav.coachLogin'), cta_location: 'navbar', destination: 'https://webapp.augotraining.com/' })}
                     >

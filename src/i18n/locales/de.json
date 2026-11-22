@@ -3,6 +3,8 @@
     "forCoaches": "Für Coaches",
     "forAthletes": "Für Athleten",
     "findAMatch": "Coach finden",
+    "features": "Funktionen",
+    "team": "Team",
     "pricing": "Preise",
     "bookDemo": "Demo buchen",
     "humanEdge": "Human Edge",
@@ -1000,6 +1002,732 @@
       "label": "Kopieren",
       "copied": "Kopiert",
       "announce": "In die Zwischenablage kopiert"
+    }
+  },
+  "features": {
+    "hero": {
+      "eyebrow": "Funktionen",
+      "title": "Alles, was augo für Coaches und Athleten kann"
+    },
+    "index": {
+      "title": "Alle Funktionen",
+      "lead": "Spring direkt zu einer Funktion, oder such nach dem, was du wissen willst.",
+      "setupTitle": "Geräte, Integrationen und Migration",
+      "devicesTitle": "Geräte",
+      "devicesSummary": "Web, iOS und Android für Coaches. iOS und Android für Athleten, Web noch 2026.",
+      "integrationsTitle": "Integrationen",
+      "integrationsSummary": "Garmin, COROS, Wahoo, Strava, WHOOP, Oura, TrainingPeaks und mehr."
+    },
+    "search": {
+      "label": "Funktionen und Support durchsuchen",
+      "placeholder": "Suche, zum Beispiel \"funktioniert es mit Oura?\"",
+      "clear": "Suche löschen",
+      "onPage": "Auf dieser Seite",
+      "support": "Im Support",
+      "empty": "Keine Treffer. Versuch ein anderes Wort, oder sieh dir unten alle Funktionen an.",
+      "suggestionsLabel": "Probier:",
+      "suggestions": [
+        "Migrations-Support",
+        "Integrationen",
+        "Claude",
+        "In-App-Assistent",
+        "Krafttraining"
+      ]
+    },
+    "nav": {
+      "label": "Abschnitte",
+      "allFeatures": "Alle Funktionen",
+      "faq": "FAQ"
+    },
+    "guide": {
+      "coachHeading": "Für Coaches",
+      "coachLead": "Alles, womit du Training planst, auslieferst und anpasst, und womit du jedem Athleten nah bleibst.",
+      "athleteHeading": "Für Athleten",
+      "athleteLead": "Die augo App, mit der deine Athleten trainieren, Feedback geben und mit dir sprechen. Kostenlos für Athleten.",
+      "howItWorks": "So funktioniert's",
+      "bookCall": "Onboarding-Call buchen",
+      "learnMore": "Mehr dazu im Support"
+    },
+    "coach": {
+      "items": [
+        {
+          "id": "chat",
+          "category": "Kommunikation",
+          "title": "Chat und Trainings-Feed an einem Ort",
+          "summary": "Nachrichten und abgeschlossene Einheiten in einem Feed pro Athlet, mit Antworten, Reaktionen und Sprachkommentaren.",
+          "lead": "Jede Einheit kommt direkt von der Uhr deines Athleten ins Gespräch. Reagiere darauf, antworte oder hinterlasse einen geschriebenen oder gesprochenen Kommentar, und jede Sprachnachricht wird transkribiert. Kein WhatsApp mehr neben der Trainings-App, keine Screenshots und kein Durchklicken von Athlet zu Athlet.",
+          "steps": [
+            "Lade einen Athleten mit deinem Link oder Coach-Code ein.",
+            "Seine abgeschlossenen Einheiten erscheinen im Chat, sobald sie synchronisiert sind.",
+            "Antworte, reagiere oder sprich einen Kommentar zu jeder Nachricht oder Einheit ein."
+          ],
+          "specs": [
+            {
+              "label": "Sprache",
+              "value": "Aufgenommen und transkribiert"
+            },
+            {
+              "label": "Benachrichtigungen",
+              "value": "Nach deiner Wahl, z. B. nur Nachrichten"
+            },
+            {
+              "label": "Athleten",
+              "value": "augo App für iOS und Android"
+            }
+          ],
+          "proof": "Nah an deinen Athleten zu sein, kann kein KI-Trainingsplan kopieren. augo macht es dir leicht."
+        },
+        {
+          "id": "feedback",
+          "category": "Athleteneinblick",
+          "title": "Feedback nach jeder Einheit",
+          "summary": "Athleten beantworten die Fragen, die du auswählst: Befinden, Schmerzen, RPE, Verdauung und Verpflegung.",
+          "lead": "Nach jeder Einheit beantwortet dein Athlet die Fragen, die du ausgewählt hast: wie er sich gefühlt hat, Schmerzen, RPE, wie es im Vergleich zur Erwartung lief, Verdauungsprobleme und Verpflegung. Dazu kann er Text oder eine Sprachnachricht von bis zu fünf Minuten hinzufügen. So weißt du, wie es ihm wirklich geht, ohne jede Woche nachzufragen.",
+          "steps": [
+            "Wähle die Fragen, die nach jeder Einheit beantwortet werden sollen.",
+            "Dein Athlet antwortet mit ein paar Tipps, auf Wunsch mit Notiz oder Sprachnachricht.",
+            "Du siehst es direkt bei der Einheit und als Verlauf über die Zeit."
+          ],
+          "specs": [
+            {
+              "label": "Fragen",
+              "value": "Befinden, Schmerzen, RPE, Erwartung, Verdauung, Verpflegung"
+            },
+            {
+              "label": "Notizen",
+              "value": "Text oder Sprache bis 5 Minuten"
+            },
+            {
+              "label": "Verlauf",
+              "value": "Woche für Woche, pro Athlet"
+            }
+          ],
+          "proof": "Rund 75 % der Athleten geben jede Woche Feedback, zu etwa 4 Einheiten."
+        },
+        {
+          "id": "assistant",
+          "category": "Assistent",
+          "title": "In-App-Assistent, betrieben von Claude",
+          "summary": "Frag alles über jeden Athleten. Er hat jede Nachricht, Einheit, Messung, jedes Feedback und alle Erholungsdaten gelesen.",
+          "lead": "Der Assistent lebt in augo und sieht alles: Gespräche, Einheiten, Messwerte, Feedback, Notizen und Erholungsdaten. Lass ihn jeden Lauf über 30 km mit 1.500 Höhenmetern finden, die Belastung im Rennen mit dem Training vergleichen oder herausfinden, wie die Verpflegung ein Rennen beeinflusst hat. Er verbindet objektive, subjektive und Ernährungsdaten in einer Antwort.",
+          "steps": [
+            "Öffne den Assistenten im Web oder mobil.",
+            "Frag nach einem Athleten oder nach allen.",
+            "Erhalte Analysen, Gesprächsvorbereitung oder eine neue Einheit in Sekunden."
+          ],
+          "specs": [
+            {
+              "label": "Liest",
+              "value": "Chat, Einheiten, Feedback, Notizen, Erholung"
+            },
+            {
+              "label": "Konto",
+              "value": "Kein ChatGPT- oder Claude-Konto nötig"
+            },
+            {
+              "label": "Abo",
+              "value": "In deinem Abo enthalten"
+            }
+          ],
+          "proof": ""
+        },
+        {
+          "id": "workouts",
+          "category": "Planung",
+          "title": "Einheiten auf drei Arten erstellen",
+          "summary": "Mit dem Workout-Builder, mit dem Assistenten oder ganze Wochen aus Claude oder ChatGPT.",
+          "lead": "Der Workout-Builder kann Pace-, Herzfrequenz- und RPE-Vorgaben, gemischt pro Abschnitt, mit Beschreibungen, Bildern, Videos und einer Bibliothek. Drag-and-drop, und ganze Wochen kopieren und einfügen. Was du heute in TrainingPeaks baust, baust du auch hier. Oder frag den Assistenten: \"eine Bahneinheit wie die der letzten Wochen, mit Verpflegungs-Erinnerungen, die zu ihr passen.\" Er kennt ihre Historie und ihr Feedback, also wird die Einheit persönlich, ohne dass du suchen musst.",
+          "steps": [
+            "Bau sie Schritt für Schritt, oder beschreib sie in einem Satz.",
+            "Leg sie in den Kalender des Athleten, oder kopiere eine ganze Woche.",
+            "Sie wird mit Garmin, COROS, Wahoo und Suunto synchronisiert, und mit Rouvy für Indoor-Fahrten."
+          ],
+          "specs": [
+            {
+              "label": "Vorgaben",
+              "value": "Pace, Herzfrequenz, RPE, gemischt pro Abschnitt"
+            },
+            {
+              "label": "Wege",
+              "value": "Builder, Assistent, Claude oder ChatGPT"
+            },
+            {
+              "label": "Geräte",
+              "value": "Garmin, COROS, Wahoo, Suunto, Rouvy"
+            }
+          ],
+          "proof": "Viele augo Coaches brauchen keine Bibliothek mehr: Jede Einheit wird für den Athleten gebaut, direkt im Moment."
+        },
+        {
+          "id": "strength",
+          "category": "Planung",
+          "title": "Krafttraining im selben Kalender",
+          "summary": "Übungen, Sätze, Wiederholungen und Pausen, mit deinen Hinweisen und einem Demovideo zu jeder Übung.",
+          "lead": "Beschreib die Einheit, und augo baut sie. Dein Athlet folgt ihr in der App mit Pausentimer und Demovideo nur einen Tipp entfernt, genau wie bei einem Lauf oder einer Radfahrt. Speichere sie als Vorlage, um sie wiederzuverwenden.",
+          "steps": [
+            "Beschreib die Einheit, oder füge deine übliche Routine ein.",
+            "Prüfe Übungen, Sätze, Pausen und Hinweise.",
+            "Dein Athlet folgt ihr in der App."
+          ],
+          "specs": [
+            {
+              "label": "Enthält",
+              "value": "Sätze, Wiederholungen, Pausen, Hinweise, Demovideo"
+            },
+            {
+              "label": "Athleten",
+              "value": "augo App"
+            },
+            {
+              "label": "Wiederverwenden",
+              "value": "Als Vorlage speichern"
+            }
+          ],
+          "proof": ""
+        },
+        {
+          "id": "connector",
+          "category": "Assistent",
+          "title": "Connector für Claude und ChatGPT",
+          "summary": "Arbeite aus deinem eigenen Claude oder ChatGPT, mit vollem Kontext zu Gesprächen und Feedback deiner Athleten.",
+          "lead": "Füge augo als Connector hinzu und plane ganze Wochen oder Blöcke auf einmal, schreib Saisonübersichten für deine Athleten und nutze deine eigenen Einheitennamen und Bibliotheks-Einheiten. Anders als Connectoren, die nur Einheiten übertragen, kennt augos Connector deine Gespräche und das Feedback zu jeder Einheit. Er meldet sich als du an und sieht nur deine Athleten.",
+          "steps": [
+            "Füge augo als Connector in Claude oder ChatGPT hinzu.",
+            "Melde dich mit deinem augo Konto an.",
+            "Frag nach einem Athleten, oder bau eine Woche, eine Nachricht oder eine Notiz."
+          ],
+          "specs": [
+            {
+              "label": "Funktioniert mit",
+              "value": "Claude und ChatGPT, auch in den Gratis-Plänen"
+            },
+            {
+              "label": "Einrichtung",
+              "value": "Etwa zwei Minuten"
+            },
+            {
+              "label": "Zugriff",
+              "value": "Nur deine Athleten"
+            }
+          ],
+          "proof": ""
+        },
+        {
+          "id": "analysis",
+          "category": "Athleteneinblick",
+          "title": "Trainingsanalyse, geplant gegen absolviert",
+          "summary": "Splits, Intervalle, Messwerte und Zeit in Zonen von der Uhr, neben dem Befinden des Athleten.",
+          "lead": "Jede absolvierte Einheit kommt vom Gerät mit Splits, Intervallen, zoombaren Diagrammen und Zeit in den Zonen, abgeglichen mit deinem Plan. RPE, Notizen und Sprachnachrichten des Athleten stehen direkt daneben. Wo Zahlen und Feedback nicht zusammenpassen, beginnt Coaching.",
+          "steps": [
+            "Die absolvierte Einheit wird vom Gerät synchronisiert.",
+            "augo ordnet sie der geplanten Einheit zu.",
+            "Sieh Splits, Zonen und Feedback in einer Ansicht."
+          ],
+          "specs": [
+            {
+              "label": "Daten",
+              "value": "Splits, Intervalle, Pace, Herzfrequenz, Leistung"
+            },
+            {
+              "label": "Zonen",
+              "value": "Zeit in jeder Zone"
+            },
+            {
+              "label": "Feedback",
+              "value": "Direkt neben den Daten"
+            }
+          ],
+          "proof": ""
+        },
+        {
+          "id": "recovery",
+          "category": "Athleteneinblick",
+          "title": "Erholungsdaten, jeden Morgen",
+          "summary": "Schlaf, Ruhepuls, HRV und Schritte von WHOOP, Oura, Garmin, COROS und Apple Health.",
+          "lead": "Nicht nur Trainingsdaten: augo sammelt auch Erholungsdaten von den Wearables deiner Athleten. Jeder Wert steht neben dem 30-Tage-Durchschnitt des Athleten, so fällt die kurze Nacht oder der steigende Puls auf, bevor sie sich in einer Einheit zeigen.",
+          "steps": [
+            "Dein Athlet verbindet sein Wearable einmal.",
+            "Die Gesundheitsdaten kommen jeden Morgen.",
+            "Vergleiche sie mit seinem 30-Tage-Durchschnitt, oder frag den Assistenten."
+          ],
+          "specs": [
+            {
+              "label": "Quellen",
+              "value": "WHOOP, Oura, Garmin, COROS, Apple Health"
+            },
+            {
+              "label": "Werte",
+              "value": "Schlaf, Ruhepuls, HRV, Schritte"
+            },
+            {
+              "label": "Vergleich",
+              "value": "30-Tage-Durchschnitt des Athleten"
+            }
+          ],
+          "proof": ""
+        },
+        {
+          "id": "signals",
+          "category": "Athleteneinblick",
+          "title": "Athlete Signals: wer dich heute braucht",
+          "summary": "Jeden Morgen siehst du, wer kämpft, wer eine Änderung möchte und wer gerade eine Bestzeit gelaufen ist.",
+          "lead": "Signals werden jeden Morgen aus den Nachrichten, dem Feedback und dem Training der letzten sieben Tage erstellt. Sie zeigen Athleten, die kämpfen, krank, gestresst oder verletzt sind, die ihren Plan ändern möchten, und Highlights wie eine neue Bestzeit. So beginnst du jeden Tag mit den Menschen, die dich brauchen.",
+          "steps": [
+            "augo liest die Nachrichten, das Feedback und die Einheiten der letzten Woche.",
+            "Signals zeigen, wer heute deine Aufmerksamkeit braucht.",
+            "Frag den Assistenten nach mehr zu jedem Signal."
+          ],
+          "specs": [
+            {
+              "label": "Aktualisierung",
+              "value": "Jeden Morgen"
+            },
+            {
+              "label": "Zeitraum",
+              "value": "Letzte 7 Tage"
+            },
+            {
+              "label": "Zeigt",
+              "value": "Probleme, Planänderungen, Highlights"
+            }
+          ],
+          "proof": ""
+        },
+        {
+          "id": "zones",
+          "category": "Planung",
+          "title": "Zonen und Leistungswerte",
+          "summary": "Zonenmodelle für Herzfrequenz, Pace und Leistung, pro Athlet.",
+          "lead": "Starte mit augos Standardmodellen oder bau deine eigenen, so viele du brauchst. Leg für jeden Athleten seine Leistungswerte fest, etwa Schwellenpuls, Schwellenpace oder FTP, oder gib dem Assistenten einen Laborbericht und lass ihn die Werte anlegen.",
+          "steps": [
+            "Wähle ein Standardmodell oder erstelle dein eigenes.",
+            "Leg die Werte des Athleten fest, oder lass den Assistenten einen Laborbericht lesen.",
+            "Wende die passenden Modelle mit wenigen Klicks an."
+          ],
+          "specs": [
+            {
+              "label": "Messgrößen",
+              "value": "Herzfrequenz, Pace, Leistung"
+            },
+            {
+              "label": "Modelle",
+              "value": "So viele du brauchst"
+            },
+            {
+              "label": "Abkürzung",
+              "value": "Aus einem Laborbericht"
+            }
+          ],
+          "proof": ""
+        },
+        {
+          "id": "files",
+          "category": "Assistent",
+          "title": "Laborbericht hochladen, Zonen und Leistungswerte stehen",
+          "summary": "Leg eine Labor- oder Feldtest-Datei in den augo Assistenten, oder in Claude oder ChatGPT, und er legt Leistungswerte und Zonen des Athleten für dich an.",
+          "lead": "Keine Formulare. Lade die Ergebnisse eines Laktat-, VO2max- oder Feldtests als PDF oder Foto hoch, in augo oder in deinem eigenen Claude oder ChatGPT, und der Assistent liest sie. Er trägt die Leistungswerte des Athleten ein, etwa Schwellenpuls, Schwellenpace oder FTP, und erstellt und wendet seine Zonen an. Du prüfst das Ergebnis, fertig.",
+          "steps": [
+            "Lade die Datei in den augo Assistenten hoch, oder in Claude oder ChatGPT mit dem augo Connector.",
+            "Der Assistent liest sie und schlägt Leistungswerte und Zonen für diesen Athleten vor.",
+            "Bestätige, und sie sind in augo angelegt."
+          ],
+          "specs": [
+            {
+              "label": "Dateien",
+              "value": "PDFs und Fotos von Labor- oder Feldtests"
+            },
+            {
+              "label": "Legt an",
+              "value": "Leistungswerte und Zonen"
+            },
+            {
+              "label": "Funktioniert in",
+              "value": "augo Assistent, Claude, ChatGPT"
+            }
+          ],
+          "proof": ""
+        },
+        {
+          "id": "notes",
+          "category": "Kommunikation",
+          "title": "Private Coach-Notizen",
+          "summary": "Notizen zu jedem Athleten, die nur du und dein Assistent lesen können.",
+          "lead": "Halte Erstgespräch, Verletzungshistorie und Saisonplan für jeden Athleten an einem Ort fest. Athleten sehen sie nie. Der Assistent liest sie als Kontext und kann sie für dich schreiben.",
+          "steps": [
+            "Öffne einen Athleten und füge eine Notiz hinzu.",
+            "Der Assistent liest sie als Kontext.",
+            "Frag später danach, oder lass den Assistenten eine schreiben."
+          ],
+          "specs": [
+            {
+              "label": "Sichtbar für",
+              "value": "Nur dich"
+            },
+            {
+              "label": "Assistent",
+              "value": "Liest und schreibt Notizen"
+            },
+            {
+              "label": "Pro",
+              "value": "Athlet"
+            }
+          ],
+          "proof": ""
+        }
+      ]
+    },
+    "athlete": {
+      "items": [
+        {
+          "id": "a-chat",
+          "category": "Kommunikation",
+          "title": "Ein Ort für dich und deinen Coach",
+          "summary": "Nachrichten, Feedback und Trainingsdaten zusammen, damit du dich immer begleitet fühlst.",
+          "lead": "Stell deinem Coach eine Frage, reagiere auf seine Antwort und hör seinen Sprachkommentar zu deinem Lauf. Alles steht direkt neben dem Training, um das es geht.",
+          "steps": [
+            "Tritt mit dem Link oder Code deines Coaches bei.",
+            "Chatte, antworte auf eine Nachricht oder reagiere.",
+            "Sieh die Kommentare deines Coaches zu jeder Einheit."
+          ],
+          "specs": [
+            {
+              "label": "App",
+              "value": "iOS und Android"
+            },
+            {
+              "label": "Sprache",
+              "value": "Sprachnachrichten und -kommentare"
+            },
+            {
+              "label": "Benachrichtigungen",
+              "value": "Nach deiner Wahl"
+            }
+          ],
+          "proof": ""
+        },
+        {
+          "id": "a-workouts",
+          "category": "Training",
+          "title": "Dein Coach plant. Deine Uhr hat's.",
+          "summary": "Kommende Einheiten und Rennen in der App, und Schritt für Schritt auf deiner Uhr.",
+          "lead": "Einlaufen, Intervalle, Auslaufen: Die Einheit erscheint in deiner App und auf Garmin, COROS, Wahoo oder Suunto. Radfahrten gehen direkt an Rouvy, oder exportiere sie für Zwift oder MyWhoosh. Hat deine Uhr etwas nicht aufgezeichnet? Trag die Aktivität von Hand ein.",
+          "steps": [
+            "Dein Coach plant die Einheit.",
+            "Sie erscheint in deiner App und auf deinem Gerät.",
+            "Folge ihr; nach dem Training wird sie zurück synchronisiert."
+          ],
+          "specs": [
+            {
+              "label": "Geräte",
+              "value": "Garmin, COROS, Wahoo, Suunto"
+            },
+            {
+              "label": "Indoor",
+              "value": "Rouvy, Zwift, MyWhoosh"
+            },
+            {
+              "label": "Manuell eintragen",
+              "value": "Ja"
+            }
+          ],
+          "proof": ""
+        },
+        {
+          "id": "a-strength",
+          "category": "Training",
+          "title": "Krafttage, direkt auf deinem Handy",
+          "summary": "Jede Übung der Reihe nach, mit Wiederholungen, Pausentimer, Hinweisen und Demovideo.",
+          "lead": "Krafteinheiten von deinem Coach erscheinen wie jede andere Einheit, mit einem Demovideo nur einen Tipp entfernt und einem Timer für jede Pause.",
+          "steps": [
+            "Öffne die Einheit des Tages.",
+            "Folge jeder Übung mit ihrem Pausentimer.",
+            "Sag deinem Coach, wie es sich angefühlt hat."
+          ],
+          "specs": [
+            {
+              "label": "App",
+              "value": "augo"
+            },
+            {
+              "label": "Video",
+              "value": "Pro Übung"
+            },
+            {
+              "label": "Timer",
+              "value": "Eingebaut"
+            }
+          ],
+          "proof": ""
+        },
+        {
+          "id": "a-trends",
+          "category": "Einblick",
+          "title": "Sieh, wie es dir wirklich geht",
+          "summary": "Dein Befinden, Beschwerden über die Zeit, Wochenumfang über alle Sportarten und dein nächstes Rennen.",
+          "lead": "Dein Feedback wird zu Verläufen, die du und dein Coach sehen: wie du dich fühlst, Schmerzen und Beschwerden, und dein Umfang über alle Sportarten Woche für Woche. So erkennt ihr Warnzeichen gemeinsam, und zählt die Tage bis zum Rennen.",
+          "steps": [
+            "Beantworte nach jeder Einheit ein paar Fragen.",
+            "Sieh dein Befinden und deinen Umfang über die Zeit.",
+            "Zähl die Tage bis zu deinem nächsten Rennen."
+          ],
+          "specs": [
+            {
+              "label": "Ansichten",
+              "value": "12 Wochen, 6 Monate, 1 Jahr"
+            },
+            {
+              "label": "Sportarten",
+              "value": "Laufen, Rad, Schwimmen, Kraft"
+            },
+            {
+              "label": "Rennen",
+              "value": "Countdown zum nächsten Rennen"
+            }
+          ],
+          "proof": ""
+        },
+        {
+          "id": "a-recovery",
+          "category": "Einblick",
+          "title": "Deine Erholung, nicht nur dein Training",
+          "summary": "Schlaf, Ruhepuls, HRV und Schritte von deinem Wearable, neben deinen Einheiten.",
+          "lead": "Verbinde WHOOP, Oura, Garmin, Apple Health oder COROS. Dein Coach sieht, wie gut du dich erholt hast, und plant die nächsten Einheiten danach.",
+          "steps": [
+            "Verbinde dein Wearable einmal.",
+            "Deine Gesundheitsdaten kommen jeden Morgen.",
+            "Dein Coach plant danach."
+          ],
+          "specs": [
+            {
+              "label": "Quellen",
+              "value": "WHOOP, Oura, Garmin, Apple Health, COROS"
+            },
+            {
+              "label": "Werte",
+              "value": "Schlaf, Ruhepuls, HRV, Schritte"
+            },
+            {
+              "label": "Geteilt mit",
+              "value": "Deinem Coach"
+            }
+          ],
+          "proof": ""
+        },
+        {
+          "id": "a-free",
+          "category": "Preis",
+          "title": "Kostenlos für Athleten",
+          "summary": "Kein Premium-Abo und keine Bezahlschranke. Der Plan deines Coaches deckt alles ab.",
+          "lead": "Die augo App ist einfach und schnell: mit deinem Coach sprechen, Feedback geben und sehen, was als Nächstes kommt. Jede Funktion ist dabei, nichts muss freigeschaltet werden.",
+          "steps": [
+            "Lade augo für iOS oder Android herunter.",
+            "Tritt mit dem Link oder Code deines Coaches bei.",
+            "Verbinde deine Uhr und leg los."
+          ],
+          "specs": [
+            {
+              "label": "Preis",
+              "value": "Kostenlos"
+            },
+            {
+              "label": "Premium-Abo",
+              "value": "Keins"
+            },
+            {
+              "label": "App",
+              "value": "iOS und Android"
+            }
+          ],
+          "proof": ""
+        }
+      ]
+    },
+    "devices": {
+      "eyebrow": "Geräte",
+      "title": "Wo du augo nutzt",
+      "lead": "Coaches arbeiten im Web oder am Handy. Athleten nutzen die augo App für iOS und Android.",
+      "download": "App holen",
+      "coach": {
+        "title": "Coaches",
+        "body": "Die augo Web-App, dazu die mobile App für iOS und Android. Deine Athleten, Chats und Pläne sind auf beiden gleich.",
+        "tags": [
+          "Web-App",
+          "iOS",
+          "Android"
+        ]
+      },
+      "athlete": {
+        "title": "Athleten",
+        "body": "Die augo App für iOS und Android, kostenlos für Athleten. Eine Web-Version für Athleten kommt noch 2026.",
+        "tags": [
+          "iOS",
+          "Android",
+          "Web: noch 2026"
+        ]
+      }
+    },
+    "integrations": {
+      "eyebrow": "Integrationen",
+      "title": "Womit sich augo verbindet",
+      "lead": "augo funktioniert mit den Uhren, Radcomputern, Indoor-Plattformen und Wearables, die deine Athleten schon nutzen. Hier steht genau, was jede Integration macht.",
+      "how": {
+        "title": "So funktionieren Integrationen",
+        "items": [
+          {
+            "title": "Geplante Einheiten",
+            "body": "Jede geplante Einheit erscheint in der augo App. Garmin, COROS, Wahoo und Suunto erhalten sie zusätzlich auf Uhr oder Radcomputer, Rouvy bekommt geplante Radfahrten in seinen Kalender, und für Zwift und MyWhoosh exportiert dein Athlet eine .zwo-Datei aus der App."
+          },
+          {
+            "title": "Absolvierte Aktivitäten",
+            "body": "Jede Einheit, die dein Athlet nach dem Verbinden absolviert, kommt automatisch in augo an, meist innerhalb von Minuten, und erscheint in eurem Chat und im Kalender."
+          },
+          {
+            "title": "Trainingshistorie",
+            "body": "Beim Verbinden kommen automatisch die letzten 30 Tage. Für Garmin und TrainingPeaks importieren wir die komplette Historie ohne Limit aus einem Export, den dein Athlet uns schickt. Andere Quellen können auf Anfrage bis zu fünf Jahre zurückgehen."
+          },
+          {
+            "title": "Erholungsdaten",
+            "body": "WHOOP, Oura, Garmin, COROS und Apple Health liefern jeden Morgen Schlaf, Ruhepuls, HRV und Schritte, neben dem 30-Tage-Durchschnitt des Athleten."
+          }
+        ]
+      },
+      "connect": {
+        "title": "Gut zu wissen",
+        "points": [
+          "Athleten verbinden ihre Geräte selbst in der augo App. Ein Coach kann das nicht für sie tun.",
+          "Eine Quelle reicht, wenn sie jede Einheit enthält. Zwei zu verbinden ist kein Problem: augo zeigt dieselbe Aktivität nicht doppelt.",
+          "Für geplante Einheiten auf dem Gerät verbinde die Uhr selbst (Garmin, COROS, Wahoo oder Suunto), nicht nur Strava.",
+          "Garmin oder Rouvy schon vor einer Weile verbunden? Verbinde sie neu, um Historie und geplante Einheiten zu bekommen."
+        ]
+      },
+      "table": {
+        "title": "Alle Integrationen auf einen Blick",
+        "name": "Gerät oder App",
+        "planned": "Geplante Einheiten",
+        "completed": "Absolvierte Aktivitäten",
+        "historyAuto": "Historie, automatisch",
+        "historyRequest": "Historie, auf Anfrage",
+        "recovery": "Erholungsdaten",
+        "values": {
+          "yes": "Ja",
+          "no": "Nein",
+          "rides": "Radfahrten",
+          "export": "Export (.zwo)",
+          "days30": "30 Tage",
+          "years5": "Bis zu 5 Jahre",
+          "none": "Keine",
+          "unlimited": "Unbegrenzt"
+        },
+        "groups": {
+          "training": "Uhren, Radcomputer und Apps",
+          "imports": "Historie-Import",
+          "recovery": "Wearables für Erholung"
+        },
+        "historyNote": "Wenn ein Gerät verbunden wird, kommen die letzten 30 Tage von selbst. TrainingPeaks ist nicht für geplante Einheiten oder absolvierte Aktivitäten verbunden, also kommt von dort nichts automatisch. Für Garmin und TrainingPeaks exportiert dein Athlet seine Dateien, und wir importieren die komplette Historie ohne Limit.",
+        "historyLink": "So forderst du sie an",
+        "supportLink": "Alle Details zur Kompatibilität im Support"
+      },
+      "more": {
+        "title": "Funktioniert auch mit",
+        "items": [
+          {
+            "id": "ai",
+            "title": "Claude und ChatGPT",
+            "body": "Coaches fügen augo als Connector hinzu und arbeiten mit den Daten ihrer Athleten direkt aus ihrem eigenen Assistenten.",
+            "link": "In zwei Minuten einrichten"
+          },
+          {
+            "id": "trainingpeaks",
+            "title": "TrainingPeaks",
+            "body": "augo ersetzt TrainingPeaks, deshalb ist es nicht für geplante Einheiten oder absolvierte Aktivitäten verbunden. Wir ziehen deine Workout-Bibliothek mit dir um und importieren die komplette Historie deiner Athleten ohne Limit.",
+            "link": "Wechsel zu augo"
+          },
+          {
+            "id": "indoor",
+            "title": "Zwift und MyWhoosh",
+            "body": "Exportiere jede geplante Radfahrt aus der augo App als .zwo-Datei und fahr sie indoor.",
+            "link": "So exportierst du eine Fahrt"
+          }
+        ]
+      }
+    },
+    "migration": {
+      "label": "Migration",
+      "item": {
+        "id": "switching",
+        "category": "Migration",
+        "title": "Wechsel zu augo",
+        "summary": "Deine Bibliothek aus TrainingPeaks oder Final Surge in etwa fünf Minuten umgezogen, und die Historie deiner Athleten importiert.",
+        "lead": "Wir ziehen deine Workout-Bibliothek aus TrainingPeaks oder Final Surge gemeinsam mit dir um, in einem Onboarding-Call von etwa fünf Minuten. Die komplette Historie deiner Athleten kommt aus TrainingPeaks- oder Garmin-Exporten, andere verbundene Quellen holen wir nach. Teste alles 14 Tage kostenlos, ohne Kreditkarte. Brauchst du länger? Sag einfach Bescheid.",
+        "steps": [
+          "Starte deine 14-tägige kostenlose Testphase.",
+          "Buch einen Onboarding-Call, und wir ziehen deine Bibliothek aus TrainingPeaks oder Final Surge mit dir um.",
+          "Lade deine Athleten ein. Ihre Historie kommt mit."
+        ],
+        "specs": [
+          {
+            "label": "Bibliothek",
+            "value": "Aus TrainingPeaks oder Final Surge, etwa 5 Minuten"
+          },
+          {
+            "label": "Historie",
+            "value": "TrainingPeaks- und Garmin-Exporte, Nachimport"
+          },
+          {
+            "label": "Testphase",
+            "value": "14 Tage, ohne Kreditkarte"
+          }
+        ],
+        "proof": ""
+      }
+    },
+    "glance": {
+      "title": "Auf einen Blick",
+      "lead": "Alle Funktionen von augo in einer Tabelle.",
+      "feature": "Funktion",
+      "what": "Was sie macht",
+      "coaches": "Coaches",
+      "athletes": "Athleten",
+      "migration": "Migration"
+    },
+    "faq": {
+      "title": "Fragen zu den Funktionen",
+      "items": [
+        {
+          "question": "Brauche ich ein ChatGPT- oder Claude-Konto für den Assistenten?",
+          "answer": "Nein. Der In-App-Assistent ist in augo eingebaut, wird von Claude betrieben und ist in deinem Abo enthalten. Der Connector für Claude und ChatGPT ist optional, für Coaches, die lieber aus diesen Apps arbeiten."
+        },
+        {
+          "question": "Mit welchen Geräten und Apps funktioniert augo?",
+          "answer": "Garmin, COROS, Wahoo, Suunto, Polar, Apple Watch, Zwift, Strava, Rouvy und Hammerhead synchronisieren absolvierte Aktivitäten. Garmin, COROS, Wahoo und Suunto erhalten auch geplante Einheiten, und Rouvy erhält geplante Radfahrten. Erholungsdaten kommen von WHOOP, Oura, Garmin, COROS und Apple Health."
+        },
+        {
+          "question": "Gibt es augo im Web oder als App?",
+          "answer": "Für Coaches beides: die augo Web-App und die mobile App für iOS und Android. Athleten nutzen heute die mobile App für iOS und Android, eine Web-Version für Athleten kommt noch 2026."
+        },
+        {
+          "question": "Kann ich meine Bibliothek und Historie aus TrainingPeaks oder Final Surge mitnehmen?",
+          "answer": "Ja. Wir ziehen deine Workout-Bibliothek aus TrainingPeaks oder Final Surge in einem Onboarding-Call von etwa fünf Minuten mit dir um. Die Historie deiner Athleten kommt aus TrainingPeaks- oder Garmin-Exporten, andere verbundene Quellen holen wir nach."
+        },
+        {
+          "question": "Müssen meine Athleten für augo bezahlen?",
+          "answer": "Nein. Die augo App ist für Athleten kostenlos, ohne Premium-Abo und ohne Bezahlschranke. Coaches zahlen pro Athlet, den sie aktiv betreuen."
+        },
+        {
+          "question": "Für welche Sportarten ist augo gemacht?",
+          "answer": "augo ist für Ausdauer-Coaches gemacht: Laufen, Radfahren und Triathlon, mit Krafttraining im selben Kalender."
+        },
+        {
+          "question": "Kann ich jede Funktion testen, bevor ich zahle?",
+          "answer": "Ja. Jeder Coach startet mit einer 14-tägigen kostenlosen Testphase, ohne Kreditkarte. Wenn du länger brauchst, sag uns einfach Bescheid."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Sieh es mit deinen eigenen Athleten",
+      "lead": "Starte eine 14-tägige kostenlose Testphase, oder buch eine Demo und wir zeigen dir alles.",
+      "primary": "Kostenlos testen",
+      "secondary": "Demo buchen"
     }
   },
   "announcement": {

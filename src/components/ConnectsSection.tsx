@@ -1,33 +1,26 @@
 import { useTranslation } from 'react-i18next'
-import stravaLogo from '../assets/images/strava.svg'
-import wahooLogo from '../assets/images/wahoo.svg'
-import corosLogo from '../assets/images/coros.svg'
-import polarLogo from '../assets/images/polar.svg'
-import garminLogo from '../assets/images/garmin.svg'
-import zwiftLogo from '../assets/images/zwift.svg'
-import appleWatchLogo from '../assets/images/apple_watch.svg'
+import { DEVICE_LOGOS, INTEGRATION_LOGOS, type LogoItem } from '../data/deviceLogos'
 
-const logos = [
-    { src: garminLogo, alt: 'Garmin' },
-    { src: appleWatchLogo, alt: 'Apple Watch' },
-    { src: stravaLogo, alt: 'Strava' },
-    { src: corosLogo, alt: 'Coros' },
-    { src: wahooLogo, alt: 'Wahoo' },
-    { src: zwiftLogo, alt: 'Zwift' },
-    { src: polarLogo, alt: 'Polar' },
-]
-
-function LogoSet() {
+function LogoSet({ logos }: { logos: LogoItem[] }) {
     return (
         <div className="marquee-track flex items-center shrink-0">
-            {logos.map((logo) => (
-                <img
-                    key={logo.alt}
-                    src={logo.src}
-                    alt={logo.alt}
-                    className="h-8 w-auto opacity-80 px-8 flex-shrink-0"
-                />
-            ))}
+            {logos.map((logo) =>
+                logo.label ? (
+                    <span key={logo.alt} className="flex items-center gap-3 px-8 flex-shrink-0 opacity-80">
+                        <img src={logo.src} alt="" className="h-10 w-auto" />
+                        <span className="font-satoshi font-black text-[34px] leading-none tracking-[-0.5px] text-white">
+                            {logo.label}
+                        </span>
+                    </span>
+                ) : (
+                    <img
+                        key={logo.alt}
+                        src={logo.src}
+                        alt={logo.alt}
+                        className={`${logo.tune ?? 'h-8'} w-auto opacity-80 px-8 flex-shrink-0`}
+                    />
+                ),
+            )}
         </div>
     )
 }
@@ -41,16 +34,24 @@ export default function ConnectsSection() {
                 {t('connects.headline')}
             </h2>
 
-            {/* Marquee container with edge fades */}
-            <div className="marquee-container w-full overflow-hidden">
-                <div className="marquee-scroll flex items-center">
-                    {/* Render 4 logo sets for continuous coverage on wide screens */}
-                    <LogoSet />
-                    <LogoSet />
-                    <LogoSet />
-                    <LogoSet />
-                </div>
-            </div>
+            <LogoMarquee logos={INTEGRATION_LOGOS} className="py-3" />
         </section>
+    )
+}
+
+/** The rotating device-logo strip. Also used on the Features page. */
+export function LogoMarquee({ logos = DEVICE_LOGOS, className = '' }: { logos?: LogoItem[]; className?: string }) {
+    return (
+        // Marquee container with edge fades
+        <div className={`marquee-container w-full overflow-hidden ${className}`}>
+            {/* Same speed whatever the number of logos: the 16s in CSS was tuned for 7. */}
+            <div className="marquee-scroll flex items-center" style={{ animationDuration: `${(16 * logos.length) / 7}s` }}>
+                {/* Render 4 logo sets for continuous coverage on wide screens */}
+                <LogoSet logos={logos} />
+                <LogoSet logos={logos} />
+                <LogoSet logos={logos} />
+                <LogoSet logos={logos} />
+            </div>
+        </div>
     )
 }
