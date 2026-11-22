@@ -2,6 +2,7 @@ import { useLayoutEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { trackCtaClicked } from '../utils/analytics'
+import { ONBOARDING_CALL_URL } from '../data/onboarding'
 
 /** Paid-traffic landing pages: one message, their own funnel. Plus /merci, the
  *  full-screen postcard page, which has no room for a bar, and /session-zero,
@@ -9,8 +10,6 @@ import { trackCtaClicked } from '../utils/analytics'
  *  holds the manifesto and nothing else. */
 const EXCLUDED = ['/nice-athletes', '/nice-coaches', '/irreplaceable-endurance-coach', '/merci', '/session-zero', '/manifesto']
 
-/** Booking calendar for the migration onboarding call. */
-const ONBOARDING_CALL_URL = 'https://calendar.app.google/5QoSwEbUYr9hHZKU7'
 
 /**
  * The permanent bar above the header.

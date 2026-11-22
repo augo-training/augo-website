@@ -1099,6 +1099,7 @@
       "athleteHeading": "For athletes",
       "athleteLead": "The augo app your athletes use to train, give feedback and talk to you. Free for athletes.",
       "howItWorks": "How it works",
+      "bookCall": "Book an onboarding call",
       "learnMore": "Learn more in Support"
     },
     "coach": {
@@ -1404,17 +1405,17 @@
           "id": "switching",
           "category": "Getting started",
           "title": "Switching to augo",
-          "summary": "Your TrainingPeaks library moved in about five minutes, and your athletes' history imported.",
-          "lead": "We move your workout library from TrainingPeaks together with you, on a call of about five minutes. Athletes' full history comes in from TrainingPeaks or Garmin exports, and other connected sources are backfilled from our side. Try it all with a 14-day free trial, no credit card needed. Need longer? Just ask.",
+          "summary": "Your TrainingPeaks or Final Surge library moved in about five minutes, and your athletes' history imported.",
+          "lead": "We move your workout library from TrainingPeaks or Final Surge together with you, on an onboarding call of about five minutes. Athletes' full history comes in from TrainingPeaks or Garmin exports, and other connected sources are backfilled from our side. Try it all with a 14-day free trial, no credit card needed. Need longer? Just ask.",
           "steps": [
             "Start your 14-day free trial.",
-            "Move your TrainingPeaks library with us on a short call.",
+            "Book an onboarding call, and we move your TrainingPeaks or Final Surge library with you.",
             "Invite your athletes. Their history comes with them."
           ],
           "specs": [
             {
               "label": "Library",
-              "value": "From TrainingPeaks, about 5 minutes"
+              "value": "From TrainingPeaks or Final Surge, about 5 minutes"
             },
             {
               "label": "History",
@@ -1728,8 +1729,8 @@
           "answer": "Both, for coaches: the augo web app and the mobile app for iOS and Android. Athletes use the mobile app for iOS and Android today, and a web version for athletes is coming later in 2026."
         },
         {
-          "question": "Can I bring my library and history from TrainingPeaks?",
-          "answer": "Yes. We move your TrainingPeaks workout library with you on a call of about five minutes. Your athletes' history comes in from TrainingPeaks or Garmin exports, and other connected sources are backfilled from our side."
+          "question": "Can I bring my library and history from TrainingPeaks or Final Surge?",
+          "answer": "Yes. We move your TrainingPeaks or Final Surge workout library with you on an onboarding call of about five minutes. Your athletes' history comes in from TrainingPeaks or Garmin exports, and other connected sources are backfilled from our side."
         },
         {
           "question": "Do my athletes pay for augo?",

@@ -1,10 +1,12 @@
 import { useTranslation } from 'react-i18next'
 import FeatureVisual from './FeatureVisual'
-import { FEATURE_VISUALS, SECTION_IDS, SUPPORT_SLUGS, type FeatureItem } from './constants'
+import { trackCtaClicked } from '../../utils/analytics'
+import { FEATURE_CALLS, FEATURE_VISUALS, SECTION_IDS, SUPPORT_SLUGS, type FeatureItem } from './constants'
 
 function FeatureSection({ item, flip }: { item: FeatureItem; flip: boolean }) {
     const { t } = useTranslation()
     const slug = SUPPORT_SLUGS[item.id]
+    const call = FEATURE_CALLS[item.id]
 
     return (
         <article
@@ -52,14 +54,33 @@ function FeatureSection({ item, flip }: { item: FeatureItem; flip: boolean }) {
                     ))}
                 </dl>
 
-                {slug && (
-                    <a
-                        href={`/en/support/${slug}/`}
-                        className="inline-block mt-6 font-satoshi text-[14px] sm:text-[15px] text-white/70 hover:text-white underline-offset-4 hover:underline"
-                    >
-                        {t('features.guide.learnMore')} →
-                    </a>
-                )}
+                <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
+                    {call && (
+                        <a
+                            href={call}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() =>
+                                void trackCtaClicked({
+                                    cta_text: t('features.guide.bookCall'),
+                                    cta_location: `features_${item.id}`,
+                                    destination: call,
+                                })
+                            }
+                            className="btn-gradient inline-flex items-center justify-center h-12 px-6 rounded-lg font-mono text-sm font-extrabold tracking-[2px] uppercase text-white hover:brightness-110 transition-all duration-200"
+                        >
+                            {t('features.guide.bookCall')}
+                        </a>
+                    )}
+                    {slug && (
+                        <a
+                            href={`/en/support/${slug}/`}
+                            className="font-satoshi text-[14px] sm:text-[15px] text-white/70 hover:text-white underline-offset-4 hover:underline"
+                        >
+                            {t('features.guide.learnMore')} →
+                        </a>
+                    )}
+                </div>
             </div>
 
             <div className={flip ? 'md:order-1' : ''}>

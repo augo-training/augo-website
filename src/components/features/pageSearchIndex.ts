@@ -26,7 +26,7 @@ export const FEATURE_KEYWORDS: Record<string, string[]> = {
     signals: ['alerts', 'attention', 'priorities', 'who needs me', 'flags', 'pb', 'personal best'],
     zones: ['ftp', 'threshold', 'lthr', 'power', 'pace zones', 'heart rate zones', 'lab test', 'lactate'],
     notes: ['private notes', 'injury history', 'intake'],
-    switching: ['trainingpeaks', 'training peaks', 'final surge', 'migrate', 'migration', 'import', 'free trial', 'trial', 'history', 'switch'],
+    switching: ['trainingpeaks', 'training peaks', 'final surge', 'finalsurge', 'onboarding call', 'book a call', 'migrate', 'migration', 'import', 'free trial', 'trial', 'history', 'switch'],
     'a-chat': ['message my coach', 'whatsapp', 'voice note'],
     'a-workouts': ['garmin', 'coros', 'wahoo', 'suunto', 'rouvy', 'zwift', 'mywhoosh', 'watch', 'manual entry', 'races'],
     'a-strength': ['gym', 'exercises', 'rest timer', 'demo video'],

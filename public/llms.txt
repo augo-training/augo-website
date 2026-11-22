@@ -110,7 +110,8 @@ For coaches:
   and highlights like PBs.
 - Zones and performance anchors for heart rate, pace and power; the assistant can build them from a lab report.
 - Private coach notes per athlete, never visible to the athlete, read by the assistant.
-- Switching: the TrainingPeaks workout library is moved on a call of about 5 minutes; athlete history is imported
+- Switching: the TrainingPeaks or Final Surge workout library is moved on an onboarding call of about 5 minutes
+  (book it: https://calendar.app.google/5QoSwEbUYr9hHZKU7); athlete history is imported
   from TrainingPeaks or Garmin exports. 14-day free trial, no credit card.
 
 For athletes: the augo app (iOS and Android) is free, with no premium tier. It has chat with the coach, upcoming

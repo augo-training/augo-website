@@ -14,6 +14,7 @@ import athleteWorkout from '../../assets/images/img_for_athletes_workout.png?w=9
 import athleteStrength from '../../assets/images/img_for_athletes_strength.png?w=960&format=webp'
 import athleteTrends from '../../assets/images/img_for_athletes_trends.png?w=960&format=webp'
 import athleteHome from '../../assets/images/athlete_home.png?w=334&format=webp'
+import { ONBOARDING_CALL_URL } from '../../data/onboarding'
 
 /**
  * Everything on the Features page that must not be translated: renders,
@@ -79,6 +80,11 @@ export const SUPPORT_SLUGS: Record<string, string> = {
     switching: 'import-training-history',
     'a-workouts': 'workouts-on-your-device',
     'a-recovery': 'connect-devices-and-apps',
+}
+
+/** Features with a booking button of their own, keyed by feature id. */
+export const FEATURE_CALLS: Record<string, string> = {
+    switching: ONBOARDING_CALL_URL,
 }
 
 /**
