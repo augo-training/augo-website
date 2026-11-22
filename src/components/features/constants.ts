@@ -13,7 +13,6 @@ import dashboard from '../../assets/images/app_web_dashboard.png?w=1280&format=w
 import athleteWorkout from '../../assets/images/img_for_athletes_workout.png?w=960&format=webp'
 import athleteStrength from '../../assets/images/img_for_athletes_strength.png?w=960&format=webp'
 import athleteTrends from '../../assets/images/img_for_athletes_trends.png?w=960&format=webp'
-import athleteHome from '../../assets/images/athlete_home.png?w=334&format=webp'
 import { ONBOARDING_CALL_URL } from '../../data/onboarding'
 
 /**
@@ -68,7 +67,8 @@ export const FEATURE_VISUALS: Record<string, FeatureVisual> = {
     'a-strength': { src: athleteStrength, shape: 'square' },
     'a-trends': { src: athleteTrends, shape: 'square' },
     'a-recovery': { src: recovery, shape: 'square' },
-    'a-free': { src: athleteHome, shape: 'tall' },
+    // Placeholder until we have a current athlete home screen: the newest athlete render.
+    'a-free': { src: athleteTrends, shape: 'square' },
 }
 
 /** Support articles are English-only, so these always link to /en/support. */

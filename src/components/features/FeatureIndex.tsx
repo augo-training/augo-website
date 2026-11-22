@@ -6,6 +6,7 @@ import { DEVICE_LOGOS } from '../../data/deviceLogos'
 import dashboard from '../../assets/images/app_web_dashboard.png?w=640&format=webp'
 import trainingPeaksLogo from '../../assets/images/training_peaks_logo.svg'
 import augoLogo from '../../assets/images/augo_footer_1.svg'
+import finalSurgeLogo from '../../assets/images/final_surge_logo.png'
 import { FEATURE_VISUALS, SECTION_IDS, type FeatureItem } from './constants'
 
 function Card({
@@ -147,10 +148,7 @@ export default function FeatureIndex() {
                                 <div className="flex items-center gap-5">
                                     <div className="flex flex-col items-start gap-3">
                                         <img src={trainingPeaksLogo} alt="" className="h-6 w-auto opacity-85" />
-                                        {/* No Final Surge logo file yet: its name, set plainly, until we have one. */}
-                                        <span className="font-satoshi font-bold text-[17px] leading-none tracking-[0.5px] text-white/85">
-                                            Final Surge
-                                        </span>
+                                        <img src={finalSurgeLogo} alt="" className="h-[15px] w-auto opacity-85" />
                                     </div>
                                     <span className="text-white/50 text-[22px]">→</span>
                                     <img src={augoLogo} alt="" className="h-9 w-auto" />

@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom'
 import dashboard from '../../assets/images/app_web_dashboard.png?w=1280&format=webp'
-import athleteHome from '../../assets/images/athlete_home.png?w=334&format=webp'
+import athleteApp from '../../assets/images/img_for_athletes_workout.png?w=960&format=webp'
 import FeatureVisual from './FeatureVisual'
 import { SECTION_IDS } from './constants'
 
@@ -19,7 +19,7 @@ export default function FeaturesDevices() {
 
     const cards = [
         { key: 'coach', visual: { src: dashboard, shape: 'wide' as const } },
-        { key: 'athlete', visual: { src: athleteHome, shape: 'phone' as const } },
+        { key: 'athlete', visual: { src: athleteApp, shape: 'phone' as const } },
     ].map(({ key, visual }) => ({
         ...(t(`features.devices.${key}`, { returnObjects: true }) as Platform),
         key,
