@@ -81,15 +81,15 @@ export default function Navbar() {
     ]
 
     const mobileMenuLinks = [
-        { label: t('nav.forAthletes'), href: '#athletes' },
-        { label: t('nav.forCoaches'), href: '#coaches' },
+        { label: t('nav.features'), href: `/${currentLang}/features` },
         { label: t('nav.pricing'), href: `/${currentLang}/pricing` },
         { label: t('nav.bookDemo'), href: `/${currentLang}/book-a-demo` },
         { label: t('nav.findAMatch'), href: `/${currentLang}/find/` },
-        { label: t('nav.signUp'), href: `/${currentLang}/download` },
+        { label: t('nav.team'), href: '#about' },
         // English-only like the footer's Support link; /de and /pt redirect to /en
         { label: t('nav.support'), href: `/${currentLang}/support` },
         { label: t('nav.contact'), href: `/${currentLang}/contact` },
+        { label: t('nav.signUp'), href: `/${currentLang}/download` },
     ]
 
     const [menuOpen, setMenuOpen] = useState(false)

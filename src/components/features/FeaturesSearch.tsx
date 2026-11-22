@@ -64,7 +64,7 @@ export default function FeaturesSearch() {
     const resultLink = 'block rounded-xl px-4 py-3 hover:bg-white/[0.05] transition-colors'
 
     return (
-        <div className="max-w-[760px]">
+        <div className="w-full">
             <label htmlFor="features-search" className="sr-only">
                 {t('features.search.label')}
             </label>

@@ -19,11 +19,11 @@ export default function FeaturesHero() {
                 </div>
                 <h1
                     id="features-hero-title"
-                    className="font-satoshi font-bold text-[36px] sm:text-[52px] lg:text-[64px] leading-[105%] tracking-[-0.03em] text-white max-w-[900px] text-balance"
+                    className="font-satoshi font-bold text-[36px] sm:text-[52px] lg:text-[64px] leading-[105%] tracking-[-0.03em] text-white max-w-[1200px] text-balance"
                 >
                     {t('features.hero.title')}
                 </h1>
-                <p className="mt-6 font-satoshi text-[17px] sm:text-[20px] leading-[155%] text-white/75 max-w-[760px]">
+                <p className="mt-6 font-satoshi text-[17px] sm:text-[20px] leading-[155%] text-white/75 max-w-[1000px]">
                     {t('features.hero.lead')}
                 </p>
             </div>
