@@ -22,6 +22,7 @@ export default function useHashScroll() {
         let timer = 0
         let tries = 0
         let lastTop = Number.NaN
+        let lastScrollY = Number.NaN
         let firstAlign = true
         let stopped = false
 
@@ -40,7 +41,14 @@ export default function useHashScroll() {
             }
             if (target) {
                 const top = Math.round(target.getBoundingClientRect().top + window.scrollY)
-                if (top !== lastTop) {
+                // ScrollToTop runs right after this on a route change and cancels
+                // the first smooth scroll, leaving the target where it was. So
+                // also re-align when the page has come to rest short of it.
+                const margin = parseFloat(getComputedStyle(target).scrollMarginTop) || 0
+                const atRest = window.scrollY === lastScrollY
+                const shortOfIt = Math.abs(target.getBoundingClientRect().top - margin) > 4
+                lastScrollY = window.scrollY
+                if (top !== lastTop || (atRest && shortOfIt)) {
                     // Smooth for the first move, so in-page nav still glides;
                     // instant for corrections, which would otherwise fight it.
                     target.scrollIntoView({ behavior: firstAlign ? 'smooth' : 'auto' })
