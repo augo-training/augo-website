@@ -38,6 +38,7 @@ describe('features content', () => {
 
     it('has a render for every feature, and no render without a feature', () => {
         expect(new Set(Object.keys(FEATURE_VISUALS))).toEqual(new Set(ids(en)))
+        for (const visual of Object.values(FEATURE_VISUALS)) expect(Boolean(visual.src || visual.drawing)).toBe(true)
     })
 
     it('links only to support articles that exist', () => {

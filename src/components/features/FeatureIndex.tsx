@@ -1,9 +1,11 @@
 import type { ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
 import FeaturesSearch from './FeaturesSearch'
+import LabUploadVisual from './LabUploadVisual'
 import { DEVICE_LOGOS } from '../../data/deviceLogos'
 import dashboard from '../../assets/images/app_web_dashboard.png?w=640&format=webp'
 import trainingPeaksLogo from '../../assets/images/training_peaks_logo.svg'
+import augoLogo from '../../assets/images/augo_footer_1.svg'
 import { FEATURE_VISUALS, SECTION_IDS, type FeatureItem } from './constants'
 
 function Card({
@@ -46,7 +48,7 @@ function Card({
                             className="relative h-[88%] w-auto max-w-[88%] object-contain transition-transform duration-300 group-hover:scale-[1.03]"
                         />
                     ) : art ? (
-                        <div aria-hidden className="relative">
+                        <div aria-hidden className="absolute inset-0 flex items-center justify-center">
                             {art}
                         </div>
                     ) : (
@@ -94,7 +96,14 @@ export default function FeatureIndex() {
 
     const featureCards = (items: FeatureItem[]) =>
         items.map((item) => (
-            <Card key={item.id} href={`#${item.id}`} title={item.title} summary={item.summary} image={FEATURE_VISUALS[item.id]?.src} />
+            <Card
+                key={item.id}
+                href={`#${item.id}`}
+                title={item.title}
+                summary={item.summary}
+                image={FEATURE_VISUALS[item.id]?.src}
+                art={FEATURE_VISUALS[item.id]?.drawing === 'labUpload' ? <LabUploadVisual /> : undefined}
+            />
         ))
 
     return (
@@ -135,10 +144,16 @@ export default function FeatureIndex() {
                             title={migration.label}
                             summary={migration.item.summary}
                             art={
-                                <div className="flex items-center gap-4">
-                                    <img src={trainingPeaksLogo} alt="" className="h-6 w-auto opacity-85" />
+                                <div className="flex items-center gap-5">
+                                    <div className="flex flex-col items-start gap-3">
+                                        <img src={trainingPeaksLogo} alt="" className="h-6 w-auto opacity-85" />
+                                        {/* No Final Surge logo file yet: its name, set plainly, until we have one. */}
+                                        <span className="font-satoshi font-bold text-[17px] leading-none tracking-[0.5px] text-white/85">
+                                            Final Surge
+                                        </span>
+                                    </div>
                                     <span className="text-white/50 text-[22px]">→</span>
-                                    <span className="font-satoshi font-bold text-[30px] leading-none text-white">augo</span>
+                                    <img src={augoLogo} alt="" className="h-9 w-auto" />
                                 </div>
                             }
                         />

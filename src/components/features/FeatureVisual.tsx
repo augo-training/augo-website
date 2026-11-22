@@ -1,3 +1,4 @@
+import LabUploadVisual from './LabUploadVisual'
 import type { FeatureVisual as Visual } from './constants'
 
 const GLOW = 'radial-gradient(ellipse at center, rgba(200, 15, 37, 0.45) 0%, rgba(254, 95, 33, 0.15) 45%, transparent 72%)'
@@ -27,13 +28,19 @@ export default function FeatureVisual({ visual, alt }: { visual: Visual; alt: st
             style={{ background: 'linear-gradient(14.48deg, #151515 -17.53%, #090909 79.83%)' }}
         >
             <div className="absolute inset-0 pointer-events-none" style={{ background: GLOW }} />
-            <img
-                src={visual.src}
-                alt={alt}
-                loading="lazy"
-                decoding="async"
-                className={`relative ${IMAGE[visual.shape]}`}
-            />
+            {visual.drawing === 'labUpload' ? (
+                <div className="relative h-full w-full flex items-center justify-center">
+                    <LabUploadVisual />
+                </div>
+            ) : (
+                <img
+                    src={visual.src}
+                    alt={alt}
+                    loading="lazy"
+                    decoding="async"
+                    className={`relative ${IMAGE[visual.shape]}`}
+                />
+            )}
         </div>
     )
 }

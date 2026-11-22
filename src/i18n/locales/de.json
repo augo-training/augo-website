@@ -1323,7 +1323,7 @@
           "category": "Assistent",
           "title": "Laborbericht hochladen, Zonen und Leistungswerte stehen",
           "summary": "Leg eine Labor- oder Feldtest-Datei in den augo Assistenten, oder in Claude oder ChatGPT, und er legt Leistungswerte und Zonen des Athleten für dich an.",
-          "lead": "Keine Formulare. Lade die Ergebnisse eines Laktat-, VO2max- oder Feldtests hoch, in augo oder in deinem eigenen Claude oder ChatGPT, und der Assistent liest sie. Er trägt die Leistungswerte des Athleten ein, etwa Schwellenpuls, Schwellenpace oder FTP, und erstellt und wendet seine Zonen an. Du prüfst das Ergebnis, fertig.",
+          "lead": "Keine Formulare. Lade die Ergebnisse eines Laktat-, VO2max- oder Feldtests als PDF oder Foto hoch, in augo oder in deinem eigenen Claude oder ChatGPT, und der Assistent liest sie. Er trägt die Leistungswerte des Athleten ein, etwa Schwellenpuls, Schwellenpace oder FTP, und erstellt und wendet seine Zonen an. Du prüfst das Ergebnis, fertig.",
           "steps": [
             "Lade die Datei in den augo Assistenten hoch, oder in Claude oder ChatGPT mit dem augo Connector.",
             "Der Assistent liest sie und schlägt Leistungswerte und Zonen für diesen Athleten vor.",
@@ -1332,7 +1332,7 @@
           "specs": [
             {
               "label": "Dateien",
-              "value": "Labor- und Feldtest-Ergebnisse"
+              "value": "PDFs und Fotos von Labor- oder Feldtests"
             },
             {
               "label": "Legt an",

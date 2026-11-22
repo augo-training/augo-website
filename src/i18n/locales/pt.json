@@ -1323,7 +1323,7 @@
           "category": "Assistente",
           "title": "Envie um laudo, e zonas e referências ficam prontas",
           "summary": "Envie um arquivo de teste de laboratório ou de campo ao assistente da augo, ou ao Claude ou ChatGPT, e ele define as referências e as zonas do atleta para você.",
-          "lead": "Sem formulários. Envie os resultados de um teste de lactato, de VO2max ou de campo, na augo ou no seu próprio Claude ou ChatGPT, e o assistente lê tudo. Ele registra as referências de desempenho do atleta, como FC de limiar, pace de limiar ou FTP, e cria e aplica as zonas. Você confere o resultado, e pronto.",
+          "lead": "Sem formulários. Envie os resultados de um teste de lactato, de VO2max ou de campo em PDF ou foto, na augo ou no seu próprio Claude ou ChatGPT, e o assistente lê tudo. Ele registra as referências de desempenho do atleta, como FC de limiar, pace de limiar ou FTP, e cria e aplica as zonas. Você confere o resultado, e pronto.",
           "steps": [
             "Envie o arquivo ao assistente da augo, ou ao Claude ou ChatGPT com o conector da augo.",
             "O assistente lê o arquivo e sugere referências e zonas para esse atleta.",
@@ -1332,7 +1332,7 @@
           "specs": [
             {
               "label": "Arquivos",
-              "value": "Resultados de testes de laboratório e de campo"
+              "value": "PDFs e fotos de testes de laboratório ou de campo"
             },
             {
               "label": "Define",

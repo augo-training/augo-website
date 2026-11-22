@@ -25,7 +25,7 @@ export const FEATURE_KEYWORDS: Record<string, string[]> = {
     recovery: ['whoop', 'oura', 'hrv', 'sleep', 'resting heart rate', 'rhr', 'steps', 'apple health', 'readiness', 'wearable'],
     signals: ['alerts', 'attention', 'priorities', 'who needs me', 'flags', 'pb', 'personal best'],
     zones: ['ftp', 'threshold', 'lthr', 'power', 'pace zones', 'heart rate zones', 'lab test', 'lactate'],
-    files: ['upload', 'file', 'pdf', 'attachment', 'lab report', 'lab results', 'lactate', 'vo2max', 'test results', 'ftp', 'threshold', 'anchors', 'zones'],
+    files: ['upload', 'file', 'pdf', 'photo', 'image', 'attachment', 'lab report', 'lab results', 'lactate', 'vo2max', 'test results', 'ftp', 'threshold', 'anchors', 'zones'],
     notes: ['private notes', 'injury history', 'intake'],
     switching: ['trainingpeaks', 'training peaks', 'final surge', 'finalsurge', 'onboarding call', 'book a call', 'migrate', 'migration', 'import', 'free trial', 'trial', 'history', 'switch'],
     'a-chat': ['message my coach', 'whatsapp', 'voice note'],
