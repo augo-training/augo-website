@@ -109,6 +109,8 @@ For coaches:
 - Athlete Signals: refreshed every morning from the last 7 days; flags who is struggling, who asked for a change,
   and highlights like PBs.
 - Zones and performance anchors for heart rate, pace and power; the assistant can build them from a lab report.
+- Upload a lab report: coaches upload lab or field test results to the augo assistant, or to Claude or ChatGPT with
+  the augo connector, and it records the athlete's performance anchors and builds and applies their zones.
 - Private coach notes per athlete, never visible to the athlete, read by the assistant.
 - Switching: the TrainingPeaks or Final Surge workout library is moved on an onboarding call of about 5 minutes
   (book it: https://calendar.app.google/5QoSwEbUYr9hHZKU7); athlete history is imported

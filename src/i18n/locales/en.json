@@ -1375,6 +1375,33 @@
           "proof": ""
         },
         {
+          "id": "files",
+          "category": "Assistant",
+          "title": "Upload a lab report, get zones and anchors set",
+          "summary": "Drop a lab or field test file into the augo assistant, or into Claude or ChatGPT, and it sets the athlete's anchors and zones for you.",
+          "lead": "No forms to fill in. Upload the results of a lactate, VO2max or field test, in augo or in your own Claude or ChatGPT, and the assistant reads them. It records the athlete's performance anchors, like threshold heart rate, threshold pace or FTP, then builds and applies their zones. You check the result, and that's it.",
+          "steps": [
+            "Upload the file to the augo assistant, or to Claude or ChatGPT with the augo connector.",
+            "The assistant reads it and suggests anchors and zones for that athlete.",
+            "Confirm, and they're set in augo."
+          ],
+          "specs": [
+            {
+              "label": "Files",
+              "value": "Lab and field test results"
+            },
+            {
+              "label": "Sets",
+              "value": "Performance anchors and zones"
+            },
+            {
+              "label": "Works in",
+              "value": "augo assistant, Claude, ChatGPT"
+            }
+          ],
+          "proof": ""
+        },
+        {
           "id": "notes",
           "category": "Communication",
           "title": "Private coach notes",

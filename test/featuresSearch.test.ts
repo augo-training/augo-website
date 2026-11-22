@@ -34,6 +34,8 @@ describe('features page search', () => {
         ['do my athletes pay', '#a-free'],
         ['trainingpeaks migration', '#switching'],
         ['ftp', '#zones'],
+        ['upload lab results', '#files'],
+        ['set zones from a lactate test', '#files'],
         ['strength workouts', '#strength'],
         ['who needs attention today', '#signals'],
         ['mcp', '#connector'],

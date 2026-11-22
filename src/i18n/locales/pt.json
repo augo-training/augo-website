@@ -1319,6 +1319,33 @@
           "proof": ""
         },
         {
+          "id": "files",
+          "category": "Assistente",
+          "title": "Envie um laudo, e zonas e referências ficam prontas",
+          "summary": "Envie um arquivo de teste de laboratório ou de campo ao assistente da augo, ou ao Claude ou ChatGPT, e ele define as referências e as zonas do atleta para você.",
+          "lead": "Sem formulários. Envie os resultados de um teste de lactato, de VO2max ou de campo, na augo ou no seu próprio Claude ou ChatGPT, e o assistente lê tudo. Ele registra as referências de desempenho do atleta, como FC de limiar, pace de limiar ou FTP, e cria e aplica as zonas. Você confere o resultado, e pronto.",
+          "steps": [
+            "Envie o arquivo ao assistente da augo, ou ao Claude ou ChatGPT com o conector da augo.",
+            "O assistente lê o arquivo e sugere referências e zonas para esse atleta.",
+            "Confirme, e tudo fica salvo na augo."
+          ],
+          "specs": [
+            {
+              "label": "Arquivos",
+              "value": "Resultados de testes de laboratório e de campo"
+            },
+            {
+              "label": "Define",
+              "value": "Referências de desempenho e zonas"
+            },
+            {
+              "label": "Funciona em",
+              "value": "Assistente da augo, Claude, ChatGPT"
+            }
+          ],
+          "proof": ""
+        },
+        {
           "id": "notes",
           "category": "Comunicação",
           "title": "Notas privadas do coach",

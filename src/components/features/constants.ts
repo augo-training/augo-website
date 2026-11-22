@@ -9,6 +9,7 @@ import recovery from '../../assets/images/img_section_coaches_recovery.png?w=960
 import signals from '../../assets/images/img_section_coaches_signals.png?w=960&format=webp'
 import zones from '../../assets/images/img_section_coaches_zones.png?w=744&format=webp'
 import notes from '../../assets/images/img_section_coaches_4.png?w=640&format=webp'
+import assistantHome from '../../assets/images/app_assistant_empty.png?w=640&format=webp'
 import dashboard from '../../assets/images/app_web_dashboard.png?w=1280&format=webp'
 import athleteWorkout from '../../assets/images/img_for_athletes_workout.png?w=960&format=webp'
 import athleteStrength from '../../assets/images/img_for_athletes_strength.png?w=960&format=webp'
@@ -57,6 +58,7 @@ export const FEATURE_VISUALS: Record<string, FeatureVisual> = {
     recovery: { src: recovery, shape: 'square' },
     signals: { src: signals, shape: 'square' },
     zones: { src: zones, shape: 'square' },
+    files: { src: assistantHome, shape: 'tall' },
     notes: { src: notes, shape: 'tall' },
     switching: { src: dashboard, shape: 'wide' },
     'a-chat': { src: chat, shape: 'square' },
@@ -76,6 +78,7 @@ export const SUPPORT_SLUGS: Record<string, string> = {
     connector: 'connect-augo-with-claude-and-chatgpt',
     recovery: 'connect-devices-and-apps',
     signals: 'athlete-signals',
+    files: 'what-can-i-do-with-the-connector',
     notes: 'coach-private-notes',
     switching: 'import-training-history',
     'a-workouts': 'workouts-on-your-device',
