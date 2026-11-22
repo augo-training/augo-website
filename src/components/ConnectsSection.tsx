@@ -1,26 +1,10 @@
 import { useTranslation } from 'react-i18next'
-import stravaLogo from '../assets/images/strava.svg'
-import wahooLogo from '../assets/images/wahoo.svg'
-import corosLogo from '../assets/images/coros.svg'
-import polarLogo from '../assets/images/polar.svg'
-import garminLogo from '../assets/images/garmin.svg'
-import zwiftLogo from '../assets/images/zwift.svg'
-import appleWatchLogo from '../assets/images/apple_watch.svg'
-
-const logos = [
-    { src: garminLogo, alt: 'Garmin' },
-    { src: appleWatchLogo, alt: 'Apple Watch' },
-    { src: stravaLogo, alt: 'Strava' },
-    { src: corosLogo, alt: 'Coros' },
-    { src: wahooLogo, alt: 'Wahoo' },
-    { src: zwiftLogo, alt: 'Zwift' },
-    { src: polarLogo, alt: 'Polar' },
-]
+import { DEVICE_LOGOS } from '../data/deviceLogos'
 
 function LogoSet() {
     return (
         <div className="marquee-track flex items-center shrink-0">
-            {logos.map((logo) => (
+            {DEVICE_LOGOS.map((logo) => (
                 <img
                     key={logo.alt}
                     src={logo.src}

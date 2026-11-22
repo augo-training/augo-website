@@ -2,7 +2,6 @@ import { useTranslation } from 'react-i18next'
 import FeatureVisual from './FeatureVisual'
 import {
     FEATURE_VISUALS,
-    SECTION_IDS,
     STAGE_FEATURES,
     STAGE_OF,
     SUPPORT_SLUGS,
@@ -11,7 +10,7 @@ import {
     type WeekStage,
 } from './constants'
 
-function FeatureSection({ item, stages }: { item: FeatureItem; stages: WeekStage[] }) {
+function FeatureSection({ item, stages, flip }: { item: FeatureItem; stages: WeekStage[]; flip: boolean }) {
     const { t } = useTranslation()
     const stageIndex = STAGE_OF[item.id]
     const stage = stageIndex === undefined ? undefined : stages[stageIndex]
@@ -21,13 +20,13 @@ function FeatureSection({ item, stages }: { item: FeatureItem; stages: WeekStage
         <article
             id={item.id}
             aria-labelledby={`${item.id}-title`}
-            className="features-target py-12 sm:py-16 border-t border-white/[0.08] first:border-t-0 grid md:grid-cols-2 gap-8 md:gap-12 items-start"
+            className="features-target py-14 sm:py-20 border-t border-white/[0.08] first:border-t-0 grid md:grid-cols-2 gap-8 md:gap-16 items-center"
         >
-            <div>
+            <div className={flip ? 'md:order-2' : ''}>
                 <p className="font-mono text-[12px] tracking-[2.5px] uppercase text-white/50">{item.category}</p>
                 <h3
                     id={`${item.id}-title`}
-                    className="mt-3 font-satoshi font-bold text-[26px] sm:text-[32px] leading-[115%] tracking-[-0.02em] text-white"
+                    className="mt-3 font-satoshi font-bold text-[28px] sm:text-[36px] leading-[112%] tracking-[-0.02em] text-white"
                 >
                     {item.title}
                 </h3>
@@ -80,48 +79,18 @@ function FeatureSection({ item, stages }: { item: FeatureItem; stages: WeekStage
                 </div>
             </div>
 
-            <div className="md:sticky md:top-[calc(var(--features-offset)+8px)]">
+            <div className={flip ? 'md:order-1' : ''}>
                 <FeatureVisual visual={FEATURE_VISUALS[item.id]} alt={item.title} />
             </div>
         </article>
     )
 }
 
-function Contents({ coach, athlete }: { coach: FeatureItem[]; athlete: FeatureItem[] }) {
-    const { t } = useTranslation()
-    const group = (heading: string, items: FeatureItem[]) => (
-        <div>
-            <p className="font-mono text-[11px] tracking-[2px] uppercase text-white/45">{heading}</p>
-            <ul className="mt-2 flex flex-col">
-                {items.map((item) => (
-                    <li key={item.id}>
-                        <a
-                            href={`#${item.id}`}
-                            className="block py-1.5 font-satoshi text-[14px] leading-[135%] text-white/65 hover:text-white"
-                        >
-                            {item.title}
-                        </a>
-                    </li>
-                ))}
-            </ul>
-        </div>
-    )
-
-    return (
-        <nav aria-label={t('features.guide.contents')} className="flex flex-col gap-6">
-            {group(t('features.guide.coachHeading'), coach)}
-            {group(t('features.guide.athleteHeading'), athlete)}
-            <a
-                href={`#${SECTION_IDS.integrations}`}
-                className="font-mono text-[11px] tracking-[2px] uppercase text-white/45 hover:text-white"
-            >
-                {t('features.guide.contentsIntegrations')} →
-            </a>
-        </nav>
-    )
-}
-
-/** View A: every feature in detail, coaches first, with a contents sidebar. */
+/**
+ * View A: every feature in detail, coaches first, full width with the render
+ * alternating sides. The index above the views is the way in, so there is no
+ * contents sidebar.
+ */
 export default function FeatureGuide() {
     const { t } = useTranslation()
     const coach = t('features.coach.items', { returnObjects: true }) as FeatureItem[]
@@ -129,17 +98,17 @@ export default function FeatureGuide() {
     const stages = t('features.week.stages', { returnObjects: true }) as WeekStage[]
 
     const audience = (id: string, heading: string, lead: string, items: FeatureItem[]) => (
-        <section aria-labelledby={id} className="pt-10 sm:pt-14">
+        <section aria-labelledby={id} className="pt-12 sm:pt-16">
             <h2
                 id={id}
-                className="features-target font-satoshi font-bold text-[30px] sm:text-[44px] leading-[110%] tracking-[-0.025em] text-white"
+                className="features-target font-satoshi font-bold text-[32px] sm:text-[48px] leading-[108%] tracking-[-0.025em] text-white"
             >
                 {heading}
             </h2>
             <p className="mt-3 font-satoshi text-[16px] sm:text-[18px] leading-[155%] text-white/65 max-w-[680px]">{lead}</p>
             <div className="mt-4">
-                {items.map((item) => (
-                    <FeatureSection key={item.id} item={item} stages={stages} />
+                {items.map((item, i) => (
+                    <FeatureSection key={item.id} item={item} stages={stages} flip={i % 2 === 1} />
                 ))}
             </div>
         </section>
@@ -147,29 +116,9 @@ export default function FeatureGuide() {
 
     return (
         <div className="px-5 sm:px-8">
-            <div className="max-w-[1200px] mx-auto pb-16 lg:grid lg:grid-cols-[200px_minmax(0,1fr)] lg:gap-12">
-                <aside className="hidden lg:block pt-14">
-                    <div className="sticky top-[var(--features-offset)] max-h-[calc(100vh-var(--features-offset)-24px)] overflow-y-auto pr-2">
-                        <p className="font-mono text-[12px] tracking-[2.5px] uppercase text-white/50 mb-4">
-                            {t('features.guide.contents')}
-                        </p>
-                        <Contents coach={coach} athlete={athlete} />
-                    </div>
-                </aside>
-
-                <div className="min-w-0">
-                    <details className="lg:hidden mt-8 rounded-xl border border-white/[0.08] bg-white/[0.02] px-4 py-3">
-                        <summary className="cursor-pointer font-mono text-[12px] tracking-[2.5px] uppercase text-white/70">
-                            {t('features.guide.contents')}
-                        </summary>
-                        <div className="mt-4">
-                            <Contents coach={coach} athlete={athlete} />
-                        </div>
-                    </details>
-
-                    {audience('for-coaches', t('features.guide.coachHeading'), t('features.guide.coachLead'), coach)}
-                    {audience('for-athletes', t('features.guide.athleteHeading'), t('features.guide.athleteLead'), athlete)}
-                </div>
+            <div className="max-w-[1200px] mx-auto pb-16">
+                {audience('for-coaches', t('features.guide.coachHeading'), t('features.guide.coachLead'), coach)}
+                {audience('for-athletes', t('features.guide.athleteHeading'), t('features.guide.athleteLead'), athlete)}
             </div>
         </div>
     )

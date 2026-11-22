@@ -67,6 +67,7 @@ describe('features content', () => {
     })
 
     it('leaves the view alone for sections under both views', () => {
+        expect(viewForHash('#all-features')).toBeNull()
         expect(viewForHash('#integrations')).toBeNull()
         expect(viewForHash('#at-a-glance')).toBeNull()
         expect(viewForHash('#faqs')).toBeNull()

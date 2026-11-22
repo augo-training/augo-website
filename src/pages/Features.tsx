@@ -5,6 +5,7 @@ import Footer from '../components/Footer'
 import SEOHead from '../seo/SEOHead'
 import { FAQJsonLd, FeaturesBreadcrumbJsonLd, SoftwareApplicationJsonLd } from '../seo/JsonLd'
 import FeaturesHero from '../components/features/FeaturesHero'
+import FeatureIndex from '../components/features/FeatureIndex'
 import ViewSwitch from '../components/features/ViewSwitch'
 import FeatureGuide from '../components/features/FeatureGuide'
 import WeekStory from '../components/features/WeekStory'
@@ -87,6 +88,7 @@ export default function Features() {
             <Navbar />
             <main className="features-page bg-dark" onClick={onClick}>
                 <FeaturesHero />
+                <FeatureIndex />
                 <div ref={viewsRef} className="features-views relative">
                     <ViewSwitch view={view} onChange={onSwitch} />
                     <div

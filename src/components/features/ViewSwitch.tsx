@@ -32,11 +32,11 @@ export default function ViewSwitch({
 
     return (
         <div className="features-switch sticky z-40 bg-[#090909]/95 backdrop-blur border-b border-white/[0.06] px-5 sm:px-8 py-3">
-            <div className="max-w-[1200px] mx-auto">
+            <div className="max-w-[1200px] mx-auto flex items-center gap-2 sm:gap-4">
                 <div
                     role="tablist"
                     aria-label={t('features.switch.label')}
-                    className="grid grid-cols-2 gap-1 p-1 rounded-xl bg-white/[0.04] border border-white/[0.08] sm:max-w-[560px]"
+                    className="flex-1 grid grid-cols-2 gap-1 p-1 rounded-xl bg-white/[0.04] border border-white/[0.08] sm:max-w-[560px]"
                 >
                     {VIEWS.map(({ view: v, key, panel }, i) => {
                         const selected = view === v
@@ -70,6 +70,19 @@ export default function ViewSwitch({
                         )
                     })}
                 </div>
+                {/* Back to the feature index: the way to navigate now there's no sidebar. */}
+                <a
+                    href={`#${SECTION_IDS.index}`}
+                    className="shrink-0 flex items-center gap-2 h-11 sm:h-12 px-3 sm:px-4 rounded-xl border border-white/[0.12] font-satoshi text-[14px] text-white/75 hover:text-white hover:border-white/35 transition-colors"
+                >
+                    <svg aria-hidden viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2">
+                        <rect x="3" y="3" width="7" height="7" rx="1.5" />
+                        <rect x="14" y="3" width="7" height="7" rx="1.5" />
+                        <rect x="3" y="14" width="7" height="7" rx="1.5" />
+                        <rect x="14" y="14" width="7" height="7" rx="1.5" />
+                    </svg>
+                    <span className="sr-only sm:not-sr-only">{t('features.switch.allFeatures')}</span>
+                </a>
             </div>
         </div>
     )

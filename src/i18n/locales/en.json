@@ -1064,8 +1064,30 @@
       "title": "Everything augo does, for coaches and their athletes",
       "lead": "augo brings coach-athlete communication, session feedback, workout and recovery data, and plan creation into one place. Read every feature in detail, or follow a coaching week to see how they fit together."
     },
+    "index": {
+      "title": "All features",
+      "lead": "Jump straight to any feature, or search for what you want to know.",
+      "integrationsTitle": "Apps and integrations",
+      "integrationsSummary": "Web, iOS and Android, plus Garmin, COROS, Wahoo, WHOOP, Oura and more."
+    },
+    "search": {
+      "label": "Search features and support",
+      "placeholder": "Search, for example \"does it work with Oura?\"",
+      "clear": "Clear search",
+      "onPage": "On this page",
+      "support": "In Support",
+      "empty": "No matches. Try another word, or browse all features below.",
+      "suggestionsLabel": "Try:",
+      "suggestions": [
+        "Garmin",
+        "Do my athletes pay?",
+        "TrainingPeaks",
+        "Recovery data"
+      ]
+    },
     "switch": {
       "label": "Choose a view",
+      "allFeatures": "All features",
       "guide": {
         "title": "By feature",
         "hint": "Every feature in detail"
@@ -1076,8 +1098,6 @@
       }
     },
     "guide": {
-      "contents": "Contents",
-      "contentsIntegrations": "Apps and integrations",
       "coachHeading": "For coaches",
       "coachLead": "Everything you use to plan, deliver and adjust training, and to stay close to every athlete.",
       "athleteHeading": "For athletes",

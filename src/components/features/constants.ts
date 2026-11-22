@@ -24,6 +24,7 @@ import athleteHome from '../../assets/images/athlete_home.png?w=334&format=webp'
 
 /** Section ids. Hash links use these, so they are part of the page's public URLs. */
 export const SECTION_IDS = {
+    index: 'all-features',
     guide: 'by-feature',
     week: 'by-week',
     integrations: 'integrations',
@@ -106,7 +107,7 @@ STAGE_FEATURES.forEach((stage, i) => {
 
 /**
  * Which view holds a given hash target, or null for sections that sit under
- * both views (integrations, at a glance, FAQ), where the view shouldn't change.
+ * both views (index, integrations, at a glance, FAQ), where the view shouldn't change.
  */
 export function viewForHash(hash: string): FeaturesView | null {
     const id = hash.replace(/^#/, '')
