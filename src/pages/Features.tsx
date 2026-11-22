@@ -7,15 +7,15 @@ import { FAQJsonLd, FeaturesBreadcrumbJsonLd, SoftwareApplicationJsonLd } from '
 import FeaturesHero from '../components/features/FeaturesHero'
 import FeatureIndex from '../components/features/FeatureIndex'
 import FeatureDrawer, { type Panel } from '../components/features/FeatureDrawer'
-import FeaturesIntegrations from '../components/features/FeaturesIntegrations'
+import FeaturesGlance from '../components/features/FeaturesGlance'
 import FeaturesFaq from '../components/features/FeaturesFaq'
 import FeaturesCta from '../components/features/FeaturesCta'
 import { SECTION_IDS, type FeatureItem } from '../components/features/constants'
 
 /**
  * Every augo feature, kept short for visitors: search, a tile per feature,
- * integrations and the FAQ. Each tile opens the feature in full in a side
- * panel. The panels are prerendered closed, so search engines and AI crawlers
+ * every feature in one table, and the FAQ. Each tile and table row opens the
+ * feature in full in a side panel, Devices and Integrations included. The panels are prerendered closed, so search engines and AI crawlers
  * still read every feature on this one, linked page.
  *
  * Deliberately no GSAP, same as /mcp: prerender would bake `opacity: 0` into
@@ -34,6 +34,7 @@ export default function Features() {
     const panels: Panel[] = useMemo(
         () => [
             { id: SECTION_IDS.devices, title: t('features.devices.title') },
+            { id: SECTION_IDS.integrations, title: t('features.integrations.title') },
             { id: migration.id, title: migration.title, item: migration },
             ...[...coach, ...athlete].map((item) => ({ id: item.id, title: item.title, item })),
         ],
@@ -94,7 +95,7 @@ export default function Features() {
             <main className="features-page bg-dark" onClick={onClick}>
                 <FeaturesHero />
                 <FeatureIndex />
-                <FeaturesIntegrations />
+                <FeaturesGlance />
                 <FeaturesFaq />
                 <FeaturesCta />
                 <FeatureDrawer panels={panels} openId={openId} onOpen={open} onClose={close} />

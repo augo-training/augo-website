@@ -1648,6 +1648,16 @@
         ]
       }
     },
+    "glance": {
+      "title": "Auf einen Blick",
+      "lead": "Alle Funktionen von augo in einer Tabelle.",
+      "feature": "Funktion",
+      "what": "Was sie macht",
+      "coaches": "Coaches",
+      "athletes": "Athleten",
+      "migration": "Migration",
+      "setup": "Geräte, Integrationen und Migration"
+    },
     "migration": {
       "label": "Migration",
       "item": {

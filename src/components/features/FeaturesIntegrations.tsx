@@ -24,8 +24,9 @@ interface MoreItem extends TitledBody {
 const COLUMNS = ['planned', 'completed', 'historyAuto', 'historyRequest', 'recovery'] as const
 
 /**
- * What augo connects to: the homepage's device-logo strip above the title, how each
- * kind of integration works, and every integration in one table.
+ * What augo connects to: the logo strip, how each kind of integration works,
+ * and every integration in one table. Content for the side panel, opened from
+ * the Integrations tile.
  */
 export default function FeaturesIntegrations() {
     const { t } = useTranslation()
@@ -74,11 +75,11 @@ export default function FeaturesIntegrations() {
             </tr>
             {items.map((row) => (
                 <tr key={row.name} className="border-t border-white/[0.08]">
-                    <th scope="row" className="py-3 pr-4 text-left font-satoshi font-medium text-[14px] sm:text-[15px] text-white whitespace-nowrap">
+                    <th scope="row" className="py-3 pr-3 text-left align-top font-satoshi font-medium text-[14px] sm:text-[15px] text-white whitespace-nowrap">
                         {row.name}
                     </th>
                     {COLUMNS.map((col) => (
-                        <td key={col} className="py-3 px-3 font-satoshi text-[13px] sm:text-[15px] whitespace-nowrap">
+                        <td key={col} className="py-3 px-2 font-satoshi text-[13px] sm:text-[14px] leading-[135%] align-top">
                             {cell(row[col], col === 'historyRequest' ? row.requestHref : undefined)}
                         </td>
                     ))}
@@ -88,121 +89,114 @@ export default function FeaturesIntegrations() {
     )
 
     return (
-        <section
-            id={SECTION_IDS.integrations}
-            aria-labelledby="features-integrations-title"
-            className="features-target w-full py-20 sm:py-24 bg-dark border-t border-white/[0.06]"
-        >
-            <div className="mb-12 sm:mb-14">
+        <>
+            {/* Bleeds to the panel's edges, like the strip on the homepage. */}
+            <div className="-mx-5 sm:-mx-8 mb-10">
                 <LogoMarquee logos={INTEGRATION_LOGOS} className="py-3" />
             </div>
 
-            <div className="px-5 sm:px-8">
-                <div className="max-w-[1200px] mx-auto">
-                    <p className="font-mono text-[12px] tracking-[2.5px] uppercase text-white/50">
-                        {t('features.integrations.eyebrow')}
-                    </p>
-                    <h2
-                        id="features-integrations-title"
-                        className="mt-3 font-satoshi font-bold text-[30px] sm:text-[44px] leading-[110%] tracking-[-0.025em] text-white max-w-[820px]"
-                    >
-                        {t('features.integrations.title')}
-                    </h2>
-                    <p className="mt-4 font-satoshi text-[16px] sm:text-[18px] leading-[155%] text-white/65 max-w-[720px]">
-                        {t('features.integrations.lead')}
-                    </p>
+            <p className="font-mono text-[12px] tracking-[2.5px] uppercase text-white/50">
+                {t('features.integrations.eyebrow')}
+            </p>
+            <h2
+                id={`${SECTION_IDS.integrations}-title`}
+                className="mt-3 font-satoshi font-bold text-[28px] sm:text-[34px] leading-[112%] tracking-[-0.02em] text-white"
+            >
+                {t('features.integrations.title')}
+            </h2>
+            <p className="mt-4 font-satoshi text-[16px] sm:text-[18px] leading-[155%] text-white/65 max-w-[720px]">
+                {t('features.integrations.lead')}
+            </p>
 
-                    <h3 className="mt-14 sm:mt-16 font-satoshi font-bold text-[22px] sm:text-[26px] leading-[120%] text-white">
-                        {t('features.integrations.how.title')}
+            <h3 className="mt-12 font-satoshi font-bold text-[22px] sm:text-[24px] leading-[120%] text-white">
+                {t('features.integrations.how.title')}
+            </h3>
+            <div className="mt-5 grid sm:grid-cols-2 gap-4">
+                {how.map((item) => (
+                    <div key={item.title} className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-5">
+                        <h4 className="font-satoshi font-bold text-[17px] text-white">{item.title}</h4>
+                        <p className="mt-2 font-satoshi text-[14px] sm:text-[15px] leading-[155%] text-white/65">{item.body}</p>
+                    </div>
+                ))}
+            </div>
+
+            <h3 className="mt-12 font-satoshi font-bold text-[22px] sm:text-[24px] leading-[120%] text-white">
+                {t('features.integrations.table.title')}
+            </h3>
+            {/* relative: the sr-only labels are absolutely positioned and would otherwise widen the page */}
+            <div className="relative mt-4 overflow-x-auto -mx-5 px-5 sm:-mx-8 sm:px-8">
+                <table className="w-full min-w-[520px] border-collapse">
+                    <thead>
+                        <tr className="text-left">
+                            <th scope="col" className="pb-2 pr-3 align-bottom font-mono text-[10px] tracking-[1px] leading-[140%] uppercase text-white/50 font-normal">
+                                {t('features.integrations.table.name')}
+                            </th>
+                            {COLUMNS.map((col) => (
+                                <th
+                                    key={col}
+                                    scope="col"
+                                    className="pb-2 px-2 align-bottom font-mono text-[10px] tracking-[1px] leading-[140%] uppercase text-white/50 font-normal"
+                                >
+                                    {t(`features.integrations.table.${col}`)}
+                                </th>
+                            ))}
+                        </tr>
+                    </thead>
+                    {rows(t('features.integrations.table.groups.training'), TRAINING_INTEGRATIONS)}
+                    {rows(t('features.integrations.table.groups.imports'), HISTORY_IMPORTS)}
+                    {rows(t('features.integrations.table.groups.recovery'), RECOVERY_INTEGRATIONS)}
+                </table>
+            </div>
+            <p className="mt-4 max-w-[760px] font-satoshi text-[14px] sm:text-[15px] leading-[155%] text-white/60">
+                {t('features.integrations.table.historyNote')}{' '}
+                <a
+                    href="/en/support/import-training-history/"
+                    className="text-white/80 hover:text-white underline underline-offset-4 decoration-white/30"
+                >
+                    {t('features.integrations.table.historyLink')} →
+                </a>
+            </p>
+            <a
+                href="/en/support/connect-devices-and-apps/"
+                className="inline-block mt-5 font-satoshi text-[14px] sm:text-[15px] text-white/70 hover:text-white underline-offset-4 hover:underline"
+            >
+                {t('features.integrations.table.supportLink')} →
+            </a>
+
+            <div className="mt-14 flex flex-col gap-10">
+                <div>
+                    <h3 className="font-satoshi font-bold text-[22px] sm:text-[24px] leading-[120%] text-white">
+                        {t('features.integrations.connect.title')}
                     </h3>
-                    <div className="mt-5 grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-                        {how.map((item) => (
-                            <div key={item.title} className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-5">
+                    <ul className="mt-5 flex flex-col gap-3">
+                        {points.map((point, i) => (
+                            <li key={i} className="flex gap-3 font-satoshi text-[15px] sm:text-[16px] leading-[150%] text-white/75">
+                                <span aria-hidden className="mt-[9px] w-1.5 h-1.5 rounded-full bg-white/40 shrink-0" />
+                                <span>{point}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+                <div>
+                    <h3 className="font-satoshi font-bold text-[22px] sm:text-[24px] leading-[120%] text-white">
+                        {t('features.integrations.more.title')}
+                    </h3>
+                    <div className="mt-5 flex flex-col">
+                        {more.map((item) => (
+                            <div key={item.id} className="py-4 border-t border-white/[0.08] first:border-t-0 first:pt-0">
                                 <h4 className="font-satoshi font-bold text-[17px] text-white">{item.title}</h4>
-                                <p className="mt-2 font-satoshi text-[14px] sm:text-[15px] leading-[155%] text-white/65">{item.body}</p>
+                                <p className="mt-1 font-satoshi text-[15px] leading-[150%] text-white/65">{item.body}</p>
+                                <a
+                                    href={moreHref[item.id]}
+                                    className="inline-block mt-2 font-satoshi text-[14px] text-white/70 hover:text-white underline-offset-4 hover:underline"
+                                >
+                                    {item.link} →
+                                </a>
                             </div>
                         ))}
                     </div>
-
-                    <h3 className="mt-14 sm:mt-16 font-satoshi font-bold text-[22px] sm:text-[26px] leading-[120%] text-white">
-                        {t('features.integrations.table.title')}
-                    </h3>
-                    {/* relative: the sr-only labels are absolutely positioned and would otherwise widen the page */}
-                    <div className="relative mt-4 overflow-x-auto -mx-5 px-5 sm:mx-0 sm:px-0">
-                        <table className="w-full min-w-[680px] border-collapse">
-                            <thead>
-                                <tr className="text-left">
-                                    <th scope="col" className="pb-2 pr-4 font-mono text-[11px] tracking-[1.5px] uppercase text-white/50 font-normal">
-                                        {t('features.integrations.table.name')}
-                                    </th>
-                                    {COLUMNS.map((col) => (
-                                        <th
-                                            key={col}
-                                            scope="col"
-                                            className="pb-2 px-3 font-mono text-[11px] tracking-[1.5px] uppercase text-white/50 font-normal"
-                                        >
-                                            {t(`features.integrations.table.${col}`)}
-                                        </th>
-                                    ))}
-                                </tr>
-                            </thead>
-                            {rows(t('features.integrations.table.groups.training'), TRAINING_INTEGRATIONS)}
-                            {rows(t('features.integrations.table.groups.imports'), HISTORY_IMPORTS)}
-                            {rows(t('features.integrations.table.groups.recovery'), RECOVERY_INTEGRATIONS)}
-                        </table>
-                    </div>
-                    <p className="mt-4 max-w-[760px] font-satoshi text-[14px] sm:text-[15px] leading-[155%] text-white/60">
-                        {t('features.integrations.table.historyNote')}{' '}
-                        <a
-                            href="/en/support/import-training-history/"
-                            className="text-white/80 hover:text-white underline underline-offset-4 decoration-white/30"
-                        >
-                            {t('features.integrations.table.historyLink')} →
-                        </a>
-                    </p>
-                    <a
-                        href="/en/support/connect-devices-and-apps/"
-                        className="inline-block mt-5 font-satoshi text-[14px] sm:text-[15px] text-white/70 hover:text-white underline-offset-4 hover:underline"
-                    >
-                        {t('features.integrations.table.supportLink')} →
-                    </a>
-
-                    <div className="mt-14 sm:mt-16 grid lg:grid-cols-2 gap-10 lg:gap-12">
-                        <div>
-                            <h3 className="font-satoshi font-bold text-[22px] sm:text-[26px] leading-[120%] text-white">
-                                {t('features.integrations.connect.title')}
-                            </h3>
-                            <ul className="mt-5 flex flex-col gap-3">
-                                {points.map((point, i) => (
-                                    <li key={i} className="flex gap-3 font-satoshi text-[15px] sm:text-[16px] leading-[150%] text-white/75">
-                                        <span aria-hidden className="mt-[9px] w-1.5 h-1.5 rounded-full bg-white/40 shrink-0" />
-                                        <span>{point}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 className="font-satoshi font-bold text-[22px] sm:text-[26px] leading-[120%] text-white">
-                                {t('features.integrations.more.title')}
-                            </h3>
-                            <div className="mt-5 flex flex-col">
-                                {more.map((item) => (
-                                    <div key={item.id} className="py-4 border-t border-white/[0.08] first:border-t-0 first:pt-0">
-                                        <h4 className="font-satoshi font-bold text-[17px] text-white">{item.title}</h4>
-                                        <p className="mt-1 font-satoshi text-[15px] leading-[150%] text-white/65">{item.body}</p>
-                                        <a
-                                            href={moreHref[item.id]}
-                                            className="inline-block mt-2 font-satoshi text-[14px] text-white/70 hover:text-white underline-offset-4 hover:underline"
-                                        >
-                                            {item.link} →
-                                        </a>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
-        </section>
+        </>
     )
 }

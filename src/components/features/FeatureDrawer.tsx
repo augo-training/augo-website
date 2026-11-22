@@ -2,12 +2,13 @@ import { useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import FeatureDetail from './FeatureDetail'
 import FeaturesDevices from './FeaturesDevices'
+import FeaturesIntegrations from './FeaturesIntegrations'
 import { SECTION_IDS, type FeatureItem } from './constants'
 
 export interface Panel {
     id: string
     title: string
-    /** A feature's copy; Devices has its own layout and leaves this out. */
+    /** A feature's copy; Devices and Integrations have their own layouts and leave this out. */
     item?: FeatureItem
 }
 
@@ -88,7 +89,13 @@ export default function FeatureDrawer({
                     <div className="px-5 sm:px-8 pb-12">
                         {panels.map((panel) => (
                             <article key={panel.id} id={panel.id} aria-labelledby={`${panel.id}-title`} hidden={panel.id !== openId}>
-                                {panel.id === SECTION_IDS.devices ? <FeaturesDevices /> : panel.item && <FeatureDetail item={panel.item} />}
+                                {panel.id === SECTION_IDS.devices ? (
+                                    <FeaturesDevices />
+                                ) : panel.id === SECTION_IDS.integrations ? (
+                                    <FeaturesIntegrations />
+                                ) : (
+                                    panel.item && <FeatureDetail item={panel.item} />
+                                )}
                             </article>
                         ))}
 

@@ -1704,6 +1704,16 @@
         ]
       }
     },
+    "glance": {
+      "title": "At a glance",
+      "lead": "Every augo feature in one table.",
+      "feature": "Feature",
+      "what": "What it does",
+      "coaches": "Coaches",
+      "athletes": "Athletes",
+      "migration": "Migration",
+      "setup": "Devices, integrations and migration"
+    },
     "migration": {
       "label": "Migration",
       "item": {

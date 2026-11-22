@@ -27,6 +27,7 @@ export const SECTION_IDS = {
     index: 'all-features',
     devices: 'devices',
     integrations: 'integrations',
+    glance: 'at-a-glance',
     faqs: 'faqs',
 } as const
 
