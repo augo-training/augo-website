@@ -1063,8 +1063,7 @@
   "features": {
     "hero": {
       "eyebrow": "Features",
-      "title": "Everything augo does for coaches and athletes",
-      "lead": "Search for what you need, or browse every feature below."
+      "title": "Everything augo does for coaches and athletes"
     },
     "index": {
       "title": "All features",
@@ -1084,10 +1083,11 @@
       "empty": "No matches. Try another word, or browse all features below.",
       "suggestionsLabel": "Try:",
       "suggestions": [
-        "Garmin",
-        "Do my athletes pay?",
-        "TrainingPeaks",
-        "Recovery data"
+        "Migration support",
+        "Integrations",
+        "Claude",
+        "In-app assistant",
+        "Strength training"
       ]
     },
     "nav": {

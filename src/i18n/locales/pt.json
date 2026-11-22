@@ -1007,8 +1007,7 @@
   "features": {
     "hero": {
       "eyebrow": "Funcionalidades",
-      "title": "Tudo o que a augo faz para coaches e atletas",
-      "lead": "Pesquise o que você precisa, ou veja abaixo cada funcionalidade."
+      "title": "Tudo o que a augo faz para coaches e atletas"
     },
     "index": {
       "title": "Todas as funcionalidades",
@@ -1028,10 +1027,11 @@
       "empty": "Nenhum resultado. Tente outra palavra, ou veja todas as funcionalidades abaixo.",
       "suggestionsLabel": "Experimente:",
       "suggestions": [
-        "Garmin",
-        "Meus atletas pagam?",
-        "TrainingPeaks",
-        "Dados de recuperação"
+        "Suporte de migração",
+        "Integrações",
+        "Claude",
+        "Assistente no app",
+        "Treino de força"
       ]
     },
     "nav": {

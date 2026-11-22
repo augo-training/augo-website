@@ -1007,8 +1007,7 @@
   "features": {
     "hero": {
       "eyebrow": "Funktionen",
-      "title": "Alles, was augo für Coaches und Athleten kann",
-      "lead": "Such nach dem, was du brauchst, oder sieh dir unten jede Funktion an."
+      "title": "Alles, was augo für Coaches und Athleten kann"
     },
     "index": {
       "title": "Alle Funktionen",
@@ -1028,10 +1027,11 @@
       "empty": "Keine Treffer. Versuch ein anderes Wort, oder sieh dir unten alle Funktionen an.",
       "suggestionsLabel": "Probier:",
       "suggestions": [
-        "Garmin",
-        "Zahlen meine Athleten?",
-        "TrainingPeaks",
-        "Erholungsdaten"
+        "Migrations-Support",
+        "Integrationen",
+        "Claude",
+        "In-App-Assistent",
+        "Krafttraining"
       ]
     },
     "nav": {

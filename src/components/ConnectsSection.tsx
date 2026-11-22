@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { DEVICE_LOGOS, type LogoItem } from '../data/deviceLogos'
+import { DEVICE_LOGOS, INTEGRATION_LOGOS, type LogoItem } from '../data/deviceLogos'
 
 function LogoSet({ logos }: { logos: LogoItem[] }) {
     return (
@@ -34,7 +34,7 @@ export default function ConnectsSection() {
                 {t('connects.headline')}
             </h2>
 
-            <LogoMarquee />
+            <LogoMarquee logos={INTEGRATION_LOGOS} className="py-3" />
         </section>
     )
 }
@@ -44,7 +44,8 @@ export function LogoMarquee({ logos = DEVICE_LOGOS, className = '' }: { logos?: 
     return (
         // Marquee container with edge fades
         <div className={`marquee-container w-full overflow-hidden ${className}`}>
-            <div className="marquee-scroll flex items-center">
+            {/* Same speed whatever the number of logos: the 16s in CSS was tuned for 7. */}
+            <div className="marquee-scroll flex items-center" style={{ animationDuration: `${(16 * logos.length) / 7}s` }}>
                 {/* Render 4 logo sets for continuous coverage on wide screens */}
                 <LogoSet logos={logos} />
                 <LogoSet logos={logos} />

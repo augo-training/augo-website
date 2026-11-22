@@ -1,5 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import en from '../src/i18n/locales/en.json'
+import de from '../src/i18n/locales/de.json'
+import pt from '../src/i18n/locales/pt.json'
 import { buildFeaturesSearch } from '../src/components/features/pageSearchIndex'
 import { supportSearch } from '../src/utils/supportSearch'
 
@@ -51,5 +53,39 @@ describe('features page search', () => {
 
     it('finds things despite a typo', () => {
         expect(top('recovry data')).toContain('#recovery')
+    })
+})
+
+describe('features page search suggestions', () => {
+    // The chips under the search box: each one has to land on something real,
+    // in every language, or the first thing a visitor clicks shows nothing.
+    it.each([['en', en], ['de', de], ['pt', pt]] as const)('every %s suggestion finds a section on the page', (_lang, locale) => {
+        const lf = locale.features
+        const built = buildFeaturesSearch({
+            coach: lf.coach.items,
+            athlete: lf.athlete.items,
+            migration: lf.migration.item,
+            devices: { title: lf.devices.title, lead: lf.devices.lead, text: [lf.devices.coach.body, lf.devices.athlete.body] },
+            integrations: {
+                title: lf.integrations.title,
+                lead: lf.integrations.lead,
+                text: [...lf.integrations.how.items.map((i) => i.body), ...lf.integrations.connect.points],
+            },
+            faq: lf.faq.items,
+        })
+        for (const suggestion of lf.search.suggestions) {
+            const response = supportSearch(suggestion, built.index, { limit: 3 })
+            expect(response.results.length, suggestion).toBeGreaterThan(0)
+        }
+    })
+
+    it.each([
+        ['Migration support', '#switching'],
+        ['Integrations', '#integrations'],
+        ['Claude', '#assistant'],
+        ['In-app assistant', '#assistant'],
+        ['Strength training', '#strength'],
+    ])('"%s" finds %s in the top 3', (query, hash) => {
+        expect(top(query)).toContain(hash)
     })
 })
