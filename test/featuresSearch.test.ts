@@ -38,6 +38,7 @@ describe('features page search', () => {
         ['who needs attention today', '#signals'],
         ['mcp', '#connector'],
         ['hammerhead', '#integrations'],
+        ['mywhoosh', '#integrations'],
         ['is there a web app for athletes', '#devices'],
         ['does augo work on android', '#devices'],
         ['trainingpeaks history', '#integrations'],

@@ -40,7 +40,7 @@ const INTEGRATION_KEYWORDS = [
     ...RECOVERY_INTEGRATIONS.map((row) => row.name),
     ...HISTORY_IMPORTS.map((row) => row.name),
     'history', 'import', 'export', 'unlimited',
-    'karoo', 'mywhoosh', 'watch', 'sync', 'connect', 'integrations',
+    'karoo', 'watch', 'sync', 'connect', 'integrations',
 ]
 
 const DEVICE_KEYWORDS = ['devices', 'web app', 'web version', 'browser', 'desktop', 'computer', 'ios', 'android', 'iphone', 'mobile app', 'phone', 'app store']

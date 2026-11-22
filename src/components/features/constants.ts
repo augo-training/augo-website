@@ -112,6 +112,8 @@ export const TRAINING_INTEGRATIONS: IntegrationRow[] = [
     { name: 'Apple Watch', planned: 'no', completed: 'yes', historyAuto: 'days30', historyRequest: 'years5', recovery: 'no' },
     { name: 'Strava', planned: 'no', completed: 'yes', historyAuto: 'days30', historyRequest: 'years5', recovery: 'no' },
     { name: 'Zwift', planned: 'export', completed: 'yes', historyAuto: 'days30', historyRequest: 'years5', recovery: 'no' },
+    // Planned rides only, as a .zwo file exported from the augo app. Nothing syncs back.
+    { name: 'MyWhoosh', planned: 'export', completed: 'no', historyAuto: 'no', historyRequest: 'no', recovery: 'no' },
     { name: 'Rouvy', planned: 'rides', completed: 'yes', historyAuto: 'days30', historyRequest: 'years5', recovery: 'no' },
     { name: 'Hammerhead', planned: 'no', completed: 'yes', historyAuto: 'days30', historyRequest: 'years5', recovery: 'no' },
 ]

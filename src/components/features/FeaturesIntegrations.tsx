@@ -23,7 +23,7 @@ interface MoreItem extends TitledBody {
 const COLUMNS = ['planned', 'completed', 'historyAuto', 'historyRequest', 'recovery'] as const
 
 /**
- * What augo connects to: the device-logo strip from the homepage, how each
+ * What augo connects to: the homepage's device-logo strip above the title, how each
  * kind of integration works, and every integration in one table.
  */
 export default function FeaturesIntegrations() {
@@ -92,6 +92,10 @@ export default function FeaturesIntegrations() {
             aria-labelledby="features-integrations-title"
             className="features-target w-full py-20 sm:py-24 bg-dark border-t border-white/[0.06]"
         >
+            <div className="mb-12 sm:mb-14">
+                <LogoMarquee />
+            </div>
+
             <div className="px-5 sm:px-8">
                 <div className="max-w-[1200px] mx-auto">
                     <p className="font-mono text-[12px] tracking-[2.5px] uppercase text-white/50">
@@ -106,15 +110,7 @@ export default function FeaturesIntegrations() {
                     <p className="mt-4 font-satoshi text-[16px] sm:text-[18px] leading-[155%] text-white/65 max-w-[720px]">
                         {t('features.integrations.lead')}
                     </p>
-                </div>
-            </div>
 
-            <div className="mt-14 sm:mt-16">
-                <LogoMarquee />
-            </div>
-
-            <div className="px-5 sm:px-8">
-                <div className="max-w-[1200px] mx-auto">
                     <h3 className="mt-14 sm:mt-16 font-satoshi font-bold text-[22px] sm:text-[26px] leading-[120%] text-white">
                         {t('features.integrations.how.title')}
                     </h3>
