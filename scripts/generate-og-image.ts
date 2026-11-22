@@ -29,6 +29,7 @@ const TARGETS = {
   // should always read "Endurance", never a word caught mid-fade.
   "coach-course": { path: "/en/irreplaceable-endurance-coach", out: "coach-course-og.jpg", still: true },
   mcp: { path: "/en/mcp", out: "mcp-og.jpg" },
+  features: { path: "/en/features", out: "features-og.jpg" },
   // Static: the directory hero plays a video loop, and the card should hold the
   // headline over the poster frame rather than whatever frame the capture hit.
   find: { path: "/en/find", out: "find-og.jpg", still: true },

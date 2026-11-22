@@ -247,6 +247,23 @@ const pageMeta: Record<string, Record<SupportedLanguage, PageMeta>> = {
         'Guia passo a passo: conecte o servidor MCP da augo ao Claude ou ao ChatGPT e pergunte sobre volume, intensidade e feedback dos seus atletas.',
     },
   },
+  features: {
+    en: {
+      title: 'augo Features | Coaching Platform for Endurance Coaches',
+      description:
+        'Every augo feature: chat and workout feed, session feedback, an assistant powered by Claude, workout builder, recovery data from WHOOP and Oura, Athlete Signals and more.',
+    },
+    de: {
+      title: 'augo Funktionen | Coaching-Plattform für Ausdauer-Coaches',
+      description:
+        'Alle Funktionen von augo: Chat und Trainings-Feed, Feedback zu jeder Einheit, ein Assistent mit Claude, Workout-Builder, Erholungsdaten von WHOOP und Oura, Athlete Signals und mehr.',
+    },
+    pt: {
+      title: 'Funcionalidades da augo | Plataforma para coaches de endurance',
+      description:
+        'Todas as funcionalidades da augo: chat e feed de treinos, feedback de cada treino, assistente com Claude, criador de treinos, dados de recuperação do WHOOP e Oura, Athlete Signals e mais.',
+    },
+  },
 }
 
 export function getPageMeta(page: string, lang: SupportedLanguage): PageMeta {

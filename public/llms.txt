@@ -85,6 +85,42 @@ augo uses industry-standard encryption. Personal data is never sold, and is not 
 
 ---
 
+## Features
+
+A full list of augo features, for coaches and for athletes, in English, German and Portuguese.
+
+For coaches:
+- Chat and workout feed: messages and finished workouts in one feed per athlete. Workouts arrive from the
+  athlete's watch; coaches reply, react, or leave written or voice comments, and voice notes are transcribed.
+  Notifications are configurable.
+- Session feedback: after each workout, athletes answer questions the coach chooses (how they felt, pain, RPE,
+  performance against expectations, digestion, fuelling), plus free text or a voice note of up to 5 minutes.
+  About 75% of athletes send feedback every week, on about 4 sessions.
+- In-app assistant, powered by Claude: reads every message, workout, metric, feedback, note and recovery data.
+  Included in the subscription; no ChatGPT or Claude account needed.
+- Three ways to build workouts: the workout builder (pace, heart rate or RPE targets mixed per segment,
+  descriptions, images, videos, library, drag and drop, copy and paste weeks), the in-app assistant, or Claude and
+  ChatGPT through the connector. Planned workouts sync to Garmin, COROS, Wahoo, Suunto and Rouvy.
+- Strength training on the same calendar: exercises, sets, reps, rest, cues and a demo video per exercise.
+- Claude and ChatGPT connector (MCP), with full context of conversations and session feedback.
+- Workout analysis: planned against completed, with splits, intervals, metrics and time in zones.
+- Recovery data every morning: sleep, resting heart rate, HRV and steps from WHOOP, Oura, Garmin, COROS and
+  Apple Health, against the athlete's 30-day average.
+- Athlete Signals: refreshed every morning from the last 7 days; flags who is struggling, who asked for a change,
+  and highlights like PBs.
+- Zones and performance anchors for heart rate, pace and power; the assistant can build them from a lab report.
+- Private coach notes per athlete, never visible to the athlete, read by the assistant.
+- Switching: the TrainingPeaks workout library is moved on a call of about 5 minutes; athlete history is imported
+  from TrainingPeaks or Garmin exports. 14-day free trial, no credit card.
+
+For athletes: the augo app (iOS and Android) is free, with no premium tier. It has chat with the coach, upcoming
+workouts and races synced to the watch, strength sessions with timers and demo videos, feeling and pain trends,
+weekly volume across sports, manual activity entry, and recovery data from their wearable.
+
+Features page: https://www.augotraining.com/en/features/
+
+---
+
 ## Integrations: Claude and ChatGPT (MCP)
 
 augo runs an MCP (Model Context Protocol) server at https://api.augotraining.com/mcp. A coach can add it as a
