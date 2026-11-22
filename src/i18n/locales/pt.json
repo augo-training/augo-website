@@ -1034,9 +1034,11 @@
         "Treino de força"
       ]
     },
-    "panel": {
-      "close": "Fechar",
-      "next": "Próximo"
+    "page": {
+      "allFeatures": "Todas as funcionalidades",
+      "previous": "Anterior",
+      "next": "Próximo",
+      "moreFeatures": "Mais funcionalidades"
     },
     "guide": {
       "coachHeading": "Para coaches",

@@ -1,4 +1,6 @@
 import { useTranslation } from 'react-i18next'
+import { useParams } from 'react-router-dom'
+import { featureHref } from '../../data/featurePages'
 import { SECTION_IDS, type FeatureItem } from './constants'
 
 interface Row {
@@ -9,11 +11,12 @@ interface Row {
 
 /**
  * Every feature in one table, right under the tiles, in the same order. Each
- * row opens its panel. A plain <table> on purpose: it is the part of the page
+ * row links to the feature's page. A plain <table> on purpose: it is the part of the page
  * an answer engine is most likely to quote.
  */
 export default function FeaturesGlance() {
     const { t } = useTranslation()
+    const { lang = 'en' } = useParams<{ lang: string }>()
     const coach = t('features.coach.items', { returnObjects: true }) as FeatureItem[]
     const athlete = t('features.athlete.items', { returnObjects: true }) as FeatureItem[]
     const migration = t('features.migration.item', { returnObjects: true }) as FeatureItem
@@ -37,7 +40,7 @@ export default function FeaturesGlance() {
             {items.map((item) => (
                 <tr key={item.id} className="border-t border-white/[0.08]">
                     <th scope="row" className="py-4 pr-4 sm:pr-8 align-top text-left font-normal w-[40%] sm:w-[34%]">
-                        <a href={`#${item.id}`} className="font-satoshi font-medium text-[15px] sm:text-[16px] leading-[140%] text-white hover:underline underline-offset-4">
+                        <a href={featureHref(lang, item.id)} className="font-satoshi font-medium text-[15px] sm:text-[16px] leading-[140%] text-white hover:underline underline-offset-4">
                             {item.title}
                         </a>
                     </th>

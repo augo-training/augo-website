@@ -9,6 +9,7 @@ import { readFile, writeFile, mkdir } from 'node:fs/promises'
 import { join } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { ROOT, BASE_URL } from './routes.ts'
+import { FEATURE_SLUGS } from '../src/data/featurePages.ts'
 
 interface Item {
   id: string
@@ -41,13 +42,14 @@ interface FeaturesCopy {
 }
 
 const PAGE = `${BASE_URL}/en/features/`
+const pageOf = (id: string) => `${PAGE}${FEATURE_SLUGS[id]}/`
 
 function feature(item: Item, guide: FeaturesCopy['guide']): string {
   const lines = [`### ${item.title}`, '', `${item.summary}`, '', item.lead]
   if (item.proof) lines.push('', item.proof)
   lines.push('', `${guide.howItWorks}:`, ...item.steps.map((s, i) => `${i + 1}. ${s}`))
   lines.push('', ...item.specs.map((s) => `- ${s.label}: ${s.value}`))
-  lines.push('', `Details: ${PAGE}#${item.id}`)
+  lines.push('', `Details: ${pageOf(item.id)}`)
   return lines.join('\n')
 }
 
@@ -55,7 +57,7 @@ export function renderLlmsFull(f: FeaturesCopy): string {
   const out = [
     `# augo features, in full`,
     '',
-    `> ${f.hero.title}. The long-form companion to ${BASE_URL}/llms.txt, generated from the Features page (${PAGE}).`,
+    `> ${f.hero.title}. The long-form companion to ${BASE_URL}/llms.txt, generated from the Features page (${PAGE}). Each feature has its own page, linked under it.`,
     '',
     `## ${f.guide.coachHeading}`,
     '',
@@ -69,6 +71,8 @@ export function renderLlmsFull(f: FeaturesCopy): string {
     '',
     `- ${f.devices.coach.title}: ${f.devices.coach.body}`,
     `- ${f.devices.athlete.title}: ${f.devices.athlete.body}`,
+    '',
+    `Details: ${pageOf('devices')}`,
     '',
     `## ${f.integrations.title}`,
     '',
@@ -87,6 +91,8 @@ export function renderLlmsFull(f: FeaturesCopy): string {
     `### ${f.integrations.more.title}`,
     '',
     ...f.integrations.more.items.map((i) => `- ${i.title}: ${i.body}`),
+    '',
+    `Details: ${pageOf('integrations')}`,
     '',
     `## ${f.migration.label}`,
     '',

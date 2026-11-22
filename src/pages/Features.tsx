@@ -1,87 +1,86 @@
-import { useCallback, useEffect, useMemo, useRef, useState, type MouseEvent } from 'react'
+import { useEffect, type MouseEvent } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useNavigate, useNavigationType, useParams } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import SEOHead from '../seo/SEOHead'
 import { FAQJsonLd, FeaturesBreadcrumbJsonLd, SoftwareApplicationJsonLd } from '../seo/JsonLd'
 import FeaturesHero from '../components/features/FeaturesHero'
 import FeatureIndex from '../components/features/FeatureIndex'
-import FeatureDrawer, { type Panel } from '../components/features/FeatureDrawer'
 import FeaturesGlance from '../components/features/FeaturesGlance'
 import FeaturesFaq from '../components/features/FeaturesFaq'
 import FeaturesCta from '../components/features/FeaturesCta'
-import { SECTION_IDS, type FeatureItem } from '../components/features/constants'
+import type { FeatureItem } from '../components/features/constants'
+import { FEATURE_SLUGS, featureHref } from '../data/featurePages'
+
+/** Where the reader was in the grid, so Back from a feature page returns there. */
+const SCROLL_KEY = 'features-scroll'
 
 /**
- * Every augo feature, kept short for visitors: search, a tile per feature,
- * every feature in one table, and the FAQ. Each tile and table row opens the
- * feature in full in a side panel, Devices and Integrations included. The panels are prerendered closed, so search engines and AI crawlers
- * still read every feature on this one, linked page.
+ * Every augo feature at a glance: search, a tile per feature, every feature
+ * in one table, and the FAQ. Each tile, row and search result links to that
+ * feature's own page, /:lang/features/<slug>.
  *
  * Deliberately no GSAP, same as /mcp: prerender would bake `opacity: 0` into
  * the static HTML.
  */
 export default function Features() {
     const { t } = useTranslation()
-    const [openId, setOpenId] = useState<string | null>(null)
-    const trigger = useRef<HTMLElement | null>(null)
+    const navigate = useNavigate()
+    const navigationType = useNavigationType()
+    const { lang = 'en' } = useParams<{ lang: string }>()
 
-    const coach = t('features.coach.items', { returnObjects: true }) as FeatureItem[]
-    const athlete = t('features.athlete.items', { returnObjects: true }) as FeatureItem[]
-    const migration = t('features.migration.item', { returnObjects: true }) as FeatureItem
+    const featureList = [
+        ...(t('features.coach.items', { returnObjects: true }) as FeatureItem[]),
+        ...(t('features.athlete.items', { returnObjects: true }) as FeatureItem[]),
+        t('features.migration.item', { returnObjects: true }) as FeatureItem,
+    ].map((item) => item.title)
 
-    // Same order as the tiles, so "Next" in the panel walks the index.
-    const panels: Panel[] = useMemo(
-        () => [
-            { id: SECTION_IDS.devices, title: t('features.devices.title') },
-            { id: SECTION_IDS.integrations, title: t('features.integrations.title') },
-            { id: migration.id, title: migration.title, item: migration },
-            ...[...coach, ...athlete].map((item) => ({ id: item.id, title: item.title, item })),
-        ],
-        // The copy only changes with the language.
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        [t],
-    )
-    const panelIds = useMemo(() => new Set(panels.map((p) => p.id)), [panels])
-    const featureList = [...coach, ...athlete, migration].map((item) => item.title)
-
-    const open = useCallback((id: string) => {
-        setOpenId(id)
-        history.replaceState(null, '', `#${id}`)
-    }, [])
-
-    const close = useCallback(() => {
-        setOpenId(null)
-        history.replaceState(null, '', window.location.pathname + window.location.search)
-        trigger.current?.focus({ preventScroll: true })
-    }, [])
-
-    // A link to /en/features#recovery opens that panel; any other hash scrolls,
-    // after ScrollToTop has had its turn (same fix as Mcp.tsx).
     useEffect(() => {
         const id = window.location.hash.slice(1)
-        if (!id) return
         requestAnimationFrame(() => {
-            if (panelIds.has(id)) setOpenId(id)
-            else document.getElementById(id)?.scrollIntoView()
+            // Old in-page links (/features#recovery) now have pages of their own.
+            if (id in FEATURE_SLUGS) {
+                navigate(featureHref(lang, id), { replace: true })
+                return
+            }
+            // Same fix as Mcp.tsx: ScrollToTop races the browser's hash scroll.
+            if (id) {
+                document.getElementById(id)?.scrollIntoView()
+                return
+            }
+            // Back from a feature page: return to the same place in the grid.
+            if (navigationType === 'POP') {
+                try {
+                    const y = Number(sessionStorage.getItem(SCROLL_KEY))
+                    if (y) window.scrollTo(0, y)
+                } catch {
+                    // Storage blocked: start at the top, as any page would.
+                }
+            }
         })
-    }, [panelIds])
+    }, [lang, navigate, navigationType])
 
-    // Tiles, search results and in-text links: panels open, sections scroll.
+    // Feature pages open in the app (no reload); in-page links scroll.
     const onClick = (e: MouseEvent<HTMLElement>) => {
-        const link = (e.target as HTMLElement).closest('a[href^="#"]')
+        const link = (e.target as HTMLElement).closest('a[href]')
+        const href = link?.getAttribute('href') ?? ''
         if (!link || e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey) return
-        const id = (link.getAttribute('href') ?? '').slice(1)
-        if (panelIds.has(id)) {
+        if (href.startsWith(`/${lang}/features/`)) {
             e.preventDefault()
-            trigger.current = link as HTMLElement
-            open(id)
+            try {
+                sessionStorage.setItem(SCROLL_KEY, String(Math.round(window.scrollY)))
+            } catch {
+                // Storage blocked: Back just lands at the top.
+            }
+            navigate(href)
             return
         }
-        const target = document.getElementById(id)
+        if (!href.startsWith('#')) return
+        const target = document.getElementById(href.slice(1))
         if (!target) return
         e.preventDefault()
-        history.replaceState(null, '', `#${id}`)
+        history.replaceState(null, '', href)
         target.scrollIntoView({ behavior: 'smooth' })
     }
 
@@ -98,7 +97,6 @@ export default function Features() {
                 <FeaturesGlance />
                 <FeaturesFaq />
                 <FeaturesCta />
-                <FeatureDrawer panels={panels} openId={openId} onOpen={open} onClose={close} />
             </main>
             <Footer />
         </>

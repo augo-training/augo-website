@@ -26,6 +26,7 @@ import NiceCoaches from './pages/NiceCoaches'
 import CoachCourse from './pages/CoachCourse'
 import Mcp from './pages/Mcp'
 import Features from './pages/Features'
+import FeaturePage from './pages/FeaturePage'
 import Contact from './pages/Contact'
 import Merci from './pages/Merci'
 import RacingTeam from './pages/RacingTeam'
@@ -111,6 +112,7 @@ function App() {
           <Route path="humanedge" element={<HumanEdge />} />
           <Route path="mcp" element={<Mcp />} />
           <Route path="features" element={<Features />} />
+          <Route path="features/:slug" element={<FeaturePage />} />
           <Route path="contact" element={<Contact />} />
           {/* Standalone ad landing pages — nothing on the site links to them. */}
           <Route path="nice-athletes" element={<NiceAthletes />} />

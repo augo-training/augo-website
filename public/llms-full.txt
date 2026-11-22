@@ -1,6 +1,6 @@
 # augo features, in full
 
-> Everything augo does for coaches and athletes. The long-form companion to https://www.augotraining.com/llms.txt, generated from the Features page (https://www.augotraining.com/en/features/).
+> Everything augo does for coaches and athletes. The long-form companion to https://www.augotraining.com/llms.txt, generated from the Features page (https://www.augotraining.com/en/features/). Each feature has its own page, linked under it.
 
 ## For coaches
 
@@ -21,7 +21,7 @@ How it works:
 - Notifications: Your choice, for example messages only
 - Athletes: augo app for iOS and Android
 
-Details: https://www.augotraining.com/en/features/#chat
+Details: https://www.augotraining.com/en/features/chat-and-workout-feed/
 
 ### Session feedback after every workout
 
@@ -40,7 +40,7 @@ How it works:
 - Notes: Free text, or voice up to 5 minutes
 - Trends: Week by week, per athlete
 
-Details: https://www.augotraining.com/en/features/#feedback
+Details: https://www.augotraining.com/en/features/session-feedback/
 
 ### In-app assistant, powered by Claude
 
@@ -57,7 +57,7 @@ How it works:
 - Account: No ChatGPT or Claude account needed
 - Plan: Included in your subscription
 
-Details: https://www.augotraining.com/en/features/#assistant
+Details: https://www.augotraining.com/en/features/in-app-assistant/
 
 ### Build workouts three ways
 
@@ -76,7 +76,7 @@ How it works:
 - Ways to build: Builder, assistant, Claude or ChatGPT
 - Devices: Garmin, COROS, Wahoo, Suunto, Rouvy
 
-Details: https://www.augotraining.com/en/features/#workouts
+Details: https://www.augotraining.com/en/features/workout-builder/
 
 ### Strength training on the same calendar
 
@@ -93,7 +93,7 @@ How it works:
 - Athletes: augo app
 - Reuse: Save as a template
 
-Details: https://www.augotraining.com/en/features/#strength
+Details: https://www.augotraining.com/en/features/strength-training/
 
 ### Claude and ChatGPT connector
 
@@ -110,7 +110,7 @@ How it works:
 - Setup: About two minutes
 - Access: Only your athletes
 
-Details: https://www.augotraining.com/en/features/#connector
+Details: https://www.augotraining.com/en/features/claude-and-chatgpt-connector/
 
 ### Workout analysis, planned against completed
 
@@ -127,7 +127,7 @@ How it works:
 - Zones: Time in each zone
 - Feedback: Right next to the data
 
-Details: https://www.augotraining.com/en/features/#analysis
+Details: https://www.augotraining.com/en/features/workout-analysis/
 
 ### Recovery data, every morning
 
@@ -144,7 +144,7 @@ How it works:
 - Metrics: Sleep, resting heart rate, HRV, steps
 - Baseline: Athlete's 30-day average
 
-Details: https://www.augotraining.com/en/features/#recovery
+Details: https://www.augotraining.com/en/features/recovery-data/
 
 ### Athlete Signals: who needs you today
 
@@ -161,7 +161,7 @@ How it works:
 - Looks at: Last 7 days
 - Flags: Struggles, schedule changes, highlights
 
-Details: https://www.augotraining.com/en/features/#signals
+Details: https://www.augotraining.com/en/features/athlete-signals/
 
 ### Zones and performance anchors
 
@@ -178,7 +178,7 @@ How it works:
 - Models: As many as you need
 - Shortcut: Built from a lab report
 
-Details: https://www.augotraining.com/en/features/#zones
+Details: https://www.augotraining.com/en/features/zones-and-performance-anchors/
 
 ### Upload a lab report, get zones and anchors set
 
@@ -195,7 +195,7 @@ How it works:
 - Sets: Performance anchors and zones
 - Works in: augo assistant, Claude, ChatGPT
 
-Details: https://www.augotraining.com/en/features/#files
+Details: https://www.augotraining.com/en/features/lab-report-upload/
 
 ### Private coach notes
 
@@ -212,7 +212,7 @@ How it works:
 - Assistant: Reads and writes notes
 - Per: Athlete
 
-Details: https://www.augotraining.com/en/features/#notes
+Details: https://www.augotraining.com/en/features/private-coach-notes/
 
 ## For athletes
 
@@ -231,7 +231,7 @@ How it works:
 - Voice: Voice notes and comments
 - Notifications: Your choice
 
-Details: https://www.augotraining.com/en/features/#a-chat
+Details: https://www.augotraining.com/en/features/athlete-chat/
 
 ### Your coach plans it. Your watch has it.
 
@@ -248,7 +248,7 @@ How it works:
 - Indoor: Rouvy, Zwift, MyWhoosh
 - Manual entry: Yes
 
-Details: https://www.augotraining.com/en/features/#a-workouts
+Details: https://www.augotraining.com/en/features/workouts-on-your-watch/
 
 ### Strength days, right on your phone
 
@@ -265,7 +265,7 @@ How it works:
 - Video: Per exercise
 - Timers: Built in
 
-Details: https://www.augotraining.com/en/features/#a-strength
+Details: https://www.augotraining.com/en/features/strength-training-for-athletes/
 
 ### Track how you're really doing
 
@@ -282,7 +282,7 @@ How it works:
 - Sports: Run, bike, swim, strength
 - Races: Next race countdown
 
-Details: https://www.augotraining.com/en/features/#a-trends
+Details: https://www.augotraining.com/en/features/athlete-trends/
 
 ### Your recovery, not just your training
 
@@ -299,7 +299,7 @@ How it works:
 - Metrics: Sleep, resting heart rate, HRV, steps
 - Shared with: Your coach
 
-Details: https://www.augotraining.com/en/features/#a-recovery
+Details: https://www.augotraining.com/en/features/athlete-recovery-data/
 
 ### Free for athletes
 
@@ -316,7 +316,7 @@ How it works:
 - Premium tier: None
 - App: iOS and Android
 
-Details: https://www.augotraining.com/en/features/#a-free
+Details: https://www.augotraining.com/en/features/free-for-athletes/
 
 ## Where you use augo
 
@@ -324,6 +324,8 @@ Coaches work from the web or their phone. Athletes use the augo app on iOS and A
 
 - Coaches: The augo web app, plus the mobile app for iOS and Android. Your athletes, chats and plans are the same on both.
 - Athletes: The augo mobile app for iOS and Android, free for athletes. A web version for athletes is coming later in 2026.
+
+Details: https://www.augotraining.com/en/features/devices/
 
 ## What augo connects to
 
@@ -351,6 +353,8 @@ Connecting a device brings in the last 30 days on its own. TrainingPeaks isn't c
 - TrainingPeaks: augo replaces TrainingPeaks, so it isn't connected for planned workouts or completed activities. We move your workout library with you and import your athletes' full history, with no limit.
 - Zwift and MyWhoosh: Export any planned ride from the augo app as a .zwo file and ride it indoors.
 
+Details: https://www.augotraining.com/en/features/integrations/
+
 ## Migration
 
 ### Switching to augo
@@ -368,7 +372,7 @@ How it works:
 - History: TrainingPeaks and Garmin exports, backfill
 - Trial: 14 days, no credit card
 
-Details: https://www.augotraining.com/en/features/#switching
+Details: https://www.augotraining.com/en/features/migration/
 
 ## Questions about features
 

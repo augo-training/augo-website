@@ -1090,9 +1090,11 @@
         "Strength training"
       ]
     },
-    "panel": {
-      "close": "Close",
-      "next": "Next"
+    "page": {
+      "allFeatures": "All features",
+      "previous": "Previous",
+      "next": "Next",
+      "moreFeatures": "More features"
     },
     "guide": {
       "coachHeading": "For coaches",

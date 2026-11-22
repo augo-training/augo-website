@@ -278,6 +278,573 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.augotraining.com/en/features/devices/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/devices/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/devices/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/devices/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/devices/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/de/features/devices/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/devices/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/devices/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/devices/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/devices/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/pt/features/devices/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/devices/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/devices/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/devices/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/devices/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/en/features/integrations/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/integrations/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/integrations/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/integrations/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/integrations/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/de/features/integrations/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/integrations/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/integrations/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/integrations/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/integrations/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/pt/features/integrations/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/integrations/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/integrations/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/integrations/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/integrations/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/en/features/migration/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/migration/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/migration/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/migration/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/migration/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/de/features/migration/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/migration/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/migration/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/migration/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/migration/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/pt/features/migration/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/migration/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/migration/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/migration/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/migration/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/en/features/chat-and-workout-feed/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/chat-and-workout-feed/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/chat-and-workout-feed/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/chat-and-workout-feed/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/chat-and-workout-feed/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/de/features/chat-and-workout-feed/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/chat-and-workout-feed/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/chat-and-workout-feed/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/chat-and-workout-feed/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/chat-and-workout-feed/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/pt/features/chat-and-workout-feed/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/chat-and-workout-feed/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/chat-and-workout-feed/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/chat-and-workout-feed/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/chat-and-workout-feed/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/en/features/session-feedback/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/session-feedback/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/session-feedback/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/session-feedback/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/session-feedback/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/de/features/session-feedback/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/session-feedback/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/session-feedback/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/session-feedback/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/session-feedback/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/pt/features/session-feedback/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/session-feedback/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/session-feedback/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/session-feedback/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/session-feedback/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/en/features/in-app-assistant/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/in-app-assistant/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/in-app-assistant/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/in-app-assistant/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/in-app-assistant/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/de/features/in-app-assistant/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/in-app-assistant/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/in-app-assistant/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/in-app-assistant/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/in-app-assistant/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/pt/features/in-app-assistant/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/in-app-assistant/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/in-app-assistant/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/in-app-assistant/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/in-app-assistant/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/en/features/workout-builder/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/workout-builder/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/workout-builder/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/workout-builder/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/workout-builder/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/de/features/workout-builder/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/workout-builder/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/workout-builder/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/workout-builder/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/workout-builder/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/pt/features/workout-builder/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/workout-builder/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/workout-builder/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/workout-builder/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/workout-builder/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/en/features/strength-training/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/strength-training/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/strength-training/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/strength-training/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/strength-training/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/de/features/strength-training/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/strength-training/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/strength-training/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/strength-training/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/strength-training/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/pt/features/strength-training/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/strength-training/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/strength-training/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/strength-training/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/strength-training/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/en/features/claude-and-chatgpt-connector/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/claude-and-chatgpt-connector/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/claude-and-chatgpt-connector/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/claude-and-chatgpt-connector/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/claude-and-chatgpt-connector/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/de/features/claude-and-chatgpt-connector/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/claude-and-chatgpt-connector/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/claude-and-chatgpt-connector/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/claude-and-chatgpt-connector/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/claude-and-chatgpt-connector/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/pt/features/claude-and-chatgpt-connector/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/claude-and-chatgpt-connector/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/claude-and-chatgpt-connector/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/claude-and-chatgpt-connector/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/claude-and-chatgpt-connector/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/en/features/workout-analysis/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/workout-analysis/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/workout-analysis/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/workout-analysis/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/workout-analysis/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/de/features/workout-analysis/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/workout-analysis/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/workout-analysis/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/workout-analysis/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/workout-analysis/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/pt/features/workout-analysis/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/workout-analysis/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/workout-analysis/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/workout-analysis/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/workout-analysis/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/en/features/recovery-data/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/recovery-data/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/recovery-data/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/recovery-data/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/recovery-data/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/de/features/recovery-data/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/recovery-data/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/recovery-data/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/recovery-data/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/recovery-data/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/pt/features/recovery-data/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/recovery-data/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/recovery-data/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/recovery-data/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/recovery-data/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/en/features/athlete-signals/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/athlete-signals/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/athlete-signals/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/athlete-signals/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/athlete-signals/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/de/features/athlete-signals/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/athlete-signals/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/athlete-signals/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/athlete-signals/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/athlete-signals/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/pt/features/athlete-signals/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/athlete-signals/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/athlete-signals/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/athlete-signals/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/athlete-signals/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/en/features/zones-and-performance-anchors/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/zones-and-performance-anchors/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/zones-and-performance-anchors/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/zones-and-performance-anchors/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/zones-and-performance-anchors/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/de/features/zones-and-performance-anchors/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/zones-and-performance-anchors/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/zones-and-performance-anchors/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/zones-and-performance-anchors/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/zones-and-performance-anchors/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/pt/features/zones-and-performance-anchors/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/zones-and-performance-anchors/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/zones-and-performance-anchors/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/zones-and-performance-anchors/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/zones-and-performance-anchors/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/en/features/lab-report-upload/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/lab-report-upload/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/lab-report-upload/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/lab-report-upload/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/lab-report-upload/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/de/features/lab-report-upload/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/lab-report-upload/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/lab-report-upload/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/lab-report-upload/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/lab-report-upload/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/pt/features/lab-report-upload/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/lab-report-upload/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/lab-report-upload/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/lab-report-upload/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/lab-report-upload/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/en/features/private-coach-notes/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/private-coach-notes/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/private-coach-notes/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/private-coach-notes/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/private-coach-notes/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/de/features/private-coach-notes/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/private-coach-notes/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/private-coach-notes/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/private-coach-notes/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/private-coach-notes/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/pt/features/private-coach-notes/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/private-coach-notes/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/private-coach-notes/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/private-coach-notes/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/private-coach-notes/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/en/features/athlete-chat/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/athlete-chat/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/athlete-chat/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/athlete-chat/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/athlete-chat/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/de/features/athlete-chat/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/athlete-chat/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/athlete-chat/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/athlete-chat/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/athlete-chat/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/pt/features/athlete-chat/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/athlete-chat/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/athlete-chat/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/athlete-chat/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/athlete-chat/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/en/features/workouts-on-your-watch/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/workouts-on-your-watch/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/workouts-on-your-watch/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/workouts-on-your-watch/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/workouts-on-your-watch/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/de/features/workouts-on-your-watch/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/workouts-on-your-watch/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/workouts-on-your-watch/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/workouts-on-your-watch/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/workouts-on-your-watch/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/pt/features/workouts-on-your-watch/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/workouts-on-your-watch/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/workouts-on-your-watch/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/workouts-on-your-watch/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/workouts-on-your-watch/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/en/features/strength-training-for-athletes/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/strength-training-for-athletes/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/strength-training-for-athletes/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/strength-training-for-athletes/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/strength-training-for-athletes/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/de/features/strength-training-for-athletes/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/strength-training-for-athletes/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/strength-training-for-athletes/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/strength-training-for-athletes/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/strength-training-for-athletes/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/pt/features/strength-training-for-athletes/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/strength-training-for-athletes/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/strength-training-for-athletes/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/strength-training-for-athletes/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/strength-training-for-athletes/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/en/features/athlete-trends/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/athlete-trends/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/athlete-trends/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/athlete-trends/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/athlete-trends/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/de/features/athlete-trends/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/athlete-trends/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/athlete-trends/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/athlete-trends/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/athlete-trends/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/pt/features/athlete-trends/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/athlete-trends/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/athlete-trends/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/athlete-trends/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/athlete-trends/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/en/features/athlete-recovery-data/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/athlete-recovery-data/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/athlete-recovery-data/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/athlete-recovery-data/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/athlete-recovery-data/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/de/features/athlete-recovery-data/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/athlete-recovery-data/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/athlete-recovery-data/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/athlete-recovery-data/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/athlete-recovery-data/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/pt/features/athlete-recovery-data/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/athlete-recovery-data/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/athlete-recovery-data/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/athlete-recovery-data/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/athlete-recovery-data/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/en/features/free-for-athletes/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/free-for-athletes/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/free-for-athletes/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/free-for-athletes/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/free-for-athletes/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/de/features/free-for-athletes/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/free-for-athletes/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/free-for-athletes/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/free-for-athletes/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/free-for-athletes/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.augotraining.com/pt/features/free-for-athletes/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/features/free-for-athletes/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/features/free-for-athletes/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.augotraining.com/pt/features/free-for-athletes/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.augotraining.com/en/features/free-for-athletes/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.augotraining.com/en/coaches/adam-labbett/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.augotraining.com/en/coaches/adam-labbett/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.augotraining.com/de/coaches/adam-labbett/" />

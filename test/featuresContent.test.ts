@@ -4,7 +4,8 @@ import { join } from 'node:path'
 import en from '../src/i18n/locales/en.json'
 import de from '../src/i18n/locales/de.json'
 import pt from '../src/i18n/locales/pt.json'
-import { FEATURE_VISUALS, SUPPORT_SLUGS } from '../src/components/features/constants'
+import { FEATURE_VISUALS, SECTION_IDS, SUPPORT_SLUGS } from '../src/components/features/constants'
+import { FEATURE_SLUGS, featureIdForSlug } from '../src/data/featurePages'
 
 const locales = { en, de, pt } as const
 
@@ -39,6 +40,17 @@ describe('features content', () => {
     it('has a render for every feature, and no render without a feature', () => {
         expect(new Set(Object.keys(FEATURE_VISUALS))).toEqual(new Set(ids(en)))
         for (const visual of Object.values(FEATURE_VISUALS)) expect(Boolean(visual.src || visual.drawing)).toBe(true)
+    })
+
+    it('gives every feature, Devices and Integrations a page of its own', () => {
+        const topics = [...ids(en), SECTION_IDS.devices, SECTION_IDS.integrations]
+        expect(new Set(Object.keys(FEATURE_SLUGS))).toEqual(new Set(topics))
+        const slugs = Object.values(FEATURE_SLUGS)
+        expect(new Set(slugs).size).toBe(slugs.length)
+        for (const slug of slugs) {
+            expect(slug).toMatch(/^[a-z0-9-]+$/)
+            expect(FEATURE_SLUGS[featureIdForSlug(slug)!]).toBe(slug)
+        }
     })
 
     it('links only to support articles that exist', () => {

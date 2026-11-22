@@ -1034,9 +1034,11 @@
         "Krafttraining"
       ]
     },
-    "panel": {
-      "close": "Schließen",
-      "next": "Weiter"
+    "page": {
+      "allFeatures": "Alle Funktionen",
+      "previous": "Zurück",
+      "next": "Weiter",
+      "moreFeatures": "Weitere Funktionen"
     },
     "guide": {
       "coachHeading": "Für Coaches",

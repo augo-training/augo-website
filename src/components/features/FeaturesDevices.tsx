@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom'
 import dashboard from '../../assets/images/app_web_dashboard.png?w=1280&format=webp'
 import athleteApp from '../../assets/images/img_for_athletes_workout.png?w=960&format=webp'
 import FeatureVisual from './FeatureVisual'
-import { SECTION_IDS } from './constants'
 
 interface Platform {
     title: string
@@ -13,7 +12,7 @@ interface Platform {
 
 /**
  * Where augo runs: web, iOS and Android for coaches; iOS and Android for
- * athletes. Content for the side panel, opened from the Devices tile.
+ * athletes. The body of /features/devices.
  */
 export default function FeaturesDevices() {
     const { t } = useTranslation()
@@ -32,15 +31,12 @@ export default function FeaturesDevices() {
     return (
         <>
             <p className="font-mono text-[12px] tracking-[2.5px] uppercase text-white/50">{t('features.devices.eyebrow')}</p>
-            <h2
-                id={`${SECTION_IDS.devices}-title`}
-                className="mt-3 font-satoshi font-bold text-[28px] sm:text-[34px] leading-[112%] tracking-[-0.02em] text-white"
-            >
+            <h1 className="mt-3 font-satoshi font-bold text-[34px] sm:text-[44px] lg:text-[52px] leading-[108%] tracking-[-0.025em] text-white">
                 {t('features.devices.title')}
-            </h2>
-            <p className="mt-4 font-satoshi text-[16px] sm:text-[18px] leading-[155%] text-white/65">{t('features.devices.lead')}</p>
+            </h1>
+            <p className="mt-5 font-satoshi text-[17px] sm:text-[19px] leading-[155%] text-white/65 max-w-[760px]">{t('features.devices.lead')}</p>
 
-            <div className="mt-8 flex flex-col gap-5">
+            <div className="mt-10 grid md:grid-cols-2 gap-5 sm:gap-6">
                 {cards.map((card) => (
                     <div key={card.key} className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-5 flex flex-col gap-5">
                         <FeatureVisual visual={card.visual} alt={card.title} />

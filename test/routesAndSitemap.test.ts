@@ -61,6 +61,7 @@ describe('routes and sitemap', () => {
     // demoting it to English-only.
     for (const lang of LANGS) expect(routes).toContain(`/${lang}/mcp`)
     for (const lang of LANGS) expect(routes).toContain(`/${lang}/features`)
+    for (const lang of LANGS) expect(routes).toContain(`/${lang}/features/recovery-data`)
 
     for (const lang of LANGS) {
       for (const path of STATIC_PATHS) {

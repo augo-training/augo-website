@@ -1,15 +1,13 @@
 import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom'
-import { LogoMarquee } from '../ConnectsSection'
-import { INTEGRATION_LOGOS } from '../../data/deviceLogos'
 import {
     HISTORY_IMPORTS,
     RECOVERY_INTEGRATIONS,
-    SECTION_IDS,
     TRAINING_INTEGRATIONS,
     type IntegrationCell,
     type IntegrationRow,
 } from './constants'
+import { featureHref } from '../../data/featurePages'
 
 interface TitledBody {
     title: string
@@ -24,9 +22,9 @@ interface MoreItem extends TitledBody {
 const COLUMNS = ['planned', 'completed', 'historyAuto', 'historyRequest', 'recovery'] as const
 
 /**
- * What augo connects to: the logo strip, how each kind of integration works,
- * and every integration in one table. Content for the side panel, opened from
- * the Integrations tile.
+ * What augo connects to: how each kind of integration works and every
+ * integration in one table. The body of /features/integrations; the page
+ * puts the logo strip above it.
  */
 export default function FeaturesIntegrations() {
     const { t } = useTranslation()
@@ -39,7 +37,7 @@ export default function FeaturesIntegrations() {
 
     const moreHref: Record<MoreItem['id'], string> = {
         ai: `/${currentLang}/mcp`,
-        trainingpeaks: '#switching',
+        trainingpeaks: featureHref(currentLang, 'switching'),
         indoor: '/en/support/ride-augo-workouts-indoors/',
     }
 
@@ -90,20 +88,13 @@ export default function FeaturesIntegrations() {
 
     return (
         <>
-            {/* Bleeds to the panel's edges, like the strip on the homepage. */}
-            <div className="-mx-5 sm:-mx-8 mb-10">
-                <LogoMarquee logos={INTEGRATION_LOGOS} className="py-3" />
-            </div>
 
             <p className="font-mono text-[12px] tracking-[2.5px] uppercase text-white/50">
                 {t('features.integrations.eyebrow')}
             </p>
-            <h2
-                id={`${SECTION_IDS.integrations}-title`}
-                className="mt-3 font-satoshi font-bold text-[28px] sm:text-[34px] leading-[112%] tracking-[-0.02em] text-white"
-            >
+            <h1 className="mt-3 font-satoshi font-bold text-[34px] sm:text-[44px] lg:text-[52px] leading-[108%] tracking-[-0.025em] text-white">
                 {t('features.integrations.title')}
-            </h2>
+            </h1>
             <p className="mt-4 font-satoshi text-[16px] sm:text-[18px] leading-[155%] text-white/65 max-w-[720px]">
                 {t('features.integrations.lead')}
             </p>
@@ -111,7 +102,7 @@ export default function FeaturesIntegrations() {
             <h3 className="mt-12 font-satoshi font-bold text-[22px] sm:text-[24px] leading-[120%] text-white">
                 {t('features.integrations.how.title')}
             </h3>
-            <div className="mt-5 grid sm:grid-cols-2 gap-4">
+            <div className="mt-5 grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
                 {how.map((item) => (
                     <div key={item.title} className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-5">
                         <h4 className="font-satoshi font-bold text-[17px] text-white">{item.title}</h4>
@@ -124,7 +115,7 @@ export default function FeaturesIntegrations() {
                 {t('features.integrations.table.title')}
             </h3>
             {/* relative: the sr-only labels are absolutely positioned and would otherwise widen the page */}
-            <div className="relative mt-4 overflow-x-auto -mx-5 px-5 sm:-mx-8 sm:px-8">
+            <div className="relative mt-4 overflow-x-auto -mx-5 px-5 sm:mx-0 sm:px-0">
                 <table className="w-full min-w-[520px] border-collapse">
                     <thead>
                         <tr className="text-left">
@@ -163,7 +154,7 @@ export default function FeaturesIntegrations() {
                 {t('features.integrations.table.supportLink')} →
             </a>
 
-            <div className="mt-14 flex flex-col gap-10">
+            <div className="mt-14 grid lg:grid-cols-2 gap-10 lg:gap-12">
                 <div>
                     <h3 className="font-satoshi font-bold text-[22px] sm:text-[24px] leading-[120%] text-white">
                         {t('features.integrations.connect.title')}

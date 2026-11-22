@@ -596,7 +596,8 @@ export function McpBreadcrumbJsonLd() {
   )
 }
 
-export function FeaturesBreadcrumbJsonLd() {
+/** augo › Features, plus the feature itself on a /features/<slug> page. */
+export function FeaturesBreadcrumbJsonLd({ feature }: { feature?: { name: string; slug: string } } = {}) {
   const { i18n } = useTranslation()
   const lang = i18n.language || 'en'
   const schema = {
@@ -605,6 +606,9 @@ export function FeaturesBreadcrumbJsonLd() {
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'augo', item: `${BASE_URL}/${lang}` },
       { '@type': 'ListItem', position: 2, name: 'Features', item: `${BASE_URL}/${lang}/features` },
+      ...(feature
+        ? [{ '@type': 'ListItem', position: 3, name: feature.name, item: `${BASE_URL}/${lang}/features/${feature.slug}` }]
+        : []),
     ],
   }
   return (

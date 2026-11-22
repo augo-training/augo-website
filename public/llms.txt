@@ -138,7 +138,9 @@ Integrations:
 - Recovery data (sleep, resting heart rate, HRV, steps) comes from WHOOP, Oura, Garmin, COROS and Apple Health.
 - Athletes connect their own devices from the augo app. Coaches can also use augo from Claude and ChatGPT (MCP).
 
-Features page: https://www.augotraining.com/en/features/
+Features page: https://www.augotraining.com/en/features/ (each feature also has its own page, e.g.
+https://www.augotraining.com/en/features/recovery-data/ and https://www.augotraining.com/en/features/migration/;
+the full list with links is in https://www.augotraining.com/llms-full.txt)
 
 ---
 
