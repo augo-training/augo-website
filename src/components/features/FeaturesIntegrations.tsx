@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom'
 import { LogoMarquee } from '../ConnectsSection'
 import {
+    HISTORY_IMPORTS,
     RECOVERY_INTEGRATIONS,
     SECTION_IDS,
     TRAINING_INTEGRATIONS,
@@ -25,7 +26,7 @@ interface MoreItem extends TitledBody {
     link: string
 }
 
-const COLUMNS = ['planned', 'completed', 'history', 'recovery'] as const
+const COLUMNS = ['planned', 'completed', 'historyAuto', 'historyRequest', 'recovery'] as const
 
 /**
  * Where augo runs (coach and athlete apps), the device-logo strip from the
@@ -50,18 +51,30 @@ export default function FeaturesIntegrations() {
         indoor: '/en/support/ride-augo-workouts-indoors/',
     }
 
-    const cell = (value: IntegrationCell) => (
-        <span className={value === 'no' ? 'text-white/30' : 'text-white/85'}>
-            {value === 'no' ? '—' : t(`features.integrations.table.values.${value}`)}
-            {value === 'no' && <span className="sr-only">{t('features.integrations.table.values.no')}</span>}
-        </span>
-    )
+    const cell = (value: IntegrationCell, href?: string) => {
+        if (value === 'no') {
+            return (
+                <span className="text-white/30">
+                    —<span className="sr-only">{t('features.integrations.table.values.no')}</span>
+                </span>
+            )
+        }
+        const label = t(`features.integrations.table.values.${value}`)
+        // Unlimited history needs an export: link to the guide for requesting it.
+        return href ? (
+            <a href={href} className="text-white underline underline-offset-4 decoration-white/30 hover:decoration-white">
+                {label} →
+            </a>
+        ) : (
+            <span className="text-white/85">{label}</span>
+        )
+    }
 
     const rows = (heading: string, items: IntegrationRow[]) => (
         <tbody>
             <tr>
                 <th
-                    colSpan={5}
+                    colSpan={6}
                     scope="colgroup"
                     className="pt-6 pb-2 text-left font-mono text-[11px] tracking-[2px] uppercase text-white/45 font-normal"
                 >
@@ -75,7 +88,7 @@ export default function FeaturesIntegrations() {
                     </th>
                     {COLUMNS.map((col) => (
                         <td key={col} className="py-3 px-3 font-satoshi text-[13px] sm:text-[15px] whitespace-nowrap">
-                            {cell(row[col])}
+                            {cell(row[col], col === 'historyRequest' ? row.requestHref : undefined)}
                         </td>
                     ))}
                 </tr>
@@ -151,7 +164,7 @@ export default function FeaturesIntegrations() {
                     </h3>
                     {/* relative: the sr-only labels are absolutely positioned and would otherwise widen the page */}
                     <div className="relative mt-4 overflow-x-auto -mx-5 px-5 sm:mx-0 sm:px-0">
-                        <table className="w-full min-w-[560px] border-collapse">
+                        <table className="w-full min-w-[680px] border-collapse">
                             <thead>
                                 <tr className="text-left">
                                     <th scope="col" className="pb-2 pr-4 font-mono text-[11px] tracking-[1.5px] uppercase text-white/50 font-normal">
@@ -169,9 +182,19 @@ export default function FeaturesIntegrations() {
                                 </tr>
                             </thead>
                             {rows(t('features.integrations.table.groups.training'), TRAINING_INTEGRATIONS)}
+                            {rows(t('features.integrations.table.groups.imports'), HISTORY_IMPORTS)}
                             {rows(t('features.integrations.table.groups.recovery'), RECOVERY_INTEGRATIONS)}
                         </table>
                     </div>
+                    <p className="mt-4 max-w-[760px] font-satoshi text-[14px] sm:text-[15px] leading-[155%] text-white/60">
+                        {t('features.integrations.table.historyNote')}{' '}
+                        <a
+                            href="/en/support/import-training-history/"
+                            className="text-white/80 hover:text-white underline underline-offset-4 decoration-white/30"
+                        >
+                            {t('features.integrations.table.historyLink')} →
+                        </a>
+                    </p>
                     <a
                         href="/en/support/connect-devices-and-apps/"
                         className="inline-block mt-5 font-satoshi text-[14px] sm:text-[15px] text-white/70 hover:text-white underline-offset-4 hover:underline"

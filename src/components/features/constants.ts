@@ -121,34 +121,49 @@ export function viewForHash(hash: string): FeaturesView | null {
  * does augo integrate with?". Cell values are keys into
  * `features.integrations.table.values`.
  */
-export type IntegrationCell = 'yes' | 'no' | 'rides' | 'export' | 'days30' | 'years5'
+export type IntegrationCell = 'yes' | 'no' | 'rides' | 'export' | 'days30' | 'years5' | 'none' | 'unlimited'
 
 export interface IntegrationRow {
     name: string
     planned: IntegrationCell
     completed: IntegrationCell
-    history: IntegrationCell
+    /** What comes in on its own when the athlete connects. */
+    historyAuto: IntegrationCell
+    /** What we can import when the athlete asks. */
+    historyRequest: IntegrationCell
     recovery: IntegrationCell
+    /** Support guide for requesting the history, linked from the on-request cell. */
+    requestHref?: string
 }
 
+const IMPORT_GUIDE = '/en/support/import-training-history/'
+
 export const TRAINING_INTEGRATIONS: IntegrationRow[] = [
-    { name: 'Garmin', planned: 'yes', completed: 'yes', history: 'days30', recovery: 'yes' },
-    { name: 'COROS', planned: 'yes', completed: 'yes', history: 'years5', recovery: 'yes' },
-    { name: 'Wahoo', planned: 'yes', completed: 'yes', history: 'years5', recovery: 'no' },
-    { name: 'Suunto', planned: 'yes', completed: 'yes', history: 'years5', recovery: 'no' },
-    { name: 'Polar', planned: 'no', completed: 'yes', history: 'years5', recovery: 'no' },
-    { name: 'Apple Watch', planned: 'no', completed: 'yes', history: 'years5', recovery: 'no' },
-    { name: 'Strava', planned: 'no', completed: 'yes', history: 'years5', recovery: 'no' },
-    { name: 'Zwift', planned: 'export', completed: 'yes', history: 'years5', recovery: 'no' },
-    { name: 'Rouvy', planned: 'rides', completed: 'yes', history: 'years5', recovery: 'no' },
-    { name: 'Hammerhead', planned: 'no', completed: 'yes', history: 'years5', recovery: 'no' },
+    { name: 'Garmin', planned: 'yes', completed: 'yes', historyAuto: 'days30', historyRequest: 'unlimited', recovery: 'yes', requestHref: `${IMPORT_GUIDE}#option-2-garmin` },
+    { name: 'COROS', planned: 'yes', completed: 'yes', historyAuto: 'days30', historyRequest: 'years5', recovery: 'yes' },
+    { name: 'Wahoo', planned: 'yes', completed: 'yes', historyAuto: 'days30', historyRequest: 'years5', recovery: 'no' },
+    { name: 'Suunto', planned: 'yes', completed: 'yes', historyAuto: 'days30', historyRequest: 'years5', recovery: 'no' },
+    { name: 'Polar', planned: 'no', completed: 'yes', historyAuto: 'days30', historyRequest: 'years5', recovery: 'no' },
+    { name: 'Apple Watch', planned: 'no', completed: 'yes', historyAuto: 'days30', historyRequest: 'years5', recovery: 'no' },
+    { name: 'Strava', planned: 'no', completed: 'yes', historyAuto: 'days30', historyRequest: 'years5', recovery: 'no' },
+    { name: 'Zwift', planned: 'export', completed: 'yes', historyAuto: 'days30', historyRequest: 'years5', recovery: 'no' },
+    { name: 'Rouvy', planned: 'rides', completed: 'yes', historyAuto: 'days30', historyRequest: 'years5', recovery: 'no' },
+    { name: 'Hammerhead', planned: 'no', completed: 'yes', historyAuto: 'days30', historyRequest: 'years5', recovery: 'no' },
+]
+
+/**
+ * TrainingPeaks isn't a live connection: augo replaces it. Nothing comes over
+ * on its own, but we import the full history from an export.
+ */
+export const HISTORY_IMPORTS: IntegrationRow[] = [
+    { name: 'TrainingPeaks', planned: 'no', completed: 'no', historyAuto: 'none', historyRequest: 'unlimited', recovery: 'no', requestHref: `${IMPORT_GUIDE}#option-1-trainingpeaks` },
 ]
 
 /** Recovery-only sources: sleep, resting heart rate, HRV and steps. */
 export const RECOVERY_INTEGRATIONS: IntegrationRow[] = [
-    { name: 'WHOOP', planned: 'no', completed: 'no', history: 'no', recovery: 'yes' },
-    { name: 'Oura', planned: 'no', completed: 'no', history: 'no', recovery: 'yes' },
-    { name: 'Apple Health', planned: 'no', completed: 'no', history: 'no', recovery: 'yes' },
+    { name: 'WHOOP', planned: 'no', completed: 'no', historyAuto: 'no', historyRequest: 'no', recovery: 'yes' },
+    { name: 'Oura', planned: 'no', completed: 'no', historyAuto: 'no', historyRequest: 'no', recovery: 'yes' },
+    { name: 'Apple Health', planned: 'no', completed: 'no', historyAuto: 'no', historyRequest: 'no', recovery: 'yes' },
 ]
 
 export interface FeatureItem {

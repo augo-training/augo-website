@@ -125,7 +125,10 @@ Integrations:
   take a .zwo file exported from the augo app. Polar, Apple Watch, Strava and Hammerhead don't receive planned
   workouts.
 - Completed activities sync from Garmin, COROS, Wahoo, Suunto, Polar, Apple Watch, Strava, Zwift, Rouvy and
-  Hammerhead. Connecting brings in the last 30 days; every source except Garmin can go back up to 5 years on request.
+  Hammerhead. Connecting brings in the last 30 days automatically. Garmin and TrainingPeaks history is unlimited:
+  the athlete exports their files and augo imports them (https://www.augotraining.com/en/support/import-training-history/).
+  TrainingPeaks is not connected for planned workouts or completed activities; augo replaces it. Other sources
+  can go back up to 5 years on request.
 - Recovery data (sleep, resting heart rate, HRV, steps) comes from WHOOP, Oura, Garmin, COROS and Apple Health.
 - Athletes connect their own devices from the augo app. Coaches can also use augo from Claude and ChatGPT (MCP).
 

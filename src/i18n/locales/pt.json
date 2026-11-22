@@ -1694,7 +1694,7 @@
           },
           {
             "title": "Histórico de treinos",
-            "body": "Ao conectar, chegam os últimos 30 dias. Todas as fontes, exceto a Garmin, podem buscar até cinco anos mediante pedido, e importamos para você exportações completas do TrainingPeaks ou da Garmin."
+            "body": "Ao conectar, chegam automaticamente os últimos 30 dias. Para Garmin e TrainingPeaks importamos o histórico completo, sem limite, a partir de uma exportação que o atleta nos envia. Outras fontes podem buscar até cinco anos mediante pedido."
           },
           {
             "title": "Dados de recuperação",
@@ -1716,7 +1716,8 @@
         "name": "Dispositivo ou app",
         "planned": "Treinos planejados",
         "completed": "Atividades concluídas",
-        "history": "Histórico",
+        "historyAuto": "Histórico, automático",
+      "historyRequest": "Histórico, sob pedido",
         "recovery": "Dados de recuperação",
         "values": {
           "yes": "Sim",
@@ -1724,13 +1725,18 @@
           "rides": "Pedais",
           "export": "Exportar (.zwo)",
           "days30": "30 dias",
-          "years5": "Até 5 anos"
+          "years5": "Até 5 anos",
+          "none": "Nenhum",
+          "unlimited": "Ilimitado"
         },
         "groups": {
           "training": "Relógios, ciclocomputadores e apps",
+          "imports": "Importação de histórico",
           "recovery": "Wearables de recuperação"
         },
-        "supportLink": "Todos os detalhes de compatibilidade no Suporte"
+        "historyNote": "Ao conectar um dispositivo, os últimos 30 dias chegam sozinhos. O TrainingPeaks não está conectado para treinos planejados nem atividades concluídas, então nada chega de lá automaticamente. Para Garmin e TrainingPeaks, o atleta exporta os arquivos e nós importamos o histórico completo, sem limite.",
+      "historyLink": "Como solicitar",
+      "supportLink": "Todos os detalhes de compatibilidade no Suporte"
       },
       "more": {
         "title": "Também funciona com",
@@ -1744,7 +1750,7 @@
           {
             "id": "trainingpeaks",
             "title": "TrainingPeaks",
-            "body": "A augo substitui o TrainingPeaks. Migramos sua biblioteca de treinos com você e importamos o histórico dos seus atletas.",
+            "body": "A augo substitui o TrainingPeaks, então ele não está conectado para treinos planejados nem atividades concluídas. Migramos sua biblioteca de treinos com você e importamos o histórico completo dos seus atletas, sem limite.",
             "link": "Mudando para a augo"
           },
           {

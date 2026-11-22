@@ -1694,7 +1694,7 @@
           },
           {
             "title": "Trainingshistorie",
-            "body": "Beim Verbinden kommen die letzten 30 Tage. Jede Quelle außer Garmin kann auf Anfrage bis zu fünf Jahre zurückgehen, und komplette TrainingPeaks- oder Garmin-Exporte importieren wir für dich."
+            "body": "Beim Verbinden kommen automatisch die letzten 30 Tage. Für Garmin und TrainingPeaks importieren wir die komplette Historie ohne Limit aus einem Export, den dein Athlet uns schickt. Andere Quellen können auf Anfrage bis zu fünf Jahre zurückgehen."
           },
           {
             "title": "Erholungsdaten",
@@ -1716,7 +1716,8 @@
         "name": "Gerät oder App",
         "planned": "Geplante Einheiten",
         "completed": "Absolvierte Aktivitäten",
-        "history": "Historie",
+        "historyAuto": "Historie, automatisch",
+      "historyRequest": "Historie, auf Anfrage",
         "recovery": "Erholungsdaten",
         "values": {
           "yes": "Ja",
@@ -1724,13 +1725,18 @@
           "rides": "Radfahrten",
           "export": "Export (.zwo)",
           "days30": "30 Tage",
-          "years5": "Bis zu 5 Jahre"
+          "years5": "Bis zu 5 Jahre",
+          "none": "Keine",
+          "unlimited": "Unbegrenzt"
         },
         "groups": {
           "training": "Uhren, Radcomputer und Apps",
+          "imports": "Historie-Import",
           "recovery": "Wearables für Erholung"
         },
-        "supportLink": "Alle Details zur Kompatibilität im Support"
+        "historyNote": "Wenn ein Gerät verbunden wird, kommen die letzten 30 Tage von selbst. TrainingPeaks ist nicht für geplante Einheiten oder absolvierte Aktivitäten verbunden, also kommt von dort nichts automatisch. Für Garmin und TrainingPeaks exportiert dein Athlet seine Dateien, und wir importieren die komplette Historie ohne Limit.",
+      "historyLink": "So forderst du sie an",
+      "supportLink": "Alle Details zur Kompatibilität im Support"
       },
       "more": {
         "title": "Funktioniert auch mit",
@@ -1744,7 +1750,7 @@
           {
             "id": "trainingpeaks",
             "title": "TrainingPeaks",
-            "body": "augo ersetzt TrainingPeaks. Wir ziehen deine Workout-Bibliothek mit dir um und importieren die Historie deiner Athleten.",
+            "body": "augo ersetzt TrainingPeaks, deshalb ist es nicht für geplante Einheiten oder absolvierte Aktivitäten verbunden. Wir ziehen deine Workout-Bibliothek mit dir um und importieren die komplette Historie deiner Athleten ohne Limit.",
             "link": "Wechsel zu augo"
           },
           {

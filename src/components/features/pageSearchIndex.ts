@@ -1,6 +1,6 @@
 import { buildSupportSearchIndex, type SupportSearchIndex } from '../../utils/supportSearchIndex'
 import type { SupportArticleData } from '../../utils/supportTypes'
-import { RECOVERY_INTEGRATIONS, SECTION_IDS, TRAINING_INTEGRATIONS, type FeatureItem } from './constants'
+import { HISTORY_IMPORTS, RECOVERY_INTEGRATIONS, SECTION_IDS, TRAINING_INTEGRATIONS, type FeatureItem } from './constants'
 
 /**
  * The Features page's own search index, built with the support search engine
@@ -38,6 +38,8 @@ export const FEATURE_KEYWORDS: Record<string, string[]> = {
 const INTEGRATION_KEYWORDS = [
     ...TRAINING_INTEGRATIONS.map((row) => row.name),
     ...RECOVERY_INTEGRATIONS.map((row) => row.name),
+    ...HISTORY_IMPORTS.map((row) => row.name),
+    'history', 'import', 'export', 'unlimited',
     'karoo', 'mywhoosh', 'devices', 'watch', 'sync', 'connect', 'integrations', 'web app', 'ios', 'android', 'mobile app', 'iphone',
 ]
 
