@@ -14,6 +14,7 @@ export default function SectionNav() {
         { id: SECTION_IDS.athletes, label: t('features.guide.athleteHeading') },
         { id: SECTION_IDS.devices, label: t('features.devices.eyebrow') },
         { id: SECTION_IDS.integrations, label: t('features.integrations.eyebrow') },
+        { id: SECTION_IDS.migration, label: t('features.migration.label') },
         { id: SECTION_IDS.faqs, label: t('features.nav.faq') },
     ]
 

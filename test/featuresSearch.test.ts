@@ -7,6 +7,7 @@ const f = en.features
 const { index, hits } = buildFeaturesSearch({
     coach: f.coach.items,
     athlete: f.athlete.items,
+    migration: f.migration.item,
     devices: {
         title: f.devices.title,
         lead: f.devices.lead,

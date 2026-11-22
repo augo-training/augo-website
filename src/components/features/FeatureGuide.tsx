@@ -3,7 +3,8 @@ import FeatureVisual from './FeatureVisual'
 import { trackCtaClicked } from '../../utils/analytics'
 import { FEATURE_CALLS, FEATURE_VISUALS, SECTION_IDS, SUPPORT_SLUGS, type FeatureItem } from './constants'
 
-function FeatureSection({ item, flip }: { item: FeatureItem; flip: boolean }) {
+/** One feature, full width. Also used on its own for the Migration topic, with an h2. */
+export function FeatureSection({ item, flip, heading: Heading = 'h3' }: { item: FeatureItem; flip: boolean; heading?: 'h2' | 'h3' }) {
     const { t } = useTranslation()
     const slug = SUPPORT_SLUGS[item.id]
     const call = FEATURE_CALLS[item.id]
@@ -16,12 +17,12 @@ function FeatureSection({ item, flip }: { item: FeatureItem; flip: boolean }) {
         >
             <div className={flip ? 'md:order-2' : ''}>
                 <p className="font-mono text-[12px] tracking-[2.5px] uppercase text-white/50">{item.category}</p>
-                <h3
+                <Heading
                     id={`${item.id}-title`}
                     className="mt-3 font-satoshi font-bold text-[28px] sm:text-[36px] leading-[112%] tracking-[-0.02em] text-white"
                 >
                     {item.title}
-                </h3>
+                </Heading>
                 <p className="mt-4 font-satoshi font-medium text-[17px] sm:text-[19px] leading-[145%] text-white/85">
                     {item.summary}
                 </p>

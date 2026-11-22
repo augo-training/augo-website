@@ -24,6 +24,7 @@ function shape(value: unknown): unknown {
 const ids = (locale: (typeof locales)[keyof typeof locales]) => [
     ...locale.features.coach.items.map((item) => item.id),
     ...locale.features.athlete.items.map((item) => item.id),
+    locale.features.migration.item.id,
 ]
 
 describe('features content', () => {

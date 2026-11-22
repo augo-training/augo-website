@@ -31,6 +31,7 @@ export const SECTION_IDS = {
     athletes: 'for-athletes',
     devices: 'devices',
     integrations: 'integrations',
+    migration: 'migration',
     glance: 'at-a-glance',
     faqs: 'faqs',
 } as const

@@ -49,6 +49,7 @@ const DEVICE_KEYWORDS = ['devices', 'web app', 'web version', 'browser', 'deskto
 interface PageCopy {
     coach: FeatureItem[]
     athlete: FeatureItem[]
+    migration: FeatureItem
     devices: { title: string; lead: string; text: string[] }
     integrations: { title: string; lead: string; text: string[] }
     faq: { question: string; answer: string }[]
@@ -89,7 +90,7 @@ export function buildFeaturesSearch(copy: PageCopy): { index: SupportSearchIndex
         hits[article.slug] = { hash: article.slug, title: article.title, summary: article.summary }
     }
 
-    for (const [items, audience] of [[copy.coach, 'coach'], [copy.athlete, 'athlete']] as const) {
+    for (const [items, audience] of [[copy.coach, 'coach'], [copy.athlete, 'athlete'], [[copy.migration], 'coach']] as const) {
         for (const item of items) {
             add(
                 doc(

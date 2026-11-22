@@ -3,9 +3,23 @@ import { useTranslation } from 'react-i18next'
 import FeaturesSearch from './FeaturesSearch'
 import { DEVICE_LOGOS } from '../../data/deviceLogos'
 import dashboard from '../../assets/images/app_web_dashboard.png?w=640&format=webp'
+import trainingPeaksLogo from '../../assets/images/training_peaks_logo.svg'
 import { FEATURE_VISUALS, SECTION_IDS, type FeatureItem } from './constants'
 
-function Card({ href, title, summary, image, wide }: { href: string; title: string; summary: string; image?: string; wide?: boolean }) {
+function Card({
+    href,
+    title,
+    summary,
+    image,
+    art,
+}: {
+    href: string
+    title: string
+    summary: string
+    image?: string
+    /** Drawn artwork for cards with no render. Falls back to the device logos. */
+    art?: ReactNode
+}) {
     return (
         <li className="snap-start shrink-0 w-[72vw] max-w-[300px] sm:w-auto sm:max-w-none">
             <a
@@ -13,7 +27,7 @@ function Card({ href, title, summary, image, wide }: { href: string; title: stri
                 className="group flex flex-col h-full rounded-2xl border border-white/[0.08] bg-white/[0.02] hover:border-white/25 hover:bg-white/[0.04] overflow-hidden transition-colors"
             >
                 <div
-                    className={`relative ${wide ? 'aspect-[4/3] sm:aspect-[2/1]' : 'aspect-[4/3]'} flex items-center justify-center overflow-hidden`}
+                    className="relative aspect-[4/3] flex items-center justify-center overflow-hidden"
                     style={{ background: 'linear-gradient(14.48deg, #151515 -17.53%, #090909 79.83%)' }}
                 >
                     <div
@@ -31,6 +45,10 @@ function Card({ href, title, summary, image, wide }: { href: string; title: stri
                             decoding="async"
                             className="relative h-[88%] w-auto max-w-[88%] object-contain transition-transform duration-300 group-hover:scale-[1.03]"
                         />
+                    ) : art ? (
+                        <div aria-hidden className="relative">
+                            {art}
+                        </div>
                     ) : (
                         // No render for integrations: show the device logos instead.
                         <div aria-hidden className="relative grid grid-cols-3 gap-x-5 gap-y-4 px-6 items-center justify-items-center">
@@ -58,6 +76,7 @@ export default function FeatureIndex() {
     const { t } = useTranslation()
     const coach = t('features.coach.items', { returnObjects: true }) as FeatureItem[]
     const athlete = t('features.athlete.items', { returnObjects: true }) as FeatureItem[]
+    const migration = t('features.migration', { returnObjects: true }) as { label: string; item: FeatureItem }
 
     const group = (id: string, heading: string, cards: ReactNode, columns = 'sm:grid-cols-3 lg:grid-cols-4') => (
         <div className="mt-10">
@@ -105,16 +124,26 @@ export default function FeatureIndex() {
                             title={t('features.index.devicesTitle')}
                             summary={t('features.index.devicesSummary')}
                             image={dashboard}
-                            wide
                         />
                         <Card
                             href={`#${SECTION_IDS.integrations}`}
                             title={t('features.index.integrationsTitle')}
                             summary={t('features.index.integrationsSummary')}
-                            wide
+                        />
+                        <Card
+                            href={`#${SECTION_IDS.migration}`}
+                            title={migration.label}
+                            summary={migration.item.summary}
+                            art={
+                                <div className="flex items-center gap-4">
+                                    <img src={trainingPeaksLogo} alt="" className="h-6 w-auto opacity-85" />
+                                    <span className="text-white/50 text-[22px]">→</span>
+                                    <span className="font-satoshi font-bold text-[30px] leading-none text-white">augo</span>
+                                </div>
+                            }
                         />
                     </>,
-                    'sm:grid-cols-2',
+                    'sm:grid-cols-3',
                 )}
                 {group('index-coaches', t('features.guide.coachHeading'), featureCards(coach))}
                 {group('index-athletes', t('features.guide.athleteHeading'), featureCards(athlete))}

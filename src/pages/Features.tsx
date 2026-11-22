@@ -10,6 +10,7 @@ import SectionNav from '../components/features/SectionNav'
 import FeatureGuide from '../components/features/FeatureGuide'
 import FeaturesDevices from '../components/features/FeaturesDevices'
 import FeaturesIntegrations from '../components/features/FeaturesIntegrations'
+import FeaturesMigration from '../components/features/FeaturesMigration'
 import FeaturesGlance from '../components/features/FeaturesGlance'
 import FeaturesFaq from '../components/features/FeaturesFaq'
 import FeaturesCta from '../components/features/FeaturesCta'
@@ -17,7 +18,7 @@ import type { FeatureItem } from '../components/features/constants'
 
 /**
  * Every augo feature: an index with search at the top, then each feature in
- * detail, devices, integrations, a summary table and the FAQ. A section menu
+ * detail, devices, integrations, migration, a summary table and the FAQ. A section menu
  * stays pinned under the Navbar from the guide down.
  *
  * Deliberately no GSAP, same as /mcp: prerender would bake `opacity: 0` into
@@ -29,6 +30,7 @@ export default function Features() {
     const featureList = [
         ...(t('features.coach.items', { returnObjects: true }) as FeatureItem[]),
         ...(t('features.athlete.items', { returnObjects: true }) as FeatureItem[]),
+        t('features.migration.item', { returnObjects: true }) as FeatureItem,
     ].map((item) => item.title)
 
     // ScrollToTop fires on every pathname change and races the browser's native
@@ -67,6 +69,7 @@ export default function Features() {
                     <FeatureGuide />
                     <FeaturesDevices />
                     <FeaturesIntegrations />
+                    <FeaturesMigration />
                     <FeaturesGlance />
                     <FeaturesFaq />
                 </div>

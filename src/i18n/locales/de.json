@@ -1011,7 +1011,7 @@
     "index": {
       "title": "Alle Funktionen",
       "lead": "Spring direkt zu einer Funktion, oder such nach dem, was du wissen willst.",
-      "setupTitle": "Geräte und Integrationen",
+      "setupTitle": "Geräte, Integrationen und Migration",
       "devicesTitle": "Geräte",
       "devicesSummary": "Web, iOS und Android für Coaches. iOS und Android für Athleten, Web noch 2026.",
       "integrationsTitle": "Integrationen",
@@ -1371,33 +1371,6 @@
             }
           ],
           "proof": ""
-        },
-        {
-          "id": "switching",
-          "category": "Einstieg",
-          "title": "Wechsel zu augo",
-          "summary": "Deine Bibliothek aus TrainingPeaks oder Final Surge in etwa fünf Minuten umgezogen, und die Historie deiner Athleten importiert.",
-          "lead": "Wir ziehen deine Workout-Bibliothek aus TrainingPeaks oder Final Surge gemeinsam mit dir um, in einem Onboarding-Call von etwa fünf Minuten. Die komplette Historie deiner Athleten kommt aus TrainingPeaks- oder Garmin-Exporten, andere verbundene Quellen holen wir nach. Teste alles 14 Tage kostenlos, ohne Kreditkarte. Brauchst du länger? Sag einfach Bescheid.",
-          "steps": [
-            "Starte deine 14-tägige kostenlose Testphase.",
-            "Buch einen Onboarding-Call, und wir ziehen deine Bibliothek aus TrainingPeaks oder Final Surge mit dir um.",
-            "Lade deine Athleten ein. Ihre Historie kommt mit."
-          ],
-          "specs": [
-            {
-              "label": "Bibliothek",
-              "value": "Aus TrainingPeaks oder Final Surge, etwa 5 Minuten"
-            },
-            {
-              "label": "Historie",
-              "value": "TrainingPeaks- und Garmin-Exporte, Nachimport"
-            },
-            {
-              "label": "Testphase",
-              "value": "14 Tage, ohne Kreditkarte"
-            }
-          ],
-          "proof": ""
         }
       ]
     },
@@ -1676,13 +1649,44 @@
         ]
       }
     },
+    "migration": {
+      "label": "Migration",
+      "item": {
+        "id": "switching",
+        "category": "Migration",
+        "title": "Wechsel zu augo",
+        "summary": "Deine Bibliothek aus TrainingPeaks oder Final Surge in etwa fünf Minuten umgezogen, und die Historie deiner Athleten importiert.",
+        "lead": "Wir ziehen deine Workout-Bibliothek aus TrainingPeaks oder Final Surge gemeinsam mit dir um, in einem Onboarding-Call von etwa fünf Minuten. Die komplette Historie deiner Athleten kommt aus TrainingPeaks- oder Garmin-Exporten, andere verbundene Quellen holen wir nach. Teste alles 14 Tage kostenlos, ohne Kreditkarte. Brauchst du länger? Sag einfach Bescheid.",
+        "steps": [
+          "Starte deine 14-tägige kostenlose Testphase.",
+          "Buch einen Onboarding-Call, und wir ziehen deine Bibliothek aus TrainingPeaks oder Final Surge mit dir um.",
+          "Lade deine Athleten ein. Ihre Historie kommt mit."
+        ],
+        "specs": [
+          {
+            "label": "Bibliothek",
+            "value": "Aus TrainingPeaks oder Final Surge, etwa 5 Minuten"
+          },
+          {
+            "label": "Historie",
+            "value": "TrainingPeaks- und Garmin-Exporte, Nachimport"
+          },
+          {
+            "label": "Testphase",
+            "value": "14 Tage, ohne Kreditkarte"
+          }
+        ],
+        "proof": ""
+      }
+    },
     "glance": {
       "title": "Auf einen Blick",
       "lead": "Alle Funktionen von augo in einer Tabelle.",
       "feature": "Funktion",
       "what": "Was sie macht",
       "coaches": "Coaches",
-      "athletes": "Athleten"
+      "athletes": "Athleten",
+      "migration": "Migration"
     },
     "faq": {
       "title": "Fragen zu den Funktionen",

@@ -20,6 +20,7 @@ export default function FeaturesSearch() {
             buildFeaturesSearch({
                 coach: t('features.coach.items', { returnObjects: true }) as FeatureItem[],
                 athlete: t('features.athlete.items', { returnObjects: true }) as FeatureItem[],
+                migration: t('features.migration.item', { returnObjects: true }) as FeatureItem,
                 devices: {
                     title: t('features.devices.title'),
                     lead: t('features.devices.lead'),

@@ -9,6 +9,7 @@ export default function FeaturesGlance() {
     const { t } = useTranslation()
     const coach = t('features.coach.items', { returnObjects: true }) as FeatureItem[]
     const athlete = t('features.athlete.items', { returnObjects: true }) as FeatureItem[]
+    const migration = t('features.migration.item', { returnObjects: true }) as FeatureItem
 
     const group = (heading: string, items: FeatureItem[]) => (
         <tbody>
@@ -61,6 +62,7 @@ export default function FeaturesGlance() {
                     </thead>
                     {group(t('features.glance.coaches'), coach)}
                     {group(t('features.glance.athletes'), athlete)}
+                    {group(t('features.glance.migration'), [migration])}
                 </table>
             </div>
         </section>
