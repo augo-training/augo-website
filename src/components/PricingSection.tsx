@@ -206,6 +206,16 @@ export default function PricingSection() {
     // separator is language-specific (€1,000 in en, €1.000 in de).
     const formatPrice = (price: number) => formatNumber(price, currentLang)
 
+    // The cards list the headlines; the Features page has everything.
+    const featuresLink = (
+        <a
+            href={`/${currentLang}/features`}
+            className="self-start font-satoshi font-medium text-[14px] sm:text-[15px] text-white/70 hover:text-white underline decoration-white/25 underline-offset-4 hover:decoration-white/60 transition-colors"
+        >
+            {t('pricing.seeAllFeatures')} →
+        </a>
+    )
+
     return (
         <div
             className="relative"
@@ -292,6 +302,7 @@ export default function PricingSection() {
                                                 </div>
                                             ))}
                                         </div>
+                                        {featuresLink}
                                         <div className="flex flex-col gap-1.5">
                                             <button
                                                 className="btn-gradient font-mono text-[12px] sm:text-[13px] font-extrabold tracking-[2px] uppercase text-white rounded-lg text-center h-12 flex items-center justify-center px-6 hover:brightness-110 transition-all duration-200 cursor-pointer"
@@ -347,6 +358,7 @@ export default function PricingSection() {
                                         </li>
                                     ))}
                                 </ul>
+                                {featuresLink}
                                 <div className="flex flex-col gap-1.5">
                                     <button
                                         className="font-mono text-[12px] sm:text-[13px] font-extrabold tracking-[2px] uppercase rounded-lg text-center h-12 flex items-center justify-center px-6 transition-all duration-200 bg-white text-[#0A0A0A] hover:bg-white/90 cursor-pointer"
