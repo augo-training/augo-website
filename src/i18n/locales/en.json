@@ -1071,7 +1071,7 @@
       "devicesTitle": "Devices",
       "devicesSummary": "Web, iOS and Android for coaches. iOS and Android for athletes, web later in 2026.",
       "integrationsTitle": "Integrations",
-      "integrationsSummary": "Garmin, COROS, Wahoo, Strava, WHOOP, Oura, TrainingPeaks and more."
+      "integrationsSummary": "Garmin, COROS, Wahoo, Suunto, Polar, Apple Watch, Strava, Zwift, MyWhoosh, Rouvy, Hammerhead, WHOOP, Oura and Apple Health."
     },
     "search": {
       "label": "Search features and support",

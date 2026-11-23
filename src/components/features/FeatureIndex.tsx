@@ -24,6 +24,7 @@ function Card({
     summary,
     image,
     art,
+    clamp = true,
 }: {
     href: string
     title: string
@@ -31,6 +32,8 @@ function Card({
     image?: string
     /** Drawn artwork for cards with no render. Falls back to the device logos. */
     art?: ReactNode
+    /** Cut the summary at two lines. Off for the integrations list, which should show every name. */
+    clamp?: boolean
 }) {
     return (
         <li className="snap-start shrink-0 w-[72vw] max-w-[300px] sm:w-auto sm:max-w-none">
@@ -79,7 +82,7 @@ function Card({
                 </div>
                 <div className="p-4">
                     <h3 className="font-satoshi font-bold text-[16px] leading-[130%] text-white">{title}</h3>
-                    <p className="mt-1.5 font-satoshi text-[14px] leading-[145%] text-white/60 line-clamp-2">{summary}</p>
+                    <p className={`mt-1.5 font-satoshi text-[14px] leading-[145%] text-white/60 ${clamp ? 'line-clamp-2' : ''}`}>{summary}</p>
                 </div>
             </a>
         </li>
@@ -147,6 +150,7 @@ export default function FeatureIndex() {
                             href={featureHref(lang, SECTION_IDS.integrations)}
                             title={t('features.index.integrationsTitle')}
                             summary={t('features.index.integrationsSummary')}
+                            clamp={false}
                         />
                         <Card
                             href={featureHref(lang, migration.item.id)}
