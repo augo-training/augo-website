@@ -338,7 +338,6 @@
   "pricing": {
     "tag": "PREÇOS",
     "heroHeadline": "Cada atleta em foco. Cada decisão com propósito.",
-    "heroBody": "A augo reúne suas conversas, dados de treino e feedbacks dos atletas em um só lugar — transformando tudo em insights claros para que você saiba exatamente quem precisa de atenção, o que fazer e por quê.",
     "pricingHeadline": "Preço simples. Feito para um coaching de alto nível.",
     "trustLine1": "Comece com 14 dias grátis. Sem precisar de cartão de crédito.",
     "trustLine2": "Sem taxas ocultas. Cancele quando quiser.",
@@ -424,13 +423,15 @@
     },
     "enterprise": {
       "label": "Enterprise",
-      "tagline": "Feito para negócios de coaching e equipes com vários coaches.",
+      "tagline": "Feito para equipes de coaching com 50+ atletas e 2+ coaches.",
       "planLabel": "Plano sob medida",
       "price": "Personalizado",
       "everythingIn": "Tudo do Pro, mais:",
       "features": [
-        "Múltiplos coaches",
-        "White label",
+        "Cobrança centralizada",
+        "Funções de equipe",
+        "Atletas e bibliotecas compartilhados",
+        "Marca da equipe",
         "Personalização da plataforma"
       ],
       "cta": "Fale conosco"

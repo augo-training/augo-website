@@ -338,7 +338,6 @@
   "pricing": {
     "tag": "PREISE",
     "heroHeadline": "Die richtigen Signale. Zur richtigen Zeit.",
-    "heroBody": "augo bündelt deine Gespräche mit Athlet:innen, deren Trainingsdaten und qualitatives Session-Feedback zu klaren, umsetzbaren Erkenntnissen — damit du immer weißt, wer Aufmerksamkeit braucht, was zu tun ist und warum.",
     "pricingHeadline": "Einfache Preise. Gebaut, um mit deinem Qualitätscoaching zu wachsen.",
     "trustLine1": "Starte mit einer 14-tägigen kostenlosen Testphase. Keine Kreditkarte nötig.",
     "trustLine2": "Keine versteckten Gebühren. Jederzeit kündbar.",
@@ -424,13 +423,15 @@
     },
     "enterprise": {
       "label": "Enterprise",
-      "tagline": "Für Coaching-Unternehmen und Teams mit mehreren Coaches.",
+      "tagline": "Für Coaching-Teams mit 50+ Athleten und 2+ Coaches.",
       "planLabel": "Individueller Plan",
       "price": "Individuell",
       "everythingIn": "Alles aus Pro, plus:",
       "features": [
-        "Mehrere Coaches",
-        "White Label",
+        "Zentrale Abrechnung",
+        "Team-Rollen",
+        "Gemeinsame Athleten und Bibliotheken",
+        "Team-Branding",
         "Individuelle Plattform-Anpassung"
       ],
       "cta": "Kontaktiere uns"

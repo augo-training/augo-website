@@ -148,7 +148,6 @@ export default function PricingSection() {
     // Refs for hero fade-in
     const heroTagRef = useRef<HTMLDivElement>(null)
     const heroHeadlineRef = useRef<HTMLHeadingElement>(null)
-    const heroBodyRef = useRef<HTMLParagraphElement>(null)
 
     // Refs for why-cards stagger
 
@@ -162,7 +161,7 @@ export default function PricingSection() {
         const slideDistance = isMobile ? 15 : 20
         const ease = 'cubic-bezier(0.16, 1, 0.3, 1)'
 
-        const elements = [heroTagRef.current, heroHeadlineRef.current, heroBodyRef.current]
+        const elements = [heroTagRef.current, heroHeadlineRef.current]
         elements.forEach((el) => { if (el) gsap.set(el, { opacity: 0, y: slideDistance }) })
 
         if (prefersReducedMotion) {
@@ -179,7 +178,6 @@ export default function PricingSection() {
                     observer.disconnect()
                     if (heroTagRef.current) gsap.to(heroTagRef.current, { opacity: 1, y: 0, duration: 1.2, ease })
                     if (heroHeadlineRef.current) gsap.to(heroHeadlineRef.current, { opacity: 1, y: 0, duration: 1.6, delay: 0.1, ease })
-                    if (heroBodyRef.current) gsap.to(heroBodyRef.current, { opacity: 1, y: 0, duration: 1.4, delay: 0.25, ease })
 
                 }
             },
@@ -231,12 +229,6 @@ export default function PricingSection() {
                     >
                         {t('pricing.heroHeadline')}
                     </h1>
-                    <p
-                        ref={heroBodyRef}
-                        className="font-satoshi font-medium text-[16px] sm:text-[18px] leading-[160%] text-[#969EA7]"
-                    >
-                        {t('pricing.heroBody')}
-                    </p>
                 </div>
             </section>
 

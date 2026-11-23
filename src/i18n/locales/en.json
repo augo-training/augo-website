@@ -338,7 +338,6 @@
   "pricing": {
     "tag": "PRICING",
     "heroHeadline": "Know what matters. Coach better.",
-    "heroBody": "augo organizes your conversations with your athletes, your athletes's workout data, and qualitative session feedback into clear, actionable insights — so you always know who needs attention, what to do, and why.",
     "pricingHeadline": "Simple pricing. Built to scale your quality coaching.",
     "trustLine1": "Start with a 14-day free trial. No credit card required.",
     "trustLine2": "No hidden fees. Cancel anytime.",
@@ -424,13 +423,15 @@
     },
     "enterprise": {
       "label": "Enterprise",
-      "tagline": "Built for coaching businesses and multi-coach teams.",
+      "tagline": "Built for coaching teams with 50+ athletes and 2+ coaches.",
       "planLabel": "Tailored plan",
       "price": "Custom",
       "everythingIn": "Everything in Pro, plus:",
       "features": [
-        "Multi-coach",
-        "White label",
+        "Centralized billing",
+        "Team roles",
+        "Shared athletes and libraries",
+        "Team branding",
         "Platform personalization"
       ],
       "cta": "Contact us"
