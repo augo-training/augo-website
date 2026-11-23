@@ -135,8 +135,6 @@
     "headline2": "say about augo"
   },
   "advisors": {
-    "headline1": "Our",
-    "headline2": "advisors",
     "tag": "ADVISORS",
     "intro": "Respected names in endurance sport who help shape our day-to-day decisions to make augo better.",
     "marco": { "title": "Researcher, Running Coach & Founder of HRV4Training", "bio": "PhD in applied machine learning, with master's degrees in computer science and high-performance coaching. Certified ultrarunning coach, author of 50+ papers and patents on physiology, technology and human performance, and advisor to Oura." },

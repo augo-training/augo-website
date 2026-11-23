@@ -82,17 +82,10 @@ export default function AdvisorsSection() {
                     <span className="font-satoshi font-black italic text-[16px] lg:text-[18px] leading-[100%] tracking-[4px] text-[#969EA7]">///////</span>
                     <span className="font-mono italic font-normal text-[16px] lg:text-[18px] leading-[100%] tracking-[2px] text-[#969EA7] uppercase">{t('advisors.tag')}</span>
                 </div>
-                <h2
-                    id="advisors-title"
-                    className="m-0 font-satoshi font-bold text-[36px] sm:text-[48px] md:text-[56px] leading-[120%] text-white"
-                >
-                    {t('advisors.headline1')}
-                    <br />
-                    {t('advisors.headline2')}
-                </h2>
-                <p className="m-0 font-satoshi font-medium text-[16px] sm:text-[18px] leading-[130%] text-[#969EA7]">
+                {/* The intro line is the section's heading: no big headline above it. */}
+                <h2 id="advisors-title" className="m-0 font-satoshi font-medium text-[16px] sm:text-[18px] leading-[130%] text-white">
                     {t('advisors.intro')}
-                </p>
+                </h2>
             </div>
 
             <ul className="lg:col-span-7 list-none p-0 m-0 flex flex-col divide-y divide-white/[0.08]">
