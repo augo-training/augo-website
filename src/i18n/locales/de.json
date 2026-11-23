@@ -135,6 +135,8 @@
     "headline2": "über augo sagen"
   },
   "advisors": {
+    "headline1": "Unsere",
+    "headline2": "Berater",
     "tag": "BERATER",
     "intro": "Anerkannte Namen im Ausdauersport, die unsere täglichen Entscheidungen mitprägen, um augo besser zu machen.",
     "marco": { "title": "Forscher, Laufcoach & Gründer von HRV4Training", "bio": "Promoviert in angewandtem maschinellem Lernen, mit Masterabschlüssen in Informatik und Hochleistungscoaching. Zertifizierter Ultralauf-Coach, Autor von über 50 Publikationen und Patenten zu Physiologie, Technologie und menschlicher Leistung sowie Berater von Oura." },

@@ -135,6 +135,8 @@
     "headline2": "dizem sobre a augo"
   },
   "advisors": {
+    "headline1": "Nossos",
+    "headline2": "conselheiros",
     "tag": "CONSELHEIROS",
     "intro": "Nomes respeitados do esporte de endurance que ajudam a moldar nossas decisões do dia a dia para tornar a augo melhor.",
     "marco": { "title": "Pesquisador, coach de corrida e fundador do HRV4Training", "bio": "Doutor em aprendizado de máquina aplicado, com mestrados em ciência da computação e em treinamento de alto rendimento. Coach certificado de ultramaratona, autor de mais de 50 artigos e patentes sobre fisiologia, tecnologia e desempenho humano, e conselheiro da Oura." },
