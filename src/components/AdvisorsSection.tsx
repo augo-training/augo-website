@@ -11,7 +11,8 @@ import retoPhoto from '../assets/images/advisor-reto.png?w=256&h=256&format=webp
  * translated. Same headshot crops as the course page (CoachCourseAdvisors).
  *
  * Split layout: the headline on the left (sticky on desktop), one card per
- * advisor on the right. On phones everything stacks.
+ * advisor on the right, without card backgrounds, split by thin lines. On
+ * phones everything stacks.
  */
 const advisors = [
     { key: 'marco', name: 'Dr. Marco Altini', photo: marcoPhoto },
@@ -93,12 +94,12 @@ export default function AdvisorsSection() {
                 </p>
             </div>
 
-            <ul className="lg:col-span-7 list-none p-0 m-0 flex flex-col gap-4">
+            <ul className="lg:col-span-7 list-none p-0 m-0 flex flex-col divide-y divide-white/[0.08]">
                 {advisors.map((advisor, i) => (
                     <li
                         key={advisor.key}
                         ref={(el) => { cardRefs.current[i] = el }}
-                        className="rounded-2xl bg-dark-800 ring-1 ring-white/[0.08] p-6 sm:p-7 flex flex-col sm:flex-row sm:items-start gap-5 sm:gap-6"
+                        className="py-8 first:pt-0 last:pb-0 flex flex-col sm:flex-row sm:items-start gap-5 sm:gap-8"
                     >
                         {/* Square with rounded corners, like the team photos in
                             AboutSection. The name sits right beside it, so no alt text. */}
