@@ -59,7 +59,6 @@ export default function Footer() {
                 { label: t('footer.links.blog'), href: `/${currentLang}/blog` },
                 // English-only, like the course.
                 { label: t('footer.links.racingTeam'), href: '/en/racing-team' },
-                { label: t('footer.links.manifesto'), href: '/en/manifesto' },
                 { label: t('footer.links.humanEdge'), href: `/${currentLang}/humanedge` },
             ],
         },
@@ -68,6 +67,8 @@ export default function Footer() {
             links: [
                 // The founders section on the homepage, like Team in the header.
                 { label: t('footer.links.team'), href: '#about' },
+                // English-only, like the course.
+                { label: t('footer.links.manifesto'), href: '/en/manifesto' },
                 // Support is English-only, like the blog. The lang-prefixed href is
                 // deliberate: /de/support client-redirects to /en/support, matching
                 // how the blog link already behaves from a non-English page.
