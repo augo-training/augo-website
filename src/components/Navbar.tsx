@@ -85,7 +85,6 @@ export default function Navbar() {
         { label: t('nav.pricing'), href: `/${currentLang}/pricing` },
         { label: t('nav.bookDemo'), href: `/${currentLang}/book-a-demo` },
         { label: t('nav.findAMatch'), href: `/${currentLang}/find/` },
-        { label: t('nav.team'), href: '#about' },
         // English-only like the footer's Support link; /de and /pt redirect to /en
         { label: t('nav.support'), href: `/${currentLang}/support` },
         { label: t('nav.contact'), href: `/${currentLang}/contact` },
