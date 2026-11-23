@@ -149,11 +149,11 @@
   },
   "about": {
     "tag": "ABOUT AUGO",
-    "body1": "augo was founded by Fabi and Bruna, two endurance coaches who also happened to work in tech. As a business analyst and data scientist, they expected their tools to help them coach better.",
+    "body1": "augo was founded by <fabi>Fabi</fabi> and <bruna>Bruna</bruna>, two endurance coaches who also happened to work in tech. As a business analyst and data scientist, they expected their tools to help them coach better.",
     "highlight1": "Instead, they found themselves drowning in fragmented communication, losing important details, and missing the signals that mattered.",
     "body2": "So they built augo. Because coaching is hard enough without tools that create more work. We believe AI should support human expertise with the right insights at the right time, helping you do what you do best: understand and develop your athletes.",
     "highlight2": "Technology that serves coaches, not the other way around",
-    "body3": "In late 2025, Andreas Hermann, a computer scientist and triathlete joined augo as a co-founder. He not only brings in experience as a CTO in a sportstech company but also worked on the same problem as augo did before the three founder met.",
+    "body3": "In late 2025, <andreas>Andreas Hermann</andreas>, a computer scientist and triathlete joined augo as a co-founder. He not only brings in experience as a CTO in a sportstech company but also worked on the same problem as augo did before the three founder met.",
     "highlight3": "They decided to join forces and Andreas joined augo's mission."
   },
   "faq": {

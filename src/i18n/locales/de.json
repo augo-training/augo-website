@@ -149,11 +149,11 @@
   },
   "about": {
     "tag": "ÜBER AUGO",
-    "body1": "augo wurde von Fabi und Bruna gegründet, zwei Ausdauer-Coaches, die auch in der Tech-Branche arbeiteten. Als Business Analyst und Data Scientist erwarteten sie, dass ihre Tools ihnen helfen, besser zu coachen.",
+    "body1": "augo wurde von <fabi>Fabi</fabi> und <bruna>Bruna</bruna> gegründet, zwei Ausdauer-Coaches, die auch in der Tech-Branche arbeiteten. Als Business Analyst und Data Scientist erwarteten sie, dass ihre Tools ihnen helfen, besser zu coachen.",
     "highlight1": "Stattdessen fanden sie sich in fragmentierter Kommunikation wieder, verloren wichtige Details und verpassten die Signale, die zählten.",
     "body2": "Also bauten sie augo. Weil Coaching schwer genug ist, ohne Tools, die noch mehr Arbeit schaffen. Wir glauben, KI sollte menschliche Expertise mit den richtigen Erkenntnissen zur richtigen Zeit unterstützen und dir helfen, das zu tun, was du am besten kannst: deine Athleten verstehen und entwickeln.",
     "highlight2": "Technologie, die Coaches dient, nicht umgekehrt",
-    "body3": "Ende 2025 trat Andreas Hermann, Informatiker und Triathlet, als Mitgründer bei augo ein. Er bringt nicht nur Erfahrung als CTO in einem Sportstech-Unternehmen mit, sondern arbeitete auch am gleichen Problem wie augo, bevor die drei Gründer sich trafen.",
+    "body3": "Ende 2025 trat <andreas>Andreas Hermann</andreas>, Informatiker und Triathlet, als Mitgründer bei augo ein. Er bringt nicht nur Erfahrung als CTO in einem Sportstech-Unternehmen mit, sondern arbeitete auch am gleichen Problem wie augo, bevor die drei Gründer sich trafen.",
     "highlight3": "Sie beschlossen, ihre Kräfte zu bündeln, und Andreas schloss sich augos Mission an."
   },
   "faq": {

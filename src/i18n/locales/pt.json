@@ -149,11 +149,11 @@
   },
   "about": {
     "tag": "SOBRE A AUGO",
-    "body1": "a augo foi fundada por Fabi e Bruna, duas coaches de endurance que também trabalhavam em tech. Como analista de negócios e cientista de dados, elas esperavam que suas ferramentas as ajudassem a treinar melhor.",
+    "body1": "a augo foi fundada por <fabi>Fabi</fabi> e <bruna>Bruna</bruna>, duas coaches de endurance que também trabalhavam em tech. Como analista de negócios e cientista de dados, elas esperavam que suas ferramentas as ajudassem a treinar melhor.",
     "highlight1": "Em vez disso, se viram afogadas em comunicação fragmentada, perdendo detalhes importantes e deixando passar os sinais que importavam.",
     "body2": "Então construíram a augo. Porque coaching é difícil o suficiente sem ferramentas que criam mais trabalho. Acreditamos que a IA deve apoiar a expertise humana com os insights certos no momento certo, ajudando você a fazer o que faz de melhor: entender e desenvolver seus atletas.",
     "highlight2": "Tecnologia que serve coaches, não o contrário",
-    "body3": "No final de 2025, Andreas Hermann, cientista da computação e triatleta, juntou-se à augo como cofundador. Ele não apenas traz experiência como CTO em uma empresa de sportstech, mas também trabalhou no mesmo problema que a augo antes dos três fundadores se conhecerem.",
+    "body3": "No final de 2025, <andreas>Andreas Hermann</andreas>, cientista da computação e triatleta, juntou-se à augo como cofundador. Ele não apenas traz experiência como CTO em uma empresa de sportstech, mas também trabalhou no mesmo problema que a augo antes dos três fundadores se conhecerem.",
     "highlight3": "Eles decidiram unir forças e Andreas se juntou à missão da augo."
   },
   "faq": {

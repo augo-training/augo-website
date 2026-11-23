@@ -4,6 +4,7 @@ import { coaches, hasPortrait } from '../data/coaches'
 import type { Coach } from '../data/coaches/types'
 import { EXPERT_SERVICE_LABEL, GENDER_LABEL } from '../data/coaches/types'
 import { BASE_URL } from './seoConstants'
+import { FOUNDERS } from '../data/team'
 import { getCanonicalUrl } from './seoConfig'
 import type { SupportedLanguage } from '../i18n'
 import { getPricingTier } from '../config/pricingConfig'
@@ -32,6 +33,7 @@ export function OrganizationJsonLd() {
       'https://www.linkedin.com/company/augotraining',
       'https://substack.com/@augotraining',
     ],
+    founder: Object.values(FOUNDERS).map((f) => ({ '@type': 'Person', name: f.name, sameAs: f.profile })),
     description:
       'The intelligent coaching platform for endurance sports. Combines coach-athlete communication, workout data and session feedback into one place.',
   }

@@ -1,10 +1,35 @@
-import { useEffect, useRef } from 'react'
-import { useTranslation } from 'react-i18next'
+import { useEffect, useRef, type Ref } from 'react'
+import { Trans, useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
 import aboutLeftImg from '../assets/images/about_section_left.webp'
 import aboutTopRightImg from '../assets/images/about_section_top_right.webp'
 import aboutBottomRightImg from '../assets/images/about_section_bottom_right.webp'
+import { FOUNDERS } from '../data/team'
 
+type Founder = keyof typeof FOUNDERS
+
+/** A founder's name in the copy, linked to their profile. Quiet on purpose: it reads as text until hovered. */
+function profileLink(founder: Founder) {
+    return (
+        <a
+            href={FOUNDERS[founder].profile}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-inherit underline decoration-white/20 underline-offset-4 hover:text-white hover:decoration-white/60 transition-colors"
+        />
+    )
+}
+
+const nameLinks = { fabi: profileLink('fabi'), bruna: profileLink('bruna'), andreas: profileLink('andreas') }
+
+/** A founder photo that opens their profile. */
+function FounderPhoto({ founder, src, imgRef }: { founder: Founder; src: string; imgRef?: Ref<HTMLImageElement> }) {
+    return (
+        <a href={FOUNDERS[founder].profile} target="_blank" rel="noopener noreferrer" className="block">
+            <img ref={imgRef} src={src} alt={`${FOUNDERS[founder].name}, augo co-founder`} className="w-full h-auto object-cover" />
+        </a>
+    )
+}
 
 export default function AboutSection() {
     const { t } = useTranslation()
@@ -130,12 +155,12 @@ export default function AboutSection() {
                 </div>
 
                 <div className="flex flex-col gap-4 sm:gap-6">
-                    <p className="font-satoshi font-medium text-[16px] sm:text-[18px] leading-[130%] text-[#969EA7]">{t('about.body1')}</p>
+                    <p className="font-satoshi font-medium text-[16px] sm:text-[18px] leading-[130%] text-[#969EA7]"><Trans i18nKey="about.body1" components={nameLinks} /></p>
                     <p className="font-satoshi font-bold text-[20px] sm:text-[24px] leading-[130%] text-white">{t('about.highlight1')}</p>
                 </div>
 
                 <div className="overflow-hidden rounded-2xl w-full">
-                    <img src={aboutTopRightImg} alt="augo founder" className="w-full h-auto object-cover" />
+                    <FounderPhoto founder="bruna" src={aboutTopRightImg} />
                 </div>
 
                 <div className="flex flex-col gap-4 sm:gap-6">
@@ -144,16 +169,16 @@ export default function AboutSection() {
                 </div>
 
                 <div className="overflow-hidden rounded-2xl w-full">
-                    <img src={aboutLeftImg} alt="augo founder" className="w-full h-auto object-cover" />
+                    <FounderPhoto founder="fabi" src={aboutLeftImg} />
                 </div>
 
                 <div className="flex flex-col gap-4 sm:gap-6">
-                    <p className="font-satoshi font-medium text-[16px] sm:text-[18px] leading-[130%] text-[#969EA7]">{t('about.body3')}</p>
+                    <p className="font-satoshi font-medium text-[16px] sm:text-[18px] leading-[130%] text-[#969EA7]"><Trans i18nKey="about.body3" components={nameLinks} /></p>
                     <p className="font-satoshi font-bold text-[20px] sm:text-[24px] leading-[130%] text-white">{t('about.highlight3')}</p>
                 </div>
 
                 <div className="overflow-hidden rounded-2xl w-full">
-                    <img src={aboutBottomRightImg} alt="augo co-founder Andreas" className="w-full h-auto object-cover" />
+                    <FounderPhoto founder="andreas" src={aboutBottomRightImg} />
                 </div>
             </div>
 
@@ -162,16 +187,16 @@ export default function AboutSection() {
                 {/* LEFT COLUMN */}
                 <div className="flex flex-col gap-8">
                     <div className="flex flex-col gap-6 pt-44">
-                        <p ref={body1Ref} className="font-satoshi font-medium text-[18px] leading-[130%] text-[#969EA7]">{t('about.body1')}</p>
+                        <p ref={body1Ref} className="font-satoshi font-medium text-[18px] leading-[130%] text-[#969EA7]"><Trans i18nKey="about.body1" components={nameLinks} /></p>
                         <p ref={headline1Ref} className="font-satoshi font-bold text-[22px] xl:text-[32px] leading-[130%] text-white">{t('about.highlight1')}</p>
                     </div>
 
                     <div className="overflow-hidden rounded-2xl">
-                        <img ref={photo2Ref} src={aboutLeftImg} alt="augo founder" className="w-full h-auto object-cover" />
+                        <FounderPhoto founder="fabi" src={aboutLeftImg} imgRef={photo2Ref} />
                     </div>
 
                     <div className="flex flex-col gap-6">
-                        <p ref={body3Ref} className="font-satoshi font-medium text-[18px] leading-[130%] text-[#969EA7]">{t('about.body3')}</p>
+                        <p ref={body3Ref} className="font-satoshi font-medium text-[18px] leading-[130%] text-[#969EA7]"><Trans i18nKey="about.body3" components={nameLinks} /></p>
                         <p ref={headline3Ref} className="font-satoshi font-bold text-[22px] xl:text-[32px] leading-[130%] text-white">{t('about.highlight3')}</p>
                     </div>
                 </div>
@@ -184,7 +209,7 @@ export default function AboutSection() {
                     </div>
 
                     <div className="overflow-hidden rounded-2xl">
-                        <img ref={photo1Ref} src={aboutTopRightImg} alt="augo founder" className="w-full h-auto object-cover" />
+                        <FounderPhoto founder="bruna" src={aboutTopRightImg} imgRef={photo1Ref} />
                     </div>
 
                     <div className="flex flex-col gap-6">
@@ -193,7 +218,7 @@ export default function AboutSection() {
                     </div>
 
                     <div className="overflow-hidden rounded-2xl">
-                        <img ref={photo3Ref} src={aboutBottomRightImg} alt="augo co-founder Andreas" className="w-full h-auto object-cover" />
+                        <FounderPhoto founder="andreas" src={aboutBottomRightImg} imgRef={photo3Ref} />
                     </div>
                 </div>
             </div>
