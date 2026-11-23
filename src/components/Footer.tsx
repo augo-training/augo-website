@@ -9,6 +9,7 @@ import footerFfi from '../assets/images/footer_ffi.png'
 import instagramIcon from '../assets/images/instagram_footer.svg'
 import linkedinIcon from '../assets/images/linkedin_footer.svg'
 import unknownIcon from '../assets/images/unknown_footer.svg'
+import { featureHref } from '../data/featurePages'
 
 const socialLinks = [
     { icon: instagramIcon, alt: 'Instagram', href: 'https://www.instagram.com/augo.training/' },
@@ -34,35 +35,45 @@ export default function Footer() {
         {
             title: t('footer.columns.product'),
             links: [
-                { label: t('footer.links.forCoaches'), href: '#coaches' },
-                { label: t('footer.links.forAthletes'), href: '#athletes' },
+                { label: t('footer.links.features'), href: `/${currentLang}/features` },
+                { label: t('footer.links.devices'), href: featureHref(currentLang, 'devices') },
+                { label: t('footer.links.integrations'), href: featureHref(currentLang, 'integrations') },
                 { label: t('footer.links.pricing'), href: `/${currentLang}/pricing` },
-                { label: t('footer.links.bookDemo'), href: `/${currentLang}/book-a-demo` },
+                { label: t('footer.links.download'), href: `/${currentLang}/download` },
             ],
         },
         {
-            title: t('footer.columns.augo'),
+            title: t('footer.columns.forCoaches'),
             links: [
-                { label: t('footer.links.about'), href: '#about' },
-                { label: t('footer.links.faq'), href: '#faq' },
+                { label: t('footer.links.bookDemo'), href: `/${currentLang}/book-a-demo` },
+                { label: t('footer.links.switching'), href: featureHref(currentLang, 'switching') },
+                // The course page is English-only, so it always links to /en.
+                { label: t('footer.links.coachCourse'), href: '/en/irreplaceable-endurance-coach' },
+                { label: t('footer.links.mcp'), href: `/${currentLang}/mcp` },
+            ],
+        },
+        {
+            title: t('footer.columns.community'),
+            links: [
+                { label: t('footer.links.findAMatch'), href: `/${currentLang}/find/` },
+                { label: t('footer.links.blog'), href: `/${currentLang}/blog` },
+                // English-only, like the course.
+                { label: t('footer.links.racingTeam'), href: '/en/racing-team' },
+                { label: t('footer.links.humanEdge'), href: `/${currentLang}/humanedge` },
+            ],
+        },
+        {
+            title: t('footer.columns.company'),
+            links: [
+                // The founders section on the homepage, like Team in the header.
+                { label: t('footer.links.team'), href: '#about' },
+                // English-only, like the course.
+                { label: t('footer.links.manifesto'), href: '/en/manifesto' },
                 // Support is English-only, like the blog. The lang-prefixed href is
                 // deliberate: /de/support client-redirects to /en/support, matching
                 // how the blog link already behaves from a non-English page.
                 { label: t('footer.links.support'), href: `/${currentLang}/support` },
-                { label: t('nav.contact'), href: `/${currentLang}/contact` },
-            ],
-        },
-        {
-            title: t('footer.columns.explore'),
-            links: [
-                { label: t('footer.links.blog'), href: `/${currentLang}/blog` },
-                { label: t('footer.links.findAMatch'), href: `/${currentLang}/find/` },
-                { label: t('footer.links.humanEdge'), href: `/${currentLang}/humanedge` },
-                { label: t('footer.links.mcp'), href: `/${currentLang}/mcp` },
-                // The course page is English-only, so it always links to /en.
-                { label: t('footer.links.coachCourse'), href: '/en/irreplaceable-endurance-coach' },
-                // English-only as well.
-                { label: t('footer.links.racingTeam'), href: '/en/racing-team' },
+                { label: t('footer.links.contact'), href: `/${currentLang}/contact` },
             ],
         },
     ]
@@ -122,7 +133,7 @@ export default function Footer() {
     return (
         <footer className="py-12 sm:py-16 px-5 sm:px-8 max-w-[1200px] mx-auto flex flex-col gap-10 sm:gap-12 lg:gap-16">
             {/* Top row: Logo + Links */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12">
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-10 lg:gap-12">
                 <div ref={logoRef} className="flex flex-col gap-4">
                     <img src={augoFooter} alt="augo" className="h-10 sm:h-12 w-fit" />
                     <p className="font-satoshi font-medium text-[14px] sm:text-[16px] leading-[130%] text-[#969EA7]">
@@ -132,10 +143,10 @@ export default function Footer() {
                     </p>
                 </div>
 
-                <div ref={linksRef} className="grid grid-cols-3 gap-2 sm:gap-8">
+                <div ref={linksRef} className="grid grid-cols-2 sm:grid-cols-4 gap-x-4 gap-y-8 sm:gap-8">
                     {linkColumns.map((col) => (
                         <div key={col.title} className="flex flex-col gap-3 sm:gap-4">
-                            <h4 className="font-satoshi font-bold text-[16px] sm:text-[20px] lg:text-[24px] leading-[130%] text-white">
+                            <h4 className="font-satoshi font-bold text-[16px] sm:text-[18px] lg:text-[20px] leading-[130%] text-white">
                                 {col.title}
                             </h4>
                             <ul className="flex flex-col gap-2 sm:gap-3">
@@ -144,7 +155,7 @@ export default function Footer() {
                                         <a
                                             href={link.href}
                                             onClick={(e) => handleHashClick(e, link.href)}
-                                            className="footer-link font-satoshi font-medium text-[13px] sm:text-[16px] lg:text-[18px] leading-[130%] text-[#969EA7] hover:text-white transition-colors duration-200"
+                                            className="footer-link font-satoshi font-medium text-[14px] sm:text-[15px] lg:text-[16px] leading-[130%] text-[#969EA7] hover:text-white transition-colors duration-200"
                                         >
                                             {link.label}
                                         </a>

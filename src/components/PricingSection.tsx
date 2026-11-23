@@ -148,7 +148,6 @@ export default function PricingSection() {
     // Refs for hero fade-in
     const heroTagRef = useRef<HTMLDivElement>(null)
     const heroHeadlineRef = useRef<HTMLHeadingElement>(null)
-    const heroBodyRef = useRef<HTMLParagraphElement>(null)
 
     // Refs for why-cards stagger
 
@@ -162,7 +161,7 @@ export default function PricingSection() {
         const slideDistance = isMobile ? 15 : 20
         const ease = 'cubic-bezier(0.16, 1, 0.3, 1)'
 
-        const elements = [heroTagRef.current, heroHeadlineRef.current, heroBodyRef.current]
+        const elements = [heroTagRef.current, heroHeadlineRef.current]
         elements.forEach((el) => { if (el) gsap.set(el, { opacity: 0, y: slideDistance }) })
 
         if (prefersReducedMotion) {
@@ -179,7 +178,6 @@ export default function PricingSection() {
                     observer.disconnect()
                     if (heroTagRef.current) gsap.to(heroTagRef.current, { opacity: 1, y: 0, duration: 1.2, ease })
                     if (heroHeadlineRef.current) gsap.to(heroHeadlineRef.current, { opacity: 1, y: 0, duration: 1.6, delay: 0.1, ease })
-                    if (heroBodyRef.current) gsap.to(heroBodyRef.current, { opacity: 1, y: 0, duration: 1.4, delay: 0.25, ease })
 
                 }
             },
@@ -208,6 +206,16 @@ export default function PricingSection() {
     // separator is language-specific (€1,000 in en, €1.000 in de).
     const formatPrice = (price: number) => formatNumber(price, currentLang)
 
+    // The cards list the headlines; the Features page has everything.
+    const featuresLink = (
+        <a
+            href={`/${currentLang}/features`}
+            className="self-start font-satoshi font-medium text-[14px] sm:text-[15px] text-white/70 hover:text-white underline decoration-white/25 underline-offset-4 hover:decoration-white/60 transition-colors"
+        >
+            {t('pricing.seeAllFeatures')} →
+        </a>
+    )
+
     return (
         <div
             className="relative"
@@ -231,12 +239,6 @@ export default function PricingSection() {
                     >
                         {t('pricing.heroHeadline')}
                     </h1>
-                    <p
-                        ref={heroBodyRef}
-                        className="font-satoshi font-medium text-[16px] sm:text-[18px] leading-[160%] text-[#969EA7]"
-                    >
-                        {t('pricing.heroBody')}
-                    </p>
                 </div>
             </section>
 
@@ -300,6 +302,7 @@ export default function PricingSection() {
                                                 </div>
                                             ))}
                                         </div>
+                                        {featuresLink}
                                         <div className="flex flex-col gap-1.5">
                                             <button
                                                 className="btn-gradient font-mono text-[12px] sm:text-[13px] font-extrabold tracking-[2px] uppercase text-white rounded-lg text-center h-12 flex items-center justify-center px-6 hover:brightness-110 transition-all duration-200 cursor-pointer"
@@ -355,6 +358,7 @@ export default function PricingSection() {
                                         </li>
                                     ))}
                                 </ul>
+                                {featuresLink}
                                 <div className="flex flex-col gap-1.5">
                                     <button
                                         className="font-mono text-[12px] sm:text-[13px] font-extrabold tracking-[2px] uppercase rounded-lg text-center h-12 flex items-center justify-center px-6 transition-all duration-200 bg-white text-[#0A0A0A] hover:bg-white/90 cursor-pointer"

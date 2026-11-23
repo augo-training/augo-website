@@ -25,8 +25,8 @@
       "triathlon",
       "endurance"
     ],
-    "subheadline": "The intelligent platform that brings coach-athlete communication, how athletes feel, workout and recovery data, and plan creation into one place.",
-    "subheadlineContinued": "Less searching, more time to guide your athletes and decide what comes next."
+    "subheadline": "The intelligent platform for running, triathlon & cycling coaches.",
+    "subheadlineContinued": "Less clicking, more coaching"
   },
   "connects": {
     "headline": "Connects seamlessly with your apps and devices"
@@ -149,11 +149,11 @@
   },
   "about": {
     "tag": "ABOUT AUGO",
-    "body1": "augo was founded by Fabi and Bruna, two endurance coaches who also happened to work in tech. As a business analyst and data scientist, they expected their tools to help them coach better.",
+    "body1": "augo was founded by <fabi>Fabi</fabi> and <bruna>Bruna</bruna>, two endurance coaches who also happened to work in tech. As a business analyst and data scientist, they expected their tools to help them coach better.",
     "highlight1": "Instead, they found themselves drowning in fragmented communication, losing important details, and missing the signals that mattered.",
     "body2": "So they built augo. Because coaching is hard enough without tools that create more work. We believe AI should support human expertise with the right insights at the right time, helping you do what you do best: understand and develop your athletes.",
     "highlight2": "Technology that serves coaches, not the other way around",
-    "body3": "In late 2025, Andreas Hermann, a computer scientist and triathlete joined augo as a co-founder. He not only brings in experience as a CTO in a sportstech company but also worked on the same problem as augo did before the three founder met.",
+    "body3": "In late 2025, <andreas>Andreas Hermann</andreas>, a computer scientist and triathlete joined augo as a co-founder. He not only brings in experience as a CTO in a sportstech company but also worked on the same problem as augo did before the three founder met.",
     "highlight3": "They decided to join forces and Andreas joined augo's mission."
   },
   "faq": {
@@ -292,23 +292,28 @@
     "tagline2": "for endurance coaching",
     "columns": {
       "product": "Product",
-      "augo": "augo",
-      "explore": "Explore"
+      "forCoaches": "For coaches",
+      "community": "Community",
+      "company": "Company"
     },
     "links": {
-      "forCoaches": "For coaches",
-      "forAthletes": "For athletes",
+      "features": "Features",
+      "devices": "Devices",
+      "integrations": "Integrations",
       "pricing": "Pricing",
-      "bookDemo": "Book a Demo",
-      "about": "About",
-      "faq": "FAQ",
-      "findAMatch": "Find a coach",
-      "humanEdge": "Human Edge",
-      "blog": "Blog",
-      "support": "Support",
-      "mcp": "MCP setup",
+      "download": "Download the app",
+      "bookDemo": "Book a demo",
+      "switching": "Switching to augo",
       "coachCourse": "Free coaching course",
+      "mcp": "Connect Claude or ChatGPT",
+      "findAMatch": "Find a coach",
+      "blog": "Blog",
       "racingTeam": "Racing Team",
+      "manifesto": "What we stand for",
+      "humanEdge": "Human Edge",
+      "team": "Team",
+      "support": "Support",
+      "contact": "Contact",
       "privacyPolicy": "Privacy Policy",
       "terms": "Terms & Conditions"
     },
@@ -338,7 +343,6 @@
   "pricing": {
     "tag": "PRICING",
     "heroHeadline": "Know what matters. Coach better.",
-    "heroBody": "augo organizes your conversations with your athletes, your athletes's workout data, and qualitative session feedback into clear, actionable insights — so you always know who needs attention, what to do, and why.",
     "pricingHeadline": "Simple pricing. Built to scale your quality coaching.",
     "trustLine1": "Start with a 14-day free trial. No credit card required.",
     "trustLine2": "No hidden fees. Cancel anytime.",
@@ -366,7 +370,7 @@
       },
       {
         "question": "Which platforms does augo integrate with?",
-        "answer": "We currently support data from Garmin, Coros, Wahoo, Suunto, Polar, Apple Watch, Zwift, Strava, Rouvy and Hammerhead."
+        "answer": "We currently support data from Garmin, COROS, Wahoo, Suunto, Polar, Apple Watch, Strava, Zwift, MyWhoosh, Rouvy, Hammerhead, WHOOP, Oura and Apple Health."
       },
       {
         "question": "Can I use augo with multiple sports or coaching styles?",
@@ -390,7 +394,7 @@
         {
           "title": "Coaching",
           "items": [
-            "Athlete chat, subjective feedback, coach private notes, training plan creation and workout analysis"
+            "Athlete chat, coach private notes, training plan creation and workout analysis"
           ]
         },
         {
@@ -403,35 +407,43 @@
         {
           "title": "Data",
           "items": [
-            "Two-way sync with Garmin, Coros, Wahoo and Suunto; activity import from Polar, Apple Watch, Zwift, Strava, Rouvy and Hammerhead"
+            "Training data",
+            "Recovery data (HRV, RHR, steps and sleep)",
+            "Subjective feeling (feel, niggles, RPE, fueling)"
+          ]
+        },
+        {
+          "title": "Integrations",
+          "items": [
+            "Garmin, COROS, Wahoo, Suunto, Polar, Apple Watch, Strava, Zwift, MyWhoosh, Rouvy, Hammerhead, WHOOP, Oura and Apple Health"
           ]
         },
         {
           "title": "Migration support",
           "items": [
-            "Full platform migration support",
-            "45-minute onboarding call"
+            "Full library migration from TrainingPeaks and Final Surge",
+            "Full history import for your athletes"
           ]
         },
         {
           "title": "Grow your business",
           "items": [
-            "Athlete matching",
-            "Coach community"
+            "Athlete matching"
           ]
         }
       ]
     },
     "enterprise": {
       "label": "Enterprise",
-      "tagline": "Built for coaching businesses and multi-coach teams.",
+      "tagline": "Built for coaching teams with 50+ athletes and 2+ coaches.",
       "planLabel": "Tailored plan",
       "price": "Custom",
       "everythingIn": "Everything in Pro, plus:",
       "features": [
-        "Multi-coach",
-        "White label",
-        "Platform personalization"
+        "Centralized billing",
+        "Team roles",
+        "Shared athletes and libraries",
+        "Team branding"
       ],
       "cta": "Contact us"
     },
@@ -445,6 +457,7 @@
       "annualNote": "Two months free"
     },
     "perAthleteNote": "Pay only for the athletes you actively coach.",
+    "seeAllFeatures": "See everything augo does",
     "calculator": {
       "tag": "Earnings calculator",
       "headline": "Wondering if augo is worth it? See it for yourself.",
@@ -1067,12 +1080,11 @@
     },
     "index": {
       "title": "All features",
-      "lead": "Jump straight to any feature, or search for what you want to know.",
       "setupTitle": "Devices, integrations and migration",
       "devicesTitle": "Devices",
       "devicesSummary": "Web, iOS and Android for coaches. iOS and Android for athletes, web later in 2026.",
       "integrationsTitle": "Integrations",
-      "integrationsSummary": "Garmin, COROS, Wahoo, Strava, WHOOP, Oura, TrainingPeaks and more."
+      "integrationsSummary": "Garmin, COROS, Wahoo, Suunto, Polar, Apple Watch, Strava, Zwift, MyWhoosh, Rouvy, Hammerhead, WHOOP, Oura and Apple Health."
     },
     "search": {
       "label": "Search features and support",

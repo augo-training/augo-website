@@ -226,10 +226,10 @@ export default function Hero({ onWatchFilm }: HeroProps) {
                         )}
                     </h1>
                     <p ref={subheadlineRef} className="max-w-[640px] text-balance font-satoshi font-medium text-base sm:text-lg leading-[130%] text-white mb-8 sm:mb-10" style={{ opacity: 0 }}>
-                        {/* Breaks after the first sentence on desktop; flows as one paragraph on smaller screens.
-                            Narrower than the headline column, and balanced, so neither part ends on a stub line. */}
-                        {t('hero.subheadline')}{' '}
-                        <span className="lg:block">{t('hero.subheadlineContinued')}</span>
+                        {/* The short tagline always gets its own line. Narrower than the headline
+                            column, and balanced, so the first sentence doesn't end on a stub line. */}
+                        {t('hero.subheadline')}
+                        <span className="block">{t('hero.subheadlineContinued')}</span>
                     </p>
                     <button
                         ref={ctaRef}

@@ -1,6 +1,6 @@
 import { useEffect, type MouseEvent } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useNavigate, useNavigationType, useParams } from 'react-router-dom'
+import { useLocation, useNavigate, useNavigationType, useParams } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import SEOHead from '../seo/SEOHead'
@@ -13,8 +13,13 @@ import FeaturesCta from '../components/features/FeaturesCta'
 import type { FeatureItem } from '../components/features/constants'
 import { FEATURE_SLUGS, featureHref } from '../data/featurePages'
 
-/** Where the reader was in the grid, so Back from a feature page returns there. */
-const SCROLL_KEY = 'features-scroll'
+/**
+ * Where the reader was in the grid when they opened a feature, so Back returns
+ * there. Kept in memory, not storage: a page load (menu, footer, typed URL)
+ * also reports POP and must start at the top, by the search box, and a load
+ * starts with this empty. The entry key keeps it to Back to that same visit.
+ */
+let gridPosition: { key: string; y: number } | null = null
 
 /**
  * Every augo feature at a glance: search, a tile per feature, every feature
@@ -28,6 +33,7 @@ export default function Features() {
     const { t } = useTranslation()
     const navigate = useNavigate()
     const navigationType = useNavigationType()
+    const { key: entryKey } = useLocation()
     const { lang = 'en' } = useParams<{ lang: string }>()
 
     const featureList = [
@@ -50,16 +56,15 @@ export default function Features() {
                 return
             }
             // Back from a feature page: return to the same place in the grid.
-            if (navigationType === 'POP') {
-                try {
-                    const y = Number(sessionStorage.getItem(SCROLL_KEY))
-                    if (y) window.scrollTo(0, y)
-                } catch {
-                    // Storage blocked: start at the top, as any page would.
-                }
+            if (navigationType === 'POP' && gridPosition?.key === entryKey) {
+                window.scrollTo(0, gridPosition.y)
+            } else if (navigationType !== 'POP') {
+                // Features clicked while already here: same path, so ScrollToTop
+                // doesn't fire. Back to the top and the search box.
+                window.scrollTo(0, 0)
             }
         })
-    }, [lang, navigate, navigationType])
+    }, [lang, navigate, navigationType, entryKey])
 
     // Feature pages open in the app (no reload); in-page links scroll.
     const onClick = (e: MouseEvent<HTMLElement>) => {
@@ -68,11 +73,7 @@ export default function Features() {
         if (!link || e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey) return
         if (href.startsWith(`/${lang}/features/`)) {
             e.preventDefault()
-            try {
-                sessionStorage.setItem(SCROLL_KEY, String(Math.round(window.scrollY)))
-            } catch {
-                // Storage blocked: Back just lands at the top.
-            }
+            gridPosition = { key: entryKey, y: Math.round(window.scrollY) }
             navigate(href)
             return
         }

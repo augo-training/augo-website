@@ -13,6 +13,8 @@
  * quotable sentences.
  */
 
+import { ADVISOR_PROFILES } from '../../data/team'
+
 /** Path under /:lang. Kept in sync with src/App.tsx and scripts/routes.ts. */
 export const COACH_COURSE_PATH = '/irreplaceable-endurance-coach'
 
@@ -60,9 +62,11 @@ export const COURSE_KEYWORDS = [
 /** Bump when the page copy changes. Feeds the Course schema's dateModified. */
 export const COURSE_UPDATED = '2026-09-28'
 
-/** Public profiles for the advisors, where one exists. Used as schema `sameAs`. */
-export const ADVISOR_LINKS: Partial<Record<'marco' | 'gordon' | 'reto', string>> = {
-    marco: 'https://www.hrv4training.com',
+/** Public profiles for the advisors. Used as schema `sameAs`. */
+export const ADVISOR_LINKS: Record<'marco' | 'gordon' | 'reto', string[]> = {
+    marco: ['https://www.hrv4training.com', ADVISOR_PROFILES.marco],
+    gordon: [ADVISOR_PROFILES.gordon],
+    reto: [ADVISOR_PROFILES.reto],
 }
 
 export const COPY = {
