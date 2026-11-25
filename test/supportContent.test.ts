@@ -44,6 +44,13 @@ const articles = readArticles()
 const publishedSlugs = new Set(
   articles.filter(({ article }) => article.draft !== true).map(({ article }) => article.slug),
 )
+// Entries with an `href` have no page of their own, so in-body links must point
+// at their href instead. `related` may still list them: the card links to href.
+const pageSlugs = new Set(
+  articles
+    .filter(({ article }) => article.draft !== true && !article.href)
+    .map(({ article }) => article.slug),
+)
 
 /** Markup the prose sanitizer strips in the browser but its server-side regex
  *  fallback handles unreliably — it only strips *paired* tags, so a self-closing
@@ -87,7 +94,14 @@ describe('support content', () => {
     }
 
     expect(Array.isArray(article.body)).toBe(true)
-    expect(article.body.length).toBeGreaterThan(0)
+    if (article.href) {
+      // Answered on its own page: the entry is only a pointer to it.
+      expect(article.href).toMatch(/^\/en\/[a-z0-9/-]+\/$/)
+      expect(article.body).toHaveLength(0)
+      expect(article.faqs ?? []).toHaveLength(0)
+    } else {
+      expect(article.body.length).toBeGreaterThan(0)
+    }
   })
 
   it.each(articles)('$file carries no unsafe markup', ({ article }) => {
@@ -139,7 +153,7 @@ describe('support content', () => {
       .join(' ')
 
     for (const match of html.matchAll(/href="\/en\/support\/([a-z0-9-]+)\/?"/g)) {
-      expect(publishedSlugs.has(match[1])).toBe(true)
+      expect(pageSlugs.has(match[1])).toBe(true)
     }
   })
 

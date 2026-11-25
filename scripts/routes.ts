@@ -129,8 +129,8 @@ export async function discoverBlogSlugs(): Promise<string[]> {
  * Support article slugs, English-only like the blog.
  *
  * Stricter than discoverBlogSlugs() because support content is authored by
- * non-engineers: files are parsed so `draft: true` articles stay out of the
- * sitemap and prerender, and `_`-prefixed files are ignored so scratch or
+ * non-engineers: files are parsed so `draft: true` articles and `href`
+ * entries (answered on another page) stay out of the sitemap and prerender, and `_`-prefixed files are ignored so scratch or
  * taxonomy files can sit in the directory without becoming advertised URLs.
  * Anything listed here but not routable in src/App.tsx prerenders as NotFound
  * and gets published as a soft 404, so the filters have to match the ones in
@@ -157,13 +157,14 @@ export async function discoverSupportSlugs(): Promise<string[]> {
   for (const file of entries) {
     if (!file.endsWith('.json') || file.startsWith('_')) continue
     const raw = await readFile(join(supportDir, file), 'utf8')
-    let parsed: { draft?: boolean }
+    let parsed: { draft?: boolean; href?: string }
     try {
-      parsed = JSON.parse(raw) as { draft?: boolean }
+      parsed = JSON.parse(raw) as { draft?: boolean; href?: string }
     } catch (err: unknown) {
       throw new Error(`Invalid JSON in src/content/support/${file}: ${String(err)}`)
     }
-    if (parsed.draft === true) continue
+    // `href` entries are answered on another page and redirect there.
+    if (parsed.draft === true || parsed.href) continue
     slugs.push(file.replace(/\.json$/, ''))
   }
   return slugs.sort()

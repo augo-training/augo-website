@@ -32,7 +32,7 @@ describe('mcp content', () => {
 
     it('has a non-empty title and body on every step', () => {
         for (const locale of Object.values(locales)) {
-            for (const platform of ['claude', 'chatgpt'] as const) {
+            for (const platform of ['claude', 'chatgpt', 'gemini'] as const) {
                 const steps = locale.mcp[platform].steps
                 expect(steps.length).toBeGreaterThan(0)
                 for (const step of steps) {

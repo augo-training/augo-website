@@ -5,6 +5,13 @@
   "installCommand": "npm install",
   "outputDirectory": "dist",
   "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/en/support/connect-augo-with-claude-and-chatgpt/",
+      "destination": "/en/mcp/",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/session-zero(.*)",

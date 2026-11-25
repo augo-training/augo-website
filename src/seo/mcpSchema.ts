@@ -9,9 +9,11 @@ export interface McpSchemaStep {
     note?: string
 }
 
+export type McpPlatform = 'claude' | 'chatgpt' | 'gemini'
+
 export interface McpHowToInput {
     /** Which assistant this flow is for. Also the on-page anchor. */
-    platform: 'claude' | 'chatgpt'
+    platform: McpPlatform
     /** Display name of the assistant. */
     toolName: string
     lang: string

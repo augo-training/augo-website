@@ -38,6 +38,12 @@ export default function SupportArticle() {
     return <NotFound />
   }
 
+  // Answered elsewhere. vercel.json sends crawlers there with a 301; this
+  // covers in-app navigation and the dev server.
+  if (article.href) {
+    return <Navigate to={article.href} replace />
+  }
+
   const category = categoryById(article.category)
   const related = getRelated(article.slug)
   const updated = article.dateUpdated ?? article.datePublished

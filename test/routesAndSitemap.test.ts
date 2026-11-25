@@ -93,7 +93,7 @@ describe('routes and sitemap', () => {
     }
   })
 
-  it('excludes draft and underscore-prefixed support files', async () => {
+  it('excludes draft, href and underscore-prefixed support files', async () => {
     const { readdirSync, readFileSync } = await import('node:fs')
     const slugs = await discoverSupportSlugs()
     const dir = new URL('../src/content/support/', import.meta.url)
@@ -114,8 +114,9 @@ describe('routes and sitemap', () => {
       }
       const parsed = JSON.parse(readFileSync(new URL(file, dir), 'utf8')) as {
         draft?: boolean
+        href?: string
       }
-      if (parsed.draft === true) expect(slugs).not.toContain(slug)
+      if (parsed.draft === true || parsed.href) expect(slugs).not.toContain(slug)
       else expect(slugs).toContain(slug)
     }
   })

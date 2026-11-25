@@ -14,7 +14,7 @@ import McpCta from '../components/mcp/McpCta'
 import { SECTION_IDS } from '../components/mcp/constants'
 
 /**
- * Setup guide for connecting augo's MCP server to Claude or ChatGPT.
+ * Setup guide for connecting augo's MCP server to Claude, ChatGPT or Gemini.
  *
  * Deliberately no GSAP: prerender drives a real browser, so entrance animations
  * bake `opacity: 0` into the static HTML. A docs page has nothing to fade in.
@@ -39,6 +39,7 @@ export default function Mcp() {
             <SEOHead page="mcp" path="/mcp" ogImagePath="/mcp-og.jpg" />
             <McpHowToJsonLd platform="claude" />
             <McpHowToJsonLd platform="chatgpt" />
+            <McpHowToJsonLd platform="gemini" />
             <FAQJsonLd i18nKey="mcp.faq.items" />
             <McpBreadcrumbJsonLd />
             <Navbar />
@@ -63,6 +64,14 @@ export default function Mcp() {
                     bg="bg-dark-800"
                     variant="chatgpt"
                     dialogAtIndex={3}
+                    hasCallout
+                />
+                <McpSetupSection
+                    id={SECTION_IDS.gemini}
+                    i18nKey="mcp.gemini"
+                    bg="bg-dark"
+                    variant="gemini"
+                    dialogAtIndex={2}
                     hasCallout
                 />
                 <McpPrompts />
