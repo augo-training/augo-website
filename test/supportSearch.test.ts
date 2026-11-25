@@ -117,6 +117,10 @@ const EVAL: { query: string; expect: string; why: string }[] = [
   { query: 'how do i connect augo to claude', expect: 'connect-augo-with-claude-and-chatgpt', why: 'setup owns "connect"; the use-case article must not win on claude alone' },
   { query: 'add custom connector', expect: 'connect-augo-with-claude-and-chatgpt', why: 'Claude menu label, only in the setup steps' },
   { query: 'developer mode', expect: 'connect-augo-with-claude-and-chatgpt', why: 'ChatGPT setting, only in the setup steps' },
+  // connect-augo-with-gemini
+  { query: 'how do i connect augo to gemini', expect: 'connect-augo-with-gemini', why: 'declared question form; must beat the Claude/ChatGPT setup article' },
+  { query: 'gemini', expect: 'connect-augo-with-gemini', why: 'gemini is only a setup term here' },
+  { query: 'gemini developer mode', expect: 'connect-augo-with-gemini', why: 'Gemini setting; bare "developer mode" stays with ChatGPT' },
   // get-found-by-athletes
   { query: 'how do i get listed', expect: 'get-found-by-athletes', why: 'listed -> directory group' },
   { query: 'how do i get more athletes', expect: 'get-found-by-athletes', why: 'must beat add-an-athlete' },
