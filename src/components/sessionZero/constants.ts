@@ -46,7 +46,7 @@ export const SESSION_ZERO_ROBOTS_AI = 'noai, noimageai'
 export const EVENT = {
     date: 'Friday 4 December 2026',
     city: 'Zurich',
-    location: 'Seestrasse 353, 8038 Zürich, Switzerland',
+    location: 'Hardturmstrasse 161, 8005 Zürich, Switzerland',
     hours: '09:00 to 17:30',
     seats: '10, by invitation',
 } as const
