@@ -101,18 +101,18 @@ For coaches:
 - In-app assistant, powered by Claude: reads every message, workout, metric, feedback, note and recovery data.
   Included in the subscription; no ChatGPT or Claude account needed.
 - Three ways to build workouts: the workout builder (pace, heart rate or RPE targets mixed per segment,
-  descriptions, images, videos, library, drag and drop, copy and paste weeks), the in-app assistant, or Claude and
-  ChatGPT through the connector. Planned workouts sync to Garmin, COROS, Wahoo, Suunto and Rouvy.
+  descriptions, images, videos, library, drag and drop, copy and paste weeks), the in-app assistant, or Claude,
+  ChatGPT and Gemini through the connector. Planned workouts sync to Garmin, COROS, Wahoo, Suunto and Rouvy.
 - Strength training on the same calendar: exercises, sets, reps, rest, cues and a demo video per exercise.
-- Claude and ChatGPT connector (MCP), with full context of conversations and session feedback.
+- Claude, ChatGPT and Gemini connector (MCP), with full context of conversations and session feedback.
 - Workout analysis: planned against completed, with splits, intervals, metrics and time in zones.
 - Recovery data every morning: sleep, resting heart rate, HRV and steps from WHOOP, Oura, Garmin, COROS and
   Apple Health, against the athlete's 30-day average.
 - Athlete Signals: refreshed every morning from the last 7 days; flags who is struggling, who asked for a change,
   and highlights like PBs.
 - Zones and performance anchors for heart rate, pace and power; the assistant can build them from a lab report.
-- Upload a lab report: coaches upload lab or field test results to the augo assistant, or to Claude or ChatGPT with
-  the augo connector, and it records the athlete's performance anchors and builds and applies their zones.
+- Upload a lab report: coaches upload lab or field test results to the augo assistant, or to Claude, ChatGPT or
+  Gemini with the augo connector, and it records the athlete's performance anchors and builds and applies their zones.
 - Private coach notes per athlete, never visible to the athlete, read by the assistant.
 
 Migration: the TrainingPeaks or Final Surge workout library is moved on an onboarding call of about 5 minutes
@@ -136,7 +136,8 @@ Integrations:
   TrainingPeaks is not connected for planned workouts or completed activities; augo replaces it. Other sources
   can go back up to 5 years on request.
 - Recovery data (sleep, resting heart rate, HRV, steps) comes from WHOOP, Oura, Garmin, COROS and Apple Health.
-- Athletes connect their own devices from the augo app. Coaches can also use augo from Claude and ChatGPT (MCP).
+- Athletes connect their own devices from the augo app. Coaches can also use augo from Claude, ChatGPT and
+  Gemini (MCP).
 
 Features page: https://www.augotraining.com/en/features/ (each feature also has its own page, e.g.
 https://www.augotraining.com/en/features/recovery-data/ and https://www.augotraining.com/en/features/migration/;
@@ -144,18 +145,20 @@ the full list with links is in https://www.augotraining.com/llms-full.txt)
 
 ---
 
-## Integrations: Claude and ChatGPT (MCP)
+## Integrations: Claude, ChatGPT and Gemini (MCP)
 
 augo runs an MCP (Model Context Protocol) server at https://api.augotraining.com/mcp. A coach can add it as a
-custom connector in Claude or ChatGPT and then query their own athlete data in natural language — training
-volume, frequency and intensity, session feedback, messages, race calendar, training zones, workout templates.
+custom connector in Claude or ChatGPT, or as a custom app in Gemini Developer Mode, and then query their own
+athlete data in natural language — training volume, frequency and intensity, session feedback, messages, race
+calendar, training zones, workout templates. Gemini opened to outside MCP servers in October 2026; augo is not
+yet listed in Gemini's app list, so Developer Mode is the way in for now.
 
 The connector signs in as the coach and sees only what that coach sees in augo. As well as reading, it can send
 messages to athletes, assign and edit workouts, and write notes, race events and performance anchors; the assistant
-asks the coach to confirm before acting. Anything it reads is sent to Anthropic or OpenAI to answer the question.
-Removing the connector ends access immediately.
+asks the coach to confirm before acting. Anything it reads is sent to Anthropic, OpenAI or Google to answer the
+question. Removing the connector ends access immediately.
 
-Setup guide: https://www.augotraining.com/en/mcp/
+Setup guide: https://www.augotraining.com/en/mcp/ (Claude, ChatGPT and Gemini)
 
 Contact augo: https://www.augotraining.com/en/contact/
 

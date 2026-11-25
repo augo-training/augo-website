@@ -232,19 +232,19 @@ const pageMeta: Record<string, Record<SupportedLanguage, PageMeta>> = {
   },
   mcp: {
     en: {
-      title: 'Connect augo to Claude & ChatGPT | augo MCP Setup',
+      title: 'Connect augo to Claude, ChatGPT & Gemini | augo MCP Setup',
       description:
-        "Step-by-step setup: add augo's MCP server to Claude or ChatGPT and ask about your athletes' volume, intensity and feedback in plain language.",
+        "Step-by-step setup: add augo's MCP server to Claude, ChatGPT or Gemini and ask about your athletes' volume, intensity and feedback in plain language.",
     },
     de: {
-      title: 'augo mit Claude & ChatGPT verbinden | augo MCP-Setup',
+      title: 'augo mit Claude, ChatGPT & Gemini verbinden | augo MCP-Setup',
       description:
-        'Schritt für Schritt: augos MCP-Server in Claude oder ChatGPT einrichten und Fragen zu Umfang, Intensität und Feedback deiner Athleten stellen.',
+        'Schritt für Schritt: augos MCP-Server in Claude, ChatGPT oder Gemini einrichten und Fragen zu Umfang, Intensität und Feedback deiner Athleten stellen.',
     },
     pt: {
-      title: 'Conecte a augo ao Claude e ao ChatGPT | Configuração MCP',
+      title: 'Conecte a augo ao Claude, ChatGPT e Gemini | Configuração MCP',
       description:
-        'Guia passo a passo: conecte o servidor MCP da augo ao Claude ou ao ChatGPT e pergunte sobre volume, intensidade e feedback dos seus atletas.',
+        'Guia passo a passo: conecte o servidor MCP da augo ao Claude, ao ChatGPT ou ao Gemini e pergunte sobre volume, intensidade e feedback dos seus atletas.',
     },
   },
   features: {

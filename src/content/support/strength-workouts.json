@@ -54,7 +54,7 @@
       "steps": [
         {
           "title": "Open the augo assistant",
-          "html": "<p>Open the assistant in the augo app. If you have <a href=\"/en/support/connect-augo-with-claude-and-chatgpt/\">connected augo with Claude or ChatGPT</a>, you can ask there too.</p>"
+          "html": "<p>Open the assistant in the augo app. If you have <a href=\"/en/mcp/\">connected augo with Claude, ChatGPT or Gemini</a>, you can ask there too.</p>"
         },
         {
           "title": "Describe the session",

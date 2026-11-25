@@ -305,7 +305,7 @@
       "bookDemo": "Demo buchen",
       "switching": "Wechsel zu augo",
       "coachCourse": "Kostenloser Coaching-Kurs",
-      "mcp": "Claude oder ChatGPT verbinden",
+      "mcp": "Claude, ChatGPT oder Gemini verbinden",
       "findAMatch": "Coach finden",
       "blog": "Blog",
       "racingTeam": "Racing Team",
@@ -773,8 +773,8 @@
   "mcp": {
     "hero": {
       "eyebrow": "Einrichtung",
-      "title": "augo mit Claude und ChatGPT verbinden",
-      "lead": "augo betreibt einen MCP-Server. Richte ihn als Connector ein, und du kannst Claude oder ChatGPT alles über deine Athleten fragen — ihre Einheiten, wie sie sich fühlen und worüber ihr gesprochen habt. Du kannst sie außerdem Einheiten erstellen, Berichte aufbereiten und Sessions auswerten lassen. Die Möglichkeiten sind offen.",
+      "title": "augo mit Claude, ChatGPT und Gemini verbinden",
+      "lead": "augo betreibt einen MCP-Server. Richte ihn als Connector ein, und du kannst Claude, ChatGPT oder Gemini alles über deine Athleten fragen — ihre Einheiten, wie sie sich fühlen und worüber ihr gesprochen habt. Du kannst sie außerdem Einheiten erstellen, Berichte aufbereiten und Sessions auswerten lassen. Die Möglichkeiten sind offen.",
       "urlLabel": "augo MCP-Server-URL"
     },
     "atAGlance": {
@@ -786,7 +786,7 @@
         },
         {
           "label": "Was du brauchst",
-          "statement": "Claude oder ChatGPT und deine augo-E-Mail-Adresse."
+          "statement": "Claude, ChatGPT oder Gemini und deine augo-E-Mail-Adresse."
         },
         {
           "label": "Einrichtungsdauer",
@@ -812,6 +812,10 @@
         {
           "id": "chatgpt",
           "label": "Mit ChatGPT verbinden"
+        },
+        {
+          "id": "gemini",
+          "label": "Mit Gemini verbinden"
         },
         {
           "id": "prompts",
@@ -881,6 +885,44 @@
         }
       ],
       "dialogNote": "Setze das Häkchen bei „I understand and want to continue“ unter dem Risikohinweis und klicke dann auf Create."
+    },
+    "gemini": {
+      "eyebrow": "Gemini",
+      "title": "augo mit Gemini verbinden",
+      "lead": "Sechs Schritte, über den Gemini Developer Mode. Die Bezeichnungen der Menüpunkte stehen hier auf Englisch, so wie Gemini sie üblicherweise anzeigt.",
+      "calloutLabel": "Privates Google-Konto, Desktop-Browser",
+      "callout": "Den Developer Mode gibt es nur in Gemini im Desktop-Browser und nur für private Google-Konten: Stand November 2026 bekommen ihn Arbeits- oder Schulkonten (Google Workspace) nicht. augo ist noch nicht in der App-Liste von Gemini. Sobald es dort steht, kannst du augo direkt darüber hinzufügen.",
+      "steps": [
+        {
+          "title": "Gemini Developer Mode öffnen",
+          "body": "Öffne in einem Desktop-Browser gemini.google.com/devmode, oder klicke in Gemini auf Settings und dann auf Gemini Apps Developer Mode.",
+          "note": "Landest du stattdessen auf der normalen Startseite von Gemini, ist der Developer Mode für das angemeldete Konto nicht verfügbar. Wechsle zu einem privaten Google-Konto."
+        },
+        {
+          "title": "Neue App anlegen",
+          "body": "Das Fenster Choose an app öffnet sich. Klicke auf Create new."
+        },
+        {
+          "title": "augo MCP-Server-URL einfügen",
+          "body": "Füge die augo MCP-Server-URL in das Feld MCP Server URL ein und klicke auf Next."
+        },
+        {
+          "title": "Hinweis bestätigen und verbinden",
+          "body": "Setze das Häkchen bei „I understand and accept the security and privacy risks of connecting this custom app“ und klicke auf Connect.",
+          "note": "Gemini zeigt diesen Hinweis bei jeder App, die Google noch nicht geprüft hat, nicht speziell bei augo. Er steht dort, weil eine App deine Daten lesen und Aktionen ausführen kann."
+        },
+        {
+          "title": "Mit deiner augo-E-Mail anmelden",
+          "body": "Ein Anmeldefenster öffnet sich. Gib die E-Mail-Adresse ein, die du für augo nutzt, und augo schickt dir einen Link. Öffne dein Postfach und klicke auf den Link.",
+          "note": "Ein Passwort brauchst du nicht. Kommt der Link nicht innerhalb einer Minute an, sieh im Spam-Ordner nach."
+        },
+        {
+          "title": "App speichern",
+          "body": "Behalte unter Save your custom app den Namen Augo und klicke auf Connect. Dann frag im Gemini-Chat, zum Beispiel „@Augo welcher meiner Athleten braucht heute Aufmerksamkeit?“."
+        }
+      ],
+      "dialogAdvancedHint": "Lass sie, wie sie sind. augo braucht weder eine Client-ID noch ein Secret.",
+      "dialogNote": "Füge die URL ein, lass Additional settings unberührt und klicke auf Next."
     },
     "prompts": {
       "title": "Was du fragen kannst, sobald du verbunden bist",
@@ -958,7 +1000,7 @@
         },
         {
           "label": "Es liest nicht nur",
-          "statement": "Der Connector kann außerdem Nachrichten an deine Athleten senden, Einheiten zuweisen und bearbeiten sowie Notizen, Wettkämpfe und Leistungsanker schreiben. Claude und ChatGPT fragen vor solchen Aktionen nach deiner Bestätigung."
+          "statement": "Der Connector kann außerdem Nachrichten an deine Athleten senden, Einheiten zuweisen und bearbeiten sowie Notizen, Wettkämpfe und Leistungsanker schreiben. Claude, ChatGPT und Gemini fragen vor solchen Aktionen nach deiner Bestätigung."
         }
       ]
     },
@@ -971,7 +1013,7 @@
         },
         {
           "question": "Kann ich das auf dem Handy einrichten?",
-          "answer": "Für ChatGPT nicht — der Connector muss in einem Desktop-Browser hinzugefügt werden. Danach kannst du ihn in der App nutzen. Claude lässt sich im Browser oder in der Desktop-App einrichten."
+          "answer": "Für ChatGPT und Gemini nicht — beide müssen in einem Desktop-Browser eingerichtet werden. Den ChatGPT-Connector kannst du danach auch in der App nutzen. Claude lässt sich im Browser oder in der Desktop-App einrichten."
         },
         {
           "question": "Brauche ich einen kostenpflichtigen Claude- oder ChatGPT-Tarif?",
@@ -982,24 +1024,32 @@
           "answer": "Starte die Verbindung erneut und achte diesmal auf die E-Mail von augo — das Fenster wartet darauf, dass du den Link in deinem Postfach anklickst. Kommt innerhalb einer Minute keine E-Mail an, sieh im Spam-Ordner nach und prüfe, ob du die Adresse eingegeben hast, die du für augo nutzt."
         },
         {
-          "question": "Claude oder ChatGPT findet keine augo-Funktionen.",
+          "question": "Claude, ChatGPT oder Gemini findet keine augo-Funktionen.",
           "answer": "Der Connector wurde hinzugefügt, aber nicht autorisiert. Öffne ihn in den Connector-Einstellungen und prüfe, ob er als verbunden angezeigt wird; falls nicht, trenne ihn und melde dich erneut an."
         },
         {
-          "question": "Können meine Athleten augo mit Claude oder ChatGPT verbinden?",
+          "question": "Können meine Athleten augo mit Claude, ChatGPT oder Gemini verbinden?",
           "answer": "Nein. Der Connector ist für Coach-Konten gedacht."
         },
         {
           "question": "Verlassen die Daten meiner Athleten augo?",
-          "answer": "Alles, was der Assistent liest, wird zur Beantwortung deiner Frage an Anthropic oder OpenAI übertragen — zu deren Bedingungen und deren Speicherfristen. Wenn das für die Daten deiner Athleten nicht vertretbar ist, richte den Connector nicht ein."
+          "answer": "Alles, was der Assistent liest, wird zur Beantwortung deiner Frage an Anthropic, OpenAI oder Google übertragen — zu deren Bedingungen und deren Speicherfristen. Wenn das für die Daten deiner Athleten nicht vertretbar ist, richte den Connector nicht ein."
         },
         {
           "question": "Wie trenne ich augo wieder?",
-          "answer": "Entferne den augo-Connector in den Einstellungen von Claude oder ChatGPT. Der Zugriff endet sofort. Dein augo-Konto, deine Athleten und deine Daten bleiben unverändert."
+          "answer": "Entferne den augo-Connector in den Einstellungen von Claude oder ChatGPT oder auf der Seite Connected Apps in Gemini. Der Zugriff endet sofort. Dein augo-Konto, deine Athleten und deine Daten bleiben unverändert."
         },
         {
           "question": "Ich habe bereits einen Connector namens augo.",
           "answer": "Namen müssen eindeutig sein. Entferne also den alten, bevor du einen neuen anlegst, oder gib dem neuen einen anderen Namen. Der Name ist nur eine Bezeichnung — entscheidend ist die Server-URL."
+        },
+        {
+          "question": "gemini.google.com/devmode führt mich nur auf die normale Gemini-Seite.",
+          "answer": "Für dieses Google-Konto ist der Developer Mode nicht verfügbar. Stand November 2026 bekommen Google-Workspace-Konten (eine Arbeits- oder Schuladresse) ihn nicht, auch wenn der Workspace-Admin Gemini aktiviert hat. Melde dich stattdessen mit einem privaten Google-Konto an. Deine augo-Anmeldung bleibt dieselbe."
+        },
+        {
+          "question": "Warum muss ich in Gemini den Developer Mode nutzen?",
+          "answer": "Google hat Gemini als Vorschau für externe Apps geöffnet, und neue Apps erscheinen erst in der Liste, nachdem Google sie geprüft hat. augo hat sich beworben. Bis augo dort steht, fügst du es selbst über den Developer Mode hinzu."
         }
       ],
       "contactLead": "Kommst du nicht weiter?",

@@ -1,12 +1,18 @@
 import { useTranslation } from 'react-i18next'
 import FeatureVisual from './FeatureVisual'
 import { trackCtaClicked } from '../../utils/analytics'
-import { FEATURE_CALLS, FEATURE_VISUALS, SUPPORT_SLUGS, type FeatureItem } from './constants'
+import { FEATURE_CALLS, FEATURE_GUIDES, FEATURE_VISUALS, SUPPORT_SLUGS, type FeatureItem } from './constants'
 
 /** One feature in full, on its own page: the detail on the left, the render on the right. */
 export default function FeatureDetail({ item }: { item: FeatureItem }) {
-    const { t } = useTranslation()
+    const { t, i18n } = useTranslation()
+    const guide = FEATURE_GUIDES[item.id]
     const slug = SUPPORT_SLUGS[item.id]
+    const learnMoreHref = guide
+        ? `/${i18n.language || 'en'}${guide}`
+        : slug
+          ? `/en/support/${slug}/`
+          : undefined
     const call = FEATURE_CALLS[item.id]
 
     return (
@@ -62,9 +68,9 @@ export default function FeatureDetail({ item }: { item: FeatureItem }) {
                             {t('features.guide.bookCall')}
                         </a>
                     )}
-                    {slug && (
+                    {learnMoreHref && (
                         <a
-                            href={`/en/support/${slug}/`}
+                            href={learnMoreHref}
                             className="font-satoshi text-[15px] text-white/70 hover:text-white underline-offset-4 hover:underline"
                         >
                             {t('features.guide.learnMore')} →

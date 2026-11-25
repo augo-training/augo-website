@@ -74,7 +74,6 @@ export const SUPPORT_SLUGS: Record<string, string> = {
     assistant: 'what-can-i-ask-the-assistant',
     workouts: 'create-workouts',
     strength: 'strength-workouts',
-    connector: 'connect-augo-with-claude-and-chatgpt',
     recovery: 'connect-devices-and-apps',
     signals: 'athlete-signals',
     files: 'what-can-i-do-with-the-connector',
@@ -82,6 +81,14 @@ export const SUPPORT_SLUGS: Record<string, string> = {
     switching: 'import-training-history',
     'a-workouts': 'workouts-on-your-device',
     'a-recovery': 'connect-devices-and-apps',
+}
+
+/**
+ * Features whose guide is a localized page of its own rather than a support
+ * article. Paths without the language prefix; takes precedence over SUPPORT_SLUGS.
+ */
+export const FEATURE_GUIDES: Record<string, string> = {
+    connector: '/mcp/',
 }
 
 /** Features with a booking button of their own, keyed by feature id. */

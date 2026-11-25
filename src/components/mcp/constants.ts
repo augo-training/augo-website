@@ -11,6 +11,7 @@ export const SECTION_IDS = {
     whatYouCanDo: 'what-you-can-do',
     claude: 'claude',
     chatgpt: 'chatgpt',
+    gemini: 'gemini',
     prompts: 'prompts',
     faqs: 'faqs',
 } as const

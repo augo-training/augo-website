@@ -26,7 +26,7 @@ export default function SupportArticleCard({ article, section }: Props) {
 
   return (
     <div className="rounded-2xl border border-white/[0.08] bg-[#151515] hover:bg-[#1c1c1c] transition-colors p-5 sm:p-6">
-      <Link to={`/en/support/${article.slug}`} className="group block">
+      <Link to={article.href ?? `/en/support/${article.slug}`} className="group block">
         <div className="flex flex-wrap items-center gap-2 mb-3">
           {category && (
             <span className="font-mono text-[10px] tracking-[2px] uppercase text-text-muted">
@@ -44,7 +44,7 @@ export default function SupportArticleCard({ article, section }: Props) {
         </h3>
         <p className="mt-2 text-text-muted text-[15px] leading-[160%]">{article.summary}</p>
       </Link>
-      {section && (
+      {section && !article.href && (
         <Link
           to={`/en/support/${article.slug}#${section.anchor}`}
           className="mt-3 inline-flex items-center gap-1.5 font-mono text-[11px] tracking-[1px] uppercase text-white/55 hover:text-white transition-colors"

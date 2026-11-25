@@ -3,6 +3,7 @@ import McpSteps, { type McpStep } from './McpSteps'
 import McpCallout from './McpCallout'
 import McpDialogMock from './McpDialogMock'
 import { MCP_URL } from './constants'
+import type { McpPlatform } from '../../seo/mcpSchema'
 
 interface McpSetupSectionProps {
     id: string
@@ -10,15 +11,15 @@ interface McpSetupSectionProps {
     i18nKey: string
     bg: 'bg-dark' | 'bg-dark-800'
     /** Which provider's dialog to draw, and at which step. */
-    variant: 'claude' | 'chatgpt'
+    variant: McpPlatform
     dialogAtIndex: number
     /** Reads `${i18nKey}.callout` and `.calloutLabel` when true. */
     hasCallout?: boolean
 }
 
 /**
- * One connection flow. Rendered twice — Claude and ChatGPT — rather than split
- * into two near-identical components that would drift apart on the first edit.
+ * One connection flow. Rendered three times — Claude, ChatGPT and Gemini — rather
+ * than split into near-identical components that would drift apart on the first edit.
  */
 export default function McpSetupSection({
     id,
@@ -45,6 +46,16 @@ export default function McpSetupSection({
                     { label: 'Advanced settings', hint: t('mcp.claude.dialogAdvancedHint') },
                 ]}
                 note={t('mcp.claude.dialogNote')}
+            />
+        ) : variant === 'gemini' ? (
+            <McpDialogMock
+                title="Connect to an MCP server"
+                trackingLocation="gemini_dialog"
+                rows={[
+                    { label: 'MCP Server URL', copyValue: MCP_URL },
+                    { label: 'Additional settings', hint: t('mcp.gemini.dialogAdvancedHint') },
+                ]}
+                note={t('mcp.gemini.dialogNote')}
             />
         ) : (
             <McpDialogMock

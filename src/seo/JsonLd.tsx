@@ -8,7 +8,7 @@ import { FOUNDERS } from '../data/team'
 import { getCanonicalUrl } from './seoConfig'
 import type { SupportedLanguage } from '../i18n'
 import { getPricingTier } from '../config/pricingConfig'
-import { buildMcpHowTo, type McpSchemaStep } from './mcpSchema'
+import { buildMcpHowTo, type McpPlatform, type McpSchemaStep } from './mcpSchema'
 import { MCP_URL } from '../components/mcp/constants'
 import {
   ADVISOR_LINKS,
@@ -559,13 +559,19 @@ export function CoachProfileBreadcrumbJsonLd({ coach }: { coach: Coach }) {
  * One HowTo per connection flow. Google retired HowTo rich results in 2023, so
  * this is for answer engines and general machine readability, not a SERP badge.
  */
-export function McpHowToJsonLd({ platform }: { platform: 'claude' | 'chatgpt' }) {
+const MCP_TOOL_NAMES: Record<McpPlatform, string> = {
+  claude: 'Claude',
+  chatgpt: 'ChatGPT',
+  gemini: 'Gemini',
+}
+
+export function McpHowToJsonLd({ platform }: { platform: McpPlatform }) {
   const { t, i18n } = useTranslation()
   const lang = i18n.language || 'en'
   const steps = t(`mcp.${platform}.steps`, { returnObjects: true }) as McpSchemaStep[]
   const schema = buildMcpHowTo({
     platform,
-    toolName: platform === 'claude' ? 'Claude' : 'ChatGPT',
+    toolName: MCP_TOOL_NAMES[platform],
     lang,
     name: t(`mcp.${platform}.title`),
     description: t(`mcp.${platform}.lead`),

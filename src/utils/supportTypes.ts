@@ -134,4 +134,11 @@ export interface SupportArticleData {
   related?: string[]
   /** Authored but hidden: excluded from the hub, search, sitemap and prerender. */
   draft?: boolean
+  /**
+   * The answer lives on a page outside the help centre, e.g. '/en/mcp/'. The entry
+   * still shows in the hub and in search, but its card links there, the article
+   * URL redirects there, and it is left out of the sitemap and prerender. `body`
+   * stays empty. Give the old URL a permanent redirect in vercel.json too.
+   */
+  href?: string
 }

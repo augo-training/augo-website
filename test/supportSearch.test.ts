@@ -113,10 +113,16 @@ const EVAL: { query: string; expect: string; why: string }[] = [
   // what-can-i-do-with-the-connector
   { query: 'what can claude do with augo', expect: 'what-can-i-do-with-the-connector', why: 'claude appears in several articles; connector owns the question form' },
   { query: 'does augo work with chatgpt', expect: 'what-can-i-do-with-the-connector', why: 'must beat connect-devices despite "work with"' },
-  // connect-augo-with-claude-and-chatgpt
+  // connect-augo-with-claude-and-chatgpt (a hub entry that links to /mcp; search runs on its keywords and question forms)
   { query: 'how do i connect augo to claude', expect: 'connect-augo-with-claude-and-chatgpt', why: 'setup owns "connect"; the use-case article must not win on claude alone' },
-  { query: 'add custom connector', expect: 'connect-augo-with-claude-and-chatgpt', why: 'Claude menu label, only in the setup steps' },
-  { query: 'developer mode', expect: 'connect-augo-with-claude-and-chatgpt', why: 'ChatGPT setting, only in the setup steps' },
+  { query: 'add custom connector', expect: 'connect-augo-with-claude-and-chatgpt', why: 'Claude menu label' },
+  { query: 'developer mode', expect: 'connect-augo-with-claude-and-chatgpt', why: 'ChatGPT setting' },
+  { query: 'how do i connect augo to gemini', expect: 'connect-augo-with-claude-and-chatgpt', why: 'one setup entry covers all three assistants' },
+  { query: 'gemini', expect: 'connect-augo-with-claude-and-chatgpt', why: 'gemini is only a setup term here' },
+  { query: 'gemini developer mode', expect: 'connect-augo-with-claude-and-chatgpt', why: 'Gemini setting' },
+  { query: 'connect gemini', expect: 'connect-augo-with-claude-and-chatgpt', why: 'setup must beat the use-case article, which also names Gemini' },
+  { query: 'connect claude', expect: 'connect-augo-with-claude-and-chatgpt', why: 'setup must beat the use-case article, which also names Claude' },
+  { query: 'connect chatgpt', expect: 'connect-augo-with-claude-and-chatgpt', why: 'setup must beat the use-case article, which also names ChatGPT' },
   // get-found-by-athletes
   { query: 'how do i get listed', expect: 'get-found-by-athletes', why: 'listed -> directory group' },
   { query: 'how do i get more athletes', expect: 'get-found-by-athletes', why: 'must beat add-an-athlete' },
