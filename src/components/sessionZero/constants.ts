@@ -251,6 +251,14 @@ export const COPY = {
                     'Endurance coach at Destination Unknown, mainly for runners, and author of Heart Rate Variability: Science and Strategies for Peak Performance.',
                 ],
             },
+            {
+                name: 'Joshua Francis',
+                facts: [
+                    'Road cycling coach and accredited bike fitter, running Francis Bike Fit in Zurich.',
+                    'A former bike racer. Owned a bike fit studio in South Africa, then spent two years in Sweden fitting cyclists from beginners to Olympic champions.',
+                    'Brings racing, coaching, strength and conditioning and rehab together to find each rider’s most comfortable and fastest position.',
+                ],
+            },
         ],
     },
 
